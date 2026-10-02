@@ -3,14 +3,14 @@
 
 # Fournisseurs de modèles
 
-11 laboratoires suivis. Généré le 2026-09-24 depuis `catalog/`.
+11 laboratoires suivis. Généré le 2026-10-02 depuis `catalog/`.
 
 ## Anthropic
 
 - **Pays :** US
 - **Tarifs :** [https://claude.com/pricing](https://claude.com/pricing)
 - **Documentation :** [https://docs.claude.com/en/docs/about-claude/models](https://docs.claude.com/en/docs/about-claude/models)
-- **Modèles au catalogue :** 33 · **tarifés :** 33
+- **Modèles au catalogue :** 27 · **tarifés :** 22
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
@@ -21,22 +21,11 @@
 | claude-haiku-4-5-20251001_32K | $1 | $0.1 | $5 | 200k | 2026-09-15 |
 | claude-haiku-4-5-20251001_8K | $1 | $0.1 | $5 | 200k | 2026-09-15 |
 | Claude Sonnet 5 | $2 | $0.2 | $10 | 200k | 2026-09-15 |
+| Claude Sonnet 5.5 | $2 | $0.2 | $10 | 200k | 2026-09-15 |
 | Claude Sonnet 4.5 | $3 | $0.3 | $15 | 200k | 2026-09-15 |
-| Claude Sonnet 4.5 (no thinking) | $3 | $0.3 | $15 | 200k | 2026-09-15 |
-| Claude Sonnet 4.5 (16k thinking) | $3 | $0.3 | $15 | 200k | 2026-09-15 |
-| Claude Sonnet 4.5 (1k thinking) | $3 | $0.3 | $15 | 200k | 2026-09-15 |
-| Claude Sonnet 4.5 (32k thinking) | $3 | $0.3 | $15 | 200k | 2026-09-15 |
-| Claude Sonnet 4.5 (59k thinking) | $3 | $0.3 | $15 | 200k | 2026-09-15 |
-| Claude Sonnet 4.5 (8k thinking) | $3 | $0.3 | $15 | 200k | 2026-09-15 |
 | Claude Sonnet 4.6 | $3 | $0.3 | $15 | 200k | 2026-09-15 |
 | Claude Sonnet 4.6 (32k thinking) | $3 | $0.3 | $15 | 200k | 2026-09-15 |
 | Claude Opus 5.5 | $4 | $0.2 | $20 | 200k | 2026-09-15 |
-| Claude Opus 4.5 | $5 | $0.5 | $25 | 200k | 2026-09-15 |
-| Claude Opus 4.5 (no thinking) | $5 | $0.5 | $25 | 200k | 2026-09-15 |
-| Claude Opus 4.5 (16k thinking) | $5 | $0.5 | $25 | 200k | 2026-09-15 |
-| Claude Opus 4.5 (32k thinking) | $5 | $0.5 | $25 | 200k | 2026-09-15 |
-| Claude Opus 4.5 (64k thinking) | $5 | $0.5 | $25 | 200k | 2026-09-15 |
-| Claude Opus 4.5 (8k thinking) | $5 | $0.5 | $25 | 200k | 2026-09-15 |
 | Claude Opus 4.6 | $5 | $0.5 | $25 | 200k | 2026-09-15 |
 | Claude Opus 4.6 (120k thinking) | $5 | $0.5 | $25 | 200k | 2026-09-15 |
 | Claude Opus 4.6 (32k thinking) | $5 | $0.5 | $25 | 200k | 2026-09-15 |
@@ -51,40 +40,67 @@
 **Meilleurs scores mesurés**
 
 - `claude-fable-5` — ARC-AGI-2 89.2% · GPQA diamond 85.9% · DeepSWE 69.9%
-- `claude-opus-4-8` — GPQA diamond 91.0% · ARC-AGI-2 72.1% · DeepSWE 59.0%
 - `claude-opus-5` — GPQA diamond 93.9% · ARC-AGI-2 90.4% · DeepSWE 73.7%
 - `claude-fable-5-1` — ARC-AGI-2 90.0% · MirrorCode 73.3% · APEX-Agents 68.6%
+- `claude-opus-4-8` — GPQA diamond 91.0% · ARC-AGI-2 72.1% · DeepSWE 59.0%
 - `claude-opus-4-7` — GPQA diamond 90.1% · ARC-AGI-2 75.8% · SciCode 54.5%
-- `claude-sonnet-4-6` — GPQA diamond 87.4% · ARC-AGI-2 60.4% · SciCode 46.8%
+- `claude-opus-5-5` — ARC-AGI-2 92.5% · GPQA diamond 90.6% · MirrorCode 77.4%
 
 ## OpenAI
 
 - **Pays :** US
 - **Tarifs :** [https://developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing)
 - **Documentation :** [https://platform.openai.com/docs/models](https://platform.openai.com/docs/models)
-- **Modèles au catalogue :** 30 · **tarifés :** 11
+- **Modèles au catalogue :** 41 · **tarifés :** 38
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
 | GPT-6 Luna | $0.1 | $0.01 | $0.5 | — | 2026-09-15 |
+| GPT-6 Luna (none) | $0.1 | $0.01 | $0.5 | — | 2026-09-15 |
+| GPT-5.4 nano | $0.2 | $0.02 | $1.25 | — | 2026-09-15 |
+| GPT-5.4 nano (high) | $0.2 | $0.02 | $1.25 | — | 2026-09-15 |
+| GPT-5.4 nano (no thinking) | $0.2 | $0.02 | $1.25 | — | 2026-09-15 |
 | GPT-5.6 Luna | $0.2 | $0.02 | $1.2 | — | 2026-09-15 |
 | GPT-5.6 Luna (none) | $0.2 | $0.02 | $1.2 | — | 2026-09-15 |
+| GPT-5.4 mini | $0.75 | $0.075 | $4.5 | — | 2026-09-15 |
+| GPT-5.4 mini (high) | $0.75 | $0.075 | $4.5 | — | 2026-09-15 |
+| GPT-5.4 mini (none) | $0.75 | $0.075 | $4.5 | — | 2026-09-15 |
+| GPT-5.1 | $1.25 | $0.125 | $10 | — | 2026-09-15 |
+| GPT-5.1 (high) | $1.25 | $0.125 | $10 | — | 2026-09-15 |
+| GPT-5.1 (no thinking) | $1.25 | $0.125 | $10 | — | 2026-09-15 |
+| GPT-5.2 | $1.75 | $0.175 | $14 | — | 2026-09-15 |
+| GPT-5.2 (high) | $1.75 | $0.175 | $14 | — | 2026-09-15 |
+| GPT-5.2 (none) | $1.75 | $0.175 | $14 | — | 2026-09-15 |
 | GPT-5.6 Terra | $2 | $0.2 | $12 | — | 2026-09-15 |
 | GPT-5.6 Terra (none) | $2 | $0.2 | $12 | — | 2026-09-15 |
 | GPT-6 Sol | $2 | $0.2 | $10 | — | 2026-09-15 |
+| GPT-6 Sol (none) | $2 | $0.2 | $10 | — | 2026-09-15 |
+| GPT-6.1 Sol | $2 | $0.1 | $10 | — | 2026-09-15 |
+| GPT-5.4 | $2.5 | $0.25 | $15 | — | 2026-09-15 |
+| GPT-5.4 (high) | $2.5 | $0.25 | $15 | — | 2026-09-15 |
+| GPT-5.4 (none) | $2.5 | $0.25 | $15 | — | 2026-09-15 |
 | GPT-5.6 Sol | $4 | $0.4 | $20 | — | 2026-09-15 |
 | GPT-5.6 Sol (none) | $4 | $0.4 | $20 | — | 2026-09-15 |
 | GPT-5.6 Sol (pro, max) | $4 | $0.4 | $20 | — | 2026-09-15 |
+| GPT-5.5 | $5 | $0.5 | $30 | — | 2026-09-15 |
+| GPT-5.5 (no thinking) | $5 | $0.5 | $30 | — | 2026-09-15 |
 | GPT-6 Astra | $10 | $1 | $50 | — | 2026-09-15 |
 | GPT-6 Astra (none) | $10 | $1 | $50 | — | 2026-09-15 |
+| GPT-5 Pro | $15 | — | $120 | — | 2026-09-15 |
+| GPT-5 Pro | $15 | — | $120 | — | 2026-09-15 |
+| GPT-5.2 Pro | $21 | — | $168 | — | 2026-09-15 |
+| GPT-5.2 Pro | $21 | — | $168 | — | 2026-09-15 |
+| GPT-5.4 Pro | $30 | — | $180 | — | 2026-09-15 |
+| GPT-5.4 Pro | $30 | — | $180 | — | 2026-09-15 |
+| GPT-5.5 Pro | $30 | — | $180 | — | 2026-09-15 |
 
 **Meilleurs scores mesurés**
 
 - `gpt-5.6-sol` — GPQA diamond 93.5% · ARC-AGI-2 92.5% · DeepSWE 72.7%
 - `gpt-5.5` — GPQA diamond 90.7% · ARC-AGI-2 85.0% · DeepSWE 67.0%
 - `gpt-6-astra` — GPQA diamond 95.8% · ARC-AGI-2 95.0% · DeepSWE 74.1%
-- `gpt-5.4-2026-03-05` — GPQA diamond 93.3% · ARC-AGI-2 74.0% · SciCode 56.6%
 - `gpt-5.6-terra` — GPQA diamond 93.3% · ARC-AGI-2 83.9% · DeepSWE 69.6%
+- `gpt-5.4-2026-03-05` — GPQA diamond 93.3% · ARC-AGI-2 74.0% · SciCode 56.6%
 - `gpt-5.6-luna` — GPQA diamond 91.6% · DeepSWE 67.2% · ARC-AGI-2 59.5%
 
 ## Google DeepMind
@@ -92,7 +108,7 @@
 - **Pays :** US
 - **Tarifs :** [https://ai.google.dev/gemini-api/docs/pricing](https://ai.google.dev/gemini-api/docs/pricing)
 - **Documentation :** [https://ai.google.dev/gemini-api/docs/models](https://ai.google.dev/gemini-api/docs/models)
-- **Modèles au catalogue :** 12 · **tarifés :** 6
+- **Modèles au catalogue :** 13 · **tarifés :** 7
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
@@ -102,12 +118,13 @@
 | Gemini 3.8 Flash | $0.75 | $0.075 | $3.75 | — | 2026-09-15 |
 | Gemini 3.5 Flash | $1.5 | $0.15 | $9 | — | 2026-09-15 |
 | Gemini 3.1 Pro | $2 | $0.2 | $12 | 200k | 2026-09-15 |
+| Gemini 4 Argon | $2 | $0.1 | $10 | 1000k | 2026-09-15 |
 
 **Meilleurs scores mesurés**
 
-- `gemini-3.1-pro-preview` — GPQA diamond 94.4% · ARC-AGI-2 77.1% · SciCode 58.9%
 - `gemini-3.7-flash` — GPQA diamond 94.8% · ARC-AGI-2 84.6% · APEX-Agents 67.8%
 - `gemini-3.8-flash` — GPQA diamond 95.4% · DeepSWE 73.8% · APEX-Agents 64.3%
+- `gemini-3.1-pro-preview` — GPQA diamond 94.4% · ARC-AGI-2 77.1% · SciCode 58.9%
 - `gemini-3.6-flash` — GPQA diamond 94.1% · ARC-AGI-2 60.4% · SciCode 52.7%
 - `gemini-3.5-flash` — GPQA diamond 92.8% · ARC-AGI-2 72.1% · SciCode 53.1%
 - `gemini-3-pro-preview` — GPQA diamond 92.6% · HLE 37.5% · ARC-AGI-2 31.1%
@@ -117,7 +134,7 @@
 - **Pays :** CN
 - **Tarifs :** [https://api-docs.deepseek.com/quick_start/pricing](https://api-docs.deepseek.com/quick_start/pricing)
 - **Documentation :** [https://api-docs.deepseek.com](https://api-docs.deepseek.com)
-- **Modèles au catalogue :** 13 · **tarifés :** 6
+- **Modèles au catalogue :** 12 · **tarifés :** 6
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
@@ -142,7 +159,7 @@
 - **Pays :** CN
 - **Tarifs :** [https://www.alibabacloud.com/help/en/model-studio/model-pricing](https://www.alibabacloud.com/help/en/model-studio/model-pricing)
 - **Documentation :** [https://www.alibabacloud.com/help/en/model-studio](https://www.alibabacloud.com/help/en/model-studio)
-- **Modèles au catalogue :** 28 · **tarifés :** 15
+- **Modèles au catalogue :** 27 · **tarifés :** 14
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
@@ -156,7 +173,6 @@
 | Qwen3.7 Plus | $0.4 | — | $1.6 | — | 2026-09-15 |
 | Qwen3.6-Plus | $0.5 | — | $3 | — | 2026-09-15 |
 | Qwen3-Max | $1.2 | — | $6 | — | 2026-09-15 |
-| Qwen3-Max-Instruct | $1.2 | — | $6 | — | 2026-09-15 |
 | Qwen3.6-Max (preview) | $1.3 | — | $7.8 | — | 2026-09-15 |
 | Qwen3.8-Max | $2 | — | $6 | — | 2026-09-15 |
 | Qwen3.8 Max (0902) (unknown) | $2 | — | $6 | — | 2026-09-15 |
@@ -259,8 +275,8 @@
 
 - `grok-4.6` — GPQA diamond 94.0% · DeepSWE 67.5% · ARC-AGI-2 67.1%
 - `grok-4.5` — GPQA diamond 93.4% · APEX-Agents 56.2% · SciCode 54.0%
+- `grok-4.7` — GPQA diamond 92.7% · SciCode 57.4% · CursorBench 46.3%
 - `grok-4.3` — GPQA diamond 88.8% · SciCode 47.3% · GDP.pdf 8.0%
-- `grok-4.7` — SciCode 57.4% · CursorBench 46.3% · Terminal-Bench 4.0 37.6%
 - `grok-4-20` — ARC-AGI-2 65.1%
 - `grok-4.20-0309-reasoning` — GPQA diamond 89.3%
 

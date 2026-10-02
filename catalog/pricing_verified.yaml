@@ -1,5 +1,5 @@
 _meta:
-  campaign: Vérification tarifaire septembre 2026 (2e passe, 24/09)
+  campaign: Vérification tarifaire — passe du 02/10/2026
   verified_on: '2026-09-15'
   operator: pipeline + relevé manuel
 models:
@@ -109,8 +109,6 @@ models:
     input_cached_per_1m: 0.3
     cache_write_per_1m: 3.75
     output_per_1m: 15.0
-  applies_to:
-  - claude-sonnet-4-5-20250929
 - id: gpt-6-astra
   lab: openai
   display_name: GPT-6 Astra
@@ -302,8 +300,6 @@ models:
     input_per_1m: 1.2
     output_per_1m: 6.0
   tier_note: 'Tarif 0-32k tokens. 32k-128k : 2,40 / 12,00. 128k-256k : 3,00 / 15,00.'
-  applies_to:
-  - qwen3-max-2025-09-23
 - id: qwen3.7-plus
   lab: alibaba
   display_name: Qwen3.7-Plus
@@ -499,18 +495,6 @@ models:
     input_cached_per_1m: 0.2
     cache_write_per_1m: 5.0
     output_per_1m: 20.0
-- id: claude-opus-4-5
-  lab: anthropic
-  display_name: Claude Opus 4.5
-  api_model_id: claude-opus-4-5-20251101
-  context_window: 200000
-  pricing:
-    input_per_1m: 5.0
-    input_cached_per_1m: 0.5
-    cache_write_per_1m: 6.25
-    output_per_1m: 25.0
-  applies_to:
-  - claude-opus-4-5-20251101
 - id: gpt-6-sol
   lab: openai
   display_name: GPT-6 Sol
@@ -565,6 +549,141 @@ models:
   pricing:
     input_per_1m: 0.37
     output_per_1m: 1.25
+- id: gpt-5.5
+  lab: openai
+  display_name: GPT-5.5
+  api_model_id: gpt-5.5
+  pricing:
+    input_per_1m: 5.0
+    output_per_1m: 30.0
+    input_cached_per_1m: 0.5
+- id: gpt-5.5-pro
+  lab: openai
+  display_name: GPT-5.5 Pro
+  api_model_id: gpt-5.5-pro
+  pricing:
+    input_per_1m: 30.0
+    output_per_1m: 180.0
+- id: gpt-5.4
+  lab: openai
+  display_name: GPT-5.4
+  api_model_id: gpt-5.4
+  pricing:
+    input_per_1m: 2.5
+    output_per_1m: 15.0
+    input_cached_per_1m: 0.25
+  applies_to:
+  - gpt-5.4-2026-03-05
+  - gpt-5.4-2026-03-05_none
+- id: gpt-5.4-mini
+  lab: openai
+  display_name: GPT-5.4 mini
+  api_model_id: gpt-5.4-mini
+  pricing:
+    input_per_1m: 0.75
+    output_per_1m: 4.5
+    input_cached_per_1m: 0.075
+  applies_to:
+  - gpt-5.4-mini-2026-03-17
+  - gpt-5.4-mini-2026-03-17_none
+- id: gpt-5.4-nano
+  lab: openai
+  display_name: GPT-5.4 nano
+  api_model_id: gpt-5.4-nano
+  pricing:
+    input_per_1m: 0.2
+    output_per_1m: 1.25
+    input_cached_per_1m: 0.02
+  applies_to:
+  - gpt-5.4-nano-2026-03-17
+  - gpt-5.4-nano-2026-03-17_none
+- id: gpt-5.4-pro
+  lab: openai
+  display_name: GPT-5.4 Pro
+  api_model_id: gpt-5.4-pro
+  pricing:
+    input_per_1m: 30.0
+    output_per_1m: 180.0
+  applies_to:
+  - gpt-5.4-pro-2026-03-05
+- id: gpt-5.2
+  lab: openai
+  display_name: GPT-5.2
+  api_model_id: gpt-5.2
+  pricing:
+    input_per_1m: 1.75
+    output_per_1m: 14.0
+    input_cached_per_1m: 0.175
+  applies_to:
+  - gpt-5.2-2025-12-11
+  - gpt-5.2-2025-12-11_none
+- id: gpt-5.2-pro
+  lab: openai
+  display_name: GPT-5.2 Pro
+  api_model_id: gpt-5.2-pro
+  pricing:
+    input_per_1m: 21.0
+    output_per_1m: 168.0
+  applies_to:
+  - gpt-5.2-pro-2025-12-11
+- id: gpt-5.1
+  lab: openai
+  display_name: GPT-5.1
+  api_model_id: gpt-5.1
+  pricing:
+    input_per_1m: 1.25
+    output_per_1m: 10.0
+    input_cached_per_1m: 0.125
+  applies_to:
+  - gpt-5.1-2025-11-13
+  - gpt-5.1-2025-11-13_none
+- id: gpt-5-pro
+  lab: openai
+  display_name: GPT-5 Pro
+  api_model_id: gpt-5-pro
+  pricing:
+    input_per_1m: 15.0
+    output_per_1m: 120.0
+  applies_to:
+  - gpt-5-pro-2025-10-06
+- id: gpt-6.1-sol
+  lab: openai
+  display_name: GPT-6.1 Sol
+  api_model_id: gpt-6.1-sol
+  role: Flagship génération courante
+  pricing:
+    input_per_1m: 2.0
+    input_cached_per_1m: 0.1
+    output_per_1m: 10.0
+- id: claude-sonnet-5-5
+  lab: anthropic
+  display_name: Claude Sonnet 5.5
+  api_model_id: claude-sonnet-5-5
+  context_window: 200000
+  role: Référence ingénierie logicielle
+  pricing:
+    input_per_1m: 2.0
+    input_cached_per_1m: 0.2
+    cache_write_per_1m: 2.5
+    output_per_1m: 10.0
+- id: gemini-4-argon
+  lab: google
+  display_name: Gemini 4 Argon
+  api_model_id: gemini-4-argon
+  context_window: 1000000
+  role: Flagship raisonnement long-horizon
+  pricing:
+    input_per_1m: 2.0
+    input_cached_per_1m: 0.1
+    output_per_1m: 10.0
+  promo_note: Tarif d'introduction annoncé le 30/09/2026. L'entrée en cache est annoncée à 95 % de remise
+    sur l'entrée.
+  source_override:
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
+    status: official_docs
+    note: 'Annonce officielle du 30/09/2026, PAS la page tarifaire — le modèle n''y figure pas encore.
+      Diffusion restreinte au programme Fairwind : pas de route d''API publique ni de date de généralisation
+      annoncée. Le tarif est donc annoncé, pas facturable aujourd''hui.'
 no_public_price:
 - reason: 'Identifiant de passerelle : le préfixe désigne le revendeur qui sert le modèle, pas le laboratoire.
     Le tarif applicable est celui de la passerelle, relevé en couche 2 — pas celui de l''éditeur.'
@@ -616,14 +735,10 @@ no_public_price:
     — ils ont été mesurés — mais plus aucun tarif ne s''applique : le modèle n''est plus vendu. OpenAI
     a sorti toute la gamme GPT-5.x de sa page le même jour, MiniMax ses M2 antérieurs à la 2.7.'
   models:
-  - gpt-5.5
-  - gpt-5.5-pro
-  - gpt-5.1-2025-11-13
-  - gpt-5.2-2025-12-11
-  - gpt-5.2-pro-2025-12-11
-  - gpt-5.4-2026-03-05
-  - gpt-5.4-mini-2026-03-17
-  - gpt-5.4-nano-2026-03-17
-  - gpt-5.4-pro-2026-03-05
-  - gpt-5-pro-2025-10-06
   - MiniMax-M2.5
+- reason: 'Absent de la grille de son fournisseur au relevé du 02/10/2026. ATTENTION : ces pages sont
+    volatiles. Opus 4.5 était absent le 15/09, présent le 24/09, absent de nouveau le 02/10 ; toute la
+    gamme GPT-5.x a fait le chemin inverse. Ne pas conclure d''une absence unique qu''un modèle est retiré
+    — vérifier à la passe suivante avant d''en tirer une conclusion.'
+  models:
+  - claude-opus-4-5-20251101

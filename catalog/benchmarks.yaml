@@ -1,6 +1,6 @@
 _generated:
   by: pipeline/epoch_ingest.py --registry
-  'on': '2026-09-24'
+  'on': '2026-10-02'
   upstream: Epoch AI — Capabilities & Benchmarking (CC-BY 4.0)
   upstream_url: https://epoch.ai/benchmarks
   warning: Fichier généré. Éditer CURATION dans pipeline/epoch_ingest.py, pas ce fichier.
@@ -219,20 +219,6 @@ tracked:
   superseded_by: null
   epoch_source_file: frontierswe_external.csv
   provenance: independent_leaderboard
-- id: gso_bench
-  name: GSO-Bench
-  domain: software_engineering
-  tier: secondary
-  track: true
-  measures: Optimisation de code sous contrainte de performance mesurée.
-  caveat: null
-  released_on: '2025-05-29'
-  scale_to_fraction: 1.0
-  random_baseline: 0.0
-  score_ceiling: 1.0
-  superseded_by: null
-  epoch_source_file: gso_external.csv
-  provenance: independent_leaderboard
 rejected:
 - benchmark: ANLI
   reason: Obsolète.
@@ -248,6 +234,11 @@ rejected:
   reason: Aucune mesure depuis décembre 2025. Remplacé par GDP.pdf.
 - benchmark: GSM8K
   reason: Saturé et massivement contaminé.
+- benchmark: GSO-Bench
+  reason: 'En sommeil : son modèle mesuré le plus récent date du 30/06/2026, soit 91 jours de retard sur
+    le catalogue au 02/10/2026, et le classement officiel (gso-bench.github.io) n''a pas bougé depuis
+    le 06/05/2026. Il ne mesure plus l''offre actuelle. Aucune version plus récente n''existe ailleurs
+    — contrairement à Terminal-Bench, remplacé par sa 4.0. À réintégrer si le classement reprend.'
 - benchmark: HellaSwag
   reason: Obsolète, saturé depuis 2023.
 - benchmark: LAMBADA

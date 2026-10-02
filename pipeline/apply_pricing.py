@@ -147,6 +147,12 @@ def main() -> int:
             skipped += 1
             continue
         url, status, note = SOURCES[lab]
+        # Un modèle annoncé mais pas encore sur la grille tarifaire a une autre
+        # source que celle de son lab — une annonce officielle n'est pas une page
+        # /pricing, et la hiérarchie de provenance doit le refléter.
+        if v.get("source_override"):
+            o = v["source_override"]
+            url, status, note = o["url"], o["status"], o.get("note")
         p = dict(v["pricing"])
         p.update({
             "currency": "USD",

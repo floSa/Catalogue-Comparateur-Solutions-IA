@@ -1,6 +1,6 @@
 _generated:
   by: pipeline/seed_catalog.py
-  'on': '2026-09-24'
+  'on': '2026-10-02'
   basis: Identités de modèles observées dans les données de benchmark Epoch AI (CC-BY).
   warning: 'AMORCE. Les champs tarifaires sont vides et marqués `unverified` : ils doivent être renseignés
     depuis la page /pricing officielle de chaque lab. Voir protocol/04_collecte_donnees.md.'
@@ -11,7 +11,7 @@ labs:
   pricing_url: https://claude.com/pricing
   api_docs_url: https://docs.claude.com/en/docs/about-claude/models
   console_url: https://console.anthropic.com
-  model_count_tracked: 29
+  model_count_tracked: 25
   source:
     url: https://claude.com/pricing
     verified_on: '2026-09-15'
@@ -25,7 +25,7 @@ labs:
   pricing_url: https://developers.openai.com/api/docs/pricing
   api_docs_url: https://platform.openai.com/docs/models
   console_url: https://platform.openai.com
-  model_count_tracked: 28
+  model_count_tracked: 33
   source:
     url: https://developers.openai.com/api/docs/pricing
     verified_on: '2026-09-15'
@@ -54,7 +54,7 @@ labs:
   pricing_url: https://api-docs.deepseek.com/quick_start/pricing
   api_docs_url: https://api-docs.deepseek.com
   console_url: https://platform.deepseek.com
-  model_count_tracked: 12
+  model_count_tracked: 11
   source:
     url: https://api-docs.deepseek.com/quick_start/pricing
     verified_on: '2026-09-15'
@@ -69,7 +69,7 @@ labs:
   pricing_url: https://www.alibabacloud.com/help/en/model-studio/model-pricing
   api_docs_url: https://www.alibabacloud.com/help/en/model-studio
   console_url: https://modelstudio.console.alibabacloud.com
-  model_count_tracked: 27
+  model_count_tracked: 26
   source:
     url: https://www.alibabacloud.com/help/en/model-studio/model-pricing
     verified_on: '2026-09-15'

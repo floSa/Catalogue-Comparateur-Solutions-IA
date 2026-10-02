@@ -65,9 +65,6 @@ CURATION = {
     "DeepSWE": dict(
         track=True, domain="software_engineering", tier="secondary",
         measures="Ingénierie logicielle sur tâches longues.", caveat=""),
-    "GSO-Bench": dict(
-        track=True, domain="software_engineering", tier="secondary",
-        measures="Optimisation de code sous contrainte de performance mesurée.", caveat=""),
     "MirrorCode": dict(
         track=True, domain="code_generation", tier="secondary",
         measures="Benchmark de code récent, résistant à la contamination.", caveat=""),
@@ -104,6 +101,12 @@ CURATION = {
 # Benchmarks explicitement écartés, avec la raison. Documenter un rejet vaut
 # autant que documenter une sélection : cela évite de reposer la question.
 REJECTED = {
+    "GSO-Bench": "En sommeil : son modèle mesuré le plus récent date du 30/06/2026, "
+                 "soit 91 jours de retard sur le catalogue au 02/10/2026, et le "
+                 "classement officiel (gso-bench.github.io) n'a pas bougé depuis le "
+                 "06/05/2026. Il ne mesure plus l'offre actuelle. Aucune version plus "
+                 "récente n'existe ailleurs — contrairement à Terminal-Bench, remplacé "
+                 "par sa 4.0. À réintégrer si le classement reprend.",
     "MMLU": "Saturé (>90% pour tout modèle de pointe) — pouvoir discriminant nul.",
     "GSM8K": "Saturé et massivement contaminé.",
     "HellaSwag": "Obsolète, saturé depuis 2023.",

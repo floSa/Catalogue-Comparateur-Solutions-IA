@@ -268,6 +268,17 @@ passe.
   donnée et sa source — pas les compteurs de vérification, les « fiche restaurée »
   ni les « non re-vérifié ». Ces informations vivent dans `catalog/`, le changelog
   et le plan de travail ; elles ne sortent pas dans le Guide ni sur le site.
+- **Conclure d'une absence unique qu'un modèle est retiré.** Les pages
+  tarifaires sont volatiles. Opus 4.5 était absent de la grille Anthropic le
+  15/09, présent le 24/09, absent de nouveau le 02/10 ; toute la gamme GPT-5.x a
+  disparu de la page OpenAI le 24/09 pour y revenir le 02/10. Une absence se
+  consigne avec sa date ; le classement en « génération retirée » attend d'être
+  confirmé à la passe suivante. Sinon le catalogue oscille d'une édition à
+  l'autre et le changelog devient illisible.
+- **Faire porter à un tarif la provenance de son lab plutôt que la sienne.** Un
+  modèle annoncé mais pas encore sur la grille — Gemini 4 Argon le 30/09 — est
+  sourcé par son annonce, pas par la page `/pricing` où il ne figure pas. Le
+  champ `source_override` d'une entrée de `pricing_verified.yaml` sert à ça.
 - **Conclure qu'une donnée est fausse parce qu'elle est absente d'une source.**
   Les jeux de benchmark ont du retard sur les annonces commerciales : un modèle
   peut être vendu sans être encore mesuré. Vérifier sur la page du fournisseur

@@ -3,7 +3,7 @@
 
 # Extensions VS Code
 
-5 outils au catalogue. Généré le 2026-09-24 depuis `catalog/tools.yaml`.
+5 outils au catalogue. Généré le 2026-10-02 depuis `catalog/tools.yaml`.
 
 ## Cline
 
