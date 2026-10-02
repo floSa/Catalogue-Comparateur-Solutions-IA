@@ -156,14 +156,24 @@ d'un million.
 La fenêtre se relève sur la **page de référence du modèle**, et se saisit avec sa
 source dans `context_source` :
 
-| Fournisseur | Où la fenêtre est affirmée |
-| :-- | :-- |
-| Anthropic | `platform.claude.com/docs/en/about-claude/models/overview` — tableau comparatif ; chaque modèle a aussi sa page `…/models/<nom>/overview` |
-| OpenAI | `developers.openai.com/api/docs/models` |
-| xAI | `docs.x.ai/docs/models` — la colonne Context de la grille |
-| Z.ai | `docs.z.ai/guides/llm/<modèle>` |
-| DeepSeek, Moonshot, MiniMax, Meta | affichée sur la page tarifaire elle-même |
-| Google, Alibaba, Mistral | **non localisée** : ni la page tarifaire ni la page modèles ne la portent. Il faut ouvrir la fiche de chaque modèle |
+Chaque fournisseur a une **fiche par modèle**, à une URL prévisible. Une fois le
+motif connu, relever une fenêtre coûte une requête :
+
+| Fournisseur | Motif d'URL | Exemple |
+| :-- | :-- | :-- |
+| Anthropic | `platform.claude.com/docs/en/models/<nom-tirets>/overview` | `…/models/opus-5-5/overview` |
+| OpenAI | `developers.openai.com/api/docs/models/<id>` | `…/models/gpt-5.6-sol` |
+| Google | `deepmind.google/models/gemini/<famille>/` | `…/gemini/flash/`, `/pro/`, `/flash-lite/` |
+| Alibaba | `alibabacloud.com/help/en/model-studio/<id-points-en-tirets>` | `qwen3.8-max` → `…/qwen3-8-max` |
+| Z.ai | `docs.z.ai/guides/llm/<id>` | `…/llm/glm-5.2` |
+| Mistral | `docs.mistral.ai/models/<nom-version>` | `mistral-large-2512` → `…/mistral-large-3-25-12` |
+| DeepSeek, Moonshot, MiniMax, Meta | affichée sur la page tarifaire elle-même | — |
+
+Deux pièges du côté Anthropic et Google : la fiche d'un modèle **ancien** porte un
+tableau comparatif de toute la gamme courante — une seule requête sur
+`…/models/sonnet-5/overview` donne aussi Fable 5.1, Opus 5.5, Sonnet 5.5 et
+Haiku 4.5. Et chez Google, la fenêtre n'est **pas** sur `ai.google.dev` : elle est
+sur `deepmind.google`, par famille et non par version.
 
 **Ne jamais déduire une fenêtre d'un palier de facturation.** Qu'Alibaba facture
 une tranche « 256k-1M jetons » prouve qu'une entrée d'un million est acceptée en

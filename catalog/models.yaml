@@ -166,6 +166,8 @@ models:
       status: official_pricing_page
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-5-flash
 - id: qwen3.5-plus
   lab: alibaba
   display_name: Qwen3.5-Plus
@@ -188,6 +190,8 @@ models:
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
     tier_note: 'Tarif 0-256k tokens. 256k-1M : 0,50 / 3,00.'
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-5-plus
 - id: qwen3.6-27b
   lab: alibaba
   display_name: Qwen3.6 27B
@@ -276,6 +280,8 @@ models:
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
     tier_note: 'Tarif 0-256k tokens. 256k-1M : 1,00 / 4,00.'
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-6-flash
 - id: qwen3.6-max-preview
   lab: alibaba
   display_name: Qwen3.6-Max (preview)
@@ -320,6 +326,8 @@ models:
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
     tier_note: 'Tarif 0-256k tokens. 256k-1M : 2,00 / 6,00.'
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-6-plus
 - id: qwen3.7-flash
   lab: alibaba
   display_name: Qwen3.7-Flash
@@ -342,6 +350,8 @@ models:
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
     tier_note: 'Tarif 0-32k tokens. 32k-256k : 0,10 / 0,40. 256k-1M : 0,20 / 0,80.'
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash
 - id: qwen3.7-flash_none
   lab: alibaba
   display_name: Qwen3.7 Flash
@@ -367,6 +377,7 @@ models:
       variant_of: qwen3.7-flash
       variant_note: '`none` est un réglage d''exécution du modèle `qwen3.7-flash`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1000000
 - id: qwen3.7-max
   lab: alibaba
   display_name: Qwen3.7-Max
@@ -388,6 +399,8 @@ models:
       status: official_pricing_page
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-7-max
 - id: qwen3.7-plus
   lab: alibaba
   display_name: Qwen3.7-Plus
@@ -411,6 +424,8 @@ models:
         chère — elle n'est pas relevée ici.
     promo_note: Remise temporaire de 20 % affichée par Alibaba au 24/09/2026.
     tier_note: 'Tarif 0-256k tokens. 256k-1M : 1,20 / 4,80.'
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-7-plus
 - id: qwen3.7-plus_none
   lab: alibaba
   display_name: Qwen3.7 Plus
@@ -437,6 +452,7 @@ models:
       variant_of: qwen3.7-plus
       variant_note: '`none` est un réglage d''exécution du modèle `qwen3.7-plus`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1000000
 - id: qwen3.8-27b
   lab: alibaba
   display_name: Qwen3.8 27B
@@ -494,6 +510,8 @@ models:
       status: official_pricing_page
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash
 - id: qwen3.8-max
   lab: alibaba
   display_name: Qwen3.8-Max
@@ -516,6 +534,8 @@ models:
       status: official_pricing_page
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-8-max
 - id: qwen3.8-max-0902
   lab: alibaba
   display_name: Qwen3.8 Max (0902) (unknown)
@@ -539,6 +559,8 @@ models:
       note: Grille région Singapour (International). La région Chine continentale est sensiblement moins
         chère — elle n'est pas relevée ici.
       priced_as: qwen3.8-max
+  context_window: 1000000
+  context_source: https://www.alibabacloud.com/help/en/model-studio/qwen3-8-max
 - id: claude-fable-5
   lab: anthropic
   display_name: Claude Fable 5
@@ -567,6 +589,8 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: anthropic.com/pricing redirige (301) vers claude.com/pricing.
+  context_window: 1000000
+  context_source: https://platform.claude.com/docs/en/models/fable-5/overview
 - id: claude-fable-5-1
   lab: anthropic
   display_name: Claude Fable 5.1
@@ -1173,6 +1197,8 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: anthropic.com/pricing redirige (301) vers claude.com/pricing.
+  context_window: 1000000
+  context_source: https://platform.claude.com/docs/en/models/sonnet-5/overview
 - id: claude-sonnet-5-5
   lab: anthropic
   display_name: Claude Sonnet 5.5
@@ -1576,6 +1602,8 @@ models:
       status: official_pricing_page
       note: Plusieurs modèles en tarif promotionnel jusqu'au 31/12/2026.
     tier_note: 'Tarif ≤200k tokens. Au-delà : 4,00 / 0,40 / 18,00.'
+  context_window: 1000000
+  context_source: https://deepmind.google/models/gemini/pro/
 - id: gemini-3.5-flash
   lab: google
   display_name: Gemini 3.5 Flash
@@ -1626,6 +1654,8 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: Plusieurs modèles en tarif promotionnel jusqu'au 31/12/2026.
+  context_window: 1000000
+  context_source: https://deepmind.google/models/gemini/flash-lite/
 - id: gemini-3.6-flash
   lab: google
   display_name: Gemini 3.6 Flash
@@ -1705,6 +1735,8 @@ models:
       note: Plusieurs modèles en tarif promotionnel jusqu'au 31/12/2026.
     promo_until: '2026-12-31'
     promo_note: 'Tarif promotionnel. Au-delà : 1,50 / 0,15 / 7,50.'
+  context_window: 1000000
+  context_source: https://deepmind.google/models/gemini/flash/
 - id: gemini-4-argon
   lab: google
   display_name: Gemini 4 Argon
@@ -2018,6 +2050,8 @@ models:
       status: official_pricing_page
       note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
         versionnés viennent de docs.mistral.ai/models/overview.
+  context_window: 256000
+  context_source: https://docs.mistral.ai/models/mistral-large-3-25-12
 - id: mistral-medium-2604
   lab: mistral
   display_name: Mistral Medium 3.5
@@ -2039,6 +2073,8 @@ models:
       status: official_pricing_page
       note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
         versionnés viennent de docs.mistral.ai/models/overview.
+  context_window: 256000
+  context_source: https://docs.mistral.ai/models/mistral-medium-3-5-26-04
 - id: fireworks/kimi-k2p5
   lab: moonshot
   display_name: Kimi K2.5 (Fireworks)
@@ -2791,6 +2827,8 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
+  context_window: 1050000
+  context_source: https://developers.openai.com/api/docs/models/gpt-5.6-luna
 - id: gpt-5.6-luna_none
   lab: openai
   display_name: GPT-5.6 Luna (none)
@@ -2815,6 +2853,7 @@ models:
       variant_of: gpt-5.6-luna
       variant_note: '`none` est un réglage d''exécution du modèle `gpt-5.6-luna`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1050000
 - id: gpt-5.6-sol
   lab: openai
   display_name: GPT-5.6 Sol
@@ -2841,6 +2880,8 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
+  context_window: 1050000
+  context_source: https://developers.openai.com/api/docs/models/gpt-5.6-sol
 - id: gpt-5.6-sol_none
   lab: openai
   display_name: GPT-5.6 Sol (none)
@@ -2865,6 +2906,7 @@ models:
       variant_of: gpt-5.6-sol
       variant_note: '`none` est un réglage d''exécution du modèle `gpt-5.6-sol`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1050000
 - id: gpt-5.6-sol_promax
   lab: openai
   display_name: GPT-5.6 Sol (pro, max)
@@ -2889,6 +2931,7 @@ models:
       variant_of: gpt-5.6-sol
       variant_note: '`promax` est un réglage d''exécution du modèle `gpt-5.6-sol`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1050000
 - id: gpt-5.6-terra
   lab: openai
   display_name: GPT-5.6 Terra
@@ -2915,6 +2958,8 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
+  context_window: 1050000
+  context_source: https://developers.openai.com/api/docs/models/gpt-5.6-terra
 - id: gpt-5.6-terra_none
   lab: openai
   display_name: GPT-5.6 Terra (none)
@@ -2939,6 +2984,7 @@ models:
       variant_of: gpt-5.6-terra
       variant_note: '`none` est un réglage d''exécution du modèle `gpt-5.6-terra`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1050000
 - id: gpt-6-astra
   lab: openai
   display_name: GPT-6 Astra
@@ -3071,6 +3117,8 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
+  context_window: 1050000
+  context_source: https://developers.openai.com/api/docs/models/gpt-6-sol
 - id: gpt-6-sol_none
   lab: openai
   display_name: GPT-6 Sol (none)
@@ -3095,6 +3143,7 @@ models:
       variant_of: gpt-6-sol
       variant_note: '`none` est un réglage d''exécution du modèle `gpt-6-sol`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1050000
 - id: gpt-6.1-sol
   lab: openai
   display_name: GPT-6.1 Sol
@@ -3312,6 +3361,8 @@ models:
       url: https://docs.z.ai/guides/overview/pricing
       verified_on: '2026-09-15'
       status: official_pricing_page
+  context_window: 200000
+  context_source: https://docs.z.ai/guides/llm/glm-4.7
 - id: glm-4.7-flash
   lab: zhipu
   display_name: GLM-4.7-Flash
@@ -3331,6 +3382,8 @@ models:
       url: https://docs.z.ai/guides/overview/pricing
       verified_on: '2026-09-15'
       status: official_pricing_page
+  context_window: 200000
+  context_source: https://docs.z.ai/guides/llm/glm-4.7
 - id: glm-5
   lab: zhipu
   display_name: GLM-5
@@ -3350,6 +3403,8 @@ models:
       url: https://docs.z.ai/guides/overview/pricing
       verified_on: '2026-09-15'
       status: official_pricing_page
+  context_window: 200000
+  context_source: https://docs.z.ai/guides/llm/glm-5
 - id: glm-5.1
   lab: zhipu
   display_name: GLM-5.1
@@ -3369,6 +3424,8 @@ models:
       url: https://docs.z.ai/guides/overview/pricing
       verified_on: '2026-09-15'
       status: official_pricing_page
+  context_window: 200000
+  context_source: https://docs.z.ai/guides/llm/glm-5.1
 - id: glm-5.2
   lab: zhipu
   display_name: GLM-5.2
@@ -3393,6 +3450,8 @@ models:
       url: https://docs.z.ai/guides/overview/pricing
       verified_on: '2026-09-15'
       status: official_pricing_page
+  context_window: 1000000
+  context_source: https://docs.z.ai/guides/llm/glm-5.2
 - id: glm-5.2_none
   lab: zhipu
   display_name: GLM-5.2
@@ -3415,6 +3474,7 @@ models:
       variant_of: glm-5.2
       variant_note: '`none` est un réglage d''exécution du modèle `glm-5.2`, pas une référence facturée
         distincte : même tarif unitaire.'
+  context_window: 1000000
 - id: glm-5.3
   lab: zhipu
   display_name: GLM-5.3
@@ -3461,6 +3521,8 @@ models:
       url: https://docs.z.ai/guides/overview/pricing
       verified_on: '2026-09-15'
       status: official_pricing_page
+  context_window: 1000000
+  context_source: https://docs.z.ai/guides/llm/glm-5.3-flash
 - id: glm-5.3-flashx
   lab: zhipu
   display_name: GLM-5.3-FlashX
@@ -3479,3 +3541,5 @@ models:
       url: https://docs.z.ai/guides/overview/pricing
       verified_on: '2026-09-15'
       status: official_pricing_page
+  context_window: 1000000
+  context_source: https://docs.z.ai/guides/llm/glm-5.3-flash

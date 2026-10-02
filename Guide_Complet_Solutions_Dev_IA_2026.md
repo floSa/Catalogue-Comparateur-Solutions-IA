@@ -201,36 +201,36 @@ Une ligne par modèle, triée par coût d'entrée croissant. Seuls figurent les 
 
 | Fournisseur | Modèle | Rôle | Contexte | Entrée $ | Cache $ | Sortie $ | Entrée € HT | Sortie € HT | Relevé le |
 | :-- | :-- | :-- | --: | --: | --: | --: | --: | --: | :-- |
-| Z.ai (Zhipu AI) | **GLM-4.7-Flash** | Gratuit avec limites de débit | — | gratuit | gratuit | gratuit | 0,00 € | 0,00 € | 2026-09-15 |
-| Alibaba | **Qwen3.7-Flash** | Flash économique | — | $0.03 | — | $0.13 | 0,03 € | 0,11 € | 2026-09-15 |
-| Alibaba | **Qwen3.7 Flash** | Flash économique | — | $0.03 | — | $0.13 | 0,03 € | 0,11 € | 2026-09-15 |
-| Alibaba | **Qwen3.5-Flash** | — | — | $0.1 | — | $0.4 | 0,09 € | 0,35 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-4.7-Flash** | Gratuit avec limites de débit | 200k | gratuit | gratuit | gratuit | 0,00 € | 0,00 € | 2026-09-15 |
+| Alibaba | **Qwen3.7-Flash** | Flash économique | 1000k | $0.03 | — | $0.13 | 0,03 € | 0,11 € | 2026-09-15 |
+| Alibaba | **Qwen3.7 Flash** | Flash économique | 1000k | $0.03 | — | $0.13 | 0,03 € | 0,11 € | 2026-09-15 |
+| Alibaba | **Qwen3.5-Flash** | — | 1000k | $0.1 | — | $0.4 | 0,09 € | 0,35 € | 2026-09-15 |
 | OpenAI | **GPT-6 Luna** | Ultra-économique | 1050k | $0.1 | $0.01 | $0.5 | 0,09 € | 0,43 € | 2026-09-15 |
 | OpenAI | **GPT-6 Luna (none)** | Ultra-économique | 1050k | $0.1 | $0.01 | $0.5 | 0,09 € | 0,43 € | 2026-09-15 |
-| Alibaba | **Qwen3.8-Flash** | Flash économique | — | $0.15 | — | $0.47 | 0,13 € | 0,41 € | 2026-09-15 |
-| Z.ai (Zhipu AI) | **GLM-5.3-Flash** | Flash économique | — | $0.15 | $0.03 | $0.5 | 0,13 € | 0,43 € | 2026-09-15 |
+| Alibaba | **Qwen3.8-Flash** | Flash économique | 1000k | $0.15 | — | $0.47 | 0,13 € | 0,41 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-5.3-Flash** | Flash économique | 1000k | $0.15 | $0.03 | $0.5 | 0,13 € | 0,43 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 nano** | — | — | $0.2 | $0.02 | $1.25 | 0,17 € | 1,08 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 nano (high)** | — | — | $0.2 | $0.02 | $1.25 | 0,17 € | 1,08 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 nano (no thinking)** | — | — | $0.2 | $0.02 | $1.25 | 0,17 € | 1,08 € | 2026-09-15 |
-| OpenAI | **GPT-5.6 Luna** | Flash / économique | — | $0.2 | $0.02 | $1.2 | 0,17 € | 1,04 € | 2026-09-15 |
-| OpenAI | **GPT-5.6 Luna (none)** | Flash / économique | — | $0.2 | $0.02 | $1.2 | 0,17 € | 1,04 € | 2026-09-15 |
-| Alibaba | **Qwen3.6-Flash** | — | — | $0.25 | — | $1.5 | 0,22 € | 1,30 € | 2026-09-15 |
+| OpenAI | **GPT-5.6 Luna** | Flash / économique | 1050k | $0.2 | $0.02 | $1.2 | 0,17 € | 1,04 € | 2026-09-15 |
+| OpenAI | **GPT-5.6 Luna (none)** | Flash / économique | 1050k | $0.2 | $0.02 | $1.2 | 0,17 € | 1,04 € | 2026-09-15 |
+| Alibaba | **Qwen3.6-Flash** | — | 1000k | $0.25 | — | $1.5 | 0,22 € | 1,30 € | 2026-09-15 |
 | DeepSeek | **DeepSeek Flash** | Flash ultra-économique | 1000k | $0.3 | $0.006 | $1.2 | 0,26 € | 1,04 € | 2026-09-15 |
 | DeepSeek | **DeepSeek V4.1 Flash (high)** | Flash ultra-économique | 1000k | $0.3 | $0.006 | $1.2 | 0,26 € | 1,04 € | 2026-09-15 |
-| Google DeepMind | **Gemini 3.5 Flash-Lite** | Ultra-économique | — | $0.3 | $0.03 | $2.5 | 0,26 € | 2,17 € | 2026-09-15 |
+| Google DeepMind | **Gemini 3.5 Flash-Lite** | Ultra-économique | 1000k | $0.3 | $0.03 | $2.5 | 0,26 € | 2,17 € | 2026-09-15 |
 | MiniMax | **MiniMax-M2.7** | — | — | $0.3 | $0.06 | $1.2 | 0,26 € | 1,04 € | 2026-09-15 |
 | MiniMax | **MiniMax-M3** | Flagship agentique | 1000k | $0.3 | $0.06 | $1.2 | 0,26 € | 1,04 € | 2026-09-15 |
 | MiniMax | **MiniMax-M3_none** | Flagship agentique | 1000k | $0.3 | $0.06 | $1.2 | 0,26 € | 1,04 € | 2026-09-15 |
-| Z.ai (Zhipu AI) | **GLM-5.3-FlashX** | — | — | $0.37 | — | $1.25 | 0,32 € | 1,08 € | 2026-09-15 |
-| Alibaba | **Qwen3.5-Plus** | — | — | $0.4 | — | $2.4 | 0,35 € | 2,08 € | 2026-09-15 |
-| Alibaba | **Qwen3.7-Plus** | Généraliste équilibré | — | $0.4 | — | $1.6 | 0,35 € | 1,39 € | 2026-09-15 |
-| Alibaba | **Qwen3.7 Plus** | Généraliste équilibré | — | $0.4 | — | $1.6 | 0,35 € | 1,39 € | 2026-09-15 |
-| Alibaba | **Qwen3.6-Plus** | — | — | $0.5 | — | $3 | 0,43 € | 2,60 € | 2026-09-15 |
-| Mistral AI | **Mistral Large 3** | Flagship | — | $0.5 | — | $1.5 | 0,43 € | 1,30 € | 2026-09-15 |
-| Z.ai (Zhipu AI) | **GLM-4.7** | — | — | $0.6 | — | $2.2 | 0,52 € | 1,91 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-5.3-FlashX** | — | 1000k | $0.37 | — | $1.25 | 0,32 € | 1,08 € | 2026-09-15 |
+| Alibaba | **Qwen3.5-Plus** | — | 1000k | $0.4 | — | $2.4 | 0,35 € | 2,08 € | 2026-09-15 |
+| Alibaba | **Qwen3.7-Plus** | Généraliste équilibré | 1000k | $0.4 | — | $1.6 | 0,35 € | 1,39 € | 2026-09-15 |
+| Alibaba | **Qwen3.7 Plus** | Généraliste équilibré | 1000k | $0.4 | — | $1.6 | 0,35 € | 1,39 € | 2026-09-15 |
+| Alibaba | **Qwen3.6-Plus** | — | 1000k | $0.5 | — | $3 | 0,43 € | 2,60 € | 2026-09-15 |
+| Mistral AI | **Mistral Large 3** | Flagship | 256k | $0.5 | — | $1.5 | 0,43 € | 1,30 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-4.7** | — | 200k | $0.6 | — | $2.2 | 0,52 € | 1,91 € | 2026-09-15 |
 | Google DeepMind | **Gemini 3.6 Flash** | — | — | $0.75 | $0.075 | $3.75 | 0,65 € | 3,25 € | 2026-09-15 |
 | Google DeepMind | **Gemini 3.7 Flash** | — | — | $0.75 | $0.075 | $3.75 | 0,65 € | 3,25 € | 2026-09-15 |
-| Google DeepMind | **Gemini 3.8 Flash** | Flash génération courante | — | $0.75 | $0.075 | $3.75 | 0,65 € | 3,25 € | 2026-09-15 |
+| Google DeepMind | **Gemini 3.8 Flash** | Flash génération courante | 1000k | $0.75 | $0.075 | $3.75 | 0,65 € | 3,25 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 mini** | — | — | $0.75 | $0.075 | $4.5 | 0,65 € | 3,90 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 mini (high)** | — | — | $0.75 | $0.075 | $4.5 | 0,65 € | 3,90 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 mini (none)** | — | — | $0.75 | $0.075 | $4.5 | 0,65 € | 3,90 € | 2026-09-15 |
@@ -243,7 +243,7 @@ Une ligne par modèle, triée par coût d'entrée croissant. Seuls figurent les 
 | Anthropic | **claude-haiku-4-5-20251001_32K** | Flash / économique | 200k | $1 | $0.1 | $5 | 0,87 € | 4,33 € | 2026-09-15 |
 | Anthropic | **claude-haiku-4-5-20251001_8K** | Flash / économique | 200k | $1 | $0.1 | $5 | 0,87 € | 4,33 € | 2026-09-15 |
 | xAI | **Grok Build 0.1** | Dédié développement logiciel | 256k | $1 | — | $2 | 0,87 € | 1,73 € | 2026-09-15 |
-| Z.ai (Zhipu AI) | **GLM-5** | — | — | $1 | — | $3.2 | 0,87 € | 2,77 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-5** | — | 200k | $1 | — | $3.2 | 0,87 € | 2,77 € | 2026-09-15 |
 | Alibaba | **Qwen3-Max** | — | — | $1.2 | — | $6 | 1,04 € | 5,20 € | 2026-09-15 |
 | Meta AI | **Muse Spark 1.3** | Flagship | 1000k | $1.25 | $0.15 | $4.25 | 1,08 € | 3,68 € | 2026-09-15 |
 | OpenAI | **GPT-5.1** | — | — | $1.25 | $0.125 | $10 | 1,08 € | 8,67 € | 2026-09-15 |
@@ -256,30 +256,30 @@ Une ligne par modèle, triée par coût d'entrée croissant. Seuls figurent les 
 | DeepSeek | **DeepSeek V4 Pro 0813 (high)** | Flagship raisonnement | 1000k | $1.32 | $0.044 | $3.96 | 1,14 € | 3,43 € | 2026-09-15 |
 | DeepSeek | **DeepSeek V4 Pro 0813 (none)** | Flagship raisonnement | 1000k | $1.32 | $0.044 | $3.96 | 1,14 € | 3,43 € | 2026-09-15 |
 | DeepSeek | **DeepSeek v4 Pro (unknown thinking)** | Flagship raisonnement | 1000k | $1.32 | $0.044 | $3.96 | 1,14 € | 3,43 € | 2026-09-15 |
-| Z.ai (Zhipu AI) | **GLM-5.1** | — | — | $1.4 | — | $4.4 | 1,21 € | 3,81 € | 2026-09-15 |
-| Z.ai (Zhipu AI) | **GLM-5.2** | — | — | $1.4 | — | $4.4 | 1,21 € | 3,81 € | 2026-09-15 |
-| Z.ai (Zhipu AI) | **GLM-5.2** | — | — | $1.4 | — | $4.4 | 1,21 € | 3,81 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-5.1** | — | 200k | $1.4 | — | $4.4 | 1,21 € | 3,81 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-5.2** | — | 1000k | $1.4 | — | $4.4 | 1,21 € | 3,81 € | 2026-09-15 |
+| Z.ai (Zhipu AI) | **GLM-5.2** | — | 1000k | $1.4 | — | $4.4 | 1,21 € | 3,81 € | 2026-09-15 |
 | Z.ai (Zhipu AI) | **GLM-5.3** | Flagship raisonnement et code | 1000k | $1.4 | $0.26 | $4.4 | 1,21 € | 3,81 € | 2026-09-15 |
 | Google DeepMind | **Gemini 3.5 Flash** | — | — | $1.5 | $0.15 | $9 | 1,30 € | 7,80 € | 2026-09-15 |
-| Mistral AI | **Mistral Medium 3.5** | Généraliste équilibré | — | $1.5 | — | $7.5 | 1,30 € | 6,50 € | 2026-09-15 |
+| Mistral AI | **Mistral Medium 3.5** | Généraliste équilibré | 256k | $1.5 | — | $7.5 | 1,30 € | 6,50 € | 2026-09-15 |
 | OpenAI | **GPT-5.2** | — | — | $1.75 | $0.175 | $14 | 1,52 € | 12,13 € | 2026-09-15 |
 | OpenAI | **GPT-5.2 (high)** | — | — | $1.75 | $0.175 | $14 | 1,52 € | 12,13 € | 2026-09-15 |
 | OpenAI | **GPT-5.2 (none)** | — | — | $1.75 | $0.175 | $14 | 1,52 € | 12,13 € | 2026-09-15 |
-| Alibaba | **Qwen3.8-Max** | Flagship | — | $2 | — | $6 | 1,73 € | 5,20 € | 2026-09-15 |
-| Alibaba | **Qwen3.8 Max (0902) (unknown)** | Flagship | — | $2 | — | $6 | 1,73 € | 5,20 € | 2026-09-15 |
-| Anthropic | **Claude Sonnet 5** | Référence ingénierie logicielle | — | $2 | $0.2 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
+| Alibaba | **Qwen3.8-Max** | Flagship | 1000k | $2 | — | $6 | 1,73 € | 5,20 € | 2026-09-15 |
+| Alibaba | **Qwen3.8 Max (0902) (unknown)** | Flagship | 1000k | $2 | — | $6 | 1,73 € | 5,20 € | 2026-09-15 |
+| Anthropic | **Claude Sonnet 5** | Référence ingénierie logicielle | 1000k | $2 | $0.2 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
 | Anthropic | **Claude Sonnet 5.5** | Référence ingénierie logicielle | 1000k | $2 | $0.2 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
-| Google DeepMind | **Gemini 3.1 Pro** | Flagship raisonnement | — | $2 | $0.2 | $12 | 1,73 € | 10,40 € | 2026-09-15 |
+| Google DeepMind | **Gemini 3.1 Pro** | Flagship raisonnement | 1000k | $2 | $0.2 | $12 | 1,73 € | 10,40 € | 2026-09-15 |
 | Google DeepMind | **Gemini 4 Argon** | Flagship raisonnement long-horizon | 1000k | $2 | $0.1 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
-| OpenAI | **GPT-5.6 Terra** | Équilibré développeur | — | $2 | $0.2 | $12 | 1,73 € | 10,40 € | 2026-09-15 |
-| OpenAI | **GPT-5.6 Terra (none)** | Équilibré développeur | — | $2 | $0.2 | $12 | 1,73 € | 10,40 € | 2026-09-15 |
-| OpenAI | **GPT-6 Sol** | — | — | $2 | $0.2 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
-| OpenAI | **GPT-6 Sol (none)** | — | — | $2 | $0.2 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
+| OpenAI | **GPT-5.6 Terra** | Équilibré développeur | 1050k | $2 | $0.2 | $12 | 1,73 € | 10,40 € | 2026-09-15 |
+| OpenAI | **GPT-5.6 Terra (none)** | Équilibré développeur | 1050k | $2 | $0.2 | $12 | 1,73 € | 10,40 € | 2026-09-15 |
+| OpenAI | **GPT-6 Sol** | — | 1050k | $2 | $0.2 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
+| OpenAI | **GPT-6 Sol (none)** | — | 1050k | $2 | $0.2 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
 | OpenAI | **GPT-6.1 Sol** | Flagship génération courante | 1050k | $2 | $0.1 | $10 | 1,73 € | 8,67 € | 2026-09-15 |
 | xAI | **Grok 4.5** | — | 500k | $2 | — | $6 | 1,73 € | 5,20 € | 2026-09-15 |
 | xAI | **Grok 4.6** | Flagship | 500k | $2 | — | $6 | 1,73 € | 5,20 € | 2026-09-15 |
 | xAI | **Grok 4.7** | Flagship | 500k | $2 | — | $6 | 1,73 € | 5,20 € | 2026-09-15 |
-| Alibaba | **Qwen3.7-Max** | — | — | $2.5 | — | $7.5 | 2,17 € | 6,50 € | 2026-09-15 |
+| Alibaba | **Qwen3.7-Max** | — | 1000k | $2.5 | — | $7.5 | 2,17 € | 6,50 € | 2026-09-15 |
 | OpenAI | **GPT-5.4** | — | — | $2.5 | $0.25 | $15 | 2,17 € | 13,00 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 (high)** | — | — | $2.5 | $0.25 | $15 | 2,17 € | 13,00 € | 2026-09-15 |
 | OpenAI | **GPT-5.4 (none)** | — | — | $2.5 | $0.25 | $15 | 2,17 € | 13,00 € | 2026-09-15 |
@@ -288,9 +288,9 @@ Une ligne par modèle, triée par coût d'entrée croissant. Seuls figurent les 
 | Anthropic | **Claude Sonnet 4.6 (32k thinking)** | — | — | $3 | $0.3 | $15 | 2,60 € | 13,00 € | 2026-09-15 |
 | Moonshot | **Kimi K3** | Flagship multimodal | 1048k | $3 | $0.3 | $15 | 2,60 € | 13,00 € | 2026-09-15 |
 | Anthropic | **Claude Opus 5.5** | Agentique et travail d'entreprise au quotidien | 1000k | $4 | $0.2 | $20 | 3,47 € | 17,33 € | 2026-09-15 |
-| OpenAI | **GPT-5.6 Sol** | Haute capacité multimodal | — | $4 | $0.4 | $20 | 3,47 € | 17,33 € | 2026-09-15 |
-| OpenAI | **GPT-5.6 Sol (none)** | Haute capacité multimodal | — | $4 | $0.4 | $20 | 3,47 € | 17,33 € | 2026-09-15 |
-| OpenAI | **GPT-5.6 Sol (pro, max)** | Haute capacité multimodal | — | $4 | $0.4 | $20 | 3,47 € | 17,33 € | 2026-09-15 |
+| OpenAI | **GPT-5.6 Sol** | Haute capacité multimodal | 1050k | $4 | $0.4 | $20 | 3,47 € | 17,33 € | 2026-09-15 |
+| OpenAI | **GPT-5.6 Sol (none)** | Haute capacité multimodal | 1050k | $4 | $0.4 | $20 | 3,47 € | 17,33 € | 2026-09-15 |
+| OpenAI | **GPT-5.6 Sol (pro, max)** | Haute capacité multimodal | 1050k | $4 | $0.4 | $20 | 3,47 € | 17,33 € | 2026-09-15 |
 | Anthropic | **Claude Opus 4.6** | — | — | $5 | $0.5 | $25 | 4,33 € | 21,66 € | 2026-09-15 |
 | Anthropic | **Claude Opus 4.6 (120k thinking)** | — | — | $5 | $0.5 | $25 | 4,33 € | 21,66 € | 2026-09-15 |
 | Anthropic | **Claude Opus 4.6 (32k thinking)** | — | — | $5 | $0.5 | $25 | 4,33 € | 21,66 € | 2026-09-15 |
@@ -301,7 +301,7 @@ Une ligne par modèle, triée par coût d'entrée croissant. Seuls figurent les 
 | Anthropic | **Claude Opus 5** | Flagship architecture et cas complexes | 1000k | $5 | $0.5 | $25 | 4,33 € | 21,66 € | 2026-09-15 |
 | OpenAI | **GPT-5.5** | — | — | $5 | $0.5 | $30 | 4,33 € | 26,00 € | 2026-09-15 |
 | OpenAI | **GPT-5.5 (no thinking)** | — | — | $5 | $0.5 | $30 | 4,33 € | 26,00 € | 2026-09-15 |
-| Anthropic | **Claude Fable 5** | — | — | $10 | $1 | $50 | 8,67 € | 43,33 € | 2026-09-15 |
+| Anthropic | **Claude Fable 5** | — | 1000k | $10 | $1 | $50 | 8,67 € | 43,33 € | 2026-09-15 |
 | Anthropic | **Claude Fable 5.1** | Flagship raisonnement étendu | 1000k | $10 | $0.25 | $50 | 8,67 € | 43,33 € | 2026-09-15 |
 | OpenAI | **GPT-6 Astra** | Flagship nouvelle génération | 1050k | $10 | $1 | $50 | 8,67 € | 43,33 € | 2026-09-15 |
 | OpenAI | **GPT-6 Astra (none)** | Flagship nouvelle génération | 1050k | $10 | $1 | $50 | 8,67 € | 43,33 € | 2026-09-15 |
