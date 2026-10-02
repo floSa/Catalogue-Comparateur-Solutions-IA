@@ -8,7 +8,7 @@
 ![GitHub Actions](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
 ![Licence](https://img.shields.io/badge/licence-MIT-4A3AA7)
 
-**[Consulter la page interactive →](https://flosa.github.io/tandem-ai/)** — classements,
+**[Consulter la page interactive →](https://flosa.github.io/Catalogue-Comparateur-Solutions-IA/)** — classements,
 coût contre performance, couverture des benchmarks, tarifs et forfaits.
 
 Référentiel ouvert de l'offre de développement assisté par IA, construit pour résister
@@ -75,7 +75,7 @@ flowchart LR
 | [docs/NOTE_DE_REPRISE.md](docs/NOTE_DE_REPRISE.md) | Ce qui reste à faire à la prochaine session |
 | [AGENTS.md](AGENTS.md) | Point d'entrée pour les agents non-Claude |
 | [Guide complet](Guide_Complet_Solutions_Dev_IA_2026.md) | Livrable généré : tableaux comparatifs |
-| [Page interactive](https://flosa.github.io/tandem-ai/) | Livrable généré : graphiques et tableaux filtrables |
+| [Page interactive](https://flosa.github.io/Catalogue-Comparateur-Solutions-IA/) | Livrable généré : graphiques et tableaux filtrables |
 
 ## Démarrage
 
@@ -178,7 +178,7 @@ Deux chantiers restent ouverts, et le plan de travail les rappelle à chaque ex�
 ## Structure du projet
 
 ```text
-tandem-ai/
+Catalogue-Comparateur-Solutions-IA/
 ├── catalog/                 # SOURCE DE VÉRITÉ — seul endroit édité à la main
 │   ├── _meta.yaml           #   taux, TVA, seuils, hiérarchie de provenance
 │   ├── pricing_verified.yaml#   tarifs saisis + modèles sans tarif éditeur API
