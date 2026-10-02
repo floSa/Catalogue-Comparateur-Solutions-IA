@@ -54,6 +54,7 @@ def build_payload() -> dict:
             "id": m["id"], "name": m.get("display_name") or m["id"],
             "lab": m.get("lab"), "role": m.get("role"),
             "ctx": m.get("context_window"),
+            "ctx_src": m.get("context_source"),
             "api_id": m.get("api_model_id"),
             **rec,
             "offpeak": p.get("offpeak"), "promo": p.get("promo_note"),
@@ -278,6 +279,10 @@ th{color:var(--ink-3);font-weight:500;font-size:11px;text-transform:uppercase;le
 /* En-tête et valeur d'une colonne chiffrée partagent le même axe : centrés
    tous les deux, le titre tombe au-dessus de ses chiffres. */
 th.n,td.n{text-align:center}
+/* Unité sous l'intitulé : sans elle, « Entrée 2 » et « Fenêtre 1 M » se lisaient
+   comme deux grandeurs de même nature. */
+th .u{display:block;font-weight:400;font-size:9.5px;letter-spacing:.02em;
+ text-transform:none;color:var(--ink-3);margin-top:1px}
 td.n{font-family:"IBM Plex Mono",ui-monospace,monospace;
  font-variant-numeric:tabular-nums}
 .tw{max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:9px}
@@ -608,6 +613,11 @@ function decades(lo,hi){
   return out;
 }
 const money=v=>'$'+(v<1?v.toFixed(2):v.toFixed(0));
+// Une fenêtre de contexte se lit en millions dès qu'elle en atteint un :
+// « 1049k » ne dit rien à personne, « 1,05 M » se comprend d'un coup d'œil.
+const fenetre=n=>!n?'—':n>=1e6
+  ?(n/1e6).toFixed(n%1e6?2:0).replace('.',',').replace(',00','')+' M'
+  :Math.round(n/1e3)+' k';
 const NS='http://www.w3.org/2000/svg';
 const mk=(t,a={})=>{const e=document.createElementNS(NS,t);
   for(const k in a)e.setAttribute(k,a[k]);return e;};
@@ -1149,7 +1159,7 @@ function api(){
     vt.textContent=m.in?`$${m.in} / $${m.out??'—'}`:'gratuit';g.append(vt);
     wire(g,`<b>${esc(m.name)}</b>${esc(m.api_id||m.id)}<br>`+
       `entrée <b>$${m.in}</b> · cache $${m.cached??'—'} · sortie <b>$${m.out??'—'}</b> /1M`+
-      (m.ctx?`<br>contexte : ${(m.ctx/1000).toFixed(0)}k`:'')+
+      (m.ctx?`<br>fenêtre de contexte : ${fenetre(m.ctx)}`:'')+
       (m.offpeak?`<br>heures creuses : $${m.offpeak.input_per_1m} / $${m.offpeak.output_per_1m}`:'')+
       (m.promo?`<br>${esc(m.promo)}`:'')+(m.tier?`<br>${esc(m.tier)}`:'')+
       ``);
@@ -1165,11 +1175,11 @@ function api(){
     's\'il réussit du premier coup.</div>';
   $('#tbl').innerHTML='<thead><tr><th>Modèle</th><th>Identifiant API</th>'+
     '<th class="n">Entrée</th><th class="n">Cache</th><th class="n">Sortie</th>'+
-    '<th class="n">Contexte</th></tr></thead><tbody>'+
+    '<th class="n">Fenêtre</th></tr></thead><tbody>'+
     r.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.api_id||'—')}</td>`+
       `<td class="n">$${m.in}</td><td class="n">${m.cached!=null?'$'+m.cached:'—'}</td>`+
       `<td class="n">${m.out!=null?'$'+m.out:'—'}</td>`+
-      `<td class="n">${m.ctx?(m.ctx/1000).toFixed(0)+'k':'—'}</td></tr>`).join('')+'</tbody>';
+      `<td class="n">${fenetre(m.ctx)}</td></tr>`).join('')+'</tbody>';
 }
 
 function plans(){
@@ -1397,15 +1407,27 @@ brancherCategories('#pas-cat','#pas',2,ORD_P);
       ms.length>1?'s':''} relevé${ms.length>1?'s':''}${L.country?' · '+esc(L.country):''}</span></h3>
      <div class="tw" style="max-height:none"><table>
      <thead><tr><th>Modèle</th><th>Identifiant API</th><th>Rôle</th>
-     <th class="n">Entrée</th><th class="n">Cache</th><th class="n">Sortie</th>
-     <th class="n">Entrée € HT</th><th class="n">Contexte</th></tr></thead><tbody>`;
-    ms.sort((a,b)=>a.in-b.in).forEach(m=>{
+     <th class="n">Entrée<br><span class="u">$ / 1M jetons</span></th>
+     <th class="n">Cache<br><span class="u">$ / 1M jetons</span></th>
+     <th class="n">Sortie<br><span class="u">$ / 1M jetons</span></th>
+     <th class="n">Entrée<br><span class="u">€ HT / 1M jetons</span></th>
+     <th class="n">Fenêtre<br><span class="u">jetons</span></th></tr></thead><tbody>`;
+    // Les générations récentes d'abord : c'est ce qu'on vient voir. Le tri
+    // alphabétique mettait Qwen3.5 au-dessus de Qwen3.8, et le tri par prix
+    // noyait le flagship au milieu de la liste.
+    const gen=x=>{const n=(String(x.api_id||x.id).match(/\d+(?:\.\d+)?/g)||[])
+      .slice(0,2).map(Number);
+      while(n.length<2)n.push(0);return n;};
+    ms.sort((a,b)=>{const g=gen(a),h=gen(b);
+      return (h[0]-g[0])||(h[1]-g[1])||(b.in-a.in);}).forEach(m=>{
       html+=`<tr><td><b>${esc(m.name)}</b></td><td><code style="font-size:11px">${
         esc(m.api_id||'—')}</code></td><td>${esc(m.role||'—')}</td>
         <td class="n">$${m.in}</td><td class="n">${m.cached!=null?'$'+m.cached:'—'}</td>
         <td class="n">$${m.out!=null?m.out:'—'}</td>
         <td class="n">${(m.in*D.fx.usd_eur).toFixed(3).replace('.',',')} €</td>
-        <td class="n">${m.ctx?(m.ctx/1000).toFixed(0)+'k':'—'}</td></tr>`;
+        <td class="n">${m.ctx_src
+          ?`<a href="${esc(m.ctx_src)}" rel="noopener" title="source de la fenêtre">${fenetre(m.ctx)}</a>`
+          :fenetre(m.ctx)}</td></tr>`;
       const notes=[m.offpeak&&`heures creuses : $${m.offpeak.input_per_1m} / $${m.offpeak.output_per_1m}`,
         m.promo,m.tier].filter(Boolean);
       if(notes.length)html+=`<tr><td colspan="8" style="color:var(--ink-3);font-size:11.5px;

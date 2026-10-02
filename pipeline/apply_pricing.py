@@ -139,6 +139,11 @@ def main() -> int:
         "note": "À renseigner depuis la page /pricing officielle du lab."}}
     for m in models:
         m["pricing"] = dict(vide, source=dict(vide["source"]))
+        # La fenêtre de contexte suit la même règle que le tarif : elle vient de
+        # la saisie, qui porte sa source. Sans cette remise à zéro, une valeur
+        # saisie sans source lors d'une passe antérieure survivait au nettoyage.
+        m.pop("context_window", None)
+        m.pop("context_source", None)
 
     for v in vp.get("models", []):
         lab = v["lab"]
@@ -175,7 +180,7 @@ def main() -> int:
                 continue
             a = idx[alias]
             a["pricing"] = {**p, "source": {**p["source"], "priced_as": v["id"]}}
-            for k in ("context_window", "role"):
+            for k in ("context_window", "context_source", "role"):
                 if v.get(k) is not None and a.get(k) is None:
                     a[k] = v[k]
             updated += 1
@@ -183,7 +188,7 @@ def main() -> int:
         if v["id"] in idx:
             m = idx[v["id"]]
             m["pricing"] = p
-            for k in ("api_model_id", "context_window", "role", "display_name"):
+            for k in ("api_model_id", "context_window", "context_source", "role", "display_name"):
                 if v.get(k) is not None:
                     m[k] = v[k]
             updated += 1
@@ -196,6 +201,7 @@ def main() -> int:
                 "status": "active",
                 "api_model_id": v.get("api_model_id"),
                 "context_window": v.get("context_window"),
+                "context_source": v.get("context_source"),
                 "role": v.get("role"),
                 "pricing": p,
             })

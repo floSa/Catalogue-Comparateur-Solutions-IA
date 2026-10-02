@@ -146,6 +146,36 @@ Points d'attention récurrents :
 - vérifier la région de facturation (les tarifs Alibaba diffèrent selon la zone) ;
 - noter les tarifs batch / asynchrones séparément du tarif temps réel.
 
+### La fenêtre de contexte ne vit pas sur la page tarifaire
+
+Une page `/pricing` donne un prix au million de jetons ; elle ne dit presque jamais
+combien de jetons le modèle accepte. Ce sont deux grandeurs différentes et les
+confondre induit en erreur — un tarif « par million » n'implique pas une fenêtre
+d'un million.
+
+La fenêtre se relève sur la **page de référence du modèle**, et se saisit avec sa
+source dans `context_source` :
+
+| Fournisseur | Où la fenêtre est affirmée |
+| :-- | :-- |
+| Anthropic | `platform.claude.com/docs/en/about-claude/models/overview` — tableau comparatif ; chaque modèle a aussi sa page `…/models/<nom>/overview` |
+| OpenAI | `developers.openai.com/api/docs/models` |
+| xAI | `docs.x.ai/docs/models` — la colonne Context de la grille |
+| Z.ai | `docs.z.ai/guides/llm/<modèle>` |
+| DeepSeek, Moonshot, MiniMax, Meta | affichée sur la page tarifaire elle-même |
+| Google, Alibaba, Mistral | **non localisée** : ni la page tarifaire ni la page modèles ne la portent. Il faut ouvrir la fiche de chaque modèle |
+
+**Ne jamais déduire une fenêtre d'un palier de facturation.** Qu'Alibaba facture
+une tranche « 256k-1M jetons » prouve qu'une entrée d'un million est acceptée en
+facturation, pas que la fenêtre vaut un million. Dans le doute, laisser vide.
+
+Cette règle vient d'un défaut constaté : le catalogue a porté `200000` pour tous
+les modèles Anthropic pendant trois éditions, valeur saisie sans source et
+démentie par la documentation — les modèles courants sont à 1M, seul Haiku 4.5
+est à 200k.
+
+---
+
 ### Quand la page ne porte pas le modèle mesuré
 
 Les identifiants mesurés par les benchmarks ne sont presque jamais ceux qui figurent
