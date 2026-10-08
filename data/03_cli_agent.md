@@ -3,7 +3,7 @@
 
 # Agents CLI
 
-17 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+26 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Aider
 
@@ -14,6 +14,17 @@
 - **Capacités :** BYOK, modèles locaux, gratuit
 
 Pair programming en terminal. Repo map via tree-sitter, commits Git automatiques.
+
+## Amp
+
+- **Éditeur :** Amp Frontier Corporation
+- **Site :** [https://ampcode.com](https://ampcode.com)
+- **Documentation :** [https://ampcode.com/docs](https://ampcode.com/docs)
+- **Tarifs :** [https://ampcode.com/pricing](https://ampcode.com/pricing)
+- **Statut :** active
+- **Capacités :** BYOK, MCP, gratuit
+
+Agent de code en terminal, aussi en web et en applications macOS/iOS. Issu de Sourcegraph, devenu société indépendante le 02/12/2025. Code fermé. Offre gratuite (Hobby) avec ses propres clés ; Individual 20 $/mois ; pas de marge sur les tarifs API pour les particuliers.
 
 ## Antigravity CLI
 
@@ -46,6 +57,26 @@ Inclus dans Claude Pro et Max, ou facturé à l'usage via clé API.
 
 Agent de codage en terminal, open-source sous Apache-2.0. Depuis juillet 2026, Codex est aussi un des trois espaces de l'application ChatGPT Desktop. Utilisable via un abonnement ChatGPT ou une clé API.
 
+## Crush
+
+- **Éditeur :** Charm
+- **Site :** [https://charm.land/](https://charm.land/)
+- **Dépôt :** [https://github.com/charmbracelet/crush](https://github.com/charmbracelet/crush)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
+
+Agent de terminal de Charm. Code source public sous licence FSL-1.1-MIT : il ne devient open-source au sens strict (MIT) qu'après un délai. Clés personnelles, modèles locaux (Ollama), MCP.
+
+## Cursor CLI
+
+- **Éditeur :** Anysphere, Inc.
+- **Documentation :** [https://cursor.com/docs/cli/overview](https://cursor.com/docs/cli/overview)
+- **Tarifs :** [https://cursor.com/pricing](https://cursor.com/pricing)
+- **Statut :** active
+- **Capacités :** MCP
+
+Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code fermé.
+
 ## DeepSeek Harness
 
 - **Éditeur :** DeepSeek
@@ -67,6 +98,49 @@ Harnais officiel de DeepSeek (commande `dsh`), open-source sous MIT, en prévers
 - **Capacités :** BYOK, modèles locaux, MCP
 
 Agent de développement de Factory, piloté depuis le terminal (commande `droid`, mode non interactif `droid exec`), aussi disponible en application de bureau et en SDK. Code fermé. Choix du modèle par tâche ; clés personnelles (OpenAI, Anthropic, fournisseurs open-source ou modèle local) acceptées en BYOK. Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.
+
+## Freebuff
+
+- **Éditeur :** CodebuffAI
+- **Site :** [https://freebuff.com](https://freebuff.com)
+- **Dépôt :** [https://github.com/CodebuffAI/freebuff](https://github.com/CodebuffAI/freebuff)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Agent de terminal gratuit, sans abonnement ni clé d'API : l'accès aux modèles inclus est financé par des publicités textuelles. Aussi en application de bureau et sur le web. Open-source sous Apache-2.0. Anciennement Codebuff.
+
+## Gemini CLI
+
+- **Éditeur :** Google
+- **Site :** [https://geminicli.com](https://geminicli.com)
+- **Documentation :** [https://geminicli.com/docs/](https://geminicli.com/docs/)
+- **Dépôt :** [https://github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+- **Statut :** active
+- **Capacités :** BYOK, MCP
+
+Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/06/2026, il ne sert plus l'usage gratuit ni les abonnements Google AI Pro et Ultra, basculés vers Antigravity CLI. Il reste utilisable avec une clé d'API Gemini payante, via Vertex AI ou avec une licence Gemini Code Assist Standard ou Enterprise.
+
+## GitHub Copilot CLI
+
+- **Éditeur :** GitHub / Microsoft
+- **Documentation :** [https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli)
+- **Dépôt :** [https://github.com/github/copilot-cli](https://github.com/github/copilot-cli)
+- **Tarifs :** [https://github.com/features/copilot/plans](https://github.com/features/copilot/plans)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
+
+Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le gratuit. Clés personnelles acceptées (OpenAI, Azure, Anthropic) et modèles locaux (Ollama, vLLM, Foundry Local), avec mode hors ligne. Code fermé. Forfaits : Free 0 $, Pro 10 $/mois, Pro+ 39 $/mois, Max 100 $/mois.
+
+## Goose
+
+- **Éditeur :** Agentic AI Foundation (Linux Foundation)
+- **Site :** [https://goose-docs.ai/](https://goose-docs.ai/)
+- **Documentation :** [https://goose-docs.ai/docs/getting-started/installation](https://goose-docs.ai/docs/getting-started/installation)
+- **Dépôt :** [https://github.com/aaif-goose/goose](https://github.com/aaif-goose/goose)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
+
+Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l'Agentic AI Foundation, aux côtés de MCP et d'AGENTS.md. CLI, application de bureau et API. Plus de 15 fournisseurs, modèles locaux via Ollama, plus de 70 extensions MCP. Se présente comme un agent généraliste, pas seulement de code.
 
 ## Grok Build
 
@@ -98,6 +172,28 @@ Agent de terminal open-source sous licence MIT, publié en février 2026. Interf
 - **Capacités :** —
 
 Agent de terminal de Moonshot, binaire autonome, protocole ACP. Node.js ≥ 24.15 et pnpm 10.33. Le projet d'origine MoonshotAI/kimi-cli est absorbé par kimi-code : l'installation migre automatiquement configuration et sessions, l'ancien dépôt est progressivement arrêté.
+
+## Kiro CLI
+
+- **Éditeur :** Amazon Web Services
+- **Site :** [https://kiro.dev/cli/](https://kiro.dev/cli/)
+- **Documentation :** [https://kiro.dev/docs/cli/](https://kiro.dev/docs/cli/)
+- **Tarifs :** [https://kiro.dev/pricing/](https://kiro.dev/pricing/)
+- **Statut :** active
+- **Capacités :** MCP, gratuit
+
+Agent de terminal d'AWS, successeur d'Amazon Q Developer CLI (bascule automatique en novembre 2025 ; l'ancienne CLI ne reçoit plus que les correctifs de sécurité). Code fermé. Mêmes forfaits en crédits que l'IDE Kiro ; l'abonnement ne peut pas être utilisé depuis un harnais tiers.
+
+## Letta Code
+
+- **Éditeur :** Letta
+- **Site :** [https://www.letta.com/agent](https://www.letta.com/agent)
+- **Documentation :** [https://docs.letta.com/letta-code/cli](https://docs.letta.com/letta-code/cli)
+- **Dépôt :** [https://github.com/letta-ai/letta-code](https://github.com/letta-ai/letta-code)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Harnais d'agents à mémoire persistante : l'agent réécrit son propre contexte et apprend d'une session à l'autre. CLI, application de bureau, navigateur et messageries. Open-source sous Apache-2.0.
 
 ## Mistral Vibe
 

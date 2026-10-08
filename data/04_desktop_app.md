@@ -3,7 +3,7 @@
 
 # Applications desktop
 
-7 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+9 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## ChatGPT Desktop
 
@@ -47,6 +47,18 @@ Plateforme de développement agentique de Google, poste de commande pour plusieu
 
 Application de bureau native de Hermes Agent, en préversion publique depuis juin 2026 (macOS, Windows, Linux), sous licence MIT. Même agent, mêmes compétences, même mémoire et mêmes sessions que la version terminal : on passe de l'une à l'autre sans perdre le contexte. Lancement depuis le terminal par `hermes desktop`, ou par installeur.
 
+## Jan
+
+- **Éditeur :** Menlo Research
+- **Site :** [https://jan.ai](https://jan.ai)
+- **Documentation :** [https://jan.ai/docs/desktop/api-server](https://jan.ai/docs/desktop/api-server)
+- **Dépôt :** [https://github.com/janhq/jan](https://github.com/janhq/jan)
+- **Statut :** active
+- **Capacités :** modèles locaux, gratuit
+- **Endpoint local :** `http://127.0.0.1:1337/v1`
+
+Application de bureau qui fait tourner les modèles hors ligne sur le poste (moteur llama.cpp). Un serveur local compatible OpenAI s'active depuis les réglages, pour y brancher un harnais. Windows, macOS (Apple Silicon), Linux. Open-source sous Apache-2.0.
+
 ## Kimi Work
 
 - **Éditeur :** Moonshot AI
@@ -74,4 +86,16 @@ Agent pour le travail et le code, annonce par l'editeur comme couvrant les tache
 - **Capacités :** gratuit
 
 Application desktop Windows et macOS donnant accès aux modèles Qwen : recherche approfondie, analyse de documents, génération d'images et de vidéo. Orientée usage général plutôt que développement.
+
+## Warp
+
+- **Éditeur :** Warp
+- **Site :** [https://www.warp.dev](https://www.warp.dev)
+- **Documentation :** [https://docs.warp.dev](https://docs.warp.dev)
+- **Dépôt :** [https://github.com/warpdotdev/warp](https://github.com/warpdotdev/warp)
+- **Tarifs :** [https://www.warp.dev/pricing](https://www.warp.dev/pricing)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Terminal doté d'agents de code intégrés, dont le code est devenu public sous AGPL-3.0. Son agent existe aussi en CLI utilisable dans n'importe quel terminal. Forfaits : Free 0 $ (inférence personnelle possible), Build 20 $/mois, Max 200 $/mois, Business 50 $/utilisateur/mois.
 

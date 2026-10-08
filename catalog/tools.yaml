@@ -431,7 +431,7 @@ tools:
   name: Continue
   vendor: Continue Dev, Inc.
   category: vscode_extension
-  status: active
+  status: maintenance
   url: https://continue.dev
   repo_url: https://github.com/continuedev/continue
   byok: true
@@ -440,8 +440,9 @@ tools:
   note: VS Code et JetBrains. Sépare le modèle d'autocomplétion du modèle de chat.
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: Très actif (commit le jour du relevé), 35 918 étoiles.
+    verified_on: '2026-10-08'
+    finding: 'Le README annonce une « version finale 2.0.0 » de l''extension VS Code, de la CLI et du plugin
+      JetBrains : fin du développement actif.'
   compliance:
     zero_data_retention: true
     self_hosted: true
@@ -865,6 +866,698 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+- id: gemini-cli
+  name: Gemini CLI
+  vendor: Google
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://geminicli.com
+  docs_url: https://geminicli.com/docs/
+  repo_url: https://github.com/google-gemini/gemini-cli
+  install: npm install -g @google/gemini-cli
+  byok: true
+  mcp: true
+  note: 'Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/06/2026, il ne sert
+    plus l''usage gratuit ni les abonnements Google AI Pro et Ultra, basculés vers Antigravity CLI. Il reste
+    utilisable avec une clé d''API Gemini payante, via Vertex AI ou avec une licence Gemini Code Assist
+    Standard ou Enterprise.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: 'Le README et la page des offres de geminicli.com annoncent encore l''offre gratuite (1 000 requêtes
+      par jour), alors que le blog Google du 19/05/2026 et le bandeau du site confirment son arrêt.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: copilot-cli
+  name: GitHub Copilot CLI
+  vendor: GitHub / Microsoft
+  category: cli_agent
+  layer: 1
+  status: active
+  docs_url: https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli
+  pricing_url: https://github.com/features/copilot/plans
+  repo_url: https://github.com/github/copilot-cli
+  install: npm install -g @github/copilot
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le gratuit. Clés personnelles
+    acceptées (OpenAI, Azure, Anthropic) et modèles locaux (Ollama, vLLM, Foundry Local), avec mode hors
+    ligne. Code fermé. Forfaits : Free 0 $, Pro 10 $/mois, Pro+ 39 $/mois, Max 100 $/mois.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: cursor-cli
+  name: Cursor CLI
+  vendor: Anysphere, Inc.
+  category: cli_agent
+  layer: 1
+  status: active
+  docs_url: https://cursor.com/docs/cli/overview
+  pricing_url: https://cursor.com/pricing
+  mcp: true
+  note: 'Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code fermé.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: BYOK et modèles locaux non documentés pour la CLI.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: kiro-cli
+  name: Kiro CLI
+  vendor: Amazon Web Services
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://kiro.dev/cli/
+  docs_url: https://kiro.dev/docs/cli/
+  pricing_url: https://kiro.dev/pricing/
+  install: curl -fsSL https://cli.kiro.dev/install | bash
+  free: true
+  mcp: true
+  note: 'Agent de terminal d''AWS, successeur d''Amazon Q Developer CLI (bascule automatique en novembre
+    2025 ; l''ancienne CLI ne reçoit plus que les correctifs de sécurité). Code fermé. Mêmes forfaits en crédits
+    que l''IDE Kiro ; l''abonnement ne peut pas être utilisé depuis un harnais tiers.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: BYOK et modèles locaux non documentés par l'éditeur.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: goose
+  name: Goose
+  vendor: Agentic AI Foundation (Linux Foundation)
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://goose-docs.ai/
+  docs_url: https://goose-docs.ai/docs/getting-started/installation
+  repo_url: https://github.com/aaif-goose/goose
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l''Agentic AI Foundation, aux
+    côtés de MCP et d''AGENTS.md. CLI, application de bureau et API. Plus de 15 fournisseurs, modèles locaux
+    via Ollama, plus de 70 extensions MCP. Se présente comme un agent généraliste, pas seulement de code.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: Le dépôt a migré de block/goose vers aaif-goose/goose.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: crush
+  name: Crush
+  vendor: Charm
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://charm.land/
+  repo_url: https://github.com/charmbracelet/crush
+  install: npm install -g @charmland/crush
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent de terminal de Charm. Code source public sous licence FSL-1.1-MIT : il ne devient open-source
+    au sens strict (MIT) qu''après un délai. Clés personnelles, modèles locaux (Ollama), MCP.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: amp
+  name: Amp
+  vendor: Amp Frontier Corporation
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://ampcode.com
+  docs_url: https://ampcode.com/docs
+  pricing_url: https://ampcode.com/pricing
+  byok: true
+  free: true
+  mcp: true
+  note: 'Agent de code en terminal, aussi en web et en applications macOS/iOS. Issu de Sourcegraph, devenu
+    société indépendante le 02/12/2025. Code fermé. Offre gratuite (Hobby) avec ses propres clés ; Individual
+    20 $/mois ; pas de marge sur les tarifs API pour les particuliers.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: Tarif du palier supérieur non lisible (chargé dynamiquement).
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: warp
+  name: Warp
+  vendor: Warp
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://www.warp.dev
+  docs_url: https://docs.warp.dev
+  pricing_url: https://www.warp.dev/pricing
+  repo_url: https://github.com/warpdotdev/warp
+  byok: true
+  free: true
+  note: 'Terminal doté d''agents de code intégrés, dont le code est devenu public sous AGPL-3.0. Son agent
+    existe aussi en CLI utilisable dans n''importe quel terminal. Forfaits : Free 0 $ (inférence personnelle
+    possible), Build 20 $/mois, Max 200 $/mois, Business 50 $/utilisateur/mois.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: freebuff
+  name: Freebuff
+  vendor: CodebuffAI
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://freebuff.com
+  repo_url: https://github.com/CodebuffAI/freebuff
+  install: npm install -g freebuff
+  free: true
+  note: 'Agent de terminal gratuit, sans abonnement ni clé d''API : l''accès aux modèles inclus est financé
+    par des publicités textuelles. Aussi en application de bureau et sur le web. Open-source sous Apache-2.0.
+    Anciennement Codebuff.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: letta-code
+  name: Letta Code
+  vendor: Letta
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://www.letta.com/agent
+  docs_url: https://docs.letta.com/letta-code/cli
+  repo_url: https://github.com/letta-ai/letta-code
+  free: true
+  note: 'Harnais d''agents à mémoire persistante : l''agent réécrit son propre contexte et apprend d''une
+    session à l''autre. CLI, application de bureau, navigateur et messageries. Open-source sous Apache-2.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: kiro
+  name: Kiro
+  vendor: Amazon Web Services
+  category: ide_fork
+  layer: 1
+  status: active
+  url: https://kiro.dev
+  docs_url: https://kiro.dev/docs/
+  pricing_url: https://kiro.dev/pricing/
+  mcp: true
+  note: 'IDE d''AWS bâti sur la base de VS Code, avec un mode « spécifications » (exigences, conception,
+    tâches) avant le code ; décliné aussi en CLI. Désigné par AWS comme le remplaçant d''Amazon Q Developer.
+    Modèles hébergés par Kiro. Forfaits en crédits : Free 0 $ (50 crédits), Pro 20 $/mois (1 000), Pro+
+    40 $ (2 000), Pro Max 100 $ (5 000), Power 200 $ (10 000) ; crédit supplémentaire à 0,04 $. Code
+    fermé.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: BYOK et modèles locaux non documentés par l'éditeur.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: kilo-code
+  name: Kilo Code
+  vendor: Kilo-Org
+  category: vscode_extension
+  layer: 1
+  status: active
+  url: https://kilo.ai
+  docs_url: https://kilo.ai/docs
+  pricing_url: https://kilo.ai/pricing
+  repo_url: https://github.com/Kilo-Org/kilocode
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent de code pour VS Code et JetBrains, décliné en CLI (elle-même dérivée d''OpenCode). Open-source
+    sous MIT. Gratuit avec ses propres clés ou un modèle local (Ollama, LM Studio). Teams 15 $/utilisateur/mois.
+    La passerelle Kilo facture les modèles au tarif du fournisseur, sans marge, plus 5 % sur l''achat de
+    crédits.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: 'L''ancienne extension a atteint sa fin de vie le 31/07/2026 ; le nouveau produit est distribué
+      sous les mêmes identifiants de place de marché.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: augment-code
+  name: Augment Code
+  vendor: Augment Computing
+  category: vscode_extension
+  layer: 1
+  status: active
+  url: https://www.augmentcode.com
+  docs_url: https://docs.augmentcode.com
+  pricing_url: https://www.augmentcode.com/pricing
+  mcp: true
+  note: 'Agent de code pour VS Code et JetBrains, décliné en CLI (Auggie). Code fermé. Pas d''offre gratuite
+    permanente : Standard 20 $/mois (20 $ d''usage inclus), Business 100 $/mois (100 $ d''usage inclus),
+    sans facturation par siège jusqu''à 50 sièges.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: BYOK et modèles locaux non documentés par l'éditeur.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: jetbrains-ai
+  name: JetBrains AI Assistant et Junie
+  vendor: JetBrains
+  category: vscode_extension
+  layer: 1
+  status: active
+  url: https://www.jetbrains.com/help/ai-assistant/
+  docs_url: https://www.jetbrains.com/help/ai-assistant/
+  pricing_url: https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Assistant et agent (Junie) intégrés aux IDE JetBrains ; Junie existe aussi en terminal et en intégration
+    continue. Clés personnelles acceptées (Anthropic, Google, OpenAI, points d''accès compatibles OpenAI)
+    et modèles locaux via Ollama ou LM Studio. Offre gratuite : 3 crédits par 30 jours (1 crédit = 1 $),
+    absente des éditions Community.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: 'La page de licences affiche deux grilles de prix contradictoires pour AI Pro et AI Ultimate
+      ; aucun tarif payant n''est donc repris.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: tabnine
+  name: Tabnine
+  vendor: Tabnine
+  category: vscode_extension
+  layer: 1
+  status: active
+  url: https://www.tabnine.com
+  docs_url: https://docs.tabnine.com
+  pricing_url: https://www.tabnine.com/pricing
+  note: 'Assistant de code orienté entreprise, déployable entièrement dans l''environnement du client ;
+    points d''accès privés pour les installations Enterprise. Code fermé.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: 'Page de tarifs en erreur 502 lors du relevé : aucun prix repris.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: qodo
+  name: Qodo
+  vendor: Qodo
+  category: vscode_extension
+  layer: 1
+  status: active
+  url: https://www.qodo.ai
+  pricing_url: https://www.qodo.ai/pricing/
+  note: 'Extension VS Code et JetBrains désormais centrée sur la revue de code. Code fermé. Pas d''offre
+    gratuite permanente (essai de 14 jours, programme gratuit pour l''open source). Clés personnelles réservées
+    à l''offre Enterprise.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: 'L''unité du prix « Pro Team » (30 $) n''est pas précisée sur la page : non repris.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: amazon-q-developer
+  name: Amazon Q Developer (extensions IDE)
+  vendor: Amazon Web Services
+  category: vscode_extension
+  layer: 1
+  status: maintenance
+  url: https://aws.amazon.com/q/developer/
+  pricing_url: https://aws.amazon.com/q/developer/pricing/
+  repo_url: https://github.com/aws/aws-toolkit-vscode
+  free: true
+  note: 'Extensions VS Code et JetBrains d''AWS. Fin du support annoncée au 30/04/2027, Kiro étant désigné
+    comme remplaçant. Gratuit jusqu''à 50 requêtes agentiques par mois ; Pro 19 $/utilisateur/mois.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-developer-ide-end-of-support.html
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: gemini-code-assist
+  name: Gemini Code Assist
+  vendor: Google
+  category: vscode_extension
+  layer: 1
+  status: active
+  docs_url: https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals
+  note: 'Extensions VS Code et JetBrains de Google, réservées depuis le 18/06/2026 aux offres Standard et
+    Enterprise de Google Cloud : les extensions ont cessé de servir les offres individuelles, Google AI Pro
+    et Ultra, redirigées vers Antigravity.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+    finding: 'Tarifs Standard et Enterprise lus seulement dans un extrait de recherche (page non affichée)
+      : non repris.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: litellm
+  name: LiteLLM (proxy)
+  vendor: BerriAI
+  category: gateway
+  layer: 2
+  status: active
+  url: https://docs.litellm.ai/docs/
+  docs_url: https://docs.litellm.ai/docs/
+  repo_url: https://github.com/BerriAI/litellm
+  byok: true
+  free: true
+  note: 'Passerelle à héberger soi-même : une API au format OpenAI devant plus de 100 fournisseurs, avec
+    ses propres clés. Open-source sous MIT (hors module entreprise, sous licence propre). Offre Enterprise
+    sur devis.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: vercel-ai-gateway
+  name: Vercel AI Gateway
+  vendor: Vercel
+  category: gateway
+  layer: 2
+  status: active
+  url: https://vercel.com/docs/ai-gateway
+  pricing_url: https://vercel.com/docs/ai-gateway/pricing
+  byok: true
+  note: 'Passerelle hébergée : aucune marge ni frais de plateforme sur les jetons, frais de paiement à la
+    charge du client. Clés personnelles acceptées sans marge, mais l''achat de crédits reste obligatoire.
+    Offre gratuite limitée à une partie des modèles. Options payantes (dont la rétention nulle à l''échelle
+    de l''équipe, 0,10 $ pour 1 000 requêtes).'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: cloudflare-ai-gateway
+  name: Cloudflare AI Gateway
+  vendor: Cloudflare
+  category: gateway
+  layer: 2
+  status: active
+  url: https://developers.cloudflare.com/ai-gateway/
+  pricing_url: https://developers.cloudflare.com/ai-gateway/reference/pricing/
+  free: true
+  note: 'Passerelle hébergée : journalisation, cache, limitation de débit. Fonctions de base gratuites. En
+    facturation unifiée, 5 % de frais sur l''achat de crédits, inférence sans marge.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: Conditions BYOK non précisées sur la page de tarifs.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: requesty
+  name: Requesty
+  vendor: Requesty
+  category: gateway
+  layer: 2
+  status: active
+  url: https://www.requesty.ai
+  pricing_url: https://www.requesty.ai/pricing
+  byok: true
+  free: true
+  note: 'Passerelle hébergée : 5 % de marge sur le coût des modèles. Offre gratuite limitée aux modèles
+    gratuits, 200 requêtes par jour.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: Frais applicables en BYOK non précisés.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: portkey
+  name: Portkey
+  vendor: Portkey AI
+  category: gateway
+  layer: 2
+  status: active
+  url: https://portkey.ai
+  pricing_url: https://portkey.ai/pricing
+  repo_url: https://github.com/Portkey-AI/gateway
+  free: true
+  note: 'Passerelle open-source (MIT) à héberger soi-même, ou plateforme hébergée facturée au volume de journaux
+    : Developer gratuit (10 000 journaux/mois), Production 49 $/mois pour 100 000 journaux puis 9 $ par
+    tranche de 100 000.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: 'Activité du dépôt ralentie : dernier commit le 25/05/2026, dernière version le 12/01/2026.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: hf-inference-providers
+  name: Hugging Face Inference Providers
+  vendor: Hugging Face
+  category: gateway
+  layer: 2
+  status: active
+  url: https://huggingface.co/docs/inference-providers
+  pricing_url: https://huggingface.co/docs/inference-providers/pricing
+  byok: true
+  note: 'Accès unifié à plusieurs fournisseurs d''inférence via un compte Hugging Face : tarif du fournisseur
+    répercuté sans marge ; avec sa propre clé fournisseur, Hugging Face ne facture pas l''appel. Crédits
+    inclus : aucun en Free, 2 $/mois en PRO.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: vllm
+  name: vLLM
+  vendor: vLLM Project
+  category: local_server
+  layer: 2
+  status: active
+  url: https://vllm.ai
+  docs_url: https://docs.vllm.ai/en/latest/
+  repo_url: https://github.com/vllm-project/vllm
+  install: uv pip install vllm
+  local_models: true
+  free: true
+  serves_openai_api: http://localhost:8000/v1
+  note: 'Moteur de service à haut débit, conçu pour servir plusieurs utilisateurs à la fois sur GPU (NVIDIA,
+    AMD, Intel) ou CPU, depuis un poste ou un serveur interne. API compatible OpenAI et Anthropic. Open-source
+    sous Apache-2.0. C''est le remplaçant recommandé par Hugging Face pour TGI.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: sglang
+  name: SGLang
+  vendor: SGLang Project
+  category: local_server
+  layer: 2
+  status: active
+  url: https://sglang.io
+  docs_url: https://docs.sglang.io
+  repo_url: https://github.com/sgl-project/sglang
+  install: uv pip install --prerelease=allow sglang
+  local_models: true
+  free: true
+  serves_openai_api: http://localhost:30000/v1
+  note: 'Moteur de service haute performance, concurrent direct de vLLM : même usage (plusieurs utilisateurs,
+    GPU NVIDIA ou AMD, TPU), service distribué possible. API compatible OpenAI. Open-source sous Apache-2.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: llama-cpp
+  name: llama.cpp (llama-server)
+  vendor: ggml-org
+  category: local_server
+  layer: 2
+  status: active
+  url: https://llama.app
+  docs_url: https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md
+  repo_url: https://github.com/ggml-org/llama.cpp
+  install: curl -LsSf https://llama.app/install.sh | sh
+  local_models: true
+  free: true
+  serves_openai_api: http://127.0.0.1:8080/v1
+  note: 'Moteur d''inférence en C/C++ pour les modèles GGUF, sur lequel s''appuient LM Studio, Jan ou KoboldCpp.
+    Son serveur (`llama-server`, ou `llama serve`) expose une API compatible OpenAI et une interface web.
+    Tourne sur CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et en mode hybride CPU + GPU. Open-source
+    sous MIT.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: llamafile
+  name: llamafile
+  vendor: Mozilla.ai
+  category: local_server
+  layer: 2
+  status: active
+  url: https://docs.mozilla.ai/llamafile
+  docs_url: https://docs.mozilla.ai/llamafile
+  repo_url: https://github.com/mozilla-ai/llamafile
+  local_models: true
+  free: true
+  serves_openai_api: http://127.0.0.1:8080/v1
+  note: 'Un modèle et son moteur réunis en un seul exécutable, sans installation : on le télécharge, on le
+    lance. Construit sur llama.cpp ; API compatible OpenAI et interface web intégrées. CPU, Apple Silicon,
+    NVIDIA, AMD, Vulkan. Open-source sous Apache-2.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: localai
+  name: LocalAI
+  vendor: LocalAI (open-source)
+  category: local_server
+  layer: 2
+  status: active
+  url: https://localai.io
+  docs_url: https://localai.io/docs/installation/
+  repo_url: https://github.com/mudler/LocalAI
+  install: docker run -p 8080:8080 --name local-ai -ti localai/localai:latest
+  local_models: true
+  free: true
+  serves_openai_api: http://localhost:8080/v1
+  note: 'Serveur local multimodal (texte, vision, voix, image, vidéo) qui fédère plus de 60 moteurs, dont
+    llama.cpp, vLLM, SGLang et MLX, derrière une même API compatible OpenAI et Anthropic. Fonctionne sans
+    GPU. Interface web intégrée. Open-source sous MIT.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: mlx-lm
+  name: MLX-LM (serveur)
+  vendor: ml-explore (Apple)
+  category: local_server
+  layer: 2
+  status: active
+  docs_url: https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/SERVER.md
+  repo_url: https://github.com/ml-explore/mlx-lm
+  install: pip install mlx-lm
+  local_models: true
+  free: true
+  serves_openai_api: http://localhost:8080/v1
+  note: 'Exécution des modèles sur Apple Silicon via le framework MLX ; `mlx_lm.server` expose une API proche
+    de celle d''OpenAI. L''éditeur le déconseille en production (contrôles de sécurité minimaux). Open-source
+    sous MIT.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: koboldcpp
+  name: KoboldCpp
+  vendor: LostRuins (open-source)
+  category: local_server
+  layer: 2
+  status: active
+  repo_url: https://github.com/LostRuins/koboldcpp
+  local_models: true
+  free: true
+  serves_openai_api: http://localhost:5001/v1
+  note: 'Exécutable unique construit sur llama.cpp, avec lanceur graphique et interface web. API compatible
+    OpenAI, plus les API KoboldAI, Anthropic et Ollama. Orienté usage personnel (conversation, écriture).
+    CPU, NVIDIA, AMD, Vulkan, Apple Silicon. Open-source sous AGPL-3.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: jan
+  name: Jan
+  vendor: Menlo Research
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://jan.ai
+  docs_url: https://jan.ai/docs/desktop/api-server
+  repo_url: https://github.com/janhq/jan
+  local_models: true
+  free: true
+  serves_openai_api: http://127.0.0.1:1337/v1
+  note: 'Application de bureau qui fait tourner les modèles hors ligne sur le poste (moteur llama.cpp). Un
+    serveur local compatible OpenAI s''active depuis les réglages, pour y brancher un harnais. Windows, macOS
+    (Apple Silicon), Linux. Open-source sous Apache-2.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
 ecartes:
 - id: openclaw
   name: OpenClaw
@@ -874,6 +1567,42 @@ ecartes:
     (Discord, iMessage, Slack, Teams, Telegram, WhatsApp…), pas l''éditeur ni le terminal. Il se place
     au-dessus des harnais, qu''il branche comme greffons (Claude, Codex, modèles locaux). Il sort donc
     de la couche 1 telle que le référentiel la définit. Libre sous MIT.'
+- id: tgi
+  name: Text Generation Inference (Hugging Face)
+  vendor: Hugging Face
+  checked_on: '2026-10-08'
+  reason: 'Serveur d''inférence passé en mode maintenance, dépôt archivé. Hugging Face recommande vLLM et
+    SGLang, ou llama.cpp et MLX en local.'
+- id: tensorrt-llm
+  name: TensorRT-LLM et Dynamo
+  vendor: NVIDIA
+  checked_on: '2026-10-08'
+  reason: 'Moteurs de service pour centre de données, réservés aux GPU NVIDIA (Dynamo orchestre vLLM, SGLang
+    et TensorRT-LLM à grande échelle). Hors du périmètre du poste de développeur.'
+- id: amazon-q-cli
+  name: Amazon Q Developer CLI
+  vendor: Amazon Web Services
+  checked_on: '2026-10-08'
+  reason: 'Remplacé par Kiro CLI (bascule automatique le 24/11/2025) ; ne reçoit plus que les correctifs
+    de sécurité.'
+- id: sourcegraph-cody
+  name: Cody
+  vendor: Sourcegraph
+  checked_on: '2026-10-08'
+  reason: 'Offres Free et Pro arrêtées le 23/07/2025, utilisateurs orientés vers Amp ; ne subsiste que dans
+    l''offre entreprise de Sourcegraph.'
+- id: firebase-studio
+  name: Firebase Studio
+  vendor: Google
+  checked_on: '2026-10-08'
+  reason: 'Fermeture annoncée au 22/03/2027 ; création d''espaces de travail et inscriptions désactivées
+    depuis le 22/06/2026. Google oriente vers AI Studio et Antigravity.'
+- id: jetbrains-air
+  name: JetBrains Air
+  vendor: JetBrains
+  checked_on: '2026-10-08'
+  reason: 'Environnement multi-agents (Claude Agent, Codex, Junie, Copilot, OpenCode) en accès anticipé
+    ; tarifs non publiés. À réévaluer à sa sortie.'
 - id: proximus
   name: proximus
   vendor: null

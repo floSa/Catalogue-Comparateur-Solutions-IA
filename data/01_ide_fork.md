@@ -3,7 +3,7 @@
 
 # IDE dérivés
 
-6 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+7 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Cursor
 
@@ -18,6 +18,17 @@
 - **Forfait Teams :** $40/u — 34,66 € HT · 41,60 € TTC
 
 Fork VS Code. Composer agentique, indexation sémantique du dépôt.
+
+## Kiro
+
+- **Éditeur :** Amazon Web Services
+- **Site :** [https://kiro.dev](https://kiro.dev)
+- **Documentation :** [https://kiro.dev/docs/](https://kiro.dev/docs/)
+- **Tarifs :** [https://kiro.dev/pricing/](https://kiro.dev/pricing/)
+- **Statut :** active
+- **Capacités :** MCP
+
+IDE d'AWS bâti sur la base de VS Code, avec un mode « spécifications » (exigences, conception, tâches) avant le code ; décliné aussi en CLI. Désigné par AWS comme le remplaçant d'Amazon Q Developer. Modèles hébergés par Kiro. Forfaits en crédits : Free 0 $ (50 crédits), Pro 20 $/mois (1 000), Pro+ 40 $ (2 000), Pro Max 100 $ (5 000), Power 200 $ (10 000) ; crédit supplémentaire à 0,04 $. Code fermé.
 
 ## Trae
 

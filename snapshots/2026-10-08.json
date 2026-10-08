@@ -1040,7 +1040,7 @@
    "name": "Codex (extension IDE)"
   },
   "continue": {
-   "status": "active",
+   "status": "maintenance",
    "name": "Continue"
   },
   "github-copilot": {
@@ -1114,6 +1114,134 @@
   "factory-droid": {
    "status": "active",
    "name": "Droid"
+  },
+  "gemini-cli": {
+   "status": "active",
+   "name": "Gemini CLI"
+  },
+  "copilot-cli": {
+   "status": "active",
+   "name": "GitHub Copilot CLI"
+  },
+  "cursor-cli": {
+   "status": "active",
+   "name": "Cursor CLI"
+  },
+  "kiro-cli": {
+   "status": "active",
+   "name": "Kiro CLI"
+  },
+  "goose": {
+   "status": "active",
+   "name": "Goose"
+  },
+  "crush": {
+   "status": "active",
+   "name": "Crush"
+  },
+  "amp": {
+   "status": "active",
+   "name": "Amp"
+  },
+  "warp": {
+   "status": "active",
+   "name": "Warp"
+  },
+  "freebuff": {
+   "status": "active",
+   "name": "Freebuff"
+  },
+  "letta-code": {
+   "status": "active",
+   "name": "Letta Code"
+  },
+  "kiro": {
+   "status": "active",
+   "name": "Kiro"
+  },
+  "kilo-code": {
+   "status": "active",
+   "name": "Kilo Code"
+  },
+  "augment-code": {
+   "status": "active",
+   "name": "Augment Code"
+  },
+  "jetbrains-ai": {
+   "status": "active",
+   "name": "JetBrains AI Assistant et Junie"
+  },
+  "tabnine": {
+   "status": "active",
+   "name": "Tabnine"
+  },
+  "qodo": {
+   "status": "active",
+   "name": "Qodo"
+  },
+  "amazon-q-developer": {
+   "status": "maintenance",
+   "name": "Amazon Q Developer (extensions IDE)"
+  },
+  "gemini-code-assist": {
+   "status": "active",
+   "name": "Gemini Code Assist"
+  },
+  "litellm": {
+   "status": "active",
+   "name": "LiteLLM (proxy)"
+  },
+  "vercel-ai-gateway": {
+   "status": "active",
+   "name": "Vercel AI Gateway"
+  },
+  "cloudflare-ai-gateway": {
+   "status": "active",
+   "name": "Cloudflare AI Gateway"
+  },
+  "requesty": {
+   "status": "active",
+   "name": "Requesty"
+  },
+  "portkey": {
+   "status": "active",
+   "name": "Portkey"
+  },
+  "hf-inference-providers": {
+   "status": "active",
+   "name": "Hugging Face Inference Providers"
+  },
+  "vllm": {
+   "status": "active",
+   "name": "vLLM"
+  },
+  "sglang": {
+   "status": "active",
+   "name": "SGLang"
+  },
+  "llama-cpp": {
+   "status": "active",
+   "name": "llama.cpp (llama-server)"
+  },
+  "llamafile": {
+   "status": "active",
+   "name": "llamafile"
+  },
+  "localai": {
+   "status": "active",
+   "name": "LocalAI"
+  },
+  "mlx-lm": {
+   "status": "active",
+   "name": "MLX-LM (serveur)"
+  },
+  "koboldcpp": {
+   "status": "active",
+   "name": "KoboldCpp"
+  },
+  "jan": {
+   "status": "active",
+   "name": "Jan"
   }
  },
  "benchmarks": {
@@ -1196,6 +1324,6 @@
  "counts": {
   "models": 160,
   "scores": 918,
-  "tools": 38
+  "tools": 70
  }
 }
