@@ -1151,10 +1151,6 @@
    "status": "active",
    "name": "Freebuff"
   },
-  "letta-code": {
-   "status": "active",
-   "name": "Letta Code"
-  },
   "kiro": {
    "status": "active",
    "name": "Kiro"
@@ -1175,18 +1171,6 @@
    "status": "active",
    "name": "Tabnine"
   },
-  "qodo": {
-   "status": "active",
-   "name": "Qodo"
-  },
-  "amazon-q-developer": {
-   "status": "maintenance",
-   "name": "Amazon Q Developer (extensions IDE)"
-  },
-  "gemini-code-assist": {
-   "status": "active",
-   "name": "Gemini Code Assist"
-  },
   "litellm": {
    "status": "active",
    "name": "LiteLLM (proxy)"
@@ -1198,14 +1182,6 @@
   "cloudflare-ai-gateway": {
    "status": "active",
    "name": "Cloudflare AI Gateway"
-  },
-  "requesty": {
-   "status": "active",
-   "name": "Requesty"
-  },
-  "portkey": {
-   "status": "active",
-   "name": "Portkey"
   },
   "hf-inference-providers": {
    "status": "active",
@@ -1234,10 +1210,6 @@
   "mlx-lm": {
    "status": "active",
    "name": "MLX-LM (serveur)"
-  },
-  "koboldcpp": {
-   "status": "active",
-   "name": "KoboldCpp"
   },
   "jan": {
    "status": "active",
@@ -1324,6 +1296,6 @@
  "counts": {
   "models": 160,
   "scores": 918,
-  "tools": 70
+  "tools": 63
  }
 }

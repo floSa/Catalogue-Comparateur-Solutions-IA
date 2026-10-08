@@ -3,7 +3,7 @@
 
 # Agents CLI
 
-26 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+25 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Aider
 
@@ -183,17 +183,6 @@ Agent de terminal de Moonshot, binaire autonome, protocole ACP. Node.js ≥ 24.1
 - **Capacités :** MCP, gratuit
 
 Agent de terminal d'AWS, successeur d'Amazon Q Developer CLI (bascule automatique en novembre 2025 ; l'ancienne CLI ne reçoit plus que les correctifs de sécurité). Code fermé. Mêmes forfaits en crédits que l'IDE Kiro ; l'abonnement ne peut pas être utilisé depuis un harnais tiers.
-
-## Letta Code
-
-- **Éditeur :** Letta
-- **Site :** [https://www.letta.com/agent](https://www.letta.com/agent)
-- **Documentation :** [https://docs.letta.com/letta-code/cli](https://docs.letta.com/letta-code/cli)
-- **Dépôt :** [https://github.com/letta-ai/letta-code](https://github.com/letta-ai/letta-code)
-- **Statut :** active
-- **Capacités :** gratuit
-
-Harnais d'agents à mémoire persistante : l'agent réécrit son propre contexte et apprend d'une session à l'autre. CLI, application de bureau, navigateur et messageries. Open-source sous Apache-2.0.
 
 ## Mistral Vibe
 

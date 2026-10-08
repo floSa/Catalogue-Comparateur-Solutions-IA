@@ -3,18 +3,7 @@
 
 # Extensions VS Code
 
-12 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
-
-## Amazon Q Developer (extensions IDE)
-
-- **Éditeur :** Amazon Web Services
-- **Site :** [https://aws.amazon.com/q/developer/](https://aws.amazon.com/q/developer/)
-- **Dépôt :** [https://github.com/aws/aws-toolkit-vscode](https://github.com/aws/aws-toolkit-vscode)
-- **Tarifs :** [https://aws.amazon.com/q/developer/pricing/](https://aws.amazon.com/q/developer/pricing/)
-- **Statut :** maintenance
-- **Capacités :** gratuit
-
-Extensions VS Code et JetBrains d'AWS. Fin du support annoncée au 30/04/2027, Kiro étant désigné comme remplaçant. Gratuit jusqu'à 50 requêtes agentiques par mois ; Pro 19 $/utilisateur/mois.
+9 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Augment Code
 
@@ -55,15 +44,6 @@ Extension VS Code et JetBrains : completion en ligne, refactoring multi-fichiers
 
 VS Code et JetBrains. Sépare le modèle d'autocomplétion du modèle de chat.
 
-## Gemini Code Assist
-
-- **Éditeur :** Google
-- **Documentation :** [https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals](https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals)
-- **Statut :** active
-- **Capacités :** —
-
-Extensions VS Code et JetBrains de Google, réservées depuis le 18/06/2026 aux offres Standard et Enterprise de Google Cloud : les extensions ont cessé de servir les offres individuelles, Google AI Pro et Ultra, redirigées vers Antigravity.
-
 ## GitHub Copilot
 
 - **Éditeur :** GitHub / Microsoft
@@ -100,16 +80,6 @@ Assistant et agent (Junie) intégrés aux IDE JetBrains ; Junie existe aussi en 
 - **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de code pour VS Code et JetBrains, décliné en CLI (elle-même dérivée d'OpenCode). Open-source sous MIT. Gratuit avec ses propres clés ou un modèle local (Ollama, LM Studio). Teams 15 $/utilisateur/mois. La passerelle Kilo facture les modèles au tarif du fournisseur, sans marge, plus 5 % sur l'achat de crédits.
-
-## Qodo
-
-- **Éditeur :** Qodo
-- **Site :** [https://www.qodo.ai](https://www.qodo.ai)
-- **Tarifs :** [https://www.qodo.ai/pricing/](https://www.qodo.ai/pricing/)
-- **Statut :** active
-- **Capacités :** —
-
-Extension VS Code et JetBrains désormais centrée sur la revue de code. Code fermé. Pas d'offre gratuite permanente (essai de 14 jours, programme gratuit pour l'open source). Clés personnelles réservées à l'offre Enterprise.
 
 ## Roo Code
 

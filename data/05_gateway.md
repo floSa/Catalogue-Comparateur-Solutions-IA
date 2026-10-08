@@ -3,7 +3,7 @@
 
 # Agrégateurs cloud
 
-7 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+5 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Cloudflare AI Gateway
 
@@ -46,27 +46,6 @@ Passerelle à héberger soi-même : une API au format OpenAI devant plus de 100 
 - **Capacités :** —
 
 Passerelle universelle au format OpenAI : une clé pour tous les laboratoires. Aucune marge sur l'inférence — le tarif du fournisseur est répercuté tel quel. La facturation porte sur l'achat de crédits : 5,5 % par carte (0,80 $ minimum), 5 % en USDC. En BYOK, 5 % sur l'usage au-delà de 25 000 $/mois (200 000 $ en entreprise). Pas d'abonnement.
-
-## Portkey
-
-- **Éditeur :** Portkey AI
-- **Site :** [https://portkey.ai](https://portkey.ai)
-- **Dépôt :** [https://github.com/Portkey-AI/gateway](https://github.com/Portkey-AI/gateway)
-- **Tarifs :** [https://portkey.ai/pricing](https://portkey.ai/pricing)
-- **Statut :** active
-- **Capacités :** gratuit
-
-Passerelle open-source (MIT) à héberger soi-même, ou plateforme hébergée facturée au volume de journaux : Developer gratuit (10 000 journaux/mois), Production 49 $/mois pour 100 000 journaux puis 9 $ par tranche de 100 000.
-
-## Requesty
-
-- **Éditeur :** Requesty
-- **Site :** [https://www.requesty.ai](https://www.requesty.ai)
-- **Tarifs :** [https://www.requesty.ai/pricing](https://www.requesty.ai/pricing)
-- **Statut :** active
-- **Capacités :** BYOK, gratuit
-
-Passerelle hébergée : 5 % de marge sur le coût des modèles. Offre gratuite limitée aux modèles gratuits, 200 requêtes par jour.
 
 ## Vercel AI Gateway
 

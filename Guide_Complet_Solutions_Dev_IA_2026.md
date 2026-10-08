@@ -14,7 +14,7 @@
 | Modèles au catalogue | 160 |
 | Tarifs API relevés sur page officielle | 117 / 160 |
 | Forfaits d'abonnement relevés | 29 |
-| Harnais re-vérifiés | 70 / 70 |
+| Harnais re-vérifiés | 63 / 63 |
 | Taux de change USD→EUR | 0.8666 — vérifié |
 
 ---
@@ -102,16 +102,13 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
-| [Amazon Q Developer (extensions IDE)](https://aws.amazon.com/q/developer/) *(maintenance)* | Amazon Web Services | gratuit | — |
 | [Augment Code](https://www.augmentcode.com) | Augment Computing | MCP | — |
 | Cline | Collectif open-source | BYOK, modèles locaux, MCP, gratuit | — |
 | [Codex (extension IDE)](https://developers.openai.com/codex) | OpenAI | — | — |
 | [Continue](https://continue.dev) *(maintenance)* | Continue Dev, Inc. | BYOK, modèles locaux, gratuit | — |
-| Gemini Code Assist | Google | — | — |
 | [GitHub Copilot](https://github.com/features/copilot) | GitHub / Microsoft | — | Free, Pro, Pro+, Max |
 | [JetBrains AI Assistant et Junie](https://www.jetbrains.com/help/ai-assistant/) | JetBrains | BYOK, modèles locaux, MCP, gratuit | — |
 | [Kilo Code](https://kilo.ai) | Kilo-Org | BYOK, modèles locaux, MCP, gratuit | — |
-| [Qodo](https://www.qodo.ai) | Qodo | — | — |
 | Roo Code *(retired)* | RooCodeInc (open-source) | BYOK, modèles locaux, MCP, gratuit | — |
 | [Tabnine](https://www.tabnine.com) | Tabnine | — | — |
 
@@ -136,7 +133,6 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [Hermes Agent](https://hermes-agent.nousresearch.com) | Nous Research | BYOK, gratuit | — |
 | [Kimi Code CLI](https://platform.kimi.ai) | Moonshot AI | — | — |
 | [Kiro CLI](https://kiro.dev/cli/) | Amazon Web Services | MCP, gratuit | — |
-| [Letta Code](https://www.letta.com/agent) | Letta | gratuit | — |
 | [Mistral Vibe](https://mistral.ai/products/vibe) | Mistral AI | — | Free, Pro, Team, Enterprise |
 | [Muse Code](https://developer.meta.com/ai/products/muse-code/) | Meta | — | Everyday Usage, High Usage, Power Usage |
 | [Oh My Pi (omp)](https://omp.sh) | Stencil Labs | BYOK, modèles locaux, MCP, gratuit | — |
@@ -174,15 +170,12 @@ Une passerelle n'écrit pas de code : elle donne accès aux modèles. Elle se pl
 | [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers) | Hugging Face | BYOK | — |
 | [LiteLLM (proxy)](https://docs.litellm.ai/docs/) | BerriAI | BYOK, gratuit | — |
 | [OpenRouter](https://openrouter.ai) | OpenRouter, Inc. | — | — |
-| [Portkey](https://portkey.ai) | Portkey AI | gratuit | — |
-| [Requesty](https://www.requesty.ai) | Requesty | BYOK, gratuit | — |
 | [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) | Vercel | BYOK | — |
 
 ### 4.2 Serveurs locaux
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
-| KoboldCpp | LostRuins (open-source) | modèles locaux, gratuit | — |
 | [LM Studio (serveur local)](https://lmstudio.ai) | Element Labs, Inc. | modèles locaux, gratuit | — |
 | [LocalAI](https://localai.io) | LocalAI (open-source) | modèles locaux, gratuit | — |
 | MLX-LM (serveur) | ml-explore (Apple) | modèles locaux, gratuit | — |

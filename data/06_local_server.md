@@ -3,17 +3,7 @@
 
 # Serveurs locaux
 
-9 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
-
-## KoboldCpp
-
-- **Éditeur :** LostRuins (open-source)
-- **Dépôt :** [https://github.com/LostRuins/koboldcpp](https://github.com/LostRuins/koboldcpp)
-- **Statut :** active
-- **Capacités :** modèles locaux, gratuit
-- **Endpoint local :** `http://localhost:5001/v1`
-
-Exécutable unique construit sur llama.cpp, avec lanceur graphique et interface web. API compatible OpenAI, plus les API KoboldAI, Anthropic et Ollama. Orienté usage personnel (conversation, écriture). CPU, NVIDIA, AMD, Vulkan, Apple Silicon. Open-source sous AGPL-3.0.
+8 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## LM Studio (serveur local)
 

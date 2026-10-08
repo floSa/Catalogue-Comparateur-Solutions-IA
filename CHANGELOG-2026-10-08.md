@@ -30,7 +30,6 @@ Comparaison avec l'instantané `2026-10-02.json`.
 - entrant : `hermes-desktop`
 - entrant : `oh-my-pi`
 - entrant : `pi`
-- entrant : `amazon-q-developer`
 - entrant : `amp`
 - entrant : `augment-code`
 - entrant : `cloudflare-ai-gateway`
@@ -39,7 +38,6 @@ Comparaison avec l'instantané `2026-10-02.json`.
 - entrant : `cursor-cli`
 - entrant : `freebuff`
 - entrant : `gemini-cli`
-- entrant : `gemini-code-assist`
 - entrant : `goose`
 - entrant : `hf-inference-providers`
 - entrant : `jan`
@@ -47,16 +45,11 @@ Comparaison avec l'instantané `2026-10-02.json`.
 - entrant : `kilo-code`
 - entrant : `kiro`
 - entrant : `kiro-cli`
-- entrant : `koboldcpp`
-- entrant : `letta-code`
 - entrant : `litellm`
 - entrant : `llama-cpp`
 - entrant : `llamafile`
 - entrant : `localai`
 - entrant : `mlx-lm`
-- entrant : `portkey`
-- entrant : `qodo`
-- entrant : `requesty`
 - entrant : `sglang`
 - entrant : `tabnine`
 - entrant : `vercel-ai-gateway`
@@ -69,7 +62,7 @@ Comparaison avec l'instantané `2026-10-02.json`.
 | | précédent | courant |
 | :-- | --: | --: |
 | Modèles | 153 | 160 |
-| Harnais | 33 | 70 |
+| Harnais | 33 | 63 |
 | Mesures | 848 | 918 |
 
 ---

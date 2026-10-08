@@ -1067,25 +1067,6 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
-- id: letta-code
-  name: Letta Code
-  vendor: Letta
-  category: cli_agent
-  layer: 1
-  status: active
-  url: https://www.letta.com/agent
-  docs_url: https://docs.letta.com/letta-code/cli
-  repo_url: https://github.com/letta-ai/letta-code
-  free: true
-  note: 'Harnais d''agents à mémoire persistante : l''agent réécrit son propre contexte et apprend d''une
-    session à l''autre. CLI, application de bureau, navigateur et messageries. Open-source sous Apache-2.0.'
-  verification:
-    status: official_docs
-    verified_on: '2026-10-08'
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
 - id: kiro
   name: Kiro
   vendor: Amazon Web Services
@@ -1202,64 +1183,6 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
-- id: qodo
-  name: Qodo
-  vendor: Qodo
-  category: vscode_extension
-  layer: 1
-  status: active
-  url: https://www.qodo.ai
-  pricing_url: https://www.qodo.ai/pricing/
-  note: 'Extension VS Code et JetBrains désormais centrée sur la revue de code. Code fermé. Pas d''offre
-    gratuite permanente (essai de 14 jours, programme gratuit pour l''open source). Clés personnelles réservées
-    à l''offre Enterprise.'
-  verification:
-    status: official_pricing_page
-    verified_on: '2026-10-08'
-    finding: 'L''unité du prix « Pro Team » (30 $) n''est pas précisée sur la page : non repris.'
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
-- id: amazon-q-developer
-  name: Amazon Q Developer (extensions IDE)
-  vendor: Amazon Web Services
-  category: vscode_extension
-  layer: 1
-  status: maintenance
-  url: https://aws.amazon.com/q/developer/
-  pricing_url: https://aws.amazon.com/q/developer/pricing/
-  repo_url: https://github.com/aws/aws-toolkit-vscode
-  free: true
-  note: 'Extensions VS Code et JetBrains d''AWS. Fin du support annoncée au 30/04/2027, Kiro étant désigné
-    comme remplaçant. Gratuit jusqu''à 50 requêtes agentiques par mois ; Pro 19 $/utilisateur/mois.'
-  verification:
-    status: official_docs
-    verified_on: '2026-10-08'
-    finding: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-developer-ide-end-of-support.html
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
-- id: gemini-code-assist
-  name: Gemini Code Assist
-  vendor: Google
-  category: vscode_extension
-  layer: 1
-  status: active
-  docs_url: https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals
-  note: 'Extensions VS Code et JetBrains de Google, réservées depuis le 18/06/2026 aux offres Standard et
-    Enterprise de Google Cloud : les extensions ont cessé de servir les offres individuelles, Google AI Pro
-    et Ultra, redirigées vers Antigravity.'
-  verification:
-    status: official_docs
-    verified_on: '2026-10-08'
-    finding: 'Tarifs Standard et Enterprise lus seulement dans un extrait de recherche (page non affichée)
-      : non repris.'
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
 - id: litellm
   name: LiteLLM (proxy)
   vendor: BerriAI
@@ -1316,47 +1239,6 @@ tools:
     status: official_pricing_page
     verified_on: '2026-10-08'
     finding: Conditions BYOK non précisées sur la page de tarifs.
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
-- id: requesty
-  name: Requesty
-  vendor: Requesty
-  category: gateway
-  layer: 2
-  status: active
-  url: https://www.requesty.ai
-  pricing_url: https://www.requesty.ai/pricing
-  byok: true
-  free: true
-  note: 'Passerelle hébergée : 5 % de marge sur le coût des modèles. Offre gratuite limitée aux modèles
-    gratuits, 200 requêtes par jour.'
-  verification:
-    status: official_pricing_page
-    verified_on: '2026-10-08'
-    finding: Frais applicables en BYOK non précisés.
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
-- id: portkey
-  name: Portkey
-  vendor: Portkey AI
-  category: gateway
-  layer: 2
-  status: active
-  url: https://portkey.ai
-  pricing_url: https://portkey.ai/pricing
-  repo_url: https://github.com/Portkey-AI/gateway
-  free: true
-  note: 'Passerelle open-source (MIT) à héberger soi-même, ou plateforme hébergée facturée au volume de journaux
-    : Developer gratuit (10 000 journaux/mois), Production 49 $/mois pour 100 000 journaux puis 9 $ par
-    tranche de 100 000.'
-  verification:
-    status: official_pricing_page
-    verified_on: '2026-10-08'
-    finding: 'Activité du dépôt ralentie : dernier commit le 25/05/2026, dernière version le 12/01/2026.'
   compliance:
     status: unverified
     verified_on: null
@@ -1516,26 +1398,6 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
-- id: koboldcpp
-  name: KoboldCpp
-  vendor: LostRuins (open-source)
-  category: local_server
-  layer: 2
-  status: active
-  repo_url: https://github.com/LostRuins/koboldcpp
-  local_models: true
-  free: true
-  serves_openai_api: http://localhost:5001/v1
-  note: 'Exécutable unique construit sur llama.cpp, avec lanceur graphique et interface web. API compatible
-    OpenAI, plus les API KoboldAI, Anthropic et Ollama. Orienté usage personnel (conversation, écriture).
-    CPU, NVIDIA, AMD, Vulkan, Apple Silicon. Open-source sous AGPL-3.0.'
-  verification:
-    status: official_docs
-    verified_on: '2026-10-08'
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
 - id: jan
   name: Jan
   vendor: Menlo Research
@@ -1603,6 +1465,41 @@ ecartes:
   checked_on: '2026-10-08'
   reason: 'Environnement multi-agents (Claude Agent, Codex, Junie, Copilot, OpenCode) en accès anticipé
     ; tarifs non publiés. À réévaluer à sa sortie.'
+- id: letta-code
+  name: Letta Code
+  vendor: Letta
+  checked_on: '2026-10-08'
+  reason: Agent généraliste à mémoire persistante, adoption encore confidentielle (environ 3 500 étoiles).
+- id: qodo
+  name: Qodo
+  vendor: Qodo
+  checked_on: '2026-10-08'
+  reason: Désormais centré sur la revue de code, plus sur l'assistance au développement ; hors couche 1.
+- id: amazon-q-developer
+  name: Amazon Q Developer (extensions IDE)
+  vendor: Amazon Web Services
+  checked_on: '2026-10-08'
+  reason: 'Extensions IDE en fin de vie : support arrêté le 30/04/2027, Kiro désigné comme remplaçant.'
+- id: gemini-code-assist
+  name: Gemini Code Assist
+  vendor: Google
+  checked_on: '2026-10-08'
+  reason: 'Abandonné pour les particuliers le 18/06/2026 ; Google regroupe ses outils de développement sous Antigravity. Ne subsiste que dans les licences Google Cloud Standard et Enterprise déjà souscrites.'
+- id: requesty
+  name: Requesty
+  vendor: Requesty
+  checked_on: '2026-10-08'
+  reason: 'Passerelle à l''adoption confidentielle face à OpenRouter, LiteLLM et aux passerelles de Vercel et Cloudflare.'
+- id: portkey
+  name: Portkey
+  vendor: Portkey AI
+  checked_on: '2026-10-08'
+  reason: 'Passerelle open-source peu active (dernier commit le 25/05/2026, dernière version le 12/01/2026).'
+- id: koboldcpp
+  name: KoboldCpp
+  vendor: LostRuins (open-source)
+  checked_on: '2026-10-08'
+  reason: 'Orienté conversation et écriture créative ; pour le développeur, llama.cpp et llamafile couvrent le même moteur.'
 - id: proximus
   name: proximus
   vendor: null
