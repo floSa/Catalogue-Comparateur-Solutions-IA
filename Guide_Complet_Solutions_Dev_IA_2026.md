@@ -92,6 +92,7 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | :-- | :-- | :-- | :-- |
 | [ChatGPT Desktop](https://openai.com/chatgpt/desktop) | OpenAI | MCP | — |
 | [Claude Desktop](https://claude.ai/download) | Anthropic, PBC | MCP | Free, Pro, Max |
+| [DeepSeek Harness](https://deepseek.com/harness) | DeepSeek | BYOK, gratuit | — |
 | [Google Antigravity](https://antigravity.google/) | Google | gratuit | Individuel |
 | [Hermes Desktop](https://hermes-agent.nousresearch.com) | Nous Research | BYOK, gratuit | — |
 | [Jan](https://jan.ai) | Menlo Research | modèles locaux, gratuit | — |
@@ -137,7 +138,6 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [Codex CLI](https://developers.openai.com/codex) | OpenAI | MCP, gratuit | — |
 | [Crush](https://charm.land/) | Charm | BYOK, modèles locaux, MCP, gratuit | — |
 | Cursor CLI | Anysphere, Inc. | MCP | — |
-| [DeepSeek Harness](https://deepseek.com/harness) | DeepSeek | BYOK, gratuit | — |
 | [Droid](https://factory.com) | Factory | BYOK, modèles locaux, MCP | — |
 | [Freebuff](https://freebuff.com) | CodebuffAI | gratuit | — |
 | [Gemini CLI](https://geminicli.com) | Google | BYOK, MCP | — |

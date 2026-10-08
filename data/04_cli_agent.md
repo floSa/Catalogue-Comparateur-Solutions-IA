@@ -3,7 +3,7 @@
 
 # Agents CLI
 
-25 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+24 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Aider
 
@@ -76,17 +76,6 @@ Agent de terminal de Charm. Code source public sous licence FSL-1.1-MIT : il ne 
 - **Capacités :** MCP
 
 Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code fermé.
-
-## DeepSeek Harness
-
-- **Éditeur :** DeepSeek
-- **Site :** [https://deepseek.com/harness](https://deepseek.com/harness)
-- **Documentation :** [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
-- **Dépôt :** [https://github.com/deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)
-- **Statut :** active
-- **Capacités :** BYOK, gratuit
-
-Harnais officiel de DeepSeek (commande `dsh`), open-source sous MIT, en préversion développeur depuis août 2026 : l'éditeur annonce des ruptures de compatibilité. Architecture où tout est greffon (framework Cordis). Interface web locale par défaut, plus un mode headless pour l'intégration continue.
 
 ## Droid
 

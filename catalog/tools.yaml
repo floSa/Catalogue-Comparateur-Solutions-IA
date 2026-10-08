@@ -826,7 +826,7 @@ tools:
 - id: deepseek-harness
   name: DeepSeek Harness
   vendor: DeepSeek
-  category: cli_agent
+  category: desktop_app
   layer: 1
   status: active
   url: https://deepseek.com/harness
@@ -835,12 +835,16 @@ tools:
   install: npx @deepseek-ai/dsh web
   byok: true
   free: true
-  note: 'Harnais officiel de DeepSeek (commande `dsh`), open-source sous MIT, en préversion développeur
-    depuis août 2026 : l''éditeur annonce des ruptures de compatibilité. Architecture où tout est greffon
-    (framework Cordis). Interface web locale par défaut, plus un mode headless pour l''intégration continue.'
+  note: 'Harnais officiel de DeepSeek, open-source sous MIT, en préversion développeur depuis août 2026
+    : l''éditeur annonce des ruptures de compatibilité. Distribué d''abord comme application de bureau
+    (macOS Apple Silicon, Windows 64 bits), et comme interface web locale lancée par `npx @deepseek-ai/dsh
+    web`. La commande `dsh` sert de lanceur (mode headless pour l''intégration continue, ACP, SDK) ; aucune
+    interface terminal n''est livrée par défaut. Architecture où tout est greffon (framework Cordis).'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
+    finding: 'Classé d''abord en agent CLI : la page officielle et le dépôt (apps/desktop, application
+      Electron signée) montrent qu''il s''agit d''une application de bureau doublée d''une interface web.'
   compliance:
     status: unverified
     verified_on: null

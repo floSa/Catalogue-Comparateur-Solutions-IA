@@ -3,7 +3,7 @@
 
 # Applications desktop
 
-9 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+10 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## ChatGPT Desktop
 
@@ -25,6 +25,17 @@ Application unique macOS et Windows regroupant trois espaces : Chat, Work et Cod
 - **Forfait Max :** $100 — 86,66 € HT · 103,99 € TTC
 
 Windows et macOS. Serveurs MCP, accès fichiers et outils locaux.
+
+## DeepSeek Harness
+
+- **Éditeur :** DeepSeek
+- **Site :** [https://deepseek.com/harness](https://deepseek.com/harness)
+- **Documentation :** [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
+- **Dépôt :** [https://github.com/deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Harnais officiel de DeepSeek, open-source sous MIT, en préversion développeur depuis août 2026 : l'éditeur annonce des ruptures de compatibilité. Distribué d'abord comme application de bureau (macOS Apple Silicon, Windows 64 bits), et comme interface web locale lancée par `npx @deepseek-ai/dsh web`. La commande `dsh` sert de lanceur (mode headless pour l'intégration continue, ACP, SDK) ; aucune interface terminal n'est livrée par défaut. Architecture où tout est greffon (framework Cordis).
 
 ## Google Antigravity
 
