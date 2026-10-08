@@ -16,13 +16,13 @@ ROOT = Path(__file__).resolve().parent.parent
 CATALOG, CONTENT = ROOT / "catalog", ROOT / "content"
 OUT = ROOT / "Guide_Complet_Solutions_Dev_IA_2026.md"
 
-CAT = {"ide_fork": "IDE dérivés", "vscode_extension": "Extensions VS Code",
-       "cli_agent": "Agents CLI", "desktop_app": "Applications desktop",
+CAT = {"desktop_app": "Applications desktop", "vscode_extension": "Extensions VS Code",
+       "ide_fork": "IDE dérivés", "cli_agent": "Agents CLI",
        "gateway": "Agrégateurs cloud", "local_server": "Serveurs locaux"}
 # Couche 1 = interface développeur, couche 2 = routage et service de modèles.
 # Les confondre dans une même section était la principale confusion de l'édition
 # précédente : une passerelle n'écrit pas de code.
-COUCHE1 = ["ide_fork", "vscode_extension", "cli_agent", "desktop_app"]
+COUCHE1 = ["desktop_app", "vscode_extension", "ide_fork", "cli_agent"]
 COUCHE2 = ["gateway", "local_server"]
 
 

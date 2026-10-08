@@ -1366,7 +1366,8 @@ function carteOutil(t){
 function rendreCouche(cible,couche,ordre,filtre){
   const el=$(cible);let html='';
   ordre.filter(c=>!filtre||c===filtre).forEach(cat=>{
-    const items=D.tools.filter(t=>t.layer===couche&&t.category===cat);
+    const items=D.tools.filter(t=>t.layer===couche&&t.category===cat)
+      .sort((a,b)=>a.name.localeCompare(b.name,'fr',{sensitivity:'base'}));
     if(!items.length)return;
     html+=`<h3 class="grp">${CATL[cat]}<span class="c">${items.length} outil${
       items.length>1?'s':''}</span></h3>
@@ -1387,7 +1388,7 @@ function brancherCategories(idBoutons,cible,couche,ordre){
     [...bar.children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
     rendreCouche(cible,couche,ordre,b.dataset.c||null);});
 }
-const ORD_H=['ide_fork','vscode_extension','cli_agent','desktop_app'];
+const ORD_H=['desktop_app','vscode_extension','ide_fork','cli_agent'];
 const ORD_P=['gateway','local_server'];
 rendreCouche('#har',1,ORD_H,null);
 rendreCouche('#pas',2,ORD_P,null);

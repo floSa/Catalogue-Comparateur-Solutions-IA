@@ -113,15 +113,19 @@ tools:
   category: cli_agent
   layer: 1
   status: active
-  url: https://github.com/QwenLM/qwen-code
+  url: https://qwenlm.github.io/qwen-code-docs/en/users/overview
   repo_url: https://github.com/QwenLM/qwen-code
+  install: npm install -g @qwen-code/qwen-code@latest
   free: true
   byok: true
-  note: Agent de codage en terminal, open-source sous Apache-2.0, qui édite directement les fichiers d'un
-    projet réel.
+  local_models: true
+  mcp: true
+  note: 'Agent de code open-source (Apache-2.0) né dans le terminal, aujourd''hui décliné en extensions
+    IDE (VS Code, Zed, JetBrains), application de bureau, interface web et messageries. Compatible avec
+    les API OpenAI, Anthropic, Gemini et Qwen, et avec les modèles locaux (Ollama, vLLM).'
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
     finding: 'Absent de l''édition précédente. Dépôt vérifié directement : 27 882 étoiles, Apache-2.0,
       commit le jour du relevé.'
   compliance:

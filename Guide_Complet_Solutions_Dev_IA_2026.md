@@ -86,17 +86,19 @@ second passe à l'échelle d'une équipe.
 
 L'interface développeur : le logiciel avec lequel on travaille, et qui exécute le modèle. Son effet sur la performance mesurée est loin d'être négligeable — sur Terminal-Bench, l'écart entre deux harnais dépasse souvent l'écart entre deux modèles.
 
-### 3.1 IDE dérivés
+### 3.1 Applications desktop
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
-| [Cursor](https://cursor.com) | Anysphere, Inc. | BYOK, modèles locaux, MCP | Hobby, Individual, Teams |
-| [Kiro](https://kiro.dev) | Amazon Web Services | MCP | — |
-| [Trae](https://trae.ai) | ByteDance | MCP | Free, Lite, Pro, Pro+, Ultra |
-| [Void IDE](https://voideditor.com) *(retired)* | Communauté open-source | BYOK, modèles locaux | — |
-| [Windsurf / Devin](https://devin.ai) | Cognition AI | BYOK, MCP | — |
-| [ZCode](https://zcode.z.ai/en) | Z.ai (Zhipu AI) | — | Lite, Pro, Max |
-| [Zed](https://zed.dev) | Zed Industries, Inc. | BYOK, modèles locaux | Personal, Pro, Business |
+| [ChatGPT Desktop](https://openai.com/chatgpt/desktop) | OpenAI | MCP | — |
+| [Claude Desktop](https://claude.ai/download) | Anthropic, PBC | MCP | Free, Pro, Max |
+| [Google Antigravity](https://antigravity.google/) | Google | gratuit | Individuel |
+| [Hermes Desktop](https://hermes-agent.nousresearch.com) | Nous Research | BYOK, gratuit | — |
+| [Jan](https://jan.ai) | Menlo Research | modèles locaux, gratuit | — |
+| [Kimi Work](https://kimi.com) | Moonshot AI | — | — |
+| [LM Studio Bionic](https://lmstudio.ai) | Element Labs, Inc. | modèles locaux, gratuit | — |
+| [Qwen Studio](https://chat.qwen.ai) | Alibaba | gratuit | — |
+| [Warp](https://www.warp.dev) | Warp | BYOK, gratuit | — |
 
 ### 3.2 Extensions VS Code
 
@@ -112,7 +114,19 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | Roo Code *(retired)* | RooCodeInc (open-source) | BYOK, modèles locaux, MCP, gratuit | — |
 | [Tabnine](https://www.tabnine.com) | Tabnine | — | — |
 
-### 3.3 Agents CLI
+### 3.3 IDE dérivés
+
+| Outil | Éditeur | Capacités | Forfaits |
+| :-- | :-- | :-- | :-- |
+| [Cursor](https://cursor.com) | Anysphere, Inc. | BYOK, modèles locaux, MCP | Hobby, Individual, Teams |
+| [Kiro](https://kiro.dev) | Amazon Web Services | MCP | — |
+| [Trae](https://trae.ai) | ByteDance | MCP | Free, Lite, Pro, Pro+, Ultra |
+| [Void IDE](https://voideditor.com) *(retired)* | Communauté open-source | BYOK, modèles locaux | — |
+| [Windsurf / Devin](https://devin.ai) | Cognition AI | BYOK, MCP | — |
+| [ZCode](https://zcode.z.ai/en) | Z.ai (Zhipu AI) | — | Lite, Pro, Max |
+| [Zed](https://zed.dev) | Zed Industries, Inc. | BYOK, modèles locaux | Personal, Pro, Business |
+
+### 3.4 Agents CLI
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
@@ -139,22 +153,8 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [OpenCode](https://opencode.ai) | Anomaly | BYOK, modèles locaux, MCP, gratuit | — |
 | [OpenHands](https://all-hands.dev) | All-Hands-AI | BYOK, gratuit | — |
 | [Pi](https://pi.dev) | Earendil Inc. | BYOK, modèles locaux, MCP, gratuit | — |
-| [Qwen Code](https://github.com/QwenLM/qwen-code) | Alibaba | BYOK, gratuit | — |
+| [Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/overview) | Alibaba | BYOK, modèles locaux, MCP, gratuit | — |
 | [mini-SWE-agent](https://swe-agent.com) | SWE-agent (Princeton, Stanford) | BYOK, gratuit | — |
-
-### 3.4 Applications desktop
-
-| Outil | Éditeur | Capacités | Forfaits |
-| :-- | :-- | :-- | :-- |
-| [ChatGPT Desktop](https://openai.com/chatgpt/desktop) | OpenAI | MCP | — |
-| [Claude Desktop](https://claude.ai/download) | Anthropic, PBC | MCP | Free, Pro, Max |
-| [Google Antigravity](https://antigravity.google/) | Google | gratuit | Individuel |
-| [Hermes Desktop](https://hermes-agent.nousresearch.com) | Nous Research | BYOK, gratuit | — |
-| [Jan](https://jan.ai) | Menlo Research | modèles locaux, gratuit | — |
-| [Kimi Work](https://kimi.com) | Moonshot AI | — | — |
-| [LM Studio Bionic](https://lmstudio.ai) | Element Labs, Inc. | modèles locaux, gratuit | — |
-| [Qwen Studio](https://chat.qwen.ai) | Alibaba | gratuit | — |
-| [Warp](https://www.warp.dev) | Warp | BYOK, gratuit | — |
 
 ---
 

@@ -256,12 +256,12 @@ Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par 
 ## Qwen Code
 
 - **Éditeur :** Alibaba
-- **Site :** [https://github.com/QwenLM/qwen-code](https://github.com/QwenLM/qwen-code)
+- **Site :** [https://qwenlm.github.io/qwen-code-docs/en/users/overview](https://qwenlm.github.io/qwen-code-docs/en/users/overview)
 - **Dépôt :** [https://github.com/QwenLM/qwen-code](https://github.com/QwenLM/qwen-code)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
-Agent de codage en terminal, open-source sous Apache-2.0, qui édite directement les fichiers d'un projet réel.
+Agent de code open-source (Apache-2.0) né dans le terminal, aujourd'hui décliné en extensions IDE (VS Code, Zed, JetBrains), application de bureau, interface web et messageries. Compatible avec les API OpenAI, Anthropic, Gemini et Qwen, et avec les modèles locaux (Ollama, vLLM).
 
 ## mini-SWE-agent
 
