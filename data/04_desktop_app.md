@@ -3,7 +3,7 @@
 
 # Applications desktop
 
-6 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+7 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## ChatGPT Desktop
 
@@ -36,6 +36,16 @@ Windows et macOS. Serveurs MCP, accès fichiers et outils locaux.
 - **Forfait Individuel :** gratuit — 0,00 € HT · 0,00 € TTC
 
 Plateforme de développement agentique de Google, poste de commande pour plusieurs agents locaux : conversations organisées en projets, sous-agents personnalisés, tâches planifiées en arrière-plan. Version 2.0 annoncée à Google I/O le 19/05/2026. Gratuite pour un développeur individuel ; offre organisation via Google Cloud. Partage son harnais d'agent avec Antigravity CLI.
+
+## Hermes Desktop
+
+- **Éditeur :** Nous Research
+- **Site :** [https://hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com)
+- **Dépôt :** [https://github.com/NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Application de bureau native de Hermes Agent, en préversion publique depuis juin 2026 (macOS, Windows, Linux), sous licence MIT. Même agent, mêmes compétences, même mémoire et mêmes sessions que la version terminal : on passe de l'une à l'autre sans perdre le contexte. Lancement depuis le terminal par `hermes desktop`, ou par installeur.
 
 ## Kimi Work
 

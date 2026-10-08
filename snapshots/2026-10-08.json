@@ -1094,6 +1094,26 @@
   "hermes-agent": {
    "status": "active",
    "name": "Hermes Agent"
+  },
+  "hermes-desktop": {
+   "status": "active",
+   "name": "Hermes Desktop"
+  },
+  "pi": {
+   "status": "active",
+   "name": "Pi"
+  },
+  "oh-my-pi": {
+   "status": "active",
+   "name": "Oh My Pi (omp)"
+  },
+  "deepseek-harness": {
+   "status": "active",
+   "name": "DeepSeek Harness"
+  },
+  "factory-droid": {
+   "status": "active",
+   "name": "Droid"
   }
  },
  "benchmarks": {
@@ -1176,6 +1196,6 @@
  "counts": {
   "models": 160,
   "scores": 918,
-  "tools": 33
+  "tools": 38
  }
 }

@@ -23,12 +23,20 @@ Comparaison avec l'instantané `2026-10-02.json`.
 - `GDP.pdf` : 30.7% `gpt-5.6-sol_unknown` → **34.2%** `gpt-6-astra_max`
 - `Terminal-Bench 4.0` : 58.2% `gpt-6-astra_max` → **64.8%** `claude-opus-5-5_max` (harnais : Claude Code)
 
+## Harnais
+
+- entrant : `deepseek-harness`
+- entrant : `factory-droid`
+- entrant : `hermes-desktop`
+- entrant : `oh-my-pi`
+- entrant : `pi`
+
 ## Volumétrie
 
 | | précédent | courant |
 | :-- | --: | --: |
 | Modèles | 153 | 160 |
-| Harnais | 33 | 33 |
+| Harnais | 33 | 38 |
 | Mesures | 848 | 918 |
 
 ---

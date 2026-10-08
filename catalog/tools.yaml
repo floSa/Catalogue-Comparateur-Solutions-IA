@@ -684,7 +684,7 @@ tools:
   status: active
   url: https://opencode.ai
   docs_url: https://opencode.ai/docs/
-  repo_url: https://github.com/sst/opencode
+  repo_url: https://github.com/anomalyco/opencode
   byok: true
   local_models: true
   free: true
@@ -749,15 +749,131 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+- id: hermes-desktop
+  name: Hermes Desktop
+  vendor: Nous Research
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://hermes-agent.nousresearch.com
+  repo_url: https://github.com/NousResearch/hermes-agent
+  byok: true
+  free: true
+  note: 'Application de bureau native de Hermes Agent, en préversion publique depuis juin 2026 (macOS,
+    Windows, Linux), sous licence MIT. Même agent, mêmes compétences, même mémoire et mêmes sessions que
+    la version terminal : on passe de l''une à l''autre sans perdre le contexte. Lancement depuis le terminal
+    par `hermes desktop`, ou par installeur.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: pi
+  name: Pi
+  vendor: Earendil Inc.
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://pi.dev
+  docs_url: https://pi.dev/docs/latest
+  repo_url: https://github.com/earendil-works/pi
+  install: npm install -g @earendil-works/pi-coding-agent
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par Mario Zechner. Pas
+    de sous-agents ni de mode plan par défaut : on les ajoute par extensions, compétences ou paquets. Mode
+    interactif, impression/JSON pour l''automatisation, pilotage RPC. Connexion par clé d''API ou OAuth
+    à une vingtaine de fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers earendil-works/pi.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: oh-my-pi
+  name: Oh My Pi (omp)
+  vendor: Stencil Labs
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://omp.sh
+  repo_url: https://github.com/can1357/oh-my-pi
+  install: bun install -g @oh-my-pi/pi-coding-agent
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Dérivé (fork) de Pi, livré « tout compris » là où Pi reste minimal : 31 outils intégrés, opérations
+    LSP et débogueur (DAP), plus de 60 fournisseurs de modèles. Open-source sous MIT, maintenu par Can
+    Bölük (Stencil Labs). Commande `omp`.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: deepseek-harness
+  name: DeepSeek Harness
+  vendor: DeepSeek
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://deepseek.com/harness
+  docs_url: https://deepseek-harness.github.io/deepseek-harness/
+  repo_url: https://github.com/deepseek-ai/deepseek-harness
+  install: npx @deepseek-ai/dsh web
+  byok: true
+  free: true
+  note: 'Harnais officiel de DeepSeek (commande `dsh`), open-source sous MIT, en préversion développeur
+    depuis août 2026 : l''éditeur annonce des ruptures de compatibilité. Architecture où tout est greffon
+    (framework Cordis). Interface web locale par défaut, plus un mode headless pour l''intégration continue.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: factory-droid
+  name: Droid
+  vendor: Factory
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://factory.com
+  docs_url: https://docs.factory.com/cli/getting-started/overview
+  pricing_url: https://factory.com/pricing
+  byok: true
+  local_models: true
+  mcp: true
+  note: 'Agent de développement de Factory, piloté depuis le terminal (commande `droid`, mode non interactif
+    `droid exec`), aussi disponible en application de bureau et en SDK. Code fermé. Choix du modèle par tâche ;
+    clés personnelles (OpenAI, Anthropic, fournisseurs open-source ou modèle local) acceptées en BYOK.
+    Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-08'
+    finding: 'Le domaine a migré de factory.ai vers factory.com (redirections 307/308). Gratuité de l''usage
+      en BYOK non précisée par l''éditeur.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
 ecartes:
 - id: openclaw
   name: OpenClaw
   vendor: OpenClaw Foundation
-  checked_on: '2026-09-18'
-  reason: 'Assistant autonome généraliste, pas un harnais de développement : son interface utilisateur
-    est la messagerie (Signal, Telegram, Discord, WhatsApp), pas l''éditeur ni le terminal. Il sort donc
-    de la couche 1 telle que le référentiel la définit — l''interface par laquelle un développeur travaille.
-    Libre sous MIT, v2.0 le 30/08/2026.'
+  checked_on: '2026-10-08'
+  reason: 'Assistant autonome généraliste, pas un harnais de développement : son interface est la messagerie
+    (Discord, iMessage, Slack, Teams, Telegram, WhatsApp…), pas l''éditeur ni le terminal. Il se place
+    au-dessus des harnais, qu''il branche comme greffons (Claude, Codex, modèles locaux). Il sort donc
+    de la couche 1 telle que le référentiel la définit. Libre sous MIT.'
 - id: proximus
   name: proximus
   vendor: null

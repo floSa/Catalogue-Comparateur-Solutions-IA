@@ -60,9 +60,9 @@ labs:
     verified_on: '2026-09-15'
     status: official_pricing_page
   tooling:
-    checked_on: '2026-09-15'
-    note: AUCUN harnais officiel. Les agents DeepSeek en circulation (deepseek-cli, DeepSeek-TUI, Deep
-      Code CLI) sont communautaires ; la doc d'intégration de DeepSeek ne référence que des outils tiers.
+    checked_on: '2026-10-08'
+    note: DeepSeek Harness (dsh), en préversion développeur. Les autres agents DeepSeek en circulation
+      (deepseek-cli, DeepSeek-TUI, Deep Code CLI) sont communautaires.
 - id: alibaba
   name: Alibaba
   country: CN

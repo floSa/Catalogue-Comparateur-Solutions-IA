@@ -14,7 +14,7 @@
 | Modèles au catalogue | 160 |
 | Tarifs API relevés sur page officielle | 117 / 160 |
 | Forfaits d'abonnement relevés | 29 |
-| Harnais re-vérifiés | 33 / 33 |
+| Harnais re-vérifiés | 38 / 38 |
 | Taux de change USD→EUR | 0.8666 — vérifié |
 
 ---
@@ -115,13 +115,17 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [Antigravity CLI](https://antigravity.google/) | Google | gratuit | Individuel |
 | [Claude Code](https://docs.claude.com/en/docs/claude-code) | Anthropic, PBC | MCP | Pro, Max |
 | [Codex CLI](https://developers.openai.com/codex) | OpenAI | MCP, gratuit | — |
+| [DeepSeek Harness](https://deepseek.com/harness) | DeepSeek | BYOK, gratuit | — |
+| [Droid](https://factory.com) | Factory | BYOK, modèles locaux, MCP | — |
 | [Grok Build](https://x.ai/build) | xAI | BYOK | — |
 | [Hermes Agent](https://hermes-agent.nousresearch.com) | Nous Research | BYOK, gratuit | — |
 | [Kimi Code CLI](https://platform.kimi.ai) | Moonshot AI | — | — |
 | [Mistral Vibe](https://mistral.ai/products/vibe) | Mistral AI | — | Free, Pro, Team, Enterprise |
 | [Muse Code](https://developer.meta.com/ai/products/muse-code/) | Meta | — | Everyday Usage, High Usage, Power Usage |
+| [Oh My Pi (omp)](https://omp.sh) | Stencil Labs | BYOK, modèles locaux, MCP, gratuit | — |
 | [OpenCode](https://opencode.ai) | Anomaly | BYOK, modèles locaux, MCP, gratuit | — |
 | [OpenHands](https://all-hands.dev) | All-Hands-AI | BYOK, gratuit | — |
+| [Pi](https://pi.dev) | Earendil Inc. | BYOK, modèles locaux, MCP, gratuit | — |
 | [Qwen Code](https://github.com/QwenLM/qwen-code) | Alibaba | BYOK, gratuit | — |
 | [mini-SWE-agent](https://swe-agent.com) | SWE-agent (Princeton, Stanford) | BYOK, gratuit | — |
 
@@ -132,6 +136,7 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [ChatGPT Desktop](https://openai.com/chatgpt/desktop) | OpenAI | MCP | — |
 | [Claude Desktop](https://claude.ai/download) | Anthropic, PBC | MCP | Free, Pro, Max |
 | [Google Antigravity](https://antigravity.google/) | Google | gratuit | Individuel |
+| [Hermes Desktop](https://hermes-agent.nousresearch.com) | Nous Research | BYOK, gratuit | — |
 | [Kimi Work](https://kimi.com) | Moonshot AI | — | — |
 | [LM Studio Bionic](https://lmstudio.ai) | Element Labs, Inc. | modèles locaux, gratuit | — |
 | [Qwen Studio](https://chat.qwen.ai) | Alibaba | gratuit | — |

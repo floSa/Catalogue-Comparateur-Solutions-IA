@@ -3,7 +3,7 @@
 
 # Agents CLI
 
-13 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+17 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Aider
 
@@ -45,6 +45,28 @@ Inclus dans Claude Pro et Max, ou facturé à l'usage via clé API.
 - **Capacités :** MCP, gratuit
 
 Agent de codage en terminal, open-source sous Apache-2.0. Depuis juillet 2026, Codex est aussi un des trois espaces de l'application ChatGPT Desktop. Utilisable via un abonnement ChatGPT ou une clé API.
+
+## DeepSeek Harness
+
+- **Éditeur :** DeepSeek
+- **Site :** [https://deepseek.com/harness](https://deepseek.com/harness)
+- **Documentation :** [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
+- **Dépôt :** [https://github.com/deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Harnais officiel de DeepSeek (commande `dsh`), open-source sous MIT, en préversion développeur depuis août 2026 : l'éditeur annonce des ruptures de compatibilité. Architecture où tout est greffon (framework Cordis). Interface web locale par défaut, plus un mode headless pour l'intégration continue.
+
+## Droid
+
+- **Éditeur :** Factory
+- **Site :** [https://factory.com](https://factory.com)
+- **Documentation :** [https://docs.factory.com/cli/getting-started/overview](https://docs.factory.com/cli/getting-started/overview)
+- **Tarifs :** [https://factory.com/pricing](https://factory.com/pricing)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP
+
+Agent de développement de Factory, piloté depuis le terminal (commande `droid`, mode non interactif `droid exec`), aussi disponible en application de bureau et en SDK. Code fermé. Choix du modèle par tâche ; clés personnelles (OpenAI, Anthropic, fournisseurs open-source ou modèle local) acceptées en BYOK. Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.
 
 ## Grok Build
 
@@ -104,12 +126,22 @@ Successeur du Chat, renommé Vibe le 28/05/2026. Plusieurs surfaces pour un mêm
 
 Agent de codage en terminal de Meta, installé par une commande bash unique. Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code produit. Tourne sur Muse Spark 1.3 et 1.2, co-entraînés avec le harnais.
 
+## Oh My Pi (omp)
+
+- **Éditeur :** Stencil Labs
+- **Site :** [https://omp.sh](https://omp.sh)
+- **Dépôt :** [https://github.com/can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
+
+Dérivé (fork) de Pi, livré « tout compris » là où Pi reste minimal : 31 outils intégrés, opérations LSP et débogueur (DAP), plus de 60 fournisseurs de modèles. Open-source sous MIT, maintenu par Can Bölük (Stencil Labs). Commande `omp`.
+
 ## OpenCode
 
 - **Éditeur :** Anomaly
 - **Site :** [https://opencode.ai](https://opencode.ai)
 - **Documentation :** [https://opencode.ai/docs/](https://opencode.ai/docs/)
-- **Dépôt :** [https://github.com/sst/opencode](https://github.com/sst/opencode)
+- **Dépôt :** [https://github.com/anomalyco/opencode](https://github.com/anomalyco/opencode)
 - **Statut :** active
 - **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
@@ -124,6 +156,17 @@ Agent de terminal open-source, décliné en application de bureau et en extensio
 - **Capacités :** BYOK, gratuit
 
 Agent d'ingénierie autonome en sandbox Docker. Offre cloud managée payante.
+
+## Pi
+
+- **Éditeur :** Earendil Inc.
+- **Site :** [https://pi.dev](https://pi.dev)
+- **Documentation :** [https://pi.dev/docs/latest](https://pi.dev/docs/latest)
+- **Dépôt :** [https://github.com/earendil-works/pi](https://github.com/earendil-works/pi)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
+
+Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par Mario Zechner. Pas de sous-agents ni de mode plan par défaut : on les ajoute par extensions, compétences ou paquets. Mode interactif, impression/JSON pour l'automatisation, pilotage RPC. Connexion par clé d'API ou OAuth à une vingtaine de fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers earendil-works/pi.
 
 ## Qwen Code
 
