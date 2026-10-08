@@ -89,8 +89,8 @@ labs:
     verified_on: '2026-09-15'
     status: official_pricing_page
   tooling:
-    checked_on: '2026-09-15'
-    note: 'Mistral Vibe : CLI, extensions VS Code / JetBrains / Zed, web et mobile.'
+    checked_on: '2026-10-08'
+    note: 'Mistral Vibe Code : CLI, extension VS Code, JetBrains et Zed via ACP, agents distants.'
 - id: moonshot
   name: Moonshot
   country: CN
@@ -103,8 +103,8 @@ labs:
     verified_on: '2026-09-15'
     status: official_pricing_page
   tooling:
-    checked_on: '2026-09-15'
-    note: Kimi CLI, Kimi Work.
+    checked_on: '2026-10-08'
+    note: Kimi Code (application, CLI, ACP), Kimi Work.
 - id: zhipu
   name: Z.ai (Zhipu AI)
   country: CN

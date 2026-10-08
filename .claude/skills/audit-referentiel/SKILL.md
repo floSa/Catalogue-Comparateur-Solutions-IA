@@ -243,6 +243,14 @@ passe.
 
 ## Erreurs déjà commises, à ne pas refaire
 
+- **Classer un outil d'après la presse.** La catégorie d'une fiche (application
+  desktop, extension, IDE dérivé, agent CLI) se lit sur la page d'accueil ou de
+  téléchargement de l'éditeur et dans son dépôt : c'est la forme qu'il met en avant
+  en premier. Le 08/10/2026, huit fiches étaient mal classées (DeepSeek Harness,
+  Droid, Freebuff, Goose, OpenHands, Kimi Code, Cline, ZCode) parce que la catégorie
+  venait d'articles ou d'un souvenir. Les produits changent de forme vite : une
+  extension devient une application, une CLI devient un service cloud. À revérifier
+  à chaque passe.
 - **Ne pas lire la liste des harnais que les benchmarks nomment.** Un harnais
   qui apparaît dans les mesures est utilisé pour de bon, qu'on en ait entendu
   parler ou non. mini-SWE-agent, le plus mesuré du référentiel, est resté hors

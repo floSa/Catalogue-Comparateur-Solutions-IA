@@ -31,7 +31,6 @@ Comparaison avec l'instantané `2026-10-02.json`.
 - entrant : `oh-my-pi`
 - entrant : `pi`
 - entrant : `amp`
-- entrant : `augment-code`
 - entrant : `cloudflare-ai-gateway`
 - entrant : `copilot-cli`
 - entrant : `crush`
@@ -55,14 +54,31 @@ Comparaison avec l'instantané `2026-10-02.json`.
 - entrant : `vercel-ai-gateway`
 - entrant : `vllm`
 - entrant : `warp`
-- `continue` : active → maintenance
+- entrant : `github-copilot-app`
+- entrant : `junie-cli`
+- entrant : `kiro-crew`
+- `continue` : active → retired (a rejoint Cursor, dépôt en lecture seule)
+- `windsurf` : unknown → active (renommé Devin Desktop)
+
+## Catégories corrigées
+
+Relevé sur la forme principale proposée par chaque éditeur (site officiel, page de téléchargement, dépôt) :
+
+- `deepseek-harness` : agents CLI → applications desktop
+- `factory-droid` : agents CLI → applications desktop
+- `freebuff` : agents CLI → applications desktop
+- `goose` : agents CLI → applications desktop
+- `openhands` : agents CLI → applications desktop (Agent Canvas, interface servie en local)
+- `kimi-cli` (Kimi Code) : agents CLI → applications desktop
+- `cline` : extensions VS Code → applications desktop
+- `zcode` : IDE dérivés → applications desktop
 
 ## Volumétrie
 
 | | précédent | courant |
 | :-- | --: | --: |
 | Modèles | 153 | 160 |
-| Harnais | 33 | 63 |
+| Harnais | 33 | 65 |
 | Mesures | 848 | 918 |
 
 ---

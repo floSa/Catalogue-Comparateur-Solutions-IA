@@ -977,7 +977,7 @@
   },
   "kimi-cli": {
    "status": "active",
-   "name": "Kimi Code CLI"
+   "name": "Kimi Code"
   },
   "openhands": {
    "status": "active",
@@ -1013,15 +1013,15 @@
   },
   "trae": {
    "status": "active",
-   "name": "Trae"
+   "name": "TraeCode (Trae)"
   },
   "void": {
    "status": "retired",
    "name": "Void IDE"
   },
   "windsurf": {
-   "status": "unknown",
-   "name": "Windsurf / Devin"
+   "status": "active",
+   "name": "Devin Desktop (ex-Windsurf)"
   },
   "zcode": {
    "status": "active",
@@ -1040,12 +1040,12 @@
    "name": "Codex (extension IDE)"
   },
   "continue": {
-   "status": "maintenance",
+   "status": "retired",
    "name": "Continue"
   },
   "github-copilot": {
    "status": "active",
-   "name": "GitHub Copilot"
+   "name": "GitHub Copilot (extensions IDE)"
   },
   "roo-code": {
    "status": "retired",
@@ -1077,7 +1077,7 @@
   },
   "mistral-vibe": {
    "status": "active",
-   "name": "Mistral Vibe"
+   "name": "Mistral Vibe Code"
   },
   "muse-code": {
    "status": "active",
@@ -1113,7 +1113,7 @@
   },
   "factory-droid": {
    "status": "active",
-   "name": "Droid"
+   "name": "Droid (Factory)"
   },
   "gemini-cli": {
    "status": "active",
@@ -1159,13 +1159,9 @@
    "status": "active",
    "name": "Kilo Code"
   },
-  "augment-code": {
-   "status": "active",
-   "name": "Augment Code"
-  },
   "jetbrains-ai": {
    "status": "active",
-   "name": "JetBrains AI Assistant et Junie"
+   "name": "JetBrains AI Assistant"
   },
   "tabnine": {
    "status": "active",
@@ -1214,6 +1210,18 @@
   "jan": {
    "status": "active",
    "name": "Jan"
+  },
+  "github-copilot-app": {
+   "status": "active",
+   "name": "GitHub Copilot (application)"
+  },
+  "junie-cli": {
+   "status": "active",
+   "name": "Junie CLI"
+  },
+  "kiro-crew": {
+   "status": "active",
+   "name": "Kiro Crew"
   }
  },
  "benchmarks": {
@@ -1296,6 +1304,6 @@
  "counts": {
   "models": 160,
   "scores": 918,
-  "tools": 63
+  "tools": 65
  }
 }

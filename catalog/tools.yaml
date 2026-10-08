@@ -29,16 +29,17 @@ tools:
   vendor: Anthropic, PBC
   category: cli_agent
   status: active
-  url: https://docs.claude.com/en/docs/claude-code
-  install: npm install -g @anthropic-ai/claude-code
+  url: https://code.claude.com/docs
+  install: curl -fsSL https://claude.ai/install.sh | bash
   mcp: true
   plans:
   - claude-pro
   - claude-max
-  note: Inclus dans Claude Pro et Max, ou facturé à l'usage via clé API.
+  note: Agent en terminal d'abord, aussi dans VS Code, Cursor, JetBrains, l'application Claude, le web et
+    Slack. Inclus dans Claude Pro, Max, Team et Enterprise, ou facturé à l'usage via clé API.
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
     finding: Confirmé inclus dans Pro ; explicitement exclu du forfait Free.
   compliance:
     status: unverified
@@ -50,37 +51,40 @@ tools:
   vendor: OpenAI
   category: cli_agent
   status: active
-  url: https://developers.openai.com/codex
+  url: https://learn.chatgpt.com/docs/codex/cli
   repo_url: https://github.com/openai/codex
   free: true
   mcp: true
-  note: Agent de codage en terminal, open-source sous Apache-2.0. Depuis juillet 2026, Codex est aussi
-    un des trois espaces de l'application ChatGPT Desktop. Utilisable via un abonnement ChatGPT ou une
-    clé API.
+  note: Agent de codage en terminal, open-source sous Apache-2.0. Connexion par compte ChatGPT (à partir
+    de Plus, le forfait gratuit n'inclut pas la CLI) ou par clé d'API ; modèles locaux via `--oss` (Ollama,
+    LM Studio). Depuis juillet 2026, Codex est aussi un des trois espaces de l'application ChatGPT.
+  byok: true
+  local_models: true
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: Remplace la fiche 'ChatGPT Desktop' de l'edition precedente, qui designait une application
-      de chat et non un harnais de developpement. 124 380 etoiles, commit le jour du releve.
+    verified_on: '2026-10-08'
+    finding: developers.openai.com/codex redirige (308) vers learn.chatgpt.com.
   compliance:
     status: unverified
     verified_on: null
     note: Conformite non relevee a cette edition.
   layer: 1
 - id: kimi-cli
-  name: Kimi Code CLI
+  name: Kimi Code
   vendor: Moonshot AI
-  category: cli_agent
+  category: desktop_app
   status: active
-  url: https://platform.kimi.ai
-  note: 'Agent de terminal de Moonshot, binaire autonome, protocole ACP. Node.js ≥ 24.15 et pnpm 10.33.
-    Le projet d''origine MoonshotAI/kimi-cli est absorbé par kimi-code : l''installation migre automatiquement
-    configuration et sessions, l''ancien dépôt est progressivement arrêté.'
+  url: https://www.kimi.com/code
+  note: Agent de code de Moonshot, décliné en application de bureau (mise en avant en premier), en CLI (binaire
+    autonome, sans Node.js) et en extensions IDE via le protocole ACP (Zed, JetBrains). Le dépôt historique
+    MoonshotAI/kimi-cli est archivé ; au premier lancement, l'outil propose de migrer configuration et sessions.
+  docs_url: https://moonshotai.github.io/kimi-code/en/
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: 'Changement de dépôt : MoonshotAI/kimi-cli → MoonshotAI/kimi-code. Dépôt mis à jour le jour
-      du relevé, binaires macOS datés du 09/09/2026.'
+    verified_on: '2026-10-08'
+    finding: 'Revu le 08/10/2026 : l''URL pointait vers la console de l''API ; les versions de Node.js et
+      pnpm citées étaient des prérequis de développement, pas d''installation ; la migration n''est pas
+      automatique mais proposée.'
   compliance:
     status: unverified
     verified_on: null
@@ -89,19 +93,24 @@ tools:
   repo_url: https://github.com/MoonshotAI/kimi-code
 - id: openhands
   name: OpenHands
-  vendor: All-Hands-AI
-  category: cli_agent
+  vendor: OpenHands
+  category: desktop_app
   status: active
-  url: https://all-hands.dev
+  url: https://www.openhands.dev
   repo_url: https://github.com/OpenHands/OpenHands
   byok: true
   free: true
-  note: Agent d'ingénierie autonome en sandbox Docker. Offre cloud managée payante.
+  note: 'Agent d''ingénierie open-source (MIT), proposé d''abord sous forme d''Agent Canvas : une interface
+    graphique servie en local, sur la machine du développeur ; aussi en interface terminal, en CLI, en SDK
+    et en cloud. Sandbox Docker facultative. Offre cloud individuelle gratuite (clé personnelle ou fournisseurs
+    à prix coûtant) ; seule l''offre Enterprise est payante.'
+  pricing_url: https://www.openhands.dev/pricing
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: Très actif (commit le jour du relevé), 87 994 étoiles. Le dépôt a migré de All-Hands-AI/OpenHands
-      vers OpenHands/OpenHands.
+    verified_on: '2026-10-08'
+    finding: 'Catégorie revue le 08/10/2026 : le README s''ouvre sur « Agent Canvas — The self-hosted developer
+      control center ». L''offre cloud n''est pas payante pour un individu, contrairement à la fiche précédente.
+      all-hands.dev redirige vers openhands.dev.'
   compliance:
     status: unverified
     verified_on: null
@@ -138,18 +147,16 @@ tools:
   category: desktop_app
   layer: 1
   status: active
-  url: https://openai.com/chatgpt/desktop
+  url: https://learn.chatgpt.com/docs/app
   mcp: true
   plans: []
-  note: 'Application unique macOS et Windows regroupant trois espaces : Chat, Work et Codex. La fonction
-    « Work with Apps » lit directement le contexte ouvert dans VS Code, Xcode, Terminal et iTerm2, sans
-    copier-coller.'
+  note: 'Application unique regroupant trois espaces : Chat, Work et Codex. macOS et Windows ; Linux en
+    préversion. Serveurs MCP pris en charge.'
   verification:
     status: community
-    verified_on: '2026-09-15'
-    finding: 'Fiche RESTAURÉE : l''édition précédente l''avait supprimée à tort en la remplaçant par Codex.
-      Les deux coexistent — OpenAI a fusionné les applications Chat et Codex en une seule le 9 juillet
-      2026. La page d''aide officielle renvoie un 403 : provenance secondaire, à re-vérifier.'
+    verified_on: '2026-10-08'
+    finding: 'openai.com et help.openai.com répondent 403 : la fonction « Work with Apps » n''a pas pu être
+      revérifiée et a été retirée de la fiche.'
   compliance:
     status: unverified
     verified_on: null
@@ -159,16 +166,16 @@ tools:
   vendor: Anthropic, PBC
   category: desktop_app
   status: active
-  url: https://claude.ai/download
+  url: https://claude.com/download
   mcp: true
   plans:
   - claude-free
   - claude-pro
   - claude-max
-  note: Windows et macOS. Serveurs MCP, accès fichiers et outils locaux.
+  note: macOS et Windows ; Linux en bêta (Ubuntu, Debian). Serveurs MCP, accès aux fichiers et outils locaux.
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
   compliance:
     status: unverified
     verified_on: null
@@ -180,16 +187,14 @@ tools:
   category: desktop_app
   layer: 1
   status: active
-  url: https://kimi.com
+  url: https://www.kimi.com/products/kimi-work
   plans: []
-  note: 'Agent desktop macOS et Windows conçu en local-first : lit les fichiers de la machine, pilote
-    le navigateur et exécute des tâches planifiées. Annoncé avec un essaim pouvant atteindre 300 agents,
-    réservé aux paliers élevés.'
+  note: 'Agent de bureau pour Windows et Mac Apple Silicon : lit les fichiers de la machine, pilote le navigateur
+    et exécute des tâches planifiées. Annoncé avec un essaim pouvant atteindre 300 agents.'
   verification:
     status: community
-    verified_on: '2026-09-15'
-    finding: Absente de l'édition précédente alors qu'elle figurait dans les fiches de l'audit d'août.
-      Provenance secondaire, à re-vérifier sur kimi.com.
+    verified_on: '2026-10-08'
+    finding: 'Réservation aux paliers élevés non vérifiable : page tarifaire rendue en JavaScript.'
   compliance:
     status: unverified
     verified_on: null
@@ -200,16 +205,16 @@ tools:
   category: desktop_app
   status: active
   url: https://lmstudio.ai
-  docs_url: https://lmstudio.ai/docs
+  docs_url: https://lmstudio.ai/docs/bionic
   local_models: true
   free: true
   note: Agent pour le travail et le code, annonce par l'editeur comme couvrant les taches de developpement,
     l'automatisation et le controle de la machine.
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: 'L''edition precedente confondait l''agent et le serveur local sous une seule fiche : ce
-      sont deux couches differentes.'
+    verified_on: '2026-10-08'
+    finding: 'L''edition precedente confondait l''agent et le serveur local sous une seule fiche : ce sont
+      deux couches differentes.'
   compliance: &id001
     zero_data_retention: true
     self_hosted: true
@@ -243,20 +248,22 @@ tools:
   category: ide_fork
   status: active
   url: https://cursor.com
-  docs_url: https://docs.cursor.com
+  docs_url: https://cursor.com/docs
   pricing_url: https://cursor.com/pricing
   byok: true
-  local_models: true
   mcp: true
   plans:
   - cursor-hobby
   - cursor-individual
   - cursor-teams
-  note: Fork VS Code. Composer agentique, indexation sémantique du dépôt.
+  note: Éditeur dérivé de VS Code. Agent intégré, modèle maison Composer, recherche dans le dépôt par «
+    Instant Grep ». Clés personnelles OpenAI, Anthropic, Google, Azure ou Bedrock, routées par les serveurs
+    de Cursor.
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
-    finding: Les paliers Pro+ (60 $) et Ultra (200 $) de l'édition précédente ne figurent plus.
+    verified_on: '2026-10-08'
+    finding: 'Fiche précédente fausse : Cursor n''indexe plus le dépôt par embeddings, Composer est un modèle
+      et non un mode, et aucun modèle local n''est pris en charge.'
   compliance:
     zero_data_retention: true
     sso: true
@@ -268,19 +275,19 @@ tools:
     status: official_pricing_page
   layer: 1
 - id: trae
-  name: Trae
+  name: TraeCode (Trae)
   vendor: ByteDance
   category: ide_fork
   status: active
   url: https://trae.ai
   pricing_url: https://trae.ai/pricing
   mcp: true
-  note: Fork VS Code, mode SOLO autonome.
+  note: Éditeur de ByteDance renommé TraeCode, avec un mode IDE classique (compatible avec les extensions
+    VS Code) et un mode SOLO où l'IA pilote. macOS, Windows, Linux.
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
-    finding: Cinq paliers confirmés, identiques à l'édition précédente. Les quotas sont désormais libellés
-      en dollars d'usage (5 $ sur Lite, 20 $ sur Pro).
+    verified_on: '2026-10-08'
+    finding: Éditeur (ByteDance) non vérifiable sur les pages légales, rendues uniquement en JavaScript.
   plans:
   - trae-free
   - trae-lite
@@ -313,22 +320,22 @@ tools:
     note: Conformité non relevée à cette édition.
   layer: 1
 - id: windsurf
-  name: Windsurf / Devin
+  name: Devin Desktop (ex-Windsurf)
   vendor: Cognition AI
   category: ide_fork
-  status: unknown
-  url: https://devin.ai
+  status: active
+  url: https://devin.ai/desktop
   pricing_url: https://devin.ai/pricing
   byok: true
   mcp: true
-  note: 'Fork VS Code, moteur Cascade, intégration Devin Cloud. Depuis le rachat par Cognition, windsurf.com
-    redirige (308) vers devin.ai : les deux produits ne forment plus qu''une seule ligne commerciale.'
+  note: Ancien Windsurf, renommé Devin Desktop le 02/06/2026 par Cognition. Éditeur dérivé de VS Code, dont
+    l'écran d'accueil est désormais un centre de pilotage d'agents ; l'agent local Cascade devient Devin
+    Local. macOS, Windows, Linux ; extension JetBrains maintenue.
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: 'Redirection 308 de windsurf.com vers devin.ai constatée au relevé — la marque Windsurf n''a
-      plus de site propre. La grille tarifaire reste non relevée : devin.ai/pricing répond 429 (limitation
-      de débit) aux deux tentatives.'
+    verified_on: '2026-10-08'
+    finding: 'windsurf.com redirige (308) vers devin.ai/desktop. La grille tarifaire reste non relevée :
+      devin.ai/pricing répond 429.'
   compliance:
     status: unverified
     verified_on: null
@@ -337,7 +344,7 @@ tools:
 - id: zcode
   name: ZCode
   vendor: Z.ai (Zhipu AI)
-  category: ide_fork
+  category: desktop_app
   layer: 1
   status: active
   url: https://zcode.z.ai/en
@@ -346,16 +353,15 @@ tools:
   - zcode-lite
   - zcode-pro
   - zcode-max
-  note: Environnement de développement agentique (ADE) présenté par l'éditeur comme le harnais officiel
-    de GLM-5.3. macOS (Apple Silicon et Intel), Windows (x64 et ARM64), Linux x64 et ARM64 en bêta. Gestion
-    de tâches longues par « Goals », pilotage à distance depuis WeChat, Feishu ou Telegram, collaboration
-    multi-agents. Version 3.11.2 au moment du relevé.
+  note: Environnement de développement agentique (ADE) livré en application de bureau, présenté par l'éditeur
+    comme le harnais officiel de GLM-5.3 — pas un éditeur dérivé de VS Code. macOS (Apple Silicon et Intel),
+    Windows (x64 et ARM64), Linux x64 et ARM64 en bêta. Gestion de tâches longues par « Goals », pilotage
+    à distance depuis WeChat, Feishu ou Telegram, collaboration multi-agents.
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
-    finding: Absent de l'édition précédente, et écarté à tort au relevé précédent sur des sources contradictoires.
-      La doc API de Z.ai ne le mentionne pas — il a son propre domaine, zcode.z.ai. Contrairement à ce
-      que laissaient entendre les sources secondaires, il n'est PAS gratuit.
+    verified_on: '2026-10-08'
+    finding: 'Classé à tort en IDE dérivé jusqu''au 08/10/2026 : la documentation le décrit comme « Agentic
+      Development Environment … a stable desktop experience ».'
   compliance:
     status: unverified
     verified_on: null
@@ -392,19 +398,24 @@ tools:
   layer: 1
 - id: cline
   name: Cline
-  vendor: Collectif open-source
-  category: vscode_extension
+  vendor: Cline Bot Inc.
+  category: desktop_app
   status: active
   repo_url: https://github.com/cline/cline
   byok: true
   local_models: true
   mcp: true
   free: true
-  note: Agent autonome BYOK pur. Approbation humaine par action sensible.
+  note: Agent de code open-source (Apache-2.0), désormais proposé d'abord en application de bureau (macOS,
+    Windows, Linux, sans éditeur), et toujours en extension VS Code, en extension JetBrains (accès anticipé)
+    et en CLI. Clés personnelles, modèles locaux (Ollama, LM Studio), MCP. Approbation humaine de chaque
+    action.
+  url: https://cline.bot
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: Très actif (commit le jour du relevé), 68 100 étoiles, licence Apache-2.0.
+    verified_on: '2026-10-08'
+    finding: 'Catégorie revue le 08/10/2026 : la page d''accueil met en tête « Cline for Desktop … No editor
+      required ». Éditeur : Cline Bot Inc., et non un collectif.'
   compliance:
     zero_data_retention: true
     self_hosted: true
@@ -418,14 +429,13 @@ tools:
   vendor: OpenAI
   category: vscode_extension
   status: active
-  url: https://developers.openai.com/codex
-  note: 'Extension VS Code et JetBrains : completion en ligne, refactoring multi-fichiers et agent en
-    panneau lateral, partageant le compte et le modele de Codex CLI.'
+  url: https://learn.chatgpt.com/docs/codex/ide
+  note: Extension pour VS Code, Cursor et Windsurf, partageant le compte de Codex CLI. JetBrains et Xcode
+    passent par leurs propres intégrations.
   verification:
     status: community
-    verified_on: '2026-09-15'
-    finding: 'Existence confirmee par recherche, page produit officielle non ouverte : a re-verifier sur
-      developers.openai.com.'
+    verified_on: '2026-10-08'
+    finding: 'Fiche précédente fausse : l''extension ne couvre pas JetBrains.'
   compliance:
     status: unverified
     verified_on: null
@@ -435,7 +445,7 @@ tools:
   name: Continue
   vendor: Continue Dev, Inc.
   category: vscode_extension
-  status: maintenance
+  status: retired
   url: https://continue.dev
   repo_url: https://github.com/continuedev/continue
   byok: true
@@ -445,8 +455,8 @@ tools:
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'Le README annonce une « version finale 2.0.0 » de l''extension VS Code, de la CLI et du plugin
-      JetBrains : fin du développement actif.'
+    finding: 'Continue a rejoint Cursor : le dépôt n''est plus maintenu et passe en lecture seule (dernière
+      version v2.1.0, 19/06/2026).'
   compliance:
     zero_data_retention: true
     self_hosted: true
@@ -455,7 +465,7 @@ tools:
     status: official_docs
   layer: 1
 - id: github-copilot
-  name: GitHub Copilot
+  name: GitHub Copilot (extensions IDE)
   vendor: GitHub / Microsoft
   category: vscode_extension
   status: active
@@ -466,10 +476,11 @@ tools:
   - copilot-pro
   - copilot-pro-plus
   - copilot-max
-  note: VS Code, Visual Studio, JetBrains, Neovim. Crédits mensuels libellés en dollars.
+  note: Extensions pour VS Code, Visual Studio, JetBrains, Neovim, Eclipse et Xcode. Crédits mensuels libellés
+    en dollars. GitHub propose aussi une application de bureau et une CLI, catalogués séparément.
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
     finding: 'Modèle de crédits confirmé : 15 $ (Pro), 70 $ (Pro+), 200 $ (Max). Complétions illimitées
       sur tout forfait payant.'
   compliance:
@@ -512,11 +523,11 @@ tools:
   docs_url: https://openrouter.ai/docs
   note: 'Passerelle universelle au format OpenAI : une clé pour tous les laboratoires. Aucune marge sur
     l''inférence — le tarif du fournisseur est répercuté tel quel. La facturation porte sur l''achat de
-    crédits : 5,5 % par carte (0,80 $ minimum), 5 % en USDC. En BYOK, 5 % sur l''usage au-delà de 25 000
-    $/mois (200 000 $ en entreprise). Pas d''abonnement.'
+    crédits : 5,5 % par carte (0,80 $ minimum) en Standard, 8 % en Business, 5 % en USDC. En BYOK, 5 % sur
+    l''usage au-delà de 25 000 $/mois (franchise sur mesure en entreprise). Pas d''abonnement.'
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
     finding: 'Modèle économique confirmé : OpenRouter ne prend pas de marge sur les tarifs modèles, contrairement
       à ce que laisse supposer sa position d''intermédiaire.'
   compliance:
@@ -535,11 +546,12 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://localhost:1234/v1
-  note: Charge des modeles GGUF et expose un serveur HTTP compatible API OpenAI, auquel se branchent les
-    harnais de la couche 1.
+  note: Serveur HTTP de LM Studio, compatible avec les API OpenAI et Anthropic, pour les modèles GGUF (llama.cpp)
+    ou MLX. Fonctionne aussi sans interface via le démon `llmster`. Fiche distincte de l'application, car
+    c'est la couche de service des modèles.
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
   compliance: *id001
   layer: 2
 - id: ollama
@@ -551,10 +563,11 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://localhost:11434/v1
-  note: Serveur local compatible OpenAI.
+  note: Serveur local compatible OpenAI (sous-ensemble de l'API). Gratuit en local ; offre cloud payante
+    en plus (Pro 20 $/mois, Max 100 $/mois).
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
     finding: Très actif, 181 039 étoiles — la passerelle locale la plus adoptée.
   compliance:
     zero_data_retention: true
@@ -611,7 +624,7 @@ tools:
     note: Conformité non relevée à cette édition.
 - id: grok-build
   name: Grok Build
-  vendor: xAI
+  vendor: SpaceXAI (xAI)
   category: cli_agent
   layer: 1
   status: active
@@ -624,17 +637,17 @@ tools:
     par Agent Client Protocol, modèles personnalisés via fichier de configuration. Code de première partie
     sous Apache-2.0. Authentification par navigateur au premier lancement, ou clé XAI_API_KEY. macOS,
     Linux, Windows.
+  mcp: true
   verification:
     status: official_docs
-    verified_on: '2026-09-15'
-    finding: 'Absent des éditions précédentes : premier harnais officiel de xAI, ouvert en bêta le 14/05/2026
-      et passé en 1.0 le 07/08/2026.'
+    verified_on: '2026-10-08'
+    finding: x.ai répond 403 aux clients automatisés ; README et documentation consultés.
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
 - id: mistral-vibe
-  name: Mistral Vibe
+  name: Mistral Vibe Code
   vendor: Mistral AI
   category: cli_agent
   layer: 1
@@ -646,14 +659,17 @@ tools:
   - mistral-pro
   - mistral-team
   - mistral-enterprise
-  note: 'Successeur du Chat, renommé Vibe le 28/05/2026. Plusieurs surfaces pour un même agent : ligne
-    de commande, extensions VS Code, JetBrains et Zed via Agent Client Protocol, web et mobile. Agents
-    distants : sessions de codage exécutées dans le cloud, en parallèle, lancées depuis le CLI ou le web.
-    Tourne sur Mistral Medium 3.5.'
+  note: Volet code de Vibe, l'assistant de Mistral (ex-Le Chat, renommé le 28/05/2026). CLI open-source
+    (Apache-2.0), extension VS Code, JetBrains et Zed via le protocole ACP (sans extension dédiée), et agents
+    distants exécutés dans le cloud. Clé personnelle acceptée en offre Pro.
+  byok: true
+  mcp: true
+  repo_url: https://github.com/mistralai/mistral-vibe
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
-    finding: Premier harnais Mistral au catalogue. Le fournisseur n'avait jamais été balayé.
+    verified_on: '2026-10-08'
+    finding: L'assistant Vibe lui-même (web, mobile) est un produit de chat ; seule sa partie code relève
+      du catalogue.
   compliance:
     status: unverified
     verified_on: null
@@ -664,18 +680,18 @@ tools:
   category: cli_agent
   layer: 1
   status: active
-  url: https://developer.meta.com/ai/products/muse-code/
-  pricing_url: https://developer.meta.com/ai/products/muse-code/
+  url: https://dev.meta.ai/products/muse-code
+  pricing_url: https://dev.meta.ai/products/muse-code
   plans:
   - muse-code-everyday
   - muse-code-high
   - muse-code-power
-  note: Agent de codage en terminal de Meta, installé par une commande bash unique. Plusieurs agents se
-    coordonnent sur une même tâche, avec traçabilité complète du code produit. Tourne sur Muse Spark 1.3
-    et 1.2, co-entraînés avec le harnais.
+  note: Agent de codage en terminal de Meta, installé par une commande bash unique, pour macOS et Windows.
+    Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code produit. Tourne
+    sur Muse Spark 1.3 et 1.2, co-entraînés avec le harnais.
   verification:
     status: official_pricing_page
-    verified_on: '2026-09-15'
+    verified_on: '2026-10-08'
     finding: Premier harnais Meta au catalogue. Le fournisseur n'avait jamais été balayé.
   compliance:
     status: unverified
@@ -714,7 +730,7 @@ tools:
   category: cli_agent
   layer: 1
   status: active
-  url: https://swe-agent.com
+  url: https://mini-swe-agent.com/latest/
   repo_url: https://github.com/SWE-agent/mini-swe-agent
   install: pip install mini-swe-agent
   byok: true
@@ -726,7 +742,7 @@ tools:
     ne recommandent plus.'
   verification:
     status: official_docs
-    verified_on: '2026-09-18'
+    verified_on: '2026-10-08'
     finding: C'est le harnais le PLUS mesuré du référentiel — 80 scores — et il était absent du catalogue.
       Sa neutralité en fait le support par défaut des comparaisons entre modèles.
   compliance:
@@ -743,13 +759,13 @@ tools:
   repo_url: https://github.com/NousResearch/hermes-agent
   byok: true
   free: true
-  note: 'Agent de terminal open-source sous licence MIT, publié en février 2026. Interface TUI complète
-    : édition multiligne, autocomplétion des commandes, historique, interruption et réorientation en cours
-    de tâche, coût de session estimé en continu. Fonctionne avec tes propres clés d''API ou via le portail
+  note: 'Agent open-source sous licence MIT, première version publiée en mars 2026. Cette fiche couvre l''interface
+    terminal (TUI complète : édition multiligne, autocomplétion, historique, interruption en cours de tâche,
+    coût de session estimé) ; l''application de bureau a sa propre fiche. Clés d''API personnelles ou portail
     de l''éditeur. Windows, macOS, Linux, Docker, WSL2.'
   verification:
     status: official_docs
-    verified_on: '2026-09-18'
+    verified_on: '2026-10-08'
   compliance:
     status: unverified
     verified_on: null
@@ -764,10 +780,10 @@ tools:
   repo_url: https://github.com/NousResearch/hermes-agent
   byok: true
   free: true
-  note: 'Application de bureau native de Hermes Agent, en préversion publique depuis juin 2026 (macOS,
-    Windows, Linux), sous licence MIT. Même agent, mêmes compétences, même mémoire et mêmes sessions que
-    la version terminal : on passe de l''une à l''autre sans perdre le contexte. Lancement depuis le terminal
-    par `hermes desktop`, ou par installeur.'
+  note: Application de bureau de Hermes Agent, mise en avant en premier sur le site de l'éditeur ; sortie
+    en juin 2026, considérée comme stable depuis la v0.17.0. macOS et Windows, sous licence MIT. Même agent,
+    mêmes compétences, même mémoire et mêmes sessions que la version terminal. Lancement depuis le terminal
+    par `hermes desktop`, ou par installeur.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -784,15 +800,15 @@ tools:
   url: https://pi.dev
   docs_url: https://pi.dev/docs/latest
   repo_url: https://github.com/earendil-works/pi
-  install: npm install -g @earendil-works/pi-coding-agent
+  install: curl -fsSL https://pi.dev/install.sh | sh
   byok: true
   local_models: true
   free: true
   mcp: true
   note: 'Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par Mario Zechner. Pas
     de sous-agents ni de mode plan par défaut : on les ajoute par extensions, compétences ou paquets. Mode
-    interactif, impression/JSON pour l''automatisation, pilotage RPC. Connexion par clé d''API ou OAuth
-    à une vingtaine de fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers earendil-works/pi.'
+    interactif, impression/JSON pour l''automatisation, pilotage RPC, SDK. Connexion par clé d''API ou OAuth
+    à plus de 15 fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers earendil-works/pi.'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -850,9 +866,9 @@ tools:
     verified_on: null
     note: Conformité non relevée à cette édition.
 - id: factory-droid
-  name: Droid
+  name: Droid (Factory)
   vendor: Factory
-  category: cli_agent
+  category: desktop_app
   layer: 1
   status: active
   url: https://factory.com
@@ -861,15 +877,16 @@ tools:
   byok: true
   local_models: true
   mcp: true
-  note: 'Agent de développement de Factory, piloté depuis le terminal (commande `droid`, mode non interactif
-    `droid exec`), aussi disponible en application de bureau et en SDK. Code fermé. Choix du modèle par tâche ;
-    clés personnelles (OpenAI, Anthropic, fournisseurs open-source ou modèle local) acceptées en BYOK.
-    Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.'
+  note: Agent de développement de Factory, proposé d'abord en application de bureau (Factory App, macOS
+    et Windows), et aussi en CLI (commande `droid`, mode non interactif `droid exec`) et en SDK. Code fermé.
+    Clés personnelles (OpenAI, Anthropic, fournisseurs open-source) et modèles locaux acceptés en BYOK.
+    Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
-    finding: 'Le domaine a migré de factory.ai vers factory.com (redirections 307/308). Gratuité de l''usage
-      en BYOK non précisée par l''éditeur.'
+    finding: 'Classé à tort en agent CLI le 08/10/2026 : le site met en avant le téléchargement de l''application
+      de bureau, la doc place Factory App avant Droid CLI. Domaine migré de factory.ai vers factory.com.
+      Gratuité de l''usage en BYOK non précisée.'
   compliance:
     status: unverified
     verified_on: null
@@ -916,6 +933,7 @@ tools:
   note: 'Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le gratuit. Clés personnelles
     acceptées (OpenAI, Azure, Anthropic) et modèles locaux (Ollama, vLLM, Foundry Local), avec mode hors
     ligne. Code fermé. Forfaits : Free 0 $, Pro 10 $/mois, Pro+ 39 $/mois, Max 100 $/mois.'
+  url: https://github.com/features/copilot/cli
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -933,6 +951,7 @@ tools:
   pricing_url: https://cursor.com/pricing
   mcp: true
   note: 'Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code fermé.'
+  url: https://cursor.com/docs/cli/overview
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -967,7 +986,7 @@ tools:
 - id: goose
   name: Goose
   vendor: Agentic AI Foundation (Linux Foundation)
-  category: cli_agent
+  category: desktop_app
   layer: 1
   status: active
   url: https://goose-docs.ai/
@@ -977,13 +996,15 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l''Agentic AI Foundation, aux
-    côtés de MCP et d''AGENTS.md. CLI, application de bureau et API. Plus de 15 fournisseurs, modèles locaux
-    via Ollama, plus de 70 extensions MCP. Se présente comme un agent généraliste, pas seulement de code.'
+  note: Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l'Agentic AI Foundation, aux
+    côtés de MCP et d'AGENTS.md. Application de bureau en tête, puis CLI et API. Plus de 15 fournisseurs,
+    modèles locaux via Ollama, plus de 70 extensions MCP. Se présente comme un agent généraliste, pas seulement
+    de code.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: Le dépôt a migré de block/goose vers aaif-goose/goose.
+    finding: 'Classé à tort en agent CLI le 08/10/2026 : « Desktop app, CLI, and API », l''application de
+      bureau en premier. Dépôt migré de block/goose vers aaif-goose/goose.'
   compliance:
     status: unverified
     verified_on: null
@@ -1022,9 +1043,10 @@ tools:
   byok: true
   free: true
   mcp: true
-  note: 'Agent de code en terminal, aussi en web et en applications macOS/iOS. Issu de Sourcegraph, devenu
-    société indépendante le 02/12/2025. Code fermé. Offre gratuite (Hobby) avec ses propres clés ; Individual
-    20 $/mois ; pas de marge sur les tarifs API pour les particuliers.'
+  note: Agent de code d'Amp (issu de Sourcegraph, indépendant depuis le 02/12/2025). Le produit met d'abord
+    en avant le web et des environnements cloud (« orbs »), puis les applications macOS et iOS et la CLI
+    ; classé ici pour sa CLI, la seule surface locale multiplateforme. Code fermé. Offre gratuite (Hobby)
+    avec ses propres clés ; Individual 20 $/mois.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -1058,19 +1080,22 @@ tools:
 - id: freebuff
   name: Freebuff
   vendor: CodebuffAI
-  category: cli_agent
+  category: desktop_app
   layer: 1
   status: active
   url: https://freebuff.com
   repo_url: https://github.com/CodebuffAI/freebuff
   install: npm install -g freebuff
   free: true
-  note: 'Agent de terminal gratuit, sans abonnement ni clé d''API : l''accès aux modèles inclus est financé
-    par des publicités textuelles. Aussi en application de bureau et sur le web. Open-source sous Apache-2.0.
-    Anciennement Codebuff.'
+  note: 'Agent de code gratuit sans clé d''API : l''accès aux modèles inclus est financé par des publicités
+    textuelles ; des forfaits payants donnent accès à d''autres modèles. Proposé d''abord en application
+    de bureau (macOS, Windows, Linux), aussi en CLI, sur le web et dans le cloud. Open-source sous Apache-2.0,
+    construit sur Codebuff.'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
+    finding: 'Classé à tort en agent CLI le 08/10/2026 : le site et le README mettent l''application de
+      bureau en tête.'
   compliance:
     status: unverified
     verified_on: null
@@ -1112,42 +1137,21 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Agent de code pour VS Code et JetBrains, décliné en CLI (elle-même dérivée d''OpenCode). Open-source
-    sous MIT. Gratuit avec ses propres clés ou un modèle local (Ollama, LM Studio). Teams 15 $/utilisateur/mois.
-    La passerelle Kilo facture les modèles au tarif du fournisseur, sans marge, plus 5 % sur l''achat de
-    crédits.'
+  note: Agent de code pour VS Code et JetBrains, décliné en CLI (elle-même dérivée d'OpenCode) et en application
+    de bureau (bêta). Open-source sous MIT. Gratuit avec ses propres clés ou un modèle local (Ollama, LM
+    Studio). Teams 15 $/utilisateur/mois. La passerelle Kilo facture les modèles au tarif du fournisseur,
+    sans marge, plus 5 % sur l'achat de crédits.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
-    finding: 'L''ancienne extension a atteint sa fin de vie le 31/07/2026 ; le nouveau produit est distribué
-      sous les mêmes identifiants de place de marché.'
-  compliance:
-    status: unverified
-    verified_on: null
-    note: Conformité non relevée à cette édition.
-- id: augment-code
-  name: Augment Code
-  vendor: Augment Computing
-  category: vscode_extension
-  layer: 1
-  status: active
-  url: https://www.augmentcode.com
-  docs_url: https://docs.augmentcode.com
-  pricing_url: https://www.augmentcode.com/pricing
-  mcp: true
-  note: 'Agent de code pour VS Code et JetBrains, décliné en CLI (Auggie). Code fermé. Pas d''offre gratuite
-    permanente : Standard 20 $/mois (20 $ d''usage inclus), Business 100 $/mois (100 $ d''usage inclus),
-    sans facturation par siège jusqu''à 50 sièges.'
-  verification:
-    status: official_pricing_page
-    verified_on: '2026-10-08'
-    finding: BYOK et modèles locaux non documentés par l'éditeur.
+    finding: L'ancienne extension a atteint sa fin de vie le 31/07/2026 ; le nouveau produit est distribué
+      sous les mêmes identifiants de place de marché.
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
 - id: jetbrains-ai
-  name: JetBrains AI Assistant et Junie
+  name: JetBrains AI Assistant
   vendor: JetBrains
   category: vscode_extension
   layer: 1
@@ -1159,34 +1163,35 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Assistant et agent (Junie) intégrés aux IDE JetBrains ; Junie existe aussi en terminal et en intégration
-    continue. Clés personnelles acceptées (Anthropic, Google, OpenAI, points d''accès compatibles OpenAI)
-    et modèles locaux via Ollama ou LM Studio. Offre gratuite : 3 crédits par 30 jours (1 crédit = 1 $),
-    absente des éditions Community.'
+  note: 'Assistant intégré aux IDE JetBrains. Clés personnelles acceptées (Anthropic, Google, OpenAI, points
+    d''accès compatibles OpenAI) et modèles locaux via Ollama ou LM Studio. Offre gratuite : 3 crédits par
+    30 jours (1 crédit = 1 $), absente des éditions Community et d''Android Studio. L''agent Junie a sa
+    propre fiche.'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'La page de licences affiche deux grilles de prix contradictoires pour AI Pro et AI Ultimate
-      ; aucun tarif payant n''est donc repris.'
+    finding: La page de licences affiche deux grilles de prix contradictoires pour AI Pro et AI Ultimate
+      ; aucun tarif payant n'est donc repris.
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
 - id: tabnine
   name: Tabnine
-  vendor: Tabnine
+  vendor: Tricentis
   category: vscode_extension
   layer: 1
   status: active
-  url: https://www.tabnine.com
+  url: https://docs.tabnine.com
   docs_url: https://docs.tabnine.com
-  pricing_url: https://www.tabnine.com/pricing
-  note: 'Assistant de code orienté entreprise, déployable entièrement dans l''environnement du client ;
-    points d''accès privés pour les installations Enterprise. Code fermé.'
+  note: Assistant de code orienté entreprise, racheté par Tricentis le 30/07/2026. Extensions VS Code, JetBrains,
+    Eclipse et Visual Studio, plus une CLI ; déployable entièrement dans l'environnement du client. Code
+    fermé.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'Page de tarifs en erreur 502 lors du relevé : aucun prix repris.'
+    finding: tabnine.com redirige vers tricentis.com ; seule la documentation reste en ligne. Aucun prix
+      relevé.
   compliance:
     status: unverified
     verified_on: null
@@ -1241,8 +1246,9 @@ tools:
   url: https://developers.cloudflare.com/ai-gateway/
   pricing_url: https://developers.cloudflare.com/ai-gateway/reference/pricing/
   free: true
-  note: 'Passerelle hébergée : journalisation, cache, limitation de débit. Fonctions de base gratuites. En
-    facturation unifiée, 5 % de frais sur l''achat de crédits, inférence sans marge.'
+  note: 'Passerelle hébergée : tableau de bord, cache, limitation de débit, gratuits. Journalisation soumise
+    à la tarification Workers Logs pour les comptes créés depuis le 24/09/2026. En facturation unifiée,
+    5 % de frais sur l''achat de crédits, inférence sans marge.'
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -1283,9 +1289,9 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://localhost:8000/v1
-  note: 'Moteur de service à haut débit, conçu pour servir plusieurs utilisateurs à la fois sur GPU (NVIDIA,
+  note: Moteur de service à haut débit, conçu pour servir plusieurs utilisateurs à la fois sur GPU (NVIDIA,
     AMD, Intel) ou CPU, depuis un poste ou un serveur interne. API compatible OpenAI et Anthropic. Open-source
-    sous Apache-2.0. C''est le remplaçant recommandé par Hugging Face pour TGI.'
+    sous Apache-2.0. Un des remplaçants recommandés par Hugging Face pour TGI.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1321,17 +1327,16 @@ tools:
   category: local_server
   layer: 2
   status: active
-  url: https://llama.app
+  url: https://github.com/ggml-org/llama.cpp
   docs_url: https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md
   repo_url: https://github.com/ggml-org/llama.cpp
-  install: curl -LsSf https://llama.app/install.sh | sh
   local_models: true
   free: true
   serves_openai_api: http://127.0.0.1:8080/v1
-  note: 'Moteur d''inférence en C/C++ pour les modèles GGUF, sur lequel s''appuient LM Studio, Jan ou KoboldCpp.
-    Son serveur (`llama-server`, ou `llama serve`) expose une API compatible OpenAI et une interface web.
-    Tourne sur CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et en mode hybride CPU + GPU. Open-source
-    sous MIT.'
+  note: Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM Studio et Jan. Son serveur
+    (`llama-server`) expose une API compatible OpenAI et une interface web ; le port par défaut doit passer
+    de 8080 à 9931. CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et mode hybride CPU + GPU. Open-source
+    sous MIT. L'équipe publie aussi « Llama », une application Mac et Windows (llama.app).
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1428,6 +1433,67 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+- id: github-copilot-app
+  name: GitHub Copilot (application)
+  vendor: GitHub / Microsoft
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://github.com/features/copilot
+  pricing_url: https://github.com/features/copilot/plans
+  note: Application de bureau de GitHub Copilot, mise en avant en premier sur la page produit (macOS, Windows,
+    Linux). Mêmes forfaits que les extensions et la CLI.
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: junie-cli
+  name: Junie CLI
+  vendor: JetBrains
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://junie.jetbrains.com
+  docs_url: https://junie.jetbrains.com/docs/junie-cli.html
+  repo_url: https://github.com/JetBrains/junie
+  install: curl -fsSL https://junie.jetbrains.com/install.sh | bash
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent de code de JetBrains en terminal, aussi en GitHub Action et en CI GitLab. Clés personnelles
+    (OpenAI, Anthropic, Google, xAI, OpenRouter) et modèles locaux (LiteLLM, Ollama, LM Studio). Offre
+    gratuite « Junie Lite ». Code fermé.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: kiro-crew
+  name: Kiro Crew
+  vendor: Amazon Web Services
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://kiro.dev/crew/
+  repo_url: https://github.com/kirodotdev/KiroCrew
+  free: true
+  note: 'Espace de travail de développement persistant, open-source (Apache-2.0), qui tourne sur la machine
+    de l''utilisateur ou sur un serveur : application de bureau (macOS, Windows, Linux), tableau de bord
+    web, CLI, Slack et Discord. Tâches longues sans surveillance, travaux planifiés. Mis en avant en premier
+    sur kiro.dev.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-08'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
 ecartes:
 - id: openclaw
   name: OpenClaw
@@ -1508,6 +1574,12 @@ ecartes:
   vendor: LostRuins (open-source)
   checked_on: '2026-10-08'
   reason: 'Orienté conversation et écriture créative ; pour le développeur, llama.cpp et llamafile couvrent le même moteur.'
+- id: augment-code
+  name: Augment Code
+  vendor: Augment Computing
+  checked_on: '2026-10-08'
+  reason: Produit principal devenu Cosmos, une plateforme cloud hors des catégories du catalogue ; Harness
+    a racheté une partie des actifs d'Augment le 08/10/2026. À réévaluer une fois la situation stabilisée.
 - id: proximus
   name: proximus
   vendor: null

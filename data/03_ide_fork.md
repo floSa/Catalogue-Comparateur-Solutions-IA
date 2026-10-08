@@ -3,21 +3,31 @@
 
 # IDE dérivés
 
-7 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+6 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Cursor
 
 - **Éditeur :** Anysphere, Inc.
 - **Site :** [https://cursor.com](https://cursor.com)
-- **Documentation :** [https://docs.cursor.com](https://docs.cursor.com)
+- **Documentation :** [https://cursor.com/docs](https://cursor.com/docs)
 - **Tarifs :** [https://cursor.com/pricing](https://cursor.com/pricing)
 - **Statut :** active
-- **Capacités :** BYOK, modèles locaux, MCP
+- **Capacités :** BYOK, MCP
 - **Forfait Hobby :** gratuit — 0,00 € HT · 0,00 € TTC
 - **Forfait Individual :** $20 — 17,33 € HT · 20,80 € TTC
 - **Forfait Teams :** $40/u — 34,66 € HT · 41,60 € TTC
 
-Fork VS Code. Composer agentique, indexation sémantique du dépôt.
+Éditeur dérivé de VS Code. Agent intégré, modèle maison Composer, recherche dans le dépôt par « Instant Grep ». Clés personnelles OpenAI, Anthropic, Google, Azure ou Bedrock, routées par les serveurs de Cursor.
+
+## Devin Desktop (ex-Windsurf)
+
+- **Éditeur :** Cognition AI
+- **Site :** [https://devin.ai/desktop](https://devin.ai/desktop)
+- **Tarifs :** [https://devin.ai/pricing](https://devin.ai/pricing)
+- **Statut :** active
+- **Capacités :** BYOK, MCP
+
+Ancien Windsurf, renommé Devin Desktop le 02/06/2026 par Cognition. Éditeur dérivé de VS Code, dont l'écran d'accueil est désormais un centre de pilotage d'agents ; l'agent local Cascade devient Devin Local. macOS, Windows, Linux ; extension JetBrains maintenue.
 
 ## Kiro
 
@@ -30,7 +40,7 @@ Fork VS Code. Composer agentique, indexation sémantique du dépôt.
 
 IDE d'AWS bâti sur la base de VS Code, avec un mode « spécifications » (exigences, conception, tâches) avant le code ; décliné aussi en CLI. Désigné par AWS comme le remplaçant d'Amazon Q Developer. Modèles hébergés par Kiro. Forfaits en crédits : Free 0 $ (50 crédits), Pro 20 $/mois (1 000), Pro+ 40 $ (2 000), Pro Max 100 $ (5 000), Power 200 $ (10 000) ; crédit supplémentaire à 0,04 $. Code fermé.
 
-## Trae
+## TraeCode (Trae)
 
 - **Éditeur :** ByteDance
 - **Site :** [https://trae.ai](https://trae.ai)
@@ -43,7 +53,7 @@ IDE d'AWS bâti sur la base de VS Code, avec un mode « spécifications » (exig
 - **Forfait Pro+ :** $30 — 26,00 € HT · 31,20 € TTC
 - **Forfait Ultra :** $100 — 86,66 € HT · 103,99 € TTC
 
-Fork VS Code, mode SOLO autonome.
+Éditeur de ByteDance renommé TraeCode, avec un mode IDE classique (compatible avec les extensions VS Code) et un mode SOLO où l'IA pilote. macOS, Windows, Linux.
 
 ## Void IDE
 
@@ -54,29 +64,6 @@ Fork VS Code, mode SOLO autonome.
 - **Capacités :** BYOK, modèles locaux
 
 Fork open-source de VS Code. Développement principal ralenti.
-
-## Windsurf / Devin
-
-- **Éditeur :** Cognition AI
-- **Site :** [https://devin.ai](https://devin.ai)
-- **Tarifs :** [https://devin.ai/pricing](https://devin.ai/pricing)
-- **Statut :** unknown
-- **Capacités :** BYOK, MCP
-
-Fork VS Code, moteur Cascade, intégration Devin Cloud. Depuis le rachat par Cognition, windsurf.com redirige (308) vers devin.ai : les deux produits ne forment plus qu'une seule ligne commerciale.
-
-## ZCode
-
-- **Éditeur :** Z.ai (Zhipu AI)
-- **Site :** [https://zcode.z.ai/en](https://zcode.z.ai/en)
-- **Documentation :** [https://zcode.z.ai/en/docs/welcome](https://zcode.z.ai/en/docs/welcome)
-- **Statut :** active
-- **Capacités :** —
-- **Forfait Lite :** $12.6 — 10,92 € HT · 13,10 € TTC
-- **Forfait Pro :** $56 — 48,53 € HT · 58,24 € TTC
-- **Forfait Max :** $117.6 — 101,91 € HT · 122,29 € TTC
-
-Environnement de développement agentique (ADE) présenté par l'éditeur comme le harnais officiel de GLM-5.3. macOS (Apple Silicon et Intel), Windows (x64 et ARM64), Linux x64 et ARM64 en bêta. Gestion de tâches longues par « Goals », pilotage à distance depuis WeChat, Feishu ou Telegram, collaboration multi-agents. Version 3.11.2 au moment du relevé.
 
 ## Zed
 

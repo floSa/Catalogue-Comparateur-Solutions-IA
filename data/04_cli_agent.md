@@ -3,7 +3,7 @@
 
 # Agents CLI
 
-24 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+20 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
 
 ## Aider
 
@@ -24,7 +24,7 @@ Pair programming en terminal. Repo map via tree-sitter, commits Git automatiques
 - **Statut :** active
 - **Capacités :** BYOK, MCP, gratuit
 
-Agent de code en terminal, aussi en web et en applications macOS/iOS. Issu de Sourcegraph, devenu société indépendante le 02/12/2025. Code fermé. Offre gratuite (Hobby) avec ses propres clés ; Individual 20 $/mois ; pas de marge sur les tarifs API pour les particuliers.
+Agent de code d'Amp (issu de Sourcegraph, indépendant depuis le 02/12/2025). Le produit met d'abord en avant le web et des environnements cloud (« orbs »), puis les applications macOS et iOS et la CLI ; classé ici pour sa CLI, la seule surface locale multiplateforme. Code fermé. Offre gratuite (Hobby) avec ses propres clés ; Individual 20 $/mois.
 
 ## Antigravity CLI
 
@@ -39,23 +39,23 @@ Agent de terminal écrit en Go, orchestrant plusieurs agents en arrière-plan. R
 ## Claude Code
 
 - **Éditeur :** Anthropic, PBC
-- **Site :** [https://docs.claude.com/en/docs/claude-code](https://docs.claude.com/en/docs/claude-code)
+- **Site :** [https://code.claude.com/docs](https://code.claude.com/docs)
 - **Statut :** active
 - **Capacités :** MCP
 - **Forfait Pro :** $20 — 17,33 € HT · 20,80 € TTC
 - **Forfait Max :** $100 — 86,66 € HT · 103,99 € TTC
 
-Inclus dans Claude Pro et Max, ou facturé à l'usage via clé API.
+Agent en terminal d'abord, aussi dans VS Code, Cursor, JetBrains, l'application Claude, le web et Slack. Inclus dans Claude Pro, Max, Team et Enterprise, ou facturé à l'usage via clé API.
 
 ## Codex CLI
 
 - **Éditeur :** OpenAI
-- **Site :** [https://developers.openai.com/codex](https://developers.openai.com/codex)
+- **Site :** [https://learn.chatgpt.com/docs/codex/cli](https://learn.chatgpt.com/docs/codex/cli)
 - **Dépôt :** [https://github.com/openai/codex](https://github.com/openai/codex)
 - **Statut :** active
-- **Capacités :** MCP, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
-Agent de codage en terminal, open-source sous Apache-2.0. Depuis juillet 2026, Codex est aussi un des trois espaces de l'application ChatGPT Desktop. Utilisable via un abonnement ChatGPT ou une clé API.
+Agent de codage en terminal, open-source sous Apache-2.0. Connexion par compte ChatGPT (à partir de Plus, le forfait gratuit n'inclut pas la CLI) ou par clé d'API ; modèles locaux via `--oss` (Ollama, LM Studio). Depuis juillet 2026, Codex est aussi un des trois espaces de l'application ChatGPT.
 
 ## Crush
 
@@ -70,33 +70,13 @@ Agent de terminal de Charm. Code source public sous licence FSL-1.1-MIT : il ne 
 ## Cursor CLI
 
 - **Éditeur :** Anysphere, Inc.
+- **Site :** [https://cursor.com/docs/cli/overview](https://cursor.com/docs/cli/overview)
 - **Documentation :** [https://cursor.com/docs/cli/overview](https://cursor.com/docs/cli/overview)
 - **Tarifs :** [https://cursor.com/pricing](https://cursor.com/pricing)
 - **Statut :** active
 - **Capacités :** MCP
 
 Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code fermé.
-
-## Droid
-
-- **Éditeur :** Factory
-- **Site :** [https://factory.com](https://factory.com)
-- **Documentation :** [https://docs.factory.com/cli/getting-started/overview](https://docs.factory.com/cli/getting-started/overview)
-- **Tarifs :** [https://factory.com/pricing](https://factory.com/pricing)
-- **Statut :** active
-- **Capacités :** BYOK, modèles locaux, MCP
-
-Agent de développement de Factory, piloté depuis le terminal (commande `droid`, mode non interactif `droid exec`), aussi disponible en application de bureau et en SDK. Code fermé. Choix du modèle par tâche ; clés personnelles (OpenAI, Anthropic, fournisseurs open-source ou modèle local) acceptées en BYOK. Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.
-
-## Freebuff
-
-- **Éditeur :** CodebuffAI
-- **Site :** [https://freebuff.com](https://freebuff.com)
-- **Dépôt :** [https://github.com/CodebuffAI/freebuff](https://github.com/CodebuffAI/freebuff)
-- **Statut :** active
-- **Capacités :** gratuit
-
-Agent de terminal gratuit, sans abonnement ni clé d'API : l'accès aux modèles inclus est financé par des publicités textuelles. Aussi en application de bureau et sur le web. Open-source sous Apache-2.0. Anciennement Codebuff.
 
 ## Gemini CLI
 
@@ -112,6 +92,7 @@ Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/0
 ## GitHub Copilot CLI
 
 - **Éditeur :** GitHub / Microsoft
+- **Site :** [https://github.com/features/copilot/cli](https://github.com/features/copilot/cli)
 - **Documentation :** [https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli)
 - **Dépôt :** [https://github.com/github/copilot-cli](https://github.com/github/copilot-cli)
 - **Tarifs :** [https://github.com/features/copilot/plans](https://github.com/features/copilot/plans)
@@ -120,25 +101,14 @@ Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/0
 
 Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le gratuit. Clés personnelles acceptées (OpenAI, Azure, Anthropic) et modèles locaux (Ollama, vLLM, Foundry Local), avec mode hors ligne. Code fermé. Forfaits : Free 0 $, Pro 10 $/mois, Pro+ 39 $/mois, Max 100 $/mois.
 
-## Goose
-
-- **Éditeur :** Agentic AI Foundation (Linux Foundation)
-- **Site :** [https://goose-docs.ai/](https://goose-docs.ai/)
-- **Documentation :** [https://goose-docs.ai/docs/getting-started/installation](https://goose-docs.ai/docs/getting-started/installation)
-- **Dépôt :** [https://github.com/aaif-goose/goose](https://github.com/aaif-goose/goose)
-- **Statut :** active
-- **Capacités :** BYOK, modèles locaux, MCP, gratuit
-
-Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l'Agentic AI Foundation, aux côtés de MCP et d'AGENTS.md. CLI, application de bureau et API. Plus de 15 fournisseurs, modèles locaux via Ollama, plus de 70 extensions MCP. Se présente comme un agent généraliste, pas seulement de code.
-
 ## Grok Build
 
-- **Éditeur :** xAI
+- **Éditeur :** SpaceXAI (xAI)
 - **Site :** [https://x.ai/build](https://x.ai/build)
 - **Documentation :** [https://docs.x.ai/build/overview](https://docs.x.ai/build/overview)
 - **Dépôt :** [https://github.com/xai-org/grok-build](https://github.com/xai-org/grok-build)
 - **Statut :** active
-- **Capacités :** BYOK
+- **Capacités :** BYOK, MCP
 
 Agent de codage et TUI plein écran de xAI, écrit en Rust. Sessions interactives ou headless, connexion par Agent Client Protocol, modèles personnalisés via fichier de configuration. Code de première partie sous Apache-2.0. Authentification par navigateur au premier lancement, ou clé XAI_API_KEY. macOS, Linux, Windows.
 
@@ -150,17 +120,18 @@ Agent de codage et TUI plein écran de xAI, écrit en Rust. Sessions interactive
 - **Statut :** active
 - **Capacités :** BYOK, gratuit
 
-Agent de terminal open-source sous licence MIT, publié en février 2026. Interface TUI complète : édition multiligne, autocomplétion des commandes, historique, interruption et réorientation en cours de tâche, coût de session estimé en continu. Fonctionne avec tes propres clés d'API ou via le portail de l'éditeur. Windows, macOS, Linux, Docker, WSL2.
+Agent open-source sous licence MIT, première version publiée en mars 2026. Cette fiche couvre l'interface terminal (TUI complète : édition multiligne, autocomplétion, historique, interruption en cours de tâche, coût de session estimé) ; l'application de bureau a sa propre fiche. Clés d'API personnelles ou portail de l'éditeur. Windows, macOS, Linux, Docker, WSL2.
 
-## Kimi Code CLI
+## Junie CLI
 
-- **Éditeur :** Moonshot AI
-- **Site :** [https://platform.kimi.ai](https://platform.kimi.ai)
-- **Dépôt :** [https://github.com/MoonshotAI/kimi-code](https://github.com/MoonshotAI/kimi-code)
+- **Éditeur :** JetBrains
+- **Site :** [https://junie.jetbrains.com](https://junie.jetbrains.com)
+- **Documentation :** [https://junie.jetbrains.com/docs/junie-cli.html](https://junie.jetbrains.com/docs/junie-cli.html)
+- **Dépôt :** [https://github.com/JetBrains/junie](https://github.com/JetBrains/junie)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
-Agent de terminal de Moonshot, binaire autonome, protocole ACP. Node.js ≥ 24.15 et pnpm 10.33. Le projet d'origine MoonshotAI/kimi-cli est absorbé par kimi-code : l'installation migre automatiquement configuration et sessions, l'ancien dépôt est progressivement arrêté.
+Agent de code de JetBrains en terminal, aussi en GitHub Action et en CI GitLab. Clés personnelles (OpenAI, Anthropic, Google, xAI, OpenRouter) et modèles locaux (LiteLLM, Ollama, LM Studio). Offre gratuite « Junie Lite ». Code fermé.
 
 ## Kiro CLI
 
@@ -173,32 +144,33 @@ Agent de terminal de Moonshot, binaire autonome, protocole ACP. Node.js ≥ 24.1
 
 Agent de terminal d'AWS, successeur d'Amazon Q Developer CLI (bascule automatique en novembre 2025 ; l'ancienne CLI ne reçoit plus que les correctifs de sécurité). Code fermé. Mêmes forfaits en crédits que l'IDE Kiro ; l'abonnement ne peut pas être utilisé depuis un harnais tiers.
 
-## Mistral Vibe
+## Mistral Vibe Code
 
 - **Éditeur :** Mistral AI
 - **Site :** [https://mistral.ai/products/vibe](https://mistral.ai/products/vibe)
+- **Dépôt :** [https://github.com/mistralai/mistral-vibe](https://github.com/mistralai/mistral-vibe)
 - **Tarifs :** [https://mistral.ai/pricing](https://mistral.ai/pricing)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, MCP
 - **Forfait Free :** gratuit — 0,00 € HT · 0,00 € TTC
 - **Forfait Pro :** $14.99 — 12,99 € HT · 15,59 € TTC
 - **Forfait Team :** $24.99/u — 21,66 € HT · 25,99 € TTC
 - **Forfait Enterprise :** — — — HT · — TTC
 
-Successeur du Chat, renommé Vibe le 28/05/2026. Plusieurs surfaces pour un même agent : ligne de commande, extensions VS Code, JetBrains et Zed via Agent Client Protocol, web et mobile. Agents distants : sessions de codage exécutées dans le cloud, en parallèle, lancées depuis le CLI ou le web. Tourne sur Mistral Medium 3.5.
+Volet code de Vibe, l'assistant de Mistral (ex-Le Chat, renommé le 28/05/2026). CLI open-source (Apache-2.0), extension VS Code, JetBrains et Zed via le protocole ACP (sans extension dédiée), et agents distants exécutés dans le cloud. Clé personnelle acceptée en offre Pro.
 
 ## Muse Code
 
 - **Éditeur :** Meta
-- **Site :** [https://developer.meta.com/ai/products/muse-code/](https://developer.meta.com/ai/products/muse-code/)
-- **Tarifs :** [https://developer.meta.com/ai/products/muse-code/](https://developer.meta.com/ai/products/muse-code/)
+- **Site :** [https://dev.meta.ai/products/muse-code](https://dev.meta.ai/products/muse-code)
+- **Tarifs :** [https://dev.meta.ai/products/muse-code](https://dev.meta.ai/products/muse-code)
 - **Statut :** active
 - **Capacités :** —
 - **Forfait Everyday Usage :** $5 — 4,33 € HT · 5,20 € TTC
 - **Forfait High Usage :** $15 — 13,00 € HT · 15,60 € TTC
 - **Forfait Power Usage :** $50 — 43,33 € HT · 52,00 € TTC
 
-Agent de codage en terminal de Meta, installé par une commande bash unique. Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code produit. Tourne sur Muse Spark 1.3 et 1.2, co-entraînés avec le harnais.
+Agent de codage en terminal de Meta, installé par une commande bash unique, pour macOS et Windows. Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code produit. Tourne sur Muse Spark 1.3 et 1.2, co-entraînés avec le harnais.
 
 ## Oh My Pi (omp)
 
@@ -221,16 +193,6 @@ Dérivé (fork) de Pi, livré « tout compris » là où Pi reste minimal : 31 o
 
 Agent de terminal open-source, décliné en application de bureau et en extension IDE. Agnostique du fournisseur : il se branche sur plus de 75 fournisseurs de modèles, ou sur un modèle local. Conversations stockées en SQLite sur le poste. Installation par npm, Homebrew, Chocolatey, Scoop, Mise ou Docker. L'éditeur propose « OpenCode Zen », une sélection de modèles qu'il a testés — sans obligation de l'utiliser.
 
-## OpenHands
-
-- **Éditeur :** All-Hands-AI
-- **Site :** [https://all-hands.dev](https://all-hands.dev)
-- **Dépôt :** [https://github.com/OpenHands/OpenHands](https://github.com/OpenHands/OpenHands)
-- **Statut :** active
-- **Capacités :** BYOK, gratuit
-
-Agent d'ingénierie autonome en sandbox Docker. Offre cloud managée payante.
-
 ## Pi
 
 - **Éditeur :** Earendil Inc.
@@ -240,7 +202,7 @@ Agent d'ingénierie autonome en sandbox Docker. Offre cloud managée payante.
 - **Statut :** active
 - **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
-Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par Mario Zechner. Pas de sous-agents ni de mode plan par défaut : on les ajoute par extensions, compétences ou paquets. Mode interactif, impression/JSON pour l'automatisation, pilotage RPC. Connexion par clé d'API ou OAuth à une vingtaine de fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers earendil-works/pi.
+Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par Mario Zechner. Pas de sous-agents ni de mode plan par défaut : on les ajoute par extensions, compétences ou paquets. Mode interactif, impression/JSON pour l'automatisation, pilotage RPC, SDK. Connexion par clé d'API ou OAuth à plus de 15 fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers earendil-works/pi.
 
 ## Qwen Code
 
@@ -255,7 +217,7 @@ Agent de code open-source (Apache-2.0) né dans le terminal, aujourd'hui déclin
 ## mini-SWE-agent
 
 - **Éditeur :** SWE-agent (Princeton, Stanford)
-- **Site :** [https://swe-agent.com](https://swe-agent.com)
+- **Site :** [https://mini-swe-agent.com/latest/](https://mini-swe-agent.com/latest/)
 - **Dépôt :** [https://github.com/SWE-agent/mini-swe-agent](https://github.com/SWE-agent/mini-swe-agent)
 - **Statut :** active
 - **Capacités :** BYOK, gratuit

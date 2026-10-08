@@ -13,7 +13,7 @@
 - **Capacités :** modèles locaux, gratuit
 - **Endpoint local :** `http://localhost:1234/v1`
 
-Charge des modeles GGUF et expose un serveur HTTP compatible API OpenAI, auquel se branchent les harnais de la couche 1.
+Serveur HTTP de LM Studio, compatible avec les API OpenAI et Anthropic, pour les modèles GGUF (llama.cpp) ou MLX. Fonctionne aussi sans interface via le démon `llmster`. Fiche distincte de l'application, car c'est la couche de service des modèles.
 
 ## LocalAI
 
@@ -46,7 +46,7 @@ Exécution des modèles sur Apple Silicon via le framework MLX ; `mlx_lm.server`
 - **Capacités :** modèles locaux, gratuit
 - **Endpoint local :** `http://localhost:11434/v1`
 
-Serveur local compatible OpenAI.
+Serveur local compatible OpenAI (sous-ensemble de l'API). Gratuit en local ; offre cloud payante en plus (Pro 20 $/mois, Max 100 $/mois).
 
 ## SGLang
 
@@ -63,14 +63,14 @@ Moteur de service haute performance, concurrent direct de vLLM : même usage (pl
 ## llama.cpp (llama-server)
 
 - **Éditeur :** ggml-org
-- **Site :** [https://llama.app](https://llama.app)
+- **Site :** [https://github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp)
 - **Documentation :** [https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md)
 - **Dépôt :** [https://github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp)
 - **Statut :** active
 - **Capacités :** modèles locaux, gratuit
 - **Endpoint local :** `http://127.0.0.1:8080/v1`
 
-Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM Studio, Jan ou KoboldCpp. Son serveur (`llama-server`, ou `llama serve`) expose une API compatible OpenAI et une interface web. Tourne sur CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et en mode hybride CPU + GPU. Open-source sous MIT.
+Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM Studio et Jan. Son serveur (`llama-server`) expose une API compatible OpenAI et une interface web ; le port par défaut doit passer de 8080 à 9931. CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et mode hybride CPU + GPU. Open-source sous MIT. L'équipe publie aussi « Llama », une application Mac et Windows (llama.app).
 
 ## llamafile
 
@@ -94,5 +94,5 @@ Un modèle et son moteur réunis en un seul exécutable, sans installation : on 
 - **Capacités :** modèles locaux, gratuit
 - **Endpoint local :** `http://localhost:8000/v1`
 
-Moteur de service à haut débit, conçu pour servir plusieurs utilisateurs à la fois sur GPU (NVIDIA, AMD, Intel) ou CPU, depuis un poste ou un serveur interne. API compatible OpenAI et Anthropic. Open-source sous Apache-2.0. C'est le remplaçant recommandé par Hugging Face pour TGI.
+Moteur de service à haut débit, conçu pour servir plusieurs utilisateurs à la fois sur GPU (NVIDIA, AMD, Intel) ou CPU, depuis un poste ou un serveur interne. API compatible OpenAI et Anthropic. Open-source sous Apache-2.0. Un des remplaçants recommandés par Hugging Face pour TGI.
 

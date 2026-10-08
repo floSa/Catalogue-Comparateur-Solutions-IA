@@ -145,7 +145,7 @@ resterait à faire — le plan de travail s'en charge.
 | Modèles | 160, 11 fournisseurs | identités issues des mesures, jamais inventées |
 | Tarifs API | 77 tarifs relevés, couvrant 117 modèles · 43 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
 | Forfaits d'abonnement | 29 paliers, 9 éditeurs | page tarifaire officielle |
-| Harnais et passerelles | 63 fiches, dont 61 vivantes publiées | documentation ou tarifs de l'éditeur |
+| Harnais et passerelles | 65 fiches, dont 62 vivantes publiées | documentation ou tarifs de l'éditeur |
 | Balayage des fournisseurs | 11 sur 11 | recherche outil par outil, y compris les absences |
 | Taux de change | 1 EUR = 1,1539 USD | taux de référence BCE du 15/09/2026 |
 
@@ -159,7 +159,7 @@ Deux chantiers restent ouverts, et le plan de travail les rappelle à chaque ex�
 
 | Chantier | État | Ce qui bloque |
 |---|---|---|
-| Conformité des harnais | 6 fiches sur 63 | rétention, résidence, SSO, audit — un relevé par éditeur |
+| Conformité des harnais | 6 fiches sur 65 | rétention, résidence, SSO, audit — un relevé par éditeur |
 | Recoupement des benchmarks | implémenté, inactif | `AA_API_KEY` non configurée ; sans elle, tout vient d'Epoch AI seul |
 
 ## Ce que le référentiel n'affirme pas

@@ -13,7 +13,7 @@
 - **Statut :** active
 - **Capacités :** gratuit
 
-Passerelle hébergée : journalisation, cache, limitation de débit. Fonctions de base gratuites. En facturation unifiée, 5 % de frais sur l'achat de crédits, inférence sans marge.
+Passerelle hébergée : tableau de bord, cache, limitation de débit, gratuits. Journalisation soumise à la tarification Workers Logs pour les comptes créés depuis le 24/09/2026. En facturation unifiée, 5 % de frais sur l'achat de crédits, inférence sans marge.
 
 ## Hugging Face Inference Providers
 
@@ -45,7 +45,7 @@ Passerelle à héberger soi-même : une API au format OpenAI devant plus de 100 
 - **Statut :** active
 - **Capacités :** —
 
-Passerelle universelle au format OpenAI : une clé pour tous les laboratoires. Aucune marge sur l'inférence — le tarif du fournisseur est répercuté tel quel. La facturation porte sur l'achat de crédits : 5,5 % par carte (0,80 $ minimum), 5 % en USDC. En BYOK, 5 % sur l'usage au-delà de 25 000 $/mois (200 000 $ en entreprise). Pas d'abonnement.
+Passerelle universelle au format OpenAI : une clé pour tous les laboratoires. Aucune marge sur l'inférence — le tarif du fournisseur est répercuté tel quel. La facturation porte sur l'achat de crédits : 5,5 % par carte (0,80 $ minimum) en Standard, 8 % en Business, 5 % en USDC. En BYOK, 5 % sur l'usage au-delà de 25 000 $/mois (franchise sur mesure en entreprise). Pas d'abonnement.
 
 ## Vercel AI Gateway
 
