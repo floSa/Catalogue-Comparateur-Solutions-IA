@@ -1,5 +1,5 @@
 _meta:
-  campaign: Vérification tarifaire — passe du 02/10/2026
+  campaign: Vérification tarifaire — passe du 08/10/2026
   verified_on: '2026-09-15'
   operator: pipeline + relevé manuel
 models:
@@ -718,8 +718,6 @@ models:
   pricing:
     input_per_1m: 15.0
     output_per_1m: 120.0
-  applies_to:
-  - gpt-5-pro-2025-10-06
 - id: gpt-6.1-sol
   lab: openai
   display_name: GPT-6.1 Sol
@@ -762,6 +760,60 @@ models:
       Diffusion restreinte au programme Fairwind : pas de route d''API publique ni de date de généralisation
       annoncée. Le tarif est donc annoncé, pas facturable aujourd''hui.'
   context_source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
+- id: mistral-large-4
+  lab: mistral
+  display_name: Mistral Large 4
+  api_model_id: mistral-large-4
+  context_window: 1000000
+  context_source: https://docs.mistral.ai/models/mistral-large-4-0
+  role: Flagship multimodal, poids ouverts
+  pricing:
+    input_per_1m: 0.68
+    output_per_1m: 2.09
+  promo_note: Tarif promotionnel affiché au 08/10/2026 ; prix barré 1,36 / 4,18. Préversion publique depuis
+    le 06/10/2026 — poids annoncés pour fin octobre.
+- id: mistral-small-2603
+  lab: mistral
+  display_name: Mistral Small 4
+  api_model_id: mistral-small-2603
+  context_window: 256000
+  context_source: https://docs.mistral.ai/models/mistral-small-4-0-26-03
+  role: Généraliste économique, Apache 2.0
+  pricing:
+    input_per_1m: 0.15
+    output_per_1m: 0.6
+- id: codestral-2508
+  lab: mistral
+  display_name: Codestral
+  api_model_id: codestral-2508
+  role: Dédié développement logiciel
+  pricing:
+    input_per_1m: 0.3
+    output_per_1m: 0.9
+- id: ministral-3-14b-2512
+  lab: mistral
+  display_name: Ministral 3 14B
+  api_model_id: ministral-3-14b-2512
+  role: Embarqué et périphérie
+  pricing:
+    input_per_1m: 0.2
+    output_per_1m: 0.2
+- id: ministral-3-8b-2512
+  lab: mistral
+  display_name: Ministral 3 8B
+  api_model_id: ministral-3-8b-2512
+  role: Embarqué et périphérie
+  pricing:
+    input_per_1m: 0.15
+    output_per_1m: 0.15
+- id: ministral-3-3b-2512
+  lab: mistral
+  display_name: Ministral 3 3B
+  api_model_id: ministral-3-3b-2512
+  role: Embarqué et périphérie
+  pricing:
+    input_per_1m: 0.1
+    output_per_1m: 0.1
 no_public_price:
 - reason: 'Identifiant de passerelle : le préfixe désigne le revendeur qui sert le modèle, pas le laboratoire.
     Le tarif applicable est celui de la passerelle, relevé en couche 2 — pas celui de l''éditeur.'
@@ -781,6 +833,7 @@ no_public_price:
   - gemma-4-26b-a4b
   - gemma-4-26b-a4b-it
   - gemma-4-31b-it
+  - muse-glimmer
 - reason: 'Version de pré-lancement ou d''évaluation, jamais commercialisée : elle a été mesurée par une
     source indépendante mais n''a pas de grille tarifaire.'
   models:
@@ -794,7 +847,6 @@ no_public_price:
   - gpt-5.5-instant
   - gemini-3-pro-preview
   - gemini-3-flash-preview
-  - DeepSeek-V3.2-Exp_thinking
   - deepseek-chat
   - deepseek-reasoner
   - deepseek-v4-flash

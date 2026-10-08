@@ -1415,7 +1415,13 @@ brancherCategories('#pas-cat','#pas',2,ORD_P);
     // Les générations récentes d'abord : c'est ce qu'on vient voir. Le tri
     // alphabétique mettait Qwen3.5 au-dessus de Qwen3.8, et le tri par prix
     // noyait le flagship au milieu de la liste.
-    const gen=x=>{const n=(String(x.api_id||x.id).match(/\d+(?:\.\d+)?/g)||[])
+    // La génération se lit sur le NOM COMMERCIAL, pas sur l'identifiant : chez
+    // Mistral celui-ci encode une date (`mistral-medium-2604`), et le tri plaçait
+    // Large 4 derrière Medium 3.5 en croyant comparer 4 à 2604.
+    // Pas de repli sur l'identifiant : « Codestral » n'a pas de numéro de version,
+    // et retomber sur `codestral-2508` le faisait passer pour une version 2508.
+    // Un modèle sans version au nom se range en fin de liste, ce qui est exact.
+    const gen=x=>{const n=(String(x.name||'').match(/\d+(?:\.\d+)?/g)||[])
       .slice(0,2).map(Number);
       while(n.length<2)n.push(0);return n;};
     ms.sort((a,b)=>{const g=gen(a),h=gen(b);

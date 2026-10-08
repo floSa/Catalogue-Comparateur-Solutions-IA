@@ -1,6 +1,6 @@
 _generated:
   by: pipeline/seed_catalog.py
-  'on': '2026-10-02'
+  'on': '2026-10-08'
   basis: Identités de modèles observées dans les données de benchmark Epoch AI (CC-BY).
   warning: 'AMORCE. Les champs tarifaires sont vides et marqués `unverified` : ils doivent être renseignés
     depuis la page /pricing officielle de chaque lab. Voir protocol/04_collecte_donnees.md.'
@@ -25,7 +25,7 @@ labs:
   pricing_url: https://developers.openai.com/api/docs/pricing
   api_docs_url: https://platform.openai.com/docs/models
   console_url: https://platform.openai.com
-  model_count_tracked: 33
+  model_count_tracked: 32
   source:
     url: https://developers.openai.com/api/docs/pricing
     verified_on: '2026-09-15'
@@ -39,7 +39,7 @@ labs:
   pricing_url: https://ai.google.dev/gemini-api/docs/pricing
   api_docs_url: https://ai.google.dev/gemini-api/docs/models
   console_url: https://aistudio.google.com
-  model_count_tracked: 12
+  model_count_tracked: 13
   source:
     url: https://ai.google.dev/gemini-api/docs/pricing
     verified_on: '2026-09-15'
@@ -54,7 +54,7 @@ labs:
   pricing_url: https://api-docs.deepseek.com/quick_start/pricing
   api_docs_url: https://api-docs.deepseek.com
   console_url: https://platform.deepseek.com
-  model_count_tracked: 11
+  model_count_tracked: 12
   source:
     url: https://api-docs.deepseek.com/quick_start/pricing
     verified_on: '2026-09-15'
@@ -139,7 +139,7 @@ labs:
   pricing_url: https://developer.meta.com/ai/models/muse-spark/
   api_docs_url: https://llama.developer.meta.com/docs
   console_url: https://llama.developer.meta.com
-  model_count_tracked: 4
+  model_count_tracked: 5
   source:
     url: https://developer.meta.com/ai/models/muse-spark/
     verified_on: '2026-09-15'

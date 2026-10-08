@@ -3,7 +3,7 @@
 
 # Fournisseurs de modèles
 
-11 laboratoires suivis. Généré le 2026-10-02 depuis `catalog/`.
+11 laboratoires suivis. Généré le 2026-10-08 depuis `catalog/`.
 
 ## Anthropic
 
@@ -44,14 +44,14 @@
 - `claude-fable-5-1` — ARC-AGI-2 90.0% · MirrorCode 73.3% · APEX-Agents 68.6%
 - `claude-opus-4-8` — GPQA diamond 91.0% · ARC-AGI-2 72.1% · DeepSWE 59.0%
 - `claude-opus-4-7` — GPQA diamond 90.1% · ARC-AGI-2 75.8% · SciCode 54.5%
-- `claude-opus-5-5` — ARC-AGI-2 92.5% · GPQA diamond 90.6% · MirrorCode 77.4%
+- `claude-opus-5-5` — ARC-AGI-2 93.3% · GPQA diamond 90.6% · MirrorCode 77.4%
 
 ## OpenAI
 
 - **Pays :** US
 - **Tarifs :** [https://developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing)
 - **Documentation :** [https://platform.openai.com/docs/models](https://platform.openai.com/docs/models)
-- **Modèles au catalogue :** 41 · **tarifés :** 38
+- **Modèles au catalogue :** 40 · **tarifés :** 37
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
@@ -87,7 +87,6 @@
 | GPT-6 Astra | $10 | $1 | $50 | 1050k | 2026-09-15 |
 | GPT-6 Astra (none) | $10 | $1 | $50 | 1050k | 2026-09-15 |
 | GPT-5 Pro | $15 | — | $120 | — | 2026-09-15 |
-| GPT-5 Pro | $15 | — | $120 | — | 2026-09-15 |
 | GPT-5.2 Pro | $21 | — | $168 | — | 2026-09-15 |
 | GPT-5.2 Pro | $21 | — | $168 | — | 2026-09-15 |
 | GPT-5.4 Pro | $30 | — | $180 | — | 2026-09-15 |
@@ -97,11 +96,11 @@
 **Meilleurs scores mesurés**
 
 - `gpt-5.6-sol` — GPQA diamond 93.5% · ARC-AGI-2 92.5% · DeepSWE 72.7%
-- `gpt-5.5` — GPQA diamond 90.7% · ARC-AGI-2 85.0% · DeepSWE 67.0%
 - `gpt-6-astra` — GPQA diamond 95.8% · ARC-AGI-2 95.0% · DeepSWE 74.1%
+- `gpt-5.5` — GPQA diamond 90.7% · ARC-AGI-2 85.0% · DeepSWE 67.0%
+- `gpt-5.6-luna` — GPQA diamond 91.6% · DeepSWE 67.2% · ARC-AGI-2 59.5%
 - `gpt-5.6-terra` — GPQA diamond 93.3% · ARC-AGI-2 83.9% · DeepSWE 69.6%
 - `gpt-5.4-2026-03-05` — GPQA diamond 93.3% · ARC-AGI-2 74.0% · SciCode 56.6%
-- `gpt-5.6-luna` — GPQA diamond 91.6% · DeepSWE 67.2% · ARC-AGI-2 59.5%
 
 ## Google DeepMind
 
@@ -122,24 +121,25 @@
 
 **Meilleurs scores mesurés**
 
+- `gemini-3.8-flash` — GPQA diamond 95.4% · ARC-AGI-2 89.2% · DeepSWE 73.8%
 - `gemini-3.7-flash` — GPQA diamond 94.8% · ARC-AGI-2 84.6% · APEX-Agents 67.8%
-- `gemini-3.8-flash` — GPQA diamond 95.4% · DeepSWE 73.8% · APEX-Agents 64.3%
 - `gemini-3.1-pro-preview` — GPQA diamond 94.4% · ARC-AGI-2 77.1% · SciCode 58.9%
 - `gemini-3.6-flash` — GPQA diamond 94.1% · ARC-AGI-2 60.4% · SciCode 52.7%
 - `gemini-3.5-flash` — GPQA diamond 92.8% · ARC-AGI-2 72.1% · SciCode 53.1%
-- `gemini-3-pro-preview` — GPQA diamond 92.6% · HLE 37.5% · ARC-AGI-2 31.1%
+- `gemini-3.5-flash-lite` — GPQA diamond 83.3% · SciCode 41.3% · APEX-Agents 29.3%
 
 ## DeepSeek
 
 - **Pays :** CN
 - **Tarifs :** [https://api-docs.deepseek.com/quick_start/pricing](https://api-docs.deepseek.com/quick_start/pricing)
 - **Documentation :** [https://api-docs.deepseek.com](https://api-docs.deepseek.com)
-- **Modèles au catalogue :** 12 · **tarifés :** 6
+- **Modèles au catalogue :** 13 · **tarifés :** 7
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
 | DeepSeek Flash | $0.3 | $0.006 | $1.2 | 1000k | 2026-09-15 |
 | DeepSeek V4.1 Flash (high) | $0.3 | $0.006 | $1.2 | 1000k | 2026-09-15 |
+| DeepSeek V4.1 Flash (none) | $0.3 | $0.006 | $1.2 | 1000k | 2026-09-15 |
 | DeepSeek V4-Pro | $1.32 | $0.044 | $3.96 | 1000k | 2026-09-15 |
 | DeepSeek V4 Pro 0813 (high) | $1.32 | $0.044 | $3.96 | 1000k | 2026-09-15 |
 | DeepSeek V4 Pro 0813 (none) | $1.32 | $0.044 | $3.96 | 1000k | 2026-09-15 |
@@ -150,9 +150,9 @@
 - `deepseek-v4-pro-0813` — GPQA diamond 91.7% · ARC-AGI-2 61.3% · SciCode 51.0%
 - `deepseek-v4-flash-0731` — GPQA diamond 91.0% · ARC-AGI-2 61.4% · SciCode 49.9%
 - `deepseek-v4-pro` — GPQA diamond 90.9% · SciCode 50.0% · FrontierCode 17.6%
+- `deepseek-v4.1-flash` — SciCode 51.8% · APEX-Agents 39.5% · GDP.pdf 19.8%
+- `deepseek/deepseek-v3.2` — APEX-Agents 21.3% · ARC-AGI-2 4.0%
 - `deepseek-chat` — GPQA diamond 71.2%
-- `deepseek-reasoner` — GPQA diamond 83.4%
-- `deepseek-v4-flash` — SciCode 44.9%
 
 ## Alibaba
 
@@ -180,23 +180,29 @@
 
 **Meilleurs scores mesurés**
 
-- `qwen3.8-max` — GPQA diamond 92.7% · DeepSWE 57.5% · SciCode 52.9%
+- `qwen3.8-max` — GPQA diamond 92.7% · APEX-Agents 63.3% · DeepSWE 57.5%
 - `qwen3.7-plus` — GPQA diamond 87.9% · SciCode 45.5% · FrontierCode 10.2%
+- `qwen3.8-27b` — APEX-Agents 47.5% · SciCode 46.6% · ARC-AGI-2 42.4%
+- `qwen3.8-max-0902` — GPQA diamond 92.3% · SciCode 52.1% · FrontierSWE 17.8%
 - `qwen3.5-35b-a3b` — GPQA diamond 83.5% · SciCode 29.3%
 - `qwen3.5-397b-a17b` — GPQA diamond 86.4% · APEX-Agents 24.9%
-- `qwen3.5-9B` — GPQA diamond 79.0% · SciCode 27.6%
-- `qwen3.6-27b` — GPQA diamond 85.9% · SciCode 37.3%
 
 ## Mistral AI
 
 - **Pays :** FR
 - **Tarifs :** [https://docs.mistral.ai/inference/pricing](https://docs.mistral.ai/inference/pricing)
 - **Documentation :** [https://docs.mistral.ai/getting-started/models/models_overview/](https://docs.mistral.ai/getting-started/models/models_overview/)
-- **Modèles au catalogue :** 3 · **tarifés :** 2
+- **Modèles au catalogue :** 9 · **tarifés :** 8
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
+| Ministral 3 3B | $0.1 | — | $0.1 | — | 2026-09-15 |
+| Ministral 3 8B | $0.15 | — | $0.15 | — | 2026-09-15 |
+| Mistral Small 4 | $0.15 | — | $0.6 | 256k | 2026-09-15 |
+| Ministral 3 14B | $0.2 | — | $0.2 | — | 2026-09-15 |
+| Codestral | $0.3 | — | $0.9 | — | 2026-09-15 |
 | Mistral Large 3 | $0.5 | — | $1.5 | 256k | 2026-09-15 |
+| Mistral Large 4 | $0.68 | — | $2.09 | 1000k | 2026-09-15 |
 | Mistral Medium 3.5 | $1.5 | — | $7.5 | 256k | 2026-09-15 |
 
 **Meilleurs scores mesurés**
@@ -248,9 +254,9 @@
 
 **Meilleurs scores mesurés**
 
+- `glm-5.3-flash` — GPQA diamond 90.1% · ARC-AGI-2 65.8% · DeepSWE 63.4%
 - `glm-5.3` — GPQA diamond 90.9% · DeepSWE 69.0% · SciCode 59.0%
-- `glm-5.2` — GPQA diamond 91.9% · SciCode 50.5% · DeepSWE 43.8%
-- `glm-5.3-flash` — GPQA diamond 90.1% · DeepSWE 63.4% · APEX-Agents 52.8%
+- `glm-5.2` — GPQA diamond 91.9% · SciCode 50.5% · APEX-Agents 45.2%
 - `glm-5.1` — GPQA diamond 89.9% · SciCode 43.8% · APEX-Agents 40.9%
 - `glm-4.7` — GPQA diamond 83.3% · SciCode 45.1%
 - `glm-5` — GPQA diamond 87.8% · ARC-AGI-2 4.9%
@@ -275,7 +281,7 @@
 
 - `grok-4.6` — GPQA diamond 94.0% · DeepSWE 67.5% · ARC-AGI-2 67.1%
 - `grok-4.5` — GPQA diamond 93.4% · APEX-Agents 56.2% · SciCode 54.0%
-- `grok-4.7` — GPQA diamond 92.7% · SciCode 57.4% · CursorBench 46.3%
+- `grok-4.7` — GPQA diamond 92.7% · SciCode 57.8% · APEX-Agents 54.6%
 - `grok-4.3` — GPQA diamond 88.8% · SciCode 47.3% · GDP.pdf 8.0%
 - `grok-4-20` — ARC-AGI-2 65.1%
 - `grok-4.20-0309-reasoning` — GPQA diamond 89.3%
@@ -285,7 +291,7 @@
 - **Pays :** US
 - **Tarifs :** [https://developer.meta.com/ai/models/muse-spark/](https://developer.meta.com/ai/models/muse-spark/)
 - **Documentation :** [https://llama.developer.meta.com/docs](https://llama.developer.meta.com/docs)
-- **Modèles au catalogue :** 4 · **tarifés :** 1
+- **Modèles au catalogue :** 5 · **tarifés :** 1
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
@@ -295,8 +301,9 @@
 
 - `muse-spark-1.2` — SciCode 56.4% · DeepSWE 54.9% · APEX-Agents 36.4%
 - `muse-spark-1.3` — SciCode 59.7% · APEX-Agents 57.8% · CursorBench 41.6%
+- `muse-spark-1.1` — SciCode 58.8% · DeepSWE 53.3% · APEX-Agents 31.8%
 - `muse-spark` — GPQA diamond 89.8% · SciCode 51.5% · HLE 40.6%
-- `muse-spark-1.1` — SciCode 58.8% · DeepSWE 53.3% · GDP.pdf 15.0%
+- `muse-glimmer` — SciCode 44.9%
 
 ## MiniMax
 

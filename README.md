@@ -139,17 +139,17 @@ resterait à faire — le plan de travail s'en charge.
 
 | Couche | Couverture | Source |
 |---|---|---|
-| Benchmarks | 848 mesures, 15 classements, modèles des 12 derniers mois | Epoch AI (jeu daté) + tbench.ai pour Terminal-Bench 4.0 |
-| dont coût réellement mesuré | 254 mesures | même source, colonne de coût d'exécution |
-| dont effort de raisonnement connu | 574 mesures | même source, colonne de protocole |
-| Modèles | 153, 11 fournisseurs | identités issues des mesures, jamais inventées |
-| Tarifs API | 71 tarifs relevés, couvrant 111 modèles · 42 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
+| Benchmarks | 918 mesures, 15 classements, modèles des 12 derniers mois | Epoch AI (jeu daté) + tbench.ai pour Terminal-Bench 4.0 |
+| dont coût réellement mesuré | 270 mesures | même source, colonne de coût d'exécution |
+| dont effort de raisonnement connu | 626 mesures | même source, colonne de protocole |
+| Modèles | 160, 11 fournisseurs | identités issues des mesures, jamais inventées |
+| Tarifs API | 77 tarifs relevés, couvrant 117 modèles · 43 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
 | Forfaits d'abonnement | 29 paliers, 9 éditeurs | page tarifaire officielle |
 | Harnais et passerelles | 33 fiches, dont 31 vivantes publiées | documentation ou tarifs de l'éditeur |
 | Balayage des fournisseurs | 11 sur 11 | recherche outil par outil, y compris les absences |
 | Taux de change | 1 EUR = 1,1539 USD | taux de référence BCE du 15/09/2026 |
 
-**« Sans tarif éditeur » n'est pas un trou.** 42 modèles n'auront jamais de ligne
+**« Sans tarif éditeur » n'est pas un trou.** 43 modèles n'auront jamais de ligne
 tarifaire : poids ouverts facturés par l'hébergeur qui les sert, générations retirées de
 la grille, identifiants de passerelle, pré-versions jamais commercialisées. Chacun porte
 son motif dans [catalog/pricing_verified.yaml](catalog/pricing_verified.yaml). Les

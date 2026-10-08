@@ -116,10 +116,43 @@ def propagate_variants(models: list[dict]) -> int:
     return n
 
 
+def elaguer(vp: dict, connus: set[str]) -> list[str]:
+    """Retire de la saisie les références à des modèles sortis du catalogue.
+
+    La fenêtre glissante fait sortir des modèles à chaque passe ; leurs
+    identifiants restaient cités dans `applies_to` et `no_public_price`, et les
+    tests cassaient à chaque fois. Supprimer une référence à un modèle qui
+    n'existe plus n'invente rien — c'est du ménage, et il est tracé.
+    """
+    partis = []
+    for v in vp.get("models", []):
+        if v.get("applies_to"):
+            garde = [a for a in v["applies_to"] if a in connus]
+            partis += [a for a in v["applies_to"] if a not in connus]
+            if garde:
+                v["applies_to"] = garde
+            else:
+                v.pop("applies_to")
+    for g in vp.get("no_public_price") or []:
+        garde = [m for m in g["models"] if m in connus]
+        partis += [m for m in g["models"] if m not in connus]
+        g["models"] = garde
+    vp["no_public_price"] = [g for g in (vp.get("no_public_price") or []) if g["models"]]
+    return sorted(set(partis))
+
+
 def main() -> int:
-    vp = yaml.safe_load((CATALOG / "pricing_verified.yaml").read_text(encoding="utf-8"))
+    chemin = CATALOG / "pricing_verified.yaml"
+    vp = yaml.safe_load(chemin.read_text(encoding="utf-8"))
     doc = yaml.safe_load((CATALOG / "models.yaml").read_text(encoding="utf-8"))
     models = doc.get("models", [])
+
+    caducs = elaguer(vp, {m["id"] for m in models})
+    if caducs:
+        chemin.write_text(yaml.safe_dump(vp, allow_unicode=True, sort_keys=False, width=100),
+                          encoding="utf-8")
+        print(f"  ménage : {len(caducs)} référence(s) à des modèles sortis du catalogue "
+              f"({', '.join(caducs[:4])}{'…' if len(caducs) > 4 else ''})")
     idx = {m["id"]: m for m in models}
     today = date.today().isoformat()
     # La date d'un tarif est celle où la page a été LUE, pas celle où ce script

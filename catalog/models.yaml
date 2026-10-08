@@ -1,10 +1,10 @@
 _generated:
   by: pipeline/seed_catalog.py
-  'on': '2026-10-02'
+  'on': '2026-10-08'
   basis: Identités de modèles observées dans les données de benchmark Epoch AI (CC-BY).
   warning: 'AMORCE. Les champs tarifaires sont vides et marqués `unverified` : ils doivent être renseignés
     depuis la page /pricing officielle de chaque lab. Voir protocol/04_collecte_donnees.md.'
-  pricing_applied_on: '2026-10-02'
+  pricing_applied_on: '2026-10-08'
 models:
 - id: qwen3-max
   lab: alibaba
@@ -458,7 +458,7 @@ models:
   display_name: Qwen3.8 27B
   released_on: '2026-08-14'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 3
+  benchmark_records: 7
   epoch_model_versions:
   - qwen3.8-27b
   - qwen3.8-27b_low
@@ -480,7 +480,7 @@ models:
   display_name: Qwen3.8 27B (no thinking)
   released_on: '2026-08-14'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 1
+  benchmark_records: 2
   epoch_model_versions:
   - qwen3.8-27b_none
   status: active
@@ -517,7 +517,7 @@ models:
   display_name: Qwen3.8-Max
   released_on: '2026-08-02'
   accessibility: API access
-  benchmark_records: 5
+  benchmark_records: 7
   epoch_model_versions:
   - qwen3.8-max_unknown
   - qwen3.8-max_xhigh
@@ -541,7 +541,7 @@ models:
   display_name: Qwen3.8 Max (0902) (unknown)
   released_on: '2026-09-01'
   accessibility: API access
-  benchmark_records: 2
+  benchmark_records: 3
   epoch_model_versions:
   - qwen3.8-max-0902_unknown
   - qwen3.8-max-0902_xhigh
@@ -1075,10 +1075,13 @@ models:
   display_name: Claude Opus 5.5
   released_on: '2026-09-22'
   accessibility: API access
-  benchmark_records: 12
+  benchmark_records: 23
   epoch_model_versions:
+  - claude-opus-5-5_high
+  - claude-opus-5-5_low
   - claude-opus-5-5_max
   - claude-opus-5-5_medium
+  - claude-opus-5-5_unknown
   - claude-opus-5-5_xhigh
   status: active
   api_model_id: claude-opus-5-5
@@ -1174,7 +1177,7 @@ models:
   display_name: Claude Sonnet 5
   released_on: '2026-06-30'
   accessibility: API access
-  benchmark_records: 17
+  benchmark_records: 21
   epoch_model_versions:
   - claude-sonnet-5
   - claude-sonnet-5_high
@@ -1204,7 +1207,7 @@ models:
   display_name: Claude Sonnet 5.5
   released_on: '2026-09-28'
   accessibility: API access
-  benchmark_records: 15
+  benchmark_records: 16
   epoch_model_versions:
   - claude-sonnet-5-5_high
   - claude-sonnet-5-5_low
@@ -1417,7 +1420,7 @@ models:
   display_name: DeepSeek V4 Pro 0813 (none)
   released_on: '2026-08-13'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 1
+  benchmark_records: 2
   epoch_model_versions:
   - deepseek-v4-pro-0813_none
   status: active
@@ -1472,7 +1475,7 @@ models:
   display_name: DeepSeek V4.1 Flash (high)
   released_on: '2026-09-09'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 1
+  benchmark_records: 3
   epoch_model_versions:
   - deepseek-v4.1-flash_high
   - deepseek-v4.1-flash_max
@@ -1495,12 +1498,40 @@ models:
     peak_hours_utc: 01:00-04:00 et 06:00-10:00, lundi-vendredi
   context_window: 1000000
   context_source: https://api-docs.deepseek.com/quick_start/pricing
+- id: deepseek-v4.1-flash_none
+  lab: deepseek
+  display_name: DeepSeek V4.1 Flash (none)
+  released_on: '2026-09-09'
+  accessibility: Open weights (unrestricted)
+  benchmark_records: 1
+  epoch_model_versions:
+  - deepseek-v4.1-flash_none
+  status: active
+  api_model_id: null
+  role: Flash ultra-économique
+  pricing:
+    input_per_1m: 0.3
+    input_cached_per_1m: 0.006
+    output_per_1m: 1.2
+    currency: USD
+    offpeak: *id010
+    peak_hours_utc: 01:00-04:00 et 06:00-10:00, lundi-vendredi
+    source:
+      url: https://api-docs.deepseek.com/quick_start/pricing
+      verified_on: '2026-09-15'
+      status: official_pricing_page
+      note: 'Tarification dynamique : heures creuses à 50%. Montants = tarif de pointe.'
+      priced_as: deepseek-flash
+      variant_of: deepseek-v4.1-flash
+      variant_note: '`none` est un réglage d''exécution du modèle `deepseek-v4.1-flash`, pas une référence
+        facturée distincte : même tarif unitaire.'
+  context_window: 1000000
 - id: deepseek/deepseek-v3.2
   lab: deepseek
   display_name: DeepSeek-V3.2 (Thinking; Novita)
   released_on: '2025-12-01'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 1
+  benchmark_records: 2
   epoch_model_versions:
   - deepseek/deepseek-v3.2
   status: active
@@ -1634,7 +1665,7 @@ models:
   display_name: Gemini 3.5 Flash-Lite
   released_on: '2026-07-21'
   accessibility: API access
-  benchmark_records: 9
+  benchmark_records: 10
   epoch_model_versions:
   - gemini-3.5-flash-lite
   - gemini-3.5-flash-lite_high
@@ -1714,7 +1745,7 @@ models:
   display_name: Gemini 3.8 Flash
   released_on: '2026-09-02'
   accessibility: API access
-  benchmark_records: 15
+  benchmark_records: 19
   epoch_model_versions:
   - gemini-3.8-flash_high
   - gemini-3.8-flash_low
@@ -1740,10 +1771,12 @@ models:
 - id: gemini-4-argon
   lab: google
   display_name: Gemini 4 Argon
-  released_on: null
-  accessibility: null
-  benchmark_records: 0
-  epoch_model_versions: []
+  released_on: '2026-09-30'
+  accessibility: Limited access
+  benchmark_records: 3
+  epoch_model_versions:
+  - gemini-4-argon_high
+  - gemini-4-argon_unknown
   status: active
   api_model_id: gemini-4-argon
   role: Flagship raisonnement long-horizon
@@ -1822,6 +1855,25 @@ models:
       status: no_public_price
       note: 'Modèle diffusé en poids ouverts : le laboratoire ne facture pas d''API pour lui. Le coût
         dépend entièrement de l''hébergeur qui le sert, et se relève donc chez lui.'
+- id: muse-glimmer
+  lab: meta
+  display_name: Muse Glimmer (high)
+  released_on: '2026-08-10'
+  accessibility: Open weights (unrestricted)
+  benchmark_records: 1
+  epoch_model_versions:
+  - muse-glimmer_high
+  status: active
+  api_model_id: null
+  role: null
+  pricing:
+    currency: USD
+    source:
+      url: null
+      verified_on: null
+      status: no_public_price
+      note: 'Modèle diffusé en poids ouverts : le laboratoire ne facture pas d''API pour lui. Le coût
+        dépend entièrement de l''hébergeur qui le sert, et se relève donc chez lui.'
 - id: muse-spark
   lab: meta
   display_name: Muse Spark
@@ -1847,11 +1899,12 @@ models:
   display_name: Muse Spark 1.1
   released_on: '2026-07-09'
   accessibility: API access
-  benchmark_records: 4
+  benchmark_records: 6
   epoch_model_versions:
   - muse-spark-1.1
   - muse-spark-1.1_high
   - muse-spark-1.1_medium
+  - muse-spark-1.1_xhigh
   status: active
   api_model_id: null
   role: null
@@ -1890,7 +1943,7 @@ models:
   display_name: Muse Spark 1.3
   released_on: '2026-09-02'
   accessibility: API access
-  benchmark_records: 11
+  benchmark_records: 12
   epoch_model_versions:
   - muse-spark-1.3_high
   - muse-spark-1.3_low
@@ -2010,6 +2063,26 @@ models:
       variant_note: '`none` est un réglage d''exécution du modèle `MiniMax-M3`, pas une référence facturée
         distincte : même tarif unitaire.'
   context_window: 1000000
+- id: codestral-2508
+  lab: mistral
+  display_name: Codestral
+  released_on: null
+  accessibility: null
+  benchmark_records: 0
+  epoch_model_versions: []
+  status: active
+  api_model_id: codestral-2508
+  role: Dédié développement logiciel
+  pricing:
+    input_per_1m: 0.3
+    output_per_1m: 0.9
+    currency: USD
+    source:
+      url: https://docs.mistral.ai/inference/pricing
+      verified_on: '2026-09-15'
+      status: official_pricing_page
+      note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
+        versionnés viennent de docs.mistral.ai/models/overview.
 - id: devstral-small-2512
   lab: mistral
   display_name: Devstral Small 2
@@ -2029,6 +2102,66 @@ models:
       status: no_public_price
       note: 'Marqué explicitement DÉPRÉCIÉ dans la documentation Mistral : le modèle reste appelable un
         temps mais a quitté la grille tarifaire.'
+- id: ministral-3-14b-2512
+  lab: mistral
+  display_name: Ministral 3 14B
+  released_on: null
+  accessibility: null
+  benchmark_records: 0
+  epoch_model_versions: []
+  status: active
+  api_model_id: ministral-3-14b-2512
+  role: Embarqué et périphérie
+  pricing:
+    input_per_1m: 0.2
+    output_per_1m: 0.2
+    currency: USD
+    source:
+      url: https://docs.mistral.ai/inference/pricing
+      verified_on: '2026-09-15'
+      status: official_pricing_page
+      note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
+        versionnés viennent de docs.mistral.ai/models/overview.
+- id: ministral-3-3b-2512
+  lab: mistral
+  display_name: Ministral 3 3B
+  released_on: null
+  accessibility: null
+  benchmark_records: 0
+  epoch_model_versions: []
+  status: active
+  api_model_id: ministral-3-3b-2512
+  role: Embarqué et périphérie
+  pricing:
+    input_per_1m: 0.1
+    output_per_1m: 0.1
+    currency: USD
+    source:
+      url: https://docs.mistral.ai/inference/pricing
+      verified_on: '2026-09-15'
+      status: official_pricing_page
+      note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
+        versionnés viennent de docs.mistral.ai/models/overview.
+- id: ministral-3-8b-2512
+  lab: mistral
+  display_name: Ministral 3 8B
+  released_on: null
+  accessibility: null
+  benchmark_records: 0
+  epoch_model_versions: []
+  status: active
+  api_model_id: ministral-3-8b-2512
+  role: Embarqué et périphérie
+  pricing:
+    input_per_1m: 0.15
+    output_per_1m: 0.15
+    currency: USD
+    source:
+      url: https://docs.mistral.ai/inference/pricing
+      verified_on: '2026-09-15'
+      status: official_pricing_page
+      note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
+        versionnés viennent de docs.mistral.ai/models/overview.
 - id: mistral-large-2512
   lab: mistral
   display_name: Mistral Large 3
@@ -2052,6 +2185,30 @@ models:
         versionnés viennent de docs.mistral.ai/models/overview.
   context_window: 256000
   context_source: https://docs.mistral.ai/models/mistral-large-3-25-12
+- id: mistral-large-4
+  lab: mistral
+  display_name: Mistral Large 4
+  released_on: null
+  accessibility: null
+  benchmark_records: 0
+  epoch_model_versions: []
+  status: active
+  api_model_id: mistral-large-4
+  role: Flagship multimodal, poids ouverts
+  pricing:
+    input_per_1m: 0.68
+    output_per_1m: 2.09
+    currency: USD
+    source:
+      url: https://docs.mistral.ai/inference/pricing
+      verified_on: '2026-09-15'
+      status: official_pricing_page
+      note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
+        versionnés viennent de docs.mistral.ai/models/overview.
+    promo_note: Tarif promotionnel affiché au 08/10/2026 ; prix barré 1,36 / 4,18. Préversion publique
+      depuis le 06/10/2026 — poids annoncés pour fin octobre.
+  context_window: 1000000
+  context_source: https://docs.mistral.ai/models/mistral-large-4-0
 - id: mistral-medium-2604
   lab: mistral
   display_name: Mistral Medium 3.5
@@ -2075,6 +2232,28 @@ models:
         versionnés viennent de docs.mistral.ai/models/overview.
   context_window: 256000
   context_source: https://docs.mistral.ai/models/mistral-medium-3-5-26-04
+- id: mistral-small-2603
+  lab: mistral
+  display_name: Mistral Small 4
+  released_on: null
+  accessibility: null
+  benchmark_records: 0
+  epoch_model_versions: []
+  status: active
+  api_model_id: mistral-small-2603
+  role: Généraliste économique, Apache 2.0
+  pricing:
+    input_per_1m: 0.15
+    output_per_1m: 0.6
+    currency: USD
+    source:
+      url: https://docs.mistral.ai/inference/pricing
+      verified_on: '2026-09-15'
+      status: official_pricing_page
+      note: mistral.ai/pricing ne porte pas la grille par modèle ; elle vit dans la doc. Les identifiants
+        versionnés viennent de docs.mistral.ai/models/overview.
+  context_window: 256000
+  context_source: https://docs.mistral.ai/models/mistral-small-4-0-26-03
 - id: fireworks/kimi-k2p5
   lab: moonshot
   display_name: Kimi K2.5 (Fireworks)
@@ -2225,29 +2404,6 @@ models:
       verified_on: '2026-09-15'
       status: official_pricing_page
       note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
-- id: gpt-5-pro-2025-10-06
-  lab: openai
-  display_name: GPT-5 Pro
-  released_on: '2025-10-07'
-  accessibility: API access
-  benchmark_records: 2
-  epoch_model_versions:
-  - gpt-5-pro-2025-10-06_high
-  - gpt-5-pro-2025-10-06_medium
-  - gpt-5-pro-2025-10-06_unknown
-  status: active
-  api_model_id: null
-  role: null
-  pricing:
-    input_per_1m: 15.0
-    output_per_1m: 120.0
-    currency: USD
-    source:
-      url: https://developers.openai.com/api/docs/pricing
-      verified_on: '2026-09-15'
-      status: official_pricing_page
-      note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
-      priced_as: gpt-5-pro
 - id: gpt-5.1
   lab: openai
   display_name: GPT-5.1
@@ -2806,7 +2962,7 @@ models:
   display_name: GPT-5.6 Luna
   released_on: '2026-07-09'
   accessibility: API access
-  benchmark_records: 27
+  benchmark_records: 28
   epoch_model_versions:
   - gpt-5.6-luna_high
   - gpt-5.6-luna_low
@@ -2990,7 +3146,7 @@ models:
   display_name: GPT-6 Astra
   released_on: '2026-09-03'
   accessibility: API access
-  benchmark_records: 27
+  benchmark_records: 28
   epoch_model_versions:
   - gpt-6-astra_high
   - gpt-6-astra_low
@@ -3043,7 +3199,7 @@ models:
   display_name: GPT-6 Luna
   released_on: '2026-09-22'
   accessibility: API access
-  benchmark_records: 14
+  benchmark_records: 15
   epoch_model_versions:
   - gpt-6-luna_high
   - gpt-6-luna_low
@@ -3096,7 +3252,7 @@ models:
   display_name: GPT-6 Sol
   released_on: '2026-09-22'
   accessibility: API access
-  benchmark_records: 14
+  benchmark_records: 15
   epoch_model_versions:
   - gpt-6-sol_high
   - gpt-6-sol_low
@@ -3149,7 +3305,7 @@ models:
   display_name: GPT-6.1 Sol
   released_on: '2026-09-29'
   accessibility: API access
-  benchmark_records: 8
+  benchmark_records: 14
   epoch_model_versions:
   - gpt-6.1-sol_high
   - gpt-6.1-sol_low
@@ -3297,7 +3453,7 @@ models:
   display_name: Grok 4.7
   released_on: '2026-09-21'
   accessibility: API access
-  benchmark_records: 8
+  benchmark_records: 13
   epoch_model_versions:
   - grok-4.7_high
   - grok-4.7_low
@@ -3431,7 +3587,7 @@ models:
   display_name: GLM-5.2
   released_on: '2026-06-16'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 7
+  benchmark_records: 8
   epoch_model_versions:
   - glm-5.2_high
   - glm-5.2_low
@@ -3480,9 +3636,10 @@ models:
   display_name: GLM-5.3
   released_on: '2026-08-14'
   accessibility: API access
-  benchmark_records: 7
+  benchmark_records: 11
   epoch_model_versions:
   - glm-5.3_high
+  - glm-5.3_low
   - glm-5.3_max
   - glm-5.3_unknown
   status: active
@@ -3504,9 +3661,10 @@ models:
   display_name: GLM-5.3-Flash
   released_on: '2026-08-20'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 6
+  benchmark_records: 14
   epoch_model_versions:
   - glm-5.3-flash_high
+  - glm-5.3-flash_low
   - glm-5.3-flash_max
   - glm-5.3-flash_unknown
   status: active
