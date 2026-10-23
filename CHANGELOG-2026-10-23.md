@@ -50,7 +50,7 @@ Comparaison avec l'instantané `2026-10-08.json`.
 
 - `deepseek-harness` : six préversions du 09/10 au 23/10 (0.2.1-rc.3 sur npm), compatibilité expérimentale avec les mods de Claude Code, recherche web via les API Search et Fetch de DeepSeek.
 - `muse-code` : forfait Maximum Usage à 200 $/mois, modèle Muse Wonder, SDK en préversion.
-- Écartés avec motif : Elephant-Goldfish Model (plugin de compétences Google, pas un harnais) et Amplio (harnais de recherche Google DeepMind, non lancé comme produit).
+- Écartés avec motif : Harness² (Google Research, optimiseur de harnais publié le 09/10), Elephant-Goldfish Model (plugin de compétences Google, pas un harnais) et Amplio (harnais de recherche Google DeepMind, non lancé comme produit).
 
 ## Ingestion
 

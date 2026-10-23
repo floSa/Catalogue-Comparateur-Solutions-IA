@@ -47,7 +47,7 @@ labs:
   tooling:
     checked_on: '2026-10-23'
     note: Antigravity (application, CLI, IDE, extensions, SDK). Gemini CLI réservé à l'API payante et aux
-      licences entreprise depuis le 18/06/2026. Elephant-Goldfish Model (plugin) et Amplio (harnais de recherche)
+      licences entreprise depuis le 18/06/2026. Elephant-Goldfish Model (plugin), Harness² (optimiseur de harnais, Google Research) et Amplio (harnais de recherche)
       écartés.
 - id: deepseek
   name: DeepSeek

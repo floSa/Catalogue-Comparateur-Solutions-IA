@@ -1594,6 +1594,15 @@ ecartes:
     des sous-agents sans contexte la relisent), qui s''installe dans Antigravity, Claude Code ou Codex. Ce
     n''est pas un harnais : il se greffe sur un harnais existant. Publié sous Apache-2.0 avec la mention «
     Not an officially supported Google product ».'
+- id: harness2
+  name: Harness²
+  vendor: Google Research
+  checked_on: '2026-10-23'
+  reason: 'Cadre open-source (Apache-2.0, publié le 09/10/2026 avec l''article arXiv 2610.14224) qui optimise
+    automatiquement un harnais existant, sans réentraîner le modèle : il propose des modifications (prompt
+    système, outils, mémoire, compétences, sous-agents), les teste sur la tâche et garde les meilleures. Il
+    pilote OpenCode ou Codex comme exécutants ; ce n''est pas lui-même un outil de développement. Mention «
+    not an officially supported Google product ».'
 - id: amplio
   name: Amplio
   vendor: Google DeepMind
