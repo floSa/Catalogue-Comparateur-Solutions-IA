@@ -3,7 +3,16 @@
 
 # Extensions VS Code
 
-7 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+10 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+
+## CodeGPT
+
+- **Éditeur :** CodeGPT LLC
+- **Site :** [https://www.codegpt.co](https://www.codegpt.co)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Extension VS Code et JetBrains, plus de 2 millions d'installations annoncées. Free ; Professional 10 $/mois ; Teams 30 $/utilisateur/mois.
 
 ## Codex (extension IDE)
 
@@ -70,6 +79,16 @@ Agent de code pour VS Code et JetBrains, décliné en CLI (elle-même dérivée 
 
 Fork de Cline, modes spécialisés (Code, Architect, Ask, Debug, Custom).
 
+## Tabby
+
+- **Éditeur :** TabbyML
+- **Site :** [https://www.tabbyml.com](https://www.tabbyml.com)
+- **Dépôt :** [https://github.com/TabbyML/tabby](https://github.com/TabbyML/tabby)
+- **Statut :** maintenance
+- **Capacités :** modèles locaux, gratuit
+
+Assistant de code auto-hébergé : un serveur sur son infrastructure et des extensions IDE. Code sous Apache-2.0 hors module entreprise (édition Community gratuite). Rythme ralenti : dernière version le 25/01/2026.
+
 ## Tabnine
 
 - **Éditeur :** Tricentis
@@ -79,4 +98,13 @@ Fork de Cline, modes spécialisés (Code, Architect, Ask, Debug, Custom).
 - **Capacités :** —
 
 Assistant de code orienté entreprise, racheté par Tricentis le 30/07/2026. Extensions VS Code, JetBrains, Eclipse et Visual Studio, plus une CLI ; déployable entièrement dans l'environnement du client. Code fermé.
+
+## Tongyi Lingma
+
+- **Éditeur :** Alibaba Cloud
+- **Site :** [https://lingma.aliyun.com](https://lingma.aliyun.com)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Assistant de code d'Alibaba Cloud pour VS Code, Visual Studio et JetBrains, avec un IDE Lingma en bêta publique. Gratuit pour les particuliers. Code fermé.
 

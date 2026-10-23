@@ -3,7 +3,7 @@
 
 # Agents CLI
 
-20 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+31 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
 
 ## Aider
 
@@ -47,6 +47,26 @@ Agent de terminal écrit en Go, orchestrant plusieurs agents en arrière-plan. R
 
 Agent en terminal d'abord, aussi dans VS Code, Cursor, JetBrains, l'application Claude, le web et Slack. Inclus dans Claude Pro, Max, Team et Enterprise, ou facturé à l'usage via clé API.
 
+## Claurst
+
+- **Éditeur :** Claurst (open-source)
+- **Site :** [https://claurst.kuber.studio](https://claurst.kuber.studio)
+- **Dépôt :** [https://github.com/Kuberwastaken/claurst](https://github.com/Kuberwastaken/claurst)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Agent de terminal multi-fournisseurs écrit en Rust, réimplémentation indépendante de Claude Code, open-source sous GPL-3.0. En bêta (v0.2). Fait aussi serveur ACP.
+
+## Codewhale
+
+- **Éditeur :** Codewhale
+- **Site :** [https://codewhale.net](https://codewhale.net)
+- **Dépôt :** [https://github.com/codewhale-hq/Codewhale](https://github.com/codewhale-hq/Codewhale)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
+
+Agent de terminal open-source (MIT) écrit en Rust, compatible avec plus de 40 fournisseurs et avec Ollama en local ; DeepSeek V4.1 Flash par défaut.
+
 ## Codex CLI
 
 - **Éditeur :** OpenAI
@@ -56,6 +76,16 @@ Agent en terminal d'abord, aussi dans VS Code, Cursor, JetBrains, l'application 
 - **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de codage en terminal, open-source sous Apache-2.0. Connexion par compte ChatGPT (à partir de Plus, le forfait gratuit n'inclut pas la CLI) ou par clé d'API ; modèles locaux via `--oss` (Ollama, LM Studio). Depuis juillet 2026, Codex est aussi un des trois espaces de l'application ChatGPT.
+
+## Command Code
+
+- **Éditeur :** Command Code
+- **Site :** [https://commandcode.ai](https://commandcode.ai)
+- **Dépôt :** [https://github.com/CommandCodeAI/command-code](https://github.com/CommandCodeAI/command-code)
+- **Statut :** active
+- **Capacités :** —
+
+Agent de code en terminal conçu pour les modèles ouverts, qui apprend les préférences de code de l'utilisateur ; aussi en application de bureau et extensions IDE. Dépôt public sans licence déclarée (pas open-source). Forfaits de 1 $ à 200 $/mois.
 
 ## Crush
 
@@ -77,6 +107,25 @@ Agent de terminal de Charm. Code source public sous licence FSL-1.1-MIT : il ne 
 - **Capacités :** MCP
 
 Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code fermé.
+
+## DeepCode
+
+- **Éditeur :** HKUDS (Université de Hong Kong)
+- **Dépôt :** [https://github.com/HKUDS/DeepCode](https://github.com/HKUDS/DeepCode)
+- **Statut :** active
+- **Capacités :** modèles locaux, MCP, gratuit
+
+Agent de code issu d'un laboratoire universitaire, open-source (MIT) : interface terminal (`deepcode`), application de bureau et interface web. Modèles cloud ou locaux.
+
+## Forge
+
+- **Éditeur :** Tailcall
+- **Site :** [https://forgecode.dev](https://forgecode.dev)
+- **Dépôt :** [https://github.com/tailcallhq/forgecode](https://github.com/tailcallhq/forgecode)
+- **Statut :** active
+- **Capacités :** MCP, gratuit
+
+Environnement de développement en terminal assisté par IA, open-source sous Apache-2.0, avec interface TUI et MCP.
 
 ## Gemini CLI
 
@@ -100,6 +149,15 @@ Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/0
 - **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le gratuit. Clés personnelles acceptées (OpenAI, Azure, Anthropic) et modèles locaux (Ollama, vLLM, Foundry Local), avec mode hors ligne. Code fermé. Forfaits : Free 0 $, Pro 10 $/mois, Pro+ 39 $/mois, Max 100 $/mois.
+
+## GitLab Duo CLI
+
+- **Éditeur :** GitLab
+- **Site :** [https://about.gitlab.com/blog/gitlab-duo-cli-generally-available/](https://about.gitlab.com/blog/gitlab-duo-cli-generally-available/)
+- **Statut :** active
+- **Capacités :** —
+
+Chat agentique de GitLab Duo dans le terminal, disponible pour tous depuis le 16/07/2026 (GitLab 19.2). Réservé aux offres Premium et Ultimate, avec les crédits GitLab inclus. Code fermé.
 
 ## Grok Build
 
@@ -144,6 +202,25 @@ Agent de code de JetBrains en terminal, aussi en GitHub Action et en CI GitLab. 
 
 Agent de terminal d'AWS, successeur d'Amazon Q Developer CLI (bascule automatique en novembre 2025 ; l'ancienne CLI ne reçoit plus que les correctifs de sécurité). Code fermé. Mêmes forfaits en crédits que l'IDE Kiro ; l'abonnement ne peut pas être utilisé depuis un harnais tiers.
 
+## MiMo Code
+
+- **Éditeur :** Xiaomi
+- **Site :** [https://mimo.xiaomi.com/mimocode](https://mimo.xiaomi.com/mimocode)
+- **Dépôt :** [https://github.com/XiaomiMiMo/MiMo-Code](https://github.com/XiaomiMiMo/MiMo-Code)
+- **Statut :** active
+- **Capacités :** BYOK, MCP, gratuit
+
+Agent de code en terminal de Xiaomi, open-source sous MIT, qui sert aussi de moteur à l'application MiMo Desktop. Connexion par compte MiMo ou Codex, ou tout fournisseur compatible OpenAI.
+
+## MiniMax Code
+
+- **Éditeur :** MiniMax
+- **Dépôt :** [https://github.com/MiniMax-AI/minimax-code](https://github.com/MiniMax-AI/minimax-code)
+- **Statut :** active
+- **Capacités :** BYOK
+
+Agent de code en terminal de MiniMax (commande `mcode`), open-source sous MIT. Fonctionne avec le « Token Plan » MiniMax (crédits prépayés) ou un modèle au choix.
+
 ## Mistral Vibe Code
 
 - **Éditeur :** Mistral AI
@@ -183,6 +260,16 @@ Agent de codage en terminal de Meta, pour macOS et Windows, avec un SDK TypeScri
 
 Dérivé (fork) de Pi, livré « tout compris » là où Pi reste minimal : 31 outils intégrés, opérations LSP et débogueur (DAP), plus de 60 fournisseurs de modèles. Open-source sous MIT, maintenu par Can Bölük (Stencil Labs). Commande `omp`.
 
+## Open Interpreter
+
+- **Éditeur :** Open Interpreter
+- **Site :** [https://openinterpreter.com](https://openinterpreter.com)
+- **Dépôt :** [https://github.com/openinterpreter/openinterpreter](https://github.com/openinterpreter/openinterpreter)
+- **Statut :** active
+- **Capacités :** BYOK, MCP, gratuit
+
+Agent de terminal open-source (Apache-2.0), aujourd'hui dérivé de Codex, conçu pour les modèles ouverts et peu coûteux : la commande `/harness` émule le comportement d'autres harnais (Claude Code, Kimi Code, ZCode, Qwen Code, SWE-agent). Tout fournisseur compatible OpenAI.
+
 ## OpenCode
 
 - **Éditeur :** Anomaly
@@ -214,6 +301,26 @@ Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par 
 - **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de code open-source (Apache-2.0) né dans le terminal, aujourd'hui décliné en extensions IDE (VS Code, Zed, JetBrains), application de bureau, interface web et messageries. Compatible avec les API OpenAI, Anthropic, Gemini et Qwen, et avec les modèles locaux (Ollama, vLLM).
+
+## gptme
+
+- **Éditeur :** gptme (open-source)
+- **Site :** [https://gptme.org](https://gptme.org)
+- **Dépôt :** [https://github.com/gptme/gptme](https://github.com/gptme/gptme)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
+
+Agent de terminal open-source (MIT), aussi en application de bureau depuis juillet 2026 et en serveur ACP pour Zed et JetBrains. Modèles locaux via Ollama.
+
+## jcode
+
+- **Éditeur :** jcode (open-source)
+- **Site :** [https://jcode.sh](https://jcode.sh)
+- **Dépôt :** [https://github.com/1jehuang/jcode](https://github.com/1jehuang/jcode)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Harnais de terminal open-source (MIT) écrit en Rust, conçu pour faire tourner des dizaines d'agents en parallèle sans saturer la machine. Connexion par abonnement Claude ou Codex.
 
 ## mini-SWE-agent
 

@@ -3,7 +3,16 @@
 
 # Serveurs locaux
 
-8 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+12 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+
+## Docker Model Runner
+
+- **Éditeur :** Docker
+- **Site :** [https://docs.docker.com/ai/model-runner/](https://docs.docker.com/ai/model-runner/)
+- **Statut :** active
+- **Capacités :** modèles locaux, gratuit
+
+Exécution de modèles intégrée à Docker Desktop et Docker Engine, avec API compatible OpenAI et Ollama ; moteurs llama.cpp et vLLM. Open-source sous Apache-2.0.
 
 ## LM Studio (serveur local)
 
@@ -14,6 +23,16 @@
 - **Endpoint local :** `http://localhost:1234/v1`
 
 Serveur HTTP de LM Studio, compatible avec les API OpenAI et Anthropic, pour les modèles GGUF (llama.cpp) ou MLX. Fonctionne aussi sans interface via le démon `llmster`. Fiche distincte de l'application, car c'est la couche de service des modèles.
+
+## Lemonade
+
+- **Éditeur :** Lemonade (optimisé par AMD)
+- **Site :** [https://lemonade-server.ai](https://lemonade-server.ai)
+- **Dépôt :** [https://github.com/lemonade-sdk/lemonade](https://github.com/lemonade-sdk/lemonade)
+- **Statut :** active
+- **Capacités :** modèles locaux, gratuit
+
+Serveur local open-source (Apache-2.0) avec interface graphique, CLI et API compatible OpenAI, optimisé par des ingénieurs AMD pour les GPU et NPU AMD. Windows, macOS, Linux.
 
 ## LocalAI
 
@@ -60,6 +79,16 @@ Serveur local compatible OpenAI (sous-ensemble de l'API). Gratuit en local ; off
 
 Moteur de service haute performance, concurrent direct de vLLM : même usage (plusieurs utilisateurs, GPU NVIDIA ou AMD, TPU), service distribué possible. API compatible OpenAI. Open-source sous Apache-2.0.
 
+## exo
+
+- **Éditeur :** exo labs
+- **Site :** [https://exolabs.net](https://exolabs.net)
+- **Dépôt :** [https://github.com/exo-explore/exo](https://github.com/exo-explore/exo)
+- **Statut :** active
+- **Capacités :** modèles locaux, gratuit
+
+Fait tourner un modèle réparti sur plusieurs machines du réseau local (Mac notamment), avec API compatible OpenAI, Claude et Ollama. Open-source sous Apache-2.0.
+
 ## llama.cpp (llama-server)
 
 - **Éditeur :** ggml-org
@@ -83,6 +112,16 @@ Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM St
 - **Endpoint local :** `http://127.0.0.1:8080/v1`
 
 Un modèle et son moteur réunis en un seul exécutable, sans installation : on le télécharge, on le lance. Construit sur llama.cpp ; API compatible OpenAI et interface web intégrées. CPU, Apple Silicon, NVIDIA, AMD, Vulkan. Open-source sous Apache-2.0.
+
+## oMLX
+
+- **Éditeur :** oMLX (open-source)
+- **Site :** [https://omlx.ai](https://omlx.ai)
+- **Dépôt :** [https://github.com/jundot/omlx](https://github.com/jundot/omlx)
+- **Statut :** active
+- **Capacités :** modèles locaux, gratuit
+
+Serveur d'inférence pour Apple Silicon (MLX) avec batching continu et cache sur SSD, piloté depuis la barre de menus ; API compatible OpenAI et Anthropic. Open-source sous Apache-2.0.
 
 ## vLLM
 

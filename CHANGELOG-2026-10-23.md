@@ -52,6 +52,19 @@ Comparaison avec l'instantané `2026-10-08.json`.
 - `muse-code` : forfait Maximum Usage à 200 $/mois, modèle Muse Wonder, SDK en préversion.
 - Écartés avec motif : Harness² (Google Research, optimiseur de harnais publié le 09/10), Elephant-Goldfish Model (plugin de compétences Google, pas un harnais) et Amplio (harnais de recherche Google DeepMind, non lancé comme produit).
 
+## Recherche générale des harnais (23/10/2026)
+
+Trois balayages : éditeur par éditeur (70 organisations GitHub officielles, dont google-research), GitHub open source (132 requêtes, 6 136 dépôts examinés) et éditeurs commerciaux, serveurs locaux et passerelles. Chaque ajout est vérifié sur le site ou le dépôt de l'éditeur, et classé selon la forme qu'il met en avant en premier.
+
+- Ajoutés, applications desktop : Qoder, Conductor, Superset, Emdash, Zenflow (Zencoder), stagewise, Reasonix, Dyad.
+- Ajoutés, extensions : Tongyi Lingma, CodeGPT, Tabby.
+- Ajoutés, IDE dérivés : CodeBuddy, IBM Bob.
+- Ajoutés, agents CLI : MiMo Code, MiniMax Code, GitLab Duo CLI, Open Interpreter, Codewhale, jcode, DeepCode, Forge, gptme, Claurst, Command Code.
+- Ajoutés, passerelles : Kilo Gateway, OpenCode Zen, Bifrost, Claude Code Router, Eden AI.
+- Ajoutés, serveurs locaux : Lemonade, Docker Model Runner, exo, oMLX.
+- Écartés avec motif : Harness² (Google Research), Jules, agents intégrés à Xcode, Intelligent Terminal, Devin CLI, Comate, Foundry Local, OmniRoute, relais d'abonnements, interfaces d'orchestration de CLI, cadres et optimiseurs d'agents, projets arrêtés, outils hors catégories et outils d'adoption encore modeste.
+- MiniMax : le relevé du 15/09 ne voyait aucun harnais officiel ; MiniMax Code existe depuis juin 2026.
+
 ## Ingestion
 
 - HLE et DeepSWE : le fichier source a disparu des métadonnées Epoch ; rattaché à la main (`FALLBACK_FILE`).
@@ -80,7 +93,7 @@ Comparaison avec l'instantané `2026-10-08.json`.
 | | précédent | courant |
 | :-- | --: | --: |
 | Modèles | 160 | 161 |
-| Harnais | 65 | 65 |
+| Harnais | 65 | 98 |
 | Mesures | 918 | 972 |
 
 ---

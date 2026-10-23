@@ -76,8 +76,9 @@ labs:
     verified_on: '2026-09-15'
     status: official_pricing_page
   tooling:
-    checked_on: '2026-09-15'
-    note: Qwen Code (CLI), Qwen Studio (application).
+    checked_on: '2026-10-23'
+    note: Qwen Code (CLI), Qwen Studio (application), Tongyi Lingma (extension IDE). Qoder est attribué à
+      Alibaba par la presse, mais son site ne nomme que Bright Zenith Private Limited.
 - id: mistral
   name: Mistral AI
   country: FR
@@ -160,7 +161,7 @@ labs:
     verified_on: '2026-09-15'
     status: official_pricing_page
   tooling:
-    checked_on: '2026-09-15'
-    note: AUCUN harnais de développement officiel. MMX-CLI (github.com/MiniMax-AI/cli) est un client de
-      génération multimodale, pas un agent de codage ; la doc MiniMax renvoie explicitement vers des outils
-      tiers via ses API compatibles OpenAI et Anthropic.
+    checked_on: '2026-10-23'
+    note: MiniMax Code (CLI `mcode`, open-source, dépôt créé le 01/06/2026). Le relevé du 15/09 indiquait
+      à tort qu'aucun harnais officiel n'existait. MMX-CLI reste un client de génération multimodale, pas
+      un agent de codage.

@@ -1500,6 +1500,626 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+- id: mimo-code
+  name: MiMo Code
+  vendor: Xiaomi
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://mimo.xiaomi.com/mimocode
+  repo_url: https://github.com/XiaomiMiMo/MiMo-Code
+  install: curl -fsSL https://mimo.xiaomi.com/install | bash
+  byok: true
+  free: true
+  mcp: true
+  note: 'Agent de code en terminal de Xiaomi, open-source sous MIT, qui sert aussi de moteur à l''application
+    MiMo Desktop. Connexion par compte MiMo ou Codex, ou tout fournisseur compatible OpenAI.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+    finding: Tarifs non lisibles (page rendue en JavaScript).
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: minimax-code
+  name: MiniMax Code
+  vendor: MiniMax
+  category: cli_agent
+  layer: 1
+  status: active
+  repo_url: https://github.com/MiniMax-AI/minimax-code
+  byok: true
+  note: 'Agent de code en terminal de MiniMax (commande `mcode`), open-source sous MIT. Fonctionne avec le
+    « Token Plan » MiniMax (crédits prépayés) ou un modèle au choix.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+    finding: Tarif du Token Plan non relevé.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: gitlab-duo-cli
+  name: GitLab Duo CLI
+  vendor: GitLab
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://about.gitlab.com/blog/gitlab-duo-cli-generally-available/
+  note: 'Chat agentique de GitLab Duo dans le terminal, disponible pour tous depuis le 16/07/2026 (GitLab
+    19.2). Réservé aux offres Premium et Ultimate, avec les crédits GitLab inclus. Code fermé.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: open-interpreter
+  name: Open Interpreter
+  vendor: Open Interpreter
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://openinterpreter.com
+  repo_url: https://github.com/openinterpreter/openinterpreter
+  byok: true
+  free: true
+  mcp: true
+  note: 'Agent de terminal open-source (Apache-2.0), aujourd''hui dérivé de Codex, conçu pour les modèles
+    ouverts et peu coûteux : la commande `/harness` émule le comportement d''autres harnais (Claude Code,
+    Kimi Code, ZCode, Qwen Code, SWE-agent). Tout fournisseur compatible OpenAI.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+    finding: 'Un score obtenu avec cet outil dépend du harnais émulé : le nommer avec le score.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: codewhale
+  name: Codewhale
+  vendor: Codewhale
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://codewhale.net
+  repo_url: https://github.com/codewhale-hq/Codewhale
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent de terminal open-source (MIT) écrit en Rust, compatible avec plus de 40 fournisseurs et avec
+    Ollama en local ; DeepSeek V4.1 Flash par défaut.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: jcode
+  name: jcode
+  vendor: jcode (open-source)
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://jcode.sh
+  repo_url: https://github.com/1jehuang/jcode
+  free: true
+  note: 'Harnais de terminal open-source (MIT) écrit en Rust, conçu pour faire tourner des dizaines d''agents
+    en parallèle sans saturer la machine. Connexion par abonnement Claude ou Codex.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: deepcode
+  name: DeepCode
+  vendor: HKUDS (Université de Hong Kong)
+  category: cli_agent
+  layer: 1
+  status: active
+  repo_url: https://github.com/HKUDS/DeepCode
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent de code issu d''un laboratoire universitaire, open-source (MIT) : interface terminal (`deepcode`),
+    application de bureau et interface web. Modèles cloud ou locaux.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: forgecode
+  name: Forge
+  vendor: Tailcall
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://forgecode.dev
+  repo_url: https://github.com/tailcallhq/forgecode
+  free: true
+  mcp: true
+  note: Environnement de développement en terminal assisté par IA, open-source sous Apache-2.0, avec interface
+    TUI et MCP.
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: gptme
+  name: gptme
+  vendor: gptme (open-source)
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://gptme.org
+  repo_url: https://github.com/gptme/gptme
+  byok: true
+  local_models: true
+  free: true
+  mcp: true
+  note: 'Agent de terminal open-source (MIT), aussi en application de bureau depuis juillet 2026 et en serveur
+    ACP pour Zed et JetBrains. Modèles locaux via Ollama.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: claurst
+  name: Claurst
+  vendor: Claurst (open-source)
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://claurst.kuber.studio
+  repo_url: https://github.com/Kuberwastaken/claurst
+  byok: true
+  free: true
+  note: 'Agent de terminal multi-fournisseurs écrit en Rust, réimplémentation indépendante de Claude Code,
+    open-source sous GPL-3.0. En bêta (v0.2). Fait aussi serveur ACP.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: command-code
+  name: Command Code
+  vendor: Command Code
+  category: cli_agent
+  layer: 1
+  status: active
+  url: https://commandcode.ai
+  repo_url: https://github.com/CommandCodeAI/command-code
+  install: npm i -g command-code
+  note: 'Agent de code en terminal conçu pour les modèles ouverts, qui apprend les préférences de code de
+    l''utilisateur ; aussi en application de bureau et extensions IDE. Dépôt public sans licence déclarée
+    (pas open-source). Forfaits de 1 $ à 200 $/mois.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+    finding: Chiffres d'adoption annoncés par l'éditeur incohérents entre eux, non repris.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: qoder
+  name: Qoder
+  vendor: Bright Zenith Pte Ltd
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://qoder.com
+  pricing_url: https://docs.qoder.com/account/pricing
+  free: true
+  note: 'Plateforme de code agentique proposée d''abord en application de bureau (tâches, projets,
+    automatisations), aussi en extension JetBrains et en CLI (`qodercli`). Forfaits en crédits : Free, Lite
+    10 $, Pro 20 $, Pro+ 60 $, Ultra 200 $/mois. Code fermé.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+    finding: 'Attribuée à Alibaba par la presse ; le site officiel ne nomme que Bright Zenith Private Limited.'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: codebuddy
+  name: CodeBuddy
+  vendor: Tencent Cloud
+  category: ide_fork
+  layer: 1
+  status: active
+  url: https://www.codebuddy.ai
+  free: true
+  note: 'Environnement de développement IA de Tencent, décliné en IDE, en extension et en CLI (CodeBuddy Code,
+    `npm install -g @tencent-ai/codebuddy-code`). Free 0 $ (100 crédits), Pro 10 $/mois, Team 40 $/siège/mois.
+    Code fermé.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+    finding: Page d'accueil rendue en JavaScript ; forme et tarifs lus dans la documentation Tencent Cloud.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: tongyi-lingma
+  name: Tongyi Lingma
+  vendor: Alibaba Cloud
+  category: vscode_extension
+  layer: 1
+  status: active
+  url: https://lingma.aliyun.com
+  free: true
+  note: 'Assistant de code d''Alibaba Cloud pour VS Code, Visual Studio et JetBrains, avec un IDE Lingma en
+    bêta publique. Gratuit pour les particuliers. Code fermé.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: ibm-bob
+  name: IBM Bob
+  vendor: IBM
+  category: ide_fork
+  layer: 1
+  status: active
+  url: https://www.ibm.com/products/ai-coding-agent
+  pricing_url: https://www.ibm.com/products/ai-coding-agent/pricing
+  note: 'Agent de développement d''IBM pour les entreprises : IDE et CLI (Bob Shell), orienté modernisation
+    d''applications. Pro à partir de 20 $, Pro+ 60 $, Ultra 200 $ ; crédits « Bobcoins ». Code fermé.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+    finding: La page ne précise pas si l'IDE est dérivé de VS Code.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: codegpt
+  name: CodeGPT
+  vendor: CodeGPT LLC
+  category: vscode_extension
+  layer: 1
+  status: active
+  url: https://www.codegpt.co
+  free: true
+  note: 'Extension VS Code et JetBrains, plus de 2 millions d''installations annoncées. Free ; Professional
+    10 $/mois ; Teams 30 $/utilisateur/mois.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+    finding: Nombre d'installations annoncé par l'éditeur, non vérifié.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: tabby
+  name: Tabby
+  vendor: TabbyML
+  category: vscode_extension
+  layer: 1
+  status: maintenance
+  url: https://www.tabbyml.com
+  repo_url: https://github.com/TabbyML/tabby
+  local_models: true
+  free: true
+  note: 'Assistant de code auto-hébergé : un serveur sur son infrastructure et des extensions IDE. Code sous
+    Apache-2.0 hors module entreprise (édition Community gratuite). Rythme ralenti : dernière version le 25/01/2026.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: conductor
+  name: Conductor
+  vendor: Melty Labs
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://www.conductor.build
+  pricing_url: https://www.conductor.build/pricing
+  free: true
+  note: 'Application Mac pour faire tourner plusieurs agents de code en parallèle. Free ; Pro 50 $/mois ; Teams 60 $/utilisateur/mois. Code fermé.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: superset
+  name: Superset
+  vendor: Superset
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://superset.sh
+  repo_url: https://github.com/superset-sh/superset
+  free: true
+  note: '« The IDE for parallel agents » : application de bureau (macOS, Linux expérimental) pour piloter
+    plusieurs agents de code en parallèle. Code source sous licence Elastic-2.0. Free ; Pro 20 $ ; Team 60
+    $ ; Ultra 200 $/utilisateur/mois. L''éditeur annonce un changement de nom prochain.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: emdash
+  name: Emdash
+  vendor: General Action
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://emdash.com
+  repo_url: https://github.com/generalaction/emdash
+  free: true
+  note: 'Application de bureau (macOS, Windows, Linux) pour lancer plusieurs agents de code en parallèle,
+    open-source sous Apache-2.0. Plus d''un million de téléchargements annoncés.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: zenflow
+  name: Zenflow (Zencoder)
+  vendor: Zencoder
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://zencoder.ai
+  pricing_url: https://zencoder.ai/pricing
+  note: 'Application de bureau d''orchestration d''agents de code, mise en avant par Zencoder, qui propose
+    aussi des agents pour VS Code et JetBrains. Pro 45 $, Pro Plus 95 $, Pro Max 195 $/utilisateur/mois.
+    Code fermé.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: stagewise
+  name: stagewise
+  vendor: stagewise
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://stagewise.io
+  repo_url: https://github.com/stagewise-io/stagewise
+  byok: true
+  local_models: true
+  note: 'IDE agentique « pour les modèles ouverts » qui mêle navigateur et code, livré en application de
+    bureau. Code sous AGPL-3.0 ; création de compte requise.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: deepseek-reasonix
+  name: Reasonix
+  vendor: Reasonix (communauté)
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://reasonix.io
+  repo_url: https://github.com/esengine/DeepSeek-Reasonix
+  byok: true
+  free: true
+  mcp: true
+  note: 'Agent de code open-source (MIT) disponible en application de bureau (Studio, conseillée pour
+    commencer), en terminal, dans le navigateur et dans l''éditeur. Préréglé pour DeepSeek mais compatible
+    avec tout service au format OpenAI. Projet communautaire, sans lien officiel avec DeepSeek.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: dyad
+  name: Dyad
+  vendor: Dyad
+  category: desktop_app
+  layer: 1
+  status: active
+  url: https://dyad.sh
+  repo_url: https://github.com/dyad-sh/dyad
+  byok: true
+  free: true
+  note: 'Générateur d''applications local, sous Apache-2.0 hors module Pro (alternative à Lovable, v0 ou Bolt), en application
+    de bureau Mac et Windows, avec ses propres clés d''API.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: kilo-gateway
+  name: Kilo Gateway
+  vendor: Kilo-Org
+  category: gateway
+  layer: 2
+  status: active
+  url: https://kilo.ai/gateway
+  byok: true
+  note: 'Passerelle de Kilo, utilisable hors de Kilo Code : plus de 500 modèles au tarif du fournisseur, sans
+    marge, y compris en BYOK ; 5 % de frais sur l''achat de crédits.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: opencode-zen
+  name: OpenCode Zen
+  vendor: Anomaly
+  category: gateway
+  layer: 2
+  status: active
+  url: https://opencode.ai/zen
+  note: 'Sélection de modèles testés par l''équipe d''OpenCode pour les agents de code, utilisable avec
+    n''importe quel agent : facturée au tarif du fournisseur, plus les frais de carte sur les recharges.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: bifrost
+  name: Bifrost
+  vendor: Maxim AI
+  category: gateway
+  layer: 2
+  status: active
+  url: https://www.getmaxim.ai/bifrost
+  repo_url: https://github.com/maximhq/bifrost
+  byok: true
+  free: true
+  note: 'Passerelle open-source (Apache-2.0) à héberger soi-même, alternative à LiteLLM orientée performance
+    : plus de 23 fournisseurs, fait aussi passerelle MCP. Offre Enterprise sur devis.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: claude-code-router
+  name: Claude Code Router
+  vendor: musistudio (open-source)
+  category: gateway
+  layer: 2
+  status: active
+  repo_url: https://github.com/musistudio/claude-code-router
+  byok: true
+  free: true
+  note: 'Passerelle locale et plan de contrôle pour agents de code, open-source (MIT) : branche Claude Code,
+    Codex, Kimi CLI, OpenCode, Pi ou ZCode sur le fournisseur de modèles choisi.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: eden-ai
+  name: Eden AI
+  vendor: Eden AI
+  category: gateway
+  layer: 2
+  status: active
+  url: https://www.edenai.co
+  pricing_url: https://www.edenai.co/pricing
+  note: 'Passerelle hébergée vers environ 1 000 modèles de 50 fournisseurs : aucune marge sur les modèles,
+    5,5 % de frais sur l''achat de crédits.'
+  verification:
+    status: official_pricing_page
+    verified_on: '2026-10-23'
+    finding: Conditions BYOK non documentées.
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: lemonade
+  name: Lemonade
+  vendor: Lemonade (optimisé par AMD)
+  category: local_server
+  layer: 2
+  status: active
+  url: https://lemonade-server.ai
+  repo_url: https://github.com/lemonade-sdk/lemonade
+  local_models: true
+  free: true
+  note: 'Serveur local open-source (Apache-2.0) avec interface graphique, CLI et API compatible OpenAI, optimisé
+    par des ingénieurs AMD pour les GPU et NPU AMD. Windows, macOS, Linux.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: docker-model-runner
+  name: Docker Model Runner
+  vendor: Docker
+  category: local_server
+  layer: 2
+  status: active
+  url: https://docs.docker.com/ai/model-runner/
+  local_models: true
+  free: true
+  note: 'Exécution de modèles intégrée à Docker Desktop et Docker Engine, avec API compatible OpenAI et Ollama
+    ; moteurs llama.cpp et vLLM. Open-source sous Apache-2.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: exo
+  name: exo
+  vendor: exo labs
+  category: local_server
+  layer: 2
+  status: active
+  url: https://exolabs.net
+  repo_url: https://github.com/exo-explore/exo
+  local_models: true
+  free: true
+  note: 'Fait tourner un modèle réparti sur plusieurs machines du réseau local (Mac notamment), avec API compatible
+    OpenAI, Claude et Ollama. Open-source sous Apache-2.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
+- id: omlx
+  name: oMLX
+  vendor: oMLX (open-source)
+  category: local_server
+  layer: 2
+  status: active
+  url: https://omlx.ai
+  repo_url: https://github.com/jundot/omlx
+  local_models: true
+  free: true
+  note: 'Serveur d''inférence pour Apple Silicon (MLX) avec batching continu et cache sur SSD, piloté depuis
+    la barre de menus ; API compatible OpenAI et Anthropic. Open-source sous Apache-2.0.'
+  verification:
+    status: official_docs
+    verified_on: '2026-10-23'
+  compliance:
+    status: unverified
+    verified_on: null
+    note: Conformité non relevée à cette édition.
 ecartes:
 - id: openclaw
   name: OpenClaw
@@ -1610,6 +2230,84 @@ ecartes:
   reason: 'Se décrit comme « a lightweight agent harness for robust and long-horizon runs » (serveur Go avec
     interface web, multi-agents, reprise après incident). Projet de recherche non supporté, sans annonce officielle
     ni diffusion grand public : à réévaluer s''il est lancé comme produit.'
+- id: jules
+  name: Jules (et Jules Tools)
+  vendor: Google
+  checked_on: '2026-10-23'
+  reason: Agent asynchrone qui travaille dans une machine virtuelle de Google, pas sur le poste ; sa CLI
+    ne fait que le piloter.
+- id: xcode-agentic-coding
+  name: Xcode (agents intégrés)
+  vendor: Apple
+  checked_on: '2026-10-23'
+  reason: Fonction de l'IDE d'Apple depuis Xcode 26.3, qui accueille Claude Agent et Codex ; pas un harnais
+    distinct.
+- id: intelligent-terminal
+  name: Intelligent Terminal
+  vendor: Microsoft
+  checked_on: '2026-10-23'
+  reason: Dérivé expérimental de Windows Terminal qui accueille des agents (Copilot CLI par défaut), Windows
+    seulement. À réévaluer à sa sortie.
+- id: devin-cli
+  name: Devin CLI
+  vendor: Cognition
+  checked_on: '2026-10-23'
+  reason: Surface en ligne de commande de Devin, liée à Devin Desktop (fiche « Devin Desktop ») et à Devin
+    Cloud ; sans annonce de disponibilité générale.
+- id: comate
+  name: Comate (Zulu)
+  vendor: Baidu
+  checked_on: '2026-10-23'
+  reason: Aucune source officielle accessible pour en vérifier la forme ni l'offre.
+- id: foundry-local
+  name: Foundry Local
+  vendor: Microsoft
+  checked_on: '2026-10-23'
+  reason: 'Moteur d''inférence embarqué dans les applications via un SDK ; l''éditeur répond lui-même « No
+    » à la question « Is Foundry Local a web server and CLI tool? ».'
+- id: omniroute
+  name: OmniRoute
+  vendor: cheaper-inference
+  checked_on: '2026-10-23'
+  reason: 'Passerelle très suivie (plus de 80 000 étoiles) mais bâtie sur l''agrégation des quotas gratuits
+    de centaines de fournisseurs : usage dépendant des conditions de chacun.'
+- id: relais-abonnements
+  name: Relais d'abonnements (sub2api, CLIProxyAPI, claude-relay-service, magpie…)
+  vendor: divers
+  checked_on: '2026-10-23'
+  reason: Revendent ou mutualisent des abonnements grand public pour les servir comme API, en contradiction
+    avec les conditions d'utilisation des éditeurs.
+- id: orchestrateurs-cli
+  name: Interfaces d'orchestration de CLI (opcode, Claude Squad, cc-switch, orca, Vibe Kanban…)
+  vendor: divers
+  checked_on: '2026-10-23'
+  reason: Surcouches qui pilotent des agents déjà catalogués sans fournir leur propre agent ; Vibe Kanban
+    est en fin de vie, opcode sans version depuis août 2025.
+- id: cadres-agents
+  name: Cadres et optimiseurs d'agents (Docker Agent, Amplifier, Symphony, SoL-Pi, ECC, deepagents, ADK…)
+  vendor: divers
+  checked_on: '2026-10-23'
+  reason: Servent à construire ou optimiser des agents, pas à développer avec ; plusieurs sont des démonstrateurs
+    de recherche.
+- id: projets-arretes
+  name: Projets arrêtés (Plandex, Supermaven, Refact, Trae Agent, Rovo Dev CLI, Terragon, PearAI)
+  vendor: divers
+  checked_on: '2026-10-23'
+  reason: 'Arrêtés ou figés selon leur propre site ou dépôt : Plandex « winding down », Supermaven intégré
+    à Cursor, Refact archivé, Trae Agent inactif depuis février, Rovo Dev en fin de vie, Terragon fermé,
+    PearAI figé depuis mai 2025.'
+- id: hors-categories
+  name: Hors catégories (bolt.diy, avante.nvim, codecompanion.nvim, MonkeyCode)
+  vendor: divers
+  checked_on: '2026-10-23'
+  reason: Générateur d'applications web auto-hébergé, extensions Neovim ou plateforme web d'équipe, sans
+    catégorie correspondante dans le catalogue.
+- id: adoption-confidentielle
+  name: Adoption encore confidentielle (Verdent, Nimbalyst, Xum, Sculptor, Twinny, Nanocoder, Ante, ThinkRail…)
+  vendor: divers
+  checked_on: '2026-10-23'
+  reason: Outils réels mais d'adoption modeste face aux outils déjà catalogués ; à réévaluer à la prochaine
+    recherche générale.
 - id: proximus
   name: proximus
   vendor: null

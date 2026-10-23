@@ -3,7 +3,7 @@
 
 # Applications desktop
 
-19 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+27 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
 
 ## ChatGPT Desktop
 
@@ -36,6 +36,16 @@ macOS et Windows ; Linux en bêta (Ubuntu, Debian). Serveurs MCP, accès aux fic
 
 Agent de code open-source (Apache-2.0), désormais proposé d'abord en application de bureau (macOS, Windows, Linux, sans éditeur), et toujours en extension VS Code, en extension JetBrains (accès anticipé) et en CLI. Clés personnelles, modèles locaux (Ollama, LM Studio), MCP. Approbation humaine de chaque action.
 
+## Conductor
+
+- **Éditeur :** Melty Labs
+- **Site :** [https://www.conductor.build](https://www.conductor.build)
+- **Tarifs :** [https://www.conductor.build/pricing](https://www.conductor.build/pricing)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Application Mac pour faire tourner plusieurs agents de code en parallèle. Free ; Pro 50 $/mois ; Teams 60 $/utilisateur/mois. Code fermé.
+
 ## DeepSeek Harness
 
 - **Éditeur :** DeepSeek
@@ -57,6 +67,26 @@ Harnais officiel de DeepSeek, open-source sous MIT, en préversion développeur 
 - **Capacités :** BYOK, modèles locaux, MCP
 
 Agent de développement de Factory, proposé d'abord en application de bureau (Factory App, macOS et Windows), et aussi en CLI (commande `droid`, mode non interactif `droid exec`) et en SDK. Code fermé. Clés personnelles (OpenAI, Anthropic, fournisseurs open-source) et modèles locaux acceptés en BYOK. Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.
+
+## Dyad
+
+- **Éditeur :** Dyad
+- **Site :** [https://dyad.sh](https://dyad.sh)
+- **Dépôt :** [https://github.com/dyad-sh/dyad](https://github.com/dyad-sh/dyad)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Générateur d'applications local, sous Apache-2.0 hors module Pro (alternative à Lovable, v0 ou Bolt), en application de bureau Mac et Windows, avec ses propres clés d'API.
+
+## Emdash
+
+- **Éditeur :** General Action
+- **Site :** [https://emdash.com](https://emdash.com)
+- **Dépôt :** [https://github.com/generalaction/emdash](https://github.com/generalaction/emdash)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Application de bureau (macOS, Windows, Linux) pour lancer plusieurs agents de code en parallèle, open-source sous Apache-2.0. Plus d'un million de téléchargements annoncés.
 
 ## Freebuff
 
@@ -173,6 +203,16 @@ Agent pour le travail et le code, annonce par l'editeur comme couvrant les tache
 
 Agent d'ingénierie open-source (MIT), proposé d'abord sous forme d'Agent Canvas : une interface graphique servie en local, sur la machine du développeur ; aussi en interface terminal, en CLI, en SDK et en cloud. Sandbox Docker facultative. Offre cloud individuelle gratuite (clé personnelle ou fournisseurs à prix coûtant) ; seule l'offre Enterprise est payante.
 
+## Qoder
+
+- **Éditeur :** Bright Zenith Pte Ltd
+- **Site :** [https://qoder.com](https://qoder.com)
+- **Tarifs :** [https://docs.qoder.com/account/pricing](https://docs.qoder.com/account/pricing)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Plateforme de code agentique proposée d'abord en application de bureau (tâches, projets, automatisations), aussi en extension JetBrains et en CLI (`qodercli`). Forfaits en crédits : Free, Lite 10 $, Pro 20 $, Pro+ 60 $, Ultra 200 $/mois. Code fermé.
+
 ## Qwen Studio
 
 - **Éditeur :** Alibaba
@@ -181,6 +221,26 @@ Agent d'ingénierie open-source (MIT), proposé d'abord sous forme d'Agent Canva
 - **Capacités :** gratuit
 
 Application desktop Windows et macOS donnant accès aux modèles Qwen : recherche approfondie, analyse de documents, génération d'images et de vidéo. Orientée usage général plutôt que développement.
+
+## Reasonix
+
+- **Éditeur :** Reasonix (communauté)
+- **Site :** [https://reasonix.io](https://reasonix.io)
+- **Dépôt :** [https://github.com/esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix)
+- **Statut :** active
+- **Capacités :** BYOK, MCP, gratuit
+
+Agent de code open-source (MIT) disponible en application de bureau (Studio, conseillée pour commencer), en terminal, dans le navigateur et dans l'éditeur. Préréglé pour DeepSeek mais compatible avec tout service au format OpenAI. Projet communautaire, sans lien officiel avec DeepSeek.
+
+## Superset
+
+- **Éditeur :** Superset
+- **Site :** [https://superset.sh](https://superset.sh)
+- **Dépôt :** [https://github.com/superset-sh/superset](https://github.com/superset-sh/superset)
+- **Statut :** active
+- **Capacités :** gratuit
+
+« The IDE for parallel agents » : application de bureau (macOS, Linux expérimental) pour piloter plusieurs agents de code en parallèle. Code source sous licence Elastic-2.0. Free ; Pro 20 $ ; Team 60 $ ; Ultra 200 $/utilisateur/mois. L'éditeur annonce un changement de nom prochain.
 
 ## Warp
 
@@ -206,4 +266,24 @@ Terminal doté d'agents de code intégrés, dont le code est devenu public sous 
 - **Forfait Max :** $117.6 — 101,91 € HT · 122,29 € TTC
 
 Environnement de développement agentique (ADE) livré en application de bureau, présenté par l'éditeur comme le harnais officiel de GLM-5.3 — pas un éditeur dérivé de VS Code. macOS (Apple Silicon et Intel), Windows (x64 et ARM64), Linux x64 et ARM64 en bêta. Gestion de tâches longues par « Goals », pilotage à distance depuis WeChat, Feishu ou Telegram, collaboration multi-agents.
+
+## Zenflow (Zencoder)
+
+- **Éditeur :** Zencoder
+- **Site :** [https://zencoder.ai](https://zencoder.ai)
+- **Tarifs :** [https://zencoder.ai/pricing](https://zencoder.ai/pricing)
+- **Statut :** active
+- **Capacités :** —
+
+Application de bureau d'orchestration d'agents de code, mise en avant par Zencoder, qui propose aussi des agents pour VS Code et JetBrains. Pro 45 $, Pro Plus 95 $, Pro Max 195 $/utilisateur/mois. Code fermé.
+
+## stagewise
+
+- **Éditeur :** stagewise
+- **Site :** [https://stagewise.io](https://stagewise.io)
+- **Dépôt :** [https://github.com/stagewise-io/stagewise](https://github.com/stagewise-io/stagewise)
+- **Statut :** active
+- **Capacités :** BYOK, modèles locaux
+
+IDE agentique « pour les modèles ouverts » qui mêle navigateur et code, livré en application de bureau. Code sous AGPL-3.0 ; création de compte requise.
 

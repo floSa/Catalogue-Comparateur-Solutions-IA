@@ -243,6 +243,12 @@ passe.
 
 ## Erreurs déjà commises, à ne pas refaire
 
+- **Ne fouiller qu'une partie des comptes GitHub d'un éditeur.** Le 23/10/2026,
+  Harness² (Google Research, publié le 09/10) a échappé au balayage, qui avait
+  parcouru google, google-gemini et google-deepmind mais pas google-research. Un
+  éditeur publie sous plusieurs organisations : les lister toutes. Le même jour, la
+  recherche générale a trouvé 33 outils absents en deux semaines : elle se refait à
+  chaque passe, pas seulement le balayage des laboratoires.
 - **Classer un outil d'après la presse.** La catégorie d'une fiche (application
   desktop, extension, IDE dérivé, agent CLI) se lit sur la page d'accueil ou de
   téléchargement de l'éditeur et dans son dépôt : c'est la forme qu'il met en avant

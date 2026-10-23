@@ -1228,6 +1228,138 @@
   "kiro-crew": {
    "status": "active",
    "name": "Kiro Crew"
+  },
+  "mimo-code": {
+   "status": "active",
+   "name": "MiMo Code"
+  },
+  "minimax-code": {
+   "status": "active",
+   "name": "MiniMax Code"
+  },
+  "gitlab-duo-cli": {
+   "status": "active",
+   "name": "GitLab Duo CLI"
+  },
+  "open-interpreter": {
+   "status": "active",
+   "name": "Open Interpreter"
+  },
+  "codewhale": {
+   "status": "active",
+   "name": "Codewhale"
+  },
+  "jcode": {
+   "status": "active",
+   "name": "jcode"
+  },
+  "deepcode": {
+   "status": "active",
+   "name": "DeepCode"
+  },
+  "forgecode": {
+   "status": "active",
+   "name": "Forge"
+  },
+  "gptme": {
+   "status": "active",
+   "name": "gptme"
+  },
+  "claurst": {
+   "status": "active",
+   "name": "Claurst"
+  },
+  "command-code": {
+   "status": "active",
+   "name": "Command Code"
+  },
+  "qoder": {
+   "status": "active",
+   "name": "Qoder"
+  },
+  "codebuddy": {
+   "status": "active",
+   "name": "CodeBuddy"
+  },
+  "tongyi-lingma": {
+   "status": "active",
+   "name": "Tongyi Lingma"
+  },
+  "ibm-bob": {
+   "status": "active",
+   "name": "IBM Bob"
+  },
+  "codegpt": {
+   "status": "active",
+   "name": "CodeGPT"
+  },
+  "tabby": {
+   "status": "maintenance",
+   "name": "Tabby"
+  },
+  "conductor": {
+   "status": "active",
+   "name": "Conductor"
+  },
+  "superset": {
+   "status": "active",
+   "name": "Superset"
+  },
+  "emdash": {
+   "status": "active",
+   "name": "Emdash"
+  },
+  "zenflow": {
+   "status": "active",
+   "name": "Zenflow (Zencoder)"
+  },
+  "stagewise": {
+   "status": "active",
+   "name": "stagewise"
+  },
+  "deepseek-reasonix": {
+   "status": "active",
+   "name": "Reasonix"
+  },
+  "dyad": {
+   "status": "active",
+   "name": "Dyad"
+  },
+  "kilo-gateway": {
+   "status": "active",
+   "name": "Kilo Gateway"
+  },
+  "opencode-zen": {
+   "status": "active",
+   "name": "OpenCode Zen"
+  },
+  "bifrost": {
+   "status": "active",
+   "name": "Bifrost"
+  },
+  "claude-code-router": {
+   "status": "active",
+   "name": "Claude Code Router"
+  },
+  "eden-ai": {
+   "status": "active",
+   "name": "Eden AI"
+  },
+  "lemonade": {
+   "status": "active",
+   "name": "Lemonade"
+  },
+  "docker-model-runner": {
+   "status": "active",
+   "name": "Docker Model Runner"
+  },
+  "exo": {
+   "status": "active",
+   "name": "exo"
+  },
+  "omlx": {
+   "status": "active",
+   "name": "oMLX"
   }
  },
  "benchmarks": {
@@ -1310,6 +1442,6 @@
  "counts": {
   "models": 161,
   "scores": 972,
-  "tools": 65
+  "tools": 98
  }
 }

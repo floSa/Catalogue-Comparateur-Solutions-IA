@@ -14,7 +14,7 @@
 | Modèles au catalogue | 161 |
 | Tarifs API relevés sur page officielle | 117 / 161 |
 | Forfaits d'abonnement relevés | 30 |
-| Harnais re-vérifiés | 65 / 65 |
+| Harnais re-vérifiés | 98 / 98 |
 | Taux de change USD→EUR | 0.8666 — vérifié |
 
 ---
@@ -93,8 +93,11 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [ChatGPT Desktop](https://learn.chatgpt.com/docs/app) | OpenAI | MCP | — |
 | [Claude Desktop](https://claude.com/download) | Anthropic, PBC | MCP | Free, Pro, Max |
 | [Cline](https://cline.bot) | Cline Bot Inc. | BYOK, modèles locaux, MCP, gratuit | — |
+| [Conductor](https://www.conductor.build) | Melty Labs | gratuit | — |
 | [DeepSeek Harness](https://deepseek.com/harness) | DeepSeek | BYOK, gratuit | — |
 | [Droid (Factory)](https://factory.com) | Factory | BYOK, modèles locaux, MCP | — |
+| [Dyad](https://dyad.sh) | Dyad | BYOK, gratuit | — |
+| [Emdash](https://emdash.com) | General Action | gratuit | — |
 | [Freebuff](https://freebuff.com) | CodebuffAI | gratuit | — |
 | [GitHub Copilot (application)](https://github.com/features/copilot) | GitHub / Microsoft | — | — |
 | [Google Antigravity](https://antigravity.google/) | Google | gratuit | Individuel |
@@ -106,28 +109,38 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [Kiro Crew](https://kiro.dev/crew/) | Amazon Web Services | gratuit | — |
 | [LM Studio Bionic](https://lmstudio.ai) | Element Labs, Inc. | modèles locaux, gratuit | — |
 | [OpenHands](https://www.openhands.dev) | OpenHands | BYOK, gratuit | — |
+| [Qoder](https://qoder.com) | Bright Zenith Pte Ltd | gratuit | — |
 | [Qwen Studio](https://chat.qwen.ai) | Alibaba | gratuit | — |
+| [Reasonix](https://reasonix.io) | Reasonix (communauté) | BYOK, MCP, gratuit | — |
+| [Superset](https://superset.sh) | Superset | gratuit | — |
 | [Warp](https://www.warp.dev) | Warp | BYOK, gratuit | — |
 | [ZCode](https://zcode.z.ai/en) | Z.ai (Zhipu AI) | — | Lite, Pro, Max |
+| [Zenflow (Zencoder)](https://zencoder.ai) | Zencoder | — | — |
+| [stagewise](https://stagewise.io) | stagewise | BYOK, modèles locaux | — |
 
 ### 3.2 Extensions VS Code
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
+| [CodeGPT](https://www.codegpt.co) | CodeGPT LLC | gratuit | — |
 | [Codex (extension IDE)](https://learn.chatgpt.com/docs/codex/ide) | OpenAI | — | — |
 | [Continue](https://continue.dev) *(retired)* | Continue Dev, Inc. | BYOK, modèles locaux, gratuit | — |
 | [GitHub Copilot (extensions IDE)](https://github.com/features/copilot) | GitHub / Microsoft | — | Free, Pro, Pro+, Max |
 | [JetBrains AI Assistant](https://www.jetbrains.com/help/ai-assistant/) | JetBrains | BYOK, modèles locaux, MCP, gratuit | — |
 | [Kilo Code](https://kilo.ai) | Kilo-Org | BYOK, modèles locaux, MCP, gratuit | — |
 | Roo Code *(retired)* | RooCodeInc (open-source) | BYOK, modèles locaux, MCP, gratuit | — |
+| [Tabby](https://www.tabbyml.com) *(maintenance)* | TabbyML | modèles locaux, gratuit | — |
 | [Tabnine](https://docs.tabnine.com) | Tricentis | — | — |
+| [Tongyi Lingma](https://lingma.aliyun.com) | Alibaba Cloud | gratuit | — |
 
 ### 3.3 IDE dérivés
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
+| [CodeBuddy](https://www.codebuddy.ai) | Tencent Cloud | gratuit | — |
 | [Cursor](https://cursor.com) | Anysphere, Inc. | BYOK, MCP | Hobby, Individual, Teams |
 | [Devin Desktop (ex-Windsurf)](https://devin.ai/desktop) | Cognition AI | BYOK, MCP | — |
+| [IBM Bob](https://www.ibm.com/products/ai-coding-agent) | IBM | — | — |
 | [Kiro](https://kiro.dev) | Amazon Web Services | MCP | — |
 | [TraeCode (Trae)](https://trae.ai) | ByteDance | MCP | Free, Lite, Pro, Pro+, Ultra |
 | [Void IDE](https://voideditor.com) *(retired)* | Communauté open-source | BYOK, modèles locaux | — |
@@ -141,21 +154,32 @@ L'interface développeur : le logiciel avec lequel on travaille, et qui exécute
 | [Amp](https://ampcode.com) | Amp Frontier Corporation | BYOK, MCP, gratuit | — |
 | [Antigravity CLI](https://antigravity.google/) | Google | gratuit | Individuel |
 | [Claude Code](https://code.claude.com/docs) | Anthropic, PBC | MCP | Pro, Max |
+| [Claurst](https://claurst.kuber.studio) | Claurst (open-source) | BYOK, gratuit | — |
+| [Codewhale](https://codewhale.net) | Codewhale | BYOK, modèles locaux, MCP, gratuit | — |
 | [Codex CLI](https://learn.chatgpt.com/docs/codex/cli) | OpenAI | BYOK, modèles locaux, MCP, gratuit | — |
+| [Command Code](https://commandcode.ai) | Command Code | — | — |
 | [Crush](https://charm.land/) | Charm | BYOK, modèles locaux, MCP, gratuit | — |
 | [Cursor CLI](https://cursor.com/docs/cli/overview) | Anysphere, Inc. | MCP | — |
+| DeepCode | HKUDS (Université de Hong Kong) | modèles locaux, MCP, gratuit | — |
+| [Forge](https://forgecode.dev) | Tailcall | MCP, gratuit | — |
 | [Gemini CLI](https://geminicli.com) | Google | BYOK, MCP | — |
 | [GitHub Copilot CLI](https://github.com/features/copilot/cli) | GitHub / Microsoft | BYOK, modèles locaux, MCP, gratuit | — |
+| [GitLab Duo CLI](https://about.gitlab.com/blog/gitlab-duo-cli-generally-available/) | GitLab | — | — |
 | [Grok Build](https://x.ai/build) | SpaceXAI (xAI) | BYOK, MCP | — |
 | [Hermes Agent](https://hermes-agent.nousresearch.com) | Nous Research | BYOK, gratuit | — |
 | [Junie CLI](https://junie.jetbrains.com) | JetBrains | BYOK, modèles locaux, MCP, gratuit | — |
 | [Kiro CLI](https://kiro.dev/cli/) | Amazon Web Services | MCP, gratuit | — |
+| [MiMo Code](https://mimo.xiaomi.com/mimocode) | Xiaomi | BYOK, MCP, gratuit | — |
+| MiniMax Code | MiniMax | BYOK | — |
 | [Mistral Vibe Code](https://mistral.ai/products/vibe) | Mistral AI | BYOK, MCP | Free, Pro, Team, Enterprise |
 | [Muse Code](https://dev.meta.ai/products/muse-code) | Meta | — | Everyday Usage, High Usage, Power Usage, Maximum Usage |
 | [Oh My Pi (omp)](https://omp.sh) | Stencil Labs | BYOK, modèles locaux, MCP, gratuit | — |
+| [Open Interpreter](https://openinterpreter.com) | Open Interpreter | BYOK, MCP, gratuit | — |
 | [OpenCode](https://opencode.ai) | Anomaly | BYOK, modèles locaux, MCP, gratuit | — |
 | [Pi](https://pi.dev) | Earendil Inc. | BYOK, modèles locaux, MCP, gratuit | — |
 | [Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/overview) | Alibaba | BYOK, modèles locaux, MCP, gratuit | — |
+| [gptme](https://gptme.org) | gptme (open-source) | BYOK, modèles locaux, MCP, gratuit | — |
+| [jcode](https://jcode.sh) | jcode (open-source) | gratuit | — |
 | [mini-SWE-agent](https://mini-swe-agent.com/latest/) | SWE-agent (Princeton, Stanford) | BYOK, gratuit | — |
 
 ---
@@ -168,9 +192,14 @@ Une passerelle n'écrit pas de code : elle donne accès aux modèles. Elle se pl
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
+| [Bifrost](https://www.getmaxim.ai/bifrost) | Maxim AI | BYOK, gratuit | — |
+| Claude Code Router | musistudio (open-source) | BYOK, gratuit | — |
 | [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) | Cloudflare | gratuit | — |
+| [Eden AI](https://www.edenai.co) | Eden AI | — | — |
 | [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers) | Hugging Face | BYOK | — |
+| [Kilo Gateway](https://kilo.ai/gateway) | Kilo-Org | BYOK | — |
 | [LiteLLM (proxy)](https://docs.litellm.ai/docs/) | BerriAI | BYOK, gratuit | — |
+| [OpenCode Zen](https://opencode.ai/zen) | Anomaly | — | — |
 | [OpenRouter](https://openrouter.ai) | OpenRouter, Inc. | — | — |
 | [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) | Vercel | BYOK | — |
 
@@ -178,13 +207,17 @@ Une passerelle n'écrit pas de code : elle donne accès aux modèles. Elle se pl
 
 | Outil | Éditeur | Capacités | Forfaits |
 | :-- | :-- | :-- | :-- |
+| [Docker Model Runner](https://docs.docker.com/ai/model-runner/) | Docker | modèles locaux, gratuit | — |
 | [LM Studio (serveur local)](https://lmstudio.ai) | Element Labs, Inc. | modèles locaux, gratuit | — |
+| [Lemonade](https://lemonade-server.ai) | Lemonade (optimisé par AMD) | modèles locaux, gratuit | — |
 | [LocalAI](https://localai.io) | LocalAI (open-source) | modèles locaux, gratuit | — |
 | MLX-LM (serveur) | ml-explore (Apple) | modèles locaux, gratuit | — |
 | [Ollama](https://ollama.com) | Ollama | modèles locaux, gratuit | — |
 | [SGLang](https://sglang.io) | SGLang Project | modèles locaux, gratuit | — |
+| [exo](https://exolabs.net) | exo labs | modèles locaux, gratuit | — |
 | [llama.cpp (llama-server)](https://github.com/ggml-org/llama.cpp) | ggml-org | modèles locaux, gratuit | — |
 | [llamafile](https://docs.mozilla.ai/llamafile) | Mozilla.ai | modèles locaux, gratuit | — |
+| [oMLX](https://omlx.ai) | oMLX (open-source) | modèles locaux, gratuit | — |
 | [vLLM](https://vllm.ai) | vLLM Project | modèles locaux, gratuit | — |
 
 ---

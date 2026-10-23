@@ -3,7 +3,16 @@
 
 # IDE dérivés
 
-6 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+8 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+
+## CodeBuddy
+
+- **Éditeur :** Tencent Cloud
+- **Site :** [https://www.codebuddy.ai](https://www.codebuddy.ai)
+- **Statut :** active
+- **Capacités :** gratuit
+
+Environnement de développement IA de Tencent, décliné en IDE, en extension et en CLI (CodeBuddy Code, `npm install -g @tencent-ai/codebuddy-code`). Free 0 $ (100 crédits), Pro 10 $/mois, Team 40 $/siège/mois. Code fermé.
 
 ## Cursor
 
@@ -28,6 +37,16 @@
 - **Capacités :** BYOK, MCP
 
 Ancien Windsurf, renommé Devin Desktop le 02/06/2026 par Cognition. Éditeur dérivé de VS Code, dont l'écran d'accueil est désormais un centre de pilotage d'agents ; l'agent local Cascade devient Devin Local. macOS, Windows, Linux ; extension JetBrains maintenue.
+
+## IBM Bob
+
+- **Éditeur :** IBM
+- **Site :** [https://www.ibm.com/products/ai-coding-agent](https://www.ibm.com/products/ai-coding-agent)
+- **Tarifs :** [https://www.ibm.com/products/ai-coding-agent/pricing](https://www.ibm.com/products/ai-coding-agent/pricing)
+- **Statut :** active
+- **Capacités :** —
+
+Agent de développement d'IBM pour les entreprises : IDE et CLI (Bob Shell), orienté modernisation d'applications. Pro à partir de 20 $, Pro+ 60 $, Ultra 200 $ ; crédits « Bobcoins ». Code fermé.
 
 ## Kiro
 

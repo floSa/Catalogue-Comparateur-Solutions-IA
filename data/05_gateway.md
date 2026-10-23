@@ -3,7 +3,26 @@
 
 # Agrégateurs cloud
 
-5 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+10 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+
+## Bifrost
+
+- **Éditeur :** Maxim AI
+- **Site :** [https://www.getmaxim.ai/bifrost](https://www.getmaxim.ai/bifrost)
+- **Dépôt :** [https://github.com/maximhq/bifrost](https://github.com/maximhq/bifrost)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Passerelle open-source (Apache-2.0) à héberger soi-même, alternative à LiteLLM orientée performance : plus de 23 fournisseurs, fait aussi passerelle MCP. Offre Enterprise sur devis.
+
+## Claude Code Router
+
+- **Éditeur :** musistudio (open-source)
+- **Dépôt :** [https://github.com/musistudio/claude-code-router](https://github.com/musistudio/claude-code-router)
+- **Statut :** active
+- **Capacités :** BYOK, gratuit
+
+Passerelle locale et plan de contrôle pour agents de code, open-source (MIT) : branche Claude Code, Codex, Kimi CLI, OpenCode, Pi ou ZCode sur le fournisseur de modèles choisi.
 
 ## Cloudflare AI Gateway
 
@@ -15,6 +34,16 @@
 
 Passerelle hébergée : tableau de bord, cache, limitation de débit, gratuits. Journalisation soumise à la tarification Workers Logs pour les comptes créés depuis le 24/09/2026. En facturation unifiée, 5 % de frais sur l'achat de crédits, inférence sans marge.
 
+## Eden AI
+
+- **Éditeur :** Eden AI
+- **Site :** [https://www.edenai.co](https://www.edenai.co)
+- **Tarifs :** [https://www.edenai.co/pricing](https://www.edenai.co/pricing)
+- **Statut :** active
+- **Capacités :** —
+
+Passerelle hébergée vers environ 1 000 modèles de 50 fournisseurs : aucune marge sur les modèles, 5,5 % de frais sur l'achat de crédits.
+
 ## Hugging Face Inference Providers
 
 - **Éditeur :** Hugging Face
@@ -24,6 +53,15 @@ Passerelle hébergée : tableau de bord, cache, limitation de débit, gratuits. 
 - **Capacités :** BYOK
 
 Accès unifié à plusieurs fournisseurs d'inférence via un compte Hugging Face : tarif du fournisseur répercuté sans marge ; avec sa propre clé fournisseur, Hugging Face ne facture pas l'appel. Crédits inclus : aucun en Free, 2 $/mois en PRO.
+
+## Kilo Gateway
+
+- **Éditeur :** Kilo-Org
+- **Site :** [https://kilo.ai/gateway](https://kilo.ai/gateway)
+- **Statut :** active
+- **Capacités :** BYOK
+
+Passerelle de Kilo, utilisable hors de Kilo Code : plus de 500 modèles au tarif du fournisseur, sans marge, y compris en BYOK ; 5 % de frais sur l'achat de crédits.
 
 ## LiteLLM (proxy)
 
@@ -35,6 +73,15 @@ Accès unifié à plusieurs fournisseurs d'inférence via un compte Hugging Face
 - **Capacités :** BYOK, gratuit
 
 Passerelle à héberger soi-même : une API au format OpenAI devant plus de 100 fournisseurs, avec ses propres clés. Open-source sous MIT (hors module entreprise, sous licence propre). Offre Enterprise sur devis.
+
+## OpenCode Zen
+
+- **Éditeur :** Anomaly
+- **Site :** [https://opencode.ai/zen](https://opencode.ai/zen)
+- **Statut :** active
+- **Capacités :** —
+
+Sélection de modèles testés par l'équipe d'OpenCode pour les agents de code, utilisable avec n'importe quel agent : facturée au tarif du fournisseur, plus les frais de carte sur les recharges.
 
 ## OpenRouter
 
