@@ -1,12 +1,126 @@
 _generated:
   by: pipeline/epoch_ingest.py --scores
-  'on': '2026-10-08'
+  'on': '2026-10-23'
   upstream: Epoch AI — Capabilities & Benchmarking (CC-BY 4.0)
   upstream_url: https://epoch.ai/benchmarks
-  filter: modèles publiés à partir du 2025-10-08
-  since: '2025-10-08'
+  filter: modèles publiés à partir du 2025-10-23
+  since: '2025-10-23'
   warning: Fichier généré. Ne pas éditer à la main.
 scores:
+- benchmark: GPQA diamond
+  model_version: deepseek-v4.1-flash-1017_max
+  model_base: deepseek-v4.1-flash-1017
+  effort: max
+  cost_usd: null
+  model_display: null
+  organization: DeepSeek
+  harness: null
+  harness_org: null
+  score: 0.9318
+  unit: fraction
+  raw_score: null
+  stderr: 0.0157
+  protocol: null
+  model_released_on: '2026-10-17'
+  run_date: '2026-10-19'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: GPQA diamond
+  model_version: Muse-Spark-Open-816B-A42B_xhigh
+  model_base: Muse-Spark-Open-816B-A42B
+  effort: xhigh
+  cost_usd: null
+  model_display: null
+  organization: Meta AI
+  harness: null
+  harness_org: null
+  score: 0.8857
+  unit: fraction
+  raw_score: null
+  stderr: 0.0187
+  protocol: null
+  model_released_on: '2026-10-15'
+  run_date: '2026-10-15'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: GPQA diamond
+  model_version: gemini-4-argon_high
+  model_base: gemini-4-argon
+  effort: high
+  cost_usd: null
+  model_display: null
+  organization: Google DeepMind
+  harness: null
+  harness_org: null
+  score: 0.964
+  unit: fraction
+  raw_score: null
+  stderr: 0.0119
+  protocol: null
+  model_released_on: '2026-09-30'
+  run_date: '2026-10-13'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: GPQA diamond
+  model_version: mistral-large-4-0_high
+  model_base: mistral-large-4-0
+  effort: high
+  cost_usd: null
+  model_display: null
+  organization: Mistral AI
+  harness: null
+  harness_org: null
+  score: 0.8807
+  unit: fraction
+  raw_score: null
+  stderr: 0.0193
+  protocol: null
+  model_released_on: '2026-10-06'
+  run_date: '2026-10-12'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: GPQA diamond
+  model_version: deepseek-v4.1-flash_max
+  model_base: deepseek-v4.1-flash
+  effort: max
+  cost_usd: null
+  model_display: null
+  organization: DeepSeek
+  harness: null
+  harness_org: null
+  score: 0.8984
+  unit: fraction
+  raw_score: null
+  stderr: 0.0173
+  protocol: null
+  model_released_on: '2026-09-09'
+  run_date: '2026-10-09'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: GPQA diamond
+  model_version: claude-haiku-5-5_max
+  model_base: claude-haiku-5-5
+  effort: max
+  cost_usd: null
+  model_display: null
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.8965
+  unit: fraction
+  raw_score: null
+  stderr: 0.0198
+  protocol: null
+  model_released_on: '2026-10-07'
+  run_date: '2026-10-09'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
 - benchmark: GPQA diamond
   model_version: gpt-6.1-sol_max
   model_base: gpt-6.1-sol
@@ -2748,45 +2862,6 @@ scores:
   provenance: independent_run
   source_url: https://epoch.ai/benchmarks
   evidence_url: https://logs.epoch.ai/inspect-viewer/36231d6d/viewer.html?log_file=https%3A%2F%2Flogs.epoch.ai%2Finspect_ai_logs%2FmuGecFpAg9wHd6gexWJ99L.eval
-- benchmark: GPQA diamond
-  model_version: claude-haiku-4-5-20251001_32K
-  model_base: claude-haiku-4-5-20251001
-  effort: null
-  cost_usd: null
-  model_display: null
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.7121
-  unit: fraction
-  raw_score: null
-  stderr: 0.0323
-  protocol:
-    Budget de réflexion: 32K
-  model_released_on: '2025-10-15'
-  run_date: '2025-10-22'
-  provenance: independent_run
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: https://logs.epoch.ai/inspect-viewer/36231d6d/viewer.html?log_file=https%3A%2F%2Flogs.epoch.ai%2Finspect_ai_logs%2FGEaAdb9UmoUFbEtBx7WzAR.eval
-- benchmark: GPQA diamond
-  model_version: claude-haiku-4-5-20251001
-  model_base: claude-haiku-4-5-20251001
-  effort: null
-  cost_usd: null
-  model_display: null
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.6048
-  unit: fraction
-  raw_score: null
-  stderr: 0.0282
-  protocol: null
-  model_released_on: '2025-10-15'
-  run_date: '2025-10-16'
-  provenance: independent_run
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: https://logs.epoch.ai/inspect-viewer/36231d6d/viewer.html?log_file=https%3A%2F%2Flogs.epoch.ai%2Finspect_ai_logs%2FcgnopvpB6mzsfb9yGnYK2z.eval
 - benchmark: HLE
   model_version: gpt-6-astra_unknown
   model_base: gpt-6-astra
@@ -2840,6 +2915,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-02-19'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: HLE
+  model_version: claude-sonnet-5-5_xhigh
+  model_base: claude-sonnet-5-5
+  effort: xhigh
+  cost_usd: null
+  model_display: Sonnet 5.5 (xhigh)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.4612
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-28'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -2973,6 +3067,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-02-05'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: HLE
+  model_version: claude-haiku-5-5_unknown
+  model_base: claude-haiku-5-5
+  effort: null
+  cost_usd: null
+  model_display: Claude Haiku 5.5
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.3012
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -4162,7 +4275,7 @@ scores:
   model_version: claude-sonnet-5-5_max
   model_base: claude-sonnet-5-5
   effort: max
-  cost_usd: 9.67
+  cost_usd: 7.05
   model_display: Sonnet 5.5 Max
   organization: Anthropic
   harness: Cursor
@@ -4183,7 +4296,7 @@ scores:
   model_version: claude-sonnet-5-5_xhigh
   model_base: claude-sonnet-5-5
   effort: xhigh
-  cost_usd: 3.88
+  cost_usd: 2.81
   model_display: Sonnet 5.5 Extra High
   organization: Anthropic
   harness: Cursor
@@ -4204,7 +4317,7 @@ scores:
   model_version: claude-sonnet-5-5_high
   model_base: claude-sonnet-5-5
   effort: high
-  cost_usd: 1.67
+  cost_usd: 1.2
   model_display: Sonnet 5.5 High
   organization: Anthropic
   harness: Cursor
@@ -4225,7 +4338,7 @@ scores:
   model_version: claude-sonnet-5-5_medium
   model_base: claude-sonnet-5-5
   effort: medium
-  cost_usd: 0.7
+  cost_usd: 0.52
   model_display: Sonnet 5.5 Medium
   organization: Anthropic
   harness: Cursor
@@ -4246,7 +4359,7 @@ scores:
   model_version: claude-sonnet-5-5_low
   model_base: claude-sonnet-5-5
   effort: low
-  cost_usd: 0.5
+  cost_usd: 0.37
   model_display: Sonnet 5.5 Low
   organization: Anthropic
   harness: Cursor
@@ -4452,6 +4565,321 @@ scores:
   provenance: independent_leaderboard
   source_url: https://cursor.com/cursorbench
   evidence_url: null
+- benchmark: CursorBench
+  model_version: gemini-4-argon_high
+  model_base: gemini-4-argon
+  effort: high
+  cost_usd: 4.57
+  model_display: Gemini 4 Argon High
+  organization: Google DeepMind
+  harness: Cursor
+  harness_org: null
+  score: 0.529
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '109500'
+    Steps per task: '118'
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: gemini-4-argon_medium
+  model_base: gemini-4-argon
+  effort: medium
+  cost_usd: 4.39
+  model_display: Gemini 4 Argon Medium
+  organization: Google DeepMind
+  harness: Cursor
+  harness_org: null
+  score: 0.528
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '103600'
+    Steps per task: '115'
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: gemini-4-argon_low
+  model_base: gemini-4-argon
+  effort: low
+  cost_usd: 4.09
+  model_display: Gemini 4 Argon Low
+  organization: Google DeepMind
+  harness: Cursor
+  harness_org: null
+  score: 0.506
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '94200'
+    Steps per task: '110'
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: gemini-4-argon_minimal
+  model_base: gemini-4-argon
+  effort: minimal
+  cost_usd: 3.54
+  model_display: Gemini 4 Argon Minimal
+  organization: Google DeepMind
+  harness: Cursor
+  harness_org: null
+  score: 0.488
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '39400'
+    Steps per task: '102'
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: claude-haiku-5-5_max
+  model_base: claude-haiku-5-5
+  effort: max
+  cost_usd: 1.12
+  model_display: Haiku 5.5 Max
+  organization: Anthropic
+  harness: Cursor
+  harness_org: null
+  score: 0.484
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '325934'
+    Steps per task: '163'
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: claude-haiku-5-5_xhigh
+  model_base: claude-haiku-5-5
+  effort: xhigh
+  cost_usd: 0.56
+  model_display: Haiku 5.5 Extra High
+  organization: Anthropic
+  harness: Cursor
+  harness_org: null
+  score: 0.443
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '143813'
+    Steps per task: '93'
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: claude-haiku-5-5_high
+  model_base: claude-haiku-5-5
+  effort: high
+  cost_usd: 0.32
+  model_display: Haiku 5.5 High
+  organization: Anthropic
+  harness: Cursor
+  harness_org: null
+  score: 0.423
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '77057'
+    Steps per task: '59'
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: claude-haiku-5-5_medium
+  model_base: claude-haiku-5-5
+  effort: medium
+  cost_usd: 0.17
+  model_display: Haiku 5.5 Medium
+  organization: Anthropic
+  harness: Cursor
+  harness_org: null
+  score: 0.369
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '42659'
+    Steps per task: '39'
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: claude-haiku-5-5_low
+  model_base: claude-haiku-5-5
+  effort: low
+  cost_usd: 0.08
+  model_display: Haiku 5.5 Low
+  organization: Anthropic
+  harness: Cursor
+  harness_org: null
+  score: 0.309
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '23382'
+    Steps per task: '25'
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: muse-wonder-1.0_max
+  model_base: muse-wonder-1.0
+  effort: max
+  cost_usd: 5.25
+  model_display: Muse Wonder Max
+  organization: Meta AI
+  harness: Cursor
+  harness_org: null
+  score: 0.504
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '49692'
+    Steps per task: '114'
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: muse-wonder-1.0_xhigh
+  model_base: muse-wonder-1.0
+  effort: xhigh
+  cost_usd: 4.24
+  model_display: Muse Wonder Extra High
+  organization: Meta AI
+  harness: Cursor
+  harness_org: null
+  score: 0.482
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '39564'
+    Steps per task: '96'
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: muse-wonder-1.0_high
+  model_base: muse-wonder-1.0
+  effort: high
+  cost_usd: 3.51
+  model_display: Muse Wonder High
+  organization: Meta AI
+  harness: Cursor
+  harness_org: null
+  score: 0.461
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '33612'
+    Steps per task: '84'
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: muse-wonder-1.0_medium
+  model_base: muse-wonder-1.0
+  effort: medium
+  cost_usd: 2.82
+  model_display: Muse Wonder Medium
+  organization: Meta AI
+  harness: Cursor
+  harness_org: null
+  score: 0.452
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '27124'
+    Steps per task: '75'
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: muse-wonder-1.0_low
+  model_base: muse-wonder-1.0
+  effort: low
+  cost_usd: 1.91
+  model_display: Muse Wonder Low
+  organization: Meta AI
+  harness: Cursor
+  harness_org: null
+  score: 0.417
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '18880'
+    Steps per task: '56'
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
+- benchmark: CursorBench
+  model_version: muse-wonder-1.0_minimal
+  model_base: muse-wonder-1.0
+  effort: minimal
+  cost_usd: 0.84
+  model_display: Muse Wonder Minimal
+  organization: Meta AI
+  harness: Cursor
+  harness_org: null
+  score: 0.342
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Tokens per task: '9761'
+    Steps per task: '33'
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cursor.com/cursorbench
+  evidence_url: null
 - benchmark: APEX-Agents
   model_version: gemini-4-argon_unknown
   model_base: gemini-4-argon
@@ -4461,7 +4889,7 @@ scores:
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.822
+  score: 0.824
   unit: fraction
   raw_score: null
   stderr: null
@@ -4700,20 +5128,20 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: APEX-Agents
-  model_version: mimo-v2.6-pro
-  model_base: mimo-v2.6-pro
+  model_version: muse-spark-1.3_unknown
+  model_base: muse-spark-1.3
   effort: null
   cost_usd: null
-  model_display: MiMo V2.6 Pro
-  organization: Xiaomi Corp
+  model_display: Muse Spark 1.3 [muse-spark-1-3]
+  organization: Meta AI
   harness: null
   harness_org: null
-  score: 0.595
+  score: 0.586
   unit: fraction
   raw_score: null
   stderr: null
   protocol: null
-  model_released_on: '2026-09-21'
+  model_released_on: '2026-09-02'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -4733,25 +5161,6 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-07-09'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: APEX-Agents
-  model_version: muse-spark-1.3_unknown
-  model_base: muse-spark-1.3
-  effort: null
-  cost_usd: null
-  model_display: Muse Spark 1.3
-  organization: Meta AI
-  harness: null
-  harness_org: null
-  score: 0.578
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol: null
-  model_released_on: '2026-09-02'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -4790,6 +5199,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-07-08'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: APEX-Agents
+  model_version: claude-haiku-5-5_max
+  model_base: claude-haiku-5-5
+  effort: max
+  cost_usd: null
+  model_display: Haiku 5.5
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.561
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -4847,6 +5275,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-06-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: APEX-Agents
+  model_version: mimo-v2.6-pro
+  model_base: mimo-v2.6-pro
+  effort: null
+  cost_usd: null
+  model_display: MiMo V2.6 Pro
+  organization: Xiaomi Corp
+  harness: null
+  harness_org: null
+  score: 0.544
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-21'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -4947,25 +5394,6 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: APEX-Agents
-  model_version: kimi-k3_unknown
-  model_base: kimi-k3
-  effort: null
-  cost_usd: null
-  model_display: Kimi K3
-  organization: Moonshot
-  harness: null
-  harness_org: null
-  score: 0.506
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol: null
-  model_released_on: '2026-07-16'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: APEX-Agents
   model_version: claude-opus-4-7_max
   model_base: claude-opus-4-7
   effort: max
@@ -4999,6 +5427,44 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-05-28'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: APEX-Agents
+  model_version: kimi-k3_unknown
+  model_base: kimi-k3
+  effort: null
+  cost_usd: null
+  model_display: Kimi K3
+  organization: Moonshot
+  harness: null
+  harness_org: null
+  score: 0.478
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-07-16'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: APEX-Agents
+  model_version: muse-spark-1.3_max
+  model_base: muse-spark-1.3
+  effort: max
+  cost_usd: null
+  model_display: Muse Spark 1.3 (Max)
+  organization: Meta AI
+  harness: null
+  harness_org: null
+  score: 0.476
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-02'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -5075,6 +5541,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-02-05'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: APEX-Agents
+  model_version: muse-spark-1.2
+  model_base: muse-spark-1.2
+  effort: null
+  cost_usd: null
+  model_display: Muse Spark 1.2
+  organization: Meta AI
+  harness: null
+  harness_org: null
+  score: 0.454
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-08-05'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -5251,25 +5736,6 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: APEX-Agents
-  model_version: muse-spark-1.2
-  model_base: muse-spark-1.2
-  effort: null
-  cost_usd: null
-  model_display: Muse Spark 1.2
-  organization: Meta AI
-  harness: null
-  harness_org: null
-  score: 0.364
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol: null
-  model_released_on: '2026-08-05'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: APEX-Agents
   model_version: gemini-3.1-pro-preview
   model_base: gemini-3.1-pro-preview
   effort: null
@@ -5278,7 +5744,7 @@ scores:
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.353
+  score: 0.351
   unit: fraction
   raw_score: null
   stderr: null
@@ -5303,6 +5769,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-07-15'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: APEX-Agents
+  model_version: Muse-Spark-Open-816B-A42B_unknown
+  model_base: Muse-Spark-Open-816B-A42B
+  effort: null
+  cost_usd: null
+  model_display: Muse Spark Open
+  organization: Meta AI
+  harness: null
+  harness_org: null
+  score: 0.334
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-15'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -5882,6 +6367,26 @@ scores:
   source_url: https://cognition.com/frontiercode
   evidence_url: null
 - benchmark: FrontierCode
+  model_version: gemini-4-argon_medium
+  model_base: gemini-4-argon
+  effort: medium
+  cost_usd: null
+  model_display: Gemini 4 Argon
+  organization: Google DeepMind
+  harness: chisel
+  harness_org: null
+  score: 0.4755
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Reasoning effort: medium
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cognition.com/frontiercode
+  evidence_url: null
+- benchmark: FrontierCode
   model_version: gpt-5.6-sol_unknown
   model_base: gpt-5.6-sol
   effort: null
@@ -5922,6 +6427,26 @@ scores:
   source_url: https://cognition.com/frontiercode
   evidence_url: null
 - benchmark: FrontierCode
+  model_version: claude-haiku-5-5_max
+  model_base: claude-haiku-5-5
+  effort: max
+  cost_usd: null
+  model_display: Claude Haiku 5.5
+  organization: Anthropic
+  harness: claude-code
+  harness_org: null
+  score: 0.4636
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Reasoning effort: max
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cognition.com/frontiercode
+  evidence_url: null
+- benchmark: FrontierCode
   model_version: kimi-k3_unknown
   model_base: kimi-k3
   effort: null
@@ -5937,6 +6462,26 @@ scores:
   protocol:
     Reasoning effort: none
   model_released_on: '2026-07-16'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cognition.com/frontiercode
+  evidence_url: null
+- benchmark: FrontierCode
+  model_version: deepseek-v4.1-flash_high
+  model_base: deepseek-v4.1-flash
+  effort: high
+  cost_usd: null
+  model_display: DeepSeek V4.1 Flash
+  organization: DeepSeek
+  harness: chisel
+  harness_org: null
+  score: 0.4387
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Reasoning effort: high
+  model_released_on: '2026-09-09'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://cognition.com/frontiercode
@@ -6157,6 +6702,26 @@ scores:
   protocol:
     Reasoning effort: max
   model_released_on: '2026-07-09'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://cognition.com/frontiercode
+  evidence_url: null
+- benchmark: FrontierCode
+  model_version: mistral-large-4-0_high
+  model_base: mistral-large-4-0
+  effort: high
+  cost_usd: null
+  model_display: Mistral Large 4 (Preview)
+  organization: Mistral AI
+  harness: chisel
+  harness_org: null
+  score: 0.3943
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Reasoning effort: high
+  model_released_on: '2026-10-06'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://cognition.com/frontiercode
@@ -6600,6 +7165,25 @@ scores:
   run_date: null
   provenance: independent_leaderboard
   source_url: https://cognition.com/frontiercode
+  evidence_url: null
+- benchmark: MirrorCode
+  model_version: gemini-4-argon_high
+  model_base: gemini-4-argon
+  effort: high
+  cost_usd: null
+  model_display: null
+  organization: Google DeepMind
+  harness: null
+  harness_org: null
+  score: 0.5889
+  unit: fraction
+  raw_score: null
+  stderr: 0.1171
+  protocol: null
+  model_released_on: '2026-09-30'
+  run_date: '2026-10-14'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: MirrorCode
   model_version: claude-opus-5-5_max
@@ -8185,6 +8769,101 @@ scores:
   provenance: independent_leaderboard
   source_url: https://surgehq.ai/benchmarks/gdp-pdf
   evidence_url: null
+- benchmark: GDP.pdf
+  model_version: gpt-6.1-sol_max
+  model_base: gpt-6.1-sol
+  effort: max
+  cost_usd: null
+  model_display: GPT 6.1 Sol (Max reasoning)
+  organization: OpenAI
+  harness: null
+  harness_org: null
+  score: 0.35
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-29'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://surgehq.ai/benchmarks/gdp-pdf
+  evidence_url: null
+- benchmark: GDP.pdf
+  model_version: claude-sonnet-5-5_max
+  model_base: claude-sonnet-5-5
+  effort: max
+  cost_usd: null
+  model_display: Claude Sonnet 5.5 (Adaptive/Max)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.314
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-28'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://surgehq.ai/benchmarks/gdp-pdf
+  evidence_url: null
+- benchmark: GDP.pdf
+  model_version: muse-wonder-1.0_max
+  model_base: muse-wonder-1.0
+  effort: max
+  cost_usd: null
+  model_display: Muse Wonder (Max reasoning)
+  organization: Meta AI
+  harness: null
+  harness_org: null
+  score: 0.308
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://surgehq.ai/benchmarks/gdp-pdf
+  evidence_url: null
+- benchmark: GDP.pdf
+  model_version: gemini-4-argon_high
+  model_base: gemini-4-argon
+  effort: high
+  cost_usd: null
+  model_display: Gemini 4 Argon (High reasoning)
+  organization: Google DeepMind
+  harness: null
+  harness_org: null
+  score: 0.284
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://surgehq.ai/benchmarks/gdp-pdf
+  evidence_url: null
+- benchmark: Remote Labor Index
+  model_version: claude-opus-5-5_unknown
+  model_base: claude-opus-5-5
+  effort: null
+  cost_usd: null
+  model_display: Opus 5.5
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.2125
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-22'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
 - benchmark: Remote Labor Index
   model_version: gpt-6-astra_unknown
   model_base: gpt-6-astra
@@ -8642,6 +9321,25 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
+  model_version: gemini-4-argon_high
+  model_base: gemini-4-argon
+  effort: high
+  cost_usd: null
+  model_display: Gemini 4 Argon (High)
+  organization: Google DeepMind
+  harness: null
+  harness_org: null
+  score: 0.9125
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
   model_version: claude-opus-5_max
   model_base: claude-opus-5
   effort: max
@@ -8903,6 +9601,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-09-22'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: gemini-4-argon_medium
+  model_base: gemini-4-argon
+  effort: medium
+  cost_usd: null
+  model_display: Gemini 4 Argon (Medium)
+  organization: Google DeepMind
+  harness: null
+  harness_org: null
+  score: 0.8708
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-30'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -9478,6 +10195,25 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
+  model_version: deepseek-v4.1-flash_max
+  model_base: deepseek-v4.1-flash
+  effort: max
+  cost_usd: null
+  model_display: DeepSeek V4.1 Flash (Max)
+  organization: DeepSeek
+  harness: null
+  harness_org: null
+  score: 0.7292
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-09'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
   model_version: gemini-3.5-flash_high
   model_base: gemini-3.5-flash
   effort: high
@@ -9703,6 +10439,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-04-16'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: deepseek-v4.1-flash_high
+  model_base: deepseek-v4.1-flash
+  effort: high
+  cost_usd: null
+  model_display: DeepSeek V4.1 Flash (High)
+  organization: DeepSeek
+  harness: null
+  harness_org: null
+  score: 0.675
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-09'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -9938,6 +10693,25 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
+  model_version: grok-4.7_xhigh
+  model_base: grok-4.7
+  effort: xhigh
+  cost_usd: null
+  model_display: Grok 4.7 (XHigh)
+  organization: xAI
+  harness: null
+  harness_org: null
+  score: 0.6139
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-21'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
   model_version: grok-4.6_medium
   model_base: grok-4.6
   effort: medium
@@ -9971,6 +10745,44 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-08-13'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: claude-haiku-5-5_xhigh
+  model_base: claude-haiku-5-5
+  effort: xhigh
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (XHigh)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.6125
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: deepseek-v4.1-flash_low
+  model_base: deepseek-v4.1-flash
+  effort: low
+  cost_usd: null
+  model_display: DeepSeek V4.1 Flash (Low)
+  organization: DeepSeek
+  harness: null
+  harness_org: null
+  score: 0.6056
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-09'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -10104,6 +10916,44 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-09-22'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: grok-4.7_medium
+  model_base: grok-4.7
+  effort: medium
+  cost_usd: null
+  model_display: Grok 4.7 (Medium)
+  organization: xAI
+  harness: null
+  harness_org: null
+  score: 0.5875
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-21'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: grok-4.7_high
+  model_base: grok-4.7
+  effort: high
+  cost_usd: null
+  model_display: Grok 4.7 (High)
+  organization: xAI
+  harness: null
+  harness_org: null
+  score: 0.5833
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-21'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -10527,6 +11377,25 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
+  model_version: gemini-4-argon_low
+  model_base: gemini-4-argon
+  effort: low
+  cost_usd: null
+  model_display: Gemini 4 Argon (Low)
+  organization: Google DeepMind
+  harness: null
+  harness_org: null
+  score: 0.4208
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
   model_version: gpt-6-luna_xhigh
   model_base: gpt-6-luna
   effort: xhigh
@@ -10770,6 +11639,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2025-11-18'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: claude-haiku-5-5_high
+  model_base: claude-haiku-5-5
+  effort: high
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (High)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.3069
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -11042,6 +11930,25 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
+  model_version: grok-4.7_low
+  model_base: grok-4.7
+  effort: low
+  cost_usd: null
+  model_display: Grok 4.7 (Low)
+  organization: xAI
+  harness: null
+  harness_org: null
+  score: 0.1667
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-09-21'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
   model_version: claude-opus-4-5-20251101_8K
   model_base: claude-opus-4-5-20251101
   effort: null
@@ -11209,6 +12116,25 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2025-12-11'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: ARC-AGI-2
+  model_version: claude-haiku-5-5_medium
+  model_base: claude-haiku-5-5
+  effort: medium
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (Medium)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.0944
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -11461,26 +12387,6 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
-  model_version: claude-haiku-4-5-20251001_32K
-  model_base: claude-haiku-4-5-20251001
-  effort: null
-  cost_usd: 0.3766
-  model_display: Claude Haiku 4.5 (Thinking 32K)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.0403
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Budget de réflexion: 32K
-  model_released_on: '2025-10-15'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: ARC-AGI-2
   model_version: deepseek/deepseek-v3.2
   model_base: deepseek/deepseek-v3.2
   effort: null
@@ -11557,11 +12463,11 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
-  model_version: claude-haiku-4-5-20251001_16K
-  model_base: claude-haiku-4-5-20251001
-  effort: null
-  cost_usd: 0.1392
-  model_display: Claude Haiku 4.5 (Thinking 16K)
+  model_version: claude-haiku-5-5_low
+  model_base: claude-haiku-5-5
+  effort: low
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (Low)
   organization: Anthropic
   harness: null
   harness_org: null
@@ -11569,9 +12475,8 @@ scores:
   unit: fraction
   raw_score: null
   stderr: null
-  protocol:
-    Budget de réflexion: 16K
-  model_released_on: '2025-10-15'
+  protocol: null
+  model_released_on: '2026-10-07'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -11653,26 +12558,6 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
-  model_version: claude-haiku-4-5-20251001_8K
-  model_base: claude-haiku-4-5-20251001
-  effort: null
-  cost_usd: 0.0909
-  model_display: Claude Haiku 4.5 (Thinking 8K)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.0167
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Budget de réflexion: 8K
-  model_released_on: '2025-10-15'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: ARC-AGI-2
   model_version: gpt-6-sol_none
   model_base: gpt-6-sol
   effort: null
@@ -11749,25 +12634,6 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
-  model_version: claude-haiku-4-5-20251001
-  model_base: claude-haiku-4-5-20251001
-  effort: null
-  cost_usd: 0.0426
-  model_display: Claude Haiku 4.5
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.0125
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol: null
-  model_released_on: '2025-10-15'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: ARC-AGI-2
   model_version: gemini-3-flash-preview
   model_base: gemini-3-flash-preview
   effort: null
@@ -11787,21 +12653,20 @@ scores:
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
 - benchmark: ARC-AGI-2
-  model_version: claude-haiku-4-5-20251001_1K
-  model_base: claude-haiku-4-5-20251001
+  model_version: deepseek-v4.1-flash_none
+  model_base: deepseek-v4.1-flash
   effort: null
-  cost_usd: 0.0471
-  model_display: Claude Haiku 4.5 (Thinking 1K)
-  organization: Anthropic
+  cost_usd: null
+  model_display: DeepSeek V4.1 Flash (None)
+  organization: DeepSeek
   harness: null
   harness_org: null
   score: 0.0125
   unit: fraction
   raw_score: null
   stderr: null
-  protocol:
-    Budget de réflexion: 1K
-  model_released_on: '2025-10-15'
+  protocol: null
+  model_released_on: '2026-09-09'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
@@ -11967,7 +12832,7 @@ scores:
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.5891
+  score: 0.5868
   unit: fraction
   raw_score: null
   stderr: null
@@ -12001,11 +12866,11 @@ scores:
   model_base: gpt-5.5
   effort: xhigh
   cost_usd: null
-  model_display: GPT-5.5 (xhigh)
+  model_display: GPT-5.5 (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5613
+  score: 0.5579
   unit: fraction
   raw_score: null
   stderr: null
@@ -12020,11 +12885,11 @@ scores:
   model_base: gpt-5.5
   effort: high
   cost_usd: null
-  model_display: GPT-5.5 (high)
+  model_display: GPT-5.5 (High)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.559
+  score: 0.5613
   unit: fraction
   raw_score: null
   stderr: null
@@ -12058,11 +12923,11 @@ scores:
   model_base: gpt-5.5
   effort: medium
   cost_usd: null
-  model_display: GPT-5.5 (medium)
+  model_display: GPT-5.5 (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5347
+  score: 0.5451
   unit: fraction
   raw_score: null
   stderr: null
@@ -12115,11 +12980,11 @@ scores:
   model_base: gemini-3.5-flash
   effort: high
   cost_usd: null
-  model_display: Gemini 3.5 Flash (high)
+  model_display: Gemini 3.5 Flash (High)
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.5312
+  score: 0.5394
   unit: fraction
   raw_score: null
   stderr: null
@@ -12172,11 +13037,11 @@ scores:
   model_base: glm-5.2
   effort: max
   cost_usd: null
-  model_display: GLM-5.2 (max)
+  model_display: GLM-5.2 (Max)
   organization: Z.ai (Zhipu AI)
   harness: null
   harness_org: null
-  score: 0.5046
+  score: 0.5116
   unit: fraction
   raw_score: null
   stderr: null
@@ -12229,11 +13094,11 @@ scores:
   model_base: gpt-5.4-mini-2026-03-17
   effort: xhigh
   cost_usd: null
-  model_display: GPT-5.4 mini (xhigh)
+  model_display: GPT-5.4 mini (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.4988
+  score: 0.5208
   unit: fraction
   raw_score: null
   stderr: null
@@ -12252,7 +13117,7 @@ scores:
   organization: Alibaba
   harness: null
   harness_org: null
-  score: 0.4884
+  score: 0.4954
   unit: fraction
   raw_score: null
   stderr: null
@@ -12271,7 +13136,7 @@ scores:
   organization: Moonshot
   harness: null
   harness_org: null
-  score: 0.4745
+  score: 0.478
   unit: fraction
   raw_score: null
   stderr: null
@@ -12305,11 +13170,11 @@ scores:
   model_base: grok-4.3
   effort: high
   cost_usd: null
-  model_display: Grok 4.3 (high)
+  model_display: Grok 4.3 (High)
   organization: xAI
   harness: null
   harness_org: null
-  score: 0.4734
+  score: 0.4826
   unit: fraction
   raw_score: null
   stderr: null
@@ -12328,7 +13193,7 @@ scores:
   organization: MiniMax
   harness: null
   harness_org: null
-  score: 0.4699
+  score: 0.5012
   unit: fraction
   raw_score: null
   stderr: null
@@ -12343,11 +13208,11 @@ scores:
   model_base: gpt-5.4-nano-2026-03-17
   effort: xhigh
   cost_usd: null
-  model_display: GPT-5.4 nano (xhigh)
+  model_display: GPT-5.4 nano (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.4688
+  score: 0.4722
   unit: fraction
   raw_score: null
   stderr: null
@@ -12423,7 +13288,7 @@ scores:
   organization: Z.ai (Zhipu AI)
   harness: null
   harness_org: null
-  score: 0.4375
+  score: 0.4479
   unit: fraction
   raw_score: null
   stderr: null
@@ -12442,31 +13307,12 @@ scores:
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.434
+  score: 0.4549
   unit: fraction
   raw_score: null
   stderr: null
   protocol: null
   model_released_on: '2026-04-02'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://artificialanalysis.ai/evaluations/scicode
-  evidence_url: null
-- benchmark: SciCode
-  model_version: claude-haiku-4-5-20251001_unknown
-  model_base: claude-haiku-4-5-20251001
-  effort: null
-  cost_usd: null
-  model_display: Claude 4.5 Haiku (Reasoning)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.4329
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol: null
-  model_released_on: '2025-10-15'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://artificialanalysis.ai/evaluations/scicode
@@ -12480,7 +13326,7 @@ scores:
   organization: Google
   harness: null
   harness_org: null
-  score: 0.419
+  score: 0.434
   unit: fraction
   raw_score: null
   stderr: null
@@ -12556,7 +13402,7 @@ scores:
   organization: Alibaba
   harness: null
   harness_org: null
-  score: 0.3576
+  score: 0.3657
   unit: fraction
   raw_score: null
   stderr: null
@@ -12594,7 +13440,7 @@ scores:
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.4861
+  score: 0.5255
   unit: fraction
   raw_score: null
   stderr: null
@@ -12613,7 +13459,7 @@ scores:
   organization: Alibaba
   harness: null
   harness_org: null
-  score: 0.2755
+  score: 0.2951
   unit: fraction
   raw_score: null
   stderr: null
@@ -12666,11 +13512,11 @@ scores:
   model_base: gpt-5.6-sol
   effort: high
   cost_usd: null
-  model_display: GPT-5.6 Sol (high)
+  model_display: GPT-5.6 Sol (High)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5694
+  score: 0.5775
   unit: fraction
   raw_score: null
   stderr: null
@@ -12685,11 +13531,11 @@ scores:
   model_base: gpt-5.6-sol
   effort: medium
   cost_usd: null
-  model_display: GPT-5.6 Sol (medium)
+  model_display: GPT-5.6 Sol (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5648
+  score: 0.5741
   unit: fraction
   raw_score: null
   stderr: null
@@ -12704,7 +13550,7 @@ scores:
   model_base: gpt-5.6-sol
   effort: max
   cost_usd: null
-  model_display: GPT-5.6 Sol (max)
+  model_display: GPT-5.6 Sol (Max)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -12723,11 +13569,11 @@ scores:
   model_base: gpt-5.6-sol
   effort: xhigh
   cost_usd: null
-  model_display: GPT-5.6 Sol (xhigh)
+  model_display: GPT-5.6 Sol (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5602
+  score: 0.5706
   unit: fraction
   raw_score: null
   stderr: null
@@ -12742,11 +13588,11 @@ scores:
   model_base: gpt-5.6-sol
   effort: low
   cost_usd: null
-  model_display: GPT-5.6 Sol (low)
+  model_display: GPT-5.6 Sol (Low)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5544
+  score: 0.5637
   unit: fraction
   raw_score: null
   stderr: null
@@ -12761,11 +13607,11 @@ scores:
   model_base: grok-4.5
   effort: high
   cost_usd: null
-  model_display: Grok 4.5 (high)
+  model_display: Grok 4.5 (High)
   organization: xAI
   harness: null
   harness_org: null
-  score: 0.5405
+  score: 0.5498
   unit: fraction
   raw_score: null
   stderr: null
@@ -12780,7 +13626,7 @@ scores:
   model_base: gpt-5.6-terra
   effort: max
   cost_usd: null
-  model_display: GPT-5.6 Terra (max)
+  model_display: GPT-5.6 Terra (Max)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -12799,7 +13645,7 @@ scores:
   model_base: gpt-5.6-luna
   effort: max
   cost_usd: null
-  model_display: GPT-5.6 Luna (max)
+  model_display: GPT-5.6 Luna (Max)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -12818,11 +13664,11 @@ scores:
   model_base: gpt-5.6-terra
   effort: xhigh
   cost_usd: null
-  model_display: GPT-5.6 Terra (xhigh)
+  model_display: GPT-5.6 Terra (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5162
+  score: 0.5231
   unit: fraction
   raw_score: null
   stderr: null
@@ -12837,11 +13683,11 @@ scores:
   model_base: gpt-5.6-luna
   effort: high
   cost_usd: null
-  model_display: GPT-5.6 Luna (high)
+  model_display: GPT-5.6 Luna (High)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5069
+  score: 0.5162
   unit: fraction
   raw_score: null
   stderr: null
@@ -12856,11 +13702,11 @@ scores:
   model_base: gpt-5.6-terra
   effort: high
   cost_usd: null
-  model_display: GPT-5.6 Terra (high)
+  model_display: GPT-5.6 Terra (High)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5012
+  score: 0.5243
   unit: fraction
   raw_score: null
   stderr: null
@@ -12875,11 +13721,11 @@ scores:
   model_base: gpt-5.6-luna
   effort: xhigh
   cost_usd: null
-  model_display: GPT-5.6 Luna (xhigh)
+  model_display: GPT-5.6 Luna (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.5
+  score: 0.5046
   unit: fraction
   raw_score: null
   stderr: null
@@ -12894,11 +13740,11 @@ scores:
   model_base: gpt-5.6-terra
   effort: medium
   cost_usd: null
-  model_display: GPT-5.6 Terra (medium)
+  model_display: GPT-5.6 Terra (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.4965
+  score: 0.5046
   unit: fraction
   raw_score: null
   stderr: null
@@ -12913,11 +13759,11 @@ scores:
   model_base: gpt-5.6-terra
   effort: low
   cost_usd: null
-  model_display: GPT-5.6 Terra (low)
+  model_display: GPT-5.6 Terra (Low)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.4919
+  score: 0.4988
   unit: fraction
   raw_score: null
   stderr: null
@@ -12932,11 +13778,11 @@ scores:
   model_base: gpt-5.6-luna
   effort: medium
   cost_usd: null
-  model_display: GPT-5.6 Luna (medium)
+  model_display: GPT-5.6 Luna (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.4583
+  score: 0.4676
   unit: fraction
   raw_score: null
   stderr: null
@@ -12951,11 +13797,11 @@ scores:
   model_base: gpt-5.6-luna
   effort: low
   cost_usd: null
-  model_display: GPT-5.6 Luna (low)
+  model_display: GPT-5.6 Luna (Low)
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.456
+  score: 0.4606
   unit: fraction
   raw_score: null
   stderr: null
@@ -13103,11 +13949,11 @@ scores:
   model_base: gemini-3.6-flash
   effort: high
   cost_usd: null
-  model_display: Gemini 3.6 Flash (high)
+  model_display: Gemini 3.6 Flash (High)
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.5266
+  score: 0.5336
   unit: fraction
   raw_score: null
   stderr: null
@@ -13145,7 +13991,7 @@ scores:
   organization: Alibaba
   harness: null
   harness_org: null
-  score: 0.4549
+  score: 0.4606
   unit: fraction
   raw_score: null
   stderr: null
@@ -13202,7 +14048,7 @@ scores:
   organization: Ant Group
   harness: null
   harness_org: null
-  score: 0.4236
+  score: 0.4502
   unit: fraction
   raw_score: null
   stderr: null
@@ -13316,7 +14162,7 @@ scores:
   organization: Cohere,Cohere Labs (formerly Cohere for AI)
   harness: null
   harness_org: null
-  score: 0.3785
+  score: 0.3854
   unit: fraction
   raw_score: null
   stderr: null
@@ -13335,7 +14181,7 @@ scores:
   organization: Mistral AI
   harness: null
   harness_org: null
-  score: 0.3623
+  score: 0.3657
   unit: fraction
   raw_score: null
   stderr: null
@@ -13354,7 +14200,7 @@ scores:
   organization: Arcee AI
   harness: null
   harness_org: null
-  score: 0.3611
+  score: 0.4062
   unit: fraction
   raw_score: null
   stderr: null
@@ -13392,7 +14238,7 @@ scores:
   organization: null
   harness: null
   harness_org: null
-  score: 0.3229
+  score: 0.3623
   unit: fraction
   raw_score: null
   stderr: null
@@ -13468,7 +14314,7 @@ scores:
   organization: Upstage
   harness: null
   harness_org: null
-  score: 0.2465
+  score: 0.2546
   unit: fraction
   raw_score: null
   stderr: null
@@ -13483,7 +14329,7 @@ scores:
   model_base: kimi-k3
   effort: max
   cost_usd: null
-  model_display: Kimi K3 (max)
+  model_display: Kimi K3 (Max)
   organization: Moonshot
   harness: null
   harness_org: null
@@ -13502,11 +14348,11 @@ scores:
   model_base: kimi-k3
   effort: low
   cost_usd: null
-  model_display: Kimi K3 (low)
+  model_display: Kimi K3 (Low)
   organization: Moonshot
   harness: null
   harness_org: null
-  score: 0.5116
+  score: 0.5266
   unit: fraction
   raw_score: null
   stderr: null
@@ -13563,7 +14409,7 @@ scores:
   organization: Thinking Machines
   harness: null
   harness_org: null
-  score: 0.4873
+  score: 0.4965
   unit: fraction
   raw_score: null
   stderr: null
@@ -13635,7 +14481,7 @@ scores:
   model_base: Inkling
   effort: xhigh
   cost_usd: null
-  model_display: Inkling (xhigh)
+  model_display: Inkling (Xhigh)
   organization: Thinking Machines
   harness: null
   harness_org: null
@@ -13696,7 +14542,7 @@ scores:
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.4456
+  score: 0.4514
   unit: fraction
   raw_score: null
   stderr: null
@@ -13734,7 +14580,7 @@ scores:
   organization: OpenAI
   harness: null
   harness_org: null
-  score: 0.3993
+  score: 0.4039
   unit: fraction
   raw_score: null
   stderr: null
@@ -13825,7 +14671,7 @@ scores:
   model_base: gemini-3.7-flash
   effort: medium
   cost_usd: null
-  model_display: Gemini 3.7 Flash (medium)
+  model_display: Gemini 3.7 Flash (Medium)
   organization: Google DeepMind
   harness: null
   harness_org: null
@@ -13863,11 +14709,11 @@ scores:
   model_base: gemini-3.7-flash
   effort: high
   cost_usd: null
-  model_display: Gemini 3.7 Flash (high)
+  model_display: Gemini 3.7 Flash (High)
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.5683
+  score: 0.5718
   unit: fraction
   raw_score: null
   stderr: null
@@ -13882,7 +14728,7 @@ scores:
   model_base: glm-5.3
   effort: max
   cost_usd: null
-  model_display: GLM-5.3 (max)
+  model_display: GLM-5.3 (Max)
   organization: Z.ai (Zhipu AI)
   harness: null
   harness_org: null
@@ -13901,11 +14747,11 @@ scores:
   model_base: muse-spark-1.2
   effort: xhigh
   cost_usd: null
-  model_display: Muse Spark 1.2 (xhigh)
+  model_display: Muse Spark 1.2 (Xhigh)
   organization: Meta AI
   harness: null
   harness_org: null
-  score: 0.5637
+  score: 0.5741
   unit: fraction
   raw_score: null
   stderr: null
@@ -13958,11 +14804,11 @@ scores:
   model_base: grok-4.6
   effort: medium
   cost_usd: null
-  model_display: Grok 4.6 (medium)
+  model_display: Grok 4.6 (Medium)
   organization: xAI
   harness: null
   harness_org: null
-  score: 0.5463
+  score: 0.559
   unit: fraction
   raw_score: null
   stderr: null
@@ -13977,11 +14823,11 @@ scores:
   model_base: gemini-3.8-flash
   effort: medium
   cost_usd: null
-  model_display: Gemini 3.8 Flash (medium)
+  model_display: Gemini 3.8 Flash (Medium)
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.544
+  score: 0.5509
   unit: fraction
   raw_score: null
   stderr: null
@@ -13996,11 +14842,11 @@ scores:
   model_base: gemini-3.8-flash
   effort: low
   cost_usd: null
-  model_display: Gemini 3.8 Flash (low)
+  model_display: Gemini 3.8 Flash (Low)
   organization: Google DeepMind
   harness: null
   harness_org: null
-  score: 0.5428
+  score: 0.5498
   unit: fraction
   raw_score: null
   stderr: null
@@ -14015,7 +14861,7 @@ scores:
   model_base: grok-4.6
   effort: high
   cost_usd: null
-  model_display: Grok 4.6 (high)
+  model_display: Grok 4.6 (High)
   organization: xAI
   harness: null
   harness_org: null
@@ -14034,7 +14880,7 @@ scores:
   model_base: gemini-3.8-flash
   effort: high
   cost_usd: null
-  model_display: Gemini 3.8 Flash (high)
+  model_display: Gemini 3.8 Flash (High)
   organization: Google DeepMind
   harness: null
   harness_org: null
@@ -14091,11 +14937,11 @@ scores:
   model_base: grok-4.6
   effort: xhigh
   cost_usd: null
-  model_display: Grok 4.6 (xhigh)
+  model_display: Grok 4.6 (Xhigh)
   organization: xAI
   harness: null
   harness_org: null
-  score: 0.5162
+  score: 0.5301
   unit: fraction
   raw_score: null
   stderr: null
@@ -14148,11 +14994,11 @@ scores:
   model_base: grok-4.6
   effort: low
   cost_usd: null
-  model_display: Grok 4.6 (low)
+  model_display: Grok 4.6 (Low)
   organization: xAI
   harness: null
   harness_org: null
-  score: 0.4838
+  score: 0.4942
   unit: fraction
   raw_score: null
   stderr: null
@@ -14205,7 +15051,7 @@ scores:
   model_base: qwen3.8-27b
   effort: xhigh
   cost_usd: null
-  model_display: Qwen3.8 27B (xhigh)
+  model_display: Qwen3.8 27B (Xhigh)
   organization: Alibaba
   harness: null
   harness_org: null
@@ -14224,11 +15070,11 @@ scores:
   model_base: qwen3.8-27b
   effort: low
   cost_usd: null
-  model_display: Qwen3.8 27B (low)
+  model_display: Qwen3.8 27B (Low)
   organization: Alibaba
   harness: null
   harness_org: null
-  score: 0.3981
+  score: 0.4005
   unit: fraction
   raw_score: null
   stderr: null
@@ -14243,11 +15089,11 @@ scores:
   model_base: qwen3.8-27b
   effort: medium
   cost_usd: null
-  model_display: Qwen3.8 27B (medium)
+  model_display: Qwen3.8 27B (Medium)
   organization: Alibaba
   harness: null
   harness_org: null
-  score: 0.3808
+  score: 0.39
   unit: fraction
   raw_score: null
   stderr: null
@@ -14304,7 +15150,7 @@ scores:
   organization: Alibaba
   harness: null
   harness_org: null
-  score: 0.3565
+  score: 0.3623
   unit: fraction
   raw_score: null
   stderr: null
@@ -14357,7 +15203,7 @@ scores:
   model_base: gpt-6-astra
   effort: max
   cost_usd: null
-  model_display: GPT-6 Astra (max)
+  model_display: GPT-6 Astra (Max)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14376,7 +15222,7 @@ scores:
   model_base: gpt-6-astra
   effort: xhigh
   cost_usd: null
-  model_display: GPT-6 Astra (xhigh)
+  model_display: GPT-6 Astra (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14395,7 +15241,7 @@ scores:
   model_base: gpt-6-astra
   effort: high
   cost_usd: null
-  model_display: GPT-6 Astra (high)
+  model_display: GPT-6 Astra (High)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14414,7 +15260,7 @@ scores:
   model_base: gpt-6-astra
   effort: medium
   cost_usd: null
-  model_display: GPT-6 Astra (medium)
+  model_display: GPT-6 Astra (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14433,7 +15279,7 @@ scores:
   model_base: gpt-6-astra
   effort: low
   cost_usd: null
-  model_display: GPT-6 Astra (low)
+  model_display: GPT-6 Astra (Low)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14471,7 +15317,7 @@ scores:
   model_base: muse-spark-1.3
   effort: xhigh
   cost_usd: null
-  model_display: Muse Spark 1.3 (xhigh)
+  model_display: Muse Spark 1.3 (Xhigh)
   organization: Meta AI
   harness: null
   harness_org: null
@@ -14509,7 +15355,7 @@ scores:
   model_base: muse-spark-1.3
   effort: max
   cost_usd: null
-  model_display: Muse Spark 1.3 (max)
+  model_display: Muse Spark 1.3 (Max)
   organization: Meta AI
   harness: null
   harness_org: null
@@ -14528,7 +15374,7 @@ scores:
   model_base: grok-4.7
   effort: xhigh
   cost_usd: null
-  model_display: Grok 4.7 (xhigh)
+  model_display: Grok 4.7 (Xhigh)
   organization: xAI
   harness: null
   harness_org: null
@@ -14718,7 +15564,7 @@ scores:
   model_base: gpt-6-sol
   effort: max
   cost_usd: null
-  model_display: GPT-6 Sol (max)
+  model_display: GPT-6 Sol (Max)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14737,7 +15583,7 @@ scores:
   model_base: gpt-6.1-sol
   effort: high
   cost_usd: null
-  model_display: GPT-6.1 Sol (high)
+  model_display: GPT-6.1 Sol (High)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14756,7 +15602,7 @@ scores:
   model_base: gpt-6.1-sol
   effort: xhigh
   cost_usd: null
-  model_display: GPT-6.1 Sol (xhigh)
+  model_display: GPT-6.1 Sol (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14775,7 +15621,7 @@ scores:
   model_base: gpt-6-sol
   effort: xhigh
   cost_usd: null
-  model_display: GPT-6 Sol (xhigh)
+  model_display: GPT-6 Sol (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14794,7 +15640,7 @@ scores:
   model_base: gpt-6-sol
   effort: high
   cost_usd: null
-  model_display: GPT-6 Sol (high)
+  model_display: GPT-6 Sol (High)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14813,7 +15659,7 @@ scores:
   model_base: gpt-6-luna
   effort: max
   cost_usd: null
-  model_display: GPT-6 Luna (max)
+  model_display: GPT-6 Luna (Max)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14832,7 +15678,7 @@ scores:
   model_base: gpt-6.1-sol
   effort: max
   cost_usd: null
-  model_display: GPT-6.1 Sol (max)
+  model_display: GPT-6.1 Sol (Max)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14851,7 +15697,7 @@ scores:
   model_base: gpt-6-sol
   effort: medium
   cost_usd: null
-  model_display: GPT-6 Sol (medium)
+  model_display: GPT-6 Sol (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14870,7 +15716,7 @@ scores:
   model_base: gpt-6.1-sol
   effort: medium
   cost_usd: null
-  model_display: GPT-6.1 Sol (medium)
+  model_display: GPT-6.1 Sol (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14889,7 +15735,7 @@ scores:
   model_base: gpt-6.1-sol
   effort: low
   cost_usd: null
-  model_display: GPT-6.1 Sol (low)
+  model_display: GPT-6.1 Sol (Low)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14908,7 +15754,7 @@ scores:
   model_base: gpt-6-luna
   effort: xhigh
   cost_usd: null
-  model_display: GPT-6 Luna (xhigh)
+  model_display: GPT-6 Luna (Xhigh)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14927,7 +15773,7 @@ scores:
   model_base: gpt-6-luna
   effort: medium
   cost_usd: null
-  model_display: GPT-6 Luna (medium)
+  model_display: GPT-6 Luna (Medium)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14946,7 +15792,7 @@ scores:
   model_base: gpt-6-luna
   effort: high
   cost_usd: null
-  model_display: GPT-6 Luna (high)
+  model_display: GPT-6 Luna (High)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -14965,7 +15811,7 @@ scores:
   model_base: gpt-6-sol
   effort: low
   cost_usd: null
-  model_display: GPT-6 Sol (low)
+  model_display: GPT-6 Sol (Low)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -15003,7 +15849,7 @@ scores:
   model_base: gpt-6-luna
   effort: low
   cost_usd: null
-  model_display: GPT-6 Luna (low)
+  model_display: GPT-6 Luna (Low)
   organization: OpenAI
   harness: null
   harness_org: null
@@ -15393,6 +16239,158 @@ scores:
   stderr: null
   protocol: null
   model_released_on: '2026-09-09'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: muse-wonder-1.0_max
+  model_base: muse-wonder-1.0
+  effort: max
+  cost_usd: null
+  model_display: Muse Wonder (Max)
+  organization: Meta AI
+  harness: null
+  harness_org: null
+  score: 0.603
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: claude-haiku-5-5_max
+  model_base: claude-haiku-5-5
+  effort: max
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (Max)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.5498
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: mistral-large-4-0_unknown
+  model_base: mistral-large-4-0
+  effort: null
+  cost_usd: null
+  model_display: Mistral Large 4 Preview
+  organization: Mistral AI
+  harness: null
+  harness_org: null
+  score: 0.5417
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-06'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: claude-haiku-5-5_xhigh
+  model_base: claude-haiku-5-5
+  effort: xhigh
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (Xhigh)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.5174
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: claude-haiku-5-5_low
+  model_base: claude-haiku-5-5
+  effort: low
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (Low)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.4919
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: claude-haiku-5-5_medium
+  model_base: claude-haiku-5-5
+  effort: medium
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (Medium)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.4896
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: claude-haiku-5-5_high
+  model_base: claude-haiku-5-5
+  effort: high
+  cost_usd: null
+  model_display: Claude Haiku 5.5 (High)
+  organization: Anthropic
+  harness: null
+  harness_org: null
+  score: 0.4873
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://artificialanalysis.ai/evaluations/scicode
+  evidence_url: null
+- benchmark: SciCode
+  model_version: Muse-Spark-Open-816B-A42B_xhigh
+  model_base: Muse-Spark-Open-816B-A42B
+  effort: xhigh
+  cost_usd: null
+  model_display: Muse Spark Open (Xhigh)
+  organization: Meta AI
+  harness: null
+  harness_org: null
+  score: 0.5845
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol: null
+  model_released_on: '2026-10-15'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://artificialanalysis.ai/evaluations/scicode
@@ -16873,7 +17871,7 @@ scores:
   model_version: gpt-6-astra_xhigh
   model_base: gpt-6-astra
   effort: xhigh
-  cost_usd: 6.5238
+  cost_usd: 4.4291
   model_display: gpt-6-astra (xhigh)
   organization: OpenAI
   harness: mini-swe-agent
@@ -16896,7 +17894,7 @@ scores:
   model_version: gpt-6-astra_high
   model_base: gpt-6-astra
   effort: high
-  cost_usd: 5.7237
+  cost_usd: 3.9237
   model_display: gpt-6-astra (high)
   organization: OpenAI
   harness: mini-swe-agent
@@ -16919,7 +17917,7 @@ scores:
   model_version: gpt-6-astra_max
   model_base: gpt-6-astra
   effort: max
-  cost_usd: 12.369
+  cost_usd: 7.4978
   model_display: gpt-6-astra (max)
   organization: OpenAI
   harness: mini-swe-agent
@@ -16942,7 +17940,7 @@ scores:
   model_version: gpt-6-astra_medium
   model_base: gpt-6-astra
   effort: medium
-  cost_usd: 4.3795
+  cost_usd: 3.0755
   model_display: gpt-6-astra (medium)
   organization: OpenAI
   harness: mini-swe-agent
@@ -16965,7 +17963,7 @@ scores:
   model_version: gpt-6-astra_low
   model_base: gpt-6-astra
   effort: low
-  cost_usd: 2.1888
+  cost_usd: 1.5952
   model_display: gpt-6-astra (low)
   organization: OpenAI
   harness: mini-swe-agent
@@ -17417,6 +18415,52 @@ scores:
     Worst@5: '0.08070000000000001'
     Average duration (hours): '19.36'
   model_released_on: '2026-09-01'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://www.frontierswe.com/
+  evidence_url: null
+- benchmark: FrontierSWE
+  model_version: claude-haiku-5-5_max
+  model_base: claude-haiku-5-5
+  effort: max
+  cost_usd: 20.55
+  model_display: Claude Haiku 5.5
+  organization: Anthropic
+  harness: proximus
+  harness_org: null
+  score: 0.4377
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Aggregation: Mean@5
+    Best@5: '0.5275'
+    Worst@5: '0.34490000000000004'
+    Average duration (hours): '12.42'
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://www.frontierswe.com/
+  evidence_url: null
+- benchmark: FrontierSWE
+  model_version: muse-spark-1.3_max
+  model_base: muse-spark-1.3
+  effort: max
+  cost_usd: 243.34
+  model_display: Muse Spark 1.3
+  organization: Meta AI
+  harness: proximus
+  harness_org: null
+  score: 0.258
+  unit: fraction
+  raw_score: null
+  stderr: null
+  protocol:
+    Aggregation: Mean@5
+    Best@5: '0.4092'
+    Worst@5: '0.1259'
+    Average duration (hours): '16.97'
+  model_released_on: '2026-09-02'
   run_date: null
   provenance: independent_leaderboard
   source_url: https://www.frontierswe.com/
@@ -17887,7 +18931,7 @@ scores:
   model_version: glm-5.3-flash_unknown
   model_base: glm-5.3-flash
   effort: null
-  cost_usd: 8.7367
+  cost_usd: 0.3598
   model_display: GLM-5.3-Flash
   organization: Z.ai (Zhipu AI)
   harness: Claude Code
@@ -17922,6 +18966,27 @@ scores:
     Pass@5: '0.6212'
   model_released_on: '2026-07-24'
   run_date: '2026-09-17'
+  provenance: independent_leaderboard
+  source_url: https://www.tbench.ai/leaderboard/terminal-bench/4.0
+  evidence_url: null
+- benchmark: Terminal-Bench 4.0
+  model_version: qwen3.8-max-0902_max
+  model_base: qwen3.8-max-0902
+  effort: max
+  cost_usd: 14.0475
+  model_display: Qwen3.8-Max-0902
+  organization: Alibaba
+  harness: Claude Code
+  harness_org: Anthropic
+  score: 0.2697
+  unit: fraction
+  raw_score: 26.97
+  stderr: 0.0193
+  protocol:
+    Trials: '330'
+    Pass@5: '0.5303'
+  model_released_on: '2026-09-02'
+  run_date: '2026-10-06'
   provenance: independent_leaderboard
   source_url: https://www.tbench.ai/leaderboard/terminal-bench/4.0
   evidence_url: null

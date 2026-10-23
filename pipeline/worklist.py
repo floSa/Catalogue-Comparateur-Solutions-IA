@@ -29,12 +29,15 @@ CATALOG = ROOT / "catalog"
 GOTCHAS = {
     "anthropic": "anthropic.com/pricing renvoie une 301 vers claude.com/pricing.",
     "openai": "openai.com/api/pricing renvoie 403. Utiliser developers.openai.com/api/docs/pricing.",
-    "moonshot": "platform.moonshot.ai/docs/pricing redirige vers platform.kimi.ai/docs/pricing.",
+    "moonshot": "platform.moonshot.ai/docs/pricing redirige vers platform.kimi.ai/docs/pricing/chat. "
+                "Les tableaux sont vides dans le rendu HTML : les lire dans le code source (colonnes "
+                "cache, entrée, sortie, dans cet ordre).",
     "mistral": "mistral.ai/pricing ne porte que les abonnements Vibe. La grille API par modèle "
                "vit sur docs.mistral.ai/inference/pricing, et la correspondance nom commercial → "
                "identifiant versionné sur docs.mistral.ai/models/overview.",
     "google": "Tarifs à paliers (≤200k / >200k) et promotions datées : relever les deux.",
-    "deepseek": "Tarification heures pleines / heures creuses : relever les deux grilles.",
+    "deepseek": "Tarification heures pleines / heures creuses : relever les deux grilles. "
+                "…/quick_start/pricing sans « /index.html » affiche la page « Your First API Call ».",
     "alibaba": "La page /models ne porte pas de tarif : la grille est sur "
                "alibabacloud.com/help/en/model-studio/model-pricing. Prix par région — "
                "le catalogue relève Singapour (International), la Chine continentale est "

@@ -52,7 +52,9 @@ REGISTRY = {
 
 # Libellé tbench.ai → identifiant de base Epoch, quand les noms affichés divergent
 # au-delà de ce que la normalisation absorbe.
-ALIASES: dict[str, str] = {}
+ALIASES: dict[str, str] = {
+    "Qwen3.8-Max-0902": "qwen3.8-max-0902",  # libellé tbench.ai, id Epoch daté
+}
 
 EFFORTS = {"low", "medium", "high", "xhigh", "max", "minimal"}
 

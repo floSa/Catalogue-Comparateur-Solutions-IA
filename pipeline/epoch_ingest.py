@@ -174,7 +174,9 @@ COLUMN_MAP = {
 FALLBACK_FILE = {"SciCode": "scicode_external.csv",
                  "CursorBench": "cursorbench_external.csv",
                  "FrontierSWE": "frontierswe_external.csv",
-                 "GDP.pdf": "gdp_pdf_external.csv"}
+                 "GDP.pdf": "gdp_pdf_external.csv",
+                 "HLE": "hle_external.csv",          # vide en amont depuis le 23/10/2026
+                 "DeepSWE": "deepswe_external.csv"}
 
 # Vocabulaire d'effort : chaque source a le sien (`Extra High`, `xhigh`…).
 EFFORT_ALIASES = {"extra high": "xhigh", "extra-high": "xhigh", "x-high": "xhigh"}

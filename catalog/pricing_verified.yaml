@@ -15,6 +15,7 @@ models:
     cache_write_per_1m: 12.5
     output_per_1m: 50.0
   context_source: https://platform.claude.com/docs/en/about-claude/models/overview
+  verified_on: '2026-10-23'
 - id: claude-opus-5
   lab: anthropic
   display_name: Claude Opus 5
@@ -50,8 +51,6 @@ models:
     input_cached_per_1m: 0.1
     cache_write_per_1m: 1.25
     output_per_1m: 5.0
-  applies_to:
-  - claude-haiku-4-5-20251001
   context_source: https://platform.claude.com/docs/en/about-claude/models/overview
 - id: claude-fable-5
   lab: anthropic
@@ -166,14 +165,7 @@ models:
   promo_note: 'Tarif promotionnel. Au-delà : 1,50 / 0,15 / 7,50.'
   context_window: 1000000
   context_source: https://deepmind.google/models/gemini/flash/
-- id: gemini-3.5-flash
-  lab: google
-  display_name: Gemini 3.5 Flash
-  api_model_id: gemini-3.5-flash
-  pricing:
-    input_per_1m: 1.5
-    input_cached_per_1m: 0.15
-    output_per_1m: 9.0
+  verified_on: '2026-10-23'
 - id: gemini-3.5-flash-lite
   lab: google
   display_name: Gemini 3.5 Flash-Lite
@@ -185,6 +177,7 @@ models:
     output_per_1m: 2.5
   context_window: 1000000
   context_source: https://deepmind.google/models/gemini/flash-lite/
+  verified_on: '2026-10-23'
 - id: gemini-3.1-pro-preview
   lab: google
   display_name: Gemini 3.1 Pro
@@ -197,16 +190,7 @@ models:
   tier_note: 'Tarif ≤200k tokens. Au-delà : 4,00 / 0,40 / 18,00.'
   context_window: 1000000
   context_source: https://deepmind.google/models/gemini/pro/
-- id: gemini-3.7-flash
-  lab: google
-  display_name: Gemini 3.7 Flash
-  api_model_id: gemini-3.7-flash
-  pricing:
-    input_per_1m: 0.75
-    input_cached_per_1m: 0.075
-    output_per_1m: 3.75
-  promo_until: '2026-12-31'
-  promo_note: 'Tarif promotionnel. Au-delà : 1,50 / 0,15 / 7,50.'
+  verified_on: '2026-10-23'
 - id: gemini-3.6-flash
   lab: google
   display_name: Gemini 3.6 Flash
@@ -217,6 +201,7 @@ models:
     output_per_1m: 3.75
   promo_until: '2026-12-31'
   promo_note: 'Tarif promotionnel. Au-delà : 1,50 / 0,15 / 7,50.'
+  verified_on: '2026-10-23'
 - id: deepseek-v4-pro
   lab: deepseek
   display_name: DeepSeek V4-Pro
@@ -235,6 +220,7 @@ models:
   applies_to:
   - deepseek-v4-pro-0813
   context_source: https://api-docs.deepseek.com/quick_start/pricing
+  verified_on: '2026-10-23'
 - id: deepseek-flash
   lab: deepseek
   display_name: DeepSeek Flash
@@ -252,7 +238,10 @@ models:
   peak_hours_utc: 01:00-04:00 et 06:00-10:00, lundi-vendredi
   applies_to:
   - deepseek-v4.1-flash
+  - deepseek-v4.1-flash-1017
   context_source: https://api-docs.deepseek.com/quick_start/pricing
+  tier_note: L'alias `deepseek-flash` sert DeepSeek-V4.1-Flash-1017 depuis le 17/10/2026.
+  verified_on: '2026-10-23'
 - id: kimi-k3
   lab: moonshot
   display_name: Kimi K3
@@ -264,6 +253,8 @@ models:
     input_cached_per_1m: 0.3
     output_per_1m: 15.0
   context_source: https://platform.kimi.ai/docs/pricing
+  tier_note: Écriture en cache facturée 3,00 $ (TTL 5 min, par défaut) ou 6,00 $ (TTL 1 h).
+  verified_on: '2026-10-23'
 - id: kimi-k2.7-code
   lab: moonshot
   display_name: Kimi K2.7 Code
@@ -275,6 +266,19 @@ models:
     input_cached_per_1m: 0.19
     output_per_1m: 4.0
   context_source: https://platform.kimi.ai/docs/pricing
+  verified_on: '2026-10-23'
+- id: kimi-k2.7-code-highspeed
+  lab: moonshot
+  display_name: Kimi K2.7 Code Highspeed
+  api_model_id: kimi-k2.7-code-highspeed
+  context_window: 262144
+  role: Kimi K2.7 Code servi à haut débit (~180 jetons/s)
+  pricing:
+    input_per_1m: 1.9
+    input_cached_per_1m: 0.38
+    output_per_1m: 8.0
+  context_source: https://platform.kimi.ai/docs/guide/kimi-k2-7-code-quickstart
+  verified_on: '2026-10-23'
 - id: kimi-k2.6
   lab: moonshot
   display_name: Kimi K2.6
@@ -285,6 +289,7 @@ models:
     input_cached_per_1m: 0.16
     output_per_1m: 4.0
   context_source: https://platform.kimi.ai/docs/pricing
+  verified_on: '2026-10-23'
 - id: qwen3.8-max
   lab: alibaba
   display_name: Qwen3.8-Max
@@ -489,6 +494,7 @@ models:
     output_per_1m: 4.4
   context_window: 1000000
   context_source: https://docs.z.ai/guides/llm/glm-5.3
+  verified_on: '2026-10-23'
 - id: glm-5.3-flash
   lab: zhipu
   display_name: GLM-5.3-Flash
@@ -500,6 +506,7 @@ models:
     output_per_1m: 0.5
   context_window: 1000000
   context_source: https://docs.z.ai/guides/llm/glm-5.3-flash
+  verified_on: '2026-10-23'
 - id: glm-4.7-flash
   lab: zhipu
   display_name: GLM-4.7-Flash
@@ -511,6 +518,7 @@ models:
     output_per_1m: 0.0
   context_window: 200000
   context_source: https://docs.z.ai/guides/llm/glm-4.7
+  verified_on: '2026-10-23'
 - id: glm-5.2
   lab: zhipu
   display_name: GLM-5.2
@@ -518,8 +526,10 @@ models:
   pricing:
     input_per_1m: 1.4
     output_per_1m: 4.4
+    input_cached_per_1m: 0.26
   context_window: 1000000
   context_source: https://docs.z.ai/guides/llm/glm-5.2
+  verified_on: '2026-10-23'
 - id: glm-5.1
   lab: zhipu
   display_name: GLM-5.1
@@ -527,8 +537,10 @@ models:
   pricing:
     input_per_1m: 1.4
     output_per_1m: 4.4
+    input_cached_per_1m: 0.26
   context_window: 200000
   context_source: https://docs.z.ai/guides/llm/glm-5.1
+  verified_on: '2026-10-23'
 - id: glm-5
   lab: zhipu
   display_name: GLM-5
@@ -536,8 +548,10 @@ models:
   pricing:
     input_per_1m: 1.0
     output_per_1m: 3.2
+    input_cached_per_1m: 0.2
   context_window: 200000
   context_source: https://docs.z.ai/guides/llm/glm-5
+  verified_on: '2026-10-23'
 - id: glm-4.7
   lab: zhipu
   display_name: GLM-4.7
@@ -545,8 +559,10 @@ models:
   pricing:
     input_per_1m: 0.6
     output_per_1m: 2.2
+    input_cached_per_1m: 0.11
   context_window: 200000
   context_source: https://docs.z.ai/guides/llm/glm-4.7
+  verified_on: '2026-10-23'
 - id: claude-opus-5-5
   lab: anthropic
   display_name: Claude Opus 5.5
@@ -559,6 +575,7 @@ models:
     cache_write_per_1m: 5.0
     output_per_1m: 20.0
   context_source: https://platform.claude.com/docs/en/about-claude/models/overview
+  verified_on: '2026-10-23'
 - id: gpt-6-sol
   lab: openai
   display_name: GPT-6 Sol
@@ -614,6 +631,44 @@ models:
   tier_note: 'Variante `muse-spark-1.3-contributor` à 0,10 / 0,002 / 0,20 : les échanges y servent à améliorer
     le produit.'
   context_source: https://dev.meta.ai/models/muse-spark/
+  verified_on: '2026-10-23'
+- id: muse-wonder-1.0
+  lab: meta
+  display_name: Muse Wonder 1.0
+  api_model_id: muse-wonder-1.0
+  context_window: 1048576
+  role: Flagship (sorti le 12/10/2026)
+  pricing:
+    input_per_1m: 4.0
+    input_cached_per_1m: 0.2
+    output_per_1m: 20.0
+  tier_note: Pas de variante Contributor sur l'API. La version « Wonder Full » n'est servie que dans les
+    forfaits Muse Code Power et Maximum.
+  context_source: https://dev.meta.ai/models/muse-wonder
+  verified_on: '2026-10-23'
+- id: muse-spark-1.2
+  lab: meta
+  display_name: Muse Spark 1.2
+  api_model_id: muse-spark-1.2
+  context_window: 1000000
+  pricing:
+    input_per_1m: 1.25
+    input_cached_per_1m: 0.15
+    output_per_1m: 4.25
+  tier_note: Variante `muse-spark-1.2-contributor` à 0,10 / 0,002 / 0,20.
+  context_source: https://dev.meta.ai/models/muse-spark-1-2
+  verified_on: '2026-10-23'
+- id: muse-spark-1.1
+  lab: meta
+  display_name: Muse Spark 1.1
+  api_model_id: muse-spark-1.1
+  context_window: 1000000
+  pricing:
+    input_per_1m: 1.25
+    input_cached_per_1m: 0.15
+    output_per_1m: 4.25
+  context_source: https://dev.meta.ai/models/muse-spark-1-1
+  verified_on: '2026-10-23'
 - id: glm-5.3-flashx
   lab: zhipu
   display_name: GLM-5.3-FlashX
@@ -621,8 +676,10 @@ models:
   pricing:
     input_per_1m: 0.37
     output_per_1m: 1.25
+    input_cached_per_1m: 0.075
   context_window: 1000000
   context_source: https://docs.z.ai/guides/llm/glm-5.3-flash
+  verified_on: '2026-10-23'
 - id: gpt-5.5
   lab: openai
   display_name: GPT-5.5
@@ -737,29 +794,40 @@ models:
   role: Référence ingénierie logicielle
   pricing:
     input_per_1m: 2.0
-    input_cached_per_1m: 0.2
+    input_cached_per_1m: 0.1
     cache_write_per_1m: 2.5
     output_per_1m: 10.0
   context_source: https://platform.claude.com/docs/en/about-claude/models/overview
+  verified_on: '2026-10-23'
+- id: claude-haiku-5-5
+  lab: anthropic
+  display_name: Claude Haiku 5.5
+  api_model_id: claude-haiku-5-5
+  context_window: 1000000
+  role: Rapide et économique (classification, extraction, routage)
+  pricing:
+    input_per_1m: 0.1
+    input_cached_per_1m: 0.01
+    cache_write_per_1m: 0.125
+    output_per_1m: 0.5
+  tier_note: 'Tarif pour les requêtes ≤100k jetons. Au-delà : 0,50 / 0,05 / 2,50 (écriture en cache 0,625).'
+  context_source: https://platform.claude.com/docs/en/models/haiku-5-5/overview
+  verified_on: '2026-10-23'
 - id: gemini-4-argon
   lab: google
   display_name: Gemini 4 Argon
   api_model_id: gemini-4-argon
-  context_window: 1000000
+  context_window: 1048576
   role: Flagship raisonnement long-horizon
   pricing:
     input_per_1m: 2.0
     input_cached_per_1m: 0.1
     output_per_1m: 10.0
-  promo_note: Tarif d'introduction annoncé le 30/09/2026. L'entrée en cache est annoncée à 95 % de remise
-    sur l'entrée.
-  source_override:
-    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
-    status: official_docs
-    note: 'Annonce officielle du 30/09/2026, PAS la page tarifaire — le modèle n''y figure pas encore.
-      Diffusion restreinte au programme Fairwind : pas de route d''API publique ni de date de généralisation
-      annoncée. Le tarif est donc annoncé, pas facturable aujourd''hui.'
-  context_source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
+  promo_note: 'Tarif promotionnel jusqu''au 30/11/2026. À partir du 01/12/2026 : 4,00 / 0,20 / 20,00.
+    Disponible pour tous depuis le 13/10/2026 ; pas d''offre gratuite.'
+  context_source: https://ai.google.dev/gemini-api/docs/models/gemini-4-argon
+  promo_until: '2026-11-30'
+  verified_on: '2026-10-23'
 - id: mistral-large-4
   lab: mistral
   display_name: Mistral Large 4
@@ -768,10 +836,14 @@ models:
   context_source: https://docs.mistral.ai/models/mistral-large-4-0
   role: Flagship multimodal, poids ouverts
   pricing:
-    input_per_1m: 0.68
-    output_per_1m: 2.09
-  promo_note: Tarif promotionnel affiché au 08/10/2026 ; prix barré 1,36 / 4,18. Préversion publique depuis
-    le 06/10/2026 — poids annoncés pour fin octobre.
+    input_per_1m: 1.36
+    input_cached_per_1m: 0.14
+    output_per_1m: 4.18
+  promo_note: Préversion publique depuis le 06/10/2026 (version v26.10). Le tarif promotionnel relevé
+    le 08/10 (0,68 / 2,09) n'est plus affiché.
+  applies_to:
+  - mistral-large-4-0
+  verified_on: '2026-10-23'
 - id: mistral-small-2603
   lab: mistral
   display_name: Mistral Small 4
@@ -834,6 +906,7 @@ no_public_price:
   - gemma-4-26b-a4b-it
   - gemma-4-31b-it
   - muse-glimmer
+  - Muse-Spark-Open-816B-A42B
 - reason: 'Version de pré-lancement ou d''évaluation, jamais commercialisée : elle a été mesurée par une
     source indépendante mais n''a pas de grille tarifaire.'
   models:
@@ -855,8 +928,6 @@ no_public_price:
   - kimi-k2.5
   - grok-4-20
   - muse-spark
-  - muse-spark-1.1
-  - muse-spark-1.2
 - reason: 'Marqué explicitement DÉPRÉCIÉ dans la documentation Mistral : le modèle reste appelable un
     temps mais a quitté la grille tarifaire.'
   models:
@@ -872,3 +943,9 @@ no_public_price:
     — vérifier à la passe suivante avant d''en tirer une conclusion.'
   models:
   - claude-opus-4-5-20251101
+- reason: 'Déprécié par Google le 08/10/2026 et retiré de la grille : les requêtes sont redirigées vers
+    Gemini 3.8 Flash (pour 3.7 Flash) et 3.6 Flash (pour 3.5 Flash), facturées au tarif de ces modèles
+    (ai.google.dev/gemini-api/docs/changelog).'
+  models:
+  - gemini-3.7-flash
+  - gemini-3.5-flash

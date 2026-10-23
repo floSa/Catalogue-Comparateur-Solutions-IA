@@ -306,3 +306,13 @@ plans:
     url: https://developer.meta.com/ai/products/muse-code/
     verified_on: '2026-09-15'
     status: official_pricing_page
+- id: muse-code-maximum
+  vendor: Meta
+  product: Muse Code
+  name: Maximum Usage
+  price_usd_month: 200
+  includes: 80x l'usage de l'offre de base, accès à Muse Wonder Full.
+  source:
+    url: https://dev.meta.ai/products/muse-code
+    verified_on: '2026-10-23'
+    status: official_pricing_page

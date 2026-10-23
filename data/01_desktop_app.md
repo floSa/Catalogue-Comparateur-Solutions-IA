@@ -3,7 +3,7 @@
 
 # Applications desktop
 
-19 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+19 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
 
 ## ChatGPT Desktop
 
@@ -45,7 +45,7 @@ Agent de code open-source (Apache-2.0), désormais proposé d'abord en applicati
 - **Statut :** active
 - **Capacités :** BYOK, gratuit
 
-Harnais officiel de DeepSeek, open-source sous MIT, en préversion développeur depuis août 2026 : l'éditeur annonce des ruptures de compatibilité. Distribué d'abord comme application de bureau (macOS Apple Silicon, Windows 64 bits), et comme interface web locale lancée par `npx @deepseek-ai/dsh web`. La commande `dsh` sert de lanceur (mode headless pour l'intégration continue, ACP, SDK) ; aucune interface terminal n'est livrée par défaut. Architecture où tout est greffon (framework Cordis).
+Harnais officiel de DeepSeek, open-source sous MIT, en préversion développeur depuis août 2026 : l'éditeur annonce des ruptures de compatibilité. Distribué d'abord comme application de bureau (macOS Apple Silicon, Windows 64 bits), et comme interface web locale lancée par `npx @deepseek-ai/dsh web`. La commande `dsh` sert de lanceur (mode headless pour l'intégration continue, ACP, SDK) ; aucune interface terminal n'est livrée par défaut. Architecture où tout est greffon (framework Cordis). Depuis la 0.2.1-rc.1 (17/10/2026) : couche de compatibilité expérimentale avec les mods de Claude Code, recherche et lecture web via les API Search et Fetch de DeepSeek (0,75 $ pour 1 000 requêtes, gratuites jusqu'au 31/10/2026 depuis le harnais).
 
 ## Droid (Factory)
 

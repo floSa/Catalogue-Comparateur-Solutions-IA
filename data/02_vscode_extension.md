@@ -3,7 +3,7 @@
 
 # Extensions VS Code
 
-7 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+7 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
 
 ## Codex (extension IDE)
 

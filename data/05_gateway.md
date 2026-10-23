@@ -3,7 +3,7 @@
 
 # Agrégateurs cloud
 
-5 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+5 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
 
 ## Cloudflare AI Gateway
 

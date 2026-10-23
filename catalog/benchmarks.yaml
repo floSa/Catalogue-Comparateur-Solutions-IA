@@ -1,6 +1,6 @@
 _generated:
   by: pipeline/epoch_ingest.py --registry
-  'on': '2026-10-08'
+  'on': '2026-10-23'
   upstream: Epoch AI — Capabilities & Benchmarking (CC-BY 4.0)
   upstream_url: https://epoch.ai/benchmarks
   warning: Fichier généré. Éditer CURATION dans pipeline/epoch_ingest.py, pas ce fichier.
@@ -31,7 +31,7 @@ tracked:
   released_on: '2023-11-20'
   scale_to_fraction: 1.0
   random_baseline: 0.25
-  score_ceiling: 1.0
+  score_ceiling: 0.97
   superseded_by: null
   epoch_source_file: gpqa_diamond.csv
   provenance: independent_run

@@ -139,12 +139,12 @@ resterait à faire — le plan de travail s'en charge.
 
 | Couche | Couverture | Source |
 |---|---|---|
-| Benchmarks | 918 mesures, 15 classements, modèles des 12 derniers mois | Epoch AI (jeu daté) + tbench.ai pour Terminal-Bench 4.0 |
-| dont coût réellement mesuré | 270 mesures | même source, colonne de coût d'exécution |
-| dont effort de raisonnement connu | 626 mesures | même source, colonne de protocole |
-| Modèles | 160, 11 fournisseurs | identités issues des mesures, jamais inventées |
-| Tarifs API | 77 tarifs relevés, couvrant 117 modèles · 43 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
-| Forfaits d'abonnement | 29 paliers, 9 éditeurs | page tarifaire officielle |
+| Benchmarks | 972 mesures, 15 classements, modèles des 12 derniers mois | Epoch AI (jeu daté) + tbench.ai pour Terminal-Bench 4.0 |
+| dont coût réellement mesuré | 283 mesures | même source, colonne de coût d'exécution |
+| dont effort de raisonnement connu | 683 mesures | même source, colonne de protocole |
+| Modèles | 161, 11 fournisseurs | identités issues des mesures, jamais inventées |
+| Tarifs API | 80 tarifs relevés, couvrant 117 modèles · 44 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
+| Forfaits d'abonnement | 30 paliers, 9 éditeurs | page tarifaire officielle |
 | Harnais et passerelles | 65 fiches, dont 62 vivantes publiées | documentation ou tarifs de l'éditeur |
 | Balayage des fournisseurs | 11 sur 11 | recherche outil par outil, y compris les absences |
 | Taux de change | 1 EUR = 1,1539 USD | taux de référence BCE du 15/09/2026 |

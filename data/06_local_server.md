@@ -3,7 +3,7 @@
 
 # Serveurs locaux
 
-8 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+8 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
 
 ## LM Studio (serveur local)
 

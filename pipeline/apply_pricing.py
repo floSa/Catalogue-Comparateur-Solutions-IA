@@ -27,7 +27,7 @@ SOURCES = {
                   "platform.openai.com/docs/pricing redirige vers developers.openai.com."),
     "google":    ("https://ai.google.dev/gemini-api/docs/pricing", "official_pricing_page",
                   "Plusieurs modèles en tarif promotionnel jusqu'au 31/12/2026."),
-    "deepseek":  ("https://api-docs.deepseek.com/quick_start/pricing", "official_pricing_page",
+    "deepseek":  ("https://api-docs.deepseek.com/quick_start/pricing/index.html", "official_pricing_page",
                   "Tarification dynamique : heures creuses à 50%. Montants = tarif de pointe."),
     "moonshot":  ("https://platform.kimi.ai/docs/pricing", "official_pricing_page",
                   "platform.moonshot.ai redirige vers platform.kimi.ai."),

@@ -3,7 +3,7 @@
 
 # Agents CLI
 
-20 outils au catalogue. Généré le 2026-10-08 depuis `catalog/tools.yaml`.
+20 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
 
 ## Aider
 
@@ -169,8 +169,9 @@ Volet code de Vibe, l'assistant de Mistral (ex-Le Chat, renommé le 28/05/2026).
 - **Forfait Everyday Usage :** $5 — 4,33 € HT · 5,20 € TTC
 - **Forfait High Usage :** $15 — 13,00 € HT · 15,60 € TTC
 - **Forfait Power Usage :** $50 — 43,33 € HT · 52,00 € TTC
+- **Forfait Maximum Usage :** $200 — 173,32 € HT · 207,98 € TTC
 
-Agent de codage en terminal de Meta, installé par une commande bash unique, pour macOS et Windows. Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code produit. Tourne sur Muse Spark 1.3 et 1.2, co-entraînés avec le harnais.
+Agent de codage en terminal de Meta, pour macOS et Windows, avec un SDK TypeScript et Python en préversion. Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code produit. Tourne sur Muse Spark et, depuis le 12/10/2026, sur Muse Wonder ; la version « Wonder Full » est réservée aux forfaits Power et Maximum. Mode Contributor activé par défaut pour les abonnés.
 
 ## Oh My Pi (omp)
 
