@@ -268,6 +268,49 @@ def main() -> int:
                           "pouvoir discriminant épuisé — lui chercher un remplaçant "
                           "et documenter le rejet dans REJECTED"))
 
+    # ── 5 bis. Fiches explicatives des benchmarks ─────────────────────────
+    guide = load("benchmark_guide.yaml").get("benchmarks", [])
+    suivis = {b["name"] for b in bench.get("tracked", []) if b.get("track")}
+    sans = sorted(suivis - {g["name"] for g in guide})
+    if sans:
+        tasks.append((1, "BENCHMARKS", f"{len(sans)} benchmarks suivis sans fiche explicative", None,
+                      ", ".join(f"`{x}`" for x in sans) + "\n    ⓘ les rédiger dans "
+                      "catalog/benchmark_guide.yaml, sur la source primaire (article, site du benchmark)."))
+    # age() vaut 0 pour un relevé du jour : ne pas le confondre avec « jamais relevé ».
+    trop_vieux = lambda d, seuil: (age(d) if age(d) is not None else seuil + 1) > seuil
+    vieux = [g["name"] for g in guide if g["name"] in suivis and trop_vieux(g.get("verified_on"), stale)]
+    if vieux:
+        tasks.append((2, "BENCHMARKS", f"{len(vieux)} fiches explicatives à relire", None,
+                      "relues il y a plus de %d jours : %s" % (stale, ", ".join(vieux))))
+
+    # ── 5 ter. OCR : classements, fiches, licences ────────────────────────
+    ob = load("ocr_benchmarks.yaml")
+    for b in ob.get("benchmarks", []):
+        d = age(b.get("verified_on"))
+        if d is None or d > warn:
+            tasks.append((1, "OCR", f"Relire le classement `{b['nom']}`", b.get("classement"),
+                          f"relevé il y a {d} jours ; reporter les nouvelles lignes dans "
+                          "catalog/ocr_benchmarks.yaml (provenance : officiel / editeur / tiers)."))
+    ocr = load("ocr.yaml").get("entries", [])
+    perim = [e["nom"] for e in ocr if trop_vieux(e.get("verified_on"), warn)]
+    if perim:
+        tasks.append((2, "OCR", f"{len(perim)} fiches OCR à revérifier (licence, version)", None,
+                      ", ".join(perim[:8]) + (" …" if len(perim) > 8 else "")
+                      + "\n    ⓘ la licence des poids peut changer d'une version à l'autre : relire la "
+                        "fiche Hugging Face ET le fichier LICENSE."))
+
+    # ── 5 quater. Étiquettes des outils (gratuit, BYOK, MCP, modèles locaux) ──
+    CAPS = ("free", "byok", "mcp", "local_models")
+    vivants = [t for t in tools if t.get("status") != "retired"]
+    jamais = [t["name"] for t in vivants if not t.get("caps_checked_on")]
+    vieilles = [t["name"] for t in vivants if t.get("caps_checked_on") and trop_vieux(t["caps_checked_on"], warn)]
+    trous = sum(t.get(k) is None for t in vivants for k in CAPS)
+    if jamais or vieilles:
+        tasks.append((2, "HARNAIS", f"Étiquettes à relever : {len(jamais)} jamais, {len(vieilles)} périmées",
+                      None, ", ".join((jamais + vieilles)[:8])
+                      + f"\n    ⓘ {trous} valeurs encore inconnues au total ; chaque valeur porte sa "
+                        "source dans `caps_sources` (tools.yaml)."))
+
     # ── 6. Veille ─────────────────────────────────────────────────────────
     if not (ROOT / ".env").exists() and not __import__("os").environ.get("AA_API_KEY"):
         tasks.append((2, "SOURCES",
@@ -278,6 +321,9 @@ def main() -> int:
     tasks.append((3, "VEILLE", "Rechercher les nouveaux harnais", None,
                   'requêtes : "AI code editor" 2026 · "autonomous coding agent" CLI 2026 · '
                   'site:github.com "coding agent" stars:>2000 pushed:>2026-01-01'))
+    tasks.append((3, "VEILLE", "Rechercher les nouveaux modèles OCR", "https://huggingface.co/models?pipeline_tag=image-text-to-text&search=ocr&sort=trending",
+                  "comparer aux classements OmniDocBench et MDPBench (nouvelles lignes = nouveaux modèles) ; "
+                  "chercher aussi les nouvelles versions des modèles déjà au catalogue"))
     tasks.append((3, "VEILLE", "Détecter les nouveaux modèles mesurés", None,
                   "python3 pipeline/epoch_ingest.py --force-download && "
                   "python3 pipeline/seed_catalog.py"))
