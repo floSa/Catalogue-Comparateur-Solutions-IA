@@ -111,10 +111,13 @@ select:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
 #vuewrap{margin:12px 0 4px;padding-top:12px;border-top:1px solid var(--line)}
 .bpub{font-size:12.5px;color:var(--ink-2);margin:0 0 8px}
 .bpub b{color:var(--ink)}
-.props{margin:0 0 6px}
+.frow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0 4px}
+.frow .seg{margin:0!important}
+.fsep{width:1px;height:20px;background:var(--line-strong)}
+.props{margin:0}
 .props button::before{content:"＋ ";opacity:.6}
 .props button[aria-pressed="true"]::before{content:"✓ "}
-.glo{font-size:11.5px;color:var(--ink-3);margin:0 0 10px;max-width:none}
+.glo{font-size:11.5px;color:var(--ink-3);margin:2px 0 8px;max-width:none}
 .glo b{color:var(--ink-2);font-weight:600}
 .mes{font-size:12px;margin-top:8px;color:var(--ink-2)}
 .mes a{cursor:pointer}
@@ -320,13 +323,11 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   quels outils appeler et enchaîne les étapes. Deux harnais donnant le même modèle n'obtiennent
   pas le même résultat — sur Terminal-Bench, l'écart entre harnais dépasse souvent l'écart entre
   deux modèles concurrents.</p>
-  <div class="seg" id="har-cat" role="group" aria-label="Catégories de harnais"></div>
-  <div class="seg props" id="har-prop" role="group" aria-label="Filtrer par propriété"></div>
-  <p class="glo"><b>BYOK</b> (<i>bring your own key</i>) : on branche sa propre clé d'API
-  (Anthropic, OpenAI, OpenRouter…) au lieu de payer l'abonnement de l'éditeur.
-  <b>MCP</b> : l'outil se connecte à des serveurs d'outils externes (Model Context Protocol).
-  <b>Modèles locaux</b> : il peut utiliser un modèle qui tourne sur votre machine (Ollama, LM Studio…).
-  <b>Gratuit</b> : utilisable sans payer l'éditeur, sans limite de durée.</p>
+  <div class="frow"><div class="seg" id="har-cat" role="group" aria-label="Catégories de harnais"></div>
+  <span class="fsep" aria-hidden="true"></span>
+  <div class="seg props" id="har-prop" role="group" aria-label="Filtrer par propriété"></div></div>
+  <p class="glo"><b>BYOK</b> = votre propre clé d'API · <b>MCP</b> = outils externes branchables ·
+  <b>Modèles locaux</b> = modèle sur votre machine</p>
   <div id="har"></div>
   <details><summary id="har-ej">Outils écartés</summary><div class="bl" id="har-el"></div></details>
 </section>
@@ -339,13 +340,11 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   <i>(agrégateur)</i>, soit vers un modèle tournant sur votre propre machine
   <i>(serveur local)</i>. Changer de passerelle ne change pas la qualité du code produit :
   cela change le prix, la latence et qui voit vos données.</p>
-  <div class="seg" id="pas-cat" role="group" aria-label="Catégories de passerelles"></div>
-  <div class="seg props" id="pas-prop" role="group" aria-label="Filtrer par propriété"></div>
-  <p class="glo"><b>BYOK</b> (<i>bring your own key</i>) : on branche sa propre clé d'API
-  (Anthropic, OpenAI, OpenRouter…) au lieu de payer l'abonnement de l'éditeur.
-  <b>MCP</b> : l'outil se connecte à des serveurs d'outils externes (Model Context Protocol).
-  <b>Modèles locaux</b> : il peut utiliser un modèle qui tourne sur votre machine (Ollama, LM Studio…).
-  <b>Gratuit</b> : utilisable sans payer l'éditeur, sans limite de durée.</p>
+  <div class="frow"><div class="seg" id="pas-cat" role="group" aria-label="Catégories de passerelles"></div>
+  <span class="fsep" aria-hidden="true"></span>
+  <div class="seg props" id="pas-prop" role="group" aria-label="Filtrer par propriété"></div></div>
+  <p class="glo"><b>BYOK</b> = votre propre clé d'API · <b>MCP</b> = outils externes branchables ·
+  <b>Modèles locaux</b> = modèle sur votre machine</p>
   <div id="pas"></div>
   <details><summary id="pas-ej">Outils écartés</summary><div class="bl" id="pas-el"></div></details>
 </section>
@@ -1391,7 +1390,10 @@ function carteOutil(t){
 }
 
 // Propriétés cumulables : un outil reste affiché s'il les a TOUTES.
-const PROPS=[['free','Gratuit'],['byok','BYOK'],['mcp','MCP'],['local_models','Modèles locaux']];
+const PROPS=[['free','Gratuit',"Utilisable sans payer l'éditeur, sans limite de durée"],
+ ['byok','BYOK',"Bring your own key : on branche sa propre clé d'API (Anthropic, OpenAI, OpenRouter…) au lieu de l'abonnement de l'éditeur"],
+ ['mcp','MCP',"Model Context Protocol : l'outil se connecte à des serveurs d'outils externes"],
+ ['local_models','Modèles locaux',"Peut utiliser un modèle qui tourne sur votre machine (Ollama, LM Studio…)"]];
 const ETAT={'#har':{cat:null,props:new Set()},'#pas':{cat:null,props:new Set()}};
 function rendreCouche(cible,couche,ordre,filtre){
   const el=$(cible);let html='';
@@ -1425,8 +1427,7 @@ function brancherCategories(idBoutons,cible,couche,ordre){
     [...bar.children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
     rendreCouche(cible,couche,ordre,b.dataset.c||null);});
   const pb=$(idBoutons.replace('-cat','-prop'));
-  pb.innerHTML=PROPS.map(([k,l])=>`<button data-p="${k}" aria-pressed="false">${l} (${
-    D.tools.filter(t=>t.layer===couche&&t[k]===true).length})</button>`).join('');
+  pb.innerHTML=PROPS.map(([k,l,t])=>`<button data-p="${k}" aria-pressed="false" title="${esc(t)}">${l}</button>`).join('');
   pb.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
     const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));
     ETAT[cible].props[on?'add':'delete'](b.dataset.p);rendreCouche(cible,couche,ordre);});
