@@ -176,11 +176,11 @@ body{background:var(--bg);color:var(--ink);
  font:14px/1.55 "IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
  margin:0;padding:0 20px 72px;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1180px;margin:0 auto}
-header{padding:38px 0 20px;border-bottom:1px solid var(--line)}
-h1{font-family:"IBM Plex Serif",Georgia,serif;font-size:27px;margin:0 0 7px;
+header{padding:14px 0 10px;border-bottom:1px solid var(--line)}
+.tt{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
+h1{font-family:"IBM Plex Serif",Georgia,serif;font-size:27px;margin:0;
  letter-spacing:-.015em;font-weight:600;text-wrap:balance}
-.sub{color:var(--ink);font-size:15px;margin:18px 0 0;line-height:1.5}
-.meta{color:var(--ink-3);font-size:12.5px;margin:8px 0 0;font-variant-numeric:tabular-nums}
+.meta{color:var(--ink-3);font-size:12.5px;margin:0;font-variant-numeric:tabular-nums}
 h2{font-family:"IBM Plex Serif",Georgia,serif;font-size:19px;margin:22px 0 4px;
  letter-spacing:-.01em;font-weight:600;text-wrap:balance}
 h2 .n{color:var(--ink-3);font-weight:400;font-size:13px;margin-left:8px}
@@ -188,20 +188,15 @@ h2 .en-h{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)
  text-transform:uppercase;letter-spacing:.1em;font-weight:400;margin-left:9px;
  vertical-align:middle}
 .lede{color:var(--ink-2);margin:0 0 14px;font-size:13.5px}
-.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:1px;
- background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;
- margin:26px 0 0}
-.cell{background:var(--panel);padding:14px 16px}
-.cell b{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:22px;
- font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.cell span{color:var(--ink-3);font-size:10.5px;text-transform:uppercase;letter-spacing:.075em;
- margin-top:2px;display:block}
+.strip{display:flex;flex-wrap:wrap;gap:2px 16px;margin:8px 0 0;font-size:13px;color:var(--ink-2)}
+.cell b{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;color:var(--ink);
+ font-variant-numeric:tabular-nums;margin-right:4px}
 .note{border-left:3px solid var(--warn);background:var(--panel);padding:12px 15px;
  border-radius:0 8px 8px 0;margin:18px 0;font-size:13px;color:var(--ink-2)}
 .note b{color:var(--ink)}
 .note.bad{border-left-color:var(--bad)}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:18px;margin:14px 0}
-nav.tabs{display:flex;width:100%;margin:22px 0 4px;border-bottom:1px solid var(--line)}
+nav.tabs{display:flex;width:100%;margin:10px 0 4px;border-bottom:1px solid var(--line)}
 nav.tabs button{flex:1 1 0;background:none;border:0;border-bottom:2px solid transparent;
  color:var(--ink-3);padding:9px 6px 8px;font:inherit;cursor:pointer;text-align:center;
  display:flex;flex-direction:column;gap:1px;align-items:center;margin-bottom:-1px}
@@ -330,15 +325,10 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
 
 <div class="wrap">
 <header>
-  <h1>Modèles et harnais de développement IA</h1>
-  <p class="meta" id="meta"></p>
+  <div class="tt"><h1>Modèles et harnais de développement IA</h1>
+  <p class="meta" id="meta"></p></div>
+  <div class="strip" id="strip"></div>
 </header>
-
-<div class="strip" id="strip"></div>
-
-<p class="sub"><b>Comparer la performance, le coût réel et les tarifs des modèles de
-   fondation et des outils qui les exécutent</b> — sur des mesures sourcées, datées
-   et reproductibles.</p>
 
 <nav class="tabs" id="nav" role="tablist" aria-label="Sections">
   <button data-s="mesures" role="tab" aria-selected="true">
@@ -574,7 +564,7 @@ $('#strip').innerHTML=[
  [C.benchmarks,'benchmarks'],
  [C.priced,'tarifs vérifiés'],
  [C.plans,'forfaits'],
-].map(([v,k])=>`<div class="cell"><b>${v}</b><span>${k}</span></div>`).join('');
+].map(([v,k])=>`<span class="cell"><b>${v}</b>${k}</span>`).join('');
 
 const al=[];
 // N'alerter que sur ce qui rend un chiffre INEXPLOITABLE. L'état d'avancement

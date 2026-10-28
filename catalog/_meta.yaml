@@ -1,7 +1,7 @@
 audit:
-  edition: 2026-09
-  label: Édition Septembre 2026
-  previous_edition: 2026-08
+  edition: 2026-10
+  label: Édition Octobre 2026
+  previous_edition: 2026-09
   next_review_due: '2027-03-15'
 fx:
   usd_eur: 0.8666
