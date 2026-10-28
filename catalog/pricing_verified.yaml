@@ -786,6 +786,16 @@ models:
     output_per_1m: 10.0
   context_window: 1050000
   context_source: https://developers.openai.com/api/docs/models
+- id: gpt-6.1-terra
+  lab: openai
+  display_name: GPT-6.1 Terra
+  api_model_id: gpt-6.1-terra
+  role: Intermédiaire génération courante
+  pricing:
+    input_per_1m: 1.0
+    input_cached_per_1m: 0.05
+    output_per_1m: 5.0
+  verified_on: '2026-10-28'
 - id: claude-sonnet-5-5
   lab: anthropic
   display_name: Claude Sonnet 5.5

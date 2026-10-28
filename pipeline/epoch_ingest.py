@@ -49,9 +49,9 @@ EPOCH_ZIP = RAW / "epoch_benchmark_data.zip"
 CURATION = {
     "CursorBench": dict(
         track=True, domain="software_engineering", tier="reference",
-        measures="Tâches de développement réelles tirées de l'usage de Cursor, exécutées dans son agent.",
-        caveat="Publié par Cursor et mesuré dans son propre harnais : le couple (modèle, Cursor) "
-               "est mesuré, pas le modèle seul."),
+        measures="Demandes réelles de développeurs tirées des sessions Cursor, notées par des correcteurs agentiques.",
+        caveat="Publié par Cursor, tâches non publiques. Version 4.0 depuis le 10/09/2026 : scores non "
+               "comparables aux versions précédentes."),
     "FrontierSWE": dict(
         track=True, domain="software_engineering", tier="secondary",
         measures="Projets d'ingénierie de plusieurs heures (implémentation, performance, recherche).",
@@ -61,24 +61,21 @@ CURATION = {
         measures="Implémentation de code scientifique à partir d'énoncés de recherche.", caveat=""),
     "FrontierCode": dict(
         track=True, domain="code_generation", tier="secondary",
-        measures="Génération de code sur problèmes récents, conçu contre la contamination.", caveat=""),
+        measures="Modifications de code sur de vrais dépôts, notées sur leur acceptabilité par un mainteneur.",
+        caveat="Publié par Cognition (Devin, Windsurf). Notation par grille, en partie subjective."),
     "DeepSWE": dict(
         track=True, domain="software_engineering", tier="secondary",
         measures="Ingénierie logicielle sur tâches longues.", caveat=""),
     "MirrorCode": dict(
         track=True, domain="code_generation", tier="secondary",
-        measures="Benchmark de code récent, résistant à la contamination.", caveat=""),
+        measures="Réécrire de zéro un programme entier à partir de son seul comportement.", caveat=""),
     "APEX-Agents": dict(
         track=True, domain="agentic_work", tier="secondary",
-        measures="Capacités agentiques sur tâches expertes.", caveat=""),
-    "PostTrainBench": dict(
-        track=True, domain="agentic_work", tier="secondary",
-        measures="Un agent post-entraîne lui-même un modèle ouvert sous contrainte de calcul.",
-        caveat="Le harnais varie selon le modèle (Claude Code, Codex CLI, Cursor CLI) : "
-               "lire le couple (modèle, harnais)."),
-    "OSWorld 2.0": dict(
-        track=True, domain="computer_use", tier="secondary",
-        measures="Pilotage d'un vrai bureau graphique (fenêtres, applications).", caveat=""),
+        measures="Tâches de banque d'affaires, de conseil et de droit dans un environnement de bureau simulé.", caveat=""),
+    "WeirdML v3": dict(
+        track=True, domain="ml_engineering", tier="secondary",
+        measures="Un agent explore des données inconnues et construit seul des chaînes d'apprentissage automatique.",
+        caveat="Onze tâches seulement ; chaque ligne nomme l'outil d'agent et sa version."),
     "GPQA diamond": dict(
         track=True, domain="reasoning", tier="reference",
         measures="Questions scientifiques de niveau doctorat, hors de portée d'une recherche web.",
@@ -91,8 +88,8 @@ CURATION = {
         measures="Raisonnement abstrait sur grilles, résistant à la mémorisation.", caveat=""),
     "GDP.pdf": dict(
         track=True, domain="economic_value", tier="secondary",
-        measures="Production de livrables professionnels (documents, analyses) jugés par des experts.",
-        caveat="Évaluation par juges humains, protocole Surge AI."),
+        measures="Questions précises sur des PDF professionnels (baux, plans, fiches techniques).",
+        caveat=""),
     "Remote Labor Index": dict(
         track=True, domain="economic_value", tier="secondary",
         measures="Capacité à accomplir des missions freelance réellement rémunérées.", caveat=""),
@@ -136,6 +133,66 @@ REJECTED = {
                "figé (avril 2026).",
     "GDPval": "Aucune mesure depuis décembre 2025. Remplacé par GDP.pdf.",
     "The Agent Company": "Aucune mesure depuis septembre 2025.",
+    "PostTrainBench": "Le classement officiel (posttrainbench.com) mesure jusqu'à GPT-6.1 Sol (06/10/2026), "
+                      "mais Epoch ne relaie plus ses mesures depuis juillet 2026 : à réintégrer quand le "
+                      "relais reprend.",
+    "OSWorld 2.0": "En sommeil : aucun modèle mesuré sorti après le 24/07/2026, et le classement officiel "
+                   "(osworld-v2.xlang.ai) s'arrête à Claude Opus 4.8.",
+    # Classés le 28/10/2026 : tous les autres benchmarks de l'export Epoch.
+    "DTBench": "Théorie de la décision (problèmes de type Newcomb) : raisonnement philosophique, sans rapport avec le code.",
+    "LMCA": "Jugement d'arguments conceptuels (philosophie, éthique) : sans rapport avec la programmation.",
+    "EBR-bench": "Apprentissage par la pratique sur un jeu de société : sans rapport avec le code.",
+    "WeirdML": "Remplacé par WeirdML v3, scores non comparables.",
+    "Surface Evolver Bench": "Langage de simulation physique très spécialisé, peu représentatif du développement courant.",
+    "Furniture Assembly": "Repérer l'erreur d'un montage de meuble sur photo : raisonnement spatial, sans rapport avec le code.",
+    "Mystery Game Puzzles": "Casse-têtes d'un jeu tenu secret : sans rapport avec le code.",
+    "SpireClimb": "Jeu vidéo (Slay the Spire) joué en pilotant l'ordinateur : sans rapport avec le code.",
+    "Balrog": "Agents dans des jeux (BabyAI, TextWorld, NetHack…) : pas du génie logiciel.",
+    "ProofBench": "Preuves mathématiques formelles (Lean 4) : mathématiques, pas développement logiciel.",
+    "CL-bench": "Apprentissage de règles fournies dans le contexte, sans tâche de code isolable.",
+    "CL-bench Life": "Raisonnement sur des contextes de la vie quotidienne : hors du développement.",
+    "DeepResearch Bench": "Recherche documentaire sur le web : pas du code.",
+    "SimpleQA Verified": "Rappel de faits (culture générale) : sans rapport avec le code.",
+    "Chess Puzzles": "Problèmes d'échecs : sans rapport avec le code.",
+    "FrontierMath-2025-02-28-Private": "Mathématiques de recherche : pas du développement logiciel.",
+    "FrontierMath-Tier-4-2025-07-01-Private": "Mathématiques de recherche : pas du développement logiciel.",
+    "FrontierMath-Tier-4-v2-Private": "Mathématiques de recherche : pas du développement logiciel.",
+    "FrontierMath-Tiers-1-3-v2-Private": "Mathématiques de recherche : pas du développement logiciel.",
+    "FrontierMath-Erdos": "Mathématiques de recherche (preuves Lean) : pas du développement logiciel.",
+    "OTIS Mock AIME 2024-2025": "Mathématiques de concours : pas du développement logiciel.",
+    "MATH level 5": "Mathématiques de concours ; aucun modèle mesuré sorti après octobre 2025.",
+    "SimpleBench": "Questions-pièges de bon sens : sans rapport avec le code.",
+    "ARC-AGI": "Saturé, remplacé par ARC-AGI-2.",
+    "ExploitBench": "Aucun modèle mesuré sorti après avril 2026.",
+    "CadEval": "Aucun modèle mesuré sorti après avril 2025.",
+    "Fiction.LiveBench": "Aucun modèle mesuré sorti après janvier 2026.",
+    "GeoBench": "Aucun modèle mesuré sorti après décembre 2025.",
+    "VPCT": "Aucun modèle mesuré sorti après décembre 2025.",
+    "Lech Mazur Writing": "Aucun modèle mesuré sorti après août 2025.",
+    "SWE-bench Pro": "Aucune mesure dans l'export Epoch. Le classement de Scale AI est par ailleurs proche de la saturation en tête.",
+    "WebDev Arena": "Aucune mesure dans l'export Epoch. Classement par votes humains (Elo), non comparable à un taux de réussite.",
+    "ALE-Bench": "Aucune mesure dans l'export Epoch.",
+    "AlgoTune": "Aucune mesure dans l'export Epoch.",
+    "BTF-3": "Aucune mesure dans l'export Epoch.",
+    "Berkeley Function Calling Leaderboard": "Aucune mesure dans l'export Epoch.",
+    "Blueprint-Bench 2": "Aucune mesure dans l'export Epoch.",
+    "BoolQ": "Aucune mesure dans l'export Epoch.",
+    "CSQA2": "Aucune mesure dans l'export Epoch.",
+    "CritPt": "Aucune mesure dans l'export Epoch.",
+    "EnigmaEval": "Aucune mesure dans l'export Epoch.",
+    "ForecastBench": "Aucune mesure dans l'export Epoch.",
+    "GBAEval": "Aucune mesure dans l'export Epoch.",
+    "GraphWalks": "Aucune mesure dans l'export Epoch.",
+    "HealthBench Professional": "Aucune mesure dans l'export Epoch.",
+    "LiveBench": "Aucune mesure dans l'export Epoch.",
+    "METR": "Aucune mesure dans l'export Epoch.",
+    "MindCube": "Aucune mesure dans l'export Epoch.",
+    "SpatialViz-Bench": "Aucune mesure dans l'export Epoch.",
+    "TextQuests": "Aucune mesure dans l'export Epoch.",
+    "Vending-Bench 2": "Aucune mesure dans l'export Epoch.",
+    "VideoMME": "Aucune mesure dans l'export Epoch.",
+    "SpireClimb (Slay the Spire 1, Ascension 20 Heart)": "Variante de SpireClimb, écarté.",
+    "SpireClimb (Slay the Spire 2, Ascension 10)": "Variante de SpireClimb, écarté.",
 }
 
 
@@ -161,6 +218,9 @@ COLUMN_MAP = {
     "GSO-Bench":           dict(score="Score OPT@1", harness="Scaffold"),
     "MirrorCode":          dict(score="Best score (across scorers)", se="stderr"),
     "APEX-Agents":         dict(score="Pass@1 score"),
+    "WeirdML v3":          dict(score="Score", ci=("Score 95% CI low", "Score 95% CI high"),
+                                cost="Cost per run", effort="Reasoning effort",
+                                protocol=["Harness version", "Runs", "Max performance"]),
     "OSWorld 2.0":         dict(score="Binary accuracy", cost="Estimated cost (USD)",
                                 protocol=["Reasoning", "Tool setting", "Step budget", "Partial score"]),
     "GPQA diamond":        dict(score="Best score (across scorers)", se="stderr"),
@@ -177,6 +237,10 @@ FALLBACK_FILE = {"SciCode": "scicode_external.csv",
                  "GDP.pdf": "gdp_pdf_external.csv",
                  "HLE": "hle_external.csv",          # vide en amont depuis le 23/10/2026
                  "DeepSWE": "deepswe_external.csv"}
+
+# Noms d'agents écrits en identifiants dans certaines sources (WeirdML v3).
+HARNESS_NAMES = {"claude_code": "Claude Code", "codex_cli": "Codex CLI", "gemini_cli": "Gemini CLI",
+                 "kimi_code": "Kimi Code", "opencode": "OpenCode"}
 
 # Vocabulaire d'effort : chaque source a le sien (`Extra High`, `xhigh`…).
 EFFORT_ALIASES = {"extra high": "xhigh", "extra-high": "xhigh", "x-high": "xhigh"}
@@ -206,6 +270,8 @@ def build_registry(z: zipfile.ZipFile) -> dict:
         name = b["benchmark"]
         cur = CURATION.get(name)
         if not cur:
+            if name not in REJECTED:
+                print(f"  ⚠  benchmark non classé (ni CURATION ni REJECTED) : {name}")
             if name in REJECTED and REJECTED[name]:
                 skipped.append({"benchmark": name, "reason": REJECTED[name]})
             continue
@@ -262,6 +328,7 @@ def build_scores(z: zipfile.ZipFile, registry: dict, since: str, force: bool = F
             print(f"  ⚠  colonne de score introuvable dans {fname} (colonnes: {cols[:7]})")
             continue
         se_col = cm.get("se") if cm.get("se") in cols else None
+        ci_cols = cm.get("ci") if all(c in cols for c in cm.get("ci", ("",))) else None
         harness_col = cm.get("harness") if cm.get("harness") in cols else (
             "Agent" if "Agent" in cols else None)
         protocol_cols = [c for c in cm.get("protocol", []) if c in cols]
@@ -312,14 +379,17 @@ def build_scores(z: zipfile.ZipFile, registry: dict, since: str, force: bool = F
                 "cost_usd": cost,
                 "model_display": r.get("Name") or None,
                 "organization": r.get("Organization") or r.get("Model Org") or None,
-                "harness": ((r.get(harness_col) or None) if harness_col
+                "harness": (HARNESS_NAMES.get(r.get(harness_col), r.get(harness_col) or None) if harness_col
                             else cm.get("harness_fixed")),
                 "harness_org": r.get("Agent Org") or None,
                 "score": round(val * scale, 4),
                 "unit": unit,
                 "raw_score": round(val, 4) if scale != 1.0 else None,
                 "stderr": round(float(r[se_col]) * scale / se_div, 4)
-                          if se_col and (r.get(se_col) or "").strip() else None,
+                          if se_col and (r.get(se_col) or "").strip() else
+                          # IC95 publié en bornes basse et haute : demi-largeur / 1,96.
+                          round((float(r[ci_cols[1]]) - float(r[ci_cols[0]])) / 2 * scale / 1.96, 4)
+                          if ci_cols and r.get(ci_cols[0]) and r.get(ci_cols[1]) else None,
                 "protocol": ({**(protocol or {}), "Budget de réflexion": variantes.budget(mv)}
                              if variantes.budget(mv) else (protocol or None)),
                 "model_released_on": rel or None,

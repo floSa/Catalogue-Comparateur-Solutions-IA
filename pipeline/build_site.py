@@ -84,7 +84,10 @@ def build_payload() -> dict:
             "v": s.get("evidence_url"),
         })
 
+    guide = {g["name"]: g for g in load("benchmark_guide.yaml").get("benchmarks", [])}
     benches = [{"name": b["name"], "domain": b["domain"], "tier": b["tier"],
+                "x": {k: guide.get(b["name"], {}).get(k)
+                      for k in ("auteur", "evalue", "comment", "pourquoi", "source")},
                 "measures": b["measures"], "caveat": b.get("caveat"),
                 "ceiling": b.get("score_ceiling"), "provenance": b["provenance"],
                 "released": b.get("released_on")}
@@ -296,6 +299,11 @@ summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 .bc{border:1px solid var(--line);border-radius:9px;padding:13px 15px;background:var(--panel)}
 .bc h3{margin:0 0 3px;font-size:13.5px;font-weight:600}
 .bc p{margin:5px 0 0;font-size:12.5px;color:var(--ink-2)}
+.bg{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.bg .bc.on{border-color:var(--s1);box-shadow:0 0 0 1px var(--s1)}
+.bg dt{margin-top:9px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+.bg dd{margin:2px 0 0;font-size:12.5px;color:var(--ink-2)}
+.bg .au{color:var(--ink-3);font-size:11.5px}
 .bc .cv{color:var(--warn);font-size:12px;margin-top:7px;display:block}
 footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
  color:var(--ink-3);font-size:12px}
@@ -351,13 +359,13 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <div class="ctrl">
       <div class="seg" id="kind" role="group" aria-label="Type de graphique">
         <button data-k="rank" aria-pressed="true">Classement</button>
+        <button data-k="api" aria-pressed="false">Tarifs API</button>
+        <button data-k="cover" aria-pressed="false">Couverture</button>
+        <button data-k="plans" aria-pressed="false">Forfaits</button>
         <button data-k="frontier" aria-pressed="false">Coût × performance</button>
         <button data-k="budget" aria-pressed="false">Sous contrainte de budget</button>
         <button data-k="harness" aria-pressed="false">Effet du harnais</button>
         <button data-k="time" aria-pressed="false">Progression</button>
-        <button data-k="cover" aria-pressed="false">Couverture</button>
-        <button data-k="api" aria-pressed="false">Tarifs API</button>
-        <button data-k="plans" aria-pressed="false">Forfaits</button>
       </div>
     </div>
     <div class="ctrl">
@@ -382,6 +390,13 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
       <div class="tw"><table id="tbl"></table></div>
     </details>
   </div>
+
+  <h2>Que mesure chaque benchmark ?</h2>
+  <p class="lede">Aucun benchmark ne résume un modèle : chacun teste une compétence précise.
+  Pour choisir un modèle qui code, regardez d'abord ceux qui mettent un agent au travail sur du
+  vrai code ; les autres renseignent sur le raisonnement ou le travail de bureau. Le benchmark
+  sélectionné dans le graphique est encadré.</p>
+  <div class="bl bg" id="bgl"></div>
 </section>
 
 <section id="s-modeles" role="tabpanel" hidden>
@@ -1474,6 +1489,17 @@ $('#meth').innerHTML=[
 ].map(([t,d])=>`<div class="bc"><h3>${esc(t)}</h3><p>${d}</p></div>`).join('');
 
 // ── fiches benchmarks ─────────────────────────────────────────────────────
+$('#bgl').innerHTML=D.benchmarks.map(b=>{const x=b.x||{};
+ return `<div class="bc" data-b="${esc(b.name)}"><h3>${esc(b.name)} ${b.tier==='reference'?
+   '<span class="tag ref">référence</span>':'<span class="tag">secondaire</span>'}</h3>
+  ${x.auteur?`<p class="au">${esc(x.auteur)}</p>`:''}<dl>
+  ${x.evalue?`<dt>Ce qu'il évalue</dt><dd>${esc(x.evalue)}</dd>`:`<dd>${esc(b.measures)}</dd>`}
+  ${x.comment?`<dt>Comment</dt><dd>${esc(x.comment)}</dd>`:''}
+  ${x.pourquoi?`<dt>Pour choisir un modèle</dt><dd>${esc(x.pourquoi)}</dd>`:''}</dl>
+  ${x.source?`<p><a href="${esc(x.source)}" rel="noopener">Source</a></p>`:''}</div>`;}).join('');
+const markB=()=>document.querySelectorAll('#bgl .bc').forEach(c=>
+  c.classList.toggle('on',c.dataset.b===bsel.value));
+bsel.addEventListener('change',markB);markB();
 $('#bn').textContent=` — ${D.benchmarks.length} retenus, ${D.rejected.length} écartés`;
 $('#blist').innerHTML=D.benchmarks.map(b=>
  `<div class="bc"><h3>${esc(b.name)} ${b.tier==='reference'?

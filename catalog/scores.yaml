@@ -1,12 +1,31 @@
 _generated:
   by: pipeline/epoch_ingest.py --scores
-  'on': '2026-10-23'
+  'on': '2026-10-28'
   upstream: Epoch AI — Capabilities & Benchmarking (CC-BY 4.0)
   upstream_url: https://epoch.ai/benchmarks
-  filter: modèles publiés à partir du 2025-10-23
-  since: '2025-10-23'
+  filter: modèles publiés à partir du 2025-10-28
+  since: '2025-10-28'
   warning: Fichier généré. Ne pas éditer à la main.
 scores:
+- benchmark: GPQA diamond
+  model_version: gpt-6.1-terra_max
+  model_base: gpt-6.1-terra
+  effort: max
+  cost_usd: null
+  model_display: null
+  organization: OpenAI
+  harness: null
+  harness_org: null
+  score: 0.9432
+  unit: fraction
+  raw_score: null
+  stderr: 0.0149
+  protocol: null
+  model_released_on: '2026-10-26'
+  run_date: '2026-10-26'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
 - benchmark: GPQA diamond
   model_version: deepseek-v4.1-flash-1017_max
   model_base: deepseek-v4.1-flash-1017
@@ -5906,246 +5925,6 @@ scores:
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
   evidence_url: null
-- benchmark: PostTrainBench
-  model_version: claude-fable-5_max
-  model_base: claude-fable-5
-  effort: max
-  cost_usd: null
-  model_display: Fable 5 (Max)
-  organization: Anthropic
-  harness: Claude Code
-  harness_org: null
-  score: 0.4179
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0174'
-  model_released_on: '2026-06-09'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: gpt-5.6-sol_max
-  model_base: gpt-5.6-sol
-  effort: max
-  cost_usd: null
-  model_display: GPT 5.6 (Sol) (Max)
-  organization: OpenAI
-  harness: Codex CLI
-  harness_org: null
-  score: 0.3623
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0022'
-  model_released_on: '2026-07-09'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: claude-opus-5_unknown
-  model_base: claude-opus-5
-  effort: null
-  cost_usd: null
-  model_display: Opus 5
-  organization: Anthropic
-  harness: Claude Code
-  harness_org: null
-  score: 0.3504
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0138'
-  model_released_on: '2026-07-24'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: claude-opus-4-8_high
-  model_base: claude-opus-4-8
-  effort: high
-  cost_usd: null
-  model_display: Opus 4.8 (High)
-  organization: Anthropic
-  harness: Claude Code
-  harness_org: null
-  score: 0.3384
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0358'
-  model_released_on: '2026-05-28'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: claude-opus-4-8_max
-  model_base: claude-opus-4-8
-  effort: max
-  cost_usd: null
-  model_display: Opus 4.8 (Max)
-  organization: Anthropic
-  harness: Claude Code
-  harness_org: null
-  score: 0.329
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0575'
-  model_released_on: '2026-05-28'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: kimi-k3_unknown
-  model_base: kimi-k3
-  effort: null
-  cost_usd: null
-  model_display: Kimi K3
-  organization: Moonshot
-  harness: Claude Code
-  harness_org: null
-  score: 0.3196
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0026'
-  model_released_on: '2026-07-16'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: glm-5.2_max
-  model_base: glm-5.2
-  effort: max
-  cost_usd: null
-  model_display: GLM 5.2 (Max)
-  organization: Z.ai (Zhipu AI)
-  harness: Claude Code
-  harness_org: null
-  score: 0.317
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.021400000000000002'
-  model_released_on: '2026-06-16'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: claude-opus-4-7_xhigh
-  model_base: claude-opus-4-7
-  effort: xhigh
-  cost_usd: null
-  model_display: Opus 4.7
-  organization: Anthropic
-  harness: Claude Code
-  harness_org: null
-  score: 0.2856
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0174'
-  model_released_on: '2026-04-16'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: gpt-5.5_xhigh
-  model_base: gpt-5.5
-  effort: xhigh
-  cost_usd: null
-  model_display: GPT 5.5 (xHigh)
-  organization: OpenAI
-  harness: Codex CLI
-  harness_org: null
-  score: 0.2723
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.005600000000000001'
-  model_released_on: '2026-04-23'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: grok-4.5_high
-  model_base: grok-4.5
-  effort: high
-  cost_usd: null
-  model_display: Grok 4.5 (High)
-  organization: xAI
-  harness: Cursor CLI
-  harness_org: null
-  score: 0.2345
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.0009'
-  model_released_on: '2026-07-08'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: gemini-3.1-pro-preview
-  model_base: gemini-3.1-pro-preview
-  effort: null
-  cost_usd: null
-  model_display: Gemini 3.1 Pro
-  organization: Google DeepMind
-  harness: OpenCode
-  harness_org: null
-  score: 0.2199
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.018000000000000002'
-  model_released_on: '2026-02-19'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: PostTrainBench
-  model_version: gpt-5.4-2026-03-05_high
-  model_base: gpt-5.4-2026-03-05
-  effort: high
-  cost_usd: null
-  model_display: GPT 5.4 (High)
-  organization: OpenAI
-  harness: Codex CLI
-  harness_org: null
-  score: 0.19
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Average SD (%): '0.029900000000000003'
-  model_released_on: '2026-03-05'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://epoch.ai/benchmarks
-  evidence_url: null
 - benchmark: FrontierCode
   model_version: claude-opus-5-5_medium
   model_base: claude-opus-5-5
@@ -7167,6 +6946,82 @@ scores:
   source_url: https://cognition.com/frontiercode
   evidence_url: null
 - benchmark: MirrorCode
+  model_version: gemini-3.7-flash_high
+  model_base: gemini-3.7-flash
+  effort: high
+  cost_usd: null
+  model_display: null
+  organization: Google DeepMind
+  harness: null
+  harness_org: null
+  score: 0.4111
+  unit: fraction
+  raw_score: null
+  stderr: 0.1216
+  protocol: null
+  model_released_on: '2026-08-13'
+  run_date: '2026-10-21'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: MirrorCode
+  model_version: grok-4.5_high
+  model_base: grok-4.5
+  effort: high
+  cost_usd: null
+  model_display: null
+  organization: xAI
+  harness: null
+  harness_org: null
+  score: 0.3222
+  unit: fraction
+  raw_score: null
+  stderr: 0.1072
+  protocol: null
+  model_released_on: '2026-07-08'
+  run_date: '2026-10-21'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: MirrorCode
+  model_version: grok-4.6_xhigh
+  model_base: grok-4.6
+  effort: xhigh
+  cost_usd: null
+  model_display: null
+  organization: xAI
+  harness: null
+  harness_org: null
+  score: 0.4111
+  unit: fraction
+  raw_score: null
+  stderr: 0.1102
+  protocol: null
+  model_released_on: '2026-08-12'
+  run_date: '2026-10-21'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: MirrorCode
+  model_version: gpt-6-luna_max
+  model_base: gpt-6-luna
+  effort: max
+  cost_usd: null
+  model_display: null
+  organization: OpenAI
+  harness: null
+  harness_org: null
+  score: 0.2667
+  unit: fraction
+  raw_score: null
+  stderr: 0.0903
+  protocol: null
+  model_released_on: '2026-09-22'
+  run_date: '2026-10-21'
+  provenance: independent_run
+  source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: MirrorCode
   model_version: gemini-4-argon_high
   model_base: gemini-4-argon
   effort: high
@@ -7355,374 +7210,6 @@ scores:
   run_date: '2026-08-10'
   provenance: independent_run
   source_url: https://epoch.ai/benchmarks
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-5_max
-  model_base: claude-opus-5
-  effort: max
-  cost_usd: null
-  model_display: Claude Opus 5 (max)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.3143
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: max
-    Tool setting: batch tool
-    Step budget: '500'
-    Partial score: '0.6831'
-  model_released_on: '2026-07-24'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-5_xhigh
-  model_base: claude-opus-5
-  effort: xhigh
-  cost_usd: null
-  model_display: Claude Opus 5 (xhigh)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.3021
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: xhigh
-    Tool setting: batch tool
-    Step budget: '500'
-    Partial score: '0.6767000000000001'
-  model_released_on: '2026-07-24'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-5_high
-  model_base: claude-opus-5
-  effort: high
-  cost_usd: null
-  model_display: Claude Opus 5 (high)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.2898
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: high
-    Tool setting: batch tool
-    Step budget: '500'
-    Partial score: '0.6379'
-  model_released_on: '2026-07-24'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: gpt-5.6-sol_max
-  model_base: gpt-5.6-sol
-  effort: max
-  cost_usd: null
-  model_display: GPT-5.6 Sol (max)
-  organization: OpenAI
-  harness: null
-  harness_org: null
-  score: 0.2734
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: max
-    Tool setting: batch tool
-    Step budget: '500'
-    Partial score: '0.6272'
-  model_released_on: '2026-07-09'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-5_medium
-  model_base: claude-opus-5
-  effort: medium
-  cost_usd: null
-  model_display: Claude Opus 5 (medium)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.2533
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: medium
-    Tool setting: batch tool
-    Step budget: '500'
-    Partial score: '0.6049'
-  model_released_on: '2026-07-24'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-5_low
-  model_base: claude-opus-5
-  effort: low
-  cost_usd: null
-  model_display: Claude Opus 5 (low)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.2232
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: low
-    Tool setting: batch tool
-    Step budget: '500'
-    Partial score: '0.5489'
-  model_released_on: '2026-07-24'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-4-8_max
-  model_base: claude-opus-4-8
-  effort: max
-  cost_usd: null
-  model_display: Claude Opus 4.8 (max)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.206
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: max
-    Tool setting: batched tool
-    Step budget: '500'
-    Partial score: '0.5479999999999999'
-  model_released_on: '2026-05-28'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-4-8_max
-  model_base: claude-opus-4-8
-  effort: max
-  cost_usd: null
-  model_display: Claude Opus 4.8 (max)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.1852
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: max
-    Tool setting: standard
-    Step budget: '500'
-    Partial score: '0.4933'
-  model_released_on: '2026-05-28'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-4-7_max
-  model_base: claude-opus-4-7
-  effort: max
-  cost_usd: null
-  model_display: Claude Opus 4.7 (max)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.182
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: max
-    Tool setting: batched tool
-    Step budget: '500'
-    Partial score: '0.4891'
-  model_released_on: '2026-04-16'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-opus-4-7_max
-  model_base: claude-opus-4-7
-  effort: max
-  cost_usd: 3870.0
-  model_display: Claude Opus 4.7 (max)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.139
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: max
-    Tool setting: standard
-    Step budget: '500'
-    Partial score: '0.49100000000000005'
-  model_released_on: '2026-04-16'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: gpt-5.5_xhigh
-  model_base: gpt-5.5
-  effort: xhigh
-  cost_usd: 2750.0
-  model_display: GPT-5.5 (xhigh)
-  organization: OpenAI
-  harness: null
-  harness_org: null
-  score: 0.13
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: xhigh
-    Tool setting: batch tool
-    Step budget: '500'
-    Partial score: '0.495'
-  model_released_on: '2026-04-23'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-sonnet-4-6_medium
-  model_base: claude-sonnet-4-6
-  effort: medium
-  cost_usd: 1550.0
-  model_display: Claude Sonnet 4.6 (medium)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.093
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: medium
-    Tool setting: standard
-    Step budget: '500'
-    Partial score: '0.33899999999999997'
-  model_released_on: '2026-02-17'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: claude-sonnet-4-6_max
-  model_base: claude-sonnet-4-6
-  effort: max
-  cost_usd: 2410.0
-  model_display: Claude Sonnet 4.6 (max)
-  organization: Anthropic
-  harness: null
-  harness_org: null
-  score: 0.083
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: max
-    Tool setting: standard
-    Step budget: '500'
-    Partial score: '0.41500000000000004'
-  model_released_on: '2026-02-17'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: MiniMax-M3
-  model_base: MiniMax-M3
-  effort: null
-  cost_usd: 258.78
-  model_display: MiniMax M3 (enabled)
-  organization: MiniMax
-  harness: null
-  harness_org: null
-  score: 0.046
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: enabled
-    Tool setting: standard
-    Step budget: '500'
-    Partial score: '0.223'
-  model_released_on: '2026-06-01'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: kimi-k2.6
-  model_base: kimi-k2.6
-  effort: null
-  cost_usd: 708.0
-  model_display: Kimi 2.6 (enabled)
-  organization: Moonshot
-  harness: null
-  harness_org: null
-  score: 0.046
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: enabled
-    Tool setting: standard
-    Step budget: '500'
-    Partial score: '0.22100000000000003'
-  model_released_on: '2026-04-20'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
-  evidence_url: null
-- benchmark: OSWorld 2.0
-  model_version: qwen3.7-plus
-  model_base: qwen3.7-plus
-  effort: null
-  cost_usd: 411.56
-  model_display: Qwen 3.7-Plus (thinking)
-  organization: Alibaba
-  harness: null
-  harness_org: null
-  score: 0.028
-  unit: fraction
-  raw_score: null
-  stderr: null
-  protocol:
-    Reasoning: thinking
-    Tool setting: standard
-    Step budget: '500'
-    Partial score: '0.215'
-  model_released_on: '2026-06-02'
-  run_date: null
-  provenance: independent_leaderboard
-  source_url: https://osworld-v2.xlang.ai/
   evidence_url: null
 - benchmark: GDP.pdf
   model_version: claude-fable-5_unknown
@@ -9110,6 +8597,512 @@ scores:
   run_date: null
   provenance: independent_leaderboard
   source_url: https://epoch.ai/benchmarks
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gpt-6-astra_xhigh
+  model_base: gpt-6-astra
+  effort: xhigh
+  cost_usd: 27.854
+  model_display: GPT-6 Astra (xhigh)
+  organization: OpenAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.4222
+  unit: fraction
+  raw_score: null
+  stderr: 0.0099
+  protocol:
+    Harness version: codex_cli:0.154.0
+    Runs: '76'
+    Max performance: '0.5404530212121212'
+  model_released_on: '2026-09-03'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: claude-fable-5-1_xhigh
+  model_base: claude-fable-5-1
+  effort: xhigh
+  cost_usd: 31.9348
+  model_display: Claude Fable 5.1 (xhigh)
+  organization: Anthropic
+  harness: Claude Code
+  harness_org: null
+  score: 0.2597
+  unit: fraction
+  raw_score: null
+  stderr: 0.0069
+  protocol:
+    Harness version: claude_code:2.1.270
+    Runs: '75'
+    Max performance: '0.4352721909090909'
+  model_released_on: '2026-09-01'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: claude-opus-5_xhigh
+  model_base: claude-opus-5
+  effort: xhigh
+  cost_usd: 25.2622
+  model_display: Claude Opus 5 (xhigh)
+  organization: Anthropic
+  harness: Claude Code
+  harness_org: null
+  score: 0.1901
+  unit: fraction
+  raw_score: null
+  stderr: 0.0086
+  protocol:
+    Harness version: claude_code:2.1.270
+    Runs: '60'
+    Max performance: '0.32538207196969704'
+  model_released_on: '2026-07-24'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: claude-fable-5_xhigh
+  model_base: claude-fable-5
+  effort: xhigh
+  cost_usd: 52.8567
+  model_display: Claude Fable 5 (xhigh)
+  organization: Anthropic
+  harness: Claude Code
+  harness_org: null
+  score: 0.1559
+  unit: fraction
+  raw_score: null
+  stderr: 0.0104
+  protocol:
+    Harness version: claude_code:2.1.270
+    Runs: '42'
+    Max performance: '0.2786194878787879'
+  model_released_on: '2026-06-09'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gpt-5.6-sol_xhigh
+  model_base: gpt-5.6-sol
+  effort: xhigh
+  cost_usd: 6.2786
+  model_display: GPT-5.6 Sol (xhigh)
+  organization: OpenAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.1499
+  unit: fraction
+  raw_score: null
+  stderr: 0.007
+  protocol:
+    Harness version: codex_cli:0.154.0
+    Runs: '75'
+    Max performance: '0.21448963636363638'
+  model_released_on: '2026-07-09'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: kimi-k3_high
+  model_base: kimi-k3
+  effort: high
+  cost_usd: 19.8848
+  model_display: Kimi K3 (high, Fireworks)
+  organization: Moonshot
+  harness: Kimi Code
+  harness_org: null
+  score: 0.0754
+  unit: fraction
+  raw_score: null
+  stderr: 0.007
+  protocol:
+    Harness version: kimi_code:2.0.0
+    Runs: '72'
+    Max performance: '0.15409355909090908'
+  model_released_on: '2026-07-16'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gemini-3.8-flash_high
+  model_base: gemini-3.8-flash
+  effort: high
+  cost_usd: 3.9441
+  model_display: Gemini 3.8 Flash (high)
+  organization: Google DeepMind
+  harness: Gemini CLI
+  harness_org: null
+  score: 0.0738
+  unit: fraction
+  raw_score: null
+  stderr: 0.0051
+  protocol:
+    Harness version: gemini_cli:0.59.0
+    Runs: '75'
+    Max performance: '0.14574070909090908'
+  model_released_on: '2026-09-02'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: claude-opus-4-5-20251101_high
+  model_base: claude-opus-4-5-20251101
+  effort: high
+  cost_usd: 8.7034
+  model_display: Claude Opus 4.5 (high)
+  organization: Anthropic
+  harness: Claude Code
+  harness_org: null
+  score: 0.0651
+  unit: fraction
+  raw_score: null
+  stderr: 0.0079
+  protocol:
+    Harness version: claude_code:2.1.270
+    Runs: '42'
+    Max performance: '0.07125567424242425'
+  model_released_on: '2025-11-24'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: deepseek-v4.1-flash_high
+  model_base: deepseek-v4.1-flash
+  effort: high
+  cost_usd: 0.7371
+  model_display: DeepSeek V4.1 Flash (high, Novita)
+  organization: DeepSeek
+  harness: OpenCode
+  harness_org: null
+  score: 0.0595
+  unit: fraction
+  raw_score: null
+  stderr: 0.0091
+  protocol:
+    Harness version: opencode:1.18.30
+    Runs: '30'
+    Max performance: '0.11577238636363638'
+  model_released_on: '2026-09-09'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gpt-5.6-luna_xhigh
+  model_base: gpt-5.6-luna
+  effort: xhigh
+  cost_usd: 0.7354
+  model_display: GPT-5.6 Luna (xhigh)
+  organization: OpenAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.0516
+  unit: fraction
+  raw_score: null
+  stderr: 0.0071
+  protocol:
+    Harness version: codex_cli:0.154.0
+    Runs: '52'
+    Max performance: '0.09344040909090909'
+  model_released_on: '2026-07-09'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: claude-opus-5-5_xhigh
+  model_base: claude-opus-5-5
+  effort: xhigh
+  cost_usd: 10.2494
+  model_display: Claude Opus 5.5 (xhigh)
+  organization: Anthropic
+  harness: Claude Code
+  harness_org: null
+  score: 0.312
+  unit: fraction
+  raw_score: null
+  stderr: 0.0062
+  protocol:
+    Harness version: claude_code:2.1.280
+    Runs: '77'
+    Max performance: '0.49830967402597404'
+  model_released_on: '2026-09-22'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gpt-6-sol_xhigh
+  model_base: gpt-6-sol
+  effort: xhigh
+  cost_usd: 6.9054
+  model_display: GPT-6 Sol (xhigh)
+  organization: OpenAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.1973
+  unit: fraction
+  raw_score: null
+  stderr: 0.0066
+  protocol:
+    Harness version: codex_cli:0.156.0
+    Runs: '76'
+    Max performance: '0.2756275515151515'
+  model_released_on: '2026-09-22'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gpt-6-luna_xhigh
+  model_base: gpt-6-luna
+  effort: xhigh
+  cost_usd: 0.3215
+  model_display: GPT-6 Luna (xhigh)
+  organization: OpenAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.0787
+  unit: fraction
+  raw_score: null
+  stderr: 0.0052
+  protocol:
+    Harness version: codex_cli:0.156.0
+    Runs: '90'
+    Max performance: '0.12022755303030304'
+  model_released_on: '2026-09-22'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gpt-6.1-sol_xhigh
+  model_base: gpt-6.1-sol
+  effort: xhigh
+  cost_usd: 5.2861
+  model_display: GPT-6.1 Sol (xhigh)
+  organization: OpenAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.3825
+  unit: fraction
+  raw_score: null
+  stderr: 0.0106
+  protocol:
+    Harness version: codex_cli:0.156.0
+    Runs: '69'
+    Max performance: '0.5060326727272727'
+  model_released_on: '2026-09-29'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: claude-sonnet-5-5_xhigh
+  model_base: claude-sonnet-5-5
+  effort: xhigh
+  cost_usd: 9.2745
+  model_display: Claude Sonnet 5.5 (xhigh)
+  organization: Anthropic
+  harness: Claude Code
+  harness_org: null
+  score: 0.1994
+  unit: fraction
+  raw_score: null
+  stderr: 0.0081
+  protocol:
+    Harness version: claude_code:2.1.280
+    Runs: '76'
+    Max performance: '0.36991362034632036'
+  model_released_on: '2026-09-28'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: grok-4.7_xhigh
+  model_base: grok-4.7
+  effort: xhigh
+  cost_usd: 26.972
+  model_display: Grok 4.7 (xhigh)
+  organization: xAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.0845
+  unit: fraction
+  raw_score: null
+  stderr: 0.0062
+  protocol:
+    Harness version: codex_cli:0.156.0
+    Runs: '84'
+    Max performance: '0.18726676666666667'
+  model_released_on: '2026-09-21'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: muse-spark-1.3_xhigh
+  model_base: muse-spark-1.3
+  effort: xhigh
+  cost_usd: 5.5575
+  model_display: Muse Spark 1.3 (xhigh)
+  organization: Meta AI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.0665
+  unit: fraction
+  raw_score: null
+  stderr: 0.0066
+  protocol:
+    Harness version: codex_cli:0.156.0
+    Runs: '71'
+    Max performance: '0.12129429318181818'
+  model_released_on: '2026-09-02'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gemini-4-argon_high
+  model_base: gemini-4-argon
+  effort: high
+  cost_usd: 17.8383
+  model_display: Gemini 4 Argon (high)
+  organization: Google DeepMind
+  harness: Gemini CLI
+  harness_org: null
+  score: 0.2022
+  unit: fraction
+  raw_score: null
+  stderr: 0.009
+  protocol:
+    Harness version: gemini_cli:0.62.0
+    Runs: '68'
+    Max performance: '0.41356765000000006'
+  model_released_on: '2026-09-30'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: muse-wonder-1.0_xhigh
+  model_base: muse-wonder-1.0
+  effort: xhigh
+  cost_usd: 11.0229
+  model_display: Muse Wonder (xhigh)
+  organization: Meta AI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.1519
+  unit: fraction
+  raw_score: null
+  stderr: 0.0062
+  protocol:
+    Harness version: codex_cli:0.162.1
+    Runs: '104'
+    Max performance: '0.25181421428571427'
+  model_released_on: '2026-10-12'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: claude-haiku-5-5_xhigh
+  model_base: claude-haiku-5-5
+  effort: xhigh
+  cost_usd: 2.3004
+  model_display: Claude Haiku 5.5 (xhigh)
+  organization: Anthropic
+  harness: Claude Code
+  harness_org: null
+  score: 0.117
+  unit: fraction
+  raw_score: null
+  stderr: 0.0081
+  protocol:
+    Harness version: claude_code:2.1.280
+    Runs: '75'
+    Max performance: '0.24131188181818183'
+  model_released_on: '2026-10-07'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: gpt-5.2-2025-12-11_xhigh
+  model_base: gpt-5.2-2025-12-11
+  effort: xhigh
+  cost_usd: 9.2902
+  model_display: GPT-5.2 (xhigh)
+  organization: OpenAI
+  harness: Codex CLI
+  harness_org: null
+  score: 0.0501
+  unit: fraction
+  raw_score: null
+  stderr: 0.005
+  protocol:
+    Harness version: codex_cli:0.156.0
+    Runs: '86'
+    Max performance: '0.09720329675324677'
+  model_released_on: '2025-12-11'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: mistral-large-4-0_high
+  model_base: mistral-large-4-0
+  effort: high
+  cost_usd: 28.7748
+  model_display: Mistral Large 4 (high, Mistral)
+  organization: Mistral AI
+  harness: OpenCode
+  harness_org: null
+  score: 0.0445
+  unit: fraction
+  raw_score: null
+  stderr: 0.0073
+  protocol:
+    Harness version: opencode:1.18.30
+    Runs: '65'
+    Max performance: '0.12207614393939395'
+  model_released_on: '2026-10-06'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
+  evidence_url: null
+- benchmark: WeirdML v3
+  model_version: Inkling_xhigh
+  model_base: Inkling
+  effort: xhigh
+  cost_usd: 1.3283
+  model_display: Inkling (xhigh, Together)
+  organization: Thinking Machines
+  harness: OpenCode
+  harness_org: null
+  score: 0.039
+  unit: fraction
+  raw_score: null
+  stderr: 0.0049
+  protocol:
+    Harness version: opencode:1.18.30
+    Runs: '75'
+    Max performance: '0.04378938181818182'
+  model_released_on: '2026-07-15'
+  run_date: null
+  provenance: independent_leaderboard
+  source_url: https://htihle.github.io/weirdml.html
   evidence_url: null
 - benchmark: ARC-AGI-2
   model_version: gpt-6-astra_max

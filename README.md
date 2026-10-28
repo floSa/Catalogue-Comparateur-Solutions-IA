@@ -139,11 +139,11 @@ resterait à faire — le plan de travail s'en charge.
 
 | Couche | Couverture | Source |
 |---|---|---|
-| Benchmarks | 972 mesures, 15 classements, modèles des 12 derniers mois | Epoch AI (jeu daté) + tbench.ai pour Terminal-Bench 4.0 |
-| dont coût réellement mesuré | 283 mesures | même source, colonne de coût d'exécution |
-| dont effort de raisonnement connu | 683 mesures | même source, colonne de protocole |
-| Modèles | 161, 11 fournisseurs | identités issues des mesures, jamais inventées |
-| Tarifs API | 80 tarifs relevés, couvrant 117 modèles · 44 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
+| Benchmarks | 972 mesures, 14 classements, modèles des 12 derniers mois | Epoch AI (jeu daté) + tbench.ai pour Terminal-Bench 4.0 |
+| dont coût réellement mesuré | 299 mesures | même source, colonne de coût d'exécution |
+| dont effort de raisonnement connu | 689 mesures | même source, colonne de protocole |
+| Modèles | 162, 11 fournisseurs | identités issues des mesures, jamais inventées |
+| Tarifs API | 81 tarifs relevés, couvrant 118 modèles · 44 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
 | Forfaits d'abonnement | 30 paliers, 9 éditeurs | page tarifaire officielle |
 | Harnais et passerelles | 98 fiches, dont 95 vivantes publiées | documentation ou tarifs de l'éditeur |
 | Balayage des fournisseurs | 11 sur 11 | recherche outil par outil, y compris les absences |

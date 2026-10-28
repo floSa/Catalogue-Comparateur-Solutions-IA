@@ -3,7 +3,7 @@
 
 # Applications desktop
 
-27 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+27 outils au catalogue. Généré le 2026-10-28 depuis `catalog/tools.yaml`.
 
 ## ChatGPT Desktop
 

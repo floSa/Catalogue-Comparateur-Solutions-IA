@@ -1,6 +1,6 @@
 _generated:
   by: pipeline/seed_catalog.py
-  'on': '2026-10-23'
+  'on': '2026-10-28'
   basis: Identités de modèles observées dans les données de benchmark Epoch AI (CC-BY).
   warning: 'AMORCE. Les champs tarifaires sont vides et marqués `unverified` : ils doivent être renseignés
     depuis la page /pricing officielle de chaque lab. Voir protocol/04_collecte_donnees.md.'
@@ -25,7 +25,7 @@ labs:
   pricing_url: https://developers.openai.com/api/docs/pricing
   api_docs_url: https://platform.openai.com/docs/models
   console_url: https://platform.openai.com
-  model_count_tracked: 32
+  model_count_tracked: 33
   source:
     url: https://developers.openai.com/api/docs/pricing
     verified_on: '2026-09-15'
@@ -46,9 +46,9 @@ labs:
     status: official_pricing_page
   tooling:
     checked_on: '2026-10-23'
-    note: Antigravity (application, CLI, IDE, extensions, SDK). Gemini CLI réservé à l'API payante et aux
-      licences entreprise depuis le 18/06/2026. Elephant-Goldfish Model (plugin), Harness² (optimiseur de harnais, Google Research) et Amplio (harnais de recherche)
-      écartés.
+    note: Antigravity (application, CLI, IDE, extensions, SDK). Gemini CLI réservé à l'API payante et
+      aux licences entreprise depuis le 18/06/2026. Elephant-Goldfish Model (plugin), Harness² (optimiseur
+      de harnais, Google Research) et Amplio (harnais de recherche) écartés.
 - id: deepseek
   name: DeepSeek
   country: CN
@@ -77,8 +77,8 @@ labs:
     status: official_pricing_page
   tooling:
     checked_on: '2026-10-23'
-    note: Qwen Code (CLI), Qwen Studio (application), Tongyi Lingma (extension IDE). Qoder est attribué à
-      Alibaba par la presse, mais son site ne nomme que Bright Zenith Private Limited.
+    note: Qwen Code (CLI), Qwen Studio (application), Tongyi Lingma (extension IDE). Qoder est attribué
+      à Alibaba par la presse, mais son site ne nomme que Bright Zenith Private Limited.
 - id: mistral
   name: Mistral AI
   country: FR
@@ -163,5 +163,5 @@ labs:
   tooling:
     checked_on: '2026-10-23'
     note: MiniMax Code (CLI `mcode`, open-source, dépôt créé le 01/06/2026). Le relevé du 15/09 indiquait
-      à tort qu'aucun harnais officiel n'existait. MMX-CLI reste un client de génération multimodale, pas
-      un agent de codage.
+      à tort qu'aucun harnais officiel n'existait. MMX-CLI reste un client de génération multimodale,
+      pas un agent de codage.

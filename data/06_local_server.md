@@ -3,7 +3,7 @@
 
 # Serveurs locaux
 
-12 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+12 outils au catalogue. Généré le 2026-10-28 depuis `catalog/tools.yaml`.
 
 ## Docker Model Runner
 

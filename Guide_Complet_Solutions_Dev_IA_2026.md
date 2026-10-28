@@ -1,6 +1,6 @@
 # Tandem — guide de référence
 
-**Édition Septembre 2026** · document généré le 2026-10-23 depuis `catalog/` · prochaine révision prévue le 2027-03-15
+**Édition Septembre 2026** · document généré le 2026-10-28 depuis `catalog/` · prochaine révision prévue le 2027-03-15
 
 > [!NOTE]
 > Ce document est **généré**. Toute correction se fait dans `catalog/`, puis `python3 pipeline/build_guide.py`.
@@ -10,9 +10,9 @@
 
 | Couche | Couverture |
 | :-- | :-- |
-| Mesures de benchmark | 972 sur 15 benchmarks |
-| Modèles au catalogue | 161 |
-| Tarifs API relevés sur page officielle | 117 / 161 |
+| Mesures de benchmark | 972 sur 14 benchmarks |
+| Modèles au catalogue | 162 |
+| Tarifs API relevés sur page officielle | 118 / 162 |
 | Forfaits d'abonnement relevés | 30 |
 | Harnais re-vérifiés | 98 / 98 |
 | Taux de change USD→EUR | 0.8666 — vérifié |
@@ -310,6 +310,7 @@ Une ligne par modèle, triée par coût d'entrée croissant. Seuls figurent les 
 | Moonshot | **Kimi K2.6** | — | 262k | $0.95 | $0.16 | $4 | 0,82 € | 3,47 € | 2026-10-23 |
 | Moonshot | **Kimi K2.7 Code** | Dédié développement logiciel | 262k | $0.95 | $0.19 | $4 | 0,82 € | 3,47 € | 2026-10-23 |
 | Anthropic | **Claude Haiku 4.5** | Flash / économique | 200k | $1 | $0.1 | $5 | 0,87 € | 4,33 € | 2026-09-15 |
+| OpenAI | **GPT-6.1 Terra** | Intermédiaire génération courante | — | $1 | $0.05 | $5 | 0,87 € | 4,33 € | 2026-10-28 |
 | xAI | **Grok Build 0.1** | Dédié développement logiciel | 256k | $1 | — | $2 | 0,87 € | 1,73 € | 2026-09-15 |
 | Z.ai (Zhipu AI) | **GLM-5** | — | 200k | $1 | $0.2 | $3.2 | 0,87 € | 2,77 € | 2026-10-23 |
 | Alibaba | **Qwen3-Max** | — | — | $1.2 | — | $6 | 1,04 € | 5,20 € | 2026-09-15 |
@@ -436,27 +437,26 @@ Une ligne par modèle, triée par coût d'entrée croissant. Seuls figurent les 
 
 ## 7. Performance mesurée
 
-15 benchmarks suivis, 22 écartés (saturés, obsolètes ou mesurant de la mémorisation). Chaque rejet est documenté avec son motif dans `catalog/benchmarks.yaml`.
+14 benchmarks suivis, 78 écartés (saturés, obsolètes ou mesurant de la mémorisation). Chaque rejet est documenté avec son motif dans `catalog/benchmarks.yaml`.
 
 ### 7.1 État de l'art par benchmark
 
 | Benchmark | Ce qu'il mesure | Meilleur score | Modèle | Harnais |
 | :-- | :-- | --: | :-- | :-- |
-| **CursorBench** | Tâches de développement réelles tirées de l'usage de Cursor, exécutées dan | 57.8% | `claude-opus-5-5_max` | Cursor |
+| **CursorBench** | Demandes réelles de développeurs tirées des sessions Cursor, notées par de | 57.8% | `claude-opus-5-5_max` | Cursor |
 | **GPQA diamond** | Questions scientifiques de niveau doctorat, hors de portée d'une recherche | 96.4% | `gemini-4-argon_high` | — |
 | **HLE** | Humanity's Last Exam : questions expertes volontairement très difficiles. | 54.8% | `gpt-6-astra_unknown` | — |
 | **Terminal-Bench 4.0** | Tâches multi-étapes en ligne de commande : navigation, exécution, vérifica | 64.8% | `claude-opus-5-5_max` | Claude Code |
-| **APEX-Agents** | Capacités agentiques sur tâches expertes. | 82.4% | `gemini-4-argon_unknown` | — |
+| **APEX-Agents** | Tâches de banque d'affaires, de conseil et de droit dans un environnement  | 82.4% | `gemini-4-argon_unknown` | — |
 | **ARC-AGI-2** | Raisonnement abstrait sur grilles, résistant à la mémorisation. | 95.0% | `gpt-6-astra_max` | — |
 | **DeepSWE** | Ingénierie logicielle sur tâches longues. | 74.1% | `gpt-6-astra_xhigh` | mini-swe-agent |
-| **FrontierCode** | Génération de code sur problèmes récents, conçu contre la contamination. | 54.6% | `claude-opus-5-5_medium` | claude-code |
+| **FrontierCode** | Modifications de code sur de vrais dépôts, notées sur leur acceptabilité p | 54.6% | `claude-opus-5-5_medium` | claude-code |
 | **FrontierSWE** | Projets d'ingénierie de plusieurs heures (implémentation, performance, rec | 65.5% | `gpt-6-astra_max` | proximus |
-| **GDP.pdf** | Production de livrables professionnels (documents, analyses) jugés par des | 35.0% | `gpt-6.1-sol_max` | — |
-| **MirrorCode** | Benchmark de code récent, résistant à la contamination. | 77.4% | `claude-opus-5-5_max` | — |
-| **OSWorld 2.0** | Pilotage d'un vrai bureau graphique (fenêtres, applications). | 31.4% | `claude-opus-5_max` | — |
-| **PostTrainBench** | Un agent post-entraîne lui-même un modèle ouvert sous contrainte de calcul | 41.8% | `claude-fable-5_max` | Claude Code |
+| **GDP.pdf** | Questions précises sur des PDF professionnels (baux, plans, fiches techniq | 35.0% | `gpt-6.1-sol_max` | — |
+| **MirrorCode** | Réécrire de zéro un programme entier à partir de son seul comportement. | 77.4% | `claude-opus-5-5_max` | — |
 | **Remote Labor Index** | Capacité à accomplir des missions freelance réellement rémunérées. | 21.2% | `claude-opus-5-5_unknown` | — |
 | **SciCode** | Implémentation de code scientifique à partir d'énoncés de recherche. | 66.9% | `claude-opus-5-5_max` | — |
+| **WeirdML v3** | Un agent explore des données inconnues et construit seul des chaînes d'app | 42.2% | `gpt-6-astra_xhigh` | Codex CLI |
 
 > [!IMPORTANT]
 > **Égalités statistiques.** Sur les benchmarks suivants, les deux premiers ne sont pas séparés au seuil de 95 % : les classer l'un devant l'autre est une erreur de lecture.

@@ -1,0 +1,238 @@
+# Explication de chaque benchmark suivi : ce qu'il évalue, comment, et ce qu'il dit à un développeur.
+# Édité à la main ; affiché sous le graphique de l'onglet Benchmarks (pipeline/build_site.py).
+# Clé de jointure : `name` = nom du benchmark dans catalog/benchmarks.yaml. `non_verifie` n'est pas publié.
+benchmarks:
+- name: Terminal-Bench 4.0
+  auteur: Équipe Terminal-Bench / Harbor (Ryan Marten, Alex Shaw, Andy Konwinski), hébergé par Stanford,
+    Harbor et le Laude Institute ; plus de 100 contributeurs de tâches.
+  evalue: 'L''agent reçoit une consigne et travaille seul dans un terminal Linux isolé (un conteneur)
+    : installer, compiler, configurer, écrire des preuves formelles ou des circuits, etc. Un vérificateur
+    séparé contrôle ensuite le résultat. La source ne donne pas d''exemple de tâche nommé.'
+  comment: 'Chaque essai est réussi ou raté (« taux de résolution »), avec un intervalle de confiance
+    à 95 %. La 4.0 (28/08/2026) reprend la 3.0 (74 tâches), en retire 8, en corrige 19 et fixe 8 h par
+    tâche. Harnais libre : chaque ligne du classement nomme son agent (Claude Code, Codex, Grok Build,
+    mini-SWE-agent…). 330 essais par ligne.'
+  pourquoi: 'Le plus proche du travail réel d''un agent de code en ligne de commande, mais le score mesure
+    le couple modèle + agent : un même modèle change de rang selon l''outil qui le pilote.'
+  source: https://www.tbench.ai/news/terminal-bench-4-0
+  non_verifie: 'Nombre exact de tâches de la 4.0 non publié : 66 est déduit (74 − 8, et 330 essais = 66
+    × 5), pas lu. Aucun exemple de tâche ni règle de soumission trouvés.'
+  verified_on: '2026-10-28'
+- name: GPQA diamond
+  auteur: New York University (David Rein, Samuel R. Bowman et coll.), publié en novembre 2023.
+  evalue: Le modèle répond à des questions à choix multiples (4 réponses) de biologie, physique et chimie,
+    écrites par des experts. Elles sont conçues pour qu'un non-spécialiste ne trouve pas la réponse même
+    avec un accès au web.
+  comment: '198 questions, le sous-ensemble le plus fiable du jeu complet (448) : deux experts ont bien
+    répondu, au plus un non-expert sur trois. Correction automatique (bonne lettre ou non). Le hasard
+    donne 25 %. Les doctorants du domaine atteignent 65 %, les non-experts avec web 34 %.'
+  pourquoi: Mesure des connaissances scientifiques et du raisonnement, aucun lien direct avec le code
+    ; proche de la saturation chez les modèles de pointe, il ne départage plus guère les meilleurs.
+  source: https://arxiv.org/abs/2311.12022
+  verified_on: '2026-10-28'
+- name: HLE
+  auteur: Center for AI Safety et Scale AI, avec un consortium de contributeurs experts.
+  evalue: 'Le modèle répond à des questions de niveau expert, dans plus d''une centaine de matières (mathématiques,
+    sciences, humanités), certaines avec image. Exemple publié : « Combien de paires de tendons ce sésamoïde
+    soutient-il ? Répondre par un nombre. »'
+  comment: '2 500 questions, à choix multiples ou à réponse courte, chacune avec une seule réponse vérifiable.
+    La correction est automatique : un autre modèle (o3-mini) compare la réponse à la bonne. Le modèle
+    donne aussi sa confiance, ce qui permet de mesurer s''il surestime ses réponses.'
+  pourquoi: Indique l'étendue des connaissances et du raisonnement d'un modèle ; ne dit presque rien de
+    sa capacité à écrire, corriger ou maintenir du code.
+  source: https://lastexam.ai/
+  non_verifie: Part exacte des questions à choix multiples et des questions avec image.
+  verified_on: '2026-10-28'
+- name: CursorBench
+  auteur: Cursor (Anysphere, Inc.).
+  evalue: 'Le modèle traite des demandes réelles de développeurs, tirées des sessions Cursor de l''équipe
+    interne : consignes courtes et ambiguës, plusieurs fichiers à modifier. Catégories citées : modifier,
+    refactorer, corriger un bug, comprendre une base de code, enquêter sur des logs, revue de code.'
+  comment: 'Notation par des « correcteurs agentiques » (des modèles qui jugent la solution), pas seulement
+    par des tests. Version actuelle : 4.0 (10/09/2026), tâches longues ajoutées ; les scores ne sont pas
+    comparables d''une version à l''autre. Cursor prévient que de petits écarts ne sont pas significatifs.'
+  pourquoi: Proche du quotidien d'un développeur et peu exposé à la contamination (tâches internes, jamais
+    vues à l'entraînement) ; mais l'éditeur est aussi vendeur d'outil, les tâches ne sont pas publiques
+    et la notation n'est pas reproductible.
+  source: https://cursor.com/blog/cursorbench
+  non_verifie: 'Nombre de tâches, nombre d''essais et harnais utilisé : aucune source Cursor ne dit explicitement
+    que les modèles tournent dans l''agent Cursor.'
+  verified_on: '2026-10-28'
+- name: APEX-Agents
+  auteur: Mercor.
+  evalue: 'L''agent accomplit des tâches de banque d''affaires, de conseil en stratégie et de droit des
+    affaires, dans un faux environnement de travail (mail, agenda, tableurs, documents, PDF, exécution
+    de code). Exemple publié : « Donne-moi le ratio cours/bénéfice de KVUE, arrondi à deux décimales »,
+    à tirer d''un modèle financier.'
+  comment: '480 tâches dans 33 « mondes » simulés. Chaque tâche a une grille de critères ; elle n''est
+    réussie (pass@1 : réussite du premier essai) que si tous les critères sont remplis. Le juge est un
+    modèle (Gemini 3 Flash). Le harnais Archipelago est fourni par Mercor, en code ouvert.'
+  pourquoi: Mesure la capacité à mener une tâche de bureau longue à travers plusieurs applications ; ce
+    n'est pas du développement logiciel, le lien avec le code est lointain.
+  source: https://arxiv.org/abs/2601.14242
+  non_verifie: 'Durée humaine par tâche : l''article se contredit (11–22 h en introduction, 1,8 h en moyenne
+    dans le tableau 1).'
+  verified_on: '2026-10-28'
+- name: PostTrainBench
+  auteur: ELLIS Institute Tübingen, Max Planck Institute for Intelligent Systems, Université de Tübingen
+    (Ben Rank, Maksym Andriushchenko et coll.).
+  evalue: 'L''agent reçoit un petit modèle ouvert brut (par ex. Qwen3-4B) et doit l''améliorer seul sur
+    un test donné (par ex. les maths d''AIME) : chercher des données, écrire le code d''entraînement,
+    lancer les essais. Ni code de départ ni données fournis, avec 10 h sur un GPU H100.'
+  comment: '4 modèles de base × 7 tests ; le score est la performance moyenne obtenue, sur jusqu''à 5
+    graines. Triche (entraîner sur le test, télécharger une version déjà affinée) détectée par un juge
+    automatique : le run reçoit alors le score du modèle brut. Harnais : l''outil en ligne de commande
+    du fournisseur (Claude Code, Codex CLI, OpenCode…).'
+  pourquoi: Mesure l'autonomie sur un vrai projet d'ingénierie en apprentissage automatique, long et outillé
+    ; utile si vous faites du ML, beaucoup moins pour du développement applicatif classique.
+  source: https://posttrainbench.com/
+  non_verifie: 'Liste exacte des 7 tests : le site cite BFCL dans sa méthode mais annonce son retrait
+    dans le journal des versions (v1.2).'
+  verified_on: '2026-10-28'
+- name: FrontierCode
+  auteur: Cognition (éditeur de Devin et Windsurf).
+  evalue: 'Le modèle doit produire une modification de code qu''un mainteneur du projet accepterait de
+    fusionner, sur de vrais dépôts. Exemple publié : corriger dans Mock Service Worker un bug où resetHandlers()
+    ne redémarre pas le générateur, sans oublier le code de nettoyage de l''utilisateur.'
+  comment: 132 tâches (version 2.0, publiée le 27/10/2026), écrites par plus de 20 développeurs. Note
+    pondérée selon une grille (justesse, tests, périmètre, style, conventions du projet), zéro si un critère
+    bloquant échoue ; chaque tâche est relue à la main par Cognition. Consulter la solution d'origine
+    vaut zéro. Le harnais varie selon les mesures (Devin, Claude Code, Codex…).
+  pourquoi: Un des rares à juger si le code est acceptable par un humain, pas seulement s'il passe les
+    tests ; mais la notation par grille est en partie subjective et l'éditeur vend son propre agent.
+  source: https://cognition.com/frontiercode
+  non_verifie: Harnais et nombre d'essais lus dans les données Epoch, pas sur la page de Cognition ; les
+    mesures reprises peuvent dater de la version 1.
+  verified_on: '2026-10-28'
+- name: MirrorCode
+  auteur: Epoch AI, en collaboration avec METR.
+  evalue: 'Le modèle doit réécrire de zéro un programme existant entier, sans voir son code source, à
+    partir de son comportement. Exemple publié : gotree, une boîte à outils de bio-informatique de 16
+    000 lignes de Go et plus de 40 commandes, réimplémentée en 14 h.'
+  comment: '25 programmes cibles ; le classement utilise 30 tâches (15 programmes en deux langages, souvent
+    Go et Ada), 3 essais chacune. Notation par tests de bout en bout dont une partie cachée : la sortie
+    doit être identique à l''original. Harnais Epoch imposé, sans internet, jusqu''à 7 jours et 10 milliards
+    de jetons par tentative.'
+  pourquoi: Bon indicateur des très longs projets autonomes (des semaines de travail humain) ; mais réécrire
+    un programme dont le comportement est connu n'est pas faire évoluer une base de code existante.
+  source: https://epoch.ai/MirrorCode
+  non_verifie: Formule exacte du score partiel. Epoch reconnaît ne pas pouvoir exclure tout rôle de la
+    mémorisation malgré son filtrage.
+  verified_on: '2026-10-28'
+- name: OSWorld 2.0
+  auteur: XLANG Lab (Université de Hong Kong) et institutions partenaires (Tianbao Xie, Tao Yu et coll.).
+  evalue: 'L''agent pilote un ordinateur comme un humain (clics, clavier) pour mener un long processus
+    métier. Exemple publié : déposer une note de frais en suivant un tutoriel PDF, en relevant les montants
+    des reçus et en recoupant mails et relevés bancaires, puis réagir à un nouveau mail.'
+  comment: '108 tâches, 31 sites auto-hébergés, environ 1,6 h de travail humain chacune. Score principal
+    : tâche terminée ou non dans la limite de 500 actions ; un score partiel compte aussi les étapes de
+    contrôle franchies (27 en moyenne par tâche).'
+  pourquoi: Mesure l'usage autonome d'une interface graphique et d'applications web ; sans rapport direct
+    avec le code, utile seulement si vous automatisez des tests d'interface ou des tâches de bureau.
+  source: https://osworld-v2.xlang.ai/
+  non_verifie: Système d'exploitation et liste complète des applications ; méthode exacte de vérification
+    (scripts automatiques ou non).
+  verified_on: '2026-10-28'
+- name: GDP.pdf
+  auteur: Surge AI (Suhaas Garre, Emily Ritchie, Sushant Mehta, Edwin Chen).
+  evalue: 'Le modèle reçoit un PDF professionnel (bail, fiche technique, guide clinique, plan de construction…)
+    et répond à une question précise dessus, ou refuse si le document ne permet pas de répondre. Exemple
+    publié : classer les cinq premières entreprises à offrir un congé de deuil, en tenant compte d''une
+    note de bas de page.'
+  comment: 100 paires question-document, écrites par des professionnels de dix domaines (finance, santé,
+    droit, BTP, assurance…). Chaque réponse est notée sur une grille de critères ; le classement retient
+    le taux de réussite stricte. Aucun outil fourni.
+  pourquoi: Mesure la lecture fiable de documents longs et complexes ; lien lointain avec le code, sauf
+    si votre produit extrait des informations de PDF.
+  source: https://arxiv.org/abs/2607.11192
+  verified_on: '2026-10-28'
+  non_verifie: 'Nature du correcteur (humain ou modèle) : non écrite dans le résumé de l''article.'
+- name: Remote Labor Index
+  auteur: Center for AI Safety et Scale AI.
+  evalue: L'agent reçoit le cahier des charges et les fichiers d'une vraie mission freelance déjà payée
+    à un humain (jeu vidéo, design produit, architecture, analyse de données, animation vidéo) et doit
+    rendre le livrable.
+  comment: '240 missions (230 privées), plus de 6 000 h de travail et 140 000 $ payés. Des évaluateurs
+    humains comparent le livrable à celui du freelance ; trois avis par mission, à la majorité. Score
+    : part des missions faites au moins aussi bien (« taux d''automatisation »). Harnais variable selon
+    l''agent.'
+  pourquoi: Indique la part de travail rémunéré réellement automatisable de bout en bout ; les missions
+    ne sont pas centrées sur le développement logiciel et les scores restent proches de zéro.
+  source: https://arxiv.org/abs/2510.26787
+  non_verifie: Part des missions relevant du développement logiciel.
+  verified_on: '2026-10-28'
+- name: ARC-AGI-2
+  auteur: ARC Prize Foundation (ARC Prize, Inc.).
+  evalue: Le modèle voit quelques paires de grilles colorées « avant/après » et doit deviner la règle
+    de transformation, puis produire la grille de sortie d'un nouvel exemple. Les tâches visent l'interprétation
+    de symboles et la combinaison de plusieurs règles.
+  comment: Ensembles d'évaluation de 120 tâches chacun (public, semi-privé, privé). La réponse doit être
+    exacte au pixel près. Toutes les tâches ont été résolues par au moins deux personnes en deux essais
+    au plus. Chaque score s'accompagne d'un coût par tâche.
+  pourquoi: Mesure la capacité à généraliser à partir de très peu d'exemples ; aucun lien direct avec
+    le code, ne dit rien de l'aptitude à développer.
+  source: https://arcprize.org/arc-agi/2/
+  non_verifie: 'Nombre d''essais accordés à une IA : deux (pass@2) est suggéré par la source (« pour correspondre
+    aux règles IA ») mais pas écrit explicitement.'
+  verified_on: '2026-10-28'
+- name: SciCode
+  auteur: Université de l'Illinois à Urbana-Champaign (Minyang Tian, Hao Peng et coll.), avec Argonne,
+    CMU, MIT, Harvard, Stanford, Princeton.
+  evalue: Le modèle écrit des fonctions Python pour résoudre des problèmes de recherche en physique, mathématiques,
+    science des matériaux, biologie et chimie, par exemple des calculs numériques tirés d'articles publiés.
+  comment: '80 problèmes découpés en 338 sous-problèmes. Un problème n''est résolu que si tous ses sous-problèmes
+    et leur assemblage passent les tests écrits par des scientifiques. Les explications de fond sont fournies
+    ou non selon le réglage. Pas d''agent : le modèle répond directement.'
+  pourquoi: Mesure l'écriture de code scientifique exact ; utile pour du calcul scientifique, peu représentatif
+    du développement applicatif ou du travail dans une vraie base de code.
+  source: https://arxiv.org/abs/2407.13168
+  non_verifie: 'Réglage exact des scores repris par Epoch : ils viennent d''Artificial Analysis (tiers),
+    pas du classement officiel, dont la dernière entrée est o3-mini.'
+  verified_on: '2026-10-28'
+- name: DeepSWE
+  auteur: Datacurve.
+  evalue: 'L''agent réalise une évolution longue dans un vrai dépôt open source. Exemple publié : dans
+    happy-dom (TypeScript), faire en sorte que les lectures en cours, l''analyse de formulaires et les
+    minuteries s''arrêtent proprement à l''arrêt.'
+  comment: '113 tâches, 91 dépôts, 5 langages, écrites de zéro (pas tirées de commits existants) contre
+    la contamination. Des vérificateurs écrits à la main testent le comportement, pas l''implémentation.
+    Harnais imposé : mini-swe-agent pour tous. Score pass@1 (réussite au premier essai) avec intervalle
+    de confiance.'
+  pourquoi: Compare les modèles à harnais égal sur des tâches de code réalistes et longues ; ne dit pas
+    comment ils se comportent dans votre agent habituel (Claude Code, Codex, Cursor).
+  source: https://deepswe.datacurve.ai/
+  non_verifie: Que la réussite soit strictement binaire ; durée des tâches en heures (non publiée).
+  verified_on: '2026-10-28'
+- name: FrontierSWE
+  auteur: Proximal (proximal.ai).
+  evalue: 'L''agent mène un projet complet, souvent avec GPU. Exemples publiés : un vérificateur de types
+    Lean 4 écrit en Pascal, un simulateur Verilog en Swift, optimiser le générateur de code Cranelift,
+    un pilote de course guidé par la seule vision.'
+  comment: 34 tâches en cinq catégories (implémentation, calcul scientifique, optimisation, raisonnement
+    visuel, recherche en IA), budget de 20 h chacune. Vérificateur automatique et déterministe, note entre
+    0 et 1 selon des seuils. Harnais unique, Proximus, conçu pour faire travailler l'agent très longtemps.
+    Moyenne de 5 essais par tâche.
+  pourquoi: Teste l'endurance sur des projets que peu d'humains réussiraient ; peu de tâches et un seul
+    harnais maison, donc écarts fragiles et peu transposables à votre outil.
+  source: https://www.frontierswe.com/
+  non_verifie: Calcul exact de la note partielle (seuils non détaillés). Le regroupement en trois sous-scores
+    (implémentation, performance, recherche) vient d'Epoch, pas du site.
+  verified_on: '2026-10-28'
+- name: WeirdML v3
+  auteur: Håvard Tveit Ihle, Norwegian Defence Research Establishment (FFI).
+  evalue: >-
+    Un agent de code reçoit des données qu'il n'a jamais vues et doit construire seul une chaîne
+    d'apprentissage automatique ou d'analyse qui donne un bon résultat, avec peu de données, un
+    objectif parfois flou et très peu de retour sur ses essais.
+  comment: >-
+    11 tâches faites à la main, de même poids. Budget de 50 millions de jetons par essai, sans
+    limite de temps. Le score récompense à la fois le résultat final et la vitesse à laquelle il est
+    atteint ; plusieurs essais par configuration sont moyennés. Chaque ligne nomme l'outil d'agent
+    et sa version (Claude Code, Codex CLI, Gemini CLI, OpenCode, Kimi Code).
+  pourquoi: >-
+    Bon indicateur de l'autonomie d'un agent sur un vrai travail de code exploratoire, mesuré dans
+    les outils qu'on utilise réellement ; mais centré sur l'apprentissage automatique, et onze
+    tâches seulement.
+  source: https://htihle.github.io/weirdml.html
+  verified_on: '2026-10-28'
+  non_verifie: Exemple de tâche détaillé (renvoyé à une page séparée, non lue).

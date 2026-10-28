@@ -3,7 +3,7 @@
 
 # IDE dérivés
 
-8 outils au catalogue. Généré le 2026-10-23 depuis `catalog/tools.yaml`.
+8 outils au catalogue. Généré le 2026-10-28 depuis `catalog/tools.yaml`.
 
 ## CodeBuddy
 

@@ -3,7 +3,7 @@
 
 # Fournisseurs de modèles
 
-11 laboratoires suivis. Généré le 2026-10-23 depuis `catalog/`.
+11 laboratoires suivis. Généré le 2026-10-28 depuis `catalog/`.
 
 ## Anthropic
 
@@ -36,18 +36,18 @@
 **Meilleurs scores mesurés**
 
 - `claude-fable-5` — ARC-AGI-2 89.2% · GPQA diamond 85.9% · DeepSWE 69.9%
-- `claude-opus-5` — GPQA diamond 93.9% · ARC-AGI-2 90.4% · DeepSWE 73.7%
 - `claude-fable-5-1` — ARC-AGI-2 90.0% · MirrorCode 73.3% · APEX-Agents 68.6%
-- `claude-opus-4-8` — GPQA diamond 91.0% · ARC-AGI-2 72.1% · DeepSWE 59.0%
 - `claude-opus-5-5` — ARC-AGI-2 93.3% · GPQA diamond 90.6% · MirrorCode 77.4%
-- `claude-opus-4-7` — GPQA diamond 90.1% · ARC-AGI-2 75.8% · SciCode 54.5%
+- `claude-opus-5` — GPQA diamond 93.9% · ARC-AGI-2 90.4% · DeepSWE 73.7%
+- `claude-sonnet-5-5` — GPQA diamond 95.6% · APEX-Agents 75.5% · FrontierSWE 61.9%
+- `claude-haiku-5-5` — GPQA diamond 89.6% · ARC-AGI-2 61.3% · APEX-Agents 56.1%
 
 ## OpenAI
 
 - **Pays :** US
 - **Tarifs :** [https://developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing)
 - **Documentation :** [https://platform.openai.com/docs/models](https://platform.openai.com/docs/models)
-- **Modèles au catalogue :** 40 · **tarifés :** 37
+- **Modèles au catalogue :** 41 · **tarifés :** 38
 
 | Modèle | Entrée $ | Cache $ | Sortie $ | Contexte | Relevé le |
 | :-- | --: | --: | --: | --: | :-- |
@@ -61,6 +61,7 @@
 | GPT-5.4 mini | $0.75 | $0.075 | $4.5 | — | 2026-09-15 |
 | GPT-5.4 mini (high) | $0.75 | $0.075 | $4.5 | — | 2026-09-15 |
 | GPT-5.4 mini (none) | $0.75 | $0.075 | $4.5 | — | 2026-09-15 |
+| GPT-6.1 Terra | $1 | $0.05 | $5 | — | 2026-10-28 |
 | GPT-5.1 | $1.25 | $0.125 | $10 | — | 2026-09-15 |
 | GPT-5.1 (high) | $1.25 | $0.125 | $10 | — | 2026-09-15 |
 | GPT-5.1 (no thinking) | $1.25 | $0.125 | $10 | — | 2026-09-15 |
@@ -91,12 +92,12 @@
 
 **Meilleurs scores mesurés**
 
-- `gpt-5.6-sol` — GPQA diamond 93.5% · ARC-AGI-2 92.5% · DeepSWE 72.7%
 - `gpt-6-astra` — GPQA diamond 95.8% · ARC-AGI-2 95.0% · DeepSWE 74.1%
-- `gpt-5.5` — GPQA diamond 90.7% · ARC-AGI-2 85.0% · DeepSWE 67.0%
+- `gpt-5.6-sol` — GPQA diamond 93.5% · ARC-AGI-2 92.5% · DeepSWE 72.7%
 - `gpt-5.6-luna` — GPQA diamond 91.6% · DeepSWE 67.2% · ARC-AGI-2 59.5%
+- `gpt-5.5` — GPQA diamond 90.7% · ARC-AGI-2 85.0% · DeepSWE 67.0%
 - `gpt-5.6-terra` — GPQA diamond 93.3% · ARC-AGI-2 83.9% · DeepSWE 69.6%
-- `gpt-5.4-2026-03-05` — GPQA diamond 93.3% · ARC-AGI-2 74.0% · SciCode 56.6%
+- `gpt-6-luna` — GPQA diamond 90.5% · ARC-AGI-2 59.3% · SciCode 54.6%
 
 ## Google DeepMind
 
@@ -117,8 +118,8 @@
 
 - `gemini-3.8-flash` — GPQA diamond 95.4% · ARC-AGI-2 89.2% · DeepSWE 73.8%
 - `gemini-3.7-flash` — GPQA diamond 94.8% · ARC-AGI-2 84.6% · APEX-Agents 67.8%
-- `gemini-3.1-pro-preview` — GPQA diamond 94.4% · ARC-AGI-2 77.1% · SciCode 58.7%
 - `gemini-4-argon` — GPQA diamond 96.4% · ARC-AGI-2 91.2% · APEX-Agents 82.4%
+- `gemini-3.1-pro-preview` — GPQA diamond 94.4% · ARC-AGI-2 77.1% · SciCode 58.7%
 - `gemini-3.6-flash` — GPQA diamond 94.1% · ARC-AGI-2 60.4% · SciCode 53.4%
 - `gemini-3.5-flash` — GPQA diamond 92.8% · ARC-AGI-2 72.1% · SciCode 53.9%
 
@@ -176,8 +177,8 @@
 **Meilleurs scores mesurés**
 
 - `qwen3.8-max` — GPQA diamond 92.7% · APEX-Agents 63.3% · DeepSWE 57.5%
-- `qwen3.7-plus` — GPQA diamond 87.9% · SciCode 46.1% · FrontierCode 10.2%
 - `qwen3.8-max-0902` — GPQA diamond 92.3% · SciCode 52.1% · Terminal-Bench 4.0 27.0%
+- `qwen3.7-plus` — GPQA diamond 87.9% · SciCode 46.1% · FrontierCode 10.2%
 - `qwen3.8-27b` — APEX-Agents 47.5% · SciCode 46.6% · ARC-AGI-2 42.4%
 - `qwen3.5-35b-a3b` — GPQA diamond 83.5% · SciCode 29.3%
 - `qwen3.5-397b-a17b` — GPQA diamond 86.4% · APEX-Agents 24.9%
@@ -226,8 +227,8 @@
 
 - `kimi-k3` — GPQA diamond 93.1% · DeepSWE 68.5% · ARC-AGI-2 60.4%
 - `kimi-k2.7-code` — GPQA diamond 87.9% · SciCode 47.8% · APEX-Agents 37.6%
-- `kimi-k2.6` — GPQA diamond 90.8% · SciCode 53.5% · GDP.pdf 12.0%
 - `kimi-k2.5` — SciCode 49.0% · HLE 24.4% · ARC-AGI-2 11.8%
+- `kimi-k2.6` — GPQA diamond 90.8% · SciCode 53.5% · GDP.pdf 12.0%
 - `fireworks/kimi-k2p5` — GPQA diamond 87.6%
 - `kimi-k2-thinking-turbo` — GPQA diamond 84.2%
 
@@ -278,8 +279,8 @@
 **Meilleurs scores mesurés**
 
 - `grok-4.6` — GPQA diamond 94.0% · DeepSWE 67.5% · ARC-AGI-2 67.1%
-- `grok-4.5` — GPQA diamond 93.4% · APEX-Agents 56.2% · SciCode 55.0%
 - `grok-4.7` — GPQA diamond 92.7% · ARC-AGI-2 61.4% · SciCode 57.8%
+- `grok-4.5` — GPQA diamond 93.4% · APEX-Agents 56.2% · SciCode 55.0%
 - `grok-4.3` — GPQA diamond 88.8% · SciCode 48.3% · GDP.pdf 8.0%
 - `grok-4-20` — ARC-AGI-2 65.1%
 - `grok-4.20-0309-reasoning` — GPQA diamond 89.3%
@@ -303,9 +304,9 @@
 - `muse-spark-1.3` — SciCode 59.7% · APEX-Agents 58.6% · CursorBench 41.6%
 - `muse-spark-1.2` — SciCode 57.4% · DeepSWE 54.9% · APEX-Agents 45.4%
 - `muse-spark-1.1` — SciCode 58.8% · DeepSWE 53.3% · APEX-Agents 31.8%
+- `muse-wonder-1.0` — SciCode 60.3% · CursorBench 50.4% · GDP.pdf 30.8%
 - `Muse-Spark-Open-816B-A42B` — GPQA diamond 88.6% · SciCode 58.5% · APEX-Agents 33.4%
 - `muse-spark` — GPQA diamond 89.8% · SciCode 51.5% · HLE 40.6%
-- `muse-wonder-1.0` — SciCode 60.3% · CursorBench 50.4% · GDP.pdf 30.8%
 
 ## MiniMax
 

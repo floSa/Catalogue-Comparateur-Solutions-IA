@@ -1,10 +1,10 @@
 _generated:
   by: pipeline/seed_catalog.py
-  'on': '2026-10-23'
+  'on': '2026-10-28'
   basis: Identités de modèles observées dans les données de benchmark Epoch AI (CC-BY).
   warning: 'AMORCE. Les champs tarifaires sont vides et marqués `unverified` : ils doivent être renseignés
     depuis la page /pricing officielle de chaque lab. Voir protocol/04_collecte_donnees.md.'
-  pricing_applied_on: '2026-10-23'
+  pricing_applied_on: '2026-10-28'
 models:
 - id: qwen3-max
   lab: alibaba
@@ -406,7 +406,7 @@ models:
   display_name: Qwen3.7-Plus
   released_on: '2026-06-02'
   accessibility: API access
-  benchmark_records: 4
+  benchmark_records: 3
   epoch_model_versions:
   - qwen3.7-plus
   status: active
@@ -596,7 +596,7 @@ models:
   display_name: Claude Fable 5.1
   released_on: '2026-09-01'
   accessibility: API access
-  benchmark_records: 29
+  benchmark_records: 30
   epoch_model_versions:
   - claude-fable-5-1_high
   - claude-fable-5-1_low
@@ -648,7 +648,7 @@ models:
   display_name: Claude Haiku 5.5
   released_on: '2026-10-07'
   accessibility: API access
-  benchmark_records: 19
+  benchmark_records: 20
   epoch_model_versions:
   - claude-haiku-5-5_high
   - claude-haiku-5-5_low
@@ -679,7 +679,7 @@ models:
   display_name: Claude Opus 4.5 (no thinking)
   released_on: '2025-11-24'
   accessibility: API access
-  benchmark_records: 5
+  benchmark_records: 6
   epoch_model_versions:
   - claude-opus-4-5-20251101
   - claude-opus-4-5-20251101_high
@@ -861,7 +861,7 @@ models:
   display_name: Claude Opus 4.7
   released_on: '2026-04-16'
   accessibility: API access
-  benchmark_records: 17
+  benchmark_records: 14
   epoch_model_versions:
   - claude-opus-4-7
   - claude-opus-4-7_high
@@ -889,7 +889,7 @@ models:
   display_name: Claude Opus 4.8
   released_on: '2026-05-28'
   accessibility: API access
-  benchmark_records: 20
+  benchmark_records: 16
   epoch_model_versions:
   - claude-opus-4-8_high
   - claude-opus-4-8_low
@@ -941,7 +941,7 @@ models:
   display_name: Claude Opus 5
   released_on: '2026-07-24'
   accessibility: API access
-  benchmark_records: 36
+  benchmark_records: 31
   epoch_model_versions:
   - claude-opus-5
   - claude-opus-5_high
@@ -971,7 +971,7 @@ models:
   display_name: Claude Opus 5.5
   released_on: '2026-09-22'
   accessibility: API access
-  benchmark_records: 24
+  benchmark_records: 25
   epoch_model_versions:
   - claude-opus-5-5_high
   - claude-opus-5-5_low
@@ -1021,7 +1021,7 @@ models:
   display_name: Claude Sonnet 4.6
   released_on: '2026-02-17'
   accessibility: API access
-  benchmark_records: 12
+  benchmark_records: 10
   epoch_model_versions:
   - claude-sonnet-4-6
   - claude-sonnet-4-6_high
@@ -1103,7 +1103,7 @@ models:
   display_name: Claude Sonnet 5.5
   released_on: '2026-09-28'
   accessibility: API access
-  benchmark_records: 18
+  benchmark_records: 19
   epoch_model_versions:
   - claude-sonnet-5-5_high
   - claude-sonnet-5-5_low
@@ -1373,7 +1373,7 @@ models:
   display_name: DeepSeek V4.1 Flash (high)
   released_on: '2026-09-09'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 8
+  benchmark_records: 9
   epoch_model_versions:
   - deepseek-v4.1-flash_high
   - deepseek-v4.1-flash_low
@@ -1544,7 +1544,7 @@ models:
   display_name: Gemini 3.1 Pro
   released_on: '2026-02-19'
   accessibility: API access
-  benchmark_records: 12
+  benchmark_records: 11
   epoch_model_versions:
   - gemini-3.1-pro-preview
   - gemini-3.1-pro-preview_high
@@ -1649,7 +1649,7 @@ models:
   display_name: Gemini 3.7 Flash (high)
   released_on: '2026-08-13'
   accessibility: API access
-  benchmark_records: 17
+  benchmark_records: 18
   epoch_model_versions:
   - gemini-3.7-flash_high
   - gemini-3.7-flash_low
@@ -1672,7 +1672,7 @@ models:
   display_name: Gemini 3.8 Flash
   released_on: '2026-09-02'
   accessibility: API access
-  benchmark_records: 19
+  benchmark_records: 20
   epoch_model_versions:
   - gemini-3.8-flash_high
   - gemini-3.8-flash_low
@@ -1700,7 +1700,7 @@ models:
   display_name: Gemini 4 Argon
   released_on: '2026-09-30'
   accessibility: Limited access
-  benchmark_records: 14
+  benchmark_records: 15
   epoch_model_versions:
   - gemini-4-argon_high
   - gemini-4-argon_low
@@ -1902,7 +1902,7 @@ models:
   display_name: Muse Spark 1.3
   released_on: '2026-09-02'
   accessibility: API access
-  benchmark_records: 14
+  benchmark_records: 15
   epoch_model_versions:
   - muse-spark-1.3_high
   - muse-spark-1.3_low
@@ -1933,7 +1933,7 @@ models:
   display_name: Muse Wonder 1.0
   released_on: '2026-10-12'
   accessibility: API access
-  benchmark_records: 8
+  benchmark_records: 9
   epoch_model_versions:
   - muse-wonder-1.0_high
   - muse-wonder-1.0_low
@@ -2006,7 +2006,7 @@ models:
   display_name: MiniMax-M3
   released_on: '2026-06-01'
   accessibility: Open weights (restricted use)
-  benchmark_records: 5
+  benchmark_records: 4
   epoch_model_versions:
   - MiniMax-M3
   status: active
@@ -2205,7 +2205,7 @@ models:
   display_name: Mistral Large 4 (high)
   released_on: '2026-10-06'
   accessibility: null
-  benchmark_records: 3
+  benchmark_records: 4
   epoch_model_versions:
   - mistral-large-4-0_high
   - mistral-large-4-0_unknown
@@ -2337,7 +2337,7 @@ models:
   display_name: Kimi K2.6
   released_on: '2026-04-20'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 4
+  benchmark_records: 3
   epoch_model_versions:
   - kimi-k2.6
   status: active
@@ -2538,7 +2538,7 @@ models:
   display_name: GPT-5.2 (high)
   released_on: '2025-12-11'
   accessibility: API access
-  benchmark_records: 14
+  benchmark_records: 15
   epoch_model_versions:
   - gpt-5.2-2025-12-11_high
   - gpt-5.2-2025-12-11_low
@@ -2649,7 +2649,7 @@ models:
   display_name: GPT-5.4 (high)
   released_on: '2026-03-05'
   accessibility: API access
-  benchmark_records: 15
+  benchmark_records: 14
   epoch_model_versions:
   - gpt-5.4-2026-03-05_high
   - gpt-5.4-2026-03-05_low
@@ -2874,7 +2874,7 @@ models:
   display_name: GPT-5.5
   released_on: '2026-04-23'
   accessibility: API access
-  benchmark_records: 21
+  benchmark_records: 19
   epoch_model_versions:
   - gpt-5.5_high
   - gpt-5.5_low
@@ -3004,7 +3004,7 @@ models:
   display_name: GPT-5.6 Luna
   released_on: '2026-07-09'
   accessibility: API access
-  benchmark_records: 28
+  benchmark_records: 29
   epoch_model_versions:
   - gpt-5.6-luna_high
   - gpt-5.6-luna_low
@@ -3057,7 +3057,7 @@ models:
   display_name: GPT-5.6 Sol
   released_on: '2026-07-09'
   accessibility: API access
-  benchmark_records: 31
+  benchmark_records: 30
   epoch_model_versions:
   - gpt-5.6-sol_high
   - gpt-5.6-sol_low
@@ -3188,7 +3188,7 @@ models:
   display_name: GPT-6 Astra
   released_on: '2026-09-03'
   accessibility: API access
-  benchmark_records: 28
+  benchmark_records: 29
   epoch_model_versions:
   - gpt-6-astra_high
   - gpt-6-astra_low
@@ -3241,7 +3241,7 @@ models:
   display_name: GPT-6 Luna
   released_on: '2026-09-22'
   accessibility: API access
-  benchmark_records: 15
+  benchmark_records: 17
   epoch_model_versions:
   - gpt-6-luna_high
   - gpt-6-luna_low
@@ -3294,7 +3294,7 @@ models:
   display_name: GPT-6 Sol
   released_on: '2026-09-22'
   accessibility: API access
-  benchmark_records: 15
+  benchmark_records: 16
   epoch_model_versions:
   - gpt-6-sol_high
   - gpt-6-sol_low
@@ -3347,7 +3347,7 @@ models:
   display_name: GPT-6.1 Sol
   released_on: '2026-09-29'
   accessibility: API access
-  benchmark_records: 15
+  benchmark_records: 16
   epoch_model_versions:
   - gpt-6.1-sol_high
   - gpt-6.1-sol_low
@@ -3370,6 +3370,32 @@ models:
       note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
   context_window: 1050000
   context_source: https://developers.openai.com/api/docs/models
+- id: gpt-6.1-terra
+  lab: openai
+  display_name: GPT-6.1 Terra
+  released_on: '2026-10-26'
+  accessibility: API access
+  benchmark_records: 1
+  epoch_model_versions:
+  - gpt-6.1-terra_high
+  - gpt-6.1-terra_low
+  - gpt-6.1-terra_max
+  - gpt-6.1-terra_medium
+  - gpt-6.1-terra_unknown
+  - gpt-6.1-terra_xhigh
+  status: active
+  api_model_id: gpt-6.1-terra
+  role: Intermédiaire génération courante
+  pricing:
+    input_per_1m: 1.0
+    input_cached_per_1m: 0.05
+    output_per_1m: 5.0
+    currency: USD
+    source:
+      url: https://developers.openai.com/api/docs/pricing
+      verified_on: '2026-10-28'
+      status: official_pricing_page
+      note: platform.openai.com/docs/pricing redirige vers developers.openai.com.
 - id: grok-4-20
   lab: xai
   display_name: grok-4-20
@@ -3468,7 +3494,7 @@ models:
   display_name: Grok 4.6
   released_on: '2026-08-12'
   accessibility: API access
-  benchmark_records: 24
+  benchmark_records: 25
   epoch_model_versions:
   - grok-4.6_high
   - grok-4.6_low
@@ -3495,7 +3521,7 @@ models:
   display_name: Grok 4.7
   released_on: '2026-09-21'
   accessibility: API access
-  benchmark_records: 17
+  benchmark_records: 18
   epoch_model_versions:
   - grok-4.7_high
   - grok-4.7_low
@@ -3632,7 +3658,7 @@ models:
   display_name: GLM-5.2
   released_on: '2026-06-16'
   accessibility: Open weights (unrestricted)
-  benchmark_records: 8
+  benchmark_records: 7
   epoch_model_versions:
   - glm-5.2_high
   - glm-5.2_low
