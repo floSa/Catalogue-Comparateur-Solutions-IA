@@ -1,8 +1,11 @@
-# Explication de chaque benchmark suivi : ce qu'il évalue, comment, et ce qu'il dit à un développeur.
+# Explication de chaque benchmark suivi. `famille` + `court` : version courte (une phrase) ;
+# `evalue`, `comment`, `pourquoi` : version longue, dépliée au clic.
 # Édité à la main ; affiché sous le graphique de l'onglet Benchmarks (pipeline/build_site.py).
 # Clé de jointure : `name` = nom du benchmark dans catalog/benchmarks.yaml. `non_verifie` n'est pas publié.
 benchmarks:
 - name: Terminal-Bench 4.0
+  famille: Code
+  court: Un agent accomplit seul des tâches techniques dans un terminal Linux.
   auteur: Équipe Terminal-Bench / Harbor (Ryan Marten, Alex Shaw, Andy Konwinski), hébergé par Stanford,
     Harbor et le Laude Institute ; plus de 100 contributeurs de tâches.
   evalue: 'L''agent reçoit une consigne et travaille seul dans un terminal Linux isolé (un conteneur)
@@ -19,6 +22,8 @@ benchmarks:
     × 5), pas lu. Aucun exemple de tâche ni règle de soumission trouvés.'
   verified_on: '2026-10-28'
 - name: GPQA diamond
+  famille: Raisonnement
+  court: Questions de biologie, physique et chimie de niveau doctorat ; pas de code.
   auteur: New York University (David Rein, Samuel R. Bowman et coll.), publié en novembre 2023.
   evalue: Le modèle répond à des questions à choix multiples (4 réponses) de biologie, physique et chimie,
     écrites par des experts. Elles sont conçues pour qu'un non-spécialiste ne trouve pas la réponse même
@@ -31,6 +36,8 @@ benchmarks:
   source: https://arxiv.org/abs/2311.12022
   verified_on: '2026-10-28'
 - name: HLE
+  famille: Connaissances
+  court: Questions d'experts très difficiles dans plus de cent matières ; pas de code.
   auteur: Center for AI Safety et Scale AI, avec un consortium de contributeurs experts.
   evalue: 'Le modèle répond à des questions de niveau expert, dans plus d''une centaine de matières (mathématiques,
     sciences, humanités), certaines avec image. Exemple publié : « Combien de paires de tendons ce sésamoïde
@@ -44,6 +51,8 @@ benchmarks:
   non_verifie: Part exacte des questions à choix multiples et des questions avec image.
   verified_on: '2026-10-28'
 - name: CursorBench
+  famille: Code
+  court: Vraies demandes de développeurs tirées des sessions Cursor.
   auteur: Cursor (Anysphere, Inc.).
   evalue: 'Le modèle traite des demandes réelles de développeurs, tirées des sessions Cursor de l''équipe
     interne : consignes courtes et ambiguës, plusieurs fichiers à modifier. Catégories citées : modifier,
@@ -59,6 +68,8 @@ benchmarks:
     que les modèles tournent dans l''agent Cursor.'
   verified_on: '2026-10-28'
 - name: APEX-Agents
+  famille: Travail de bureau
+  court: Tâches de banque, de conseil et de droit dans des applications simulées ; pas de code.
   auteur: Mercor.
   evalue: 'L''agent accomplit des tâches de banque d''affaires, de conseil en stratégie et de droit des
     affaires, dans un faux environnement de travail (mail, agenda, tableurs, documents, PDF, exécution
@@ -74,6 +85,8 @@ benchmarks:
     dans le tableau 1).'
   verified_on: '2026-10-28'
 - name: PostTrainBench
+  famille: Code
+  court: Un agent améliore seul un petit modèle ouvert en écrivant son code d'entraînement.
   auteur: ELLIS Institute Tübingen, Max Planck Institute for Intelligent Systems, Université de Tübingen
     (Ben Rank, Maksym Andriushchenko et coll.).
   evalue: 'L''agent reçoit un petit modèle ouvert brut (par ex. Qwen3-4B) et doit l''améliorer seul sur
@@ -90,6 +103,8 @@ benchmarks:
     dans le journal des versions (v1.2).'
   verified_on: '2026-10-28'
 - name: FrontierCode
+  famille: Code
+  court: Modifications sur de vrais dépôts, jugées sur ce qu'un mainteneur accepterait de fusionner.
   auteur: Cognition (éditeur de Devin et Windsurf).
   evalue: 'Le modèle doit produire une modification de code qu''un mainteneur du projet accepterait de
     fusionner, sur de vrais dépôts. Exemple publié : corriger dans Mock Service Worker un bug où resetHandlers()
@@ -105,6 +120,8 @@ benchmarks:
     mesures reprises peuvent dater de la version 1.
   verified_on: '2026-10-28'
 - name: MirrorCode
+  famille: Code
+  court: Réécrire de zéro un programme entier à partir de son seul comportement.
   auteur: Epoch AI, en collaboration avec METR.
   evalue: 'Le modèle doit réécrire de zéro un programme existant entier, sans voir son code source, à
     partir de son comportement. Exemple publié : gotree, une boîte à outils de bio-informatique de 16
@@ -120,6 +137,8 @@ benchmarks:
     mémorisation malgré son filtrage.
   verified_on: '2026-10-28'
 - name: OSWorld 2.0
+  famille: Pilotage d'ordinateur
+  court: Mener de longs processus métier à la souris et au clavier ; pas de code.
   auteur: XLANG Lab (Université de Hong Kong) et institutions partenaires (Tianbao Xie, Tao Yu et coll.).
   evalue: 'L''agent pilote un ordinateur comme un humain (clics, clavier) pour mener un long processus
     métier. Exemple publié : déposer une note de frais en suivant un tutoriel PDF, en relevant les montants
@@ -134,6 +153,8 @@ benchmarks:
     (scripts automatiques ou non).
   verified_on: '2026-10-28'
 - name: GDP.pdf
+  famille: Lecture de documents
+  court: Questions précises sur des PDF professionnels ; pas de code.
   auteur: Surge AI (Suhaas Garre, Emily Ritchie, Sushant Mehta, Edwin Chen).
   evalue: 'Le modèle reçoit un PDF professionnel (bail, fiche technique, guide clinique, plan de construction…)
     et répond à une question précise dessus, ou refuse si le document ne permet pas de répondre. Exemple
@@ -148,6 +169,8 @@ benchmarks:
   verified_on: '2026-10-28'
   non_verifie: 'Nature du correcteur (humain ou modèle) : non écrite dans le résumé de l''article.'
 - name: Remote Labor Index
+  famille: Travail freelance
+  court: Vraies missions rémunérées (design, vidéo, données…) rendues de bout en bout.
   auteur: Center for AI Safety et Scale AI.
   evalue: L'agent reçoit le cahier des charges et les fichiers d'une vraie mission freelance déjà payée
     à un humain (jeu vidéo, design produit, architecture, analyse de données, animation vidéo) et doit
@@ -162,6 +185,8 @@ benchmarks:
   non_verifie: Part des missions relevant du développement logiciel.
   verified_on: '2026-10-28'
 - name: ARC-AGI-2
+  famille: Raisonnement
+  court: Deviner une règle à partir de quelques grilles d'exemples ; pas de code.
   auteur: ARC Prize Foundation (ARC Prize, Inc.).
   evalue: Le modèle voit quelques paires de grilles colorées « avant/après » et doit deviner la règle
     de transformation, puis produire la grille de sortie d'un nouvel exemple. Les tâches visent l'interprétation
@@ -176,6 +201,8 @@ benchmarks:
     aux règles IA ») mais pas écrit explicitement.'
   verified_on: '2026-10-28'
 - name: SciCode
+  famille: Code scientifique
+  court: Écrire des fonctions Python qui résolvent des problèmes de recherche.
   auteur: Université de l'Illinois à Urbana-Champaign (Minyang Tian, Hao Peng et coll.), avec Argonne,
     CMU, MIT, Harvard, Stanford, Princeton.
   evalue: Le modèle écrit des fonctions Python pour résoudre des problèmes de recherche en physique, mathématiques,
@@ -190,6 +217,8 @@ benchmarks:
     pas du classement officiel, dont la dernière entrée est o3-mini.'
   verified_on: '2026-10-28'
 - name: DeepSWE
+  famille: Code
+  court: Évolutions longues dans de vrais dépôts, tous les modèles dans le même agent.
   auteur: Datacurve.
   evalue: 'L''agent réalise une évolution longue dans un vrai dépôt open source. Exemple publié : dans
     happy-dom (TypeScript), faire en sorte que les lectures en cours, l''analyse de formulaires et les
@@ -204,6 +233,8 @@ benchmarks:
   non_verifie: Que la réussite soit strictement binaire ; durée des tâches en heures (non publiée).
   verified_on: '2026-10-28'
 - name: FrontierSWE
+  famille: Code
+  court: Projets d'ingénierie de plusieurs heures, jusqu'à 20 h par tâche.
   auteur: Proximal (proximal.ai).
   evalue: 'L''agent mène un projet complet, souvent avec GPU. Exemples publiés : un vérificateur de types
     Lean 4 écrit en Pascal, un simulateur Verilog en Swift, optimiser le générateur de code Cranelift,
@@ -219,20 +250,19 @@ benchmarks:
     (implémentation, performance, recherche) vient d'Epoch, pas du site.
   verified_on: '2026-10-28'
 - name: WeirdML v3
+  famille: Code
+  court: Un agent construit seul des modèles d'apprentissage automatique sur des données inconnues.
   auteur: Håvard Tveit Ihle, Norwegian Defence Research Establishment (FFI).
-  evalue: >-
-    Un agent de code reçoit des données qu'il n'a jamais vues et doit construire seul une chaîne
-    d'apprentissage automatique ou d'analyse qui donne un bon résultat, avec peu de données, un
-    objectif parfois flou et très peu de retour sur ses essais.
-  comment: >-
-    11 tâches faites à la main, de même poids. Budget de 50 millions de jetons par essai, sans
-    limite de temps. Le score récompense à la fois le résultat final et la vitesse à laquelle il est
-    atteint ; plusieurs essais par configuration sont moyennés. Chaque ligne nomme l'outil d'agent
-    et sa version (Claude Code, Codex CLI, Gemini CLI, OpenCode, Kimi Code).
-  pourquoi: >-
-    Bon indicateur de l'autonomie d'un agent sur un vrai travail de code exploratoire, mesuré dans
-    les outils qu'on utilise réellement ; mais centré sur l'apprentissage automatique, et onze
-    tâches seulement.
+  evalue: Un agent de code reçoit des données qu'il n'a jamais vues et doit construire seul une chaîne
+    d'apprentissage automatique ou d'analyse qui donne un bon résultat, avec peu de données, un objectif
+    parfois flou et très peu de retour sur ses essais.
+  comment: 11 tâches faites à la main, de même poids. Budget de 50 millions de jetons par essai, sans
+    limite de temps. Le score récompense à la fois le résultat final et la vitesse à laquelle il est atteint
+    ; plusieurs essais par configuration sont moyennés. Chaque ligne nomme l'outil d'agent et sa version
+    (Claude Code, Codex CLI, Gemini CLI, OpenCode, Kimi Code).
+  pourquoi: Bon indicateur de l'autonomie d'un agent sur un vrai travail de code exploratoire, mesuré
+    dans les outils qu'on utilise réellement ; mais centré sur l'apprentissage automatique, et onze tâches
+    seulement.
   source: https://htihle.github.io/weirdml.html
   verified_on: '2026-10-28'
   non_verifie: Exemple de tâche détaillé (renvoyé à une page séparée, non lue).

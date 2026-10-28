@@ -87,7 +87,7 @@ def build_payload() -> dict:
     guide = {g["name"]: g for g in load("benchmark_guide.yaml").get("benchmarks", [])}
     benches = [{"name": b["name"], "domain": b["domain"], "tier": b["tier"],
                 "x": {k: guide.get(b["name"], {}).get(k)
-                      for k in ("auteur", "evalue", "comment", "pourquoi", "source")},
+                      for k in ("famille", "court", "auteur", "evalue", "comment", "pourquoi", "source")},
                 "measures": b["measures"], "caveat": b.get("caveat"),
                 "ceiling": b.get("score_ceiling"), "provenance": b["provenance"],
                 "released": b.get("released_on")}
@@ -300,6 +300,12 @@ summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 .bc h3{margin:0 0 3px;font-size:13.5px;font-weight:600}
 .bc p{margin:5px 0 0;font-size:12.5px;color:var(--ink-2)}
 .bg{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.bgh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.bg summary{list-style:none;color:inherit;font-size:inherit;padding:0}
+.bg summary::-webkit-details-marker{display:none}
+.bg summary .mo{color:var(--ink-3);font-size:11.5px;margin-top:6px;display:block}
+.bg details[open] summary .mo{display:none}
+.bg .fam{font-weight:600;color:var(--ink)}
 .bg .bc.on{border-color:var(--s1);box-shadow:0 0 0 1px var(--s1)}
 .bg dt{margin-top:9px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .bg dd{margin:2px 0 0;font-size:12.5px;color:var(--ink-2)}
@@ -391,11 +397,14 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     </details>
   </div>
 
-  <h2>Que mesure chaque benchmark ?</h2>
+  <div class="bgh"><h2>Que mesure chaque benchmark ?</h2>
+    <div class="seg" id="bgv" role="group" aria-label="Longueur des fiches">
+      <button data-v="0" aria-pressed="true">Version courte</button>
+      <button data-v="1" aria-pressed="false">Version longue</button></div></div>
   <p class="lede">Aucun benchmark ne résume un modèle : chacun teste une compétence précise.
   Pour choisir un modèle qui code, regardez d'abord ceux qui mettent un agent au travail sur du
   vrai code ; les autres renseignent sur le raisonnement ou le travail de bureau. Le benchmark
-  sélectionné dans le graphique est encadré.</p>
+  sélectionné dans le graphique est encadré ; cliquez sur une fiche pour la déplier.</p>
   <div class="bl bg" id="bgl"></div>
 </section>
 
@@ -1490,13 +1499,18 @@ $('#meth').innerHTML=[
 
 // ── fiches benchmarks ─────────────────────────────────────────────────────
 $('#bgl').innerHTML=D.benchmarks.map(b=>{const x=b.x||{};
- return `<div class="bc" data-b="${esc(b.name)}"><h3>${esc(b.name)} ${b.tier==='reference'?
+ return `<details class="bc" data-b="${esc(b.name)}"><summary><h3>${esc(b.name)} ${b.tier==='reference'?
    '<span class="tag ref">référence</span>':'<span class="tag">secondaire</span>'}</h3>
+  <p>${x.famille?`<span class="fam">${esc(x.famille)}.</span> `:''}${esc(x.court||b.measures)}</p>
+  <span class="mo">▸ En savoir plus</span></summary>
   ${x.auteur?`<p class="au">${esc(x.auteur)}</p>`:''}<dl>
-  ${x.evalue?`<dt>Ce qu'il évalue</dt><dd>${esc(x.evalue)}</dd>`:`<dd>${esc(b.measures)}</dd>`}
+  ${x.evalue?`<dt>Ce qu'il évalue</dt><dd>${esc(x.evalue)}</dd>`:''}
   ${x.comment?`<dt>Comment</dt><dd>${esc(x.comment)}</dd>`:''}
   ${x.pourquoi?`<dt>Pour choisir un modèle</dt><dd>${esc(x.pourquoi)}</dd>`:''}</dl>
-  ${x.source?`<p><a href="${esc(x.source)}" rel="noopener">Source</a></p>`:''}</div>`;}).join('');
+  ${x.source?`<p><a href="${esc(x.source)}" rel="noopener">Source</a></p>`:''}</details>`;}).join('');
+$('#bgv').addEventListener('click',e=>{const v=e.target.closest('button');if(!v)return;
+  $('#bgv').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===v)));
+  document.querySelectorAll('#bgl details').forEach(d=>d.open=v.dataset.v==='1');});
 const markB=()=>document.querySelectorAll('#bgl .bc').forEach(c=>
   c.classList.toggle('on',c.dataset.b===bsel.value));
 bsel.addEventListener('change',markB);markB();
