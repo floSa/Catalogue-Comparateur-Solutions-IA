@@ -104,6 +104,21 @@ def build_payload() -> dict:
             pl["eur_ttc"] = round(u * fx * (1 + vat), 2)  # particulier, TVA FR
 
     ocr, ocrb = load("ocr.yaml"), load("ocr_benchmarks.yaml")
+    dm, dms = load("dm.yaml"), load("dm_scores.yaml")
+    import re
+    def fiche(nom):
+        return next((e["id"] for e in dm.get("entries", []) if re.search(e["motif"], nom)), None)
+    dm_rows = [{"b": r["benchmark"], "n": r["name"], "s": r["score"], "e": fiche(r["name"]),
+                "k": r.get("kind") or r.get("board"), "t": r.get("tie_band"), "d": r.get("domains"),
+                "x": r.get("axes"), "c": r.get("composite"), "p": r.get("params_b"),
+                "u": r.get("weights_url"), "w": bool(r.get("weights_url")) and r.get("board") != "api"
+                and r.get("kind") != "hosted API"}
+               for r in dms.get("scores", [])]
+    dm_rows += [{"b": r["benchmark"], "n": r["model"], "s": r["score"], "e": fiche(r["model"]),
+                 "k": r.get("kind"), "x": {k: v for k, v in (r.get("subscores") or {}).items()
+                                            if not k.startswith(("cost", "time"))},
+                 "u": r.get("source_url"), "w": False, "g": r.get("kind") == "LLM"}
+                for r in dm.get("aa_scores", [])]
     # Le suivi de vérification (non_verifie, verified_on) reste au catalogue.
     nett = lambda d: {k: v for k, v in d.items() if k not in ("non_verifie", "verified_on")}
     return {
@@ -114,6 +129,12 @@ def build_payload() -> dict:
                 "benchmarks": [nett(b) for b in ocrb.get("benchmarks", [])],
                 "rejected": ocrb.get("rejected", []),
                 "scores": [nett(r) for r in ocrb.get("scores", [])]},
+        "dm": {"entries": [{k: v for k, v in e.items() if k not in ("non_verifie", "verified_on", "motif", "poids")}
+                           for e in dm.get("entries", [])],
+               "benchmarks": [nett(b) for b in dm.get("benchmarks", [])],
+               "rejected": dm.get("rejected", []), "ecartes": dm.get("ecartes", []),
+               "domains": (dms.get("_generated") or {}).get("domains", {}),
+               "scores": dm_rows},
         "edition": meta.get("audit", {}).get("label", ""),
         "generated": date.today().isoformat(),
         "fx": meta.get("fx", {}),
@@ -345,7 +366,10 @@ summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 .ot{max-height:none}
 .ot td{vertical-align:top}
 .ot td small{display:block;color:var(--ink-3);font-size:11px;margin-top:2px}
-#ocr-cat{margin:18px 0 10px}
+#ocr-cat,#dm-cat{margin:18px 0 10px}
+#dfl{margin:0 0 10px}
+.orow .rk{font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--ink-3);font-size:11px;margin-right:5px}
+.orow.alt{background:color-mix(in srgb,var(--grid) 55%,transparent)}
 #ofl{margin:0 0 10px}
 @media(max-width:600px){.orow{grid-template-columns:minmax(110px,40%) 1fr 46px}}
 .bgh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
@@ -392,6 +416,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <span class="fr">Passerelles</span><span class="en">gateways</span></button>
   <button data-s="ocr" role="tab" aria-selected="false">
     <span class="fr">OCR</span><span class="en">documents</span></button>
+  <button data-s="dm" role="tab" aria-selected="false">
+    <span class="fr">Décision</span><span class="en">decision models</span></button>
   <button data-s="methode" role="tab" aria-selected="false">
     <span class="fr">Méthode</span><span class="en">methodology</span></button>
 </nav>
@@ -561,6 +587,48 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <div class="tw ot"><table id="otc"></table></div>
   </div>
   <details><summary id="oej">Outils écartés</summary><div class="bl" id="oelist"></div></details>
+</section>
+
+<section id="s-dm" role="tabpanel" hidden>
+  <h2>Modèles de décision <span class="en-h">decision models</span></h2>
+  <p class="layer">Des modèles qui ne rédigent pas : on leur donne une situation (texte, JSON, parfois
+  une image) et des questions typées — une option parmi plusieurs, oui ou non, une note — et ils
+  rendent une probabilité pour chaque réponse, en une seule passe. Plus rapides et moins chers qu'un
+  LLM pour classer, router, filtrer ou valider. La famille est née en septembre 2026 avec Jev.</p>
+  <div class="seg" id="dm-cat" role="group" aria-label="Sous-sections Décision">
+    <button data-d="rank" aria-pressed="true">Classement</button>
+    <button data-d="modele" aria-pressed="false">Modèles</button>
+    <button data-d="bench" aria-pressed="false">Benchmarks</button>
+  </div>
+  <div id="d-rank">
+    <div class="panel">
+      <div class="ctrl">
+        <label class="f">Benchmark<select id="dbench"></select></label>
+        <label class="f">Score<select id="dvue"></select></label>
+        <label class="f">Licence<select id="dlic">
+          <option value="">Toutes</option><option value="ouvert">Poids ouverts</option>
+          <option value="libre">Libres seulement</option></select></label>
+        <label class="f">Affichage<select id="dtop">
+          <option value="25">25 premiers</option><option value="fiche">Modèles présentés</option>
+          <option value="0">Tout</option></select></label>
+      </div>
+      <div id="dbars"></div>
+      <div id="dnote"></div>
+    </div>
+  </div>
+  <div id="d-modele" hidden>
+    <div class="seg" id="dfl" role="group" aria-label="Filtre de licence"></div>
+    <div class="tw ot"><table id="dtm"></table></div>
+  </div>
+  <div id="d-bench" hidden>
+    <div class="bgh"><h2>Que mesure chaque benchmark ?</h2>
+      <div class="seg" id="dgv" role="group" aria-label="Longueur des fiches">
+        <button data-v="0" aria-pressed="true">Version courte</button>
+        <button data-v="1" aria-pressed="false">Version longue</button></div></div>
+    <div class="bl bg" id="dgl"></div>
+    <details><summary id="drj">Benchmarks écartés</summary><div class="bl" id="drlist"></div></details>
+  </div>
+  <details><summary id="dej">Modèles écartés</summary><div class="bl" id="delist"></div></details>
 </section>
 
 <section id="s-methode" role="tabpanel" hidden>
@@ -1473,7 +1541,7 @@ function allerBench(nom,vue){
 [bsel,lsel,$('#top'),$('#eff'),$('#bud')].forEach(el=>el.addEventListener('change',draw));
 
 // ── navigation par onglets ────────────────────────────────────────────────
-const SEC=['mesures','harnais','passerelles','ocr','methode'];
+const SEC=['mesures','harnais','passerelles','ocr','dm','methode'];
 function showSection(name,remonter){
   SEC.forEach(x=>{const el=$('#s-'+x);if(el)el.hidden=(x!==name);});
   [...$('#nav').children].forEach(b=>
@@ -1764,6 +1832,82 @@ $('#oelist').innerHTML=O.ecartes.map(e=>`<div class="bc"><h3>${esc(e.nom)}</h3><
 $('#ocr-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   $('#ocr-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
   ['rank','modele','moteur','chaine','bench'].forEach(k=>{$('#o-'+k).hidden=(k!==b.dataset.o);});});
+
+// ── modèles de décision ───────────────────────────────────────────────────
+const DM=D.dm, DE=Object.fromEntries(DM.entries.map(e=>[e.id,e]));
+const dbsel=$('#dbench'), dvsel=$('#dvue');
+DM.benchmarks.forEach(b=>dbsel.add(new Option(b.nom,b.id)));
+const VUES={
+ 'jev-decision-index':[['s','Score complet'],...Object.entries(DM.domains).filter(([k])=>
+   DM.scores.some(r=>r.d&&r.d[k]!=null)).map(([k,l])=>['d.'+k,l])],
+ 'jevbench':[['s','Capacité (exactitude + calibration)'],['c','Composite (avec vitesse et coût)'],
+   ['x.intelligence','Exactitude'],['x.calibration','Calibration'],['x.speed','Vitesse'],['x.cost','Coût']],
+ 'aa-decision-index':[['s','Indice global'],['x.omniscience_accuracy','Omniscience : exactitude'],
+   ['x.omniscience_non_hallucination_rate','Omniscience : non-hallucination'],
+   ['x.hle_multichoice_accuracy','HLE (choix multiple)'],['x.when2call_accuracy','When2Call'],
+   ['x.wildguardtest_average_f1','WildGuardTest']]};
+const val=(r,v)=>v==='s'?r.s:v==='c'?r.c:(r[v[0]]||{})[v.slice(2)];
+function dmVues(){dvsel.textContent='';(VUES[dbsel.value]||[['s','Score']]).forEach(([k,l])=>dvsel.add(new Option(l,k)));}
+function dmRank(){
+  const b=DM.benchmarks.find(x=>x.id===dbsel.value), v=dvsel.value||'s', lic=$('#dlic').value, top=$('#dtop').value;
+  let r=DM.scores.filter(x=>x.b===b.id&&val(x,v)!=null).filter(x=>{const e=DE[x.e];
+    if(lic==='libre')return e&&e.licence_classe==='libre';
+    if(lic==='ouvert')return e?e.ouvert:x.w;return true;});
+  r.sort((a,c)=>val(c,v)-val(a,v));
+  if(top==='fiche')r=r.filter(x=>x.e);else if(+top)r=r.slice(0,+top);
+  const bande=v==='s'&&b.id==='jev-decision-index';
+  $('#dbars').innerHTML=r.map(x=>{const e=DE[x.e];
+    const sub=[e?`${esc(e.editeur.replace(/\s*\(.*$/,''))} · ${lchip(e.licence_classe)}`:
+      (x.g?'LLM généraliste':x.w?'poids ouverts':/api/i.test(x.k||'')?'API':''),
+      x.p?x.p+' Md':''].filter(Boolean).join(' · ');
+    const nm=e&&e.url?`<a href="${esc(e.url)}" rel="noopener">${esc(x.n)}</a>`:esc(x.n);
+    return `<div class="orow${x.g?' gen':''}${bande&&x.t%2===0?' alt':''}"><div class="nm">${bande&&x.t?`<span class="rk">=${x.t}</span>`:''}${nm}<small>${sub}</small></div>
+      <div class="tr"><i class="ob p-officiel" style="width:${Math.max(0,Math.min(100,val(x,v)))}%"></i></div>
+      <div class="v">${val(x,v).toFixed(1)}</div></div>`;}).join('')||'<p class="empty">Aucun modèle pour ce filtre.</p>';
+  $('#dnote').innerHTML=`<div class="note"><b>Comment lire.</b> Score sur 100, plus haut = mieux. `+
+    (bande?`<b>=n</b> est la bande d'égalité publiée par l'index : les modèles à moins de 0,9 point du premier de leur bande partagent son rang ; aucun vainqueur unique ne se lit donc dans une même bande. `:'')+
+    (b.id==='aa-decision-index'?`Les LLM généralistes (en gris) sont interrogés avec un autre protocole (réponse JSON contrainte) : la comparaison reste indicative. `:'')+
+    (b.id==='jevbench'?`Seuls figurent les systèmes classés, sous les plafonds de coût et de latence fixés par le benchmark ; coût et vitesse sont des notes (plus haut = moins cher, plus rapide). `:'')+
+    `Classement : <a href="${esc(b.classement)}" rel="noopener">source</a>${b.mis_a_jour?', mis à jour le '+esc(b.mis_a_jour):''}.</div>`;
+  document.querySelectorAll('#dgl .bc').forEach(c=>c.classList.toggle('on',c.dataset.b===b.id));
+}
+dbsel.addEventListener('change',()=>{dmVues();dmRank();});
+['#dvue','#dlic','#dtop'].forEach(k=>$(k).addEventListener('change',dmRank));
+dmVues();dmRank();
+$('#dgl').innerHTML=DM.benchmarks.map(b=>`<details class="bc" data-b="${esc(b.id)}"><summary>
+  <h3>${esc(b.nom)}</h3><p><span class="fam">${esc(b.categorie||'')}.</span> ${esc(b.court)}</p>
+  <span class="mo">▸ En savoir plus</span></summary><p class="au">${esc(b.auteur||'')}</p><dl>
+  <dt>Ce qu'il évalue</dt><dd>${esc(b.evalue)}</dd><dt>Comment</dt><dd>${esc(b.comment)}</dd>
+  <dt>Pour choisir un modèle</dt><dd>${esc(b.pourquoi)}</dd></dl>
+  <p>${lien(b.classement,'Classement')}${b.article?' · '+lien(b.article,'Méthode'):''}</p></details>`).join('');
+$('#dgv').addEventListener('click',e=>{const v=e.target.closest('button');if(!v)return;
+  $('#dgv').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===v)));
+  document.querySelectorAll('#dgl details').forEach(d=>d.open=v.dataset.v==='1');});
+$('#drj').textContent=`Benchmarks écartés (${DM.rejected.length}) — et pourquoi`;
+$('#drlist').innerHTML=DM.rejected.map(b=>`<div class="bc"><h3>${esc(b.benchmark)}</h3><p>${esc(b.motif)}</p></div>`).join('');
+$('#dej').textContent=`Modèles écartés (${DM.ecartes.length}) — et pourquoi`;
+$('#delist').innerHTML=DM.ecartes.map(e=>`<div class="bc"><h3>${esc(e.nom)}</h3><p>${esc(e.motif)}</p></div>`).join('');
+let DFL='';
+function dmModeles(){
+  const L=DM.entries.filter(e=>!DFL||e.licence_classe===DFL).sort(parNom);
+  $('#dtm').innerHTML='<thead><tr><th>Modèle</th><th>Éditeur</th><th>Tailles</th><th>Licence</th>'+
+    '<th>Français</th><th>Entrées · décisions</th><th>Pour le faire tourner</th></tr></thead><tbody>'+
+    L.map(e=>`<tr><td><b>${lien(e.url,esc(e.nom))}</b><small>${esc(e.sortie||'')}</small></td>
+      <td>${esc(e.editeur)}</td><td>${esc(e.tailles||'—')}${e.base?`<small>base : ${esc(e.base)}</small>`:''}</td>
+      <td>${licCell(e)}${e.prix?`<small>${esc(e.prix)}</small>`:''}</td>
+      <td>${e.francais?'oui':'non cité'}${e.langues?`<small>${esc(e.langues)}</small>`:''}</td>
+      <td>${esc((e.entrees||[]).join(', ')||'—')}<small>${esc((e.types_decision||[]).join(', '))}</small></td>
+      <td><small>${esc((e.inference||[]).join(' · ')||'—')}</small></td></tr>`).join('')+'</tbody>';
+}
+const dcls=[...new Set(DM.entries.map(e=>e.licence_classe))];
+$('#dfl').innerHTML=`<button data-l="" aria-pressed="true">Toutes</button>`+
+  Object.keys(LCL).filter(c=>dcls.includes(c)).map(c=>`<button data-l="${c}" aria-pressed="false">${LCL[c]}</button>`).join('');
+$('#dfl').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  DFL=b.dataset.l;$('#dfl').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));dmModeles();});
+dmModeles();
+$('#dm-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  $('#dm-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  ['rank','modele','bench'].forEach(k=>{$('#d-'+k).hidden=(k!==b.dataset.d);});});
 
 // ── fiches benchmarks ─────────────────────────────────────────────────────
 $('#bgl').innerHTML=D.benchmarks.map(b=>{const x=b.x||{};

@@ -299,6 +299,27 @@ def main() -> int:
                       + "\n    ⓘ la licence des poids peut changer d'une version à l'autre : relire la "
                         "fiche Hugging Face ET le fichier LICENSE."))
 
+    # ── 5 bis bis. Modèles de décision ─────────────────────────────────────
+    dms = load("dm_scores.yaml").get("_generated", {})
+    if (age(dms.get("on")) if age(dms.get("on")) is not None else warn + 1) > 14:
+        tasks.append((1, "DÉCISION", "Rafraîchir le Jev Decision Index et JevBench", dms.get("upstream_url"),
+                      "python3 pipeline/dm_ingest.py --force-download — famille très récente, "
+                      "les classements bougent chaque semaine."))
+    dm = load("dm.yaml")
+    aa = dm.get("aa_scores", [])
+    if aa and trop_vieux(aa[0].get("verified_on"), 30):
+        tasks.append((1, "DÉCISION", "Relever l'Artificial Analysis Decision Index",
+                      "https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index",
+                      "pas d'export : scores dans le code source de la page ; les reporter dans "
+                      "`aa_scores` de catalog/dm.yaml."))
+    perim = [e["nom"] for e in dm.get("entries", []) if trop_vieux(e.get("verified_on"), 45)]
+    if perim:
+        tasks.append((2, "DÉCISION", f"{len(perim)} fiches de modèles de décision à revérifier", None,
+                      ", ".join(perim[:8]) + "\n    ⓘ nouvelles versions fréquentes ; relire la licence."))
+    tasks.append((3, "VEILLE", "Rechercher les nouveaux modèles de décision", None,
+                  "lignes nouvelles en tête du Jev Decision Index et de JevBench, rattachées à aucune "
+                  "fiche (`motif` de catalog/dm.yaml)"))
+
     # ── 5 quater. Étiquettes des outils (gratuit, BYOK, MCP, modèles locaux) ──
     CAPS = ("free", "byok", "mcp", "local_models")
     vivants = [t for t in tools if t.get("status") != "retired"]

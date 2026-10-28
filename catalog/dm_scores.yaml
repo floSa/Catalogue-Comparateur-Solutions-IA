@@ -1,0 +1,7680 @@
+_generated:
+  by: pipeline/dm_ingest.py
+  'on': '2026-10-28'
+  upstream: Jev Decision Index — Decision Index 0.4.1
+  upstream_url: https://huggingface.co/spaces/multimodalart/jev-decision-index
+  data_url: https://huggingface.co/spaces/multimodalart/jev-decision-index/resolve/main/data/index.json
+  upstream_generated_utc: '2026-10-28T19:32:17Z'
+  hardware: 1 x NVIDIA RTX PRO 6000
+  domains:
+    knowledge: Knowledge & Reasoning
+    language: Language Understanding
+    retrieval: Retrieval & Classification
+    tools: Tools & Automation
+    arts: Arts & Human Taste
+    games: Games & Strategy
+  jevbench:
+    url: https://benchmarkheaven.com/jev-models
+    api: https://benchmarkheaven.com/api/jevbench/latest
+    revision: v1.7.15
+    headline: capability = moyenne exactitude + calibration, systèmes sous les plafonds de coût et de
+      latence
+  warning: Fichier généré. Relancer pipeline/dm_ingest.py, ne pas éditer.
+scores:
+- benchmark: jev-decision-index
+  name: KnowLine 31B Gen1
+  engine: knowline-31b-gen1
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/PelaAI/KnowLine-31B-Gen1
+  code_url: null
+  score: 71.86
+  public: 70.13
+  tie_band: 1
+  coverage: 1
+  domains:
+    knowledge: 59.4
+    language: 72.0
+    retrieval: 73.0
+    tools: 84.7
+    arts: 60.5
+- benchmark: jev-decision-index
+  name: Fastino GLiDE 1.2
+  engine: glide-v1.2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/fastino/GLiDE
+  code_url: https://huggingface.co/fastino/GLiDE/tree/main/glide
+  score: 71.52
+  public: 71.99
+  tie_band: 1
+  coverage: 1
+  domains:
+    knowledge: 60.6
+    language: 75.5
+    retrieval: 72.2
+    tools: 88.0
+    arts: 62.6
+- benchmark: jev-decision-index
+  name: Sieve 31B v3
+  engine: sieve-31b-v3
+  kind: full fine-tune
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-31B-v3
+  code_url: null
+  score: 71.1
+  public: 71.68
+  tie_band: 1
+  coverage: 1
+  domains:
+    knowledge: 61.2
+    language: 71.6
+    retrieval: 76.1
+    tools: 86.9
+    arts: 62.3
+- benchmark: jev-decision-index
+  name: Turion Jev 31B
+  engine: turion-jev-31b
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/turion-ai/turion-jev-31b
+  code_url: null
+  score: 70.47
+  public: 66.16
+  tie_band: 2
+  coverage: 1
+  domains:
+    knowledge: 55.4
+    language: 69.9
+    retrieval: 71.2
+    tools: 78.7
+    arts: 51.3
+- benchmark: jev-decision-index
+  name: vLLM-SR d3-ultra (Decision 3.0, 27B)
+  engine: vllm-sr-d3-ultra
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/vllm-sr/d3-ultra
+  code_url: null
+  score: 70.18
+  public: 71.57
+  tie_band: 2
+  coverage: 1
+  domains:
+    knowledge: 62.3
+    language: 72.4
+    retrieval: 71.8
+    tools: 87.8
+    arts: 63.5
+- benchmark: jev-decision-index
+  name: Jeffan-31b-1710
+  engine: jeffan-31b-1710
+  kind: full fine-tune
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/tattrongvu/Jeffan-31b-1710
+  code_url: null
+  score: 69.75
+  public: 73.13
+  tie_band: 2
+  coverage: 1
+  domains:
+    knowledge: 63.2
+    language: 76.0
+    retrieval: 72.2
+    tools: 89.4
+    arts: 63.6
+- benchmark: jev-decision-index
+  name: H2O Lightning 31B v1.1
+  engine: h2o-lightning-31b-v1.1
+  kind: full fine-tune
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/h2oai/h2o-lightning-31b
+  code_url: null
+  score: 68.64
+  public: 67.75
+  tie_band: 3
+  coverage: 1
+  domains:
+    knowledge: 56.5
+    language: 69.6
+    retrieval: 66.9
+    tools: 86.3
+    arts: 59.7
+- benchmark: jev-decision-index
+  name: WeMM-JEV-27B
+  engine: wemm-jev-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/Rover00/WeMM-JEV
+  code_url: null
+  score: 68.49
+  public: 69.37
+  tie_band: 3
+  coverage: 1
+  domains:
+    knowledge: 59.0
+    language: 74.1
+    retrieval: 70.0
+    tools: 86.0
+    arts: 52.4
+- benchmark: jev-decision-index
+  name: baselabs mammoth-1 (27B)
+  engine: mammoth-1
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-27B
+  params_b: 27.4
+  weights_url: https://huggingface.co/baselabs/mammoth-1
+  code_url: null
+  score: 68.44
+  public: 75.34
+  tie_band: 3
+  coverage: 1
+  domains:
+    knowledge: 68.0
+    language: 76.1
+    retrieval: 77.4
+    tools: 88.6
+    arts: 64.1
+- benchmark: jev-decision-index
+  name: Ainvest-Decision-27B v1.0
+  engine: ainvest-decision-27b-v1.0
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/Ainvest-World/Ainvest-Decision-27b-v1.0
+  code_url: null
+  score: 68.23
+  public: 71.88
+  tie_band: 3
+  coverage: 0.9999
+  domains:
+    knowledge: 57.9
+    language: 74.7
+    retrieval: 75.5
+    tools: 87.1
+    arts: 65.7
+- benchmark: jev-decision-index
+  name: Perplexity Decider v1.2 (27B)
+  engine: pplx-decider-v1.2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/perplexity-ai/pplx-decider-v1.2
+  code_url: null
+  score: 67.98
+  public: 67.74
+  tie_band: 3
+  coverage: 1
+  domains:
+    knowledge: 55.3
+    language: 71.9
+    retrieval: 68.1
+    tools: 85.4
+    arts: 56.2
+- benchmark: jev-decision-index
+  name: AutoTrust-JEV-27B v1.1
+  engine: autotrust-jev-27b-v11
+  kind: full fine-tune
+  base_model: vllm-sr/d3
+  params_b: 27.4
+  weights_url: https://huggingface.co/autotrust/AutoTrust-JEV-27B-v1.1
+  code_url: null
+  score: 67.95
+  public: 67.32
+  tie_band: 3
+  coverage: 1
+  domains:
+    knowledge: 55.2
+    language: 73.4
+    retrieval: 67.0
+    tools: 85.2
+    arts: 51.0
+- benchmark: jev-decision-index
+  name: StartLux-Decision v1.1 27B
+  engine: startlux-decision-v1.1-27b-instant
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant
+  code_url: null
+  score: 67.92
+  public: 72.88
+  tie_band: 3
+  coverage: 1
+  domains:
+    knowledge: 60.7
+    language: 75.6
+    retrieval: 74.8
+    tools: 87.9
+    arts: 66.2
+- benchmark: jev-decision-index
+  name: MISA AI 2.0 Decision Plus · oak 1.1 (31B)
+  engine: oak-1.1
+  kind: full fine-tune
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/PNPM244/oak1.1
+  code_url: null
+  score: 67.62
+  public: 68.19
+  tie_band: 4
+  coverage: 1
+  domains:
+    knowledge: 54.4
+    language: 70.9
+    retrieval: 71.8
+    tools: 85.7
+    arts: 57.5
+- benchmark: jev-decision-index
+  name: AJev lm6q (Gemma 4 31B)
+  engine: ajev-lm6q
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/andyzhang232/ajev-gemma4-31b-lm6q
+  code_url: null
+  score: 67.57
+  public: 65.46
+  tie_band: 4
+  coverage: 1
+  domains:
+    knowledge: 53.8
+    language: 68.6
+    retrieval: 67.3
+    tools: 81.5
+    arts: 54.4
+- benchmark: jev-decision-index
+  name: FlexDM · Gemma-4-31B
+  engine: flexdm-gemma-4-31b
+  kind: inference technique
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: null
+  code_url: https://github.com/1000luca/FlexDM/tree/v1.0
+  score: 67.56
+  public: 63.63
+  tie_band: 4
+  coverage: 1
+  domains:
+    knowledge: 51.1
+    language: 66.4
+    retrieval: 69.4
+    tools: 79.7
+    arts: 48.0
+- benchmark: jev-decision-index
+  name: Lychee-27B
+  engine: lychee-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/LycheeAI/Lychee-27B
+  code_url: null
+  score: 67.35
+  public: 62.76
+  tie_band: 4
+  coverage: 1
+  domains:
+    knowledge: 51.8
+    language: 66.2
+    retrieval: 63.9
+    tools: 80.8
+    arts: 47.0
+- benchmark: jev-decision-index
+  name: vLLM-SR d3-turbo v1.1 (27B)
+  engine: vllm-sr-d3-turbo-v11
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/vllm-sr/d3-turbo
+  code_url: null
+  score: 67.31
+  public: 71.62
+  tie_band: 4
+  coverage: 1
+  domains:
+    knowledge: 58.9
+    language: 74.5
+    retrieval: 75.8
+    tools: 86.9
+    arts: 60.9
+- benchmark: jev-decision-index
+  name: vLLM-SR d3 (27B)
+  engine: vllm-sr-d3-v310
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/vllm-sr/d3/tree/v3.1.0
+  code_url: null
+  score: 67.15
+  public: 65.45
+  tie_band: 4
+  coverage: 1
+  domains:
+    knowledge: 55.3
+    language: 68.0
+    retrieval: 66.9
+    tools: 82.6
+    arts: 51.0
+- benchmark: jev-decision-index
+  name: VisionJEV 1.0.0 (27B)
+  engine: visionjev-1.0.0
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/taoszhang/VisionJEV
+  code_url: null
+  score: 66.88
+  public: 66.46
+  tie_band: 4
+  coverage: 0.9993
+  domains:
+    knowledge: 55.8
+    language: 71.4
+    retrieval: 68.0
+    tools: 82.7
+    arts: 48.7
+- benchmark: jev-decision-index
+  name: Aleria Judge 1.1.1 (Gemma 4 31B)
+  engine: aleria-judge-1.1.1
+  kind: inference technique
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: null
+  code_url: https://github.com/ALERIA-ML/aleria-judge/tree/v1.1.1
+  score: 66.67
+  public: 63.46
+  tie_band: 5
+  coverage: 1
+  domains:
+    knowledge: 51.0
+    language: 67.9
+    retrieval: 66.2
+    tools: 79.0
+    arts: 50.3
+- benchmark: jev-decision-index
+  name: Nace.AI Drex Max v1 (27B)
+  engine: drex-max-v1
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: null
+  code_url: null
+  score: 66.6
+  public: 67.52
+  tie_band: 5
+  coverage: 1
+  domains:
+    knowledge: 57.1
+    language: 72.2
+    retrieval: 68.8
+    tools: 81.9
+    arts: 53.4
+- benchmark: jev-decision-index
+  name: Bespoke Nimble v4 Max (27B)
+  engine: nimble-v4-max
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.4
+  weights_url: https://huggingface.co/bespokelabs/Nimble-v4-max
+  code_url: null
+  score: 66.56
+  public: 68.46
+  tie_band: 5
+  coverage: 1
+  domains:
+    knowledge: 55.4
+    language: 70.4
+    retrieval: 71.6
+    tools: 88.6
+    arts: 54.3
+- benchmark: jev-decision-index
+  name: AnyJev Tacitus 31B
+  engine: anyjev-tacitus-31b
+  kind: full fine-tune
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/morriszjm/AnyJev-Tacitus-31B
+  code_url: null
+  score: 66.47
+  public: 65.52
+  tie_band: 5
+  coverage: 1
+  domains:
+    knowledge: 52.8
+    language: 70.3
+    retrieval: 67.5
+    tools: 81.3
+    arts: 53.2
+- benchmark: jev-decision-index
+  name: Decider 31B (NVFP4)
+  engine: decider-31b
+  kind: full fine-tune
+  base_model: google/gemma-4-31B-it
+  params_b: 32.7
+  weights_url: https://huggingface.co/Mapika/decider-31b
+  code_url: null
+  score: 66.03
+  public: 64.27
+  tie_band: 5
+  coverage: 1
+  domains:
+    knowledge: 50.3
+    language: 66.7
+    retrieval: 65.5
+    tools: 84.2
+    arts: 55.2
+- benchmark: jev-decision-index
+  name: allec (Gemma 4 31B)
+  engine: allec
+  kind: full fine-tune
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/plantwaterer/allec
+  code_url: null
+  score: 66.01
+  public: 61.6
+  tie_band: 5
+  coverage: 1
+  domains:
+    knowledge: 49.8
+    language: 64.8
+    retrieval: 64.8
+    tools: 77.4
+    arts: 48.4
+- benchmark: jev-decision-index
+  name: KnowLine 35B-A3B Gen1.5
+  engine: knowline-35b-a3b-gen1.5
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-35B-A3B
+  params_b: 36.0
+  weights_url: https://huggingface.co/PelaAI/KnowLine-35B-A3B-Gen1.5
+  code_url: null
+  score: 65.77
+  public: 70.72
+  tie_band: 5
+  coverage: 1
+  domains:
+    knowledge: 55.0
+    language: 72.9
+    retrieval: 75.4
+    tools: 88.2
+    arts: 64.2
+- benchmark: jev-decision-index
+  name: OneShot 27B
+  engine: oneshot-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/OneShotOrg/OneShot
+  code_url: null
+  score: 65.74
+  public: 65.41
+  tie_band: 6
+  coverage: 0.9995
+  domains:
+    knowledge: 52.9
+    language: 70.9
+    retrieval: 65.1
+    tools: 81.9
+    arts: 54.2
+- benchmark: jev-decision-index
+  name: vera-large
+  engine: vera-large
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 25.6
+  weights_url: https://huggingface.co/scar-ai/vera-large
+  code_url: null
+  score: 65.26
+  public: 67.75
+  tie_band: 6
+  coverage: 1
+  domains:
+    knowledge: 51.2
+    language: 75.7
+    retrieval: 69.5
+    tools: 83.0
+    arts: 58.5
+- benchmark: jev-decision-index
+  name: Bobcat 1.3 (31B)
+  engine: bobcat-1.3
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/sanghwa-na/bobcat-1.3
+  code_url: null
+  score: 64.85
+  public: 59.31
+  tie_band: 6
+  coverage: 1
+  domains:
+    knowledge: 48.0
+    language: 61.0
+    retrieval: 65.5
+    tools: 76.1
+    arts: 40.9
+- benchmark: jev-decision-index
+  name: Amos 1 Large (27B)
+  engine: amos-1-large
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/mukaddamzaid/amos-1-large
+  code_url: null
+  score: 64.81
+  public: 64.94
+  tie_band: 7
+  coverage: 1
+  domains:
+    knowledge: 52.4
+    language: 72.4
+    retrieval: 66.1
+    tools: 79.2
+    arts: 49.5
+- benchmark: jev-decision-index
+  name: Matilda Decision v1
+  engine: matilda-decision-v1
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/Maincode/matilda-decision-v1
+  code_url: null
+  score: 64.75
+  public: 65.39
+  tie_band: 7
+  coverage: 1
+  domains:
+    knowledge: 51.1
+    language: 71.3
+    retrieval: 67.6
+    tools: 84.6
+    arts: 47.4
+- benchmark: jev-decision-index
+  name: jev-brain · Gemma-4-31B
+  engine: jev-brain-gemma-4-31b
+  kind: inference technique
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: null
+  code_url: https://github.com/wcole3/jev-brain/tree/di-0.3-gemma-4-31b-r2
+  score: 64.61
+  public: 61.69
+  tie_band: 7
+  coverage: 1
+  domains:
+    knowledge: 48.6
+    language: 65.8
+    retrieval: 67.6
+    tools: 76.7
+    arts: 45.7
+- benchmark: jev-decision-index
+  name: KnowLine 26B-A4B Gen2.5
+  engine: knowline-26b-a4b-gen2.5
+  kind: LoRA
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/PelaAI/KnowLine-26B-A4B-Gen2.5
+  code_url: null
+  score: 64.57
+  public: 68.21
+  tie_band: 7
+  coverage: 1
+  domains:
+    knowledge: 55.1
+    language: 71.2
+    retrieval: 70.9
+    tools: 83.3
+    arts: 61.4
+- benchmark: jev-decision-index
+  name: frontier-infra Jebadiah 27B v2.1 (t1e)
+  engine: jebadiah-27b-v2.1-t1e
+  kind: LoRA
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/frontier-infra/jebadiah-27b-v2-1
+  code_url: null
+  score: 64.4
+  public: 60.46
+  tie_band: 7
+  coverage: 1
+  domains:
+    knowledge: 48.2
+    language: 65.5
+    retrieval: 59.9
+    tools: 79.3
+    arts: 45.8
+- benchmark: jev-decision-index
+  name: AnyJev L0 · Gemma-4-31B
+  engine: anyjev-l0-gemma-4-31b
+  kind: inference technique
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: null
+  code_url: https://github.com/MorrisZJ/anyjev-l0-gemma
+  score: 63.65
+  public: 59.79
+  tie_band: 8
+  coverage: 1
+  domains:
+    knowledge: 47.8
+    language: 61.7
+    retrieval: 63.5
+    tools: 76.4
+    arts: 48.0
+- benchmark: jev-decision-index
+  name: deck31b (Gemma 4 31B)
+  engine: deck31b
+  kind: inference technique
+  base_model: google/gemma-4-31B-it
+  params_b: 32.7
+  weights_url: null
+  code_url: https://github.com/krishna-gogineni-765/deck31b
+  score: 63.05
+  public: 58.19
+  tie_band: 8
+  coverage: 0.9481
+  domains:
+    knowledge: 46.7
+    language: 60.0
+    retrieval: 62.8
+    tools: 75.6
+    arts: 42.3
+- benchmark: jev-decision-index
+  name: Darwin-27B-ZTC
+  engine: darwin-27b-ztc
+  kind: full fine-tune
+  base_model: FINAL-Bench/Darwin-27B-RSI
+  params_b: 25.6
+  weights_url: https://huggingface.co/FINAL-Bench/Darwin-27B-ZTC
+  code_url: null
+  score: 63.03
+  public: 62.63
+  tie_band: 8
+  coverage: 1
+  domains:
+    knowledge: 44.7
+    language: 68.5
+    retrieval: 60.9
+    tools: 86.7
+    arts: 53.3
+- benchmark: jev-decision-index
+  name: decisio 0.6.0 (Gemma 4 31B)
+  engine: decisio-0.6.0-gemma-4-31b
+  kind: inference technique
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: null
+  code_url: https://github.com/aminry/decisio
+  score: 62.68
+  public: 58.09
+  tie_band: 9
+  coverage: 1
+  domains:
+    knowledge: 47.2
+    language: 59.8
+    retrieval: 62.7
+    tools: 75.0
+    arts: 41.4
+- benchmark: jev-decision-index
+  name: Cerno 27B
+  engine: cerno-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.9
+  weights_url: https://huggingface.co/apertixai/cerno-27b
+  code_url: null
+  score: 61.68
+  public: 65.19
+  tie_band: 10
+  coverage: 0.9999
+  domains:
+    knowledge: 49.0
+    language: 71.1
+    retrieval: 65.9
+    tools: 86.7
+    arts: 50.9
+- benchmark: jev-decision-index
+  name: Decider chat · Gemma-4-31B
+  engine: decider-chat-gemma4-31b
+  kind: inference technique
+  base_model: google/gemma-4-31B
+  params_b: 32.7
+  weights_url: null
+  code_url: https://github.com/Mapika/decider
+  score: 61.63
+  public: 57.79
+  tie_band: 10
+  coverage: 0.76
+  domains:
+    knowledge: 45.5
+    language: 59.5
+    retrieval: 63.1
+    tools: 75.6
+    arts: 42.2
+- benchmark: jev-decision-index
+  name: Torchcast Decision 27B
+  engine: torchcast-decision-27b
+  kind: LoRA
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/torchcast-ai/torchcast-decision-27b
+  code_url: null
+  score: 61.49
+  public: 65.1
+  tie_band: 10
+  coverage: 1
+  domains:
+    knowledge: 46.7
+    language: 72.0
+    retrieval: 67.5
+    tools: 84.6
+    arts: 54.4
+- benchmark: jev-decision-index
+  name: OneJev1.6-27B
+  engine: onejev1.6-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.4
+  weights_url: https://huggingface.co/OmniJev/OneJev1.6-27B
+  code_url: null
+  score: 61.46
+  public: 69.55
+  tie_band: 10
+  coverage: 1
+  domains:
+    knowledge: 57.5
+    language: 71.2
+    retrieval: 73.7
+    tools: 85.5
+    arts: 59.2
+- benchmark: jev-decision-index
+  name: Qwen Decision 27B noncausal LoRA
+  engine: qwen-decision-27b-noncausal
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/jsaurabh/qwen-decision-27b-noncausal-lora
+  code_url: null
+  score: 61.12
+  public: 57.7
+  tie_band: 10
+  coverage: 0.9993
+  domains:
+    knowledge: 42.8
+    language: 62.3
+    retrieval: 57.8
+    tools: 80.2
+    arts: 43.1
+- benchmark: jev-decision-index
+  name: Quyet-1.0-Large
+  engine: quyet-1.0-large
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 32.7
+  weights_url: https://huggingface.co/chinhnc/Quyet-1.0-Large
+  code_url: null
+  score: 60.77
+  public: 60.79
+  tie_band: 11
+  coverage: 0.9481
+  domains:
+    knowledge: 49.7
+    language: 67.0
+    retrieval: 65.8
+    tools: 72.5
+    arts: 41.9
+- benchmark: jev-decision-index
+  name: garum (Gemma 4 31B)
+  engine: garum
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/plantwaterer/garum
+  code_url: null
+  score: 60.27
+  public: 58.36
+  tie_band: 11
+  coverage: 0.9995
+  domains:
+    knowledge: 44.8
+    language: 61.8
+    retrieval: 63.3
+    tools: 75.0
+    arts: 44.2
+- benchmark: jev-decision-index
+  name: baselabs elephant-1 (9B)
+  engine: elephant-1-baselabs
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.4
+  weights_url: https://huggingface.co/baselabs/elephant-1
+  code_url: null
+  score: 60.26
+  public: 72.24
+  tie_band: 11
+  coverage: 1
+  domains:
+    knowledge: 60.6
+    language: 73.8
+    retrieval: 76.2
+    tools: 88.0
+    arts: 61.6
+- benchmark: jev-decision-index
+  name: Jev 1.14
+  engine: jev
+  kind: hosted API
+  base_model: null
+  params_b: null
+  weights_url: null
+  code_url: null
+  score: 60.24
+  public: 60.7
+  tie_band: 11
+  coverage: 1
+  domains:
+    knowledge: 57.1
+    language: 61.2
+    retrieval: 63.5
+    tools: 73.8
+    arts: 39.2
+- benchmark: jev-decision-index
+  name: Standard One 35B SH (v1)
+  engine: standard-one-35b-sh-v1
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.6-35B-A3B
+  params_b: 35.1
+  weights_url: https://huggingface.co/StandardThinking/StandardOne-35B-SH
+  code_url: null
+  score: 60.14
+  public: 66.26
+  tie_band: 11
+  coverage: 1
+  domains:
+    knowledge: 52.1
+    language: 66.0
+    retrieval: 72.5
+    tools: 86.1
+    arts: 54.6
+- benchmark: jev-decision-index
+  name: Lumma-fev-27B
+  engine: lumma-fev-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 26.1
+  weights_url: https://huggingface.co/FrontiersMind/Lumma-fev-27B
+  code_url: null
+  score: 59.97
+  public: 57.15
+  tie_band: 11
+  coverage: 0.9993
+  domains:
+    knowledge: 42.5
+    language: 60.8
+    retrieval: 57.7
+    tools: 78.8
+    arts: 44.8
+- benchmark: jev-decision-index
+  name: Sieve 27B v2
+  engine: sieve-27b-v2
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-27B-v2
+  code_url: null
+  score: 59.89
+  public: 68.02
+  tie_band: 11
+  coverage: 1
+  domains:
+    knowledge: 56.8
+    language: 66.0
+    retrieval: 73.4
+    tools: 85.8
+    arts: 58.9
+- benchmark: jev-decision-index
+  name: mogan-decision-31B-it
+  engine: mogan-decision-31b-it
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/moganai/mogan-decision-31B-it
+  code_url: null
+  score: 59.82
+  public: 65.55
+  tie_band: 12
+  coverage: 1
+  domains:
+    knowledge: 51.6
+    language: 70.0
+    retrieval: 69.6
+    tools: 79.7
+    arts: 56.1
+- benchmark: jev-decision-index
+  name: linne-fern 1.0 (27B)
+  engine: linne-fern-1.0
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/MISA-core/linne-fern-1-0
+  code_url: null
+  score: 59.65
+  public: 58.92
+  tie_band: 12
+  coverage: 1
+  domains:
+    knowledge: 44.9
+    language: 62.8
+    retrieval: 62.4
+    tools: 79.0
+    arts: 41.5
+- benchmark: jev-decision-index
+  name: Kev 27B
+  engine: kev-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/jaredpalmer/kev-27b
+  code_url: null
+  score: 59.56
+  public: 56.69
+  tie_band: 12
+  coverage: 1
+  domains:
+    knowledge: 45.7
+    language: 62.6
+    retrieval: 55.8
+    tools: 72.7
+    arts: 42.7
+- benchmark: jev-decision-index
+  name: Xor 26B-A4B v1.2
+  engine: xor-26b-a4b-v1.2
+  kind: LoRA
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/juspay/Xor-26B-A4B
+  code_url: null
+  score: 59.44
+  public: 59.46
+  tie_band: 12
+  coverage: 1
+  domains:
+    knowledge: 45.5
+    language: 63.2
+    retrieval: 64.8
+    tools: 72.2
+    arts: 51.9
+- benchmark: jev-decision-index
+  name: Jev 1.13
+  engine: jev-1.13.0
+  kind: hosted API
+  base_model: null
+  params_b: null
+  weights_url: null
+  code_url: null
+  score: 59.22
+  public: 57.96
+  tie_band: 12
+  coverage: 1
+  domains:
+    knowledge: 53.9
+    language: 59.2
+    retrieval: 55.4
+    tools: 75.1
+    arts: 39.1
+- benchmark: jev-decision-index
+  name: span-02 (Gemma 4 26B-A4B)
+  engine: span-02
+  kind: full fine-tune
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/lihe07/span-02
+  code_url: null
+  score: 59.07
+  public: 63.62
+  tie_band: 12
+  coverage: 1
+  domains:
+    knowledge: 52.0
+    language: 65.2
+    retrieval: 65.5
+    tools: 83.9
+    arts: 48.6
+- benchmark: jev-decision-index
+  name: garas (Gemma 4 31B)
+  engine: garas
+  kind: LoRA
+  base_model: google/gemma-4-31B-it
+  params_b: 31.3
+  weights_url: https://huggingface.co/plantwaterer/garas
+  code_url: null
+  score: 58.95
+  public: 56.59
+  tie_band: 12
+  coverage: 0.9995
+  domains:
+    knowledge: 43.3
+    language: 58.7
+    retrieval: 61.9
+    tools: 73.8
+    arts: 43.6
+- benchmark: jev-decision-index
+  name: Shisa DE-2.1 (repeat)
+  engine: shisa-de-2.1-repeat
+  kind: LoRA
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/shisa-ai/shisa-de-2.1
+  code_url: null
+  score: 58.84
+  public: 59.23
+  tie_band: 13
+  coverage: 1
+  domains:
+    knowledge: 47.3
+    language: 61.9
+    retrieval: 64.8
+    tools: 76.3
+    arts: 40.9
+- benchmark: jev-decision-index
+  name: Eikos-27B
+  engine: eikos-27b-fp8
+  kind: LoRA
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/caiovicentino1/Eikos-27B-FP8
+  code_url: https://github.com/caiovicentino/eikos
+  score: 58.79
+  public: 52.85
+  tie_band: 13
+  coverage: 0.76
+  domains:
+    knowledge: 40.0
+    language: 52.6
+    retrieval: 55.9
+    tools: 74.4
+    arts: 41.4
+- benchmark: jev-decision-index
+  name: reflex Qwen3.8-27B-FP8 (pmscr)
+  engine: reflex-27b-pmscr
+  kind: inference technique
+  base_model: Qwen/Qwen3.8-27B-FP8
+  params_b: 27.8
+  weights_url: null
+  code_url: https://github.com/kshetrajna12/reflex
+  score: 58.77
+  public: 57.34
+  tie_band: 13
+  coverage: 1
+  domains:
+    knowledge: 37.3
+    language: 62.8
+    retrieval: 64.2
+    tools: 77.2
+    arts: 45.2
+- benchmark: jev-decision-index
+  name: RSI-Jev v6.1 VL 27B (effort auto)
+  engine: rsi-jev-v6.1-vl-27b-auto
+  kind: LoRA
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/shgao/rsi-jev-v6.1-vl-27b
+  code_url: null
+  score: 58.6
+  public: 65.64
+  tie_band: 13
+  coverage: 1
+  domains:
+    knowledge: 51.7
+    language: 69.1
+    retrieval: 69.1
+    tools: 81.2
+    arts: 57.3
+- benchmark: jev-decision-index
+  name: KnowLine 9B Gen1
+  engine: knowline-9b-gen1
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/PelaAI/KnowLine-9B-Gen1
+  code_url: null
+  score: 58.44
+  public: 65.67
+  tie_band: 13
+  coverage: 1
+  domains:
+    knowledge: 47.6
+    language: 69.1
+    retrieval: 71.9
+    tools: 82.7
+    arts: 59.8
+- benchmark: jev-decision-index
+  name: StartLux-Decision v1.1 9B
+  engine: startlux-decision-v1.1-9b-instant
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/startlux-models/StartLux-Decision-v1.1-9B-Instant
+  code_url: null
+  score: 58.07
+  public: 69.98
+  tie_band: 13
+  coverage: 1
+  domains:
+    knowledge: 53.4
+    language: 73.1
+    retrieval: 74.3
+    tools: 88.2
+    arts: 63.1
+- benchmark: jev-decision-index
+  name: vLLM-SR Decision 2.0 Vega 27B
+  engine: decision-2.0-vega-27b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/vllm-sr/Decision-2.0-Vega-27B
+  code_url: null
+  score: 58.01
+  public: 56.97
+  tie_band: 13
+  coverage: 1
+  domains:
+    knowledge: 46.0
+    language: 59.0
+    retrieval: 60.9
+    tools: 73.5
+    arts: 42.0
+- benchmark: jev-decision-index
+  name: JEV-35B
+  engine: jev-35b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-35B-A3B
+  params_b: 36.0
+  weights_url: https://huggingface.co/autotrust/JEV-35B
+  code_url: null
+  score: 57.61
+  public: 59.73
+  tie_band: 14
+  coverage: 1
+  domains:
+    knowledge: 42.6
+    language: 63.2
+    retrieval: 71.0
+    tools: 76.4
+    arts: 42.2
+- benchmark: jev-decision-index
+  name: JEV-27B
+  engine: jev-27b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/autotrust/JEV-27B
+  code_url: null
+  score: 57.35
+  public: 53.64
+  tie_band: 14
+  coverage: 1
+  domains:
+    knowledge: 41.4
+    language: 56.4
+    retrieval: 53.7
+    tools: 73.5
+    arts: 41.6
+- benchmark: jev-decision-index
+  name: simple-jev · Qwen3.8-27B (featherless)
+  engine: simple-jev-qwen3.8-27b
+  kind: inference technique
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: null
+  code_url: https://github.com/featherless-ai/simple-jev
+  score: 56.99
+  public: 56.05
+  tie_band: 14
+  coverage: 0.76
+  domains:
+    knowledge: 36.9
+    language: 61.2
+    retrieval: 63.2
+    tools: 76.2
+    arts: 40.8
+- benchmark: jev-decision-index
+  name: Tern-35B-A3B
+  engine: tern-35b-a3b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.6-35B-A3B
+  params_b: 34.8
+  weights_url: https://huggingface.co/matthewagi/Tern-35B-A3B
+  code_url: null
+  score: 56.62
+  public: 59.01
+  tie_band: 15
+  coverage: 0.9997
+  domains:
+    knowledge: 43.2
+    language: 64.9
+    retrieval: 63.5
+    tools: 77.0
+    arts: 43.0
+- benchmark: jev-decision-index
+  name: Surogate Rune 26B-A4B v3
+  engine: rune-26b-a4b-v3
+  kind: full fine-tune
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/surogate/rune-26b-a4b-GGUF
+  code_url: https://github.com/invergent-ai/surogate
+  score: 56.42
+  public: 58.28
+  tie_band: 15
+  coverage: 0.76
+  domains:
+    knowledge: 46.0
+    language: 61.9
+    retrieval: 63.5
+    tools: 71.2
+    arts: 46.5
+- benchmark: jev-decision-index
+  name: SynACK Decide 26B-A4B v7
+  engine: synack-decide-26b-a4b-v7
+  kind: LoRA
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/SkyPanther/synack-decide-26b-a4b
+  code_url: null
+  score: 56.22
+  public: 59.68
+  tie_band: 15
+  coverage: 1
+  domains:
+    knowledge: 43.7
+    language: 63.5
+    retrieval: 62.4
+    tools: 79.1
+    arts: 50.1
+- benchmark: jev-decision-index
+  name: KnowLine 4B Gen5.5
+  engine: knowline-4b-gen5.5
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/PelaAI/KnowLine-4B-Gen5.5
+  code_url: null
+  score: 55.99
+  public: 66.76
+  tie_band: 15
+  coverage: 1
+  domains:
+    knowledge: 47.3
+    language: 68.2
+    retrieval: 74.0
+    tools: 87.4
+    arts: 61.0
+- benchmark: jev-decision-index
+  name: Blink v0.3 26B-A4B (NVFP4)
+  engine: blink-v0.3-26b-a4b-nvfp4
+  kind: full fine-tune
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/PixilabAI/Blink-v0.3-26B-A4B-NVFP4
+  code_url: null
+  score: 55.92
+  public: 58.21
+  tie_band: 15
+  coverage: 1
+  domains:
+    knowledge: 45.1
+    language: 63.6
+    retrieval: 63.0
+    tools: 70.0
+    arts: 47.0
+- benchmark: jev-decision-index
+  name: JADE
+  engine: jade
+  kind: LoRA
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/theunnecessarythings/JADE
+  code_url: null
+  score: 55.57
+  public: 53.42
+  tie_band: 16
+  coverage: 0.9993
+  domains:
+    knowledge: 41.2
+    language: 56.5
+    retrieval: 54.4
+    tools: 73.2
+    arts: 39.0
+- benchmark: jev-decision-index
+  name: Wald-26B-A4B
+  engine: wald-26b-a4b
+  kind: full fine-tune
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/org2ai/Wald-26B-A4B
+  code_url: null
+  score: 55.35
+  public: 62.3
+  tie_band: 16
+  coverage: 1
+  domains:
+    knowledge: 44.7
+    language: 64.2
+    retrieval: 69.0
+    tools: 83.3
+    arts: 50.9
+- benchmark: jev-decision-index
+  name: AJev lora1 (Gemma 4 26B-A4B)
+  engine: ajev-gemma26-lora1
+  kind: LoRA
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/andyzhang232/ajev-gemma4-26b-a4b-lora1
+  code_url: null
+  score: 55.29
+  public: 57.67
+  tie_band: 16
+  coverage: 1
+  domains:
+    knowledge: 41.9
+    language: 62.1
+    retrieval: 63.5
+    tools: 73.2
+    arts: 46.8
+- benchmark: jev-decision-index
+  name: Cloudflare clef
+  engine: clef
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/Cloudflare/clef
+  code_url: null
+  score: 54.92
+  public: 61.71
+  tie_band: 16
+  coverage: 1
+  domains:
+    knowledge: 52.8
+    language: 61.3
+    retrieval: 62.8
+    tools: 80.7
+    arts: 48.9
+- benchmark: jev-decision-index
+  name: StartLux-Decision v1.1 4B
+  engine: startlux-decision-v1.1-4b-instant
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/startlux-models/StartLux-Decision-v1.1-4B-Instant
+  code_url: null
+  score: 54.8
+  public: 67.81
+  tie_band: 16
+  coverage: 1
+  domains:
+    knowledge: 50.2
+    language: 71.2
+    retrieval: 73.0
+    tools: 86.4
+    arts: 60.0
+- benchmark: jev-decision-index
+  name: Decider chat · Qwen3.6-27B
+  engine: decider-chat-qwen3.6-27b
+  kind: inference technique
+  base_model: Qwen/Qwen3.6-27B
+  params_b: 27.8
+  weights_url: null
+  code_url: https://github.com/Mapika/decider
+  score: 54.67
+  public: 51.57
+  tie_band: 16
+  coverage: 0.76
+  domains:
+    knowledge: 38.3
+    language: 55.9
+    retrieval: 52.2
+    tools: 71.4
+    arts: 37.0
+- benchmark: jev-decision-index
+  name: Perplexity Decider Flash v1.2 (4B)
+  engine: pplx-decider-flash-v1.2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.5
+  weights_url: https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.2
+  code_url: null
+  score: 54.29
+  public: 60.06
+  tie_band: 17
+  coverage: 1
+  domains:
+    knowledge: 41.4
+    language: 65.1
+    retrieval: 65.2
+    tools: 81.0
+    arts: 46.6
+- benchmark: jev-decision-index
+  name: vLLM-SR d3-flash (9B)
+  engine: vllm-sr-d3-flash
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 8.4
+  weights_url: https://huggingface.co/vllm-sr/d3-flash
+  code_url: null
+  score: 54.27
+  public: 57.79
+  tie_band: 17
+  coverage: 1
+  domains:
+    knowledge: 43.3
+    language: 60.6
+    retrieval: 64.2
+    tools: 76.0
+    arts: 41.9
+- benchmark: jev-decision-index
+  name: JPT-35B-A3B
+  engine: jpt-35b-a3b
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-35B-A3B
+  params_b: 36.0
+  weights_url: https://huggingface.co/kirp/jpt-35b-a3b
+  code_url: null
+  score: 54.09
+  public: 52.68
+  tie_band: 17
+  coverage: 0.9481
+  domains:
+    knowledge: 36.5
+    language: 61.2
+    retrieval: 55.6
+    tools: 69.2
+    arts: 36.5
+- benchmark: jev-decision-index
+  name: Xor 1.2
+  engine: xor-1.2
+  kind: LoRA
+  base_model: Qwen/Qwen3.6-35B-A3B
+  params_b: 36.0
+  weights_url: https://huggingface.co/juspay/xor
+  code_url: null
+  score: 53.62
+  public: 52.28
+  tie_band: 17
+  coverage: 1
+  domains:
+    knowledge: 35.5
+    language: 56.9
+    retrieval: 54.5
+    tools: 71.2
+    arts: 45.0
+- benchmark: jev-decision-index
+  name: GEV-26B-Decide
+  engine: jev-gemma4-26b-a4b
+  kind: LoRA
+  base_model: google/gemma-4-26B-A4B-it
+  params_b: 25.8
+  weights_url: https://huggingface.co/autotrust/GEV-26B-Decide
+  code_url: null
+  score: 53.5
+  public: 58.03
+  tie_band: 17
+  coverage: 1
+  domains:
+    knowledge: 43.7
+    language: 61.2
+    retrieval: 67.9
+    tools: 69.7
+    arts: 45.6
+- benchmark: jev-decision-index
+  name: OneJev1.6-9B
+  engine: onejev1.6-9b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.4
+  weights_url: https://huggingface.co/OmniJev/OneJev1.6-9B
+  code_url: null
+  score: 53.05
+  public: 65.3
+  tie_band: 18
+  coverage: 1
+  domains:
+    knowledge: 50.1
+    language: 66.6
+    retrieval: 71.7
+    tools: 83.0
+    arts: 56.0
+- benchmark: jev-decision-index
+  name: Nace.AI Drex v2.0 (35B-A3B)
+  engine: drex-v2.0
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.6-35B-A3B
+  params_b: 35.1
+  weights_url: https://huggingface.co/nace-ai/drex-v2.0
+  code_url: null
+  score: 52.76
+  public: 61.25
+  tie_band: 18
+  coverage: 1
+  domains:
+    knowledge: 47.9
+    language: 65.3
+    retrieval: 63.0
+    tools: 76.5
+    arts: 53.9
+- benchmark: jev-decision-index
+  name: muria (Gemma 4 12B)
+  engine: muria
+  kind: full fine-tune
+  base_model: google/gemma-4-12B-it
+  params_b: 12.0
+  weights_url: https://huggingface.co/plantwaterer/muria
+  code_url: null
+  score: 52.55
+  public: 51.4
+  tie_band: 18
+  coverage: 1
+  domains:
+    knowledge: 31.4
+    language: 56.6
+    retrieval: 58.9
+    tools: 70.8
+    arts: 39.1
+- benchmark: jev-decision-index
+  name: Jeffan-4B-2010
+  engine: jeffan-4b-2010
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.2
+  weights_url: https://huggingface.co/tattrongvu/Jeffan-4B-2010
+  code_url: null
+  score: 52.21
+  public: 64.85
+  tie_band: 18
+  coverage: 1
+  domains:
+    knowledge: 49.5
+    language: 69.8
+    retrieval: 62.8
+    tools: 87.4
+    arts: 54.6
+- benchmark: jev-decision-index
+  name: Verdin-4B v1.1
+  engine: verdin-4b-v1.1
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.2
+  weights_url: https://huggingface.co/victorbennett/Verdin-4B-v1.1
+  code_url: null
+  score: 51.99
+  public: 60.96
+  tie_band: 19
+  coverage: 1
+  domains:
+    knowledge: 43.7
+    language: 63.3
+    retrieval: 66.9
+    tools: 81.0
+    arts: 51.1
+- benchmark: jev-decision-index
+  name: Bespoke Nimble 9B v3
+  engine: nimble-v3
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/bespokelabs/Bespoke-Nimble-9B-v3
+  code_url: null
+  score: 51.06
+  public: 57.19
+  tie_band: 20
+  coverage: 0.9983
+  domains:
+    knowledge: 41.0
+    language: 60.7
+    retrieval: 55.5
+    tools: 84.2
+    arts: 44.0
+- benchmark: jev-decision-index
+  name: frontier-infra Jebadiah 9B v2.1 (t1e)
+  engine: jebadiah-9b-v2.1-t1e
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/frontier-infra/jebadiah-9b-v2-1
+  code_url: null
+  score: 50.9
+  public: 51.53
+  tie_band: 20
+  coverage: 1
+  domains:
+    knowledge: 35.3
+    language: 56.6
+    retrieval: 55.5
+    tools: 70.4
+    arts: 38.1
+- benchmark: jev-decision-index
+  name: decisio 0.4.0 (Qwen3.6-35B-A3B)
+  engine: decisio-0.4.0-qwen3.6-35b-a3b
+  kind: inference technique
+  base_model: Qwen/Qwen3.6-35B-A3B
+  params_b: 36.0
+  weights_url: null
+  code_url: https://github.com/aminry/decisio
+  score: 50.82
+  public: 48.43
+  tie_band: 20
+  coverage: 1
+  domains:
+    knowledge: 33.4
+    language: 50.1
+    retrieval: 53.6
+    tools: 68.4
+    arts: 36.1
+- benchmark: jev-decision-index
+  name: vLLM-SR d3-mini (4B)
+  engine: vllm-sr-d3-mini
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.5
+  weights_url: https://huggingface.co/vllm-sr/d3-mini
+  code_url: null
+  score: 49.97
+  public: 54.9
+  tie_band: 21
+  coverage: 1
+  domains:
+    knowledge: 39.8
+    language: 57.8
+    retrieval: 63.6
+    tools: 72.0
+    arts: 37.7
+- benchmark: jev-decision-index
+  name: JoshuaSP diffusiongemma (open-jev)
+  engine: joshua-diffusion-full
+  kind: inference technique
+  base_model: google/diffusiongemma-26B-A4B-it
+  params_b: 25.8
+  weights_url: null
+  code_url: https://github.com/JoshuaSP/open-jev
+  score: 49.53
+  public: 50.14
+  tie_band: 21
+  coverage: 0.76
+  domains:
+    knowledge: 32.5
+    language: 54.3
+    retrieval: 58.4
+    tools: 70.2
+    arts: 32.0
+- benchmark: jev-decision-index
+  name: AJev lora7 (Gemma 4 12B)
+  engine: ajev-lora7
+  kind: LoRA
+  base_model: google/gemma-4-12B-it
+  params_b: 12.0
+  weights_url: https://huggingface.co/andyzhang232/ajev-gemma4-12b-lora7
+  code_url: null
+  score: 48.91
+  public: 55.17
+  tie_band: 22
+  coverage: 1
+  domains:
+    knowledge: 38.3
+    language: 62.6
+    retrieval: 63.0
+    tools: 68.4
+    arts: 39.8
+- benchmark: jev-decision-index
+  name: OneJev1.6-4B
+  engine: onejev1.6-4b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.5
+  weights_url: https://huggingface.co/OmniJev/OneJev1.6-4B
+  code_url: null
+  score: 48.88
+  public: 61.95
+  tie_band: 22
+  coverage: 1
+  domains:
+    knowledge: 45.0
+    language: 64.4
+    retrieval: 68.9
+    tools: 81.5
+    arts: 49.8
+- benchmark: jev-decision-index
+  name: decisio 0.4.0 (Gemma 4 12B)
+  engine: decisio-0.4.0-gemma-4-12b
+  kind: inference technique
+  base_model: google/gemma-4-12B-it
+  params_b: 12.0
+  weights_url: null
+  code_url: https://github.com/aminry/decisio
+  score: 48.75
+  public: 49.72
+  tie_band: 22
+  coverage: 1
+  domains:
+    knowledge: 30.8
+    language: 52.4
+    retrieval: 58.0
+    tools: 71.6
+    arts: 35.3
+- benchmark: jev-decision-index
+  name: Mica v0.5 4B
+  engine: mica-v0.5-4b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/sky7350/Mica-v0.5-4B
+  code_url: https://github.com/akivet/Mica/tree/4adbdd398d6e2a9ca0a63b1e3d3b49240f03cee5
+  score: 47.7
+  public: 57.56
+  tie_band: 23
+  coverage: 1
+  domains:
+    knowledge: 38.8
+    language: 63.1
+    retrieval: 61.7
+    tools: 80.9
+    arts: 40.8
+- benchmark: jev-decision-index
+  name: PurpleMIST-Flash-1.0
+  engine: purplemist-flash-1.0
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-9B-Base
+  params_b: 7.9
+  weights_url: https://huggingface.co/olaverse/PurpleMIST-Flash-1.0
+  code_url: null
+  score: 47.54
+  public: 46.74
+  tie_band: 23
+  coverage: 1
+  domains:
+    knowledge: 34.9
+    language: 53.1
+    retrieval: 47.5
+    tools: 65.1
+    arts: 25.5
+- benchmark: jev-decision-index
+  name: Cerno 9B v1.1
+  engine: cerno-9b-v11
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B-Base
+  params_b: 9.0
+  weights_url: https://huggingface.co/apertixai/cerno-9b
+  code_url: null
+  score: 47.34
+  public: 58.59
+  tie_band: 23
+  coverage: 0.9999
+  domains:
+    knowledge: 39.3
+    language: 64.3
+    retrieval: 65.1
+    tools: 79.2
+    arts: 43.0
+- benchmark: jev-decision-index
+  name: Senova-4B
+  engine: senova-4b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.5
+  weights_url: https://huggingface.co/WangSenQWQ/Senova-4B
+  code_url: null
+  score: 47.32
+  public: 61.6
+  tie_band: 23
+  coverage: 1
+  domains:
+    knowledge: 38.9
+    language: 65.0
+    retrieval: 67.0
+    tools: 84.6
+    arts: 58.6
+- benchmark: jev-decision-index
+  name: Sieve 9B v2
+  engine: sieve-9b-plus
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-9B-v2
+  code_url: null
+  score: 47
+  public: 53.35
+  tie_band: 23
+  coverage: 1
+  domains:
+    knowledge: 38.2
+    language: 55.9
+    retrieval: 64.2
+    tools: 69.8
+    arts: 34.0
+- benchmark: jev-decision-index
+  name: Decider 35B-A3B
+  engine: decider-35b-nvfp4
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-35B-A3B-Base
+  params_b: 36.0
+  weights_url: https://huggingface.co/Mapika/decider-35b-a3b-nvfp4
+  code_url: null
+  score: 46.64
+  public: 47.7
+  tie_band: 24
+  coverage: 0.76
+  domains:
+    knowledge: 35.9
+    language: 52.8
+    retrieval: 54.7
+    tools: 56.5
+    arts: 35.2
+- benchmark: jev-decision-index
+  name: Winnow-12B
+  engine: winnow-12b-q8
+  kind: LoRA
+  base_model: google/gemma-4-12B
+  params_b: 12.0
+  weights_url: https://huggingface.co/EldanRing/Winnow-12B
+  code_url: https://github.com/EldanRing/winnow-inference
+  score: 46.57
+  public: 50.66
+  tie_band: 24
+  coverage: 0.76
+  domains:
+    knowledge: 34.8
+    language: 57.0
+    retrieval: 54.0
+    tools: 71.0
+    arts: 31.4
+- benchmark: jev-decision-index
+  name: Seb-9B v2
+  engine: seb-9b-v2
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/ironbcc/Seb-9B-v2
+  code_url: null
+  score: 46.25
+  public: 59.16
+  tie_band: 24
+  coverage: 1
+  domains:
+    knowledge: 39.9
+    language: 62.2
+    retrieval: 63.5
+    tools: 83.1
+    arts: 48.9
+- benchmark: jev-decision-index
+  name: vLLM-SR Decision 2.0 Lux 9B
+  engine: decision-2.0-lux-9b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/vllm-sr/Decision-2.0-Lux-9B
+  code_url: null
+  score: 45.97
+  public: 46.76
+  tie_band: 24
+  coverage: 0.9999
+  domains:
+    knowledge: 35.5
+    language: 46.9
+    retrieval: 55.6
+    tools: 60.4
+    arts: 33.1
+- benchmark: jev-decision-index
+  name: Nace.AI Drex v1.5
+  engine: drex-v1.5
+  kind: full fine-tune
+  base_model: XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
+  params_b: 8.9
+  weights_url: https://huggingface.co/nace-ai/drex-v1.5
+  code_url: null
+  score: 45.78
+  public: 58.08
+  tie_band: 24
+  coverage: 1
+  domains:
+    knowledge: 44.6
+    language: 60.4
+    retrieval: 61.7
+    tools: 75.0
+    arts: 48.8
+- benchmark: jev-decision-index
+  name: Hopper 12B (trained)
+  engine: hopper-12b-trained
+  kind: LoRA
+  base_model: google/gemma-4-12B-it
+  params_b: 12.0
+  weights_url: https://huggingface.co/HopitAI/hopper
+  code_url: null
+  score: 45.76
+  public: 48.27
+  tie_band: 24
+  coverage: 0.9481
+  domains:
+    knowledge: 31.7
+    language: 53.8
+    retrieval: 53.2
+    tools: 66.3
+    arts: 34.2
+- benchmark: jev-decision-index
+  name: Trio-Spark DI (9B)
+  engine: trio-spark-di
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.0
+  weights_url: https://huggingface.co/MachineFi/Trio-Spark-DI
+  code_url: null
+  score: 45.59
+  public: 55.52
+  tie_band: 25
+  coverage: 0.9985
+  domains:
+    knowledge: 39.2
+    language: 59.4
+    retrieval: 58.8
+    tools: 76.6
+    arts: 42.8
+- benchmark: jev-decision-index
+  name: CoCo-Decision-4B 2.4
+  engine: coco-decision-2.4-4b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.2
+  weights_url: https://huggingface.co/corners-ai/CoCo-Decision-2.4-4B
+  code_url: null
+  score: 45.52
+  public: 55.19
+  tie_band: 25
+  coverage: 1
+  domains:
+    knowledge: 35.6
+    language: 62.6
+    retrieval: 58.7
+    tools: 77.3
+    arts: 39.1
+- benchmark: jev-decision-index
+  name: Cloudflare clef-omni (30B-A3B)
+  engine: clef-omni
+  kind: full fine-tune
+  base_model: Qwen/Qwen3-Omni-30B-A3B-Instruct
+  params_b: 31.8
+  weights_url: https://huggingface.co/Cloudflare/clef-omni
+  code_url: null
+  score: 45.04
+  public: 56.54
+  tie_band: 25
+  coverage: 1
+  domains:
+    knowledge: 53.8
+    language: 49.8
+    retrieval: 59.3
+    tools: 72.6
+    arts: 46.4
+- benchmark: jev-decision-index
+  name: JevK5 9B v0.3.3
+  engine: jevk5-9b-v0.3.3
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/alibiserikbay/JevK5-9B
+  code_url: null
+  score: 44.89
+  public: 47.62
+  tie_band: 25
+  coverage: 1
+  domains:
+    knowledge: 31.6
+    language: 54.7
+    retrieval: 50.0
+    tools: 64.1
+    arts: 35.7
+- benchmark: jev-decision-index
+  name: Cloudflare clef-flash
+  engine: clef-flash
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/Cloudflare/clef-flash
+  code_url: null
+  score: 44.43
+  public: 56.15
+  tie_band: 26
+  coverage: 1
+  domains:
+    knowledge: 53.0
+    language: 47.2
+    retrieval: 52.2
+    tools: 81.9
+    arts: 48.4
+- benchmark: jev-decision-index
+  name: Jevfire
+  engine: jevfire-uncapped
+  kind: inference technique
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: null
+  code_url: https://github.com/kikoncuo/jevfire
+  score: 44.39
+  public: 49.8
+  tie_band: 26
+  coverage: 0.76
+  domains:
+    knowledge: 30.2
+    language: 53.9
+    retrieval: 56.2
+    tools: 72.3
+    arts: 35.7
+- benchmark: jev-decision-index
+  name: RSI-Jev v6.1 VL 4B
+  engine: rsi-jev-v6.1-vl-4b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/shgao/rsi-jev-v6.1-vl-4b
+  code_url: null
+  score: 44.27
+  public: 50.98
+  tie_band: 26
+  coverage: 1
+  domains:
+    knowledge: 31.6
+    language: 55.3
+    retrieval: 57.1
+    tools: 68.4
+    arts: 45.7
+- benchmark: jev-decision-index
+  name: Jegue 0.1 (9B)
+  engine: jegue-0.1
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/fdemelo/jegue
+  code_url: null
+  score: 44.16
+  public: 54.13
+  tie_band: 26
+  coverage: 1
+  domains:
+    knowledge: 33.5
+    language: 62.5
+    retrieval: 65.5
+    tools: 72.3
+    arts: 29.8
+- benchmark: jev-decision-index
+  name: jiwo 4B v2
+  engine: jiwo-4b-v2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.2
+  weights_url: https://huggingface.co/eljiwo/jiwo-4b
+  code_url: null
+  score: 44.1
+  public: 46.06
+  tie_band: 26
+  coverage: 1
+  domains:
+    knowledge: 29.1
+    language: 52.9
+    retrieval: 51.7
+    tools: 63.1
+    arts: 29.8
+- benchmark: jev-decision-index
+  name: JPT-9B
+  engine: jpt-9b
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-9B-Base
+  params_b: 9.7
+  weights_url: https://huggingface.co/kirp/jpt-9b
+  code_url: https://github.com/tic-top/llm2jev
+  score: 44.08
+  public: 46.96
+  tie_band: 26
+  coverage: 0.76
+  domains:
+    knowledge: 30.9
+    language: 57.7
+    retrieval: 44.6
+    tools: 67.0
+    arts: 28.8
+- benchmark: jev-decision-index
+  name: ezjev 4B s2
+  engine: ezjev-4b-s2
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/everettjf/ezjev-4b-s2
+  code_url: null
+  score: 43.9
+  public: 50.82
+  tie_band: 26
+  coverage: 1
+  domains:
+    knowledge: 31.0
+    language: 60.5
+    retrieval: 56.3
+    tools: 69.9
+    arts: 31.1
+- benchmark: jev-decision-index
+  name: Jev-Omni
+  engine: jev-omni
+  kind: LoRA + head
+  base_model: google/gemma-4-12B
+  params_b: 12.0
+  weights_url: https://huggingface.co/akhilaaa3/Jev-Omni
+  code_url: null
+  score: 43.83
+  public: 41.04
+  tie_band: 26
+  coverage: 0.76
+  domains:
+    knowledge: 26.1
+    language: 51.3
+    retrieval: 35.8
+    tools: 60.8
+    arts: 27.4
+- benchmark: jev-decision-index
+  name: Solomon v1.1
+  engine: solomon-v11-bf16-encoding
+  kind: head / adapter
+  base_model: Qwen/Qwen3.8-27B
+  params_b: 27.8
+  weights_url: https://huggingface.co/DoccyHealth/Solomon
+  code_url: null
+  score: 43.23
+  public: 38.07
+  tie_band: 27
+  coverage: 0.6037
+  domains:
+    knowledge: 27.8
+    language: 56.7
+    retrieval: 26.0
+    tools: 47.0
+    arts: 24.5
+- benchmark: jev-decision-index
+  name: Standard One 8B SH (v4)
+  engine: standard-one-8b-sh-v4
+  kind: LoRA + head
+  base_model: StandardThinking/StandardOne-8B
+  params_b: 8.9
+  weights_url: https://huggingface.co/StandardThinking/StandardOne-8B-SH
+  code_url: null
+  score: 42.93
+  public: 57.4
+  tie_band: 27
+  coverage: 1
+  domains:
+    knowledge: 36.9
+    language: 57.9
+    retrieval: 66.4
+    tools: 84.0
+    arts: 42.5
+- benchmark: jev-decision-index
+  name: Amber Hybrid 4B
+  engine: amber-hybrid-4b
+  kind: inference technique
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.6
+  weights_url: https://huggingface.co/MLukauskas/amber-hybrid-4b
+  code_url: null
+  score: 42.74
+  public: 59.87
+  tie_band: 27
+  coverage: 1
+  domains:
+    knowledge: 36.7
+    language: 60.1
+    retrieval: 68.9
+    tools: 84.9
+    arts: 55.3
+- benchmark: jev-decision-index
+  name: JEV-9B
+  engine: jev-9b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/autotrust/JEV-9B
+  code_url: null
+  score: 42.15
+  public: 43.28
+  tie_band: 28
+  coverage: 1
+  domains:
+    knowledge: 30.7
+    language: 44.1
+    retrieval: 46.5
+    tools: 62.1
+    arts: 32.8
+- benchmark: jev-decision-index
+  name: Bespoke Nimble 9B v2
+  engine: nimble-v2
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-9B-Base
+  params_b: 9.7
+  weights_url: https://huggingface.co/bespokelabs/Bespoke-Nimble-9B-v2
+  code_url: https://github.com/bespokelabsai/nimble
+  score: 42.06
+  public: 39.9
+  tie_band: 28
+  coverage: 0.76
+  domains:
+    knowledge: 30.5
+    language: 44.3
+    retrieval: 34.9
+    tools: 59.2
+    arts: 27.6
+- benchmark: jev-decision-index
+  name: Sieve 9B
+  engine: sieve-9b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-9B
+  params_b: 9.7
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-9B
+  code_url: null
+  score: 41.73
+  public: 41.88
+  tie_band: 28
+  coverage: 1
+  domains:
+    knowledge: 29.0
+    language: 45.6
+    retrieval: 46.1
+    tools: 61.3
+    arts: 21.9
+- benchmark: jev-decision-index
+  name: Cerno 4B v1.1
+  engine: cerno-4b-v11
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.2
+  weights_url: https://huggingface.co/apertixai/cerno-4b
+  code_url: null
+  score: 41.15
+  public: 57.6
+  tie_band: 29
+  coverage: 0.9999
+  domains:
+    knowledge: 34.5
+    language: 63.0
+    retrieval: 65.9
+    tools: 82.9
+    arts: 40.6
+- benchmark: jev-decision-index
+  name: Sieve 4B
+  engine: sieve-4b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-4B
+  code_url: null
+  score: 40.96
+  public: 50.06
+  tie_band: 29
+  coverage: 1
+  domains:
+    knowledge: 33.9
+    language: 53.9
+    retrieval: 61.6
+    tools: 66.8
+    arts: 28.3
+- benchmark: jev-decision-index
+  name: Kev 9B v2
+  engine: kev-9b-v2
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-9B-Base
+  params_b: 9.7
+  weights_url: https://huggingface.co/jaredpalmer/kev-9b
+  code_url: null
+  score: 40.91
+  public: 41.54
+  tie_band: 29
+  coverage: 1
+  domains:
+    knowledge: 30.8
+    language: 46.7
+    retrieval: 46.8
+    tools: 56.9
+    arts: 17.5
+- benchmark: jev-decision-index
+  name: Nari Decision 4B v3.2
+  engine: nari-decision-4b-v3.2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.2
+  weights_url: https://huggingface.co/blackmallangcow/nari-decision-4b
+  code_url: null
+  score: 40.87
+  public: 44.8
+  tie_band: 29
+  coverage: 1
+  domains:
+    knowledge: 28.7
+    language: 44.5
+    retrieval: 59.8
+    tools: 62.1
+    arts: 25.4
+- benchmark: jev-decision-index
+  name: vLLM-SR Decision 2.0 Nox 4B
+  engine: decision-2.0-nox-4b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.2
+  weights_url: https://huggingface.co/vllm-sr/Decision-2.0-Nox-4B
+  code_url: null
+  score: 40.75
+  public: 44.21
+  tie_band: 29
+  coverage: 0.9999
+  domains:
+    knowledge: 31.4
+    language: 46.4
+    retrieval: 52.4
+    tools: 60.1
+    arts: 26.2
+- benchmark: jev-decision-index
+  name: Aplomb 1
+  engine: aplomb-1
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 5.3
+  weights_url: https://huggingface.co/empiriolabsai/aplomb-1
+  code_url: null
+  score: 40.75
+  public: 43.49
+  tie_band: 29
+  coverage: 1
+  domains:
+    knowledge: 29.8
+    language: 47.2
+    retrieval: 44.5
+    tools: 61.6
+    arts: 34.0
+- benchmark: jev-decision-index
+  name: Hopper (G) 1.2
+  engine: hopper-g-1.2
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/HopitAI/hopper-g
+  code_url: https://github.com/hopit-ai/hopper
+  score: 40.17
+  public: 41.15
+  tie_band: 30
+  coverage: 0.76
+  domains:
+    knowledge: 24.6
+    language: 45.7
+    retrieval: 45.4
+    tools: 60.1
+    arts: 29.2
+- benchmark: jev-decision-index
+  name: StartLux-Decision v1.1 2B
+  engine: startlux-decision-v1.1-2b-instant
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 2.3
+  weights_url: https://huggingface.co/startlux-models/StartLux-Decision-v1.1-2B-Instant
+  code_url: null
+  score: 40.11
+  public: 59.23
+  tie_band: 30
+  coverage: 1
+  domains:
+    knowledge: 36.2
+    language: 62.4
+    retrieval: 69.7
+    tools: 79.0
+    arts: 53.7
+- benchmark: jev-decision-index
+  name: FlyMy.AI Decision 4B v1.6
+  engine: decision-4b-v1.6
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/flymy-ai/decision-4b-v1.6
+  code_url: null
+  score: 39.8
+  public: 42.7
+  tie_band: 30
+  coverage: 1
+  domains:
+    knowledge: 26.4
+    language: 46.3
+    retrieval: 45.3
+    tools: 59.8
+    arts: 39.0
+- benchmark: jev-decision-index
+  name: Standard One 3B SH (v4)
+  engine: standard-one-3b-sh-v4
+  kind: LoRA + head
+  base_model: StandardThinking/StandardOne-3B
+  params_b: 3.8
+  weights_url: https://huggingface.co/StandardThinking/StandardOne-3B-SH
+  code_url: null
+  score: 39.79
+  public: 58.08
+  tie_band: 30
+  coverage: 1
+  domains:
+    knowledge: 36.3
+    language: 57.5
+    retrieval: 67.0
+    tools: 85.7
+    arts: 47.5
+- benchmark: jev-decision-index
+  name: JPT-4B
+  engine: jpt-4b
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/kirp/jpt-4b
+  code_url: https://github.com/tic-top/llm2jev
+  score: 39.56
+  public: 42.82
+  tie_band: 30
+  coverage: 0.76
+  domains:
+    knowledge: 26.5
+    language: 53.7
+    retrieval: 45.0
+    tools: 57.2
+    arts: 26.1
+- benchmark: jev-decision-index
+  name: Intern-Decision-4B
+  engine: intern-decision-4b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/internlm/Intern-Decision-4B
+  code_url: https://github.com/internlm/Intern-Decision
+  score: 38.69
+  public: 38
+  tie_band: 31
+  coverage: 0.76
+  domains:
+    knowledge: 23.0
+    language: 42.5
+    retrieval: 40.3
+    tools: 55.7
+    arts: 28.2
+- benchmark: jev-decision-index
+  name: RSI-Jev v5.0 VL 3B
+  engine: rsi-jev-v5.0-vl-3b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/shgao/rsi-jev-v5.0-vl-3b
+  code_url: null
+  score: 38.65
+  public: 38.11
+  tie_band: 31
+  coverage: 1
+  domains:
+    knowledge: 24.1
+    language: 45.0
+    retrieval: 43.0
+    tools: 52.8
+    arts: 19.9
+- benchmark: jev-decision-index
+  name: djev
+  engine: djev
+  kind: inference technique
+  base_model: google/diffusiongemma-26B-A4B-it
+  params_b: 25.8
+  weights_url: null
+  code_url: https://github.com/Davipar/djev-dev
+  score: 38.15
+  public: 40.89
+  tie_band: 31
+  coverage: 0.76
+  domains:
+    knowledge: 25.9
+    language: 50.0
+    retrieval: 41.8
+    tools: 51.7
+    arts: 34.4
+- benchmark: jev-decision-index
+  name: Valen-4B
+  engine: valen-4b-r2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.5
+  weights_url: https://huggingface.co/Valen-Team/Valen-4B
+  code_url: null
+  score: 37.88
+  public: 38.68
+  tie_band: 31
+  coverage: 0.9998
+  domains:
+    knowledge: 27.4
+    language: 46.3
+    retrieval: 41.9
+    tools: 52.0
+    arts: 17.4
+- benchmark: jev-decision-index
+  name: razorback16 openjev diffusiongemma (NVFP4, vLLM)
+  engine: razorback-one-read-3e296f08
+  kind: inference technique
+  base_model: google/diffusiongemma-26B-A4B-it
+  params_b: 25.8
+  weights_url: null
+  code_url: https://github.com/vllm-project/vllm/pull/57250
+  score: 37.6
+  public: 37.75
+  tie_band: 32
+  coverage: 0.76
+  domains:
+    knowledge: 25.7
+    language: 45.5
+    retrieval: 37.0
+    tools: 47.2
+    arts: 33.1
+- benchmark: jev-decision-index
+  name: NeoHorse-Jev-4B
+  engine: neohorse-jev-4b
+  kind: head / adapter
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/TokenRhythm/NeoHorse-Jev-4B
+  code_url: https://github.com/TokenRhythm/NeoHorse/tree/main/jev
+  score: 37.26
+  public: 37
+  tie_band: 32
+  coverage: 0.76
+  domains:
+    knowledge: 23.6
+    language: 39.6
+    retrieval: 43.9
+    tools: 58.9
+    arts: 11.0
+- benchmark: jev-decision-index
+  name: JevK5 v0.3
+  engine: jevk5-v0.3
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/alibiserikbay/JevK5
+  code_url: null
+  score: 36.59
+  public: 41.14
+  tie_band: 33
+  coverage: 1
+  domains:
+    knowledge: 25.9
+    language: 46.6
+    retrieval: 44.5
+    tools: 56.9
+    arts: 30.8
+- benchmark: jev-decision-index
+  name: Decider 4B
+  engine: decider-4b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/Mapika/decider-4b
+  code_url: https://github.com/Mapika/decider
+  score: 36.3
+  public: 41.19
+  tie_band: 33
+  coverage: 0.76
+  domains:
+    knowledge: 27.7
+    language: 44.0
+    retrieval: 44.7
+    tools: 58.6
+    arts: 30.0
+- benchmark: jev-decision-index
+  name: lev
+  engine: lev
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/interfaze-ai/lev
+  code_url: https://github.com/Abhinavexists/lev
+  score: 35.47
+  public: 39.2
+  tie_band: 34
+  coverage: 0.76
+  domains:
+    knowledge: 22.8
+    language: 39.1
+    retrieval: 47.9
+    tools: 57.5
+    arts: 30.8
+- benchmark: jev-decision-index
+  name: Lev1 3.7B
+  engine: lev1-3.7b
+  kind: LoRA
+  base_model: IFM/K2-Horizon-3.7B
+  params_b: 3.7
+  weights_url: https://huggingface.co/theaviv/Lev1-3.7B
+  code_url: null
+  score: 35.41
+  public: 42.68
+  tie_band: 34
+  coverage: 1
+  domains:
+    knowledge: 23.1
+    language: 44.3
+    retrieval: 47.1
+    tools: 68.8
+    arts: 32.4
+- benchmark: jev-decision-index
+  name: Kev 4B r10
+  engine: kev-4b-r10
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/jaredpalmer/kev-4b
+  code_url: null
+  score: 34.93
+  public: 37.95
+  tie_band: 34
+  coverage: 1
+  domains:
+    knowledge: 26.3
+    language: 41.8
+    retrieval: 42.5
+    tools: 55.0
+    arts: 17.9
+- benchmark: jev-decision-index
+  name: Jev-Style 2B v4
+  engine: jev-style-2b-v4
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 2.2
+  weights_url: https://huggingface.co/chaoliangUNSW/Jev-Style-2B-Decision-v4
+  code_url: null
+  score: 34.53
+  public: 44.37
+  tie_band: 35
+  coverage: 1
+  domains:
+    knowledge: 23.6
+    language: 42.5
+    retrieval: 65.4
+    tools: 61.8
+    arts: 29.0
+- benchmark: jev-decision-index
+  name: Sieve 2B v3
+  engine: sieve-2b-v3
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 2.3
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-2B-v3
+  code_url: null
+  score: 34.45
+  public: 53.51
+  tie_band: 35
+  coverage: 1
+  domains:
+    knowledge: 30.9
+    language: 49.3
+    retrieval: 66.5
+    tools: 80.5
+    arts: 47.6
+- benchmark: jev-decision-index
+  name: LatentMesh Blitz 2B v1
+  engine: latentmesh-blitz-2b-v1
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 2.3
+  weights_url: https://huggingface.co/LatentMesh-Labs/latentmesh-blitz-2b-v1
+  code_url: null
+  score: 34.44
+  public: 48.15
+  tie_band: 35
+  coverage: 1
+  domains:
+    knowledge: 22.3
+    language: 54.0
+    retrieval: 60.4
+    tools: 66.5
+    arts: 41.8
+- benchmark: jev-decision-index
+  name: Saracura PT-BR 4B
+  engine: saracura-ptbr-4b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/felhen-ai/saracura-ptbr-4b
+  code_url: null
+  score: 34.43
+  public: 37.96
+  tie_band: 35
+  coverage: 1
+  domains:
+    knowledge: 25.2
+    language: 41.9
+    retrieval: 46.2
+    tools: 53.9
+    arts: 14.8
+- benchmark: jev-decision-index
+  name: Cam1
+  engine: cam1
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.7
+  weights_url: https://huggingface.co/cbuk10001/Cam1
+  code_url: null
+  score: 34.36
+  public: 30.72
+  tie_band: 35
+  coverage: 0.9549
+  domains:
+    knowledge: 19.2
+    language: 33.8
+    retrieval: 36.9
+    tools: 46.3
+    arts: 11.5
+- benchmark: jev-decision-index
+  name: vLLM-SR d3-nano (2B)
+  engine: vllm-sr-d3-nano
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 2.2
+  weights_url: https://huggingface.co/vllm-sr/d3-nano
+  code_url: null
+  score: 34.3
+  public: 42.22
+  tie_band: 35
+  coverage: 1
+  domains:
+    knowledge: 25.3
+    language: 42.2
+    retrieval: 58.8
+    tools: 58.9
+    arts: 22.4
+- benchmark: jev-decision-index
+  name: mmastrac diffusiongemma (vLLM PR 57250)
+  engine: vllm-pr57250
+  kind: inference technique
+  base_model: google/diffusiongemma-26B-A4B-it
+  params_b: 25.8
+  weights_url: null
+  code_url: https://github.com/vllm-project/vllm/pull/57250
+  score: 34.25
+  public: 32.69
+  tie_band: 35
+  coverage: 0.6927
+  domains:
+    knowledge: 25.0
+    language: 46.5
+    retrieval: 24.2
+    tools: 34.0
+    arts: 31.7
+- benchmark: jev-decision-index
+  name: Kas 4B
+  engine: kas-4b
+  kind: LoRA
+  base_model: Qwen/Qwen3-4B
+  params_b: 4.0
+  weights_url: https://huggingface.co/kpiya/kas-4b
+  code_url: null
+  score: 34
+  public: 38.35
+  tie_band: 35
+  coverage: 0.9481
+  domains:
+    knowledge: 32.2
+    language: 35.1
+    retrieval: 40.4
+    tools: 48.9
+    arts: 39.4
+- benchmark: jev-decision-index
+  name: Tev1-4B-experimental
+  engine: tev1-4b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/togethercomputer/Tev1-4B-experimental
+  code_url: https://github.com/togethercomputer/tev1
+  score: 33.73
+  public: 29.51
+  tie_band: 35
+  coverage: 0.6909
+  domains:
+    knowledge: 24.3
+    language: 39.2
+    retrieval: 15.5
+    tools: 41.8
+    arts: 23.5
+- benchmark: jev-decision-index
+  name: Winnow-E4B
+  engine: winnow-e4b-q8
+  kind: LoRA
+  base_model: google/gemma-4-E4B
+  params_b: 8.0
+  weights_url: https://huggingface.co/EldanRing/Winnow-E4B
+  code_url: https://github.com/EldanRing/winnow-inference
+  score: 32.72
+  public: 40.86
+  tie_band: 36
+  coverage: 0.76
+  domains:
+    knowledge: 22.8
+    language: 46.8
+    retrieval: 43.8
+    tools: 62.5
+    arts: 26.9
+- benchmark: jev-decision-index
+  name: Aurelis-2B
+  engine: aurelis-2b
+  kind: full fine-tune
+  base_model: openbmb/MiniCPM5-2B
+  params_b: 2.5
+  weights_url: https://huggingface.co/Leptos-ai/Aurelis-2B
+  code_url: null
+  score: 32.55
+  public: 51.29
+  tie_band: 36
+  coverage: 0.9901
+  domains:
+    knowledge: 32.2
+    language: 54.1
+    retrieval: 54.2
+    tools: 79.5
+    arts: 35.9
+- benchmark: jev-decision-index
+  name: Jevstral 8B
+  engine: jevstral-8b
+  kind: LoRA
+  base_model: mistralai/Ministral-3-8B-Base-2512
+  params_b: 8.0
+  weights_url: https://huggingface.co/AmirBraham/jevstral-8b
+  code_url: null
+  score: 32.23
+  public: 34.01
+  tie_band: 36
+  coverage: 1
+  domains:
+    knowledge: 24.7
+    language: 33.6
+    retrieval: 39.2
+    tools: 52.9
+    arts: 14.1
+- benchmark: jev-decision-index
+  name: Metask-Jev-4B
+  engine: metask-jev-4b
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/wayfind/metask-jev-4b-policy-mix
+  code_url: https://github.com/metask-ai/metask-jev
+  score: 32.17
+  public: 27.58
+  tie_band: 36
+  coverage: 0.6927
+  domains:
+    knowledge: 21.6
+    language: 40.1
+    retrieval: 12.9
+    tools: 37.6
+    arts: 21.9
+- benchmark: jev-decision-index
+  name: Ryotide Qwen v0.3.1
+  engine: ryotide-qwen-v0.3.1
+  kind: inference technique
+  base_model: Qwen/Qwen3.5-4B
+  params_b: 4.0
+  weights_url: null
+  code_url: https://github.com/csabag/ryotide
+  score: 31.99
+  public: 37.28
+  tie_band: 36
+  coverage: 1
+  domains:
+    knowledge: 20.9
+    language: 36.0
+    retrieval: 47.5
+    tools: 55.1
+    arts: 29.8
+- benchmark: jev-decision-index
+  name: Intelif Qwen3-4B
+  engine: intelif-qwen3-4b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3-4B
+  params_b: 4.0
+  weights_url: https://huggingface.co/UserMoonlight/intelif-qwen3-4b
+  code_url: null
+  score: 31.33
+  public: 32.47
+  tie_band: 37
+  coverage: 1
+  domains:
+    knowledge: 19.5
+    language: 31.2
+    retrieval: 39.6
+    tools: 51.0
+    arts: 21.3
+- benchmark: jev-decision-index
+  name: GLiClass v4 edge (0.4B)
+  engine: gliclass-v4-edge
+  kind: full fine-tune
+  base_model: microsoft/deberta-v3-large
+  params_b: 0.4
+  weights_url: https://huggingface.co/knowledgator/gliclass-v4-edge
+  code_url: null
+  score: 31.21
+  public: 47.49
+  tie_band: 37
+  coverage: 0.9999
+  domains:
+    knowledge: 21.4
+    language: 54.6
+    retrieval: 66.7
+    tools: 58.1
+    arts: 38.6
+- benchmark: jev-decision-index
+  name: LiquidAI d1-3B
+  engine: d1-3b
+  kind: full fine-tune
+  base_model: LiquidAI/LFM2.5-VL-3B
+  params_b: 3.1
+  weights_url: https://huggingface.co/LiquidAI/d1-3B
+  code_url: null
+  score: 31.12
+  public: 48.99
+  tie_band: 37
+  coverage: 1
+  domains:
+    knowledge: 24.3
+    language: 56.5
+    retrieval: 52.8
+    tools: 74.5
+    arts: 38.9
+- benchmark: jev-decision-index
+  name: open-jev (pngwn)
+  engine: pngwn-space-uncapped-full
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: https://huggingface.co/pngwn/system-one-qwen3.5-4b-scorer-v2b
+  code_url: null
+  score: 31.1
+  public: 30.49
+  tie_band: 37
+  coverage: 0.76
+  domains:
+    knowledge: 22.8
+    language: 34.7
+    retrieval: 29.1
+    tools: 45.7
+    arts: 14.4
+- benchmark: jev-decision-index
+  name: vera-core-2
+  engine: vera-core-2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 1.9
+  weights_url: https://huggingface.co/scar-ai/vera-core-2
+  code_url: null
+  score: 30.6
+  public: 41.28
+  tie_band: 37
+  coverage: 1
+  domains:
+    knowledge: 21.4
+    language: 43.9
+    retrieval: 53.8
+    tools: 61.5
+    arts: 23.9
+- benchmark: jev-decision-index
+  name: Jobe
+  engine: jobe
+  kind: inference technique
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: null
+  code_url: https://github.com/MantisShrimpdev/jobe
+  score: 30.35
+  public: 32.93
+  tie_band: 38
+  coverage: 0.76
+  domains:
+    knowledge: 18.4
+    language: 34.8
+    retrieval: 36.7
+    tools: 48.8
+    arts: 28.9
+- benchmark: jev-decision-index
+  name: OneJev1.6-0.8B
+  engine: onejev1.6-0.8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/OmniJev/OneJev1.6-0.8B
+  code_url: null
+  score: 29.58
+  public: 48.76
+  tie_band: 38
+  coverage: 1
+  domains:
+    knowledge: 26.1
+    language: 48.1
+    retrieval: 63.4
+    tools: 72.9
+    arts: 35.6
+- benchmark: jev-decision-index
+  name: crystal-0.8b
+  engine: crystal-0.8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/Kyunghwan-kim/crystal-0.8b
+  code_url: null
+  score: 29.37
+  public: 42.79
+  tie_band: 39
+  coverage: 1
+  domains:
+    knowledge: 19.1
+    language: 44.8
+    retrieval: 55.4
+    tools: 64.9
+    arts: 33.4
+- benchmark: jev-decision-index
+  name: vLLM-SR vela3-fast (Vela 3.0, 0.4B)
+  engine: vela3-fast
+  kind: full fine-tune
+  base_model: dmis-lab/UltraBERT-380M
+  params_b: 0.4
+  weights_url: https://huggingface.co/vllm-sr/vela3-fast
+  code_url: null
+  score: 29.27
+  public: 50.36
+  tie_band: 39
+  coverage: 1
+  domains:
+    knowledge: 21.2
+    language: 53.1
+    retrieval: 66.9
+    tools: 73.7
+    arts: 43.1
+- benchmark: jev-decision-index
+  name: Crivo-1B
+  engine: crivo-1b
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-1b-v1
+  params_b: 1.0
+  weights_url: https://huggingface.co/tardellirs/crivo-1b
+  code_url: null
+  score: 29.25
+  public: 47.77
+  tie_band: 39
+  coverage: 1
+  domains:
+    knowledge: 18.5
+    language: 56.3
+    retrieval: 55.8
+    tools: 78.7
+    arts: 28.9
+- benchmark: jev-decision-index
+  name: Gevva E4B
+  engine: gevva-e4b
+  kind: full fine-tune
+  base_model: google/gemma-4-E4B-it
+  params_b: 8.0
+  weights_url: https://huggingface.co/davidburhans/gevva-e4b
+  code_url: null
+  score: 29.21
+  public: 32.44
+  tie_band: 39
+  coverage: 1
+  domains:
+    knowledge: 17.9
+    language: 27.6
+    retrieval: 40.0
+    tools: 56.9
+    arts: 22.6
+- benchmark: jev-decision-index
+  name: StartLux-Decision v1.1 0.8B
+  engine: startlux-decision-v1.1-0.8b-instant
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/startlux-models/StartLux-Decision-v1.1-0.8B-Instant
+  code_url: null
+  score: 28.88
+  public: 53.79
+  tie_band: 39
+  coverage: 1
+  domains:
+    knowledge: 28.5
+    language: 55.5
+    retrieval: 66.5
+    tools: 74.6
+    arts: 51.1
+- benchmark: jev-decision-index
+  name: openvons
+  engine: openvons
+  kind: inference technique
+  base_model: Qwen/Qwen3-4B-Instruct-2507
+  params_b: 4.0
+  weights_url: null
+  code_url: https://github.com/genai-craft/openvons
+  score: 28.78
+  public: 28.66
+  tie_band: 39
+  coverage: 0.76
+  domains:
+    knowledge: 19.5
+    language: 30.7
+    retrieval: 25.4
+    tools: 44.6
+    arts: 24.4
+- benchmark: jev-decision-index
+  name: SemIf
+  engine: semif
+  kind: inference technique
+  base_model: Qwen/Qwen3.5-4B-Base
+  params_b: 4.7
+  weights_url: null
+  code_url: https://github.com/TheoLeeCJ/openjev
+  score: 26.71
+  public: 26.5
+  tie_band: 40
+  coverage: 0.6863
+  domains:
+    knowledge: 17.9
+    language: 34.0
+    retrieval: 15.7
+    tools: 39.1
+    arts: 27.9
+- benchmark: jev-decision-index
+  name: Saina Helm 2 Omni (0.8B)
+  engine: saina-helm-2-omni
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/run-saina/saina-helm-2-omni-0.8b
+  code_url: null
+  score: 26.54
+  public: 37.44
+  tie_band: 40
+  coverage: 1
+  domains:
+    knowledge: 15.3
+    language: 39.3
+    retrieval: 50.2
+    tools: 59.7
+    arts: 23.7
+- benchmark: jev-decision-index
+  name: vLLM-SR d3-lite (0.8B)
+  engine: vllm-sr-d3-lite
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/vllm-sr/d3-lite
+  code_url: null
+  score: 26.16
+  public: 36.93
+  tie_band: 40
+  coverage: 1
+  domains:
+    knowledge: 18.6
+    language: 34.2
+    retrieval: 53.7
+    tools: 56.3
+    arts: 22.3
+- benchmark: jev-decision-index
+  name: Amber 0.4B
+  engine: amber-0.4b
+  kind: full fine-tune
+  base_model: answerdotai/ModernBERT-large
+  params_b: 0.4
+  weights_url: https://huggingface.co/MLukauskas/amber-0.4b
+  code_url: null
+  score: 26
+  public: 49.74
+  tie_band: 40
+  coverage: 1
+  domains:
+    knowledge: 18.9
+    language: 48.7
+    retrieval: 64.3
+    tools: 78.9
+    arts: 49.5
+- benchmark: jev-decision-index
+  name: jiwo 0.8B v2
+  engine: jiwo-0.8b-v2-r2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.8
+  weights_url: https://huggingface.co/eljiwo/jiwo-0.8b
+  code_url: null
+  score: 25.81
+  public: 29.58
+  tie_band: 40
+  coverage: 1
+  domains:
+    knowledge: 10.9
+    language: 36.1
+    retrieval: 44.2
+    tools: 40.3
+    arts: 12.2
+- benchmark: jev-decision-index
+  name: Saina Helm 2.0 v2
+  engine: saina-helm-2-v2
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/run-saina/saina-helm-2-0.8b
+  code_url: null
+  score: 25.29
+  public: 39.26
+  tie_band: 41
+  coverage: 1
+  domains:
+    knowledge: 16.6
+    language: 44.0
+    retrieval: 50.5
+    tools: 61.3
+    arts: 22.5
+- benchmark: jev-decision-index
+  name: this-that 1.2
+  engine: this-that-1.2
+  kind: full fine-tune
+  base_model: Mapika/decider-2b
+  params_b: 1.9
+  weights_url: https://huggingface.co/flock-io/this-that-model-1.2
+  code_url: https://github.com/FLock-io/this-that-model
+  score: 24.85
+  public: 28.65
+  tie_band: 41
+  coverage: 0.76
+  domains:
+    knowledge: 16.6
+    language: 31.5
+    retrieval: 32.8
+    tools: 45.0
+    arts: 14.2
+- benchmark: jev-decision-index
+  name: Gevva E2B
+  engine: gevva-e2b
+  kind: full fine-tune
+  base_model: google/gemma-4-E2B-it
+  params_b: 5.1
+  weights_url: https://huggingface.co/davidburhans/gevva-e2b
+  code_url: null
+  score: 24.26
+  public: 28.53
+  tie_band: 42
+  coverage: 1
+  domains:
+    knowledge: 11.9
+    language: 25.0
+    retrieval: 38.6
+    tools: 52.5
+    arts: 16.5
+- benchmark: jev-decision-index
+  name: Crivo-400M
+  engine: crivo-400m
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-400m-v1
+  params_b: 0.4
+  weights_url: https://huggingface.co/tardellirs/crivo-400m
+  code_url: null
+  score: 23.74
+  public: 39.79
+  tie_band: 42
+  coverage: 1
+  domains:
+    knowledge: 11.5
+    language: 44.3
+    retrieval: 51.0
+    tools: 69.0
+    arts: 25.4
+- benchmark: jev-decision-index
+  name: Decider 2B
+  engine: decider-2b-fp8-http
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B-Base
+  params_b: 2.3
+  weights_url: https://huggingface.co/Mapika/decider-2b
+  code_url: null
+  score: 23.65
+  public: 29.75
+  tie_band: 42
+  coverage: 0.76
+  domains:
+    knowledge: 17.2
+    language: 32.2
+    retrieval: 37.3
+    tools: 42.4
+    arts: 17.6
+- benchmark: jev-decision-index
+  name: vLLM-SR Decision 2.0 Sol 2B
+  engine: decision-2.0-sol-2b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 2.3
+  weights_url: https://huggingface.co/vllm-sr/Decision-2.0-Sol-2B
+  code_url: null
+  score: 23.64
+  public: 30.05
+  tie_band: 42
+  coverage: 0.9999
+  domains:
+    knowledge: 16.2
+    language: 24.6
+    retrieval: 45.6
+    tools: 48.8
+    arts: 14.4
+- benchmark: jev-decision-index
+  name: jdi-ptr14-0.8b
+  engine: jdi-ptr14-0.8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.8
+  weights_url: https://huggingface.co/AnamK/jdi-ptr14-0.8b
+  code_url: null
+  score: 23.58
+  public: 35.79
+  tie_band: 42
+  coverage: 1
+  domains:
+    knowledge: 13.5
+    language: 40.3
+    retrieval: 52.5
+    tools: 53.0
+    arts: 16.8
+- benchmark: jev-decision-index
+  name: mini-jev
+  engine: mini-jev
+  kind: inference technique
+  base_model: Qwen/Qwen3-4B-Instruct-2507
+  params_b: 4.0
+  weights_url: null
+  code_url: https://github.com/r-ms/mini-jev
+  score: 22.81
+  public: 21.25
+  tie_band: 43
+  coverage: 0.6927
+  domains:
+    knowledge: 15.8
+    language: 29.8
+    retrieval: 8.7
+    tools: 28.4
+    arts: 25.3
+- benchmark: jev-decision-index
+  name: Valen-2B
+  engine: valen-2b-r2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B
+  params_b: 2.2
+  weights_url: https://huggingface.co/Valen-Team/Valen-2B
+  code_url: null
+  score: 22.2
+  public: 26.95
+  tie_band: 43
+  coverage: 0.9998
+  domains:
+    knowledge: 14.8
+    language: 30.4
+    retrieval: 26.2
+    tools: 45.1
+    arts: 17.8
+- benchmark: jev-decision-index
+  name: vLLM-SR vela3-fast-vision (Vela 3.0, 0.25B)
+  engine: vela3-fast-vision-text
+  kind: full fine-tune
+  base_model: athrael-soju/UltraVBERT
+  params_b: 0.3
+  weights_url: https://huggingface.co/vllm-sr/vela3-fast-vision
+  code_url: null
+  score: 22.11
+  public: 37.5
+  tie_band: 43
+  coverage: 1
+  domains:
+    knowledge: 13.2
+    language: 36.6
+    retrieval: 54.9
+    tools: 51.8
+    arts: 41.5
+- benchmark: jev-decision-index
+  name: Sieve 2B
+  engine: sieve-2b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-2B-Base
+  params_b: 2.3
+  weights_url: https://huggingface.co/sthanika-ai/sieve-2b
+  code_url: null
+  score: 21.9
+  public: 22.16
+  tie_band: 44
+  coverage: 1
+  domains:
+    knowledge: 10.4
+    language: 20.8
+    retrieval: 28.5
+    tools: 35.3
+    arts: 19.5
+- benchmark: jev-decision-index
+  name: wyat-1-800m
+  engine: wyat-1-800m
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-0.8B-Base
+  params_b: 0.9
+  weights_url: https://huggingface.co/teilomillet/wyat-1-800m
+  code_url: null
+  score: 21.49
+  public: 25.78
+  tie_band: 44
+  coverage: 1
+  domains:
+    knowledge: 11.3
+    language: 20.4
+    retrieval: 43.0
+    tools: 41.9
+    arts: 13.2
+- benchmark: jev-decision-index
+  name: Intern-Decision-2B
+  engine: intern-decision-2b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-2B-Base
+  params_b: 2.3
+  weights_url: https://huggingface.co/internlm/Intern-Decision-2B
+  code_url: https://github.com/internlm/Intern-Decision
+  score: 20.93
+  public: 19.26
+  tie_band: 45
+  coverage: 0.76
+  domains:
+    knowledge: 12.0
+    language: 21.3
+    retrieval: 15.7
+    tools: 33.3
+    arts: 14.3
+- benchmark: jev-decision-index
+  name: Sieve 0.8B
+  engine: sieve-0.8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B-Base
+  params_b: 0.6
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-0.8B
+  code_url: null
+  score: 20.82
+  public: 32.26
+  tie_band: 45
+  coverage: 1
+  domains:
+    knowledge: 14.3
+    language: 26.6
+    retrieval: 54.8
+    tools: 51.2
+    arts: 13.5
+- benchmark: jev-decision-index
+  name: Strands Decider 2B
+  engine: strands-decider-2b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-2B-Base
+  params_b: 1.9
+  weights_url: https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21
+  code_url: null
+  score: 20.72
+  public: 25.41
+  tie_band: 45
+  coverage: 1
+  domains:
+    knowledge: 11.2
+    language: 25.7
+    retrieval: 34.0
+    tools: 43.8
+    arts: 10.7
+- benchmark: jev-decision-index
+  name: EXAONE-4.0-1.2B-JEV v0.3
+  engine: exaone-4.0-1.2b-jev-v0.3
+  kind: full fine-tune
+  base_model: LGAI-EXAONE/EXAONE-4.0-1.2B
+  params_b: 1.3
+  weights_url: https://huggingface.co/carrtesy/EXAONE-4.0-1.2B-JEV
+  code_url: null
+  score: 20.6
+  public: 30.68
+  tie_band: 45
+  coverage: 1
+  domains:
+    knowledge: 15.0
+    language: 26.6
+    retrieval: 40.9
+    tools: 56.6
+    arts: 13.9
+- benchmark: jev-decision-index
+  name: tasksource Decider nano v5 (150M)
+  engine: tasksource-decider-nano-v5
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-150m-v1
+  params_b: 0.1
+  weights_url: https://huggingface.co/tasksource/tasksource-decider-nano
+  code_url: null
+  score: 19.85
+  public: 33.51
+  tie_band: 46
+  coverage: 0.9995
+  domains:
+    knowledge: 9.7
+    language: 38.6
+    retrieval: 50.1
+    tools: 50.9
+    arts: 16.6
+- benchmark: jev-decision-index
+  name: Crivo-68M
+  engine: crivo-68m
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-68m-v1
+  params_b: 0.1
+  weights_url: https://huggingface.co/tardellirs/crivo-68m
+  code_url: null
+  score: 19.51
+  public: 32.82
+  tie_band: 46
+  coverage: 1
+  domains:
+    knowledge: 5.0
+    language: 30.8
+    retrieval: 48.8
+    tools: 64.0
+    arts: 20.9
+- benchmark: jev-decision-index
+  name: JEV Ettin 150M
+  engine: jev-ettin-150m
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-150m-v1
+  params_b: 0.1
+  weights_url: https://huggingface.co/Elfsong/jev-ettin-150m-v16
+  code_url: null
+  score: 18.52
+  public: 37.31
+  tie_band: 47
+  coverage: 1
+  domains:
+    knowledge: 14.4
+    language: 43.2
+    retrieval: 52.1
+    tools: 60.4
+    arts: 9.3
+- benchmark: jev-decision-index
+  name: vLLM-SR Decision 2.0 Eos 0.8B
+  engine: decision-2.0-eos-0.8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/vllm-sr/Decision-2.0-Eos-0.8B
+  code_url: null
+  score: 18.37
+  public: 20.57
+  tie_band: 47
+  coverage: 0.9999
+  domains:
+    knowledge: 7.0
+    language: 15.3
+    retrieval: 38.4
+    tools: 34.0
+    arts: 8.9
+- benchmark: jev-decision-index
+  name: Crivo-150M v2
+  engine: crivo-150m-v2
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-150m-v1
+  params_b: 0.1
+  weights_url: https://huggingface.co/tardellirs/crivo-150m
+  code_url: null
+  score: 18.26
+  public: 34.38
+  tie_band: 47
+  coverage: 1
+  domains:
+    knowledge: 8.3
+    language: 34.5
+    retrieval: 48.2
+    tools: 62.8
+    arts: 21.8
+- benchmark: jev-decision-index
+  name: Bekko System One v0 400M
+  engine: bekko-v0-400m
+  kind: full fine-tune
+  base_model: jhu-clsp/ettin-encoder-400m
+  params_b: 0.4
+  weights_url: https://huggingface.co/hotchpotch/bekko-system-one-v0-400m
+  code_url: null
+  score: 17.98
+  public: 22.45
+  tie_band: 47
+  coverage: 0.9992
+  domains:
+    knowledge: 11.6
+    language: 24.0
+    retrieval: 42.2
+    tools: 18.6
+    arts: 13.9
+- benchmark: jev-decision-index
+  name: Mola-150M
+  engine: mola-150m
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-150m-v1
+  params_b: 0.1
+  weights_url: https://huggingface.co/codavidgarcia/mola-150m
+  code_url: null
+  score: 17.84
+  public: 31.34
+  tie_band: 47
+  coverage: 0.9995
+  domains:
+    knowledge: 12.0
+    language: 30.2
+    retrieval: 51.4
+    tools: 50.1
+    arts: 9.9
+- benchmark: jev-decision-index
+  name: vLLM-SR d3-edge (0.6B)
+  engine: vllm-sr-d3-edge
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.6
+  weights_url: https://huggingface.co/vllm-sr/d3-edge
+  code_url: null
+  score: 17.69
+  public: 28.82
+  tie_band: 47
+  coverage: 1
+  domains:
+    knowledge: 11.1
+    language: 24.1
+    retrieval: 53.6
+    tools: 42.7
+    arts: 11.8
+- benchmark: jev-decision-index
+  name: Mola-68M
+  engine: mola-68m
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-68m-v1
+  params_b: 0.1
+  weights_url: https://huggingface.co/codavidgarcia/mola-68m
+  code_url: null
+  score: 17.6
+  public: 27.27
+  tie_band: 48
+  coverage: 0.9995
+  domains:
+    knowledge: 7.9
+    language: 23.3
+    retrieval: 49.4
+    tools: 47.9
+    arts: 5.7
+- benchmark: jev-decision-index
+  name: JEV FLAN-T5 Large public v2 (342M)
+  engine: jev-t5-342m-public-v2
+  kind: full fine-tune
+  base_model: google/flan-t5-large
+  params_b: null
+  weights_url: https://huggingface.co/Elfsong/jev-flan-t5-large-20261017-public-v2
+  code_url: null
+  score: 17.31
+  public: 22.02
+  tie_band: 48
+  coverage: 0.9542
+  domains:
+    knowledge: 12.4
+    language: 29.7
+    retrieval: 35.5
+    tools: 17.6
+    arts: 8.1
+- benchmark: jev-decision-index
+  name: DecisionTune 1.0
+  engine: decisiontune-1.0
+  kind: full fine-tune
+  base_model: answerdotai/ModernBERT-large
+  params_b: 0.4
+  weights_url: https://huggingface.co/decision-tune/decisiontune-1.0
+  code_url: null
+  score: 17.22
+  public: 28.85
+  tie_band: 48
+  coverage: 0.9995
+  domains:
+    knowledge: 11.7
+    language: 29.9
+    retrieval: 45.0
+    tools: 46.5
+    arts: 5.7
+- benchmark: jev-decision-index
+  name: Valen-0.8B
+  engine: valen-0.8b-r2
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/Valen-Team/Valen-0.8B
+  code_url: null
+  score: 16.55
+  public: 20.79
+  tie_band: 49
+  coverage: 0.9998
+  domains:
+    knowledge: 10.2
+    language: 24.8
+    retrieval: 20.6
+    tools: 35.6
+    arts: 11.2
+- benchmark: jev-decision-index
+  name: Bosun v3.1 1.7B
+  engine: bosun-v3.1-1.7b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3-1.7B-Base
+  params_b: 1.7
+  weights_url: https://huggingface.co/Hanno-Labs/bosun-v3.1-1.7b
+  code_url: https://github.com/Hanno-Labs/jev-compatible-server
+  score: 16.54
+  public: 20.55
+  tie_band: 49
+  coverage: 0.76
+  domains:
+    knowledge: 4.8
+    language: 13.5
+    retrieval: 42.8
+    tools: 34.8
+    arts: 9.0
+- benchmark: jev-decision-index
+  name: vLLM-SR Decision 2.0 Kai 0.6B
+  engine: decision-2.0-kai-0.6b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3-0.6B-Base
+  params_b: 0.6
+  weights_url: https://huggingface.co/vllm-sr/Decision-2.0-Kai-0.6B
+  code_url: null
+  score: 16.43
+  public: 16.68
+  tie_band: 49
+  coverage: 0.9996
+  domains:
+    knowledge: 6.4
+    language: 11.6
+    retrieval: 32.0
+    tools: 26.7
+    arts: 7.4
+- benchmark: jev-decision-index
+  name: Dinah-1
+  engine: dinah-1
+  kind: full fine-tune
+  base_model: Lukitaduarte/dinah-0-apache
+  params_b: 0.1
+  weights_url: https://huggingface.co/Lukitaduarte/dinah-1
+  code_url: null
+  score: 16.36
+  public: 34.32
+  tie_band: 49
+  coverage: 0.9995
+  domains:
+    knowledge: 23.1
+    language: 23.1
+    retrieval: 50.7
+    tools: 62.2
+    arts: 8.6
+- benchmark: jev-decision-index
+  name: Kev 0.8B r15
+  engine: kev-0.8b-r15
+  kind: LoRA + head
+  base_model: Qwen/Qwen3.5-0.8B-Base
+  params_b: 0.9
+  weights_url: https://huggingface.co/jaredpalmer/kev-0.8b
+  code_url: null
+  score: 16.3
+  public: 16.78
+  tie_band: 49
+  coverage: 1
+  domains:
+    knowledge: 7.0
+    language: 14.2
+    retrieval: 22.1
+    tools: 35.5
+    arts: 3.8
+- benchmark: jev-decision-index
+  name: PICK-150M v5
+  engine: pick-150m-v5
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-150m-v1
+  params_b: 0.1
+  weights_url: https://huggingface.co/lCREEl/pick-150m
+  code_url: null
+  score: 15.62
+  public: 32.09
+  tie_band: 50
+  coverage: 0.9993
+  domains:
+    knowledge: 8.0
+    language: 35.5
+    retrieval: 45.2
+    tools: 59.9
+    arts: 8.4
+- benchmark: jev-decision-index
+  name: JPT-0.8B
+  engine: jpt-0.8b
+  kind: LoRA
+  base_model: Qwen/Qwen3.5-0.8B-Base
+  params_b: 0.9
+  weights_url: https://huggingface.co/kirp/jpt-0.8b
+  code_url: https://github.com/tic-top/llm2jev
+  score: 15.46
+  public: 19.37
+  tie_band: 50
+  coverage: 0.76
+  domains:
+    knowledge: 8.2
+    language: 25.2
+    retrieval: 16.4
+    tools: 36.2
+    arts: 8.4
+- benchmark: jev-decision-index
+  name: JEV Ettin 400M
+  engine: jev-ettin-400m
+  kind: full fine-tune
+  base_model: jhu-clsp/ettin-encoder-400m
+  params_b: 0.4
+  weights_url: https://huggingface.co/Elfsong/jev-ettin-400m-20261013-v0
+  code_url: null
+  score: 15.24
+  public: 14.11
+  tie_band: 50
+  coverage: 0.9992
+  domains:
+    knowledge: 8.7
+    language: 12.8
+    retrieval: 26.3
+    tools: 14.8
+    arts: 5.8
+- benchmark: jev-decision-index
+  name: Sifr 0.8B v3.1
+  engine: sifr-0.8b-v3.1
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/mohamedlotfy50/sifr-0.8b-v3
+  code_url: null
+  score: 14.53
+  public: 25.65
+  tie_band: 51
+  coverage: 1
+  domains:
+    knowledge: 13.2
+    language: 23.1
+    retrieval: 45.5
+    tools: 35.9
+    arts: 5.8
+- benchmark: jev-decision-index
+  name: Crivo-32M v2
+  engine: crivo-32m-v2
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-32m-v1
+  params_b: 0.0
+  weights_url: https://huggingface.co/tardellirs/crivo-32m
+  code_url: null
+  score: 14.23
+  public: 27.34
+  tie_band: 51
+  coverage: 1
+  domains:
+    knowledge: 2.7
+    language: 25.0
+    retrieval: 45.6
+    tools: 50.0
+    arts: 19.0
+- benchmark: jev-decision-index
+  name: Prumo
+  engine: prumo
+  kind: inference technique
+  base_model: null
+  params_b: null
+  weights_url: https://huggingface.co/tardellirs/prumo
+  code_url: null
+  score: 13.99
+  public: 20.14
+  tie_band: 51
+  coverage: 1
+  domains:
+    knowledge: 17.0
+    language: 3.1
+    retrieval: 26.6
+    tools: 45.3
+    arts: 13.4
+- benchmark: jev-decision-index
+  name: Kodiak v0.2 1B (accuracy)
+  engine: kodiak-v0.2-1b-accuracy
+  kind: full fine-tune
+  base_model: jhu-clsp/ettin-encoder-1b
+  params_b: 3.0
+  weights_url: https://huggingface.co/cortex-agent-llc/kodiak-v0.2-1b-accuracy
+  code_url: null
+  score: 13.86
+  public: 19.05
+  tie_band: 51
+  coverage: 0.9794
+  domains:
+    knowledge: 13.5
+    language: 15.3
+    retrieval: 36.2
+    tools: 15.1
+    arts: 15.9
+- benchmark: jev-decision-index
+  name: Intern-Decision-0.8B
+  engine: intern-decision-0.8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B-Base
+  params_b: 0.9
+  weights_url: https://huggingface.co/internlm/Intern-Decision-0.8B
+  code_url: https://github.com/internlm/Intern-Decision
+  score: 12.71
+  public: 11.81
+  tie_band: 52
+  coverage: 0.76
+  domains:
+    knowledge: 6.8
+    language: 10.9
+    retrieval: 6.4
+    tools: 28.4
+    arts: 7.7
+- benchmark: jev-decision-index
+  name: Jev-Style 0.8B v3
+  engine: jev-style-0.8b-v3
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B
+  params_b: 0.9
+  weights_url: https://huggingface.co/chaoliangUNSW/Jev-Style-0.8B-Decision-v3
+  code_url: null
+  score: 12.5
+  public: 17
+  tie_band: 52
+  coverage: 0.993
+  domains:
+    knowledge: 5.4
+    language: 11.9
+    retrieval: 26.2
+    tools: 35.4
+    arts: 8.3
+- benchmark: jev-decision-index
+  name: Tev1-0.8B-experimental
+  engine: tev1-0.8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3.5-0.8B-Base
+  params_b: 0.9
+  weights_url: https://huggingface.co/togethercomputer/Tev1-0.8B-experimental
+  code_url: https://github.com/togethercomputer/tev1
+  score: 12.47
+  public: 13.1
+  tie_band: 52
+  coverage: 0.6909
+  domains:
+    knowledge: 6.8
+    language: 15.3
+    retrieval: 4.9
+    tools: 32.0
+    arts: 5.9
+- benchmark: jev-decision-index
+  name: Bekko System One v0 68M
+  engine: bekko-v0-68m
+  kind: full fine-tune
+  base_model: jhu-clsp/ettin-encoder-68m
+  params_b: 0.1
+  weights_url: https://huggingface.co/hotchpotch/bekko-system-one-v0-68m
+  code_url: null
+  score: 12.4
+  public: 13.01
+  tie_band: 52
+  coverage: 0.9992
+  domains:
+    knowledge: 4.0
+    language: 6.4
+    retrieval: 32.2
+    tools: 14.1
+    arts: 13.1
+- benchmark: jev-decision-index
+  name: LiquidAI d1-omni-600M
+  engine: d1-omni-600m
+  kind: full fine-tune
+  base_model: LiquidAI/LFM2.5-Encoder-350M
+  params_b: 0.6
+  weights_url: https://huggingface.co/LiquidAI/d1-omni-600M
+  code_url: null
+  score: 11.75
+  public: 17.9
+  tie_band: 53
+  coverage: 1
+  domains:
+    knowledge: 6.6
+    language: 19.3
+    retrieval: 35.0
+    tools: 19.5
+    arts: 6.5
+- benchmark: jev-decision-index
+  name: Von 1.3
+  engine: von-1.3
+  kind: full fine-tune
+  base_model: answerdotai/ModernBERT-large
+  params_b: 0.4
+  weights_url: https://huggingface.co/wfzyx/von
+  code_url: null
+  score: 11.65
+  public: 13.86
+  tie_band: 53
+  coverage: 0.9996
+  domains:
+    knowledge: 9.3
+    language: 11.6
+    retrieval: 30.1
+    tools: 11.7
+    arts: 2.7
+- benchmark: jev-decision-index
+  name: Crivo-17M
+  engine: crivo-17m
+  kind: full fine-tune
+  base_model: cross-encoder/ettin-reranker-17m-v1
+  params_b: 0.0
+  weights_url: https://huggingface.co/tardellirs/crivo-17m
+  code_url: null
+  score: 11.65
+  public: 22.15
+  tie_band: 53
+  coverage: 1
+  domains:
+    knowledge: 1.2
+    language: 21.0
+    retrieval: 40.1
+    tools: 36.5
+    arts: 17.0
+- benchmark: jev-decision-index
+  name: Bosun v3.1 0.6B
+  engine: bosun-v3.1-0.6b
+  kind: LoRA + head
+  base_model: Qwen/Qwen3-0.6B-Base
+  params_b: 0.6
+  weights_url: https://huggingface.co/Hanno-Labs/bosun-v3.1-0.6b
+  code_url: https://github.com/Hanno-Labs/jev-compatible-server
+  score: 11.04
+  public: 14.5
+  tie_band: 53
+  coverage: 0.76
+  domains:
+    knowledge: 2.6
+    language: 4.3
+    retrieval: 34.2
+    tools: 28.4
+    arts: 6.7
+- benchmark: jev-decision-index
+  name: vera-spark
+  engine: vera-spark
+  kind: full fine-tune
+  base_model: answerdotai/ModernBERT-large
+  params_b: 0.6
+  weights_url: https://huggingface.co/scar-ai/vera-spark
+  code_url: null
+  score: 11
+  public: 19.59
+  tie_band: 53
+  coverage: 1
+  domains:
+    knowledge: 10.1
+    language: 24.9
+    retrieval: 30.1
+    tools: 18.1
+    arts: 12.4
+- benchmark: jev-decision-index
+  name: Lavoir
+  engine: lavoir
+  kind: full fine-tune
+  base_model: answerdotai/ModernBERT-large
+  params_b: 0.4
+  weights_url: https://huggingface.co/moganai/lavoir
+  code_url: https://github.com/moganai/lavoir
+  score: 10.85
+  public: 8.85
+  tie_band: 53
+  coverage: 0.7594
+  domains:
+    knowledge: 2.8
+    language: 11.5
+    retrieval: 12.0
+    tools: 13.0
+    arts: 3.9
+- benchmark: jev-decision-index
+  name: GLiNER2.5-Decide
+  engine: gliner-decide
+  kind: full fine-tune
+  base_model: fastino/gliner2-large-v1
+  params_b: 0.5
+  weights_url: https://huggingface.co/fastino/GLiNER2.5-Decide
+  code_url: https://github.com/fastino-ai/GLiNER2
+  score: 10.14
+  public: 11.48
+  tie_band: 54
+  coverage: 0.76
+  domains:
+    knowledge: 2.3
+    language: 8.3
+    retrieval: 25.3
+    tools: 14.8
+    arts: 9.8
+- benchmark: jev-decision-index
+  name: Laya
+  engine: laya-1e28ac20
+  kind: full fine-tune
+  base_model: null
+  params_b: 0.4
+  weights_url: https://huggingface.co/convaiinnovations/laya
+  code_url: https://github.com/NandhaKishorM/laya
+  score: 9.21
+  public: 6.19
+  tie_band: 55
+  coverage: 0.7594
+  domains:
+    knowledge: 2.9
+    language: 10.1
+    retrieval: 7.1
+    tools: 5.8
+    arts: 3.5
+- benchmark: jev-decision-index
+  name: JevK5 Lite
+  engine: jevk5-lite
+  kind: full fine-tune
+  base_model: microsoft/deberta-v3-large
+  params_b: 0.3
+  weights_url: https://huggingface.co/alibiserikbay/JevK5-Lite
+  code_url: null
+  score: 8.78
+  public: 10.28
+  tie_band: 55
+  coverage: 0.6028
+  domains:
+    knowledge: 5.4
+    language: 9.0
+    retrieval: 28.7
+    tools: 3.1
+    arts: 2.5
+- benchmark: jev-decision-index
+  name: LFM2.5-2.6B-RLCD
+  engine: lfm2600
+  kind: full fine-tune
+  base_model: LiquidAI/LFM2.5-2.6B-Base
+  params_b: 2.7
+  weights_url: https://huggingface.co/monotykamary/LFM2.5-2.6B-RLCD
+  code_url: null
+  score: 8.18
+  public: 6.78
+  tie_band: 56
+  coverage: 0.7406
+  domains:
+    knowledge: 6.6
+    language: 5.9
+    retrieval: 10.5
+    tools: 4.4
+    arts: 6.3
+- benchmark: jev-decision-index
+  name: Qwen-2.5-1B-RLCD
+  engine: harsha
+  kind: inference technique
+  base_model: Qwen/Qwen2.5-1.5B
+  params_b: 1.5
+  weights_url: null
+  code_url: https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD
+  score: 7.85
+  public: 4.02
+  tie_band: 56
+  coverage: 0.76
+  domains:
+    knowledge: 1.4
+    language: 5.2
+    retrieval: 0.9
+    tools: 7.0
+    arts: 8.5
+- benchmark: jev-decision-index
+  name: Bekko System One v0 17M
+  engine: bekko-v0-17m
+  kind: full fine-tune
+  base_model: jhu-clsp/ettin-encoder-17m
+  params_b: 0.0
+  weights_url: https://huggingface.co/hotchpotch/bekko-system-one-v0-17m
+  code_url: null
+  score: 7.66
+  public: 7.44
+  tie_band: 56
+  coverage: 0.9992
+  domains:
+    knowledge: 2.5
+    language: 2.7
+    retrieval: 21.3
+    tools: 5.9
+    arts: 7.5
+- benchmark: jev-decision-index
+  name: CLM-v0.1-8B
+  engine: clm-v0.1-8b
+  kind: full fine-tune
+  base_model: Qwen/Qwen3-8B-Base
+  params_b: 8.2
+  weights_url: https://huggingface.co/Contrastive-LM/CLM-v0.1-8B
+  code_url: https://github.com/Contrastive-LM/CLM
+  score: 6.49
+  public: 7.41
+  tie_band: 57
+  coverage: 0.76
+  domains:
+    knowledge: 2.4
+    language: 5.7
+    retrieval: 11.3
+    tools: 14.0
+    arts: 5.2
+- benchmark: jev-decision-index
+  name: jeff
+  engine: jeff-uncapped
+  kind: inference technique
+  base_model: knowledgator/gliformer-large-v1
+  params_b: 0.6
+  weights_url: null
+  code_url: https://github.com/logan-markewich/jeff
+  score: 6.21
+  public: 8.27
+  tie_band: 57
+  coverage: 0.76
+  domains:
+    knowledge: 2.7
+    language: 11.6
+    retrieval: 21.3
+    tools: 1.2
+    arts: 0.9
+- benchmark: jev-decision-index
+  name: LFM2.5-350M-RLCD
+  engine: lfm350-sdpa
+  kind: full fine-tune
+  base_model: null
+  params_b: 0.4
+  weights_url: https://huggingface.co/notnotsamuel/LFM2.5-350M-RLCD
+  code_url: null
+  score: 5.86
+  public: 1.43
+  tie_band: 57
+  coverage: 0.76
+  domains:
+    knowledge: 0.8
+    language: 0.6
+    retrieval: 0.0
+    tools: 3.8
+    arts: 3.6
+- benchmark: jev-decision-index
+  name: system-one-gemma
+  engine: akash-gemma
+  kind: LoRA + head
+  base_model: google/gemma-3-270m
+  params_b: 0.3
+  weights_url: null
+  code_url: https://github.com/akash-kamat/system-one-gemma
+  score: 5.22
+  public: 5.19
+  tie_band: 58
+  coverage: 0.76
+  domains:
+    knowledge: 1.3
+    language: 1.2
+    retrieval: 17.2
+    tools: 3.3
+    arts: 4.9
+- benchmark: jev-decision-index
+  name: DM-JEPA 1.1
+  engine: dm-jepa-1.1
+  kind: full fine-tune
+  base_model: answerdotai/ModernBERT-base
+  params_b: 0.1
+  weights_url: https://huggingface.co/DangerLabs/DM-JEPA
+  code_url: null
+  score: 4.96
+  public: 19.19
+  tie_band: 58
+  coverage: 0.9479
+  domains:
+    knowledge: 17.3
+    language: 21.7
+    retrieval: 34.0
+    tools: 7.9
+    arts: 8.6
+- benchmark: jev-decision-index
+  name: Julia 1
+  engine: julia-1
+  kind: full fine-tune
+  base_model: jhu-clsp/mmBERT-small
+  params_b: 0.1
+  weights_url: https://huggingface.co/SupersonicLabs/Julia-1
+  code_url: null
+  score: 4.75
+  public: 4.24
+  tie_band: 58
+  coverage: 0.7595
+  domains:
+    knowledge: 1.4
+    language: 1.4
+    retrieval: 9.9
+    tools: 7.2
+    arts: 2.1
+- benchmark: jev-decision-index
+  name: Nirnaya 0.4B
+  engine: nirnaya-0.4b
+  kind: full fine-tune
+  base_model: kshitijthakkar/loggenix-moe-0.4B-0.2A-sft-s4
+  params_b: 0.4
+  weights_url: https://huggingface.co/kshitijthakkar/nirnaya-0.4b-0.2a-decision
+  code_url: null
+  score: 3.51
+  public: 1.6
+  tie_band: 59
+  coverage: 0.9999
+  domains:
+    knowledge: 0.5
+    language: 0.5
+    retrieval: 1.4
+    tools: 5.5
+    arts: 0.5
+- benchmark: jev-decision-index
+  name: Zev
+  engine: zev-latest
+  kind: inference technique
+  base_model: null
+  params_b: null
+  weights_url: null
+  code_url: https://github.com/bhubbard/zev-rs
+  score: 3.37
+  public: 1.55
+  tie_band: 59
+  coverage: 1
+  domains:
+    knowledge: 0.7
+    language: 0.2
+    retrieval: 0.9
+    tools: 3.0
+    arts: 6.0
+- benchmark: jev-decision-index
+  name: Verdict
+  engine: verdict-8af2496e
+  kind: full fine-tune
+  base_model: knowledgator/gliclass-modern-base-v2.0
+  params_b: 0.2
+  weights_url: https://huggingface.co/heman10x/rlcd-modernbert-151m
+  code_url: https://github.com/Heman10x-NGU/Verdict-open-jev
+  score: 2.04
+  public: 1.86
+  tie_band: 60
+  coverage: 0.3069
+  domains:
+    knowledge: 0.3
+    language: 1.6
+    retrieval: 0
+    tools: 6.6
+    arts: 1.5
+- benchmark: jevbench
+  name: kettei-fat (Sqwish)
+  engine: kettei-fat
+  board: api
+  weights_url: https://docs.sqwish.ai
+  score: 86.31
+  composite: 77.69
+  axes:
+    intelligence: 79.8
+    calibration: 92.8
+    speed: 92.9
+    cost: 57.4
+  usd_per_1000: 0.0263
+  price_estimated: true
+  p50_s: 0.202
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: Super Decider (thinking)
+  engine: singularity-super-decider-thinking
+  board: api
+  weights_url: https://singularitycompute.com/super-decider
+  score: 85.85
+  composite: 74.54
+  axes:
+    intelligence: 80.0
+    calibration: 91.7
+    speed: 79.8
+    cost: 56.4
+  usd_per_1000: 0.0284
+  price_estimated: false
+  p50_s: 0.888
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: Super Decider
+  engine: singularity-super-decider
+  board: api
+  weights_url: https://singularitycompute.com/super-decider
+  score: 84.87
+  composite: 78.48
+  axes:
+    intelligence: 78.9
+    calibration: 90.8
+    speed: 85.3
+    cost: 64.3
+  usd_per_1000: 0.0155
+  price_estimated: false
+  p50_s: 0.246
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: Fastino GLiDE (hosted API, 22 Oct 2026)
+  engine: fastino-glide-api
+  board: api
+  weights_url: https://fastino.ai
+  score: 84.46
+  composite: 76.44
+  axes:
+    intelligence: 76.1
+    calibration: 92.8
+    speed: 87.0
+    cost: 59.1
+  usd_per_1000: 0.0231
+  price_estimated: false
+  p50_s: 0.357
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: H2O-Lightning-31B v1.0.7 (H2O.ai, Gemma-4-31B-it fine-tune, vLLM + h2oai overlay, one-engine FP8
+    profile, self-hosted)
+  engine: h2o-lightning-31b
+  board: open
+  weights_url: https://huggingface.co/h2oai/h2o-lightning-31b
+  score: 84.34
+  composite: 73.07
+  axes:
+    intelligence: 79.3
+    calibration: 89.4
+    speed: 89.5
+    cost: 50.6
+  usd_per_1000: 0.0444
+  price_estimated: true
+  p50_s: 0.279
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: Drex Max (Nace AI)
+  engine: drex-max
+  board: api
+  weights_url: https://drex.nace.ai
+  score: 84.23
+  composite: 75.38
+  axes:
+    intelligence: 78.9
+    calibration: 89.6
+    speed: 89.6
+    cost: 55.3
+  usd_per_1000: 0.0308
+  price_estimated: false
+  p50_s: 0.254
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: basal-omni-1.0-ultra (Remek Kinas, Gemma-4-31B-it + merged LoRA, typed-decision readout, self-hosted)
+  engine: basal-omni-1.0-ultra
+  board: open
+  weights_url: https://huggingface.co/Remek/basal-omni-1.0-ultra
+  score: 82.13
+  composite: 71.45
+  axes:
+    intelligence: 74.1
+    calibration: 90.2
+    speed: 86.6
+    cost: 50.4
+  usd_per_1000: 0.0451
+  price_estimated: true
+  p50_s: 0.365
+  measured_on: '2026-10-17'
+- benchmark: jevbench
+  name: DOPEST 1.0 31B
+  engine: dopest-1.0-31b
+  board: open
+  weights_url: https://huggingface.co/dopest-studio/dopest-1.0-31b
+  score: 82.03
+  composite: 67.76
+  axes:
+    intelligence: 73.9
+    calibration: 90.2
+    speed: 82.0
+    cost: 49.2
+  usd_per_1000: 0.0494
+  price_estimated: true
+  p50_s: 0.622
+  measured_on: '2026-10-25'
+- benchmark: jevbench
+  name: SubQ Snap 1.1 (SubQ)
+  engine: subq-snap-1.1
+  board: api
+  weights_url: https://subq.ai
+  score: 81.91
+  composite: 75.74
+  axes:
+    intelligence: 75.8
+    calibration: 88.1
+    speed: 84.9
+    cost: 60.7
+  usd_per_1000: 0.0205
+  price_estimated: true
+  p50_s: 0.469
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: Jeff-1.1-Medium (jgeuter)
+  engine: jeff_1_1_medium
+  board: open
+  weights_url: https://huggingface.co/jgeuter/Jeff-1.1-Medium
+  score: 81.89
+  composite: 70.51
+  axes:
+    intelligence: 74.5
+    calibration: 89.3
+    speed: 74.0
+    cost: 53.8
+  usd_per_1000: 0.0347
+  price_estimated: true
+  p50_s: 0.284
+  measured_on: '2026-10-26'
+- benchmark: jevbench
+  name: Arcbright Elf 1 31B
+  engine: arcbright-elf-1-31b
+  board: open
+  weights_url: https://huggingface.co/arcbright/elf-1-31b
+  score: 81.79
+  composite: 70.51
+  axes:
+    intelligence: 71.9
+    calibration: 91.6
+    speed: 89.9
+    cost: 49.7
+  usd_per_1000: 0.0475
+  price_estimated: true
+  p50_s: 0.273
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: Quyet-1.0-Large (Chinh Nguyen, Gemma-4-31B decoder, option-letter logits)
+  engine: quyet-1-0-large
+  board: open
+  weights_url: https://huggingface.co/chinhnc/Quyet-1.0-Large
+  score: 81.69
+  composite: 71.3
+  axes:
+    intelligence: 73.4
+    calibration: 90.0
+    speed: 86.4
+    cost: 50.5
+  usd_per_1000: 0.0445
+  price_estimated: true
+  p50_s: 0.395
+  measured_on: null
+- benchmark: jevbench
+  name: Jeff-1.0-Large
+  engine: jeff_1_0_large
+  board: open
+  weights_url: https://huggingface.co/jgeuter/Jeff-1.0-Large
+  score: 81.5
+  composite: 68.54
+  axes:
+    intelligence: 71.9
+    calibration: 91.1
+    speed: 88.5
+    cost: 49.2
+  usd_per_1000: 0.0493
+  price_estimated: true
+  p50_s: 0.317
+  measured_on: '2026-10-09'
+- benchmark: jevbench
+  name: SubQ Snap (preview, SubQ)
+  engine: subq-snap-preview
+  board: api
+  weights_url: https://subq.ai
+  score: 81.47
+  composite: 74.38
+  axes:
+    intelligence: 72.3
+    calibration: 90.7
+    speed: 86.4
+    cost: 57.7
+  usd_per_1000: 0.0257
+  price_estimated: true
+  p50_s: 0.466
+  measured_on: '2026-10-13'
+- benchmark: jevbench
+  name: Sieve-31B-v2
+  engine: sieve-31b-v2
+  board: open
+  weights_url: https://huggingface.co/sthanika-ai/Sieve-31B-v2
+  score: 81.07
+  composite: 70.69
+  axes:
+    intelligence: 68.7
+    calibration: 93.4
+    speed: 85.6
+    cost: 50.9
+  usd_per_1000: 0.0433
+  price_estimated: true
+  p50_s: 0.425
+  measured_on: '2026-10-25'
+- benchmark: jevbench
+  name: d1-ultra (Liquid AI)
+  engine: liquid-d1-ultra
+  board: api
+  weights_url: https://www.liquid.ai
+  score: 80.48
+  composite: 76.05
+  axes:
+    intelligence: 69.7
+    calibration: 91.3
+    speed: 88.9
+    cost: 62.3
+  usd_per_1000: 0.0181
+  price_estimated: true
+  p50_s: 0.231
+  measured_on: '2026-10-15'
+- benchmark: jevbench
+  name: Bespoke Nimble-v4-max (Bespoke Labs)
+  engine: nimble-v4-max
+  board: api
+  weights_url: https://bespokelabs.ai
+  score: 79.72
+  composite: 74.82
+  axes:
+    intelligence: 68.2
+    calibration: 91.2
+    speed: 87.9
+    cost: 60.7
+  usd_per_1000: 0.0204
+  price_estimated: true
+  p50_s: 0.257
+  measured_on: '2026-10-14'
+- benchmark: jevbench
+  name: metask-jev-rain-31B-trained service v3
+  engine: metask_jev_rain_31b_trained_v3
+  board: open
+  weights_url: https://huggingface.co/MeTask-Rain/metask-jev-rain-31B-trained
+  score: 79.6
+  composite: 65.56
+  axes:
+    intelligence: 72.6
+    calibration: 86.6
+    speed: 73.3
+    cost: 49.3
+  usd_per_1000: 0.0491
+  price_estimated: true
+  p50_s: 0.52
+  measured_on: '2026-10-13'
+- benchmark: jevbench
+  name: decisio v0.8.0 on gemma-4-31B-it (frozen, FP8 on load, one prefill per state, self-hosted)
+  engine: decisio-gemma-4-31b-v080
+  board: open
+  weights_url: https://github.com/aminry/decisio
+  score: 79.57
+  composite: 69.53
+  axes:
+    intelligence: 70.4
+    calibration: 88.7
+    speed: 91.1
+    cost: 49.6
+  usd_per_1000: 0.0479
+  price_estimated: true
+  p50_s: 0.244
+  measured_on: null
+- benchmark: jevbench
+  name: metask-jev-rain-31B-trained
+  engine: metask_jev_rain_31b_trained
+  board: open
+  weights_url: https://huggingface.co/MeTask-Rain/metask-jev-rain-31B-trained
+  score: 78.91
+  composite: 69.59
+  axes:
+    intelligence: 70.7
+    calibration: 87.1
+    speed: 82.3
+    cost: 50.7
+  usd_per_1000: 0.0439
+  price_estimated: true
+  p50_s: 0.616
+  measured_on: '2026-10-12'
+- benchmark: jevbench
+  name: Myles-G 31B (Launchables)
+  engine: launchables-myles-g-31b
+  board: api
+  weights_url: https://www.launchables.ai/licensing
+  score: 78.82
+  composite: 70.57
+  axes:
+    intelligence: 73.6
+    calibration: 84.0
+    speed: 85.9
+    cost: 51.1
+  usd_per_1000: 0.0426
+  price_estimated: true
+  p50_s: 0.445
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: Sage 1.3.0 (Levanto Labs)
+  engine: sage-1.3.0
+  board: api
+  weights_url: https://levanto.ai
+  score: 78.6
+  composite: 73.73
+  axes:
+    intelligence: 65.6
+    calibration: 91.6
+    speed: 91.6
+    cost: 58.2
+  usd_per_1000: 0.0247
+  price_estimated: true
+  p50_s: 0.171
+  measured_on: null
+- benchmark: jevbench
+  name: Bobcat 1.3 (Gemma 4 31B)
+  engine: bobcat-1.3
+  board: open
+  weights_url: https://huggingface.co/sanghwa-na/bobcat-1.3
+  score: 77.86
+  composite: 69.38
+  axes:
+    intelligence: 68.1
+    calibration: 87.6
+    speed: 89.3
+    cost: 49.9
+  usd_per_1000: 0.0469
+  price_estimated: true
+  p50_s: 0.288
+  measured_on: '2026-10-23'
+- benchmark: jevbench
+  name: deck-31B (krishna765, frozen Gemma-4-31B-it, TorchAO FP8 dynamic)
+  engine: deck31b
+  board: open
+  weights_url: https://github.com/krishna-gogineni-765/deck31b
+  score: 77.59
+  composite: 68.63
+  axes:
+    intelligence: 73.0
+    calibration: 82.2
+    speed: 86.4
+    cost: 49.7
+  usd_per_1000: 0.0475
+  price_estimated: true
+  p50_s: 0.411
+  measured_on: null
+- benchmark: jevbench
+  name: Torchcast Decision 4B (v1.3)
+  engine: torchcast-decision-4b-v1.3
+  board: open
+  weights_url: https://huggingface.co/torchcast-ai/torchcast-decision-4b
+  score: 77.5
+  composite: 76.16
+  axes:
+    intelligence: 67.1
+    calibration: 87.8
+    speed: 92.4
+    cost: 64.8
+  usd_per_1000: 0.0149
+  price_estimated: true
+  p50_s: 0.217
+  measured_on: '2026-10-23'
+- benchmark: jevbench
+  name: Jev 1.13.0 (TypeSafe AI)
+  engine: jev-1.13.0
+  board: reference
+  weights_url: https://docs.typesafe.ai
+  score: 77.13
+  composite: 71.45
+  axes:
+    intelligence: 63.6
+    calibration: 90.6
+    speed: 91.2
+    cost: 54.7
+  usd_per_1000: 0.0323
+  price_estimated: false
+  p50_s: 0.243
+  measured_on: null
+- benchmark: jevbench
+  name: metask-jev-rain-12B-trained
+  engine: metask_jev_rain_12b_trained
+  board: open
+  weights_url: https://huggingface.co/MeTask-Rain/metask-jev-rain-12B-trained
+  score: 76.89
+  composite: 67.33
+  axes:
+    intelligence: 66.5
+    calibration: 87.3
+    speed: 71.8
+    cost: 52.7
+  usd_per_1000: 0.0378
+  price_estimated: true
+  p50_s: 0.407
+  measured_on: '2026-10-12'
+- benchmark: jevbench
+  name: Wald 26B-A4B (Gemma 4 26B-A4B)
+  engine: wald-26b-a4b
+  board: open
+  weights_url: https://huggingface.co/org2ai/Wald-26B-A4B
+  score: 76.78
+  composite: 68.21
+  axes:
+    intelligence: 65.5
+    calibration: 88.1
+    speed: 92.0
+    cost: 49.6
+  usd_per_1000: 0.0479
+  price_estimated: true
+  p50_s: 0.236
+  measured_on: '2026-10-23'
+- benchmark: jevbench
+  name: René-1 31B FP8 (salfatigroup, Gemma 4 31B full fine-tune, one-pass option readout)
+  engine: rene-1-31b-fp8
+  board: open
+  weights_url: https://huggingface.co/salfatigroup/rene-1-31b-fp8
+  score: 75.95
+  composite: 55.8
+  axes:
+    intelligence: 61.7
+    calibration: 90.2
+    speed: 86.7
+    cost: 46.0
+  usd_per_1000: 0.0633
+  price_estimated: true
+  p50_s: 0.377
+  measured_on: null
+- benchmark: jevbench
+  name: Decisio 12B tuned commit (variant of the Decisio family)
+  engine: decisio-gemma-4-12b-tuned-commit
+  board: open
+  weights_url: https://huggingface.co/tachara-ai/Decisio-12b-tuned-commit
+  score: 75.7
+  composite: 71.46
+  axes:
+    intelligence: 62.8
+    calibration: 88.6
+    speed: 90.3
+    cost: 56.5
+  usd_per_1000: 0.0281
+  price_estimated: true
+  p50_s: 0.267
+  measured_on: '2026-10-25'
+- benchmark: jevbench
+  name: Jev 1.14.0 (TypeSafe AI)
+  engine: jev-1.14.0
+  board: api
+  weights_url: https://docs.typesafe.ai/models
+  score: 75.01
+  composite: 70.15
+  axes:
+    intelligence: 59.9
+    calibration: 90.1
+    speed: 91.0
+    cost: 54.8
+  usd_per_1000: 0.0321
+  price_estimated: true
+  p50_s: 0.227
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: H2O-Lightning-4B v1.1 (H2O.ai, Qwen3.5-4B fine-tune, stock vLLM + open shim)
+  engine: h2o-lightning-4b
+  board: open
+  weights_url: https://huggingface.co/h2oai/h2o-lightning-4b
+  score: 75.0
+  composite: 73.78
+  axes:
+    intelligence: 60.0
+    calibration: 90.0
+    speed: 92.4
+    cost: 64.0
+  usd_per_1000: 0.0158
+  price_estimated: true
+  p50_s: 0.212
+  measured_on: '2026-10-04'
+- benchmark: jevbench
+  name: d1 (Liquid AI)
+  engine: liquid-d1
+  board: api
+  weights_url: https://www.liquid.ai/blog/d1-decision-model
+  score: 74.42
+  composite: 72.82
+  axes:
+    intelligence: 62.1
+    calibration: 86.8
+    speed: 87.9
+    cost: 62.8
+  usd_per_1000: 0.0173
+  price_estimated: false
+  p50_s: 0.269
+  measured_on: null
+- benchmark: jevbench
+  name: SPX-CD Flash (SurdAI, hosted /v1/systemone, Oct-4 checkpoint)
+  engine: spx-cd-flash
+  board: api
+  weights_url: https://surd.ai
+  score: 74.32
+  composite: 66.64
+  axes:
+    intelligence: 58.4
+    calibration: 90.2
+    speed: 79.2
+    cost: 52.1
+  usd_per_1000: 0.0395
+  price_estimated: true
+  p50_s: 1.015
+  measured_on: null
+- benchmark: jevbench
+  name: Mercury Decide (Inception; System One decisions API, served free on OpenRouter as inception/mercury-decide:free)
+  engine: mercury-decide
+  board: api
+  weights_url: https://openrouter.ai/inception/mercury-decide:free
+  score: 73.63
+  composite: 72.25
+  axes:
+    intelligence: 65.9
+    calibration: 81.3
+    speed: 84.8
+    cost: 62.1
+  usd_per_1000: 0.0184
+  price_estimated: true
+  p50_s: 0.344
+  measured_on: null
+- benchmark: jevbench
+  name: Celeris-1 Decision (Celeris)
+  engine: celeris-1-decision
+  board: api
+  weights_url: https://docs.celeris.ai
+  score: 73.62
+  composite: 70.96
+  axes:
+    intelligence: 58.9
+    calibration: 88.4
+    speed: 86.9
+    cost: 60.4
+  usd_per_1000: 0.0209
+  price_estimated: true
+  p50_s: 0.433
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: OpenAI Decisions (gpt-6-luna)
+  engine: openai-decisions
+  board: api
+  weights_url: null
+  score: 73.5
+  composite: 62.37
+  axes:
+    intelligence: 56.9
+    calibration: 90.1
+    speed: 88.3
+    cost: 48.6
+  usd_per_1000: 0.0517
+  price_estimated: false
+  p50_s: 0.305
+  measured_on: null
+- benchmark: jevbench
+  name: Surogate Rune 26B-A4B v3 (v1.6 pool)
+  engine: surogate-rune-26b-a4b-v3-v16
+  board: open
+  weights_url: https://huggingface.co/surogate/rune-26b-a4b-GGUF
+  score: 73.47
+  composite: 64.99
+  axes:
+    intelligence: 56.1
+    calibration: 90.9
+    speed: 86.5
+    cost: 49.6
+  usd_per_1000: 0.0479
+  price_estimated: true
+  p50_s: 0.384
+  measured_on: null
+- benchmark: jevbench
+  name: kettei-chub (Sqwish)
+  engine: kettei-chub
+  board: api
+  weights_url: https://docs.sqwish.ai
+  score: 73.14
+  composite: 73.45
+  axes:
+    intelligence: 62.2
+    calibration: 84.1
+    speed: 94.9
+    cost: 62.7
+  usd_per_1000: 0.0175
+  price_estimated: true
+  p50_s: 0.168
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: Bobcat Flash 1.2 (Gemma-4-26B-A4B-it + two merged rank-64 LoRA adapters, typed-decision readout
+    at the first answer position, FP8, self-hosted)
+  engine: bobcat-flash-1.2
+  board: open
+  weights_url: https://huggingface.co/sanghwa-na/bobcat-flash-1.2
+  score: 73.05
+  composite: 67.14
+  axes:
+    intelligence: 65.6
+    calibration: 80.5
+    speed: 90.6
+    cost: 49.7
+  usd_per_1000: 0.0475
+  price_estimated: true
+  p50_s: 0.273
+  measured_on: null
+- benchmark: jevbench
+  name: Torchcast Decision 4B (v1.2)
+  engine: torchcast-decision-4b-v1.2
+  board: open
+  weights_url: https://huggingface.co/torchcast-ai/torchcast-decision-4b
+  score: 72.61
+  composite: 73.0
+  axes:
+    intelligence: 60.3
+    calibration: 85.0
+    speed: 90.9
+    cost: 64.8
+  usd_per_1000: 0.0149
+  price_estimated: true
+  p50_s: 0.276
+  measured_on: '2026-10-18'
+- benchmark: jevbench
+  name: torchcast-decision-12b (Torchcast AI, Gemma-4-12B fine-tune, option-letter logprob readout)
+  engine: torchcast-decision-12b
+  board: open
+  weights_url: https://huggingface.co/torchcast-ai/torchcast-decision-12b
+  score: 71.74
+  composite: 69.85
+  axes:
+    intelligence: 60.5
+    calibration: 82.9
+    speed: 91.3
+    cost: 56.4
+  usd_per_1000: 0.0285
+  price_estimated: true
+  p50_s: 0.24
+  measured_on: null
+- benchmark: jevbench
+  name: decider-12b v2 (Mapika)
+  engine: decider-12b
+  board: open
+  weights_url: https://huggingface.co/Mapika/decider-12b
+  score: 71.35
+  composite: 70.3
+  axes:
+    intelligence: 61.9
+    calibration: 80.8
+    speed: 90.5
+    cost: 57.8
+  usd_per_1000: 0.0256
+  price_estimated: true
+  p50_s: 0.259
+  measured_on: null
+- benchmark: jevbench
+  name: Jev-Omni (akhilaaa3, Gemma-4-12B merged)
+  engine: jev-omni
+  board: open
+  weights_url: https://huggingface.co/akhilaaa3/Jev-Omni
+  score: 71.29
+  composite: 67.64
+  axes:
+    intelligence: 55.5
+    calibration: 87.0
+    speed: 84.7
+    cost: 56.1
+  usd_per_1000: 0.0292
+  price_estimated: true
+  p50_s: 0.473
+  measured_on: null
+- benchmark: jevbench
+  name: Winnow-12B Q8
+  engine: winnow-12b
+  board: open
+  weights_url: https://huggingface.co/EldanRing/Winnow-12B
+  score: 71.25
+  composite: 68.8
+  axes:
+    intelligence: 59.5
+    calibration: 83.0
+    speed: 86.2
+    cost: 56.6
+  usd_per_1000: 0.0281
+  price_estimated: true
+  p50_s: 0.397
+  measured_on: null
+- benchmark: jevbench
+  name: Xor 26B-A4B (Juspay, Gemma-4-26B-A4B, bf16)
+  engine: xor-26b-a4b
+  board: open
+  weights_url: https://huggingface.co/juspay/Xor-26B-A4B
+  score: 71.19
+  composite: 66.77
+  axes:
+    intelligence: 57.5
+    calibration: 84.9
+    speed: 90.8
+    cost: 50.7
+  usd_per_1000: 0.044
+  price_estimated: true
+  p50_s: 0.27
+  measured_on: null
+- benchmark: jevbench
+  name: decider-12b v1, stock Gemma-4-12B-it (Mapika)
+  engine: decider-12b-v1
+  board: open
+  weights_url: https://huggingface.co/Mapika/decider-12b
+  score: 71.04
+  composite: 69.84
+  axes:
+    intelligence: 59.6
+    calibration: 82.5
+    speed: 90.4
+    cost: 57.8
+  usd_per_1000: 0.0256
+  price_estimated: true
+  p50_s: 0.259
+  measured_on: null
+- benchmark: jevbench
+  name: Cygnet (blockbrain, frozen Gemma-4-12B-it)
+  engine: cygnet
+  board: open
+  weights_url: https://github.com/blockbrain-ai/cygnet-recipe
+  score: 70.9
+  composite: 68.49
+  axes:
+    intelligence: 54.8
+    calibration: 87.0
+    speed: 91.4
+    cost: 56.4
+  usd_per_1000: 0.0283
+  price_estimated: true
+  p50_s: 0.239
+  measured_on: null
+- benchmark: jevbench
+  name: Microsoft-Decision-1 (Azure Foundry)
+  engine: microsoft-decision-1
+  board: api
+  weights_url: https://commandline.microsoft.com/microsoft-decision-1-model-foundry/
+  score: 70.78
+  composite: 69.08
+  axes:
+    intelligence: 57.2
+    calibration: 84.4
+    speed: 81.4
+    cost: 61.5
+  usd_per_1000: 0.0193
+  price_estimated: false
+  p50_s: 0.479
+  measured_on: null
+- benchmark: jevbench
+  name: decisio v0.8.0 on gemma-4-12B-it (frozen, one forward pass, self-hosted)
+  engine: decisio-gemma-4-12b-v080
+  board: open
+  weights_url: https://github.com/aminry/decisio
+  score: 70.74
+  composite: 67.37
+  axes:
+    intelligence: 52.3
+    calibration: 89.2
+    speed: 86.3
+    cost: 57.3
+  usd_per_1000: 0.0266
+  price_estimated: true
+  p50_s: 0.381
+  measured_on: null
+- benchmark: jevbench
+  name: Myles-G 12B (Launchables)
+  engine: launchables-myles-g-12b
+  board: api
+  weights_url: https://www.launchables.ai/licensing
+  score: 70.65
+  composite: 78.2
+  axes:
+    intelligence: 57.3
+    calibration: 84.0
+    speed: 85.3
+    cost: 99.4
+  usd_per_1000: 0.0011
+  price_estimated: true
+  p50_s: 0.484
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: Instinct (ZooWork, Qwen3.8-27B)
+  engine: instinct
+  board: api
+  weights_url: https://github.com/fstandhartinger/jevbench/issues/69
+  score: 70.47
+  composite: 62.23
+  axes:
+    intelligence: 47.8
+    calibration: 93.2
+    speed: 87.1
+    cost: 64.4
+  usd_per_1000: 0.0154
+  price_estimated: false
+  p50_s: 0.296
+  measured_on: null
+- benchmark: jevbench
+  name: decider chat on Gemma-4-31B-it (Mapika, frozen base, inference technique)
+  engine: decider-chat-gemma4-31b
+  board: open
+  weights_url: https://github.com/Mapika/decider
+  score: 70.45
+  composite: 66.03
+  axes:
+    intelligence: 58.5
+    calibration: 82.3
+    speed: 85.8
+    cost: 50.8
+  usd_per_1000: 0.0437
+  price_estimated: true
+  p50_s: 0.402
+  measured_on: null
+- benchmark: jevbench
+  name: baselabs elephant-1 (9B)
+  engine: elephant-1
+  board: open
+  weights_url: https://huggingface.co/baselabs/elephant-1
+  score: 70.25
+  composite: 60.91
+  axes:
+    intelligence: 55.8
+    calibration: 84.7
+    speed: 89.7
+    cost: 48.4
+  usd_per_1000: 0.0525
+  price_estimated: true
+  p50_s: 0.301
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: GEV-26B-Decide (AutoTrust, Gemma-4-26B-A4B + LoRA + head)
+  engine: gev-26b-decide
+  board: open
+  weights_url: https://huggingface.co/autotrust/GEV-26B-Decide
+  score: 70.08
+  composite: 64.19
+  axes:
+    intelligence: 49.8
+    calibration: 90.3
+    speed: 89.6
+    cost: 51.1
+  usd_per_1000: 0.0426
+  price_estimated: true
+  p50_s: 0.259
+  measured_on: null
+- benchmark: jevbench
+  name: Chon-1.0-12B-Fast
+  engine: chon-1.0-12b-fast
+  board: open
+  weights_url: https://huggingface.co/ninhnv/chon-1.0-12b-fast
+  score: 70.07
+  composite: 68.86
+  axes:
+    intelligence: 60.3
+    calibration: 79.9
+    speed: 83.7
+    cost: 58.7
+  usd_per_1000: 0.0238
+  price_estimated: true
+  p50_s: 0.5
+  measured_on: '2026-10-25'
+- benchmark: jevbench
+  name: Blink v0.3 26B-A4B
+  engine: blink-v0-3-26b-a4b-nvfp4
+  board: open
+  weights_url: https://huggingface.co/PixilabAI/Blink-v0.3-26B-A4B-NVFP4
+  score: 69.95
+  composite: 61.12
+  axes:
+    intelligence: 49.2
+    calibration: 90.7
+    speed: 91.1
+    cost: 49.6
+  usd_per_1000: 0.0478
+  price_estimated: true
+  p50_s: 0.255
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: decisio v0.9.0 on gemma-4-12B-it (frozen, one prefill per question, self-hosted)
+  engine: decisio-gemma-4-12b-v090
+  board: open
+  weights_url: https://github.com/aminry/decisio
+  score: 69.95
+  composite: 66.98
+  axes:
+    intelligence: 52.3
+    calibration: 87.6
+    speed: 85.3
+    cost: 57.3
+  usd_per_1000: 0.0266
+  price_estimated: true
+  p50_s: 0.437
+  measured_on: null
+- benchmark: jevbench
+  name: attest-31B-v1.0
+  engine: attest-31b-v1.0
+  board: api
+  weights_url: https://attest.engineering/model
+  score: 69.54
+  composite: 67.86
+  axes:
+    intelligence: 65.2
+    calibration: 73.8
+    speed: 96.5
+    cost: 50.7
+  usd_per_1000: 0.0439
+  price_estimated: true
+  p50_s: 0.11
+  measured_on: '2026-10-12'
+- benchmark: jevbench
+  name: Philly Decider v2 (PhillyLabs)
+  engine: phillylabs_philly_decider_v2
+  board: open
+  weights_url: https://huggingface.co/PhillyLabs/philly-decider-v2
+  score: 69.3
+  composite: 71.21
+  axes:
+    intelligence: 56.1
+    calibration: 82.5
+    speed: 93.2
+    cost: 64.6
+  usd_per_1000: 0.0152
+  price_estimated: true
+  p50_s: 0.198
+  measured_on: '2026-10-26'
+- benchmark: jevbench
+  name: Wald 4B v2.1
+  engine: wald-4b-v2-1
+  board: open
+  weights_url: https://huggingface.co/org2ai/Wald-4B
+  score: 69.27
+  composite: 54.26
+  axes:
+    intelligence: 52.0
+    calibration: 86.6
+    speed: 92.8
+    cost: 46.3
+  usd_per_1000: 0.0617
+  price_estimated: true
+  p50_s: 0.208
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: vLLM-SR d3-mini
+  engine: vllm-sr-d3-mini
+  board: open
+  weights_url: https://huggingface.co/vllm-sr/d3-mini
+  score: 68.77
+  composite: 69.52
+  axes:
+    intelligence: 50.8
+    calibration: 86.8
+    speed: 93.1
+    cost: 64.2
+  usd_per_1000: 0.0156
+  price_estimated: true
+  p50_s: 0.207
+  measured_on: '2026-10-24'
+- benchmark: jevbench
+  name: Torchcast Decision 4B (v1.1)
+  engine: torchcast-decision-4b-v1.1
+  board: open
+  weights_url: https://huggingface.co/torchcast-ai/torchcast-decision-4b
+  score: 68.66
+  composite: 70.67
+  axes:
+    intelligence: 54.2
+    calibration: 83.1
+    speed: 93.5
+    cost: 64.8
+  usd_per_1000: 0.0149
+  price_estimated: true
+  p50_s: 0.195
+  measured_on: '2026-10-12'
+- benchmark: jevbench
+  name: iota-decide-4b-v0.3 (Macrocosmos, letter-readout 4B, self-hosted)
+  engine: iota-decide-4b-v0.3
+  board: open
+  weights_url: https://huggingface.co/macrocosm-os/iota-decide-4b-v0.3
+  score: 68.64
+  composite: 69.19
+  axes:
+    intelligence: 52.5
+    calibration: 84.8
+    speed: 87.5
+    cost: 64.3
+  usd_per_1000: 0.0155
+  price_estimated: true
+  p50_s: 0.376
+  measured_on: '2026-10-26'
+- benchmark: jevbench
+  name: Xevn-4B
+  engine: xevn-4b
+  board: open
+  weights_url: https://huggingface.co/quevirus/Xevn-4B
+  score: 68.64
+  composite: 70.18
+  axes:
+    intelligence: 52.1
+    calibration: 85.1
+    speed: 91.6
+    cost: 66.0
+  usd_per_1000: 0.0136
+  price_estimated: true
+  p50_s: 0.232
+  measured_on: '2026-10-24'
+- benchmark: jevbench
+  name: Chon-1.0-E4B
+  engine: chon-1.0-e4b
+  board: open
+  weights_url: https://huggingface.co/ninhnv/chon-1.0-e4b
+  score: 68.5
+  composite: 71.82
+  axes:
+    intelligence: 55.5
+    calibration: 81.5
+    speed: 88.7
+    cost: 70.7
+  usd_per_1000: 0.0094
+  price_estimated: true
+  p50_s: 0.297
+  measured_on: '2026-10-25'
+- benchmark: jevbench
+  name: Hopper 12B trained (gemma-4-12B-it frozen + LoRA r32 unmerged, one forward pass, self-hosted)
+  engine: hopper-12b-trained
+  board: open
+  weights_url: https://huggingface.co/HopitAI/hopper
+  score: 68.15
+  composite: 65.64
+  axes:
+    intelligence: 51.7
+    calibration: 84.6
+    speed: 83.6
+    cost: 56.2
+  usd_per_1000: 0.0289
+  price_estimated: true
+  p50_s: 0.517
+  measured_on: null
+- benchmark: jevbench
+  name: SPX-CD-Omni (SurdAI, google/gemma-4-12B-it + LoRA r32, one forward pass, self-hosted)
+  engine: spx-cd-omni
+  board: open
+  weights_url: https://huggingface.co/SurdAI/SPX-CD-Omni
+  score: 68.13
+  composite: 63.11
+  axes:
+    intelligence: 48.8
+    calibration: 87.5
+    speed: 89.1
+    cost: 58.3
+  usd_per_1000: 0.0246
+  price_estimated: true
+  p50_s: 0.3
+  measured_on: null
+- benchmark: jevbench
+  name: Aplomb 1 (5.3B decision model on Qwen3.5-4B, trained readout head, self-hosted)
+  engine: aplomb-1
+  board: open
+  weights_url: https://huggingface.co/empiriolabsai/aplomb-1
+  score: 67.09
+  composite: 52.89
+  axes:
+    intelligence: 45.2
+    calibration: 88.9
+    speed: 88.8
+    cost: 57.9
+  usd_per_1000: 0.0254
+  price_estimated: true
+  p50_s: 0.335
+  measured_on: null
+- benchmark: jevbench
+  name: Bespoke Nimble 9B v3 (Qwen3.5-9B LoRA)
+  engine: bespoke-nimble-9b-v3
+  board: open
+  weights_url: https://huggingface.co/bespokelabs/Bespoke-Nimble-9B-v3
+  score: 66.79
+  composite: 53.46
+  axes:
+    intelligence: 56.5
+    calibration: 77.0
+    speed: 89.0
+    cost: 46.1
+  usd_per_1000: 0.0626
+  price_estimated: true
+  p50_s: 0.339
+  measured_on: null
+- benchmark: jevbench
+  name: Amazon Strands Decider 26B-A4B
+  engine: amazon-strands-decider-26b-a4b
+  board: open
+  weights_url: https://huggingface.co/amazon/strands-decider-26B-A4B-gemma4-v1-2610
+  score: 66.72
+  composite: 54.48
+  axes:
+    intelligence: 46.7
+    calibration: 86.7
+    speed: 88.0
+    cost: 50.5
+  usd_per_1000: 0.0448
+  price_estimated: true
+  p50_s: 0.371
+  measured_on: '2026-10-24'
+- benchmark: jevbench
+  name: Metask rain 4B
+  engine: metask-jev-rain-4b
+  board: open
+  weights_url: https://huggingface.co/wayfind/metask-jev-4b-policy-mix
+  score: 65.99
+  composite: 62.51
+  axes:
+    intelligence: 51.1
+    calibration: 80.9
+    speed: 78.4
+    cost: 51.8
+  usd_per_1000: 0.0404
+  price_estimated: true
+  p50_s: 0.317
+  measured_on: '2026-10-09'
+- benchmark: jevbench
+  name: shisa-de-1 (shisa-ai, Gemma-4-26B-A4B)
+  engine: shisa-de-1
+  board: open
+  weights_url: https://huggingface.co/shisa-ai/shisa-de-1
+  score: 65.53
+  composite: 62.42
+  axes:
+    intelligence: 49.9
+    calibration: 81.2
+    speed: 92.7
+    cost: 49.8
+  usd_per_1000: 0.0472
+  price_estimated: true
+  p50_s: 0.213
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: Plumb-4B (crh225, JevK5 v0.2 + LoRA)
+  engine: plumb-4b
+  board: open
+  weights_url: https://huggingface.co/crh225/plumb-4b
+  score: 65.32
+  composite: 47.93
+  axes:
+    intelligence: 42.8
+    calibration: 87.8
+    speed: 93.7
+    cost: 63.1
+  usd_per_1000: 0.017
+  price_estimated: true
+  p50_s: 0.192
+  measured_on: null
+- benchmark: jevbench
+  name: Arcbright Elf 1 12B
+  engine: arcbright-elf-1-12b
+  board: open
+  weights_url: https://huggingface.co/arcbright/elf-1-12b
+  score: 64.96
+  composite: 48.77
+  axes:
+    intelligence: 43.8
+    calibration: 86.2
+    speed: 91.6
+    cost: 57.4
+  usd_per_1000: 0.0263
+  price_estimated: true
+  p50_s: 0.235
+  measured_on: '2026-10-20'
+- benchmark: jevbench
+  name: decider-4b v2 (Mapika)
+  engine: decider-4b-v2
+  board: open
+  weights_url: https://github.com/Mapika/decider
+  score: 64.88
+  composite: 41.12
+  axes:
+    intelligence: 40.1
+    calibration: 89.6
+    speed: 90.3
+    cost: 64.5
+  usd_per_1000: 0.0152
+  price_estimated: true
+  p50_s: 0.207
+  measured_on: null
+- benchmark: jevbench
+  name: Seb-9B-v2 (ironbcc, Qwen3.5-9B fine-tune, one forward pass, stock vLLM, self-hosted)
+  engine: seb-9b-v2
+  board: open
+  weights_url: https://huggingface.co/ironbcc/Seb-9B-v2
+  score: 64.82
+  composite: 50.05
+  axes:
+    intelligence: 46.1
+    calibration: 83.5
+    speed: 92.0
+    cost: 48.9
+  usd_per_1000: 0.0506
+  price_estimated: true
+  p50_s: 0.221
+  measured_on: '2026-10-23'
+- benchmark: jevbench
+  name: HS1 0.1.2 (Hyland)
+  engine: hyland-hs1
+  board: api
+  weights_url: https://www.hyland.com
+  score: 64.35
+  composite: 61.07
+  axes:
+    intelligence: 52.9
+    calibration: 75.8
+    speed: 93.5
+    cost: 49.1
+  usd_per_1000: 0.0497
+  price_estimated: true
+  p50_s: 0.199
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: JevK5 v0.3 (4B)
+  engine: jevk5-v0.3-4b
+  board: open
+  weights_url: https://huggingface.co/alibiserikbay/JevK5
+  score: 64.17
+  composite: 37.35
+  axes:
+    intelligence: 38.5
+    calibration: 89.8
+    speed: 93.8
+    cost: 63.1
+  usd_per_1000: 0.017
+  price_estimated: true
+  p50_s: 0.189
+  measured_on: null
+- benchmark: jevbench
+  name: Bespoke Nimble-v4 (Bespoke Labs)
+  engine: nimble-v4
+  board: api
+  weights_url: https://bespokelabs.ai
+  score: 64.02
+  composite: 43.23
+  axes:
+    intelligence: 41.4
+    calibration: 86.6
+    speed: 88.5
+    cost: 60.7
+  usd_per_1000: 0.0204
+  price_estimated: true
+  p50_s: 0.232
+  measured_on: '2026-10-14'
+- benchmark: jevbench
+  name: Jeffan-4B-2010
+  engine: jeffan-4b-2010
+  board: open
+  weights_url: https://huggingface.co/tattrongvu/Jeffan-4B-2010
+  score: 64.0
+  composite: 41.06
+  axes:
+    intelligence: 40.1
+    calibration: 87.9
+    speed: 93.0
+    cost: 64.1
+  usd_per_1000: 0.0157
+  price_estimated: true
+  p50_s: 0.207
+  measured_on: '2026-10-24'
+- benchmark: jevbench
+  name: Clef-Flash (Cloudflare, Qwen3.5-9B post-train with a joint schema head, multimodal, measured on
+    text)
+  engine: clef-flash
+  board: open
+  weights_url: https://huggingface.co/Cloudflare/clef-flash
+  score: 63.82
+  composite: 36.62
+  axes:
+    intelligence: 42.2
+    calibration: 85.5
+    speed: 88.1
+    cost: 46.8
+  usd_per_1000: 0.0593
+  price_estimated: true
+  p50_s: 0.357
+  measured_on: null
+- benchmark: jevbench
+  name: JPT-4B (kirp, Qwen3.5-4B LoRA)
+  engine: jpt-4b
+  board: open
+  weights_url: https://huggingface.co/kirp/jpt-4b
+  score: 63.82
+  composite: 42.17
+  axes:
+    intelligence: 40.8
+    calibration: 86.9
+    speed: 87.8
+    cost: 64.2
+  usd_per_1000: 0.0156
+  price_estimated: true
+  p50_s: 0.282
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: Vansa-3.4 (Vansa, hosted System One API)
+  engine: vansa-3.4
+  board: api
+  weights_url: https://vansa.org
+  score: 63.69
+  composite: 42.57
+  axes:
+    intelligence: 40.9
+    calibration: 86.5
+    speed: 95.0
+    cost: 61.9
+  usd_per_1000: 0.0186
+  price_estimated: false
+  p50_s: 0.158
+  measured_on: null
+- benchmark: jevbench
+  name: deck-4B v1.0 (krishna765, JevK5 + LoRA, FP8 weight-only)
+  engine: deck-4b-v1-0
+  board: open
+  weights_url: https://github.com/krishna-gogineni-765/deck
+  score: 63.61
+  composite: 37.26
+  axes:
+    intelligence: 38.6
+    calibration: 88.6
+    speed: 89.9
+    cost: 63.5
+  usd_per_1000: 0.0165
+  price_estimated: true
+  p50_s: 0.304
+  measured_on: null
+- benchmark: jevbench
+  name: Jebadiah 9B v2.1 (Frontier Infra, Qwen3.5-9B LoRA)
+  engine: jebadiah-9b-v2-1
+  board: open
+  weights_url: https://huggingface.co/frontier-infra/jebadiah-9b-v2-1
+  score: 63.41
+  composite: 30.32
+  axes:
+    intelligence: 37.2
+    calibration: 89.7
+    speed: 91.0
+    cost: 48.9
+  usd_per_1000: 0.0507
+  price_estimated: true
+  p50_s: 0.251
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: GLiClass v4 9B (Knowledgator)
+  engine: knowledgator_gliclass_v4_9b
+  board: open
+  weights_url: https://huggingface.co/knowledgator/gliclass-v4-9b
+  score: 63.2
+  composite: 37.0
+  axes:
+    intelligence: 39.6
+    calibration: 86.8
+    speed: 85.6
+    cost: 51.2
+  usd_per_1000: 0.0422
+  price_estimated: true
+  p50_s: 0.419
+  measured_on: '2026-10-26'
+- benchmark: jevbench
+  name: Seb-9B (ironbcc, Qwen3.5-9B fine-tune, one forward pass, stock vLLM, self-hosted)
+  engine: seb-9b
+  board: open
+  weights_url: https://huggingface.co/ironbcc/seb-9b
+  score: 63.14
+  composite: 32.56
+  axes:
+    intelligence: 38.3
+    calibration: 88.0
+    speed: 90.7
+    cost: 48.9
+  usd_per_1000: 0.0506
+  price_estimated: true
+  p50_s: 0.25
+  measured_on: '2026-10-20'
+- benchmark: jevbench
+  name: Amos 1 medium (Scira)
+  engine: amos-1-medium
+  board: api
+  weights_url: https://huggingface.co/mukaddamzaid/amos-1-medium
+  score: 62.85
+  composite: 31.64
+  axes:
+    intelligence: 38.1
+    calibration: 87.6
+    speed: 86.2
+    cost: 48.7
+  usd_per_1000: 0.0511
+  price_estimated: true
+  p50_s: 0.448
+  measured_on: '2026-10-13'
+- benchmark: jevbench
+  name: janus 4B (Icarus AI / cmxu, Qwen3.5-4B + LoRA r64 and pointer decision head)
+  engine: janus-4b
+  board: open
+  weights_url: https://huggingface.co/cmxu/janus-4b
+  score: 62.85
+  composite: 35.15
+  axes:
+    intelligence: 37.6
+    calibration: 88.1
+    speed: 92.7
+    cost: 64.4
+  usd_per_1000: 0.0154
+  price_estimated: true
+  p50_s: 0.213
+  measured_on: null
+- benchmark: jevbench
+  name: JevK5 v0.2.0
+  engine: jevk5-v02
+  board: open
+  weights_url: https://github.com/allebee/jevk5
+  score: 62.82
+  composite: 32.08
+  axes:
+    intelligence: 36.3
+    calibration: 89.4
+    speed: 91.2
+    cost: 63.1
+  usd_per_1000: 0.017
+  price_estimated: true
+  p50_s: 0.239
+  measured_on: null
+- benchmark: jevbench
+  name: Messier One v0.4 (Qwen3.5-4B fine-tune, self-hosted)
+  engine: messier-one-v0.4
+  board: open
+  weights_url: https://huggingface.co/agentmessier/messier-one
+  score: 62.44
+  composite: 66.13
+  axes:
+    intelligence: 52.0
+    calibration: 72.9
+    speed: 89.4
+    cost: 61.1
+  usd_per_1000: 0.0198
+  price_estimated: true
+  p50_s: 0.288
+  measured_on: '2026-10-14'
+- benchmark: jevbench
+  name: Imajev-4B (RTX 5090)
+  engine: imajev-4b-rtx5090-a2
+  board: open
+  weights_url: https://github.com/fstandhartinger/jevbench/issues/110
+  score: 61.89
+  composite: 28.65
+  axes:
+    intelligence: 34.6
+    calibration: 89.2
+    speed: 90.4
+    cost: 63.3
+  usd_per_1000: 0.0168
+  price_estimated: true
+  p50_s: 0.294
+  measured_on: null
+- benchmark: jevbench
+  name: jqv (Qwen3-32B zero-shot)
+  engine: jqv
+  board: open
+  weights_url: https://github.com/Octalab-Inc/jqv
+  score: 61.86
+  composite: 25.36
+  axes:
+    intelligence: 33.9
+    calibration: 89.9
+    speed: 82.5
+    cost: 51.2
+  usd_per_1000: 0.0424
+  price_estimated: true
+  p50_s: 0.385
+  measured_on: null
+- benchmark: jevbench
+  name: metask-jev-4b
+  engine: metask-jev-4b
+  board: open
+  weights_url: https://github.com/metask-ai/metask-jev
+  score: 61.79
+  composite: 37.33
+  axes:
+    intelligence: 39.2
+    calibration: 84.4
+    speed: 90.5
+    cost: 57.7
+  usd_per_1000: 0.0256
+  price_estimated: true
+  p50_s: 0.266
+  measured_on: null
+- benchmark: jevbench
+  name: Kahn1 4B (Okura66, Qwen3.5-4B LoRA merge, author's sysone engine)
+  engine: kahn1
+  board: open
+  weights_url: https://huggingface.co/Okura66/Kahn1-Qwen3.5-4B
+  score: 61.74
+  composite: 36.97
+  axes:
+    intelligence: 39.7
+    calibration: 83.8
+    speed: 89.2
+    cost: 50.1
+  usd_per_1000: 0.046
+  price_estimated: true
+  p50_s: 0.305
+  measured_on: '2026-10-07'
+- benchmark: jevbench
+  name: pplx-decider-flash-v1.2 (Perplexity, Qwen3.5-4B full fine-tune, marker readout, self-hosted)
+  engine: pplx-decider-flash-v1.2
+  board: open
+  weights_url: https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.2
+  score: 61.74
+  composite: 54.01
+  axes:
+    intelligence: 45.5
+    calibration: 78.0
+    speed: 91.5
+    cost: 64.4
+  usd_per_1000: 0.0153
+  price_estimated: true
+  p50_s: 0.239
+  measured_on: '2026-10-19'
+- benchmark: jevbench
+  name: lev (Interfaze AI, Qwen3.5-4B + LoRA r32, label-token readout + candidate-path head, per-bucket
+    temperatures)
+  engine: lev
+  board: open
+  weights_url: https://huggingface.co/interfaze-ai/lev
+  score: 61.7
+  composite: 42.14
+  axes:
+    intelligence: 41.1
+    calibration: 82.3
+    speed: 87.5
+    cost: 61.8
+  usd_per_1000: 0.0188
+  price_estimated: true
+  p50_s: 0.361
+  measured_on: null
+- benchmark: jevbench
+  name: Decision 2.0 Lux 9B (vLLM-SR, Qwen3.5-9B lineage)
+  engine: decision2-lux-9b
+  board: open
+  weights_url: https://huggingface.co/vllm-sr/Decision-2.0-Lux-9B
+  score: 61.65
+  composite: 27.09
+  axes:
+    intelligence: 35.8
+    calibration: 87.5
+    speed: 89.5
+    cost: 48.5
+  usd_per_1000: 0.0523
+  price_estimated: true
+  p50_s: 0.291
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: blink-4b (thegovind, Qwen3.5-4B derivative)
+  engine: blink-4b
+  board: open
+  weights_url: https://huggingface.co/thegovind/blink-4b
+  score: 61.42
+  composite: 29.47
+  axes:
+    intelligence: 35.0
+    calibration: 87.8
+    speed: 91.2
+    cost: 63.5
+  usd_per_1000: 0.0164
+  price_estimated: true
+  p50_s: 0.265
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: Hopper
+  engine: hopper
+  board: open
+  weights_url: https://huggingface.co/HopitAI/hopper
+  score: 61.2
+  composite: 26.51
+  axes:
+    intelligence: 33.6
+    calibration: 88.8
+    speed: 90.6
+    cost: 62.3
+  usd_per_1000: 0.0181
+  price_estimated: true
+  p50_s: 0.264
+  measured_on: null
+- benchmark: jevbench
+  name: Malkuth-4B (newfull5, Kev post-train)
+  engine: malkuth-4b
+  board: open
+  weights_url: https://github.com/newfull5/malkuth
+  score: 61.14
+  composite: 26.19
+  axes:
+    intelligence: 33.8
+    calibration: 88.4
+    speed: 89.4
+    cost: 55.8
+  usd_per_1000: 0.0297
+  price_estimated: true
+  p50_s: 0.301
+  measured_on: null
+- benchmark: jevbench
+  name: Decision 4B v1.2 (FlyMyJev, Qwen3.5-4B + LoRA)
+  engine: decision-4b-v12
+  board: open
+  weights_url: https://benchmarkheaven.com/jev-models/decision-4b-v12
+  score: 60.41
+  composite: 24.46
+  axes:
+    intelligence: 32.4
+    calibration: 88.4
+    speed: 93.9
+    cost: 63.1
+  usd_per_1000: 0.017
+  price_estimated: true
+  p50_s: 0.189
+  measured_on: null
+- benchmark: jevbench
+  name: jiwo 4b (Qwen3.5-4B backbone with a trained decision head, one forward pass, native probabilities,
+    self-hosted)
+  engine: jiwo-4b
+  board: open
+  weights_url: https://huggingface.co/eljiwo/jiwo-4b
+  score: 60.23
+  composite: 28.95
+  axes:
+    intelligence: 34.8
+    calibration: 85.7
+    speed: 92.2
+    cost: 64.1
+  usd_per_1000: 0.0157
+  price_estimated: true
+  p50_s: 0.223
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: Verdin-4B (Victor Bennett, Qwen3.5-4B + merged LoRA r16 + pointer head)
+  engine: verdin-4b
+  board: open
+  weights_url: https://huggingface.co/victorbennett/Verdin-4B
+  score: 59.6
+  composite: 29.86
+  axes:
+    intelligence: 35.4
+    calibration: 83.8
+    speed: 90.2
+    cost: 62.2
+  usd_per_1000: 0.0182
+  price_estimated: true
+  p50_s: 0.266
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: Wald 4B
+  engine: wald-4b-v2
+  board: open
+  weights_url: https://huggingface.co/org2ai/Wald-4B
+  score: 59.55
+  composite: 39.7
+  axes:
+    intelligence: 41.0
+    calibration: 78.1
+    speed: 82.3
+    cost: 54.3
+  usd_per_1000: 0.0334
+  price_estimated: true
+  p50_s: 0.239
+  measured_on: '2026-10-09'
+- benchmark: jevbench
+  name: Quyet-1.0-Medium (Chinh Nguyen, Qwen3.5-4B decoder, option-letter logits)
+  engine: quyet-1-0-medium
+  board: open
+  weights_url: https://huggingface.co/chinhnc/Quyet-1.0-Medium
+  score: 59.25
+  composite: 43.56
+  axes:
+    intelligence: 41.7
+    calibration: 76.8
+    speed: 89.1
+    cost: 63.4
+  usd_per_1000: 0.0166
+  price_estimated: true
+  p50_s: 0.313
+  measured_on: null
+- benchmark: jevbench
+  name: Decision-4B (Eval Engine / Chromia)
+  engine: evalengine-decision-4b
+  board: open
+  weights_url: https://huggingface.co/evalengine/decision-4b-gguf
+  score: 59.1
+  composite: 35.4
+  axes:
+    intelligence: 37.9
+    calibration: 80.3
+    speed: 90.6
+    cost: 65.9
+  usd_per_1000: 0.0137
+  price_estimated: true
+  p50_s: 0.261
+  measured_on: null
+- benchmark: jevbench
+  name: Manchego v2.1
+  engine: manchego-v21-v15
+  board: open
+  weights_url: https://github.com/nschlaepfer/manchego-serve
+  score: 58.28
+  composite: 24.48
+  axes:
+    intelligence: 32.5
+    calibration: 84.0
+    speed: 90.6
+    cost: 64.3
+  usd_per_1000: 0.0155
+  price_estimated: true
+  p50_s: 0.262
+  measured_on: null
+- benchmark: jevbench
+  name: Messier One v0.2 (Qwen3.5-4B fine-tune, one prefill, self-hosted)
+  engine: messier-one-v0.2
+  board: open
+  weights_url: https://huggingface.co/agentmessier/messier-one
+  score: 58.13
+  composite: 45.28
+  axes:
+    intelligence: 42.4
+    calibration: 73.9
+    speed: 92.6
+    cost: 64.8
+  usd_per_1000: 0.0149
+  price_estimated: false
+  p50_s: 0.209
+  measured_on: null
+- benchmark: jevbench
+  name: Diffusion Jev (DiffusionGemma 26B-A4B on patched SGLang, 48-step diffusion readout, self-hosted)
+  engine: diffusion-jev
+  board: open
+  weights_url: https://huggingface.co/google/diffusiongemma-26B-A4B-it
+  score: 58.09
+  composite: 59.27
+  axes:
+    intelligence: 54.9
+    calibration: 61.3
+    speed: 86.3
+    cost: 49.6
+  usd_per_1000: 0.048
+  price_estimated: true
+  p50_s: 0.412
+  measured_on: null
+- benchmark: jevbench
+  name: jev-local (Qwen3.5-9B)
+  engine: jev-local
+  board: open
+  weights_url: https://github.com/us/jev-local
+  score: 57.46
+  composite: 41.04
+  axes:
+    intelligence: 41.9
+    calibration: 73.1
+    speed: 72.9
+    cost: 58.9
+  usd_per_1000: 0.0235
+  price_estimated: true
+  p50_s: 1.092
+  measured_on: null
+- benchmark: jevbench
+  name: Instinct Dual 4B
+  engine: instinct-dual-4b
+  board: api
+  weights_url: https://github.com/fstandhartinger/jevbench/issues/123
+  score: 57.21
+  composite: 17.97
+  axes:
+    intelligence: 28.3
+    calibration: 86.1
+    speed: 88.6
+    cost: 75.0
+  usd_per_1000: 0.0068
+  price_estimated: false
+  p50_s: 0.232
+  measured_on: null
+- benchmark: jevbench
+  name: Decision 4B v1.1 (FlyMyJev, Qwen3.5-4B + LoRA)
+  engine: decision-4b-v11
+  board: open
+  weights_url: https://benchmarkheaven.com/jev-models/decision-4b-v11
+  score: 57.19
+  composite: 18.72
+  axes:
+    intelligence: 29.1
+    calibration: 85.2
+    speed: 93.9
+    cost: 63.1
+  usd_per_1000: 0.017
+  price_estimated: true
+  p50_s: 0.189
+  measured_on: null
+- benchmark: jevbench
+  name: JEV Qwen3.5-9B Base NVFP4
+  engine: jev-qwen3.5-9b-base-nvfp4
+  board: open
+  weights_url: https://huggingface.co/WIlfLin/JEV-Qwen3.5-9B-Base-NVFP4
+  score: 57.14
+  composite: 15.97
+  axes:
+    intelligence: 29.3
+    calibration: 85.0
+    speed: 93.4
+    cost: 47.6
+  usd_per_1000: 0.0558
+  price_estimated: true
+  p50_s: 0.196
+  measured_on: null
+- benchmark: jevbench
+  name: iota-decide-4b (Macrocosmos, Clef joint-head 4B, self-hosted)
+  engine: iota-decide-4b
+  board: open
+  weights_url: https://huggingface.co/macrocosm-os/iota-decide-4b
+  score: 57.12
+  composite: 18.93
+  axes:
+    intelligence: 29.4
+    calibration: 84.8
+    speed: 87.1
+    cost: 63.0
+  usd_per_1000: 0.0172
+  price_estimated: true
+  p50_s: 0.394
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: Uniphore-4B-Decider
+  engine: uniphore-4b-decider
+  board: open
+  weights_url: https://huggingface.co/Uniphore/uniphore-4b-decider
+  score: 57.07
+  composite: 27.15
+  axes:
+    intelligence: 34.2
+    calibration: 80.0
+    speed: 87.3
+    cost: 64.5
+  usd_per_1000: 0.0152
+  price_estimated: true
+  p50_s: 0.368
+  measured_on: '2026-10-12'
+- benchmark: jevbench
+  name: Jebadiah 9B v2 (Frontier Infra, Qwen3.5-9B LoRA)
+  engine: jebadiah-9b-v2
+  board: open
+  weights_url: https://huggingface.co/frontier-infra/jebadiah-9b-v2
+  score: 56.95
+  composite: 18.78
+  axes:
+    intelligence: 30.6
+    calibration: 83.3
+    speed: 91.5
+    cost: 48.9
+  usd_per_1000: 0.0507
+  price_estimated: true
+  p50_s: 0.26
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: CoCo-Decision-4B (corners-ai, LoRA on Qwen3.5-4B, option-label logits of one pass, served by oh-my-jev)
+  engine: coco-decision-4b
+  board: open
+  weights_url: https://huggingface.co/corners-ai/CoCo-Decision-4B-Ko
+  score: 56.92
+  composite: 24.64
+  axes:
+    intelligence: 32.7
+    calibration: 81.2
+    speed: 91.2
+    cost: 65.2
+  usd_per_1000: 0.0145
+  price_estimated: true
+  p50_s: 0.24
+  measured_on: null
+- benchmark: jevbench
+  name: APUS-OpenJev-v1-9B (merged bf16 checkpoint-3000 on Qwen3.5-9B, their own native runtime, full
+    depth, self-hosted)
+  engine: apus-openjev-v1-9b
+  board: open
+  weights_url: https://huggingface.co/apus-ailab/APUS-OpenJev-v1-9B
+  score: 56.91
+  composite: 49.17
+  axes:
+    intelligence: 47.2
+    calibration: 66.6
+    speed: 82.1
+    cost: 48.7
+  usd_per_1000: 0.0511
+  price_estimated: true
+  p50_s: 0.713
+  measured_on: null
+- benchmark: jevbench
+  name: Decider-4B (roudone, NeoHorse 4B pointer model, author server, self-hosted)
+  engine: roudone-decider-4b
+  board: open
+  weights_url: https://huggingface.co/roudone/Decider-4B
+  score: 56.82
+  composite: 15.74
+  axes:
+    intelligence: 27.1
+    calibration: 86.6
+    speed: 91.9
+    cost: 66.2
+  usd_per_1000: 0.0134
+  price_estimated: true
+  p50_s: 0.247
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: typecastlm (Mikhail Gribov, Qwen3.5-4B computed head)
+  engine: typecastlm
+  board: open
+  weights_url: https://github.com/mihail-gribov/typecastlm
+  score: 56.54
+  composite: 19.72
+  axes:
+    intelligence: 29.8
+    calibration: 83.3
+    speed: 92.7
+    cost: 64.0
+  usd_per_1000: 0.0159
+  price_estimated: true
+  p50_s: 0.211
+  measured_on: null
+- benchmark: jevbench
+  name: pjev-2b (Kailune AI, frozen MiniCPM5-2B + merged LoRA r64, letter-logit readout, T=1 stub)
+  engine: pjev-2b
+  board: open
+  weights_url: https://huggingface.co/Kailune-AI/pjev-2b
+  score: 56.45
+  composite: 18.07
+  axes:
+    intelligence: 28.8
+    calibration: 84.2
+    speed: 92.7
+    cost: 63.5
+  usd_per_1000: 0.0164
+  price_estimated: true
+  p50_s: 0.221
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: TypeCastLM 1.4.0 (Mikhail Gribov, Qwen3.5-4B computed head)
+  engine: typecastlm-1.4.0
+  board: open
+  weights_url: https://huggingface.co/mihailgribov/typecastlm-qwen3.5-3.8b
+  score: 56.39
+  composite: 29.82
+  axes:
+    intelligence: 35.4
+    calibration: 77.4
+    speed: 92.8
+    cost: 64.8
+  usd_per_1000: 0.0149
+  price_estimated: true
+  p50_s: 0.211
+  measured_on: null
+- benchmark: jevbench
+  name: RYOTIDE-Qwen (csabag, Qwen3.5-4B stock weights)
+  engine: ryotide-qwen
+  board: open
+  weights_url: https://github.com/csabag/ryotide
+  score: 56.3
+  composite: 12.94
+  axes:
+    intelligence: 25.2
+    calibration: 87.4
+    speed: 89.0
+    cost: 62.2
+  usd_per_1000: 0.0182
+  price_estimated: true
+  p50_s: 0.343
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: Compass 0.2.0 (adimyth, Qwen3.5-4B LoRA)
+  engine: compass-0.2.0
+  board: open
+  weights_url: https://huggingface.co/adimyth/compass-lora-v2
+  score: 56.09
+  composite: 17.61
+  axes:
+    intelligence: 28.9
+    calibration: 83.3
+    speed: 83.1
+    cost: 57.6
+  usd_per_1000: 0.0259
+  price_estimated: true
+  p50_s: 0.663
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: Standard One 3B SH v4 (Standard Thinking)
+  engine: standard_one_3b_sh_v4
+  board: open
+  weights_url: https://huggingface.co/StandardThinking/StandardOne-3B-SH
+  score: 56.04
+  composite: 24.4
+  axes:
+    intelligence: 34.4
+    calibration: 77.7
+    speed: 93.1
+    cost: 48.6
+  usd_per_1000: 0.0515
+  price_estimated: true
+  p50_s: 0.211
+  measured_on: '2026-10-23'
+- benchmark: jevbench
+  name: Standard One 3B SH (Standard Thinking)
+  engine: standard_one_3b_sh
+  board: open
+  weights_url: https://huggingface.co/StandardThinking/StandardOne-3B-SH
+  score: 55.57
+  composite: 21.59
+  axes:
+    intelligence: 32.8
+    calibration: 78.4
+    speed: 86.4
+    cost: 48.6
+  usd_per_1000: 0.0515
+  price_estimated: true
+  p50_s: 0.227
+  measured_on: '2026-10-12'
+- benchmark: jevbench
+  name: SemIf, formerly OpenJev (Qwen3.5-4B, TheoLeeCJ)
+  engine: semif-qwen3.5-4b
+  board: open
+  weights_url: https://github.com/TheoLeeCJ/openjev
+  score: 55.35
+  composite: 15.51
+  axes:
+    intelligence: 27.1
+    calibration: 83.6
+    speed: 90.4
+    cost: 63.1
+  usd_per_1000: 0.017
+  price_estimated: true
+  p50_s: 0.268
+  measured_on: null
+- benchmark: jevbench
+  name: ArseneLupin v1.1 (IBOU-SEARCH, Qwen3.5-4B LoRA)
+  engine: arsenelupin-v1.1
+  board: open
+  weights_url: https://huggingface.co/IBOU-SEARCH/ArseneLupin-v1.1
+  score: 55.09
+  composite: 16.55
+  axes:
+    intelligence: 28.0
+    calibration: 82.2
+    speed: 89.5
+    cost: 60.7
+  usd_per_1000: 0.0204
+  price_estimated: true
+  p50_s: 0.32
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: local-jev Qwen3.5-4B
+  engine: localjev-qwen3.5-4b
+  board: open
+  weights_url: https://github.com/amithgc/local-jev
+  score: 54.99
+  composite: 11.43
+  axes:
+    intelligence: 24.1
+    calibration: 85.8
+    speed: 85.6
+    cost: 59.3
+  usd_per_1000: 0.0228
+  price_estimated: true
+  p50_s: 0.425
+  measured_on: null
+- benchmark: jevbench
+  name: Decision 2B (FlyMy.AI, v59)
+  engine: decision-2b
+  board: open
+  weights_url: https://huggingface.co/flymy-ai/decision-2b-preview
+  score: 54.82
+  composite: 10.29
+  axes:
+    intelligence: 22.9
+    calibration: 86.8
+    speed: 90.4
+    cost: 66.4
+  usd_per_1000: 0.0132
+  price_estimated: true
+  p50_s: 0.3
+  measured_on: null
+- benchmark: jevbench
+  name: Jez-large-1.0.0 (pragmaticfrontier, Gemma-4-E4B label-logit decision model, author server, self-hosted)
+  engine: jez-large-1.0.0
+  board: open
+  weights_url: https://huggingface.co/pragmaticfrontier/jez-large-1.0.0
+  score: 54.39
+  composite: 13.78
+  axes:
+    intelligence: 25.6
+    calibration: 83.2
+    speed: 90.8
+    cost: 70.5
+  usd_per_1000: 0.0096
+  price_estimated: true
+  p50_s: 0.269
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: Noma (Blackdrome AI Labs, Qwen3.5-4B-Base derivative)
+  engine: noma
+  board: open
+  weights_url: https://huggingface.co/BlackdromeAILabs/noma
+  score: 54.34
+  composite: 12.75
+  axes:
+    intelligence: 25.1
+    calibration: 83.6
+    speed: 93.1
+    cost: 62.0
+  usd_per_1000: 0.0185
+  price_estimated: true
+  p50_s: 0.202
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: spark-s1-4b-v6 (Open Spark Jev, abhishek085)
+  engine: spark-s1-4b-v6
+  board: open
+  weights_url: https://github.com/abhishek085/open-spark-jev
+  score: 54.02
+  composite: 44.85
+  axes:
+    intelligence: 43.2
+    calibration: 64.8
+    speed: 86.3
+    cost: 60.4
+  usd_per_1000: 0.0209
+  price_estimated: true
+  p50_s: 0.409
+  measured_on: null
+- benchmark: jevbench
+  name: Imajev-2B (mohit67890, Qwen3.5-2B LoRA)
+  engine: imajev-2b
+  board: open
+  weights_url: https://huggingface.co/mohit67890/imajev-2b
+  score: 53.97
+  composite: 7.92
+  axes:
+    intelligence: 21.2
+    calibration: 86.8
+    speed: 81.2
+    cost: 51.8
+  usd_per_1000: 0.0405
+  price_estimated: true
+  p50_s: 0.746
+  measured_on: '2026-10-16'
+- benchmark: jevbench
+  name: RYOTIDE-Qwen9
+  engine: ryotide_qwen9
+  board: open
+  weights_url: https://github.com/csabag/ryotide/tree/94c71a3d9f044ffaba87981e985b66f47de3be80
+  score: 52.49
+  composite: 14.69
+  axes:
+    intelligence: 27.6
+    calibration: 77.4
+    speed: 86.4
+    cost: 49.4
+  usd_per_1000: 0.0488
+  price_estimated: true
+  p50_s: 0.416
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: classify-1 (ScaleDown)
+  engine: scaledown-classify-1
+  board: api
+  weights_url: https://scaledown.ai
+  score: 52.31
+  composite: 8.48
+  axes:
+    intelligence: 21.8
+    calibration: 82.8
+    speed: 83.7
+    cost: 50.8
+  usd_per_1000: 0.0437
+  price_estimated: false
+  p50_s: 0.505
+  measured_on: '2026-10-24'
+- benchmark: jevbench
+  name: Arbiter-4B (Goddragon, NeoHorse 4B pointer model, author server, self-hosted)
+  engine: goddragon-arbiter-4b
+  board: open
+  weights_url: https://huggingface.co/Goddragon/Arbiter-4B
+  score: 52.29
+  composite: 15.91
+  axes:
+    intelligence: 27.4
+    calibration: 77.2
+    speed: 92.1
+    cost: 66.2
+  usd_per_1000: 0.0134
+  price_estimated: true
+  p50_s: 0.244
+  measured_on: '2026-10-21'
+- benchmark: jevbench
+  name: DecisionNode Edge 0.9.2
+  engine: decisionnode-edge-0.9.2
+  board: open
+  weights_url: https://huggingface.co/bynn-intelligence-com/decisionnode-edge
+  score: 52.14
+  composite: 15.33
+  axes:
+    intelligence: 26.8
+    calibration: 77.5
+    speed: 92.9
+    cost: 71.2
+  usd_per_1000: 0.0091
+  price_estimated: true
+  p50_s: 0.212
+  measured_on: '2026-10-24'
+- benchmark: jevbench
+  name: system-one-open (Gemma 4 E2B LoRA on an L4)
+  engine: system-one-open
+  board: api
+  weights_url: https://github.com/mithalouni/system-one-open
+  score: 51.94
+  composite: 16.39
+  axes:
+    intelligence: 27.9
+    calibration: 75.9
+    speed: 79.2
+    cost: 68.3
+  usd_per_1000: 0.0114
+  price_estimated: true
+  p50_s: 1.028
+  measured_on: null
+- benchmark: jevbench
+  name: D1A on Gemma 4 E4B (JohnP1 d1a-e4b)
+  engine: d1a-gemma4-e4b
+  board: open
+  weights_url: https://huggingface.co/JohnP1/d1a-e4b
+  score: 51.11
+  composite: 7.07
+  axes:
+    intelligence: 19.9
+    calibration: 82.3
+    speed: 92.4
+    cost: 60.6
+  usd_per_1000: 0.0206
+  price_estimated: true
+  p50_s: 0.231
+  measured_on: '2026-10-26'
+- benchmark: jevbench
+  name: ClassOne Qwen 3.5 9B (Qwen3.5-9B backbone with ClassOne decision heads, schema-constrained single
+    forward pass, self-hosted)
+  engine: classone-qwen3.5-9b
+  board: open
+  weights_url: https://huggingface.co/devops-thiago/classone-qwen3.5-9b
+  score: 50.47
+  composite: 38.51
+  axes:
+    intelligence: 42.2
+    calibration: 58.7
+    speed: 89.7
+    cost: 49.3
+  usd_per_1000: 0.0488
+  price_estimated: true
+  p50_s: 0.278
+  measured_on: null
+- benchmark: jevbench
+  name: Liquid AI d1-3B
+  engine: liquid-d1-3b
+  board: open
+  weights_url: https://huggingface.co/LiquidAI/d1-3B
+  score: 49.51
+  composite: 8.85
+  axes:
+    intelligence: 22.1
+    calibration: 76.9
+    speed: 94.1
+    cost: 50.6
+  usd_per_1000: 0.0445
+  price_estimated: true
+  p50_s: 0.183
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: ZeroEntropy zerank-2
+  engine: zerank-2
+  board: open
+  weights_url: https://huggingface.co/zeroentropy/zerank-2-reranker
+  score: 49.4
+  composite: 3.34
+  axes:
+    intelligence: 15.6
+    calibration: 83.2
+    speed: 81.8
+    cost: 48.4
+  usd_per_1000: 0.0525
+  price_estimated: true
+  p50_s: 0.519
+  measured_on: null
+- benchmark: jevbench
+  name: open-alternative-jev (Qwen3.5-4B, IkerMoel)
+  engine: open-alternative-jev
+  board: open
+  weights_url: https://github.com/ikermoel/open-alternative-jev
+  score: 49.14
+  composite: 9.43
+  axes:
+    intelligence: 22.3
+    calibration: 75.9
+    speed: 90.9
+    cost: 63.3
+  usd_per_1000: 0.0168
+  price_estimated: true
+  p50_s: 0.251
+  measured_on: null
+- benchmark: jevbench
+  name: OpenSourceJev (Qwen3.5-4B Q4_K_M, native llama.cpp)
+  engine: opensourcejev-qwen35-4b-q4km
+  board: open
+  weights_url: https://github.com/sabeel111/OpenSourceJev
+  score: 48.57
+  composite: 10.24
+  axes:
+    intelligence: 23.2
+    calibration: 73.9
+    speed: 75.8
+    cost: 69.1
+  usd_per_1000: 0.0107
+  price_estimated: true
+  p50_s: 0.791
+  measured_on: null
+- benchmark: jevbench
+  name: EXAONE-4.0-1.2B-JEV v0.3 (unofficial fine-tune of LGAI-EXAONE/EXAONE-4.0-1.2B, native option-label
+    softmax, two reads averaged, self-hosted)
+  engine: exaone-4.0-1.2b-jev-v0.3
+  board: open
+  weights_url: https://huggingface.co/carrtesy/EXAONE-4.0-1.2B-JEV
+  score: 47.68
+  composite: 3.27
+  axes:
+    intelligence: 14.8
+    calibration: 80.5
+    speed: 93.8
+    cost: 57.9
+  usd_per_1000: 0.0253
+  price_estimated: true
+  p50_s: 0.192
+  measured_on: null
+- benchmark: jevbench
+  name: Malkuth-2B (newfull5, Kev post-train)
+  engine: malkuth-2b
+  board: open
+  weights_url: https://github.com/newfull5/malkuth
+  score: 47.63
+  composite: 3.99
+  axes:
+    intelligence: 15.9
+    calibration: 79.3
+    speed: 92.0
+    cost: 65.6
+  usd_per_1000: 0.0141
+  price_estimated: true
+  p50_s: 0.238
+  measured_on: null
+- benchmark: jevbench
+  name: DecisionNode Edge Mini 0.9.2
+  engine: decisionnode-edge-mini-0.9.2
+  board: open
+  weights_url: https://huggingface.co/bynn-intelligence-com/decisionnode-edge-mini
+  score: 47.61
+  composite: 5.3
+  axes:
+    intelligence: 17.6
+    calibration: 77.7
+    speed: 92.9
+    cost: 80.2
+  usd_per_1000: 0.0046
+  price_estimated: true
+  p50_s: 0.213
+  measured_on: '2026-10-24'
+- benchmark: jevbench
+  name: Nemotron Diffusion 8B (pst2154, optimized vLLM)
+  engine: nemotron-diffusion-8b
+  board: open
+  weights_url: https://github.com/pst2154/Nemotron_Jev
+  score: 47.46
+  composite: 7.29
+  axes:
+    intelligence: 20.4
+    calibration: 74.5
+    speed: 93.6
+    cost: 55.5
+  usd_per_1000: 0.0305
+  price_estimated: true
+  p50_s: 0.198
+  measured_on: null
+- benchmark: jevbench
+  name: jiwo 0.8b (Qwen3.5-0.8B backbone with a trained decision head, one forward pass, native probabilities,
+    self-hosted)
+  engine: jiwo-0.8b
+  board: open
+  weights_url: https://huggingface.co/eljiwo/jiwo-0.8b
+  score: 47.21
+  composite: 4.07
+  axes:
+    intelligence: 15.9
+    calibration: 78.5
+    speed: 94.3
+    cost: 78.4
+  usd_per_1000: 0.0052
+  price_estimated: true
+  p50_s: 0.19
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: decision-machine-1 (milliseconds.ai)
+  engine: decision-machine-1
+  board: api
+  weights_url: https://www.milliseconds.ai
+  score: 46.13
+  composite: 2.35
+  axes:
+    intelligence: 13.1
+    calibration: 79.2
+    speed: 92.9
+    cost: 58.3
+  usd_per_1000: 0.0245
+  price_estimated: false
+  p50_s: 0.171
+  measured_on: null
+- benchmark: jevbench
+  name: decisor-4b
+  engine: decisor_4b
+  board: open
+  weights_url: https://huggingface.co/underlabs/decisor-4b
+  score: 45.74
+  composite: 35.34
+  axes:
+    intelligence: 39.6
+    calibration: 51.9
+    speed: 91.9
+    cost: 64.0
+  usd_per_1000: 0.0158
+  price_estimated: true
+  p50_s: 0.247
+  measured_on: '2026-10-09'
+- benchmark: jevbench
+  name: D1A on Gemma 4 E2B (JohnP1 d1a-e2b)
+  engine: d1a-gemma4-e2b
+  board: open
+  weights_url: https://huggingface.co/JohnP1/d1a-e2b
+  score: 45.49
+  composite: 0.82
+  axes:
+    intelligence: 8.9
+    calibration: 82.1
+    speed: 93.3
+    cost: 60.6
+  usd_per_1000: 0.0205
+  price_estimated: true
+  p50_s: 0.215
+  measured_on: '2026-10-26'
+- benchmark: jevbench
+  name: Qwen3-Reranker-4B
+  engine: qwen3-reranker-4b
+  board: open
+  weights_url: https://huggingface.co/Qwen/Qwen3-Reranker-4B
+  score: 44.75
+  composite: 3.71
+  axes:
+    intelligence: 16.3
+    calibration: 73.2
+    speed: 81.1
+    cost: 48.4
+  usd_per_1000: 0.0525
+  price_estimated: true
+  p50_s: 0.573
+  measured_on: null
+- benchmark: jevbench
+  name: decider-2b (Mapika)
+  engine: decider-2b
+  board: open
+  weights_url: https://huggingface.co/Mapika/decider-2b
+  score: 44.59
+  composite: 7.67
+  axes:
+    intelligence: 20.7
+    calibration: 68.5
+    speed: 94.5
+    cost: 64.9
+  usd_per_1000: 0.0148
+  price_estimated: true
+  p50_s: 0.182
+  measured_on: null
+- benchmark: jevbench
+  name: BAAI bge-reranker-v2-m3
+  engine: bge-reranker-v2-m3
+  board: open
+  weights_url: https://huggingface.co/BAAI/bge-reranker-v2-m3
+  score: 44.08
+  composite: 0.0
+  axes:
+    intelligence: 0.1
+    calibration: 88.1
+    speed: 93.6
+    cost: 59.3
+  usd_per_1000: 0.0227
+  price_estimated: true
+  p50_s: 0.187
+  measured_on: null
+- benchmark: jevbench
+  name: kev 4B (research preview)
+  engine: kev-4b
+  board: open
+  weights_url: https://github.com/jaredpalmer/kev
+  score: 43.98
+  composite: 6.61
+  axes:
+    intelligence: 19.5
+    calibration: 68.5
+    speed: 90.2
+    cost: 65.8
+  usd_per_1000: 0.0138
+  price_estimated: true
+  p50_s: 0.294
+  measured_on: null
+- benchmark: jevbench
+  name: Mixedbread mxbai-rerank-base-v2
+  engine: mxbai-rerank-base-v2
+  board: open
+  weights_url: https://huggingface.co/mixedbread-ai/mxbai-rerank-base-v2
+  score: 43.87
+  composite: 0.0
+  axes:
+    intelligence: 1.1
+    calibration: 86.6
+    speed: 92.1
+    cost: 60.3
+  usd_per_1000: 0.021
+  price_estimated: true
+  p50_s: 0.214
+  measured_on: null
+- benchmark: jevbench
+  name: lev-350m (Franck Verrot, LFM2.5-350M)
+  engine: lev-350m
+  board: open
+  weights_url: https://github.com/franckverrot/lev
+  score: 43.35
+  composite: 0.15
+  axes:
+    intelligence: 4.8
+    calibration: 81.9
+    speed: 93.8
+    cost: 80.0
+  usd_per_1000: 0.0046
+  price_estimated: true
+  p50_s: 0.195
+  measured_on: null
+- benchmark: jevbench
+  name: Jez-small-1.0.0 (pragmaticfrontier, Qwen3.5-0.8B label-logit decision model, author server, self-hosted)
+  engine: jez-small-1.0.0
+  board: open
+  weights_url: https://huggingface.co/pragmaticfrontier/jez-small-1.0.0
+  score: 43.23
+  composite: 0.13
+  axes:
+    intelligence: 4.6
+    calibration: 81.9
+    speed: 92.5
+    cost: 79.7
+  usd_per_1000: 0.0048
+  price_estimated: true
+  p50_s: 0.235
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: Certo v1 (AltSlate Labs)
+  engine: certo
+  board: open
+  weights_url: https://huggingface.co/altslate/certo-decision-model
+  score: 43.17
+  composite: 0.0
+  axes:
+    intelligence: 0.2
+    calibration: 86.1
+    speed: 92.4
+    cost: 96.9
+  usd_per_1000: 0.0013
+  price_estimated: true
+  p50_s: 0.235
+  measured_on: null
+- benchmark: jevbench
+  name: PurpleMIST-Mini-1.0 (Olaverse)
+  engine: purplemist-mini-1.0
+  board: open
+  weights_url: https://huggingface.co/olaverse/PurpleMIST-Mini-1.0
+  score: 43.03
+  composite: 0.71
+  axes:
+    intelligence: 8.4
+    calibration: 77.7
+    speed: 88.5
+    cost: 70.8
+  usd_per_1000: 0.0094
+  price_estimated: true
+  p50_s: 0.303
+  measured_on: '2026-10-22'
+- benchmark: jevbench
+  name: Chon-1.0-12B
+  engine: chon-1.0-12b
+  board: open
+  weights_url: https://huggingface.co/ninhnv/chon-1.0-12b
+  score: 42.99
+  composite: 12.82
+  axes:
+    intelligence: 27.3
+    calibration: 58.7
+    speed: 64.7
+    cost: 49.0
+  usd_per_1000: 0.0502
+  price_estimated: true
+  p50_s: 0.51
+  measured_on: '2026-10-19'
+- benchmark: jevbench
+  name: smalljev semantic-v9
+  engine: smalljev
+  board: open
+  weights_url: https://github.com/isHeSatoshi/smalljev
+  score: 42.95
+  composite: 0.77
+  axes:
+    intelligence: 8.7
+    calibration: 77.2
+    speed: 90.1
+    cost: 60.8
+  usd_per_1000: 0.0203
+  price_estimated: true
+  p50_s: 0.284
+  measured_on: null
+- benchmark: jevbench
+  name: Vega-U (Qwen3.5-4B reader)
+  engine: vega-u-qwen3.5-4b
+  board: open
+  weights_url: https://huggingface.co/nandakishorm/vega-U
+  score: 42.64
+  composite: 0.72
+  axes:
+    intelligence: 8.5
+    calibration: 76.8
+    speed: 88.8
+    cost: 64.9
+  usd_per_1000: 0.0148
+  price_estimated: true
+  p50_s: 0.33
+  measured_on: '2026-10-23'
+- benchmark: jevbench
+  name: 'jul fast (usejul/jul-decision-minicpm5-2b: MiniCPM5-2B fine-tune with a pointer head, option
+    probabilities from one pass, self-hosted via `jul serve`)'
+  engine: jul-fast
+  board: open
+  weights_url: https://huggingface.co/usejul/jul-decision-minicpm5-2b
+  score: 42.63
+  composite: 0.52
+  axes:
+    intelligence: 7.5
+    calibration: 77.8
+    speed: 90.6
+    cost: 69.0
+  usd_per_1000: 0.0108
+  price_estimated: true
+  p50_s: 0.238
+  measured_on: null
+- benchmark: jevbench
+  name: Krino-2B
+  engine: krino-2b
+  board: open
+  weights_url: https://huggingface.co/Guru0381/krino-2b
+  score: 42.41
+  composite: 8.72
+  axes:
+    intelligence: 22.0
+    calibration: 62.8
+    speed: 91.0
+    cost: 61.0
+  usd_per_1000: 0.02
+  price_estimated: true
+  p50_s: 0.213
+  measured_on: '2026-10-12'
+- benchmark: jevbench
+  name: Alibaba GTE Reranker ModernBERT-base
+  engine: gte-reranker-modernbert-base
+  board: open
+  weights_url: https://huggingface.co/Alibaba-NLP/gte-reranker-modernbert-base
+  score: 41.73
+  composite: 0
+  axes:
+    intelligence: 0
+    calibration: 83.5
+    speed: 93.5
+    cost: 69.3
+  usd_per_1000: 0.0106
+  price_estimated: true
+  p50_s: 0.199
+  measured_on: null
+- benchmark: jevbench
+  name: Jeetu Decider 2B
+  engine: jeetu-decider-2b
+  board: open
+  weights_url: https://huggingface.co/Jeetu456/decider-2b
+  score: 41.66
+  composite: 1.21
+  axes:
+    intelligence: 10.2
+    calibration: 73.1
+    speed: 90.9
+    cost: 70.3
+  usd_per_1000: 0.0098
+  price_estimated: true
+  p50_s: 0.271
+  measured_on: '2026-10-25'
+- benchmark: jevbench
+  name: watt-flash-0.1 (Zaitgeist Labs, 140M mmBERT-small encoder with an option-marker scorer, one forward
+    pass per request, self-hosted)
+  engine: watt-flash-0.1
+  board: open
+  weights_url: https://huggingface.co/zaitlabs/watt-flash-0.1
+  score: 41.57
+  composite: 0.07
+  axes:
+    intelligence: 3.8
+    calibration: 79.4
+    speed: 73.8
+    cost: 89.0
+  usd_per_1000: 0.0023
+  price_estimated: false
+  p50_s: 1.131
+  measured_on: null
+- benchmark: jevbench
+  name: Decision Fast (FlyMy.AI, v53a)
+  engine: decision-fast
+  board: open
+  weights_url: https://huggingface.co/flymy-ai/decision-fast-preview
+  score: 40.59
+  composite: 0.3
+  axes:
+    intelligence: 6.1
+    calibration: 75.1
+    speed: 91.5
+    cost: 80.1
+  usd_per_1000: 0.0046
+  price_estimated: true
+  p50_s: 0.265
+  measured_on: null
+- benchmark: jevbench
+  name: openJev Verdict 1.4
+  engine: openjev-verdict-1.4
+  board: open
+  weights_url: https://huggingface.co/heman10x/rlcd-modernbert-151m
+  score: 40.37
+  composite: 0.17
+  axes:
+    intelligence: 5.0
+    calibration: 75.7
+    speed: 80.9
+    cost: 86.6
+  usd_per_1000: 0.0028
+  price_estimated: true
+  p50_s: 0.821
+  measured_on: null
+- benchmark: jevbench
+  name: Quyet-1.0-Small-EN (Chinh Nguyen, ModernBERT-base encoder with fixed heads)
+  engine: quyet-1-0-small-en
+  board: open
+  weights_url: https://huggingface.co/chinhnc/Quyet-1.0-Small-EN
+  score: 39.54
+  composite: 0.29
+  axes:
+    intelligence: 6.1
+    calibration: 73.0
+    speed: 94.9
+    cost: 89.1
+  usd_per_1000: 0.0023
+  price_estimated: true
+  p50_s: 0.179
+  measured_on: null
+- benchmark: jevbench
+  name: ClassOne Gemma 4 E4B (Gemma-4-E4B backbone with ClassOne decision heads, schema-constrained single
+    forward pass, self-hosted)
+  engine: classone-gemma4-e4b
+  board: open
+  weights_url: https://huggingface.co/devops-thiago/classone-gemma4-e4b
+  score: 38.35
+  composite: 15.6
+  axes:
+    intelligence: 28.2
+    calibration: 48.5
+    speed: 91.7
+    cost: 69.3
+  usd_per_1000: 0.0106
+  price_estimated: true
+  p50_s: 0.229
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: ClassOne Qwen 3.5 4B (Qwen3.5-4B backbone with ClassOne decision heads, schema-constrained single
+    forward pass, self-hosted)
+  engine: classone-qwen3.5-4b
+  board: open
+  weights_url: https://huggingface.co/devops-thiago/classone-qwen3.5-4b
+  score: 38.09
+  composite: 14.33
+  axes:
+    intelligence: 27.3
+    calibration: 48.8
+    speed: 91.0
+    cost: 65.0
+  usd_per_1000: 0.0147
+  price_estimated: true
+  p50_s: 0.245
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: OpenDecision (ModernBERT-large zero-shot)
+  engine: opendecision
+  board: open
+  weights_url: https://github.com/deepanwadhwa/OpenDecision
+  score: 38.0
+  composite: 0.51
+  axes:
+    intelligence: 7.4
+    calibration: 68.6
+    speed: 86.4
+    cost: 79.1
+  usd_per_1000: 0.005
+  price_estimated: true
+  p50_s: 0.335
+  measured_on: null
+- benchmark: jevbench
+  name: verdict-small (Manavarya09, multilingual-e5-small 118M)
+  engine: verdict-small
+  board: open
+  weights_url: https://github.com/Manavarya09/verdict
+  score: 37.63
+  composite: 0.02
+  axes:
+    intelligence: 2.3
+    calibration: 72.9
+    speed: 88.7
+    cost: 100
+  usd_per_1000: 0.0009
+  price_estimated: true
+  p50_s: 0.28
+  measured_on: null
+- benchmark: jevbench
+  name: kev 0.6B (research preview)
+  engine: kev-0.6b
+  board: open
+  weights_url: https://github.com/jaredpalmer/kev
+  score: 36.93
+  composite: 0.54
+  axes:
+    intelligence: 7.6
+    calibration: 66.3
+    speed: 91.5
+    cost: 80.1
+  usd_per_1000: 0.0046
+  price_estimated: true
+  p50_s: 0.263
+  measured_on: null
+- benchmark: jevbench
+  name: Vega 4B
+  engine: vegaml-4b
+  board: open
+  weights_url: https://huggingface.co/nandakishorm/vega-08b-public-intents
+  score: 36.58
+  composite: 3.07
+  axes:
+    intelligence: 15.7
+    calibration: 57.5
+    speed: 83.9
+    cost: 47.2
+  usd_per_1000: 0.0577
+  price_estimated: true
+  p50_s: 0.544
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: WaterSheep (Samrat Dutta, ModernBERT-base encoder with calibrated heads, served by the author's
+    own `watersheep --serve`)
+  engine: watersheep
+  board: open
+  weights_url: https://huggingface.co/samratduttaofficial/WaterSheep
+  score: 35.54
+  composite: 0.19
+  axes:
+    intelligence: 5.3
+    calibration: 65.8
+    speed: 77.4
+    cost: 68.7
+  usd_per_1000: 0.0111
+  price_estimated: true
+  p50_s: 1.075
+  measured_on: null
+- benchmark: jevbench
+  name: Raw Phi-4 mini direct logits
+  engine: raw-phi-4-mini
+  board: open
+  weights_url: https://huggingface.co/microsoft/Phi-4-mini-instruct
+  score: 35.34
+  composite: 2.48
+  axes:
+    intelligence: 13.7
+    calibration: 57.0
+    speed: 91.5
+    cost: 53.2
+  usd_per_1000: 0.0363
+  price_estimated: true
+  p50_s: 0.237
+  measured_on: null
+- benchmark: jevbench
+  name: Fastino GLiNER-2.5-Decide (hosted API)
+  engine: fastino-gliner-2-5-decide
+  board: api
+  weights_url: https://fastino.ai/
+  score: 34.57
+  composite: 0.34
+  axes:
+    intelligence: 7.0
+    calibration: 62.1
+    speed: 85.0
+    cost: 45.8
+  usd_per_1000: 0.064
+  price_estimated: false
+  p50_s: 0.42
+  measured_on: null
+- benchmark: jevbench
+  name: Raw Qwen3 4B Instruct 2507 direct logits
+  engine: raw-qwen3-4b-instruct-2507
+  board: open
+  weights_url: https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507
+  score: 34.57
+  composite: 21.78
+  axes:
+    intelligence: 34.0
+    calibration: 35.2
+    speed: 90.7
+    cost: 63.4
+  usd_per_1000: 0.0166
+  price_estimated: true
+  p50_s: 0.25
+  measured_on: null
+- benchmark: jevbench
+  name: Vega 0.8B
+  engine: vegaml-0.8b
+  board: open
+  weights_url: https://huggingface.co/nandakishorm/vega-08b-public-intents
+  score: 32.99
+  composite: 0.04
+  axes:
+    intelligence: 3.1
+    calibration: 62.9
+    speed: 89.2
+    cost: 61.5
+  usd_per_1000: 0.0192
+  price_estimated: true
+  p50_s: 0.323
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: kev 0.5B
+  engine: kev-0.5b
+  board: open
+  weights_url: https://github.com/jaredpalmer/kev
+  score: 32.9
+  composite: 0.13
+  axes:
+    intelligence: 4.6
+    calibration: 61.2
+    speed: 92.4
+    cost: 80.1
+  usd_per_1000: 0.0046
+  price_estimated: true
+  p50_s: 0.238
+  measured_on: null
+- benchmark: jevbench
+  name: Liquid AI d1-omni-600M
+  engine: liquid-d1-omni-600m
+  board: open
+  weights_url: https://huggingface.co/LiquidAI/d1-omni-600M
+  score: 32.79
+  composite: 0.05
+  axes:
+    intelligence: 3.3
+    calibration: 62.3
+    speed: 94.0
+    cost: 73.1
+  usd_per_1000: 0.0079
+  price_estimated: true
+  p50_s: 0.193
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: Quyet-1.0-Small (Chinh Nguyen, SEA-LION-ModernBERT-300M encoder with fixed heads)
+  engine: quyet-1-0-small
+  board: open
+  weights_url: https://huggingface.co/chinhnc/Quyet-1.0-Small
+  score: 32.49
+  composite: 0.09
+  axes:
+    intelligence: 4.0
+    calibration: 61.0
+    speed: 94.9
+    cost: 79.6
+  usd_per_1000: 0.0048
+  price_estimated: true
+  p50_s: 0.179
+  measured_on: null
+- benchmark: jevbench
+  name: Quyet-1.0-Tiny (Chinh Nguyen, mmBERT-small encoder (16 layers kept) with fixed heads)
+  engine: quyet-1-0-tiny
+  board: open
+  weights_url: https://huggingface.co/chinhnc/Quyet-1.0-Tiny
+  score: 31.08
+  composite: 0.07
+  axes:
+    intelligence: 3.7
+    calibration: 58.5
+    speed: 95.1
+    cost: 88.4
+  usd_per_1000: 0.0024
+  price_estimated: true
+  p50_s: 0.176
+  measured_on: null
+- benchmark: jevbench
+  name: Open Jev JSON Canvas (JoshuaSP)
+  engine: open-jev-json-canvas-joshuasp
+  board: open
+  weights_url: https://github.com/JoshuaSP/open-jev
+  score: 30.6
+  composite: 0
+  axes:
+    intelligence: 61.2
+    calibration: 0
+    speed: 85.2
+    cost: 49.3
+  usd_per_1000: 0.049
+  price_estimated: true
+  p50_s: 0.467
+  measured_on: null
+- benchmark: jevbench
+  name: Phocinae-Largha-150M-v1
+  engine: phocinae-largha-150m-v1
+  board: open
+  weights_url: https://huggingface.co/Phocinae/Phocinae-Largha-150M-v1
+  score: 30.24
+  composite: 0.07
+  axes:
+    intelligence: 3.6
+    calibration: 56.9
+    speed: 76.5
+    cost: 95.3
+  usd_per_1000: 0.0014
+  price_estimated: true
+  p50_s: 1.118
+  measured_on: '2026-10-13'
+- benchmark: jevbench
+  name: JevAct (einptein, jev1-2b-v2)
+  engine: jevact
+  board: api
+  weights_url: https://github.com/fstandhartinger/jevbench/issues/66
+  score: 28.77
+  composite: 1.11
+  axes:
+    intelligence: 10.1
+    calibration: 47.4
+    speed: 76.4
+    cost: 68.6
+  usd_per_1000: 0.0112
+  price_estimated: true
+  p50_s: 0.808
+  measured_on: null
+- benchmark: jevbench
+  name: openJev Verdict (heman10x, ModernBERT-base 151M)
+  engine: openjev-verdict
+  board: open
+  weights_url: https://github.com/Heman10x-NGU/openJev-verdict-2.0
+  score: 26.63
+  composite: 0.1
+  axes:
+    intelligence: 4.1
+    calibration: 49.1
+    speed: 78.5
+    cost: 86.6
+  usd_per_1000: 0.0028
+  price_estimated: true
+  p50_s: 0.791
+  measured_on: null
+- benchmark: jevbench
+  name: Tacet Sonata (CodePawl, 144M packed encoder on mmBERT-small, option-marker softmax in one pass,
+    in-process via the author's tacet package)
+  engine: tacet-sonata
+  board: open
+  weights_url: https://huggingface.co/codepawl/tacet-sonata
+  score: 24.24
+  composite: 0.02
+  axes:
+    intelligence: 2.2
+    calibration: 46.3
+    speed: 79.2
+    cost: 89.0
+  usd_per_1000: 0.0023
+  price_estimated: true
+  p50_s: 0.68
+  measured_on: null
+- benchmark: jevbench
+  name: CLM-8B (Contrastive-LM, clm-latest)
+  engine: clm-8b
+  board: open
+  weights_url: https://github.com/Contrastive-LM/CLM
+  score: 20.08
+  composite: 0.0
+  axes:
+    intelligence: 0.1
+    calibration: 40.0
+    speed: 91.7
+    cost: 50.5
+  usd_per_1000: 0.0447
+  price_estimated: true
+  p50_s: 0.223
+  measured_on: null
+- benchmark: jevbench
+  name: ClassOne Qwen 3.5 2B (Qwen3.5-2B backbone with ClassOne decision heads, schema-constrained single
+    forward pass, self-hosted)
+  engine: classone-qwen3.5-2b
+  board: open
+  weights_url: https://huggingface.co/devops-thiago/classone-qwen3.5-2b
+  score: 19.22
+  composite: 0.24
+  axes:
+    intelligence: 5.8
+    calibration: 32.6
+    speed: 92.9
+    cost: 70.2
+  usd_per_1000: 0.0098
+  price_estimated: true
+  p50_s: 0.213
+  measured_on: '2026-10-10'
+- benchmark: jevbench
+  name: Deem 0.8B v1
+  engine: deem-0.8-v1
+  board: open
+  weights_url: https://huggingface.co/LibertAIDAI/deem-0.8-v1
+  score: 18.08
+  composite: 0.32
+  axes:
+    intelligence: 6.5
+    calibration: 29.6
+    speed: 84.8
+    cost: 80.3
+  usd_per_1000: 0.0045
+  price_estimated: true
+  p50_s: 0.479
+  measured_on: null
+- benchmark: jevbench
+  name: Laya multilingual
+  engine: laya-multilingual
+  board: open
+  weights_url: https://huggingface.co/convaiinnovations/laya/tree/1c5edc17a7acd8701df6fc341c0d179f1c62c982/multilingual
+  score: 16.97
+  composite: 0.0
+  axes:
+    intelligence: 0.3
+    calibration: 33.7
+    speed: 77.0
+    cost: 82.2
+  usd_per_1000: 0.0039
+  price_estimated: true
+  p50_s: 0.954
+  measured_on: null
+- benchmark: jevbench
+  name: ClassOne Gemma 4 E2B (Gemma-4-E2B backbone with ClassOne decision heads, schema-constrained single
+    forward pass, self-hosted)
+  engine: classone-gemma4-e2b
+  board: open
+  weights_url: https://huggingface.co/devops-thiago/classone-gemma4-e2b
+  score: 15.21
+  composite: 0.49
+  axes:
+    intelligence: 7.8
+    calibration: 22.6
+    speed: 93.1
+    cost: 70.2
+  usd_per_1000: 0.0098
+  price_estimated: true
+  p50_s: 0.209
+  measured_on: null
+- benchmark: jevbench
+  name: Julia-1 (Supersonic Labs)
+  engine: julia-1
+  board: open
+  weights_url: https://huggingface.co/SupersonicLabs/Julia-1
+  score: 9.85
+  composite: 0.02
+  axes:
+    intelligence: 2.4
+    calibration: 17.3
+    speed: 77.7
+    cost: 89.7
+  usd_per_1000: 0.0022
+  price_estimated: true
+  p50_s: 0.815
+  measured_on: '2026-10-13'
+- benchmark: jevbench
+  name: Raw Qwen3 1.7B direct logits
+  engine: raw-qwen3-1.7b
+  board: open
+  weights_url: https://huggingface.co/Qwen/Qwen3-1.7B
+  score: 8.32
+  composite: 0.14
+  axes:
+    intelligence: 5.1
+    calibration: 11.5
+    speed: 93.1
+    cost: 68.5
+  usd_per_1000: 0.0112
+  price_estimated: true
+  p50_s: 0.215
+  measured_on: null
+- benchmark: jevbench
+  name: Raw Qwen3 0.6B direct logits
+  engine: raw-qwen3-0.6b
+  board: open
+  weights_url: https://huggingface.co/Qwen/Qwen3-0.6B
+  score: 8.25
+  composite: 0.17
+  axes:
+    intelligence: 5.6
+    calibration: 10.9
+    speed: 93.4
+    cost: 77.6
+  usd_per_1000: 0.0056
+  price_estimated: true
+  p50_s: 0.209
+  measured_on: null
