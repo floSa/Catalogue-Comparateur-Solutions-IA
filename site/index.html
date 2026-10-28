@@ -251,12 +251,13 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <button data-l="api" aria-pressed="false">Tarifs API</button>
     <button data-l="cover" aria-pressed="false">Couverture</button>
     <button data-l="plans" aria-pressed="false">Forfaits</button>
+    <button data-l="bench" aria-pressed="false">Benchmarks</button>
   </div>
   <p class="lede" id="l-lede">Les barres d'erreur affichent l'intervalle de confiance à 95 % : quand deux
   barres se chevauchent, l'écart n'est <b>pas</b> significatif et les deux modèles sont à
   égalité. Chaque point renvoie à sa source et à la date de sa mesure.</p>
 
-  <div class="panel">
+  <div class="panel" id="l-panel">
     <div class="ctrl">
       <label class="f">Benchmark<select id="bench"></select></label>
       <label class="f">Fournisseur / provider<select id="lab"><option value="">Tous</option></select></label>
@@ -305,7 +306,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   <p class="lede">Aucun benchmark ne résume un modèle : chacun teste une compétence précise.
   Pour choisir un modèle qui code, regardez d'abord ceux qui mettent un agent au travail sur du
   vrai code ; les autres renseignent sur le raisonnement ou le travail de bureau. Le benchmark
-  sélectionné dans le graphique est encadré ; cliquez sur une fiche pour la déplier.</p>
+  sélectionné dans le classement est encadré ; cliquez sur une fiche pour la déplier.</p>
   <div class="bl bg" id="bgl"></div>
   <details><summary id="rj">Benchmarks écartés</summary><div class="bl" id="rlist"></div></details>
   </div>
@@ -363,6 +364,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <button data-o="modele" aria-pressed="false">Modèles</button>
     <button data-o="moteur" aria-pressed="false">Moteurs classiques</button>
     <button data-o="chaine" aria-pressed="false">Chaînes de conversion</button>
+    <button data-o="bench" aria-pressed="false">Benchmarks</button>
   </div>
 
   <div id="o-rank">
@@ -382,6 +384,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
       <div id="obars"></div>
       <div id="onote"></div>
     </div>
+  </div>
+  <div id="o-bench" hidden>
     <div class="bgh"><h2>Que mesure chaque benchmark ?</h2>
       <div class="seg" id="ogv" role="group" aria-label="Longueur des fiches">
         <button data-v="0" aria-pressed="true">Version courte</button>
@@ -469,7 +473,7 @@ function habiller(sel){
     list.textContent='';
     [...sel.options].forEach((o,i)=>{
       const b=document.createElement('button');
-      b.type='button';b.className='cb-o';b.textContent=o.textContent;
+      b.type='button';b.className='cb-o';b.textContent=o.textContent;b.hidden=o.hidden;
       b.setAttribute('role','option');
       b.setAttribute('aria-selected',String(i===sel.selectedIndex));
       b.addEventListener('click',()=>choisir(i));
@@ -1266,7 +1270,10 @@ function majControles(){
   const c=CTRL[K]??'blet';
   bsel.closest('label').hidden=!c.includes('b');
   lsel.closest('label').hidden=!c.includes('l');
-  $('#eff').closest('label').hidden=!c.includes('e');
+  const effs=new Set(D.scores.filter(s=>s.b===bsel.value&&s.ef).map(s=>s.ef));
+  [...$('#eff').options].forEach(o=>{o.hidden=!!o.value&&!effs.has(o.value);});
+  if($('#eff').value&&!effs.has($('#eff').value)){$('#eff').value='';$('#eff').dispatchEvent(new Event('change'));}
+  $('#eff').closest('label').hidden=!c.includes('e')||!effs.size;
   $('#top').closest('label').hidden=!c.includes('t');
   $('#budwrap').hidden=(K!=='budget');
 }
@@ -1291,11 +1298,12 @@ function majBoutons(){
 }
 function majSous(){
   const r=LC==='rank';
-  $('#vuewrap').hidden=!r;$('#l-bench').hidden=!r;$('#l-lede').hidden=!r;
+  $('#vuewrap').hidden=!r;$('#l-bench').hidden=LC!=='bench';$('#l-lede').hidden=!r;
+  $('#l-panel').hidden=LC==='bench';
   $('#l-api').hidden=LC!=='api';
   if(!r)K=LC;
 }
-function draw(){majSous();majBoutons();majControles();DRAW[K]();}
+function draw(){majSous();if(LC==='bench')return;majBoutons();majControles();DRAW[K]();}
 $('#kind').addEventListener('click',e=>{const b=e.target.closest('button');
   if(!b||b.hidden)return;
   AK=b.dataset.k;draw();});
@@ -1601,7 +1609,7 @@ $('#oej').textContent=`Outils écartés (${O.ecartes.length}) — et pourquoi`;
 $('#oelist').innerHTML=O.ecartes.map(e=>`<div class="bc"><h3>${esc(e.nom)}</h3><p>${esc(e.motif)}</p></div>`).join('');
 $('#ocr-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   $('#ocr-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-  ['rank','modele','moteur','chaine'].forEach(k=>{$('#o-'+k).hidden=(k!==b.dataset.o);});});
+  ['rank','modele','moteur','chaine','bench'].forEach(k=>{$('#o-'+k).hidden=(k!==b.dataset.o);});});
 
 // ── fiches benchmarks ─────────────────────────────────────────────────────
 $('#bgl').innerHTML=D.benchmarks.map(b=>{const x=b.x||{};
