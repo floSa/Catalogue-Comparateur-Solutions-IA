@@ -24,6 +24,13 @@ tools:
     verified_on: null
     note: Conformité non relevée à cette édition.
   layer: 1
+  mcp: null
+  caps_sources:
+    byok: https://aider.chat/docs/config/api-keys.html
+    local_models: https://aider.chat/docs/llms/ollama.html
+    free: https://github.com/Aider-AI/aider/blob/main/LICENSE.txt
+  caps_checked_on: '2026-10-28'
+  caps_note: Aucune prise en charge MCP documentée (le seul « mcp » du dépôt est un commentaire de dépendance).
 - id: claude-code
   name: Claude Code
   vendor: Anthropic, PBC
@@ -35,8 +42,8 @@ tools:
   plans:
   - claude-pro
   - claude-max
-  note: Agent en terminal d'abord, aussi dans VS Code, Cursor, JetBrains, l'application Claude, le web et
-    Slack. Inclus dans Claude Pro, Max, Team et Enterprise, ou facturé à l'usage via clé API.
+  note: Agent en terminal d'abord, aussi dans VS Code, Cursor, JetBrains, l'application Claude, le web
+    et Slack. Inclus dans Claude Pro, Max, Team et Enterprise, ou facturé à l'usage via clé API.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -46,6 +53,18 @@ tools:
     verified_on: null
     note: Conformité non relevée à cette édition.
   layer: 1
+  byok: true
+  local_models: false
+  free: true
+  caps_sources:
+    byok: https://code.claude.com/docs/en/setup
+    mcp: https://code.claude.com/docs/en/mcp
+    local_models: https://code.claude.com/docs/en/llm-gateway
+    free: https://code.claude.com/docs/en/setup
+  caps_checked_on: '2026-10-28'
+  caps_note: 'free=true au seul sens BYOK (compte Console payé au token) : le forfait claude.ai Free n''inclut
+    pas Claude Code. local_models=false car Anthropic « doesn''t support routing Claude Code to non-Claude
+    models through any gateway » (ANTHROPIC_BASE_URL existe mais non supporté pour modèles tiers/locaux).'
 - id: codex-cli
   name: Codex CLI
   vendor: OpenAI
@@ -69,28 +88,48 @@ tools:
     verified_on: null
     note: Conformite non relevee a cette edition.
   layer: 1
+  caps_sources:
+    byok: https://learn.chatgpt.com/docs/config-file/config-advanced#custom-model-providers
+    mcp: https://learn.chatgpt.com/docs/extend/mcp#connect-codex-to-an-mcp-server
+    local_models: https://learn.chatgpt.com/docs/config-file/config-advanced#oss-mode-local-providers
+    free: https://github.com/openai/codex/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK via model_providers (ex. Mistral + MISTRAL_API_KEY) ; la connexion par clé OpenAI seule
+    ne compterait pas ; docs déplacées de learn.chatgpt.com/docs/codex/* vers learn.chatgpt.com/docs/*
 - id: kimi-cli
   name: Kimi Code
   vendor: Moonshot AI
   category: desktop_app
   status: active
   url: https://www.kimi.com/code
-  note: Agent de code de Moonshot, décliné en application de bureau (mise en avant en premier), en CLI (binaire
-    autonome, sans Node.js) et en extensions IDE via le protocole ACP (Zed, JetBrains). Le dépôt historique
-    MoonshotAI/kimi-cli est archivé ; au premier lancement, l'outil propose de migrer configuration et sessions.
+  note: Agent de code de Moonshot, décliné en application de bureau (mise en avant en premier), en CLI
+    (binaire autonome, sans Node.js) et en extensions IDE via le protocole ACP (Zed, JetBrains). Le dépôt
+    historique MoonshotAI/kimi-cli est archivé ; au premier lancement, l'outil propose de migrer configuration
+    et sessions.
   docs_url: https://moonshotai.github.io/kimi-code/en/
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'Revu le 08/10/2026 : l''URL pointait vers la console de l''API ; les versions de Node.js et
-      pnpm citées étaient des prérequis de développement, pas d''installation ; la migration n''est pas
-      automatique mais proposée.'
+    finding: 'Revu le 08/10/2026 : l''URL pointait vers la console de l''API ; les versions de Node.js
+      et pnpm citées étaient des prérequis de développement, pas d''installation ; la migration n''est
+      pas automatique mais proposée.'
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
   layer: 1
   repo_url: https://github.com/MoonshotAI/kimi-code
+  byok: true
+  mcp: true
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://moonshotai.github.io/kimi-code/en/configuration/providers
+    mcp: https://moonshotai.github.io/kimi-code/en/customization/mcp
+    free: https://github.com/MoonshotAI/kimi-code/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: C'est un CLI terminal (catégorie desktop_app douteuse) ; l'ancien dépôt MoonshotAI/kimi-cli
+    est archivé ; base_url modifiable mais usage local non documenté.
 - id: openhands
   name: OpenHands
   vendor: OpenHands
@@ -101,21 +140,30 @@ tools:
   byok: true
   free: true
   note: 'Agent d''ingénierie open-source (MIT), proposé d''abord sous forme d''Agent Canvas : une interface
-    graphique servie en local, sur la machine du développeur ; aussi en interface terminal, en CLI, en SDK
-    et en cloud. Sandbox Docker facultative. Offre cloud individuelle gratuite (clé personnelle ou fournisseurs
-    à prix coûtant) ; seule l''offre Enterprise est payante.'
+    graphique servie en local, sur la machine du développeur ; aussi en interface terminal, en CLI, en
+    SDK et en cloud. Sandbox Docker facultative. Offre cloud individuelle gratuite (clé personnelle ou
+    fournisseurs à prix coûtant) ; seule l''offre Enterprise est payante.'
   pricing_url: https://www.openhands.dev/pricing
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'Catégorie revue le 08/10/2026 : le README s''ouvre sur « Agent Canvas — The self-hosted developer
-      control center ». L''offre cloud n''est pas payante pour un individu, contrairement à la fiche précédente.
-      all-hands.dev redirige vers openhands.dev.'
+    finding: 'Catégorie revue le 08/10/2026 : le README s''ouvre sur « Agent Canvas — The self-hosted
+      developer control center ». L''offre cloud n''est pas payante pour un individu, contrairement à
+      la fiche précédente. all-hands.dev redirige vers openhands.dev.'
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
   layer: 1
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://docs.openhands.dev/openhands/usage/llms/llms
+    mcp: https://docs.openhands.dev/openhands/usage/settings/mcp-settings
+    local_models: https://docs.openhands.dev/openhands/usage/llms/local-llms
+    free: https://github.com/OpenHands/OpenHands
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Licence MIT (dépôt GitHub) ; local : LM Studio, Ollama, vLLM, SGLang.'
 - id: qwen-code
   name: Qwen Code
   vendor: Alibaba
@@ -129,9 +177,9 @@ tools:
   byok: true
   local_models: true
   mcp: true
-  note: 'Agent de code open-source (Apache-2.0) né dans le terminal, aujourd''hui décliné en extensions
+  note: Agent de code open-source (Apache-2.0) né dans le terminal, aujourd'hui décliné en extensions
     IDE (VS Code, Zed, JetBrains), application de bureau, interface web et messageries. Compatible avec
-    les API OpenAI, Anthropic, Gemini et Qwen, et avec les modèles locaux (Ollama, vLLM).'
+    les API OpenAI, Anthropic, Gemini et Qwen, et avec les modèles locaux (Ollama, vLLM).
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -141,6 +189,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/
+    mcp: https://qwenlm.github.io/qwen-code-docs/en/users/features/mcp/
+    local_models: https://github.com/QwenLM/qwen-code#why-qwen-code
+    free: https://github.com/QwenLM/qwen-code/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: Logiciel Apache-2.0 ; le palier gratuit Qwen OAuth a été arrêté le 2026-04-15 (model-providers.md),
+    il faut donc ses propres clés
 - id: chatgpt-desktop
   name: ChatGPT Desktop
   vendor: OpenAI
@@ -155,12 +211,21 @@ tools:
   verification:
     status: community
     verified_on: '2026-10-08'
-    finding: 'openai.com et help.openai.com répondent 403 : la fonction « Work with Apps » n''a pas pu être
-      revérifiée et a été retirée de la fiche.'
+    finding: 'openai.com et help.openai.com répondent 403 : la fonction « Work with Apps » n''a pas pu
+      être revérifiée et a été retirée de la fiche.'
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  local_models: null
+  free: true
+  caps_sources:
+    mcp: https://learn.chatgpt.com/docs/extend/mcp
+    free: https://learn.chatgpt.com/docs/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Fournisseurs perso et --oss (Ollama) documentés pour Codex CLI, pas explicitement pour l'app
+    de bureau ; clé API OpenAI = service de l'éditeur, pas du BYOK.
 - id: claude-desktop
   name: Claude Desktop
   vendor: Anthropic, PBC
@@ -172,7 +237,8 @@ tools:
   - claude-free
   - claude-pro
   - claude-max
-  note: macOS et Windows ; Linux en bêta (Ubuntu, Debian). Serveurs MCP, accès aux fichiers et outils locaux.
+  note: macOS et Windows ; Linux en bêta (Ubuntu, Debian). Serveurs MCP, accès aux fichiers et outils
+    locaux.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -181,6 +247,16 @@ tools:
     verified_on: null
     note: Conformité non relevée à cette édition.
   layer: 1
+  byok: true
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://claude.com/docs/third-party/claude-desktop/claude-api
+    mcp: https://claude.com/docs/third-party/claude-desktop/configuration
+    free: https://claude.com/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: 'BYOK : écran « Use your Claude API account » (clé API ou connexion Console, Desktop ≥ 3.1623.1),
+    clé Anthropic uniquement. Plan Free 0 $ « Chat on web, desktop, and mobile ».'
 - id: kimi-work
   name: Kimi Work
   vendor: Moonshot AI
@@ -189,8 +265,8 @@ tools:
   status: active
   url: https://www.kimi.com/products/kimi-work
   plans: []
-  note: 'Agent de bureau pour Windows et Mac Apple Silicon : lit les fichiers de la machine, pilote le navigateur
-    et exécute des tâches planifiées. Annoncé avec un essaim pouvant atteindre 300 agents.'
+  note: 'Agent de bureau pour Windows et Mac Apple Silicon : lit les fichiers de la machine, pilote le
+    navigateur et exécute des tâches planifiées. Annoncé avec un essaim pouvant atteindre 300 agents.'
   verification:
     status: community
     verified_on: '2026-10-08'
@@ -199,6 +275,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  local_models: null
+  free: null
+  caps_sources:
+    mcp: https://www.kimi.com/help/plugins-and-skills/create#h-q1e3c0
+  caps_checked_on: '2026-10-28'
+  caps_note: MCP via Plugin Builder (import server.json → plugin ne contenant que des services MCP) ;
+    Kimi Work rangé parmi les « 会员功能 » (fonctions membres, help/agent/agent-quota-and-billing) sans mention
+    explicite d'un palier gratuit ; page tarifaire en JS illisible
 - id: lm-studio-bionic
   name: LM Studio Bionic
   vendor: Element Labs, Inc.
@@ -213,8 +299,8 @@ tools:
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'L''edition precedente confondait l''agent et le serveur local sous une seule fiche : ce sont
-      deux couches differentes.'
+    finding: 'L''edition precedente confondait l''agent et le serveur local sous une seule fiche : ce
+      sont deux couches differentes.'
   compliance: &id001
     zero_data_retention: true
     self_hosted: true
@@ -223,6 +309,14 @@ tools:
     verified_on: null
     status: unverified
   layer: 1
+  byok: null
+  mcp: null
+  caps_sources:
+    local_models: https://lmstudio.ai/docs/bionic/models
+    free: https://lmstudio.ai/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Plan Free à 0 $ (agent Bionic + modèles locaux) ; MCP documenté pour LM Studio, pas pour
+    Bionic.
 - id: qwen-studio
   name: Qwen Studio
   vendor: Alibaba
@@ -242,6 +336,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: null
+  local_models: null
+  caps_sources:
+    free: https://qwen.ai/
+  caps_checked_on: '2026-10-28'
+  caps_note: Pages officielles rendues en JS ; « free to use, open to all » lu dans le bundle de qwen.ai.
+    Aucune doc officielle sur MCP/BYOK/modèles locaux pour l'app desktop.
 - id: cursor
   name: Cursor
   vendor: Anysphere, Inc.
@@ -256,14 +358,14 @@ tools:
   - cursor-hobby
   - cursor-individual
   - cursor-teams
-  note: Éditeur dérivé de VS Code. Agent intégré, modèle maison Composer, recherche dans le dépôt par «
-    Instant Grep ». Clés personnelles OpenAI, Anthropic, Google, Azure ou Bedrock, routées par les serveurs
+  note: Éditeur dérivé de VS Code. Agent intégré, modèle maison Composer, recherche dans le dépôt par
+    « Instant Grep ». Clés personnelles OpenAI, Anthropic, Google, Azure ou Bedrock, routées par les serveurs
     de Cursor.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
-    finding: 'Fiche précédente fausse : Cursor n''indexe plus le dépôt par embeddings, Composer est un modèle
-      et non un mode, et aucun modèle local n''est pris en charge.'
+    finding: 'Fiche précédente fausse : Cursor n''indexe plus le dépôt par embeddings, Composer est un
+      modèle et non un mode, et aucun modèle local n''est pris en charge.'
   compliance:
     zero_data_retention: true
     sso: true
@@ -274,6 +376,15 @@ tools:
     verified_on: '2026-09-15'
     status: official_pricing_page
   layer: 1
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://cursor.com/help/models-and-usage/api-keys
+    mcp: https://cursor.com/docs/mcp
+    free: https://cursor.com/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Palier « Free » à 0 $/mois (plus nommé Hobby) ; aucun modèle local dans la doc officielle
+    (seul un message du staff sur le forum le dit) ; /docs/settings/api-keys et /docs/context/mcp redirigent
 - id: trae
   name: TraeCode (Trae)
   vendor: ByteDance
@@ -299,6 +410,16 @@ tools:
     verified_on: null
     note: Conformité non relevée à cette édition.
   layer: 1
+  byok: true
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://docs.trae.ai/ide/models
+    mcp: https://docs.trae.ai/ide/model-context-protocol
+    free: https://www.trae.ai/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: TraeCode et TraeWork fusionnés dans le « nouveau TRAE » ; la doc cite « some Ollama/OpenAI-compatible
+    proxies » sans documenter un point d'accès local.
 - id: void
   name: Void IDE
   vendor: Communauté open-source
@@ -328,19 +449,29 @@ tools:
   pricing_url: https://devin.ai/pricing
   byok: true
   mcp: true
-  note: Ancien Windsurf, renommé Devin Desktop le 02/06/2026 par Cognition. Éditeur dérivé de VS Code, dont
-    l'écran d'accueil est désormais un centre de pilotage d'agents ; l'agent local Cascade devient Devin
-    Local. macOS, Windows, Linux ; extension JetBrains maintenue.
+  note: Ancien Windsurf, renommé Devin Desktop le 02/06/2026 par Cognition. Éditeur dérivé de VS Code,
+    dont l'écran d'accueil est désormais un centre de pilotage d'agents ; l'agent local Cascade devient
+    Devin Local. macOS, Windows, Linux ; extension JetBrains maintenue.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'windsurf.com redirige (308) vers devin.ai/desktop. La grille tarifaire reste non relevée :
-      devin.ai/pricing répond 429.'
+    finding: 'windsurf.com redirige (308) vers devin.ai/desktop. La grille tarifaire reste non relevée
+      : devin.ai/pricing répond 429.'
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
   layer: 1
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://docs.windsurf.com/fr/plugins/cascade/models
+    mcp: https://docs.devin.ai/desktop/cascade/mcp
+    free: https://devin.ai/desktop
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK limité à des clés Anthropic (Claude 4 Sonnet/Opus), utilisateurs individuels ; absent
+    de la page modèles actuelle docs.devin.ai/desktop/models (à re-contrôler). Plan Free 0 $ (SWE-1.6
+    seulement).
 - id: zcode
   name: ZCode
   vendor: Z.ai (Zhipu AI)
@@ -366,6 +497,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://zcode.z.ai/en/docs/configuration
+    mcp: https://zcode.z.ai/en/docs/mcp-services
+    free: https://zcode.z.ai/en/docs/qa
+  caps_checked_on: '2026-10-28'
+  caps_note: « The ZCode application itself is completely free », avec sa propre clé API ou un forfait
+    ; fournisseurs personnalisés compatibles Anthropic/OpenAI, mais rien sur localhost/Ollama
 - id: zed
   name: Zed
   vendor: Zed Industries, Inc.
@@ -396,6 +538,14 @@ tools:
     verified_on: '2026-09-15'
     status: official_pricing_page
   layer: 1
+  mcp: true
+  free: true
+  caps_sources:
+    byok: https://zed.dev/docs/ai/use-api-access
+    mcp: https://zed.dev/docs/ai/mcp
+    local_models: https://zed.dev/docs/ai/use-a-local-model
+    free: https://zed.dev/pricing
+  caps_checked_on: '2026-10-28'
 - id: cline
   name: Cline
   vendor: Cline Bot Inc.
@@ -414,8 +564,8 @@ tools:
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'Catégorie revue le 08/10/2026 : la page d''accueil met en tête « Cline for Desktop … No editor
-      required ». Éditeur : Cline Bot Inc., et non un collectif.'
+    finding: 'Catégorie revue le 08/10/2026 : la page d''accueil met en tête « Cline for Desktop … No
+      editor required ». Éditeur : Cline Bot Inc., et non un collectif.'
   compliance:
     zero_data_retention: true
     self_hosted: true
@@ -424,6 +574,13 @@ tools:
     verified_on: '2026-09-15'
     status: official_docs
   layer: 1
+  caps_sources:
+    byok: https://docs.cline.bot/provider-config/anthropic
+    mcp: https://github.com/cline/cline
+    local_models: https://docs.cline.bot/provider-config/ollama
+    free: https://github.com/cline/cline
+  caps_checked_on: '2026-10-28'
+  caps_note: Licence Apache 2.0.
 - id: codex-ide
   name: Codex (extension IDE)
   vendor: OpenAI
@@ -441,6 +598,19 @@ tools:
     verified_on: null
     note: Conformite non relevee a cette edition.
   layer: 1
+  byok: true
+  mcp: true
+  local_models: true
+  free: true
+  caps_sources:
+    byok: https://learn.chatgpt.com/docs/config-file/config-advanced#custom-model-providers
+    mcp: https://learn.chatgpt.com/docs/extend/mcp#configure-in-the-ide-extension
+    local_models: https://learn.chatgpt.com/docs/config-file/config-advanced#oss-mode-local-providers
+    free: https://learn.chatgpt.com/docs/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: 'byok/local déduits de config-basic : « The CLI and IDE extension share the same configuration
+    layers » ; free = option « API Key » (extension utilisable, on ne paie que l''API) ; extension non
+    open source'
 - id: continue
   name: Continue
   vendor: Continue Dev, Inc.
@@ -476,8 +646,8 @@ tools:
   - copilot-pro
   - copilot-pro-plus
   - copilot-max
-  note: Extensions pour VS Code, Visual Studio, JetBrains, Neovim, Eclipse et Xcode. Crédits mensuels libellés
-    en dollars. GitHub propose aussi une application de bureau et une CLI, catalogués séparément.
+  note: Extensions pour VS Code, Visual Studio, JetBrains, Neovim, Eclipse et Xcode. Crédits mensuels
+    libellés en dollars. GitHub propose aussi une application de bureau et une CLI, catalogués séparément.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -493,6 +663,18 @@ tools:
     verified_on: '2026-09-15'
     status: official_pricing_page
   layer: 1
+  byok: true
+  mcp: true
+  local_models: true
+  free: true
+  caps_sources:
+    byok: https://code.visualstudio.com/docs/agent-customization/language-models#_bring-your-own-language-model-key
+    mcp: https://code.visualstudio.com/docs/agent-customization/mcp-servers
+    local_models: https://code.visualstudio.com/docs/agent-customization/language-models
+    free: https://github.com/features/copilot/plans
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK et modèles locaux sourcés pour VS Code seulement (autres IDE non vérifiés) ; BYOK désactivable
+    par l'admin en Business/Enterprise.
 - id: roo-code
   name: Roo Code
   vendor: RooCodeInc (open-source)
@@ -523,8 +705,8 @@ tools:
   docs_url: https://openrouter.ai/docs
   note: 'Passerelle universelle au format OpenAI : une clé pour tous les laboratoires. Aucune marge sur
     l''inférence — le tarif du fournisseur est répercuté tel quel. La facturation porte sur l''achat de
-    crédits : 5,5 % par carte (0,80 $ minimum) en Standard, 8 % en Business, 5 % en USDC. En BYOK, 5 % sur
-    l''usage au-delà de 25 000 $/mois (franchise sur mesure en entreprise). Pas d''abonnement.'
+    crédits : 5,5 % par carte (0,80 $ minimum) en Standard, 8 % en Business, 5 % en USDC. En BYOK, 5 %
+    sur l''usage au-delà de 25 000 $/mois (franchise sur mesure en entreprise). Pas d''abonnement.'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -537,6 +719,18 @@ tools:
   layer: 2
   pricing_url: https://openrouter.ai/docs/faq
   no_subscription: true
+  byok: true
+  mcp: true
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://openrouter.ai/docs/guides/overview/auth/byok
+    mcp: https://openrouter.ai/docs/projects/docs/agent-sdk/call-model/mcp-tools
+    free: https://openrouter.ai/docs/api_reference/limits
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK facturé 5 % du coût normal. MCP seulement via le paquet client @openrouter/mcp de l'Agent
+    SDK (serveurs distants HTTP/SSE), pas via l'API elle-même. Free = variantes :free plafonnées (50 req/j,
+    1000 après 10 crédits achetés).
 - id: lm-studio-server
   name: LM Studio (serveur local)
   vendor: Element Labs, Inc.
@@ -546,14 +740,23 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://localhost:1234/v1
-  note: Serveur HTTP de LM Studio, compatible avec les API OpenAI et Anthropic, pour les modèles GGUF (llama.cpp)
-    ou MLX. Fonctionne aussi sans interface via le démon `llmster`. Fiche distincte de l'application, car
-    c'est la couche de service des modèles.
+  note: Serveur HTTP de LM Studio, compatible avec les API OpenAI et Anthropic, pour les modèles GGUF
+    (llama.cpp) ou MLX. Fonctionne aussi sans interface via le démon `llmster`. Fiche distincte de l'application,
+    car c'est la couche de service des modèles.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
   compliance: *id001
   layer: 2
+  byok: null
+  mcp: true
+  caps_sources:
+    mcp: https://lmstudio.ai/docs/app/mcp
+    local_models: https://lmstudio.ai/docs/developer/core/server
+    free: https://lmstudio.ai/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: LM Studio est hôte MCP (client des serveurs déclarés dans mcp.json) ; palier Free à 0 $ («
+    Can I use Bionic for free? Yes »)
 - id: ollama
   name: Ollama
   vendor: Ollama
@@ -577,6 +780,13 @@ tools:
     verified_on: '2026-09-15'
     status: official_docs
   layer: 2
+  byok: null
+  mcp: null
+  caps_sources:
+    local_models: https://github.com/ollama/ollama
+    free: https://github.com/ollama/ollama/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: Serveur local, pas client MCP documenté ; modèles cloud Ollama payants à part.
 - id: antigravity
   name: Google Antigravity
   vendor: Google
@@ -599,6 +809,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: null
+  caps_sources:
+    byok: https://antigravity.google/docs/install/
+    mcp: https://antigravity.google/docs/mcp/
+    free: https://antigravity.google/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK = clé Gemini API seulement, via CLI (et IDE JetBrains/Zed/Xcode) ; l'App n'accepte que
+    compte Google/ADC. Modèles locaux (Ollama, LM Studio) documentés uniquement pour le SDK, pas pour
+    l'App/IDE.
 - id: antigravity-cli
   name: Antigravity CLI
   vendor: Google
@@ -622,6 +843,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: false
+  mcp: true
+  local_models: null
+  caps_sources:
+    byok: https://antigravity.google/docs/plans
+    mcp: https://antigravity.google/docs/mcp
+    free: https://antigravity.google/docs/plans
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Plans : « no support for… Bring-your-own-key (BYOK) » ; une clé Gemini API reste une clé
+    de l''éditeur ; modèles locaux documentés pour le SDK seulement (docs/install), GOOGLE_GEMINI_BASE_URL
+    côté CLI'
 - id: grok-build
   name: Grok Build
   vendor: SpaceXAI (xAI)
@@ -646,6 +878,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  local_models: true
+  free: true
+  caps_sources:
+    byok: https://github.com/xai-org/grok-build/blob/main/crates/codegen/xai-grok-pager/docs/user-guide/11-custom-models.md#anthropic-claude
+    mcp: https://github.com/xai-org/grok-build/blob/main/crates/codegen/xai-grok-pager/docs/user-guide/07-mcp-servers.md
+    local_models: https://github.com/xai-org/grok-build/blob/main/crates/codegen/xai-grok-pager/docs/user-guide/11-custom-models.md#ollama-local-models
+    free: https://github.com/xai-org/grok-build/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: x.ai/build répond 403 aux robots ; free = code Apache-2.0 + clés perso/Ollama, les modèles
+    SpaceXAI exigent grok login ou clé xAI.
 - id: mistral-vibe
   name: Mistral Vibe Code
   vendor: Mistral AI
@@ -660,8 +902,8 @@ tools:
   - mistral-team
   - mistral-enterprise
   note: Volet code de Vibe, l'assistant de Mistral (ex-Le Chat, renommé le 28/05/2026). CLI open-source
-    (Apache-2.0), extension VS Code, JetBrains et Zed via le protocole ACP (sans extension dédiée), et agents
-    distants exécutés dans le cloud. Clé personnelle acceptée en offre Pro.
+    (Apache-2.0), extension VS Code, JetBrains et Zed via le protocole ACP (sans extension dédiée), et
+    agents distants exécutés dans le cloud. Clé personnelle acceptée en offre Pro.
   byok: true
   mcp: true
   repo_url: https://github.com/mistralai/mistral-vibe
@@ -674,6 +916,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  local_models: true
+  free: true
+  caps_sources:
+    byok: https://docs.mistral.ai/mistral-vibe/introduction
+    mcp: https://docs.mistral.ai/vibe/code/cli/configuration-reference
+    local_models: https://docs.mistral.ai/vibe/code/cli/offline-models
+    free: https://docs.mistral.ai/mistral-vibe/introduction
+  caps_checked_on: '2026-10-28'
+  caps_note: Mode Free documenté (« The same key works in Free mode ») + préréglage llamacpp 127.0.0.1:8080
+    ; CLI sous Apache-2.0.
 - id: muse-code
   name: Muse Code
   vendor: Meta
@@ -688,18 +940,27 @@ tools:
   - muse-code-power
   - muse-code-maximum
   install: curl -fsSL https://dev.meta.ai/install.sh | bash
-  note: 'Agent de codage en terminal de Meta, pour macOS et Windows, avec un SDK TypeScript et Python en
-    préversion. Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code produit.
-    Tourne sur Muse Spark et, depuis le 12/10/2026, sur Muse Wonder ; la version « Wonder Full » est réservée
-    aux forfaits Power et Maximum. Mode Contributor activé par défaut pour les abonnés.'
+  note: Agent de codage en terminal de Meta, pour macOS et Windows, avec un SDK TypeScript et Python en
+    préversion. Plusieurs agents se coordonnent sur une même tâche, avec traçabilité complète du code
+    produit. Tourne sur Muse Spark et, depuis le 12/10/2026, sur Muse Wonder ; la version « Wonder Full
+    » est réservée aux forfaits Power et Maximum. Mode Contributor activé par défaut pour les abonnés.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
-    finding: 'Forfait Maximum Usage (200 $/mois, 80x l''usage de base) ajouté le 12/10/2026.'
+    finding: Forfait Maximum Usage (200 $/mois, 80x l'usage de base) ajouté le 12/10/2026.
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  local_models: null
+  free: null
+  caps_sources:
+    mcp: https://dev.meta.ai/docs/muse-code/extending#mcp
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Aucun usage gratuit trouvé : 4 forfaits payants ou paiement à l''usage par clé Meta (docs/muse-code/subscriptions,
+    docs/pricing-rate-limits), mais aucune page ne dit « pas de gratuit ».'
 - id: opencode
   name: OpenCode
   vendor: Anomaly
@@ -727,6 +988,12 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://opencode.ai/docs/providers/
+    mcp: https://opencode.ai/docs/mcp-servers/
+    local_models: https://opencode.ai/docs/providers/#ollama
+    free: https://github.com/anomalyco/opencode/blob/dev/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: mini-swe-agent
   name: mini-SWE-agent
   vendor: SWE-agent (Princeton, Stanford)
@@ -752,6 +1019,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: null
+  local_models: true
+  caps_sources:
+    byok: https://mini-swe-agent.com/latest/models/quickstart/
+    local_models: https://mini-swe-agent.com/latest/models/local_models/
+    free: https://github.com/SWE-agent/mini-swe-agent
+  caps_checked_on: '2026-10-28'
+  caps_note: 'mcp=null : README « Does not have any tools other than bash » sans mention de MCP (issue
+    #470 close en not planned) ; non établi explicitement.'
 - id: hermes-agent
   name: Hermes Agent
   vendor: Nous Research
@@ -762,10 +1038,10 @@ tools:
   repo_url: https://github.com/NousResearch/hermes-agent
   byok: true
   free: true
-  note: 'Agent open-source sous licence MIT, première version publiée en mars 2026. Cette fiche couvre l''interface
-    terminal (TUI complète : édition multiligne, autocomplétion, historique, interruption en cours de tâche,
-    coût de session estimé) ; l''application de bureau a sa propre fiche. Clés d''API personnelles ou portail
-    de l''éditeur. Windows, macOS, Linux, Docker, WSL2.'
+  note: 'Agent open-source sous licence MIT, première version publiée en mars 2026. Cette fiche couvre
+    l''interface terminal (TUI complète : édition multiligne, autocomplétion, historique, interruption
+    en cours de tâche, coût de session estimé) ; l''application de bureau a sa propre fiche. Clés d''API
+    personnelles ou portail de l''éditeur. Windows, macOS, Linux, Docker, WSL2.'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -773,6 +1049,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://hermes-agent.nousresearch.com/docs/integrations/providers
+    mcp: https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp
+    local_models: https://hermes-agent.nousresearch.com/docs/integrations/providers#ollama--local-models-zero-config
+    free: https://github.com/NousResearch/hermes-agent/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: hermes-desktop
   name: Hermes Desktop
   vendor: Nous Research
@@ -784,9 +1068,9 @@ tools:
   byok: true
   free: true
   note: Application de bureau de Hermes Agent, mise en avant en premier sur le site de l'éditeur ; sortie
-    en juin 2026, considérée comme stable depuis la v0.17.0. macOS et Windows, sous licence MIT. Même agent,
-    mêmes compétences, même mémoire et mêmes sessions que la version terminal. Lancement depuis le terminal
-    par `hermes desktop`, ou par installeur.
+    en juin 2026, considérée comme stable depuis la v0.17.0. macOS et Windows, sous licence MIT. Même
+    agent, mêmes compétences, même mémoire et mêmes sessions que la version terminal. Lancement depuis
+    le terminal par `hermes desktop`, ou par installeur.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -794,6 +1078,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://hermes-agent.nousresearch.com/docs/integrations/providers#inference-providers
+    mcp: https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp
+    local_models: https://hermes-agent.nousresearch.com/docs/integrations/providers#ollama--local-models-zero-config
+    free: https://github.com/NousResearch/hermes-agent/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: valeurs établies par la doc de Hermes Agent, dont Hermes Desktop est l'interface graphique
+    (macOS/Windows)
 - id: pi
   name: Pi
   vendor: Earendil Inc.
@@ -808,10 +1102,11 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par Mario Zechner. Pas
-    de sous-agents ni de mode plan par défaut : on les ajoute par extensions, compétences ou paquets. Mode
-    interactif, impression/JSON pour l''automatisation, pilotage RPC, SDK. Connexion par clé d''API ou OAuth
-    à plus de 15 fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers earendil-works/pi.'
+  note: 'Harnais de terminal minimaliste et extensible, open-source sous MIT, créé par Mario Zechner.
+    Pas de sous-agents ni de mode plan par défaut : on les ajoute par extensions, compétences ou paquets.
+    Mode interactif, impression/JSON pour l''automatisation, pilotage RPC, SDK. Connexion par clé d''API
+    ou OAuth à plus de 15 fournisseurs, dont Ollama en local. Le dépôt a migré de badlogic/pi-mono vers
+    earendil-works/pi.'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -819,6 +1114,12 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://pi.dev/docs/latest/providers
+    mcp: https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/mcp.md
+    local_models: https://pi.dev/docs/latest/models
+    free: https://github.com/earendil-works/pi
+  caps_checked_on: '2026-10-28'
 - id: oh-my-pi
   name: Oh My Pi (omp)
   vendor: Stencil Labs
@@ -842,6 +1143,12 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://github.com/can1357/oh-my-pi/blob/main/docs/providers.md
+    mcp: https://github.com/can1357/oh-my-pi/blob/main/docs/mcp-config.md
+    local_models: https://github.com/can1357/oh-my-pi/blob/main/docs/providers.md
+    free: https://github.com/can1357/oh-my-pi/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: deepseek-harness
   name: DeepSeek Harness
   vendor: DeepSeek
@@ -858,19 +1165,29 @@ tools:
     : l''éditeur annonce des ruptures de compatibilité. Distribué d''abord comme application de bureau
     (macOS Apple Silicon, Windows 64 bits), et comme interface web locale lancée par `npx @deepseek-ai/dsh
     web`. La commande `dsh` sert de lanceur (mode headless pour l''intégration continue, ACP, SDK) ; aucune
-    interface terminal n''est livrée par défaut. Architecture où tout est greffon (framework Cordis). Depuis
-    la 0.2.1-rc.1 (17/10/2026) : couche de compatibilité expérimentale avec les mods de Claude Code, recherche
-    et lecture web via les API Search et Fetch de DeepSeek (0,75 $ pour 1 000 requêtes, gratuites jusqu''au
-    31/10/2026 depuis le harnais).'
+    interface terminal n''est livrée par défaut. Architecture où tout est greffon (framework Cordis).
+    Depuis la 0.2.1-rc.1 (17/10/2026) : couche de compatibilité expérimentale avec les mods de Claude
+    Code, recherche et lecture web via les API Search et Fetch de DeepSeek (0,75 $ pour 1 000 requêtes,
+    gratuites jusqu''au 31/10/2026 depuis le harnais).'
   verification:
     status: official_docs
     verified_on: '2026-10-23'
-    finding: 'Six préversions du 09/10 au 23/10/2026 (dernière publiée sur npm : 0.2.1-rc.3), toujours en
-      « developer preview ». Pas d''installeur Linux ni d''interface terminal.'
+    finding: 'Six préversions du 09/10 au 23/10/2026 (dernière publiée sur npm : 0.2.1-rc.3), toujours
+      en « developer preview ». Pas d''installeur Linux ni d''interface terminal.'
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md#add-a-third-party-provider
+    mcp: https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/mcp/mcp-client/README.md
+    local_models: https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/llm/llm-pi-ai/README.md
+    free: https://github.com/deepseek-ai/deepseek-harness/blob/master/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: 'local : « Custom model API » pour serveur auto-hébergé, et le README llm-pi-ai documente
+    le serveur local sans clé (clé factice requise) ; aucun guide Ollama dédié'
 - id: factory-droid
   name: Droid (Factory)
   vendor: Factory
@@ -884,9 +1201,9 @@ tools:
   local_models: true
   mcp: true
   note: Agent de développement de Factory, proposé d'abord en application de bureau (Factory App, macOS
-    et Windows), et aussi en CLI (commande `droid`, mode non interactif `droid exec`) et en SDK. Code fermé.
-    Clés personnelles (OpenAI, Anthropic, fournisseurs open-source) et modèles locaux acceptés en BYOK.
-    Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.
+    et Windows), et aussi en CLI (commande `droid`, mode non interactif `droid exec`) et en SDK. Code
+    fermé. Clés personnelles (OpenAI, Anthropic, fournisseurs open-source) et modèles locaux acceptés
+    en BYOK. Forfaits Pro 20 $/mois, Plus 100 $/mois, Max 200 $/mois ; Teams 60 $/mois + 40 $ par siège.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -897,6 +1214,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  free: false
+  caps_sources:
+    byok: https://docs.factory.com/cli/byok/overview
+    mcp: https://docs.factory.com/cli/configuration/mcp
+    local_models: https://docs.factory.com/cli/byok/ollama
+    free: https://factory.com/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Pas de palier gratuit (Pro 20 $ minimum) ; FAQ : BYOK gratuit seulement dans une allocation
+    des plans Individual, puis facturé. docs.factory.ai redirige (308) vers docs.factory.com.'
 - id: gemini-cli
   name: Gemini CLI
   vendor: Google
@@ -907,21 +1233,31 @@ tools:
   docs_url: https://geminicli.com/docs/
   repo_url: https://github.com/google-gemini/gemini-cli
   install: npm install -g @google/gemini-cli
-  byok: true
+  byok: null
   mcp: true
-  note: 'Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/06/2026, il ne sert
-    plus l''usage gratuit ni les abonnements Google AI Pro et Ultra, basculés vers Antigravity CLI. Il reste
-    utilisable avec une clé d''API Gemini payante, via Vertex AI ou avec une licence Gemini Code Assist
-    Standard ou Enterprise.'
+  note: Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/06/2026, il ne sert
+    plus l'usage gratuit ni les abonnements Google AI Pro et Ultra, basculés vers Antigravity CLI. Il
+    reste utilisable avec une clé d'API Gemini payante, via Vertex AI ou avec une licence Gemini Code
+    Assist Standard ou Enterprise.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'Le README et la page des offres de geminicli.com annoncent encore l''offre gratuite (1 000 requêtes
-      par jour), alors que le blog Google du 19/05/2026 et le bandeau du site confirment son arrêt.'
+    finding: Le README et la page des offres de geminicli.com annoncent encore l'offre gratuite (1 000
+      requêtes par jour), alors que le blog Google du 19/05/2026 et le bandeau du site confirment son
+      arrêt.
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  local_models: null
+  free: false
+  caps_sources:
+    mcp: https://geminicli.com/docs/tools/mcp-server/
+    free: https://github.com/google-gemini/gemini-cli/blob/main/README.md
+  caps_checked_on: '2026-10-28'
+  caps_note: 'CORRIGÉ: byok true→null (seules auth Google : compte, clé Gemini API, Vertex ; clé de l''éditeur,
+    pas de BYOK tiers, mais aucune page ne dit « pas de BYOK ») ; free false : README « No free tier »
+    depuis le 18/06/2026 (bascule vers Antigravity CLI).'
 - id: copilot-cli
   name: GitHub Copilot CLI
   vendor: GitHub / Microsoft
@@ -936,9 +1272,9 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le gratuit. Clés personnelles
-    acceptées (OpenAI, Azure, Anthropic) et modèles locaux (Ollama, vLLM, Foundry Local), avec mode hors
-    ligne. Code fermé. Forfaits : Free 0 $, Pro 10 $/mois, Pro+ 39 $/mois, Max 100 $/mois.'
+  note: 'Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le gratuit. Clés
+    personnelles acceptées (OpenAI, Azure, Anthropic) et modèles locaux (Ollama, vLLM, Foundry Local),
+    avec mode hors ligne. Code fermé. Forfaits : Free 0 $, Pro 10 $/mois, Pro+ 39 $/mois, Max 100 $/mois.'
   url: https://github.com/features/copilot/cli
   verification:
     status: official_pricing_page
@@ -947,6 +1283,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models
+    mcp: https://github.com/github/copilot-cli#-introduction-and-overview
+    local_models: https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models
+    free: https://github.com/features/copilot/plans
+  caps_checked_on: '2026-10-28'
+  caps_note: https://github.com/features/copilot/cli redirige vers /features/copilot ; free = plan Copilot
+    Free (CLI « Included », quotas mensuels)
 - id: cursor-cli
   name: Cursor CLI
   vendor: Anysphere, Inc.
@@ -956,7 +1300,8 @@ tools:
   docs_url: https://cursor.com/docs/cli/overview
   pricing_url: https://cursor.com/pricing
   mcp: true
-  note: 'Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code fermé.'
+  note: Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfaits Cursor. Code
+    fermé.
   url: https://cursor.com/docs/cli/overview
   verification:
     status: official_docs
@@ -966,6 +1311,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  local_models: null
+  free: null
+  caps_sources:
+    mcp: https://cursor.com/docs/cli/using
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Doc CLI : auth uniquement par compte/clé Cursor ; clés fournisseur documentées pour l''éditeur
+    seulement (Settings > Models). Plan Free 0 $ (Agent limité) existe mais aucune page ne dit qu''il
+    couvre le CLI.'
 - id: kiro-cli
   name: Kiro CLI
   vendor: Amazon Web Services
@@ -978,9 +1332,9 @@ tools:
   install: curl -fsSL https://cli.kiro.dev/install | bash
   free: true
   mcp: true
-  note: 'Agent de terminal d''AWS, successeur d''Amazon Q Developer CLI (bascule automatique en novembre
-    2025 ; l''ancienne CLI ne reçoit plus que les correctifs de sécurité). Code fermé. Mêmes forfaits en crédits
-    que l''IDE Kiro ; l''abonnement ne peut pas être utilisé depuis un harnais tiers.'
+  note: Agent de terminal d'AWS, successeur d'Amazon Q Developer CLI (bascule automatique en novembre
+    2025 ; l'ancienne CLI ne reçoit plus que les correctifs de sécurité). Code fermé. Mêmes forfaits en
+    crédits que l'IDE Kiro ; l'abonnement ne peut pas être utilisé depuis un harnais tiers.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -989,6 +1343,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  local_models: null
+  caps_sources:
+    mcp: https://kiro.dev/docs/mcp/
+    free: https://kiro.dev/pricing/
+  caps_checked_on: '2026-10-28'
+  caps_note: Palier Free perpétuel 50 crédits/mois, abonnements valables pour Kiro IDE et Kiro CLI ; https://kiro.dev/docs/cli/mcp/
+    redirige vers /docs/mcp/.
 - id: goose
   name: Goose
   vendor: Agentic AI Foundation (Linux Foundation)
@@ -1002,19 +1364,25 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l'Agentic AI Foundation, aux
-    côtés de MCP et d'AGENTS.md. Application de bureau en tête, puis CLI et API. Plus de 15 fournisseurs,
-    modèles locaux via Ollama, plus de 70 extensions MCP. Se présente comme un agent généraliste, pas seulement
-    de code.
+  note: Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l'Agentic AI Foundation,
+    aux côtés de MCP et d'AGENTS.md. Application de bureau en tête, puis CLI et API. Plus de 15 fournisseurs,
+    modèles locaux via Ollama, plus de 70 extensions MCP. Se présente comme un agent généraliste, pas
+    seulement de code.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
-    finding: 'Classé à tort en agent CLI le 08/10/2026 : « Desktop app, CLI, and API », l''application de
-      bureau en premier. Dépôt migré de block/goose vers aaif-goose/goose.'
+    finding: 'Classé à tort en agent CLI le 08/10/2026 : « Desktop app, CLI, and API », l''application
+      de bureau en premier. Dépôt migré de block/goose vers aaif-goose/goose.'
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://goose-docs.ai/docs/getting-started/providers#available-providers
+    mcp: https://goose-docs.ai/docs/getting-started/using-extensions
+    local_models: https://goose-docs.ai/docs/getting-started/providers#local-llms
+    free: https://goose-docs.ai/docs/getting-started/providers#using-goose-for-free
+  caps_checked_on: '2026-10-28'
 - id: crush
   name: Crush
   vendor: Charm
@@ -1037,6 +1405,13 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://github.com/charmbracelet/crush
+    mcp: https://github.com/charmbracelet/crush
+    local_models: https://github.com/charmbracelet/crush
+    free: https://github.com/charmbracelet/crush/blob/main/LICENSE.md
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Licence FSL-1.1-MIT (source-available, pas OSI) : usage gratuit hors « Competing Use ».'
 - id: amp
   name: Amp
   vendor: Amp Frontier Corporation
@@ -1061,6 +1436,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  local_models: null
+  caps_sources:
+    byok: https://ampcode.com/pricing
+    mcp: https://ampcode.com/docs/customize/mcp
+    free: https://ampcode.com/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Palier Hobby gratuit avec BYOK et « No Amp token fees or limits » ; BYOK seulement sur la
+    page tarifs, pas de page de doc dédiée.
 - id: warp
   name: Warp
   vendor: Warp
@@ -1083,6 +1466,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://docs.warp.dev/agents/inference/bring-your-own-api-key/
+    mcp: https://docs.warp.dev/agents/capabilities/mcp/
+    local_models: https://docs.warp.dev/agents/inference/custom-inference-endpoint/
+    free: https://docs.warp.dev/support-and-community/plans-and-billing/pricing-faqs/
+  caps_checked_on: '2026-10-28'
+  caps_note: 'local seulement via tunnel public (ngrok) : localhost et IP privées sont refusés ; BYOK/endpoint
+    perso réservés aux structures de 10 salariés ou moins hors plan Business'
 - id: freebuff
   name: Freebuff
   vendor: CodebuffAI
@@ -1106,6 +1499,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  local_models: null
+  caps_sources:
+    mcp: https://github.com/CodebuffAI/freebuff/blob/main/docs/agents-and-tools.md
+    free: https://github.com/CodebuffAI/freebuff
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Gratuit financé par la pub, 5 h/jour (4 via VPN). MCP : doc dev du dépôt (mcp.json dans
+    .agents/, serveurs stdio lancés par le CLI). Desktop peut piloter Claude Code/Codex avec le compte
+    existant, ce qui n''est pas du BYOK.'
 - id: kiro
   name: Kiro
   vendor: Amazon Web Services
@@ -1119,8 +1522,7 @@ tools:
   note: 'IDE d''AWS bâti sur la base de VS Code, avec un mode « spécifications » (exigences, conception,
     tâches) avant le code ; décliné aussi en CLI. Désigné par AWS comme le remplaçant d''Amazon Q Developer.
     Modèles hébergés par Kiro. Forfaits en crédits : Free 0 $ (50 crédits), Pro 20 $/mois (1 000), Pro+
-    40 $ (2 000), Pro Max 100 $ (5 000), Power 200 $ (10 000) ; crédit supplémentaire à 0,04 $. Code
-    fermé.'
+    40 $ (2 000), Pro Max 100 $ (5 000), Power 200 $ (10 000) ; crédit supplémentaire à 0,04 $. Code fermé.'
   verification:
     status: official_pricing_page
     verified_on: '2026-10-08'
@@ -1129,6 +1531,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  local_models: null
+  free: true
+  caps_sources:
+    mcp: https://kiro.dev/docs/mcp/
+    free: https://kiro.dev/pricing/
+  caps_checked_on: '2026-10-28'
+  caps_note: Palier Free perpétuel 50 crédits/mois (« perpetual Kiro Free tier »).
 - id: kilo-code
   name: Kilo Code
   vendor: Kilo-Org
@@ -1144,8 +1554,8 @@ tools:
   free: true
   mcp: true
   note: Agent de code pour VS Code et JetBrains, décliné en CLI (elle-même dérivée d'OpenCode) et en application
-    de bureau (bêta). Open-source sous MIT. Gratuit avec ses propres clés ou un modèle local (Ollama, LM
-    Studio). Teams 15 $/utilisateur/mois. La passerelle Kilo facture les modèles au tarif du fournisseur,
+    de bureau (bêta). Open-source sous MIT. Gratuit avec ses propres clés ou un modèle local (Ollama,
+    LM Studio). Teams 15 $/utilisateur/mois. La passerelle Kilo facture les modèles au tarif du fournisseur,
     sans marge, plus 5 % sur l'achat de crédits.
   verification:
     status: official_pricing_page
@@ -1156,6 +1566,12 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://kilo.ai/docs/ai-providers
+    mcp: https://kilo.ai/docs/automate/mcp/using-in-kilo-code
+    local_models: https://kilo.ai/docs/ai-providers/ollama
+    free: https://github.com/Kilo-Org/kilocode/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: jetbrains-ai
   name: JetBrains AI Assistant
   vendor: JetBrains
@@ -1169,10 +1585,10 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Assistant intégré aux IDE JetBrains. Clés personnelles acceptées (Anthropic, Google, OpenAI, points
-    d''accès compatibles OpenAI) et modèles locaux via Ollama ou LM Studio. Offre gratuite : 3 crédits par
-    30 jours (1 crédit = 1 $), absente des éditions Community et d''Android Studio. L''agent Junie a sa
-    propre fiche.'
+  note: 'Assistant intégré aux IDE JetBrains. Clés personnelles acceptées (Anthropic, Google, OpenAI,
+    points d''accès compatibles OpenAI) et modèles locaux via Ollama ou LM Studio. Offre gratuite : 3
+    crédits par 30 jours (1 crédit = 1 $), absente des éditions Community et d''Android Studio. L''agent
+    Junie a sa propre fiche.'
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1182,6 +1598,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://www.jetbrains.com/help/ai-assistant/bring-your-own-key-byok.html
+    mcp: https://www.jetbrains.com/help/ai-assistant/configure-an-mcp-server.html
+    local_models: https://www.jetbrains.com/help/ai-assistant/use-custom-models.html
+    free: https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html
+  caps_checked_on: '2026-10-28'
+  caps_note: 'AI Free : 3 crédits / 30 jours renouvelés (IDE ≥ 2025.1, hors éditions Community) ; BYOK
+    sans abonnement JetBrains AI. Modèles locaux : pas d''agents ni d''outils MCP.'
 - id: tabnine
   name: Tabnine
   vendor: Tricentis
@@ -1190,9 +1614,9 @@ tools:
   status: active
   url: https://docs.tabnine.com
   docs_url: https://docs.tabnine.com
-  note: Assistant de code orienté entreprise, racheté par Tricentis le 30/07/2026. Extensions VS Code, JetBrains,
-    Eclipse et Visual Studio, plus une CLI ; déployable entièrement dans l'environnement du client. Code
-    fermé.
+  note: Assistant de code orienté entreprise, racheté par Tricentis le 30/07/2026. Extensions VS Code,
+    JetBrains, Eclipse et Visual Studio, plus une CLI ; déployable entièrement dans l'environnement du
+    client. Code fermé.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1202,6 +1626,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: null
+  free: null
+  caps_sources:
+    byok: https://docs.tabnine.com/main/administering-tabnine/managing-your-team/settings/models-settings/self-managed-models
+    mcp: https://docs.tabnine.com/main/getting-started/tabnine-agent/mcp-intro-and-setup/mcp-server-config
+  caps_checked_on: '2026-10-28'
+  caps_note: 'BYOK au niveau admin Enterprise (Self-Managed Models : OpenAI, Bedrock, Azure, Vertex, endpoint
+    compatible OpenAI) ; seuls plans documentés Enterprise, aucun palier gratuit cité ; tabnine.com redirige
+    vers tricentis.com.'
 - id: litellm
   name: LiteLLM (proxy)
   vendor: BerriAI
@@ -1223,6 +1658,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://docs.litellm.ai/docs/proxy/configs
+    mcp: https://docs.litellm.ai/docs/mcp
+    local_models: https://docs.litellm.ai/docs/providers/ollama
+    free: https://github.com/BerriAI/litellm/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: Licence MIT hors dossier enterprise/ (fonctions sous licence commerciale).
 - id: vercel-ai-gateway
   name: Vercel AI Gateway
   vendor: Vercel
@@ -1232,8 +1676,8 @@ tools:
   url: https://vercel.com/docs/ai-gateway
   pricing_url: https://vercel.com/docs/ai-gateway/pricing
   byok: true
-  note: 'Passerelle hébergée : aucune marge ni frais de plateforme sur les jetons, frais de paiement à la
-    charge du client. Clés personnelles acceptées sans marge, mais l''achat de crédits reste obligatoire.
+  note: 'Passerelle hébergée : aucune marge ni frais de plateforme sur les jetons, frais de paiement à
+    la charge du client. Clés personnelles acceptées sans marge, mais l''achat de crédits reste obligatoire.
     Offre gratuite limitée à une partie des modèles. Options payantes (dont la rétention nulle à l''échelle
     de l''équipe, 0,10 $ pour 1 000 requêtes).'
   verification:
@@ -1243,6 +1687,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: false
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://vercel.com/docs/ai-gateway/authentication-and-byok/byok
+    mcp: https://vercel.com/i/ai-gateway-vs-mcp
+    free: https://vercel.com/docs/ai-gateway/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK réservé au palier payant (crédits achetés requis) ; palier gratuit = crédit mensuel,
+    sous-ensemble de modèles, rate-limité ; Vercel dit explicitement que la passerelle ne relaie pas les
+    appels MCP.
 - id: cloudflare-ai-gateway
   name: Cloudflare AI Gateway
   vendor: Cloudflare
@@ -1263,6 +1718,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: null
+  local_models: null
+  caps_sources:
+    byok: https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/
+    free: https://developers.cloudflare.com/ai-gateway/reference/pricing/
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Fournisseurs personnalisés : base_url HTTPS obligatoire (modèles auto-hébergés), aucune
+    doc pour pointer une machine locale ; gratuit = fonctions de base, journaux plafonnés.'
 - id: hf-inference-providers
   name: Hugging Face Inference Providers
   vendor: Hugging Face
@@ -1282,6 +1746,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: null
+  free: false
+  caps_sources:
+    byok: https://huggingface.co/docs/inference-providers/pricing
+    mcp: https://huggingface.co/docs/inference-providers/guides/responses-api#remote-mcp-execution
+    free: https://huggingface.co/docs/inference-providers/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Comptes gratuits : aucun crédit mensuel inclus, achat de crédits requis ; MCP distant via
+    Responses API (bêta).'
 - id: vllm
   name: vLLM
   vendor: vLLM Project
@@ -1305,6 +1779,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  caps_sources:
+    mcp: https://docs.vllm.ai/en/latest/usage/security/
+    local_models: https://github.com/vllm-project/vllm
+    free: https://github.com/vllm-project/vllm
+  caps_checked_on: '2026-10-28'
+  caps_note: MCP via --tool-server host:port (serveurs MCP SSE) et outils de type mcp dans la Responses
+    API ; rien d'activé par défaut.
 - id: sglang
   name: SGLang
   vendor: SGLang Project
@@ -1327,6 +1810,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  caps_sources:
+    mcp: https://docs.sglang.io/docs/advanced_features/sgl_model_gateway#mcp-integration
+    local_models: https://docs.sglang.io/
+    free: https://github.com/sgl-project/sglang/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: MCP via le client natif de SGLang Model Gateway (STDIO/HTTP/SSE) et --tool-server (serveurs
+    MCP SSE) ; sglang.io redirige vers www.sglang.io.
 - id: llama-cpp
   name: llama.cpp (llama-server)
   vendor: ggml-org
@@ -1339,10 +1831,10 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://127.0.0.1:8080/v1
-  note: Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM Studio et Jan. Son serveur
-    (`llama-server`) expose une API compatible OpenAI et une interface web ; le port par défaut doit passer
-    de 8080 à 9931. CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et mode hybride CPU + GPU. Open-source
-    sous MIT. L'équipe publie aussi « Llama », une application Mac et Windows (llama.app).
+  note: Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM Studio et Jan. Son
+    serveur (`llama-server`) expose une API compatible OpenAI et une interface web ; le port par défaut
+    doit passer de 8080 à 9931. CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et mode hybride
+    CPU + GPU. Open-source sous MIT. L'équipe publie aussi « Llama », une application Mac et Windows (llama.app).
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1350,6 +1842,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  caps_sources:
+    mcp: https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md#mcp-servers
+    local_models: https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md
+    free: https://github.com/ggml-org/llama.cpp/blob/master/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: MCP expérimental (--mcp-servers-config, transport stdio uniquement).
 - id: llamafile
   name: llamafile
   vendor: Mozilla.ai
@@ -1362,8 +1862,8 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://127.0.0.1:8080/v1
-  note: 'Un modèle et son moteur réunis en un seul exécutable, sans installation : on le télécharge, on le
-    lance. Construit sur llama.cpp ; API compatible OpenAI et interface web intégrées. CPU, Apple Silicon,
+  note: 'Un modèle et son moteur réunis en un seul exécutable, sans installation : on le télécharge, on
+    le lance. Construit sur llama.cpp ; API compatible OpenAI et interface web intégrées. CPU, Apple Silicon,
     NVIDIA, AMD, Vulkan. Open-source sous Apache-2.0.'
   verification:
     status: official_docs
@@ -1372,6 +1872,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  caps_sources:
+    mcp: https://github.com/mozilla-ai/llamafile/blob/main/docs/built-in-tools.md
+    local_models: https://github.com/mozilla-ai/llamafile
+    free: https://github.com/mozilla-ai/llamafile
+  caps_checked_on: '2026-10-28'
+  caps_note: MCP = proxy MCP expérimental de la Web UI (--agent / --webui-mcp-proxy), hérité de llama.cpp
+    ; licence Apache 2.0 (+ MIT pour ses patchs llama.cpp).
 - id: localai
   name: LocalAI
   vendor: LocalAI (open-source)
@@ -1385,9 +1894,9 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://localhost:8080/v1
-  note: 'Serveur local multimodal (texte, vision, voix, image, vidéo) qui fédère plus de 60 moteurs, dont
+  note: Serveur local multimodal (texte, vision, voix, image, vidéo) qui fédère plus de 60 moteurs, dont
     llama.cpp, vLLM, SGLang et MLX, derrière une même API compatible OpenAI et Anthropic. Fonctionne sans
-    GPU. Interface web intégrée. Open-source sous MIT.'
+    GPU. Interface web intégrée. Open-source sous MIT.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1395,6 +1904,13 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  caps_sources:
+    mcp: https://localai.io/docs/features/mcp/
+    local_models: https://localai.io/
+    free: https://github.com/mudler/LocalAI/blob/master/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: mlx-lm
   name: MLX-LM (serveur)
   vendor: ml-explore (Apple)
@@ -1407,9 +1923,9 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://localhost:8080/v1
-  note: 'Exécution des modèles sur Apple Silicon via le framework MLX ; `mlx_lm.server` expose une API proche
-    de celle d''OpenAI. L''éditeur le déconseille en production (contrôles de sécurité minimaux). Open-source
-    sous MIT.'
+  note: Exécution des modèles sur Apple Silicon via le framework MLX ; `mlx_lm.server` expose une API
+    proche de celle d'OpenAI. L'éditeur le déconseille en production (contrôles de sécurité minimaux).
+    Open-source sous MIT.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1417,6 +1933,12 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: null
+  caps_sources:
+    local_models: https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/SERVER.md
+    free: https://github.com/ml-explore/mlx-lm/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: jan
   name: Jan
   vendor: Menlo Research
@@ -1429,9 +1951,9 @@ tools:
   local_models: true
   free: true
   serves_openai_api: http://127.0.0.1:1337/v1
-  note: 'Application de bureau qui fait tourner les modèles hors ligne sur le poste (moteur llama.cpp). Un
-    serveur local compatible OpenAI s''active depuis les réglages, pour y brancher un harnais. Windows, macOS
-    (Apple Silicon), Linux. Open-source sous Apache-2.0.'
+  note: Application de bureau qui fait tourner les modèles hors ligne sur le poste (moteur llama.cpp).
+    Un serveur local compatible OpenAI s'active depuis les réglages, pour y brancher un harnais. Windows,
+    macOS (Apple Silicon), Linux. Open-source sous Apache-2.0.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1439,6 +1961,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  caps_sources:
+    byok: https://docs.jan.ai/desktop/remote-models/anthropic
+    mcp: https://docs.jan.ai/desktop/mcp
+    local_models: https://docs.jan.ai/desktop
+    free: https://github.com/janhq/jan
+  caps_checked_on: '2026-10-28'
+  caps_note: Clés OpenAI, Anthropic et endpoints compatibles OpenAI/Anthropic dans Settings > Model Providers
+    ; licence Apache 2.0.
 - id: github-copilot-app
   name: GitHub Copilot (application)
   vendor: GitHub / Microsoft
@@ -1447,8 +1979,8 @@ tools:
   status: active
   url: https://github.com/features/copilot
   pricing_url: https://github.com/features/copilot/plans
-  note: Application de bureau de GitHub Copilot, mise en avant en premier sur la page produit (macOS, Windows,
-    Linux). Mêmes forfaits que les extensions et la CLI.
+  note: Application de bureau de GitHub Copilot, mise en avant en premier sur la page produit (macOS,
+    Windows, Linux). Mêmes forfaits que les extensions et la CLI.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1456,6 +1988,18 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: true
+  free: true
+  caps_sources:
+    byok: https://docs.github.com/en/copilot/how-tos/github-copilot-app/use-byok-models
+    mcp: https://docs.github.com/en/copilot/concepts/copilot-surfaces/github-copilot-app
+    local_models: https://docs.github.com/en/copilot/how-tos/github-copilot-app/use-byok-models
+    free: https://docs.github.com/en/copilot/how-tos/github-copilot-app/use-byok-models
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Doc propre à l''app : BYOK (Ollama, LM Studio, Foundry Local) en préversion ; sans forfait
+    Copilot avec ses propres clés, et Copilot Free existe sur github.com/features/copilot/plans.'
 - id: junie-cli
   name: Junie CLI
   vendor: JetBrains
@@ -1470,9 +2014,9 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Agent de code de JetBrains en terminal, aussi en GitHub Action et en CI GitLab. Clés personnelles
+  note: Agent de code de JetBrains en terminal, aussi en GitHub Action et en CI GitLab. Clés personnelles
     (OpenAI, Anthropic, Google, xAI, OpenRouter) et modèles locaux (LiteLLM, Ollama, LM Studio). Offre
-    gratuite « Junie Lite ». Code fermé.'
+    gratuite « Junie Lite ». Code fermé.
   verification:
     status: official_docs
     verified_on: '2026-10-08'
@@ -1480,6 +2024,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://junie.jetbrains.com/docs/byok.html
+    mcp: https://junie.jetbrains.com/docs/junie-cli-mcp-configuration.html
+    local_models: https://junie.jetbrains.com/docs/custom-llm-models.html
+    free: https://junie.jetbrains.com/docs/byok.html
+  caps_checked_on: '2026-10-28'
+  caps_note: Gratuit seulement en BYOK (« no JetBrains AI subscription is required », facturé par le fournisseur)
+    ; logiciel propriétaire.
 - id: kiro-crew
   name: Kiro Crew
   vendor: Amazon Web Services
@@ -1500,6 +2052,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  local_models: null
+  caps_sources:
+    mcp: https://github.com/kirodotdev/KiroCrew
+    free: https://kiro.dev/crew/
+  caps_checked_on: '2026-10-28'
+  caps_note: Logiciel Apache 2.0 mais « needs a Kiro plan to run » (inférence via compte Kiro, palier
+    Kiro Free perpétuel à 50 crédits) ; d'autres backends ACP sont sélectionnables, sans mention de clés
+    propres ni de modèles locaux.
 - id: mimo-code
   name: MiMo Code
   vendor: Xiaomi
@@ -1512,8 +2074,8 @@ tools:
   byok: true
   free: true
   mcp: true
-  note: 'Agent de code en terminal de Xiaomi, open-source sous MIT, qui sert aussi de moteur à l''application
-    MiMo Desktop. Connexion par compte MiMo ou Codex, ou tout fournisseur compatible OpenAI.'
+  note: Agent de code en terminal de Xiaomi, open-source sous MIT, qui sert aussi de moteur à l'application
+    MiMo Desktop. Connexion par compte MiMo ou Codex, ou tout fournisseur compatible OpenAI.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1522,6 +2084,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  local_models: null
+  caps_sources:
+    byok: https://github.com/XiaomiMiMo/MiMo-Code#custom-openai-compatible-endpoints
+    mcp: https://github.com/XiaomiMiMo/MiMo-Code#key-options
+    free: https://github.com/XiaomiMiMo/MiMo-Code/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: Endpoint OpenAI-compatible personnalisé documenté, mais aucune doc ne le montre pointant
+    en local (Ollama/LM Studio) ; site mimo.xiaomi.com/mimocode rendu en JS, illisible.
 - id: minimax-code
   name: MiniMax Code
   vendor: MiniMax
@@ -1530,8 +2100,8 @@ tools:
   status: active
   repo_url: https://github.com/MiniMax-AI/minimax-code
   byok: true
-  note: 'Agent de code en terminal de MiniMax (commande `mcode`), open-source sous MIT. Fonctionne avec le
-    « Token Plan » MiniMax (crédits prépayés) ou un modèle au choix.'
+  note: Agent de code en terminal de MiniMax (commande `mcode`), open-source sous MIT. Fonctionne avec
+    le « Token Plan » MiniMax (crédits prépayés) ou un modèle au choix.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1540,6 +2110,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  free: true
+  caps_sources:
+    byok: https://github.com/MiniMax-AI/minimax-code/blob/main/README.md#2-sign-in-or-bring-your-own-api-key
+    mcp: https://github.com/MiniMax-AI/minimax-code/blob/main/docs/examples.md#5-connect-an-authenticated-project-mcp-server
+    local_models: https://github.com/MiniMax-AI/minimax-code/blob/main/docs/examples.md#2-choose-your-own-model
+    free: https://github.com/MiniMax-AI/minimax-code/blob/main/LICENSE-STATUS.md
+  caps_checked_on: '2026-10-28'
+  caps_note: MIT ; BYOK sans compte MiniMax ; local via base URL http://localhost:8080/v1 documentée.
 - id: gitlab-duo-cli
   name: GitLab Duo CLI
   vendor: GitLab
@@ -1547,8 +2127,8 @@ tools:
   layer: 1
   status: active
   url: https://about.gitlab.com/blog/gitlab-duo-cli-generally-available/
-  note: 'Chat agentique de GitLab Duo dans le terminal, disponible pour tous depuis le 16/07/2026 (GitLab
-    19.2). Réservé aux offres Premium et Ultimate, avec les crédits GitLab inclus. Code fermé.'
+  note: Chat agentique de GitLab Duo dans le terminal, disponible pour tous depuis le 16/07/2026 (GitLab
+    19.2). Réservé aux offres Premium et Ultimate, avec les crédits GitLab inclus. Code fermé.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1556,6 +2136,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  local_models: null
+  free: false
+  caps_sources:
+    mcp: https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_clients/
+    free: https://docs.gitlab.com/user/gitlab_duo_cli/
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Doc officielle : Tier Premium, Ultimate. Seule voie hors modèles GitLab = GitLab Duo Self-Hosted
+    (modèles servis par l''admin sur vLLM/Bedrock/Azure), ni BYOK utilisateur ni modèle local documentés
+    ; URL officielle à préférer : https://docs.gitlab.com/user/gitlab_duo_cli/'
 - id: open-interpreter
   name: Open Interpreter
   vendor: Open Interpreter
@@ -1578,6 +2169,13 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  local_models: true
+  caps_sources:
+    byok: https://www.openinterpreter.com/docs/terminal/providers
+    mcp: https://www.openinterpreter.com/docs/terminal/config
+    local_models: https://www.openinterpreter.com/docs/terminal/providers
+    free: https://github.com/openinterpreter/openinterpreter/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: codewhale
   name: Codewhale
   vendor: Codewhale
@@ -1590,8 +2188,8 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Agent de terminal open-source (MIT) écrit en Rust, compatible avec plus de 40 fournisseurs et avec
-    Ollama en local ; DeepSeek V4.1 Flash par défaut.'
+  note: Agent de terminal open-source (MIT) écrit en Rust, compatible avec plus de 40 fournisseurs et
+    avec Ollama en local ; DeepSeek V4.1 Flash par défaut.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1599,6 +2197,13 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://github.com/codewhale-hq/Codewhale/blob/main/docs/PROVIDERS.md
+    mcp: https://github.com/codewhale-hq/Codewhale/blob/main/docs/MCP.md
+    local_models: https://github.com/codewhale-hq/Codewhale/blob/main/README.md#models
+    free: https://github.com/codewhale-hq/Codewhale/blob/main/README.md#cost-and-accounts
+  caps_checked_on: '2026-10-28'
+  caps_note: codewhale.net redirige vers codewhale.net/en.
 - id: jcode
   name: jcode
   vendor: jcode (open-source)
@@ -1608,8 +2213,8 @@ tools:
   url: https://jcode.sh
   repo_url: https://github.com/1jehuang/jcode
   free: true
-  note: 'Harnais de terminal open-source (MIT) écrit en Rust, conçu pour faire tourner des dizaines d''agents
-    en parallèle sans saturer la machine. Connexion par abonnement Claude ou Codex.'
+  note: Harnais de terminal open-source (MIT) écrit en Rust, conçu pour faire tourner des dizaines d'agents
+    en parallèle sans saturer la machine. Connexion par abonnement Claude ou Codex.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1617,6 +2222,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://jcode.sh/docs
+    mcp: https://jcode.sh/docs
+    local_models: https://jcode.sh/docs
+    free: https://github.com/1jehuang/jcode
+  caps_checked_on: '2026-10-28'
+  caps_note: Ollama et LM Studio en connexion intégrée, OpenRouter via profils, tout endpoint compatible
+    OpenAI ; MCP stdio via mcp.json (remote HTTP/SSE annoncé sur jcode.sh) ; licence MIT.
 - id: deepcode
   name: DeepCode
   vendor: HKUDS (Université de Hong Kong)
@@ -1636,6 +2252,13 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  caps_sources:
+    byok: https://github.com/HKUDS/DeepCode#your-models-your-reasoning-settings
+    mcp: https://github.com/HKUDS/DeepCode#mcp-servers
+    local_models: https://github.com/HKUDS/DeepCode/blob/main/docs/guide/models.md
+    free: https://github.com/HKUDS/DeepCode/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: forgecode
   name: Forge
   vendor: Tailcall
@@ -1655,6 +2278,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  local_models: true
+  caps_sources:
+    byok: https://github.com/tailcallhq/forgecode/blob/main/README.md#provider-configuration
+    mcp: https://github.com/tailcallhq/forgecode/blob/main/README.md#mcp-configuration
+    local_models: https://github.com/tailcallhq/forgecode/blob/main/crates/forge_repo/src/provider/provider.json
+    free: https://github.com/tailcallhq/forgecode/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: local_models sourcé par le code (fournisseurs ollama et lm_studio dans provider.json), pas
+    par une page de doc.
 - id: gptme
   name: gptme
   vendor: gptme (open-source)
@@ -1667,8 +2300,8 @@ tools:
   local_models: true
   free: true
   mcp: true
-  note: 'Agent de terminal open-source (MIT), aussi en application de bureau depuis juillet 2026 et en serveur
-    ACP pour Zed et JetBrains. Modèles locaux via Ollama.'
+  note: Agent de terminal open-source (MIT), aussi en application de bureau depuis juillet 2026 et en
+    serveur ACP pour Zed et JetBrains. Modèles locaux via Ollama.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1676,6 +2309,12 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  caps_sources:
+    byok: https://gptme.org/docs/providers.html
+    mcp: https://gptme.org/docs/mcp.html
+    local_models: https://gptme.org/docs/providers.html
+    free: https://github.com/gptme/gptme
+  caps_checked_on: '2026-10-28'
 - id: claurst
   name: Claurst
   vendor: Claurst (open-source)
@@ -1686,8 +2325,8 @@ tools:
   repo_url: https://github.com/Kuberwastaken/claurst
   byok: true
   free: true
-  note: 'Agent de terminal multi-fournisseurs écrit en Rust, réimplémentation indépendante de Claude Code,
-    open-source sous GPL-3.0. En bêta (v0.2). Fait aussi serveur ACP.'
+  note: Agent de terminal multi-fournisseurs écrit en Rust, réimplémentation indépendante de Claude Code,
+    open-source sous GPL-3.0. En bêta (v0.2). Fait aussi serveur ACP.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1695,6 +2334,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://claurst.kuber.studio/docs/providers.md
+    mcp: https://claurst.kuber.studio/docs/mcp.md
+    local_models: https://claurst.kuber.studio/docs/local-models.md
+    free: https://github.com/Kuberwastaken/claurst/blob/main/LICENSE.md
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Doc rendue sur https://claurst.kuber.studio/docs/ (pages #providers, #mcp, #local-models).'
 - id: command-code
   name: Command Code
   vendor: Command Code
@@ -1704,9 +2352,9 @@ tools:
   url: https://commandcode.ai
   repo_url: https://github.com/CommandCodeAI/command-code
   install: npm i -g command-code
-  note: 'Agent de code en terminal conçu pour les modèles ouverts, qui apprend les préférences de code de
-    l''utilisateur ; aussi en application de bureau et extensions IDE. Dépôt public sans licence déclarée
-    (pas open-source). Forfaits de 1 $ à 200 $/mois.'
+  note: Agent de code en terminal conçu pour les modèles ouverts, qui apprend les préférences de code
+    de l'utilisateur ; aussi en application de bureau et extensions IDE. Dépôt public sans licence déclarée
+    (pas open-source). Forfaits de 1 $ à 200 $/mois.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
@@ -1715,6 +2363,18 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: true
+  free: null
+  caps_sources:
+    byok: https://commandcode.ai/docs/byok
+    mcp: https://commandcode.ai/docs/mcp
+    local_models: https://commandcode.ai/docs/byok#example-provider-config
+  caps_checked_on: '2026-10-28'
+  caps_note: Pas de palier gratuit (plans dès Go 1 $/mois, modèles gratuits « tant que la capacité dure
+    ») ; mode local-only + BYOK sans plan semble possible (byok#local-only-mode) mais la gratuité n'est
+    pas énoncée.
 - id: qoder
   name: Qoder
   vendor: Bright Zenith Pte Ltd
@@ -1724,17 +2384,28 @@ tools:
   url: https://qoder.com
   pricing_url: https://docs.qoder.com/account/pricing
   free: true
-  note: 'Plateforme de code agentique proposée d''abord en application de bureau (tâches, projets,
-    automatisations), aussi en extension JetBrains et en CLI (`qodercli`). Forfaits en crédits : Free, Lite
-    10 $, Pro 20 $, Pro+ 60 $, Ultra 200 $/mois. Code fermé.'
+  note: 'Plateforme de code agentique proposée d''abord en application de bureau (tâches, projets, automatisations),
+    aussi en extension JetBrains et en CLI (`qodercli`). Forfaits en crédits : Free, Lite 10 $, Pro 20
+    $, Pro+ 60 $, Ultra 200 $/mois. Code fermé.'
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
-    finding: 'Attribuée à Alibaba par la presse ; le site officiel ne nomme que Bright Zenith Private Limited.'
+    finding: Attribuée à Alibaba par la presse ; le site officiel ne nomme que Bright Zenith Private Limited.
   compliance:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: null
+  caps_sources:
+    byok: https://docs.qoder.com/account/pricing
+    mcp: https://docs.qoder.com/user-guide/chat/model-context-protocol
+    free: https://docs.qoder.com/account/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Free permanent (modèles basiques, quotas journaliers/mensuels) + essai Pro 14 j ; BYOK gratuit
+    depuis le 30/04/2026 mais fournisseurs limités (Alibaba Model Studio, Zhipu, DeepSeek, Kimi, MiniMax),
+    pas Anthropic/OpenAI ; aucune mention d'Ollama/localhost.
 - id: codebuddy
   name: CodeBuddy
   vendor: Tencent Cloud
@@ -1743,9 +2414,9 @@ tools:
   status: active
   url: https://www.codebuddy.ai
   free: true
-  note: 'Environnement de développement IA de Tencent, décliné en IDE, en extension et en CLI (CodeBuddy Code,
-    `npm install -g @tencent-ai/codebuddy-code`). Free 0 $ (100 crédits), Pro 10 $/mois, Team 40 $/siège/mois.
-    Code fermé.'
+  note: Environnement de développement IA de Tencent, décliné en IDE, en extension et en CLI (CodeBuddy
+    Code, `npm install -g @tencent-ai/codebuddy-code`). Free 0 $ (100 crédits), Pro 10 $/mois, Team 40
+    $/siège/mois. Code fermé.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1754,6 +2425,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://www.codebuddy.ai/docs/ide/Features/models
+    mcp: https://www.codebuddy.ai/docs/ide/User-guide/MCP
+    local_models: https://www.codebuddy.ai/docs/ide/Features/models
+    free: https://www.codebuddy.ai/docs/ide/Account/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Plan Free 0 $ : 100 crédits/mois ; models.json accepte clé et URL OpenAI-compatible (exemple
+    Ollama localhost:11434).'
 - id: tongyi-lingma
   name: Tongyi Lingma
   vendor: Alibaba Cloud
@@ -1762,8 +2444,8 @@ tools:
   status: active
   url: https://lingma.aliyun.com
   free: true
-  note: 'Assistant de code d''Alibaba Cloud pour VS Code, Visual Studio et JetBrains, avec un IDE Lingma en
-    bêta publique. Gratuit pour les particuliers. Code fermé.'
+  note: Assistant de code d'Alibaba Cloud pour VS Code, Visual Studio et JetBrains, avec un IDE Lingma
+    en bêta publique. Gratuit pour les particuliers. Code fermé.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1771,6 +2453,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: null
+  caps_sources:
+    byok: https://help.aliyun.com/zh/lingma/user-guide/custom-model
+    mcp: https://help.aliyun.com/zh/lingma/user-guide/guide-for-using-mcp
+    free: https://docs.qoder.cn/product-overview/billing-description
+  caps_checked_on: '2026-10-28'
+  caps_note: Renommé Qoder CN le 2026-05-20 ; BYOK réservé au Pro et limité aux Coding Plans Bailian/Zhipu/Kimi/MiniMax
+    ; gratuit = « 个人体验版 » à quota limité (+ essai Pro 2 semaines).
 - id: ibm-bob
   name: IBM Bob
   vendor: IBM
@@ -1789,6 +2481,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  local_models: null
+  free: false
+  caps_sources:
+    mcp: https://bob.ibm.com/docs/ide/configuration/mcp/mcp-in-bob
+    free: https://www.ibm.com/products/ai-coding-agent/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Essai gratuit 30 j (50 Bobcoins) puis Pro dès 20 $ ; modèles du client (auto-hébergés, BYOL)
+    seulement en déploiement Enterprise self-hosted, pas de BYOK individuel documenté ni d'Ollama/localhost.
 - id: codegpt
   name: CodeGPT
   vendor: CodeGPT LLC
@@ -1797,8 +2499,8 @@ tools:
   status: active
   url: https://www.codegpt.co
   free: true
-  note: 'Extension VS Code et JetBrains, plus de 2 millions d''installations annoncées. Free ; Professional
-    10 $/mois ; Teams 30 $/utilisateur/mois.'
+  note: Extension VS Code et JetBrains, plus de 2 millions d'installations annoncées. Free ; Professional
+    10 $/mois ; Teams 30 $/utilisateur/mois.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
@@ -1807,6 +2509,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://docs.codegpt.co/docs/tutorial-ai-providers/openai
+    mcp: https://docs.codegpt.co/docs/tutorial-features/mcp
+    local_models: https://docs.codegpt.co/docs/tutorial-ai-providers/ollama
+    free: https://www.codegpt.co/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Plan Free : 10 interactions/jour sur modèles Economy, renouvelées chaque jour.'
 - id: tabby
   name: Tabby
   vendor: TabbyML
@@ -1817,8 +2529,9 @@ tools:
   repo_url: https://github.com/TabbyML/tabby
   local_models: true
   free: true
-  note: 'Assistant de code auto-hébergé : un serveur sur son infrastructure et des extensions IDE. Code sous
-    Apache-2.0 hors module entreprise (édition Community gratuite). Rythme ralenti : dernière version le 25/01/2026.'
+  note: 'Assistant de code auto-hébergé : un serveur sur son infrastructure et des extensions IDE. Code
+    sous Apache-2.0 hors module entreprise (édition Community gratuite). Rythme ralenti : dernière version
+    le 25/01/2026.'
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1826,6 +2539,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: null
+  caps_sources:
+    byok: https://tabby.tabbyml.com/docs/references/models-http-api/openai/
+    local_models: https://tabby.tabbyml.com/docs/models/
+    free: https://www.tabbyml.com/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Community gratuit jusqu'à 5 utilisateurs ; code Apache-2.0 hors dossier ee/ ; MCP seulement
+    cité au roadmap (via RooCode).
 - id: conductor
   name: Conductor
   vendor: Melty Labs
@@ -1835,7 +2557,8 @@ tools:
   url: https://www.conductor.build
   pricing_url: https://www.conductor.build/pricing
   free: true
-  note: 'Application Mac pour faire tourner plusieurs agents de code en parallèle. Free ; Pro 50 $/mois ; Teams 60 $/utilisateur/mois. Code fermé.'
+  note: Application Mac pour faire tourner plusieurs agents de code en parallèle. Free ; Pro 50 $/mois
+    ; Teams 60 $/utilisateur/mois. Code fermé.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
@@ -1843,6 +2566,17 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: null
+  caps_sources:
+    byok: https://www.conductor.build/docs/guides/providers
+    mcp: https://www.conductor.build/docs/guides/configure-mcp-servers
+    free: https://www.conductor.build/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: Plan Free à 0 $ (workspaces locaux, « bring your own subscriptions and keys ») ; clé Anthropic
+    via ANTHROPIC_API_KEY, OpenRouter/Bedrock/Vercel par variables d'env ; MCP = serveurs de Claude Code/Codex
+    ; aucune mention d'Ollama/localhost.
 - id: superset
   name: Superset
   vendor: Superset
@@ -1853,8 +2587,8 @@ tools:
   repo_url: https://github.com/superset-sh/superset
   free: true
   note: '« The IDE for parallel agents » : application de bureau (macOS, Linux expérimental) pour piloter
-    plusieurs agents de code en parallèle. Code source sous licence Elastic-2.0. Free ; Pro 20 $ ; Team 60
-    $ ; Ultra 200 $/utilisateur/mois. L''éditeur annonce un changement de nom prochain.'
+    plusieurs agents de code en parallèle. Code source sous licence Elastic-2.0. Free ; Pro 20 $ ; Team
+    60 $ ; Ultra 200 $/utilisateur/mois. L''éditeur annonce un changement de nom prochain.'
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
@@ -1862,6 +2596,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: null
+  local_models: null
+  caps_sources:
+    byok: https://docs.paradev.com/providers
+    free: https://paradev.com/pricing
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Renommé Paradev : superset.sh redirige vers paradev.com, dépôt devenu ParadevAI/Paradev
+    (Elastic-2.0) ; MCP et modèles locaux passent par les agents CLI lancés, pas par l''outil.'
 - id: emdash
   name: Emdash
   vendor: General Action
@@ -1871,8 +2614,8 @@ tools:
   url: https://emdash.com
   repo_url: https://github.com/generalaction/emdash
   free: true
-  note: 'Application de bureau (macOS, Windows, Linux) pour lancer plusieurs agents de code en parallèle,
-    open-source sous Apache-2.0. Plus d''un million de téléchargements annoncés.'
+  note: Application de bureau (macOS, Windows, Linux) pour lancer plusieurs agents de code en parallèle,
+    open-source sous Apache-2.0. Plus d'un million de téléchargements annoncés.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1880,6 +2623,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: null
+  local_models: null
+  caps_sources:
+    free: https://github.com/generalaction/emdash/blob/main/LICENSE.md
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Orchestrateur d''agents CLI : sa Library écrit la config MCP dans chaque agent (https://emdash.com/docs/library/mcp)
+    mais Emdash n''est pas lui-même client MCP ; emdash.sh redirige vers emdash.com.'
 - id: zenflow
   name: Zenflow (Zencoder)
   vendor: Zencoder
@@ -1888,9 +2639,9 @@ tools:
   status: active
   url: https://zencoder.ai
   pricing_url: https://zencoder.ai/pricing
-  note: 'Application de bureau d''orchestration d''agents de code, mise en avant par Zencoder, qui propose
+  note: Application de bureau d'orchestration d'agents de code, mise en avant par Zencoder, qui propose
     aussi des agents pour VS Code et JetBrains. Pro 45 $, Pro Plus 95 $, Pro Max 195 $/utilisateur/mois.
-    Code fermé.'
+    Code fermé.
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
@@ -1898,6 +2649,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: true
+  local_models: null
+  free: null
+  caps_sources:
+    byok: https://zencoder.ai/zenflow
+    mcp: https://zencoder.ai/zenflow
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Grille zencoder.ai/pricing : seulement essai Pro 7 j puis 45 $ ; sa FAQ évoque un plan «
+    Free » (BYOK) jamais décrit. Ollama : docs.zencoder.ai en 403, non lu.'
 - id: stagewise
   name: stagewise
   vendor: stagewise
@@ -1908,8 +2669,8 @@ tools:
   repo_url: https://github.com/stagewise-io/stagewise
   byok: true
   local_models: true
-  note: 'IDE agentique « pour les modèles ouverts » qui mêle navigateur et code, livré en application de
-    bureau. Code sous AGPL-3.0 ; création de compte requise.'
+  note: IDE agentique « pour les modèles ouverts » qui mêle navigateur et code, livré en application de
+    bureau. Code sous AGPL-3.0 ; création de compte requise.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1917,6 +2678,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: null
+  free: true
+  caps_sources:
+    byok: https://docs.stagewise.io/reference/byok-setup
+    local_models: https://docs.stagewise.io/reference/custom-providers
+    free: https://github.com/stagewise-io/stagewise/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: stagewise.io redirige vers www.stagewise.io ; service de comptes et modèles gérés arrêté
+    fin novembre 2026 (docs.stagewise.io/getting-started/installation), BYOK ou local ensuite.
 - id: deepseek-reasonix
   name: Reasonix
   vendor: Reasonix (communauté)
@@ -1928,9 +2698,9 @@ tools:
   byok: true
   free: true
   mcp: true
-  note: 'Agent de code open-source (MIT) disponible en application de bureau (Studio, conseillée pour
-    commencer), en terminal, dans le navigateur et dans l''éditeur. Préréglé pour DeepSeek mais compatible
-    avec tout service au format OpenAI. Projet communautaire, sans lien officiel avec DeepSeek.'
+  note: Agent de code open-source (MIT) disponible en application de bureau (Studio, conseillée pour commencer),
+    en terminal, dans le navigateur et dans l'éditeur. Préréglé pour DeepSeek mais compatible avec tout
+    service au format OpenAI. Projet communautaire, sans lien officiel avec DeepSeek.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1938,6 +2708,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  local_models: true
+  caps_sources:
+    byok: https://github.com/esengine/DeepSeek-Reasonix/blob/studio/README.md#what-it-is
+    mcp: https://github.com/esengine/DeepSeek-Reasonix/blob/studio/docs/GUIDE.md#plugins-mcp
+    local_models: https://github.com/esengine/DeepSeek-Reasonix/blob/studio/docs/GUIDE.md#custom-openai-compatible-providers
+    free: https://github.com/esengine/DeepSeek-Reasonix/blob/studio/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: local_models déduit de « self-hosted services » compatibles OpenAI (pas de mention explicite
+    d'Ollama local, seul Ollama Cloud est préréglé) ; branche par défaut = studio (2.x).
 - id: dyad
   name: Dyad
   vendor: Dyad
@@ -1948,8 +2727,8 @@ tools:
   repo_url: https://github.com/dyad-sh/dyad
   byok: true
   free: true
-  note: 'Générateur d''applications local, sous Apache-2.0 hors module Pro (alternative à Lovable, v0 ou Bolt), en application
-    de bureau Mac et Windows, avec ses propres clés d''API.'
+  note: Générateur d'applications local, sous Apache-2.0 hors module Pro (alternative à Lovable, v0 ou
+    Bolt), en application de bureau Mac et Windows, avec ses propres clés d'API.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -1957,6 +2736,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://www.dyad.sh/docs/guides/ai-models
+    mcp: https://www.dyad.sh/docs/releases/0.22.0
+    local_models: https://www.dyad.sh/docs/guides/ai-models
+    free: https://www.dyad.sh/docs
+  caps_checked_on: '2026-10-28'
+  caps_note: Open source (Apache 2.0 hors src/pro sous FSL) ; Ollama et LM Studio cités explicitement.
 - id: kilo-gateway
   name: Kilo Gateway
   vendor: Kilo-Org
@@ -1965,8 +2753,8 @@ tools:
   status: active
   url: https://kilo.ai/gateway
   byok: true
-  note: 'Passerelle de Kilo, utilisable hors de Kilo Code : plus de 500 modèles au tarif du fournisseur, sans
-    marge, y compris en BYOK ; 5 % de frais sur l''achat de crédits.'
+  note: 'Passerelle de Kilo, utilisable hors de Kilo Code : plus de 500 modèles au tarif du fournisseur,
+    sans marge, y compris en BYOK ; 5 % de frais sur l''achat de crédits.'
   verification:
     status: official_pricing_page
     verified_on: '2026-10-23'
@@ -1974,6 +2762,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: null
+  local_models: null
+  free: true
+  caps_sources:
+    byok: https://kilo.ai/docs/gateway
+    free: https://kilo.ai/docs/gateway/models-and-providers
+  caps_checked_on: '2026-10-28'
+  caps_note: Palier Free « $0/forever » sur kilo.ai/gateway (modèles gratuits auto/free, limités en débit)
+    ; passerelle cloud, aucun point d'accès local documenté.
 - id: opencode-zen
   name: OpenCode Zen
   vendor: Anomaly
@@ -1990,6 +2787,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: null
+  local_models: null
+  free: false
+  caps_sources:
+    free: https://opencode.ai/v2/docs/console/models/#free-models
+  caps_checked_on: '2026-10-28'
+  caps_note: Modèles gratuits uniquement « for a limited time », sinon paiement à l'usage ; opencode.ai/zen
+    renvoie vers la doc /v2/docs/console/models/.
 - id: bifrost
   name: Bifrost
   vendor: Maxim AI
@@ -2009,6 +2815,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://docs.getbifrost.ai/quickstart/gateway/provider-configuration
+    mcp: https://docs.getbifrost.ai/mcp/overview
+    local_models: https://www.getmaxim.ai/bifrost/guides/providers/ollama
+    free: https://github.com/maximhq/bifrost
+  caps_checked_on: '2026-10-28'
+  caps_note: Apache 2.0 ; MCP client (serveurs externes) et passerelle MCP ; Ollama fournisseur sur localhost:11434.
+    www.getmaxim.ai/bifrost/docs/* redirige (301) vers docs.getbifrost.ai.
 - id: claude-code-router
   name: Claude Code Router
   vendor: musistudio (open-source)
@@ -2018,8 +2834,8 @@ tools:
   repo_url: https://github.com/musistudio/claude-code-router
   byok: true
   free: true
-  note: 'Passerelle locale et plan de contrôle pour agents de code, open-source (MIT) : branche Claude Code,
-    Codex, Kimi CLI, OpenCode, Pi ou ZCode sur le fournisseur de modèles choisi.'
+  note: 'Passerelle locale et plan de contrôle pour agents de code, open-source (MIT) : branche Claude
+    Code, Codex, Kimi CLI, OpenCode, Pi ou ZCode sur le fournisseur de modèles choisi.'
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -2027,6 +2843,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  mcp: true
+  local_models: true
+  caps_sources:
+    byok: https://ccrdesk.top/en/guides/provider/
+    mcp: https://ccrdesk.top/en/configuration/fusion-mcp-tool/
+    local_models: https://github.com/musistudio/claude-code-router/blob/main/blog/en/project-motivation-and-how-it-works.md
+    free: https://github.com/musistudio/claude-code-router/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: 'Local : seul le billet officiel du dépôt cite un routage vers Ollama local (la doc actuelle
+    ne parle que de « custom API endpoint») ; site officiel ccrdesk.top.'
 - id: eden-ai
   name: Eden AI
   vendor: Eden AI
@@ -2045,6 +2871,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: null
+  local_models: null
+  free: null
+  caps_sources:
+    byok: https://www.edenai.co/docs/v3/general/byok
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK exige un plan qui l'inclut ; Eden AI est seulement serveur MCP (mcp.edenai.run) ; tarification
+    à l'usage, palier gratuit ni affirmé ni exclu.
 - id: lemonade
   name: Lemonade
   vendor: Lemonade (optimisé par AMD)
@@ -2055,8 +2890,8 @@ tools:
   repo_url: https://github.com/lemonade-sdk/lemonade
   local_models: true
   free: true
-  note: 'Serveur local open-source (Apache-2.0) avec interface graphique, CLI et API compatible OpenAI, optimisé
-    par des ingénieurs AMD pour les GPU et NPU AMD. Windows, macOS, Linux.'
+  note: Serveur local open-source (Apache-2.0) avec interface graphique, CLI et API compatible OpenAI,
+    optimisé par des ingénieurs AMD pour les GPU et NPU AMD. Windows, macOS, Linux.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -2064,6 +2899,16 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: true
+  mcp: null
+  caps_sources:
+    byok: https://lemonade-server.ai/docs/guide/cli/
+    local_models: https://github.com/lemonade-sdk/lemonade
+    free: https://github.com/lemonade-sdk/lemonade
+  caps_checked_on: '2026-10-28'
+  caps_note: BYOK via « cloud offload » (lemonade cloud install --api-key, expérimental) vers OpenAI/OpenRouter/Fireworks…
+    ; Lemonade est serveur MCP (/mcp) mais ne se connecte pas à des serveurs MCP utilisateur d'après la
+    doc, d'où null.
 - id: docker-model-runner
   name: Docker Model Runner
   vendor: Docker
@@ -2073,8 +2918,8 @@ tools:
   url: https://docs.docker.com/ai/model-runner/
   local_models: true
   free: true
-  note: 'Exécution de modèles intégrée à Docker Desktop et Docker Engine, avec API compatible OpenAI et Ollama
-    ; moteurs llama.cpp et vLLM. Open-source sous Apache-2.0.'
+  note: Exécution de modèles intégrée à Docker Desktop et Docker Engine, avec API compatible OpenAI et
+    Ollama ; moteurs llama.cpp et vLLM. Open-source sous Apache-2.0.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -2082,6 +2927,14 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: null
+  caps_sources:
+    local_models: https://docs.docker.com/ai/model-runner/
+    free: https://github.com/docker/model-runner/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
+  caps_note: Apache-2.0, inclus dans Docker Engine et binaire dmr autonome ; seul MCP trouvé = recherche
+    web Exa codée en dur, pas de serveurs MCP configurables (MCP Toolkit = produit Docker distinct).
 - id: exo
   name: exo
   vendor: exo labs
@@ -2092,8 +2945,8 @@ tools:
   repo_url: https://github.com/exo-explore/exo
   local_models: true
   free: true
-  note: 'Fait tourner un modèle réparti sur plusieurs machines du réseau local (Mac notamment), avec API compatible
-    OpenAI, Claude et Ollama. Open-source sous Apache-2.0.'
+  note: Fait tourner un modèle réparti sur plusieurs machines du réseau local (Mac notamment), avec API
+    compatible OpenAI, Claude et Ollama. Open-source sous Apache-2.0.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -2101,6 +2954,12 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: null
+  caps_sources:
+    local_models: https://github.com/exo-explore/exo/blob/main/README.md
+    free: https://github.com/exo-explore/exo/blob/main/LICENSE
+  caps_checked_on: '2026-10-28'
 - id: omlx
   name: oMLX
   vendor: oMLX (open-source)
@@ -2111,8 +2970,8 @@ tools:
   repo_url: https://github.com/jundot/omlx
   local_models: true
   free: true
-  note: 'Serveur d''inférence pour Apple Silicon (MLX) avec batching continu et cache sur SSD, piloté depuis
-    la barre de menus ; API compatible OpenAI et Anthropic. Open-source sous Apache-2.0.'
+  note: Serveur d'inférence pour Apple Silicon (MLX) avec batching continu et cache sur SSD, piloté depuis
+    la barre de menus ; API compatible OpenAI et Anthropic. Open-source sous Apache-2.0.
   verification:
     status: official_docs
     verified_on: '2026-10-23'
@@ -2120,6 +2979,15 @@ tools:
     status: unverified
     verified_on: null
     note: Conformité non relevée à cette édition.
+  byok: null
+  mcp: true
+  caps_sources:
+    mcp: https://github.com/jundot/omlx/blob/main/mcp.example.json
+    local_models: https://github.com/jundot/omlx
+    free: https://github.com/jundot/omlx
+  caps_checked_on: '2026-10-28'
+  caps_note: Apache 2.0 ; MCP optionnel (paquet mcp + --mcp-config) vers serveurs stdio/SSE utilisateur
+    ; aucune connexion à des fournisseurs cloud documentée.
 ecartes:
 - id: openclaw
   name: OpenClaw
@@ -2133,38 +3001,38 @@ ecartes:
   name: Text Generation Inference (Hugging Face)
   vendor: Hugging Face
   checked_on: '2026-10-08'
-  reason: 'Serveur d''inférence passé en mode maintenance, dépôt archivé. Hugging Face recommande vLLM et
-    SGLang, ou llama.cpp et MLX en local.'
+  reason: Serveur d'inférence passé en mode maintenance, dépôt archivé. Hugging Face recommande vLLM et
+    SGLang, ou llama.cpp et MLX en local.
 - id: tensorrt-llm
   name: TensorRT-LLM et Dynamo
   vendor: NVIDIA
   checked_on: '2026-10-08'
-  reason: 'Moteurs de service pour centre de données, réservés aux GPU NVIDIA (Dynamo orchestre vLLM, SGLang
-    et TensorRT-LLM à grande échelle). Hors du périmètre du poste de développeur.'
+  reason: Moteurs de service pour centre de données, réservés aux GPU NVIDIA (Dynamo orchestre vLLM, SGLang
+    et TensorRT-LLM à grande échelle). Hors du périmètre du poste de développeur.
 - id: amazon-q-cli
   name: Amazon Q Developer CLI
   vendor: Amazon Web Services
   checked_on: '2026-10-08'
-  reason: 'Remplacé par Kiro CLI (bascule automatique le 24/11/2025) ; ne reçoit plus que les correctifs
-    de sécurité.'
+  reason: Remplacé par Kiro CLI (bascule automatique le 24/11/2025) ; ne reçoit plus que les correctifs
+    de sécurité.
 - id: sourcegraph-cody
   name: Cody
   vendor: Sourcegraph
   checked_on: '2026-10-08'
-  reason: 'Offres Free et Pro arrêtées le 23/07/2025, utilisateurs orientés vers Amp ; ne subsiste que dans
-    l''offre entreprise de Sourcegraph.'
+  reason: Offres Free et Pro arrêtées le 23/07/2025, utilisateurs orientés vers Amp ; ne subsiste que
+    dans l'offre entreprise de Sourcegraph.
 - id: firebase-studio
   name: Firebase Studio
   vendor: Google
   checked_on: '2026-10-08'
-  reason: 'Fermeture annoncée au 22/03/2027 ; création d''espaces de travail et inscriptions désactivées
-    depuis le 22/06/2026. Google oriente vers AI Studio et Antigravity.'
+  reason: Fermeture annoncée au 22/03/2027 ; création d'espaces de travail et inscriptions désactivées
+    depuis le 22/06/2026. Google oriente vers AI Studio et Antigravity.
 - id: jetbrains-air
   name: JetBrains Air
   vendor: JetBrains
   checked_on: '2026-10-08'
-  reason: 'Environnement multi-agents (Claude Agent, Codex, Junie, Copilot, OpenCode) en accès anticipé
-    ; tarifs non publiés. À réévaluer à sa sortie.'
+  reason: Environnement multi-agents (Claude Agent, Codex, Junie, Copilot, OpenCode) en accès anticipé
+    ; tarifs non publiés. À réévaluer à sa sortie.
 - id: letta-code
   name: Letta Code
   vendor: Letta
@@ -2174,7 +3042,8 @@ ecartes:
   name: Qodo
   vendor: Qodo
   checked_on: '2026-10-08'
-  reason: Désormais centré sur la revue de code, plus sur l'assistance au développement ; hors couche 1.
+  reason: Désormais centré sur la revue de code, plus sur l'assistance au développement ; hors couche
+    1.
 - id: amazon-q-developer
   name: Amazon Q Developer (extensions IDE)
   vendor: Amazon Web Services
@@ -2184,22 +3053,25 @@ ecartes:
   name: Gemini Code Assist
   vendor: Google
   checked_on: '2026-10-08'
-  reason: 'Abandonné pour les particuliers le 18/06/2026 ; Google regroupe ses outils de développement sous Antigravity. Ne subsiste que dans les licences Google Cloud Standard et Enterprise déjà souscrites.'
+  reason: Abandonné pour les particuliers le 18/06/2026 ; Google regroupe ses outils de développement
+    sous Antigravity. Ne subsiste que dans les licences Google Cloud Standard et Enterprise déjà souscrites.
 - id: requesty
   name: Requesty
   vendor: Requesty
   checked_on: '2026-10-08'
-  reason: 'Passerelle à l''adoption confidentielle face à OpenRouter, LiteLLM et aux passerelles de Vercel et Cloudflare.'
+  reason: Passerelle à l'adoption confidentielle face à OpenRouter, LiteLLM et aux passerelles de Vercel
+    et Cloudflare.
 - id: portkey
   name: Portkey
   vendor: Portkey AI
   checked_on: '2026-10-08'
-  reason: 'Passerelle open-source peu active (dernier commit le 25/05/2026, dernière version le 12/01/2026).'
+  reason: Passerelle open-source peu active (dernier commit le 25/05/2026, dernière version le 12/01/2026).
 - id: koboldcpp
   name: KoboldCpp
   vendor: LostRuins (open-source)
   checked_on: '2026-10-08'
-  reason: 'Orienté conversation et écriture créative ; pour le développeur, llama.cpp et llamafile couvrent le même moteur.'
+  reason: Orienté conversation et écriture créative ; pour le développeur, llama.cpp et llamafile couvrent
+    le même moteur.
 - id: augment-code
   name: Augment Code
   vendor: Augment Computing
@@ -2211,25 +3083,25 @@ ecartes:
   vendor: Google
   checked_on: '2026-10-23'
   reason: 'Plugin de compétences pour le développement piloté par spécifications (un agent rédige la spec,
-    des sous-agents sans contexte la relisent), qui s''installe dans Antigravity, Claude Code ou Codex. Ce
-    n''est pas un harnais : il se greffe sur un harnais existant. Publié sous Apache-2.0 avec la mention «
-    Not an officially supported Google product ».'
+    des sous-agents sans contexte la relisent), qui s''installe dans Antigravity, Claude Code ou Codex.
+    Ce n''est pas un harnais : il se greffe sur un harnais existant. Publié sous Apache-2.0 avec la mention
+    « Not an officially supported Google product ».'
 - id: harness2
   name: Harness²
   vendor: Google Research
   checked_on: '2026-10-23'
   reason: 'Cadre open-source (Apache-2.0, publié le 09/10/2026 avec l''article arXiv 2610.14224) qui optimise
     automatiquement un harnais existant, sans réentraîner le modèle : il propose des modifications (prompt
-    système, outils, mémoire, compétences, sous-agents), les teste sur la tâche et garde les meilleures. Il
-    pilote OpenCode ou Codex comme exécutants ; ce n''est pas lui-même un outil de développement. Mention «
-    not an officially supported Google product ».'
+    système, outils, mémoire, compétences, sous-agents), les teste sur la tâche et garde les meilleures.
+    Il pilote OpenCode ou Codex comme exécutants ; ce n''est pas lui-même un outil de développement. Mention
+    « not an officially supported Google product ».'
 - id: amplio
   name: Amplio
   vendor: Google DeepMind
   checked_on: '2026-10-23'
-  reason: 'Se décrit comme « a lightweight agent harness for robust and long-horizon runs » (serveur Go avec
-    interface web, multi-agents, reprise après incident). Projet de recherche non supporté, sans annonce officielle
-    ni diffusion grand public : à réévaluer s''il est lancé comme produit.'
+  reason: 'Se décrit comme « a lightweight agent harness for robust and long-horizon runs » (serveur Go
+    avec interface web, multi-agents, reprise après incident). Projet de recherche non supporté, sans
+    annonce officielle ni diffusion grand public : à réévaluer s''il est lancé comme produit.'
 - id: jules
   name: Jules (et Jules Tools)
   vendor: Google
@@ -2263,8 +3135,8 @@ ecartes:
   name: Foundry Local
   vendor: Microsoft
   checked_on: '2026-10-23'
-  reason: 'Moteur d''inférence embarqué dans les applications via un SDK ; l''éditeur répond lui-même « No
-    » à la question « Is Foundry Local a web server and CLI tool? ».'
+  reason: Moteur d'inférence embarqué dans les applications via un SDK ; l'éditeur répond lui-même « No
+    » à la question « Is Foundry Local a web server and CLI tool? ».
 - id: omniroute
   name: OmniRoute
   vendor: cheaper-inference

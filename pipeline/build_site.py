@@ -132,7 +132,8 @@ def build_payload() -> dict:
         # — savoir qu'un outil est mort a de la valeur pour qui tient la donnée —
         # mais elles ne partent pas dans la page : les compteurs et les listes
         # s'alignent ainsi d'eux-mêmes sur ce qui est encore vivant.
-        "tools": [{k: v for k, v in t.items() if k not in ("verification",)}
+        "tools": [{k: v for k, v in t.items()
+                   if k not in ("verification", "caps_sources", "caps_note", "caps_checked_on")}
                   | ({"compliance": {k2: v2 for k2, v2 in (t.get("compliance") or {}).items()
                                      if k2 not in ("note", "status", "verified_on")}}
                      if t.get("compliance") else {})
@@ -263,6 +264,11 @@ select:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
 #vuewrap{margin:12px 0 4px;padding-top:12px;border-top:1px solid var(--line)}
 .bpub{font-size:12.5px;color:var(--ink-2);margin:0 0 8px}
 .bpub b{color:var(--ink)}
+.props{margin:0 0 6px}
+.props button::before{content:"＋ ";opacity:.6}
+.props button[aria-pressed="true"]::before{content:"✓ "}
+.glo{font-size:11.5px;color:var(--ink-3);margin:0 0 10px;max-width:none}
+.glo b{color:var(--ink-2);font-weight:600}
 .mes{font-size:12px;margin-top:8px;color:var(--ink-2)}
 .mes a{cursor:pointer}
 .seg button{background:var(--panel);border:1px solid var(--line-strong);border-radius:999px;
@@ -467,6 +473,12 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   pas le même résultat — sur Terminal-Bench, l'écart entre harnais dépasse souvent l'écart entre
   deux modèles concurrents.</p>
   <div class="seg" id="har-cat" role="group" aria-label="Catégories de harnais"></div>
+  <div class="seg props" id="har-prop" role="group" aria-label="Filtrer par propriété"></div>
+  <p class="glo"><b>BYOK</b> (<i>bring your own key</i>) : on branche sa propre clé d'API
+  (Anthropic, OpenAI, OpenRouter…) au lieu de payer l'abonnement de l'éditeur.
+  <b>MCP</b> : l'outil se connecte à des serveurs d'outils externes (Model Context Protocol).
+  <b>Modèles locaux</b> : il peut utiliser un modèle qui tourne sur votre machine (Ollama, LM Studio…).
+  <b>Gratuit</b> : utilisable sans payer l'éditeur, sans limite de durée.</p>
   <div id="har"></div>
   <details><summary id="har-ej">Outils écartés</summary><div class="bl" id="har-el"></div></details>
 </section>
@@ -480,6 +492,12 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   <i>(serveur local)</i>. Changer de passerelle ne change pas la qualité du code produit :
   cela change le prix, la latence et qui voit vos données.</p>
   <div class="seg" id="pas-cat" role="group" aria-label="Catégories de passerelles"></div>
+  <div class="seg props" id="pas-prop" role="group" aria-label="Filtrer par propriété"></div>
+  <p class="glo"><b>BYOK</b> (<i>bring your own key</i>) : on branche sa propre clé d'API
+  (Anthropic, OpenAI, OpenRouter…) au lieu de payer l'abonnement de l'éditeur.
+  <b>MCP</b> : l'outil se connecte à des serveurs d'outils externes (Model Context Protocol).
+  <b>Modèles locaux</b> : il peut utiliser un modèle qui tourne sur votre machine (Ollama, LM Studio…).
+  <b>Gratuit</b> : utilisable sans payer l'éditeur, sans limite de durée.</p>
   <div id="pas"></div>
   <details><summary id="pas-ej">Outils écartés</summary><div class="bl" id="pas-el"></div></details>
 </section>
@@ -1040,9 +1058,16 @@ const HOWTO={
  time:"Chaque point est un modèle, placé à sa date de publication et à la hauteur de son "+
    "score. La ligne pointillée suit le record du moment : elle montre à quelle vitesse ce "+
    "benchmark se fait battre, et quand il commence à saturer.",
- cover:"Une ligne par modèle, une colonne par benchmark, regroupées par fournisseur. Plus "+
+ cover:()=>"Une ligne par modèle, une colonne par benchmark, regroupées par fournisseur. Plus "+
    "la case est foncée, meilleur est le score ; une case en pointillés veut dire que "+
-   "personne n'a publié la mesure — le trou compte autant que le chiffre.",
+   "personne n'a publié la mesure — le trou compte autant que le chiffre. Chaque benchmark "+
+   "choisit les modèles qu'il mesure et suit son propre rythme : "+
+   (()=>{const m=new Map();D.scores.forEach(x=>{if(x.r&&(!m.has(x.b)||x.r>m.get(x.b)))m.set(x.b,x.r);});
+     const top=[...m.values()].sort().pop();
+     const ret=[...m].filter(([,r])=>(new Date(top)-new Date(r))/864e5>30).sort((a,b)=>a[1].localeCompare(b[1]));
+     return ret.length?ret.map(([b,r])=>`${esc(b)} (dernier modèle mesuré sorti le ${r.split('-').reverse().join('/')})`)
+       .join(', ')+(ret.length>1?" n'ont":" n'a")+" mesuré aucun modèle plus récent : leurs colonnes sont vides pour les dernières sorties."
+       :'tous ont mesuré un modèle récent.';})(),
  // Cette note sert au repli « prix catalogue » de la vue coût × performance :
  // quand le benchmark publie un coût mesuré, frontier() écrit la sienne.
  frontier:"Chaque point est un modèle : son <b>prix affiché au catalogue</b> par million de "+
@@ -1062,7 +1087,7 @@ function render(sv,r,unit){
   // Deux notes distinctes : comment lire le dessin, puis ce que le benchmark
   // lui-même ne garantit pas. Les confondre rendait les deux illisibles.
   $('#caveat').innerHTML=
-    (HOWTO[K]?`<div class="note"><b>Comment lire.</b> ${HOWTO[K]}</div>`:'')+
+    (HOWTO[K]?`<div class="note"><b>Comment lire.</b> ${typeof HOWTO[K]==='function'?HOWTO[K]():HOWTO[K]}</div>`:'')+
     // La couverture ne dépend pas du benchmark sélectionné : lui accoler la
     // réserve de SWE-Bench laisserait croire qu'elle porte sur toute la matrice.
     (b.caveat&&K!=='cover'?
@@ -1510,10 +1535,20 @@ function carteOutil(t){
   </div>`;
 }
 
+// Propriétés cumulables : un outil reste affiché s'il les a TOUTES.
+const PROPS=[['free','Gratuit'],['byok','BYOK'],['mcp','MCP'],['local_models','Modèles locaux']];
+const ETAT={'#har':{cat:null,props:new Set()},'#pas':{cat:null,props:new Set()}};
 function rendreCouche(cible,couche,ordre,filtre){
   const el=$(cible);let html='';
+  if(filtre!==undefined)ETAT[cible].cat=filtre;
+  filtre=ETAT[cible].cat;const pr=ETAT[cible].props;
+  if(pr.size){const tous=D.tools.filter(t=>t.layer===couche&&(!filtre||t.category===filtre));
+    const ok=tous.filter(t=>[...pr].every(k=>t[k]===true));
+    const inc=tous.filter(t=>[...pr].some(k=>t[k]==null)).length;
+    html+=`<p class="lede" style="font-size:12.5px">${ok.length} outil${ok.length>1?'s':''} sur ${tous.length}`+
+      (inc?` · ${inc} non renseigné${inc>1?'s':''} pour ce critère, donc absent${inc>1?'s':''} de la liste`:'')+'.</p>';}
   ordre.filter(c=>!filtre||c===filtre).forEach(cat=>{
-    const items=D.tools.filter(t=>t.layer===couche&&t.category===cat)
+    const items=D.tools.filter(t=>t.layer===couche&&t.category===cat&&[...pr].every(k=>t[k]===true))
       .sort((a,b)=>a.name.localeCompare(b.name,'fr',{sensitivity:'base'}));
     if(!items.length)return;
     html+=`<h3 class="grp">${CATL[cat]}<span class="c">${items.length} outil${
@@ -1534,6 +1569,12 @@ function brancherCategories(idBoutons,cible,couche,ordre){
   bar.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
     [...bar.children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
     rendreCouche(cible,couche,ordre,b.dataset.c||null);});
+  const pb=$(idBoutons.replace('-cat','-prop'));
+  pb.innerHTML=PROPS.map(([k,l])=>`<button data-p="${k}" aria-pressed="false">${l} (${
+    D.tools.filter(t=>t.layer===couche&&t[k]===true).length})</button>`).join('');
+  pb.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+    const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));
+    ETAT[cible].props[on?'add':'delete'](b.dataset.p);rendreCouche(cible,couche,ordre);});
 }
 const ORD_H=['desktop_app','vscode_extension','ide_fork','cli_agent'];
 const ORD_P=['gateway','local_server'];

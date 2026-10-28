@@ -19,7 +19,7 @@ Exécution de modèles intégrée à Docker Desktop et Docker Engine, avec API c
 - **Éditeur :** Element Labs, Inc.
 - **Site :** [https://lmstudio.ai](https://lmstudio.ai)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** modèles locaux, MCP, gratuit
 - **Endpoint local :** `http://localhost:1234/v1`
 
 Serveur HTTP de LM Studio, compatible avec les API OpenAI et Anthropic, pour les modèles GGUF (llama.cpp) ou MLX. Fonctionne aussi sans interface via le démon `llmster`. Fiche distincte de l'application, car c'est la couche de service des modèles.
@@ -30,7 +30,7 @@ Serveur HTTP de LM Studio, compatible avec les API OpenAI et Anthropic, pour les
 - **Site :** [https://lemonade-server.ai](https://lemonade-server.ai)
 - **Dépôt :** [https://github.com/lemonade-sdk/lemonade](https://github.com/lemonade-sdk/lemonade)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** BYOK, modèles locaux, gratuit
 
 Serveur local open-source (Apache-2.0) avec interface graphique, CLI et API compatible OpenAI, optimisé par des ingénieurs AMD pour les GPU et NPU AMD. Windows, macOS, Linux.
 
@@ -41,7 +41,7 @@ Serveur local open-source (Apache-2.0) avec interface graphique, CLI et API comp
 - **Documentation :** [https://localai.io/docs/installation/](https://localai.io/docs/installation/)
 - **Dépôt :** [https://github.com/mudler/LocalAI](https://github.com/mudler/LocalAI)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** modèles locaux, MCP, gratuit
 - **Endpoint local :** `http://localhost:8080/v1`
 
 Serveur local multimodal (texte, vision, voix, image, vidéo) qui fédère plus de 60 moteurs, dont llama.cpp, vLLM, SGLang et MLX, derrière une même API compatible OpenAI et Anthropic. Fonctionne sans GPU. Interface web intégrée. Open-source sous MIT.
@@ -74,7 +74,7 @@ Serveur local compatible OpenAI (sous-ensemble de l'API). Gratuit en local ; off
 - **Documentation :** [https://docs.sglang.io](https://docs.sglang.io)
 - **Dépôt :** [https://github.com/sgl-project/sglang](https://github.com/sgl-project/sglang)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** modèles locaux, MCP, gratuit
 - **Endpoint local :** `http://localhost:30000/v1`
 
 Moteur de service haute performance, concurrent direct de vLLM : même usage (plusieurs utilisateurs, GPU NVIDIA ou AMD, TPU), service distribué possible. API compatible OpenAI. Open-source sous Apache-2.0.
@@ -96,7 +96,7 @@ Fait tourner un modèle réparti sur plusieurs machines du réseau local (Mac no
 - **Documentation :** [https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md)
 - **Dépôt :** [https://github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** modèles locaux, MCP, gratuit
 - **Endpoint local :** `http://127.0.0.1:8080/v1`
 
 Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM Studio et Jan. Son serveur (`llama-server`) expose une API compatible OpenAI et une interface web ; le port par défaut doit passer de 8080 à 9931. CPU seul, Apple Silicon, NVIDIA, AMD, Intel ou Vulkan, et mode hybride CPU + GPU. Open-source sous MIT. L'équipe publie aussi « Llama », une application Mac et Windows (llama.app).
@@ -108,7 +108,7 @@ Moteur d'inférence en C/C++ pour les modèles GGUF, sur lequel s'appuient LM St
 - **Documentation :** [https://docs.mozilla.ai/llamafile](https://docs.mozilla.ai/llamafile)
 - **Dépôt :** [https://github.com/mozilla-ai/llamafile](https://github.com/mozilla-ai/llamafile)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** modèles locaux, MCP, gratuit
 - **Endpoint local :** `http://127.0.0.1:8080/v1`
 
 Un modèle et son moteur réunis en un seul exécutable, sans installation : on le télécharge, on le lance. Construit sur llama.cpp ; API compatible OpenAI et interface web intégrées. CPU, Apple Silicon, NVIDIA, AMD, Vulkan. Open-source sous Apache-2.0.
@@ -119,7 +119,7 @@ Un modèle et son moteur réunis en un seul exécutable, sans installation : on 
 - **Site :** [https://omlx.ai](https://omlx.ai)
 - **Dépôt :** [https://github.com/jundot/omlx](https://github.com/jundot/omlx)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** modèles locaux, MCP, gratuit
 
 Serveur d'inférence pour Apple Silicon (MLX) avec batching continu et cache sur SSD, piloté depuis la barre de menus ; API compatible OpenAI et Anthropic. Open-source sous Apache-2.0.
 
@@ -130,7 +130,7 @@ Serveur d'inférence pour Apple Silicon (MLX) avec batching continu et cache sur
 - **Documentation :** [https://docs.vllm.ai/en/latest/](https://docs.vllm.ai/en/latest/)
 - **Dépôt :** [https://github.com/vllm-project/vllm](https://github.com/vllm-project/vllm)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** modèles locaux, MCP, gratuit
 - **Endpoint local :** `http://localhost:8000/v1`
 
 Moteur de service à haut débit, conçu pour servir plusieurs utilisateurs à la fois sur GPU (NVIDIA, AMD, Intel) ou CPU, depuis un poste ou un serveur interne. API compatible OpenAI et Anthropic. Open-source sous Apache-2.0. Un des remplaçants recommandés par Hugging Face pour TGI.
