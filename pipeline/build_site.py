@@ -107,6 +107,8 @@ def build_payload() -> dict:
     # Le suivi de vérification (non_verifie, verified_on) reste au catalogue.
     nett = lambda d: {k: v for k, v in d.items() if k not in ("non_verifie", "verified_on")}
     return {
+        "tools_ecartes": [{k: e.get(k) for k in ("id", "name", "vendor", "reason")}
+                          for e in load("tools.yaml").get("ecartes", [])],
         "ocr": {"entries": [nett(e) for e in ocr.get("entries", [])],
                 "ecartes": ocr.get("ecartes", []), "classes": ocr.get("licence_classes", {}),
                 "benchmarks": [nett(b) for b in ocrb.get("benchmarks", [])],
@@ -256,7 +258,13 @@ select:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
 .cb-o:hover,.cb-o[data-act]{background:var(--grid);color:var(--ink)}
 .cb-o[aria-selected="true"]{color:var(--ink);font-weight:600}
 .seg{display:flex;gap:7px;flex-wrap:wrap;background:none;border:0;padding:0}
-#har-cat,#pas-cat,#met-cat{margin:18px 0 10px}
+#har-cat,#pas-cat,#met-cat,#llm-cat{margin:18px 0 10px}
+.seg button[hidden],#vuewrap[hidden],[hidden]{display:none!important}
+#vuewrap{margin:12px 0 4px;padding-top:12px;border-top:1px solid var(--line)}
+.bpub{font-size:12.5px;color:var(--ink-2);margin:0 0 8px}
+.bpub b{color:var(--ink)}
+.mes{font-size:12px;margin-top:8px;color:var(--ink-2)}
+.mes a{cursor:pointer}
 .seg button{background:var(--panel);border:1px solid var(--line-strong);border-radius:999px;
  color:var(--ink-2);padding:7px 15px;font:inherit;font-size:13px;cursor:pointer;
  white-space:nowrap;transition:border-color .12s,color .12s}
@@ -368,9 +376,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
 
 <nav class="tabs" id="nav" role="tablist" aria-label="Sections">
   <button data-s="mesures" role="tab" aria-selected="true">
-    <span class="fr">Benchmarks</span><span class="en">performance</span></button>
-  <button data-s="modeles" role="tab" aria-selected="false">
-    <span class="fr">Tarifs</span><span class="en">pricing</span></button>
+    <span class="fr">LLM</span><span class="en">models</span></button>
   <button data-s="harnais" role="tab" aria-selected="false">
     <span class="fr">Harnais</span><span class="en">harness</span></button>
   <button data-s="passerelles" role="tab" aria-selected="false">
@@ -384,24 +390,20 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
 <div id="alerts"></div>
 
 <section id="s-mesures" role="tabpanel">
-  <h2>Performance mesurée</h2>
-  <p class="lede">Les barres d'erreur affichent l'intervalle de confiance à 95 % : quand deux
+  <h2>Modèles de langage <span class="en-h">LLM</span></h2>
+  <p class="layer"><b>Les modèles de fondation</b> qui écrivent le code : leur performance
+  mesurée sur des benchmarks, leur tarif d'API et les forfaits qui y donnent accès.</p>
+  <div class="seg" id="llm-cat" role="group" aria-label="Sous-sections LLM">
+    <button data-l="rank" aria-pressed="true">Classement</button>
+    <button data-l="api" aria-pressed="false">Tarifs API</button>
+    <button data-l="cover" aria-pressed="false">Couverture</button>
+    <button data-l="plans" aria-pressed="false">Forfaits</button>
+  </div>
+  <p class="lede" id="l-lede">Les barres d'erreur affichent l'intervalle de confiance à 95 % : quand deux
   barres se chevauchent, l'écart n'est <b>pas</b> significatif et les deux modèles sont à
   égalité. Chaque point renvoie à sa source et à la date de sa mesure.</p>
 
   <div class="panel">
-    <div class="ctrl">
-      <div class="seg" id="kind" role="group" aria-label="Type de graphique">
-        <button data-k="rank" aria-pressed="true">Classement</button>
-        <button data-k="api" aria-pressed="false">Tarifs API</button>
-        <button data-k="cover" aria-pressed="false">Couverture</button>
-        <button data-k="plans" aria-pressed="false">Forfaits</button>
-        <button data-k="frontier" aria-pressed="false">Coût × performance</button>
-        <button data-k="budget" aria-pressed="false">Sous contrainte de budget</button>
-        <button data-k="harness" aria-pressed="false">Effet du harnais</button>
-        <button data-k="time" aria-pressed="false">Progression</button>
-      </div>
-    </div>
     <div class="ctrl">
       <label class="f">Benchmark<select id="bench"></select></label>
       <label class="f">Fournisseur / provider<select id="lab"><option value="">Tous</option></select></label>
@@ -418,6 +420,16 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
         <option value="15">15 premiers</option><option value="25">25 premiers</option>
         <option value="0">Tout</option></select></label>
     </div>
+    <div id="vuewrap">
+      <p class="bpub" id="bpub"></p>
+      <div class="seg" id="kind" role="group" aria-label="Vue du benchmark">
+        <button data-k="rank" aria-pressed="true">Score</button>
+        <button data-k="frontier" aria-pressed="false">Coût × performance</button>
+        <button data-k="budget" aria-pressed="false">Sous contrainte de budget</button>
+        <button data-k="harness" aria-pressed="false">Effet du harnais</button>
+        <button data-k="time" aria-pressed="false">Progression</button>
+      </div>
+    </div>
     <div class="chart" id="chart"></div>
     <div id="caveat"></div>
     <details><summary>Voir les données sous forme de tableau</summary>
@@ -425,6 +437,14 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     </details>
   </div>
 
+  <div id="l-api" hidden>
+    <p class="layer">Coût d'accès à l'API, au million de jetons. Seuls figurent les tarifs relevés
+    sur la page officielle du fournisseur <i>(provider)</i>. Un modèle absent de cette liste n'est
+    pas gratuit : son tarif n'a simplement pas encore été vérifié.</p>
+    <div id="mod"></div>
+  </div>
+
+  <div id="l-bench">
   <div class="bgh"><h2>Que mesure chaque benchmark ?</h2>
     <div class="seg" id="bgv" role="group" aria-label="Longueur des fiches">
       <button data-v="0" aria-pressed="true">Version courte</button>
@@ -434,16 +454,10 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   vrai code ; les autres renseignent sur le raisonnement ou le travail de bureau. Le benchmark
   sélectionné dans le graphique est encadré ; cliquez sur une fiche pour la déplier.</p>
   <div class="bl bg" id="bgl"></div>
+  <details><summary id="rj">Benchmarks écartés</summary><div class="bl" id="rlist"></div></details>
+  </div>
 </section>
 
-<section id="s-modeles" role="tabpanel" hidden>
-  <h2>Tarifs des modèles <span class="en-h">pricing</span></h2>
-  <p class="layer"><b>Couche 3 — les modèles de fondation</b> <i>(models)</i> et leur coût
-  d'accès à l'API, au million de tokens. Seuls figurent les tarifs relevés sur la page
-  officielle du fournisseur <i>(provider)</i>. Un modèle absent de cette page n'est pas
-  gratuit : son tarif n'a simplement pas encore été vérifié.</p>
-  <div id="mod"></div>
-</section>
 
 <section id="s-harnais" role="tabpanel" hidden>
   <h2>Harnais <span class="en-h">harness</span></h2>
@@ -454,6 +468,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   deux modèles concurrents.</p>
   <div class="seg" id="har-cat" role="group" aria-label="Catégories de harnais"></div>
   <div id="har"></div>
+  <details><summary id="har-ej">Outils écartés</summary><div class="bl" id="har-el"></div></details>
 </section>
 
 <section id="s-passerelles" role="tabpanel" hidden>
@@ -466,6 +481,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   cela change le prix, la latence et qui voit vos données.</p>
   <div class="seg" id="pas-cat" role="group" aria-label="Catégories de passerelles"></div>
   <div id="pas"></div>
+  <details><summary id="pas-ej">Outils écartés</summary><div class="bl" id="pas-el"></div></details>
 </section>
 
 <section id="s-ocr" role="tabpanel" hidden>
@@ -529,21 +545,12 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
 <section id="s-methode" role="tabpanel" hidden>
   <div class="seg" id="met-cat" role="group" aria-label="Sous-sections">
     <button data-m="regles" aria-pressed="true">Les six règles</button>
-    <button data-m="bench" aria-pressed="false">Benchmarks retenus</button>
     <button data-m="etat" aria-pressed="false">État du référentiel</button>
   </div>
 
   <div id="m-regles">
     <p class="layer">Ce que ce référentiel s'autorise à affirmer, et ce qu'il refuse.</p>
     <div class="bl" id="meth"></div>
-  </div>
-
-  <div id="m-bench" hidden>
-    <p class="layer">Sélection raisonnée<span id="bn"></span>. Un benchmark saturé ou remplacé
-    est écarté explicitement : documenter un rejet évite d'avoir à reposer la question à chaque
-    édition.</p>
-    <div class="bl" id="blist"></div>
-    <details><summary id="rj">Benchmarks écartés</summary><div class="bl" id="rlist"></div></details>
   </div>
 
   <div id="m-etat" hidden>
@@ -679,7 +686,11 @@ const bsel=$('#bench');
 // l'ordre du catalogue — ses colonnes vont du plus mesuré au moins mesuré.
 const bench_tri=[...D.benchmarks].sort((a,b)=>
   a.name.localeCompare(b.name,'fr',{sensitivity:'base',numeric:true}));
-bench_tri.forEach(b=>bsel.add(new Option(b.name,b.name)));
+// Étiquettes : ce que le benchmark publie, donc les vues qu'il permet.
+const aCout=b=>D.scores.some(s=>s.b===b&&s.c>0);
+const nbHarnais=b=>new Set(D.scores.filter(s=>s.b===b&&s.h).map(s=>s.h.toLowerCase())).size;
+bench_tri.forEach(b=>bsel.add(new Option(b.name+
+  [aCout(b.name)&&'coût',nbHarnais(b.name)>1&&'harnais'].filter(Boolean).map(x=>' · '+x).join(''),b.name)));
 bsel.value=bench_tri.some(b=>b.name==='Terminal-Bench 4.0')
   ?'Terminal-Bench 4.0':bench_tri[0]?.name;
 const lsel=$('#lab');
@@ -1387,33 +1398,50 @@ function majControles(){
   $('#top').closest('label').hidden=!c.includes('t');
   $('#budwrap').hidden=(K!=='budget');
 }
+// Une vue qui ne peut rien montrer n'est pas proposée : la phrase au-dessus des
+// boutons dit ce que le benchmark publie, donc pourquoi certaines vues manquent.
+let LC='rank', AK='rank', REPLI='';
 function majBoutons(){
-  [...$('#kind').children].forEach(btn=>{
-    const k=btn.dataset.k,ok=dispo(k);
-    btn.disabled=!ok;
-    if(ok){btn.removeAttribute('title');btn.removeAttribute('aria-disabled');return;}
-    btn.setAttribute('aria-disabled','true');
-    const ailleurs=D.benchmarks.map(x=>x.name).filter(n=>dispo(k,n));
-    btn.title=`${bsel.value} ne publie pas ${EXIGE[k]}.`+
-      (ailleurs.length?` Vue disponible sur : ${ailleurs.join(', ')}.`:'');
-  });
-  if(!dispo(K)){
-    K='rank';
-    [...$('#kind').children].forEach(x=>
-      x.setAttribute('aria-pressed',String(x.dataset.k==='rank')));
-    $('#budwrap').hidden=true;
-  }
+  const b=bsel.value, c=aCout(b), h=nbHarnais(b);
+  if(LC==='rank'&&!dispo(AK)){REPLI=$('#kind').querySelector(`[data-k="${AK}"]`).textContent;AK='rank';}
+  if(LC==='rank')K=AK;
+  [...$('#kind').children].forEach(btn=>{btn.hidden=!dispo(btn.dataset.k);
+    btn.setAttribute('aria-pressed',String(btn.dataset.k===AK));});
+  const iso=dispo('harness',b);
+  const pub=[c&&'le coût mesuré de chaque essai',h>1&&`le nom du harnais (${h} différents)`].filter(Boolean);
+  const manque=[!c&&'pas de coût mesuré : le coût × performance utilise le prix catalogue, et la vue budget est absente',
+    h<2?"un seul harnais ou aucun : pas d'effet du harnais"
+      :!iso&&"aucun modèle n'y est mesuré dans deux harnais : l'effet du harnais n'est pas isolable"].filter(Boolean);
+  $('#bpub').innerHTML=(REPLI?`La vue « ${esc(REPLI)} » n'existe pas pour ce benchmark : retour au score. `:'')+
+    (pub.length?`<b>${esc(b)}</b> publie ${pub.join(' et ')}.`:`<b>${esc(b)}</b> publie le score seul.`)+
+    (manque.length?` Ici : ${manque.join(' ; ')}.`:'');
+  REPLI='';
 }
-function draw(){majBoutons();majControles();DRAW[K]();}
+function majSous(){
+  const r=LC==='rank';
+  $('#vuewrap').hidden=!r;$('#l-bench').hidden=!r;$('#l-lede').hidden=!r;
+  $('#l-api').hidden=LC!=='api';
+  if(!r)K=LC;
+}
+function draw(){majSous();majBoutons();majControles();DRAW[K]();}
 $('#kind').addEventListener('click',e=>{const b=e.target.closest('button');
-  if(!b||b.disabled)return;
-  K=b.dataset.k;[...$('#kind').children].forEach(x=>
+  if(!b||b.hidden)return;
+  AK=b.dataset.k;draw();});
+$('#llm-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  LC=b.dataset.l;[...$('#llm-cat').children].forEach(x=>
     x.setAttribute('aria-pressed',String(x===b)));
   draw();});
+// Lien depuis une fiche harnais : ouvre le benchmark sur la vue « effet du harnais ».
+function allerBench(nom,vue){
+  showSection('mesures',true);
+  LC='rank';[...$('#llm-cat').children].forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.l==='rank')));
+  bsel.value=nom;bsel.dispatchEvent(new Event('change'));
+  AK=vue;draw();markB();
+}
 [bsel,lsel,$('#top'),$('#eff'),$('#bud')].forEach(el=>el.addEventListener('change',draw));
 
 // ── navigation par onglets ────────────────────────────────────────────────
-const SEC=['mesures','modeles','harnais','passerelles','ocr','methode'];
+const SEC=['mesures','harnais','passerelles','ocr','methode'];
 function showSection(name,remonter){
   SEC.forEach(x=>{const el=$('#s-'+x);if(el)el.hidden=(x!==name);});
   [...$('#nav').children].forEach(b=>
@@ -1430,7 +1458,7 @@ $('#nav').addEventListener('click',e=>{const b=e.target.closest('button');
 
 $('#met-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   [...$('#met-cat').children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-  ['regles','bench','etat'].forEach(k=>{$('#m-'+k).hidden=(k!==b.dataset.m);});});
+  ['regles','etat'].forEach(k=>{$('#m-'+k).hidden=(k!==b.dataset.m);});});
 
 // ── fiches outils, groupées par catégorie ─────────────────────────────────
 const CATL={ide_fork:'IDE dérivés',vscode_extension:'Extensions VS Code',
@@ -1444,6 +1472,13 @@ const CATD={
  gateway:"Un point d'accès unique à plusieurs laboratoires, avec une seule clé d'API.",
  local_server:"Exécution des modèles sur la machine de l'utilisateur, exposée en API compatible OpenAI."};
 
+// Harnais nommés dans les scores, rapprochés des fiches par leur nom normalisé.
+// CursorBench est exclu : son harnais « Cursor » est supposé, pas publié.
+const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const H_ALIAS={codex:'codexcli'};
+const mesuresDe=t=>{const n=norm(t.name);
+  return [...new Set(D.scores.filter(s=>s.h&&s.b!=='CursorBench'&&
+    (H_ALIAS[norm(s.h)]||norm(s.h))===n).map(s=>s.b))].sort();};
 function carteOutil(t){
   const caps=[t.byok&&'BYOK',t.local_models&&'modèles locaux',t.mcp&&'MCP',t.free&&'gratuit']
     .filter(Boolean);
@@ -1466,6 +1501,8 @@ function carteOutil(t){
      <span style="color:var(--ink-3);font-size:10.5px;text-transform:uppercase;
      letter-spacing:.06em">Conformité</span><br>
      ${cf.map(x=>`<span class="tag">${x}</span>`).join(' ')}</p>`:''}
+   ${(m=>m.length?`<p class="mes">Mesuré sur ${m.map(b=>
+     `<a data-bench="${esc(b)}" tabindex="0">${esc(b)}</a>`).join(', ')}</p>`:'')(mesuresDe(t))}
    ${(t.url||t.repo_url)?`<p style="margin-top:10px;font-size:12px">
      ${t.url?`<a href="${esc(t.url)}" rel="noopener">site officiel</a>`:''}
      ${t.url&&t.repo_url?' · ':''}
@@ -1504,6 +1541,16 @@ rendreCouche('#har',1,ORD_H,null);
 rendreCouche('#pas',2,ORD_P,null);
 brancherCategories('#har-cat','#har',1,ORD_H);
 brancherCategories('#pas-cat','#pas',2,ORD_P);
+['#har','#pas'].forEach(q=>$(q).addEventListener('click',e=>{const a=e.target.closest('a[data-bench]');
+  if(a)allerBench(a.dataset.bench,'rank');}));
+// Les écartés des couches 1 et 2 sont dans une seule liste du catalogue.
+const ECART_PAS=new Set(['tgi','tensorrt-llm','requesty','portkey','koboldcpp',
+  'foundry-local','omniroute','relais-abonnements']);
+const carteEcart=e=>`<div class="bc"><h3>${esc(e.name)}</h3><p class="au" style="color:var(--ink-3);font-size:11.5px">${esc(e.vendor||'')}</p><p>${esc(e.reason)}</p></div>`;
+[['#har',false],['#pas',true]].forEach(([q,pas])=>{
+  const L=D.tools_ecartes.filter(e=>ECART_PAS.has(e.id)===pas);
+  $(q+'-ej').textContent=`Outils écartés (${L.length}) — et pourquoi`;
+  $(q+'-el').innerHTML=L.map(carteEcart).join('');});
 
 // ── modèles & tarifs ──────────────────────────────────────────────────────
 (function(){
@@ -1677,7 +1724,9 @@ $('#bgl').innerHTML=D.benchmarks.map(b=>{const x=b.x||{};
   ${x.auteur?`<p class="au">${esc(x.auteur)}</p>`:''}<dl>
   ${x.evalue?`<dt>Ce qu'il évalue</dt><dd>${esc(x.evalue)}</dd>`:''}
   ${x.comment?`<dt>Comment</dt><dd>${esc(x.comment)}</dd>`:''}
-  ${x.pourquoi?`<dt>Pour choisir un modèle</dt><dd>${esc(x.pourquoi)}</dd>`:''}</dl>
+  ${x.pourquoi?`<dt>Pour choisir un modèle</dt><dd>${esc(x.pourquoi)}</dd>`:''}
+  ${b.caveat?`<dt>Réserve</dt><dd>${esc(b.caveat)}</dd>`:''}</dl>
+  <p class="au">provenance : ${esc(b.provenance)}${b.released?' · publié en '+esc(b.released.slice(0,4)):''}</p>
   ${x.source?`<p><a href="${esc(x.source)}" rel="noopener">Source</a></p>`:''}</details>`;}).join('');
 $('#bgv').addEventListener('click',e=>{const v=e.target.closest('button');if(!v)return;
   $('#bgv').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===v)));
@@ -1685,13 +1734,6 @@ $('#bgv').addEventListener('click',e=>{const v=e.target.closest('button');if(!v)
 const markB=()=>document.querySelectorAll('#bgl .bc').forEach(c=>
   c.classList.toggle('on',c.dataset.b===bsel.value));
 bsel.addEventListener('change',markB);markB();
-$('#bn').textContent=` — ${D.benchmarks.length} retenus, ${D.rejected.length} écartés`;
-$('#blist').innerHTML=D.benchmarks.map(b=>
- `<div class="bc"><h3>${esc(b.name)} ${b.tier==='reference'?
-   '<span class="tag ref">référence</span>':'<span class="tag">secondaire</span>'}</h3>
-  <p>${esc(b.measures)}</p>${b.caveat?`<span class="cv">▲ ${esc(b.caveat)}</span>`:''}
-  <p style="color:var(--ink-3);font-size:11.5px;margin-top:8px">
-  provenance : ${esc(b.provenance)}${b.released?' · publié en '+esc(b.released.slice(0,4)):''}</p></div>`).join('');
 $('#rj').textContent=`Benchmarks écartés (${D.rejected.length}) — et pourquoi`;
 $('#rlist').innerHTML=D.rejected.map(b=>
  `<div class="bc"><h3>${esc(b.benchmark)}</h3><p>${esc(b.reason)}</p></div>`).join('');
