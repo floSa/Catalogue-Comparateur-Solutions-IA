@@ -1,0 +1,2673 @@
+_meta:
+  verified_on: '2026-10-28'
+  note: 'Benchmarks OCR et scores. provenance : officiel = mesuré par l''auteur du benchmark ; editeur
+    = publié par l''éditeur du modèle ; tiers = mesuré par un autre acteur (OpenBMB, LightOn…). Un score
+    éditeur ou tiers n''est retenu que si le classement officiel n''en a pas.'
+benchmarks:
+- id: omnidocbench
+  categorie: Documents variés
+  nom: OmniDocBench v1.6
+  unite: /100
+  court: 'Convertir des pages entières en Markdown : texte, formules, tableaux, sur dix types de documents.'
+  evalue: 'Le modèle reçoit une page (article, rapport financier, journal, manuel, notes manuscrites…)
+    et doit la restituer en Markdown : le texte, les formules en LaTeX, les tableaux en HTML, dans le
+    bon ordre de lecture.'
+  comment: '1 651 pages en anglais et en chinois. Score global sur 100 : moyenne de la justesse du texte
+    (distance d''édition), des formules (CDM) et des tableaux (TEDS). Les versions 1.5 et 1.6 ne sont
+    pas comparables entre elles.'
+  pourquoi: La référence pour la conversion de documents ; mais pas de français, et la tête du classement
+    est trop serrée (moins d'un point) pour désigner un vainqueur.
+  auteur: OpenDataLab (Shanghai AI Laboratory) — Ouyang et al.
+  article: https://arxiv.org/abs/2412.07626
+  classement: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  mis_a_jour: '2026-09-11'
+  juge_et_partie:
+  - mineru2.5-pro
+  - mineru
+  conflit_note: OpenDataLab publie aussi MinerU (MinerU2.5, MinerU2.5-Pro, MinerU-Pipeline) présent au
+    classement.
+  francais: false
+  verified_on: '2026-10-28'
+- id: real5-omnidocbench
+  categorie: Scans et photos
+  nom: Real5-OmniDocBench
+  unite: /100
+  court: 'Les mêmes pages réimprimées puis scannées ou photographiées : gondolées, de travers, mal éclairées.'
+  evalue: 'Les 1 355 pages d''OmniDocBench v1.5 sont imprimées puis recapturées dans cinq conditions réelles
+    : scan, page gondolée, photo d''écran, éclairage difficile, inclinaison.'
+  comment: 6 775 images. Même calcul qu'OmniDocBench v1.5, moyenné sur les cinq conditions. Comparable
+    dans le temps, pas avec OmniDocBench v1.6.
+  pourquoi: Le plus proche de documents scannés ou pris au téléphone ; l'écart avec la version propre
+    montre la robustesse d'un modèle.
+  auteur: PaddlePaddle (Baidu) — Zhou et al.
+  article: https://arxiv.org/abs/2603.04205
+  classement: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  mis_a_jour: '2026-10-23'
+  juge_et_partie:
+  - paddleocr-vl-1.6
+  - paddleocr
+  conflit_note: PaddlePaddle publie PaddleOCR-VL, 1er du classement (PaddleOCR-VL-1.6, 93.19).
+  francais: false
+  verified_on: '2026-10-28'
+- id: olmocr-bench
+  categorie: Documents PDF difficiles
+  nom: olmOCR-Bench
+  unite: '%'
+  court: 'Plus de 7 000 tests automatiques sur des PDF difficiles : vieux scans, tableaux, petit texte,
+    colonnes.'
+  evalue: 'Chaque page convertie est vérifiée par des tests simples : telle phrase est-elle présente,
+    l''en-tête a-t-il bien été retiré, ces deux passages sont-ils dans le bon ordre, ces cellules de tableau
+    sont-elles bien reliées.'
+  comment: '1 403 PDF d''une page en anglais, 7 010 tests. Score : moyenne des taux de réussite de huit
+    catégories. Le classement officiel d''Ai2 est figé depuis le 06/11/2025 : les modèles récents n''y
+    sont que par leurs propres chiffres.'
+  pourquoi: Des tests lisibles et vérifiables, proches de l'extraction d'information ; mais un classement
+    officiel ancien et une partie des scores fournis par les éditeurs.
+  auteur: Allen Institute for AI (Ai2) — Poznanski et al.
+  article: https://arxiv.org/abs/2502.18443
+  classement: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  mis_a_jour: '2025-11-06'
+  juge_et_partie:
+  - olmocr-2
+  conflit_note: Ai2 publie olmOCR, présent au classement.
+  francais: false
+  verified_on: '2026-10-28'
+- id: mdpbench
+  categorie: Multilingue
+  nom: MDPBench (17 langues)
+  unite: /100
+  court: Documents numériques et photographiés en 17 langues, dont le français.
+  evalue: Même exercice qu'OmniDocBench (texte, formules, tableaux vers Markdown), sur des documents en
+    17 langues à écriture latine ou non, en version numérique et en photo.
+  comment: 3 400 images. Score sur 100 par page, moyenné. Une partie des pages reste privée pour éviter
+    que les modèles s'entraînent dessus.
+  pourquoi: Le seul grand classement qui mesure d'autres langues que l'anglais et le chinois ; utile pour
+    des documents européens.
+  auteur: HUST (Yuliang Liu, Xiang Bai) — Li, Lin et al.
+  article: https://arxiv.org/abs/2603.28130
+  classement: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard
+  mis_a_jour: '2026-10-28'
+  juge_et_partie:
+  - monkeyocrv2-b-parsing
+  conflit_note: Le laboratoire publie MonkeyOCR ; MonkeyOCRv2-B/S sont 1er et 3e des modèles spécialisés
+    ouverts.
+  francais: true
+  verified_on: '2026-10-28'
+- id: mdpbench-fr
+  categorie: Français
+  nom: MDPBench — colonne français
+  unite: /100
+  court: Le sous-score français de MDPBench.
+  evalue: Les pages en français de MDPBench, numériques et photographiées, converties en Markdown.
+  comment: Sous-score publié par les auteurs de MDPBench pour chaque modèle ; même calcul que le score
+    global.
+  pourquoi: Le chiffre le plus direct pour des documents français courants ; le nombre de pages françaises
+    n'est pas publié.
+  auteur: HUST (Yuliang Liu, Xiang Bai) — Li, Lin et al.
+  article: https://arxiv.org/abs/2603.28130
+  classement: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard
+  mis_a_jour: '2026-10-28'
+  juge_et_partie:
+  - monkeyocrv2-b-parsing
+  conflit_note: Le laboratoire publie MonkeyOCR ; MonkeyOCRv2-B/S sont 1er et 3e des modèles spécialisés
+    ouverts.
+  francais: true
+  verified_on: '2026-10-28'
+- id: fr-bench-pdf2md
+  categorie: Français
+  nom: fr-bench-pdf2md
+  unite: /100
+  court: 'Pages françaises difficiles : formulaires manuscrits, manuscrits, tableaux longs, petit texte.'
+  evalue: 'Des pages françaises choisies là où les modèles se contredisaient, tirées de 60 000 documents
+    (dont Gallica) : formulaires remplis à la main, manuscrits, tableaux longs, colonnes, petit texte,
+    graphiques.'
+  comment: Tests automatiques à la manière d'olmOCR-Bench, publiés de 0 à 1 et ramenés ici sur 100. Mode
+    de calcul du score global non documenté. Classement mis à jour le 25/02/2026.
+  pourquoi: Le meilleur indicateur pour des documents administratifs français ; publié par des filiales
+    de La Poste, sans modèle maison au classement.
+  auteur: Probayes et OpenValue (filiales de La Poste) — Rigal et al.
+  article: https://arxiv.org/abs/2602.11960
+  classement: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  mis_a_jour: '2026-02-25'
+  juge_et_partie: []
+  conflit_note: Aucun modèle maison au classement.
+  francais: true
+  verified_on: '2026-10-28'
+rejected:
+- benchmark: Wild-OmniDocBench
+  motif: 'Pas de classement : seulement cinq résultats tirés de l''article.'
+- benchmark: CHAOS-Bench
+  motif: Pas de classement officiel ; les chiffres circulant sont calculés par OpenBMB avec sa propre
+    méthode.
+- benchmark: OCRBench v2
+  motif: Questions-réponses sur images, pas de conversion de documents ; classement sur un jeu privé,
+    non comparable aux chiffres publiés sur le jeu public.
+- benchmark: OCRBench (v1)
+  motif: Classement figé depuis juin 2025, limité à d'anciens modèles.
+- benchmark: CC-OCR
+  motif: Classement figé depuis novembre 2024.
+- benchmark: Fox
+  motif: Pas de classement tenu à jour.
+- benchmark: READoc
+  motif: Pas de classement tenu à jour.
+- benchmark: PubTabNet (et la métrique TEDS)
+  motif: Tableaux seulement, proche du plafond ; sa métrique (TEDS) est reprise par OmniDocBench.
+scores:
+- benchmark: omnidocbench
+  model: TeleOCR
+  entry: teleocr
+  type: null
+  score: 96.91
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: '2026-09-11'
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: OvisOCR2
+  entry: ovisocr2
+  type: null
+  score: 96.47
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: '2026-09-11'
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: PaddleOCR-VL-1.6
+  entry: paddleocr-vl-1.6
+  type: null
+  score: 96.34
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: '2026-07-24'
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: MinerU2.5-Pro
+  entry: mineru2.5-pro
+  type: null
+  score: 95.75
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: GLM-OCR
+  entry: glm-ocr
+  type: null
+  score: 95.22
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: PaddleOCR-VL-1.5
+  entry: null
+  type: autre
+  score: 94.93
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: PaddleOCR-VL
+  entry: null
+  type: autre
+  score: 94.18
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Unlimited-OCR
+  entry: unlimited-ocr
+  type: null
+  score: 94.0
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: '2026-09-11'
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Youtu-Parsing
+  entry: null
+  type: autre
+  score: 93.74
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Qianfan-OCR
+  entry: qianfan-ocr
+  type: null
+  score: 93.9
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: '2026-04-30'
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Ovis2.6-30B-A3B
+  entry: null
+  type: generaliste
+  score: 93.7
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Logics-Parsing-v2
+  entry: null
+  type: autre
+  score: 93.33
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: ABot-OCR
+  entry: null
+  type: autre
+  score: 93.3
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: FireRed-OCR
+  entry: firered-ocr
+  type: null
+  score: 93.26
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: MinerU-2.5
+  entry: null
+  type: autre
+  score: 93.04
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Gemini 3 Pro
+  entry: null
+  type: generaliste
+  score: 92.91
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Gemini 3 Flash
+  entry: null
+  type: generaliste
+  score: 92.62
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: dots.ocr
+  entry: dots.ocr
+  type: null
+  score: 90.77
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: OpenDoc-0.1B
+  entry: null
+  type: autre
+  score: 90.67
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: DeepSeek-OCR 2
+  entry: deepseek-ocr-2
+  type: null
+  score: 90.25
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: HunyuanOCR
+  entry: null
+  type: autre
+  score: 89.95
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Qwen3-VL-235B
+  entry: null
+  type: generaliste
+  score: 89.78
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Dolphin-v2
+  entry: dolphin-v2
+  type: null
+  score: 89.5
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: OCRVerse
+  entry: null
+  type: autre
+  score: 88.6
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: MonkeyOCR-pro-3B
+  entry: null
+  type: autre
+  score: 88.57
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: GPT-5.2
+  entry: null
+  type: generaliste
+  score: 86.59
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Dolphin-1.5
+  entry: null
+  type: autre
+  score: 86.52
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: MinerU-Pipeline
+  entry: mineru
+  type: null
+  score: 86.47
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: olmOCR
+  entry: null
+  type: autre
+  score: 85.74
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Mistral OCR
+  entry: mistral-ocr
+  type: null
+  score: 85.66
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Kimi K2.5
+  entry: null
+  type: generaliste
+  score: 84.53
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: InternVL3.5-241B
+  entry: null
+  type: generaliste
+  score: 83.76
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Nanonets-OCR-s
+  entry: nanonets-ocr-s
+  type: null
+  score: 83.61
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: POINTS-Reader
+  entry: points-reader
+  type: null
+  score: 83.37
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Marker
+  entry: marker
+  type: null
+  score: 78.44
+  ci95: null
+  provenance: officiel
+  measured_by: OpenDataLab (mainteneurs OmniDocBench) — protocole par ligne non documenté (relance interne
+    ou résultats fournis)
+  source_url: https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Mistral OCR API
+  entry: mistral-ocr
+  type: null
+  score: 72.0
+  ci95: 1.1
+  provenance: officiel
+  measured_by: Ai2 (auteurs du benchmark), « reproduced in-house »
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Marker 1.10.1
+  entry: marker
+  type: null
+  score: 76.1
+  ci95: 1.1
+  provenance: officiel
+  measured_by: Ai2 (auteurs du benchmark), « reproduced in-house »
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: MinerU 2.5.4
+  entry: mineru
+  type: null
+  score: 75.2
+  ci95: 1.1
+  provenance: editeur
+  measured_by: Chiffre fourni par l'éditeur du modèle et repris dans le classement (marqué *)
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: DeepSeek-OCR
+  entry: deepseek-ocr
+  type: null
+  score: 75.7
+  ci95: 1.0
+  provenance: officiel
+  measured_by: Ai2 (auteurs du benchmark), « reproduced in-house »
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Nanonets-OCR2-3B
+  entry: nanonets-ocr2-3b
+  type: null
+  score: 69.5
+  ci95: 1.1
+  provenance: officiel
+  measured_by: Ai2 (auteurs du benchmark), « reproduced in-house »
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: PaddleOCR-VL
+  entry: null
+  type: autre
+  score: 80.0
+  ci95: 1.0
+  provenance: editeur
+  measured_by: Chiffre fourni par l'éditeur du modèle et repris dans le classement (marqué *)
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Infinity-Parser 7B
+  entry: null
+  type: autre
+  score: 82.5
+  ci95: null
+  provenance: editeur
+  measured_by: Chiffre fourni par l'éditeur du modèle et repris dans le classement (marqué *)
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Chandra OCR 0.1.0
+  entry: null
+  type: autre
+  score: 83.1
+  ci95: 0.9
+  provenance: editeur
+  measured_by: Chiffre fourni par l'éditeur du modèle et repris dans le classement (marqué *)
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: olmOCR v0.4.0
+  entry: olmocr-2
+  type: null
+  score: 82.4
+  ci95: 1.1
+  provenance: officiel
+  measured_by: Ai2 (auteurs du benchmark), « reproduced in-house »
+  source_url: https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: PaddleOCR-VL-1.6
+  entry: paddleocr-vl-1.6
+  type: null
+  score: 93.19
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-05-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Xiaomi-OCR-0
+  entry: xiaomi-ocr-0
+  type: null
+  score: 92.73
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-10-12'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: OvisOCR2
+  entry: ovisocr2
+  type: null
+  score: 92.29
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-08-08'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: PaddleOCR-VL-1.5
+  entry: null
+  type: autre
+  score: 92.05
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: GLM-5.3-Flash
+  entry: null
+  type: generaliste
+  score: 90.76
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-09-12'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: TeleOCR
+  entry: teleocr
+  type: null
+  score: 90.72
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-08-27'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: GLM-OCR
+  entry: glm-ocr
+  type: null
+  score: 90.32
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-03-05'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Kimi-K2.6
+  entry: null
+  type: generaliste
+  score: 89.76
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-08-08'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Gemini-3 Pro
+  entry: null
+  type: generaliste
+  score: 89.24
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MonkeyOCRv2-B-Parsing
+  entry: monkeyocrv2-b-parsing
+  type: null
+  score: 89.22
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-08-08'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Kimi-K2.5
+  entry: null
+  type: generaliste
+  score: 89.09
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-08-08'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Doubao-Seed-2.1-Pro
+  entry: null
+  type: generaliste
+  score: 89.02
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-08-08'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MinerU2.5-pro
+  entry: mineru2.5-pro
+  type: null
+  score: 88.94
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-05-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Qwen3-VL-235B
+  entry: null
+  type: generaliste
+  score: 88.9
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Gemini-2.5 Pro
+  entry: null
+  type: generaliste
+  score: 88.21
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MonkeyOCRv2-S-Parsing
+  entry: null
+  type: autre
+  score: 87.9
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-08-08'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Qwen2.5-VL-72B
+  entry: null
+  type: generaliste
+  score: 86.92
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: dots.ocr
+  entry: dots.ocr
+  type: null
+  score: 86.38
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Ki-OCR
+  entry: null
+  type: autre
+  score: 85.95
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-10-23'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MinerU2.5
+  entry: null
+  type: autre
+  score: 85.61
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: PaddleOCR-VL
+  entry: null
+  type: autre
+  score: 85.54
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Nanonets-OCR-s
+  entry: nanonets-ocr-s
+  type: null
+  score: 84.19
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MonkeyOCR-pro-3B
+  entry: null
+  type: autre
+  score: 79.49
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: GPT-5.2
+  entry: null
+  type: generaliste
+  score: 78.66
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MonkeyOCR-3B
+  entry: null
+  type: autre
+  score: 78.29
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MonkeyOCR-pro-1.2B
+  entry: null
+  type: autre
+  score: 77.15
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MinerU2-VLM
+  entry: null
+  type: autre
+  score: 76.95
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Deepseek-OCR
+  entry: deepseek-ocr
+  type: null
+  score: 73.99
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Deepseek-OCR 2
+  entry: deepseek-ocr-2
+  type: null
+  score: 73.01
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-03-05'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: PP-StructureV3
+  entry: paddleocr
+  type: null
+  score: 64.45
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Dolphin
+  entry: null
+  type: autre
+  score: 61.78
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Dolphin-1.5
+  entry: null
+  type: autre
+  score: 61.48
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Marker-1.8.2
+  entry: marker
+  type: null
+  score: 60.1
+  ci95: null
+  provenance: officiel
+  measured_by: 'PaddlePaddle (auteurs du benchmark) — qui a lancé l’inférence : non précisé'
+  source_url: https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench#leaderboard
+  date: '2026-01-28'
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: gemini-3-pro-preview
+  entry: null
+  type: generaliste
+  score: 86.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: gemini-3-pro-preview
+  entry: null
+  type: generaliste
+  score: 82.7
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: Kimi-K3
+  entry: null
+  type: generaliste
+  score: 83.6
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: Kimi-K3
+  entry: null
+  type: generaliste
+  score: 80.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: kimi-k2.5
+  entry: null
+  type: generaliste
+  score: 77.5
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: kimi-k2.5
+  entry: null
+  type: generaliste
+  score: 71.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: doubao-seed-2-0-pro-260215
+  entry: null
+  type: generaliste
+  score: 74.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: doubao-seed-2-0-pro-260215
+  entry: null
+  type: generaliste
+  score: 70.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: claude-sonnet-4-6
+  entry: null
+  type: generaliste
+  score: 73.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: claude-sonnet-4-6
+  entry: null
+  type: generaliste
+  score: 66.5
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: gpt-5.2-2025-12-11
+  entry: null
+  type: generaliste
+  score: 68.6
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: gpt-5.2-2025-12-11
+  entry: null
+  type: generaliste
+  score: 60.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: Qwen3-VL-8B-Instruct
+  entry: null
+  type: generaliste
+  score: 68.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: Qwen3-VL-8B-Instruct
+  entry: null
+  type: generaliste
+  score: 66.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: Qwen3.5-Instruct-9B
+  entry: null
+  type: generaliste
+  score: 65.7
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: Qwen3.5-Instruct-9B
+  entry: null
+  type: generaliste
+  score: 64.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: InternVL3_5-8B
+  entry: null
+  type: generaliste
+  score: 42.7
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: InternVL3_5-8B
+  entry: null
+  type: generaliste
+  score: 42.7
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: U2-OCR
+  entry: null
+  type: autre
+  score: 86.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: U2-OCR
+  entry: null
+  type: autre
+  score: 80.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: PepperOCR-VL
+  entry: null
+  type: autre
+  score: 82.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: PepperOCR-VL
+  entry: null
+  type: autre
+  score: 73.6
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: MonkeyOCRv2-B-Parsing
+  entry: monkeyocrv2-b-parsing
+  type: null
+  score: 83.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: MonkeyOCRv2-B-Parsing
+  entry: monkeyocrv2-b-parsing
+  type: null
+  score: 78.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: MonkeyOCRv2-S-Parsing
+  entry: null
+  type: autre
+  score: 82.5
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: MonkeyOCRv2-S-Parsing
+  entry: null
+  type: autre
+  score: 73.6
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: dots.mocr
+  entry: dots.mocr
+  type: null
+  score: 80.5
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: dots.mocr
+  entry: dots.mocr
+  type: null
+  score: 70.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: chandra-ocr-2
+  entry: chandra-ocr-2
+  type: null
+  score: 79.7
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: chandra-ocr-2
+  entry: chandra-ocr-2
+  type: null
+  score: 70.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: realocr
+  entry: null
+  type: autre
+  score: 79.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: realocr
+  entry: null
+  type: autre
+  score: 68.9
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: PaddleOCR-VL-1.6
+  entry: paddleocr-vl-1.6
+  type: null
+  score: 78.9
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: PaddleOCR-VL-1.6
+  entry: paddleocr-vl-1.6
+  type: null
+  score: 78.6
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: PaddleOCR-VL-1.5
+  entry: null
+  type: autre
+  score: 78.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: PaddleOCR-VL-1.5
+  entry: null
+  type: autre
+  score: 78.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: Mistral-OCR-4.0
+  entry: mistral-ocr
+  type: null
+  score: 78.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: Mistral-OCR-4.0
+  entry: mistral-ocr
+  type: null
+  score: 68.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: HunyuanOCR-1.5
+  entry: hunyuanocr-1.5
+  type: null
+  score: 76.8
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: HunyuanOCR-1.5
+  entry: hunyuanocr-1.5
+  type: null
+  score: 70.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: dots.ocr
+  entry: dots.ocr
+  type: null
+  score: 76.5
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: dots.ocr
+  entry: dots.ocr
+  type: null
+  score: 67.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: MinerU-2.5-Pro-1.2B
+  entry: mineru2.5-pro
+  type: null
+  score: 71.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: MinerU-2.5-Pro-1.2B
+  entry: mineru2.5-pro
+  type: null
+  score: 67.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: olmOCR2
+  entry: olmocr-2
+  type: null
+  score: 70.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: olmOCR2
+  entry: olmocr-2
+  type: null
+  score: 68.9
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: PaddleOCR-VL
+  entry: null
+  type: autre
+  score: 69.6
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: PaddleOCR-VL
+  entry: null
+  type: autre
+  score: 66.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: HunyuanOCR
+  entry: null
+  type: autre
+  score: 68.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: HunyuanOCR
+  entry: null
+  type: autre
+  score: 66.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: GLM-OCR
+  entry: glm-ocr
+  type: null
+  score: 67.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: GLM-OCR
+  entry: glm-ocr
+  type: null
+  score: 76.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: MonkeyOCRv1.5
+  entry: null
+  type: autre
+  score: 65.0
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: MonkeyOCRv1.5
+  entry: null
+  type: autre
+  score: 60.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: Nanonets-OCR2-3B
+  entry: nanonets-ocr2-3b
+  type: null
+  score: 64.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: Nanonets-OCR2-3B
+  entry: nanonets-ocr2-3b
+  type: null
+  score: 66.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: LightOnOCR-2-1B
+  entry: lightonocr-2-1b
+  type: null
+  score: 63.9
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: LightOnOCR-2-1B
+  entry: lightonocr-2-1b
+  type: null
+  score: 62.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: Nanonets-OCR-s
+  entry: nanonets-ocr-s
+  type: null
+  score: 63.7
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: Nanonets-OCR-s
+  entry: nanonets-ocr-s
+  type: null
+  score: 62.5
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: FalconOCR
+  entry: null
+  type: autre
+  score: 56.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: FalconOCR
+  entry: null
+  type: autre
+  score: 61.8
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: Unlimited-OCR
+  entry: unlimited-ocr
+  type: null
+  score: 54.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: Unlimited-OCR
+  entry: unlimited-ocr
+  type: null
+  score: 47.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: MonkeyOCR-pro-3B
+  entry: null
+  type: autre
+  score: 52.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: MonkeyOCR-pro-3B
+  entry: null
+  type: autre
+  score: 62.1
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: DeepSeek-OCR
+  entry: deepseek-ocr
+  type: null
+  score: 51.8
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: DeepSeek-OCR
+  entry: deepseek-ocr
+  type: null
+  score: 43.2
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: MinerU-2.5-VLM
+  entry: null
+  type: autre
+  score: 46.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: MinerU-2.5-VLM
+  entry: null
+  type: autre
+  score: 57.3
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: PP-StructureV3
+  entry: paddleocr
+  type: null
+  score: 45.4
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: PP-StructureV3
+  entry: paddleocr
+  type: null
+  score: 49.8
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: MinerU-2.5-pipeline
+  entry: mineru
+  type: null
+  score: 33.5
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench-fr
+  model: MinerU-2.5-pipeline
+  entry: mineru
+  type: null
+  score: 43.6
+  ci95: null
+  provenance: officiel
+  measured_by: Mainteneurs MDPBench pour le score privé (« run and verified by the MDPBench maintainers
+    ») ; origine du score public…
+  source_url: https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard/blob/main/leaderboard.json
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: gemini-3-pro-preview
+  entry: null
+  type: generaliste
+  score: 78.6
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: gemini-3-flash-preview
+  entry: null
+  type: generaliste
+  score: 75.5
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: datalab-to/chandra
+  entry: null
+  type: autre
+  score: 66.4
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: gpt-5.2
+  entry: null
+  type: generaliste
+  score: 60.2
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: gpt-5-mini
+  entry: null
+  type: generaliste
+  score: 57.4
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: rednote-hilab/dots.ocr
+  entry: dots.ocr
+  type: null
+  score: 54.7
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: lightonai/LightOnOCR-2-1B
+  entry: lightonocr-2-1b
+  type: null
+  score: 54.2
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: allenai/olmOCR-2-7B-1025-FP8
+  entry: olmocr-2
+  type: null
+  score: 46.1
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: mistral-ocr-latest
+  entry: mistral-ocr
+  type: null
+  score: 45.9
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: tencent/HunyuanOCR
+  entry: null
+  type: autre
+  score: 41.9
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: lightonai/LightOnOCR-1B-1025
+  entry: null
+  type: autre
+  score: 41.8
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: gemini-2.5-flash-lite
+  entry: null
+  type: generaliste
+  score: 39.7
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: PaddleOCR-VL-1.5
+  entry: null
+  type: autre
+  score: 38.1
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: deepseek-ai/DeepSeek-OCR
+  entry: deepseek-ocr
+  type: null
+  score: 37.7
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: deepseek-ai/DeepSeek-OCR-2
+  entry: deepseek-ocr-2
+  type: null
+  score: 24.2
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: opendatalab/MinerU2.5-2509-1.2B
+  entry: null
+  type: autre
+  score: 22.2
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: ibm-granite/granite-docling-258M
+  entry: granite-docling-258m
+  type: null
+  score: 12.8
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: docling
+  entry: docling
+  type: null
+  score: 11.9
+  ci95: null
+  provenance: officiel
+  measured_by: Probayes / OpenValue (auteurs du benchmark), inférence vlmparse sur 1 A100 80 Go
+  source_url: https://github.com/ld-lab-pulsia/benchpdf2md#results
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: MiniCPM-OCR 1.0
+  entry: minicpm-ocr-1.0
+  type: null
+  score: 96.51
+  ci95: null
+  provenance: editeur
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: MiniCPM-OCR 1.0
+  entry: minicpm-ocr-1.0
+  type: null
+  score: 93.68
+  ci95: null
+  provenance: editeur
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: MiniCPM-OCR 1.0
+  entry: minicpm-ocr-1.0
+  type: null
+  score: 82.7
+  ci95: null
+  provenance: editeur
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Xiaomi-OCR-0
+  entry: xiaomi-ocr-0
+  type: null
+  score: 96.83
+  ci95: null
+  provenance: editeur
+  measured_by: SeerRay-Lab (modèle nommé Xiaomi)
+  source_url: https://huggingface.co/SeerRay-Lab/Xiaomi-OCR-0
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Xiaomi-OCR-0
+  entry: xiaomi-ocr-0
+  type: null
+  score: 82.1
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: PaddleOCR-VL-1.6
+  entry: paddleocr-vl-1.6
+  type: null
+  score: 80.2
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Unlimited-OCR
+  entry: unlimited-ocr
+  type: null
+  score: 83.92
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Unlimited-OCR
+  entry: unlimited-ocr
+  type: null
+  score: 77.8
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Unlimited-OCR 2
+  entry: unlimited-ocr-2
+  type: null
+  score: 94.02
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Unlimited-OCR 2
+  entry: unlimited-ocr-2
+  type: null
+  score: 87.93
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Unlimited-OCR 2
+  entry: unlimited-ocr-2
+  type: null
+  score: 79.5
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Qianfan-OCR
+  entry: qianfan-ocr
+  type: null
+  score: 79.8
+  ci95: null
+  provenance: editeur
+  measured_by: Baidu (équipe Qianfan)
+  source_url: https://huggingface.co/baidu/Qianfan-OCR
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: GLM-OCR
+  entry: glm-ocr
+  type: null
+  score: 75.2
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: HunyuanOCR-1.5
+  entry: hunyuanocr-1.5
+  type: null
+  score: 94.74
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: HunyuanOCR-1.5
+  entry: hunyuanocr-1.5
+  type: null
+  score: 88.7
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: HunyuanOCR-1.5
+  entry: hunyuanocr-1.5
+  type: null
+  score: 78.6
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: WeVisDoc-4B
+  entry: wevisdoc-4b
+  type: null
+  score: 95.38
+  ci95: null
+  provenance: editeur
+  measured_by: Tencent
+  source_url: https://huggingface.co/tencent/WeVisDoc-4B
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: MinerU2.5-Pro (2605)
+  entry: mineru2.5-pro
+  type: null
+  score: 79.5
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: OvisOCR2
+  entry: ovisocr2
+  type: null
+  score: 80.3
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: OvisOCR3
+  entry: ovisocr3
+  type: null
+  score: 96.74
+  ci95: null
+  provenance: editeur
+  measured_by: ATH-MaaS (organisation Ovis)
+  source_url: https://huggingface.co/ATH-MaaS/OvisOCR3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: OvisOCR3
+  entry: ovisocr3
+  type: null
+  score: 93.63
+  ci95: null
+  provenance: editeur
+  measured_by: ATH-MaaS (organisation Ovis)
+  source_url: https://huggingface.co/ATH-MaaS/OvisOCR3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: mdpbench
+  model: OvisOCR3
+  entry: ovisocr3
+  type: null
+  score: 88.8
+  ci95: null
+  provenance: editeur
+  measured_by: ATH-MaaS (organisation Ovis)
+  source_url: https://huggingface.co/ATH-MaaS/OvisOCR3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: TeleOCR (ex-NaviDC-OCR)
+  entry: teleocr
+  type: null
+  score: 77.1
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: LightOnOCR-3-1B
+  entry: lightonocr-3-1b
+  type: null
+  score: 84.5
+  ci95: null
+  provenance: editeur
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: LightOnOCR-3-1B
+  entry: lightonocr-3-1b
+  type: null
+  score: 69.6
+  ci95: null
+  provenance: editeur
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: LightOnOCR-3-1B
+  entry: lightonocr-3-1b
+  type: null
+  score: 89.87
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: LightOnOCR-3-1B
+  entry: lightonocr-3-1b
+  type: null
+  score: 83.62
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: LightOnOCR-3-4B
+  entry: lightonocr-3-4b
+  type: null
+  score: 86.3
+  ci95: null
+  provenance: editeur
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: LightOnOCR-3-4B
+  entry: lightonocr-3-4b
+  type: null
+  score: 74.1
+  ci95: null
+  provenance: editeur
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: LightOnOCR-3-0.8B
+  entry: lightonocr-3-0.8b
+  type: null
+  score: 85.5
+  ci95: null
+  provenance: editeur
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: LightOnOCR-3-0.8B
+  entry: lightonocr-3-0.8b
+  type: null
+  score: 70.5
+  ci95: null
+  provenance: editeur
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Surya OCR 2
+  entry: surya-ocr-2
+  type: null
+  score: 83.3
+  ci95: null
+  provenance: editeur
+  measured_by: Datalab
+  source_url: https://huggingface.co/datalab-to/surya-ocr-2
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Surya OCR 2
+  entry: surya-ocr-2
+  type: null
+  score: 89.29
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Surya OCR 2
+  entry: surya-ocr-2
+  type: null
+  score: 84.88
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Chandra OCR 2
+  entry: chandra-ocr-2
+  type: null
+  score: 85.8
+  ci95: null
+  provenance: editeur
+  measured_by: Datalab
+  source_url: https://huggingface.co/datalab-to/chandra-ocr-2
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Chandra OCR 2
+  entry: chandra-ocr-2
+  type: null
+  score: 92.27
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: real5-omnidocbench
+  model: Chandra OCR 2
+  entry: chandra-ocr-2
+  type: null
+  score: 88.74
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: Chandra OCR 2
+  entry: chandra-ocr-2
+  type: null
+  score: 69.0
+  ci95: null
+  provenance: tiers
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: dots.ocr
+  entry: dots.ocr
+  type: null
+  score: 79.1
+  ci95: null
+  provenance: editeur
+  measured_by: rednote hilab (Xingyin Information Technology (Shanghai) Co., Ltd), dépôt désormais studio-dots-ai
+  source_url: https://huggingface.co/dots-studio/dots.ocr
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: dots.mocr
+  entry: dots.mocr
+  type: null
+  score: 83.9
+  ci95: null
+  provenance: editeur
+  measured_by: rednote hilab / studio-dots-ai
+  source_url: https://huggingface.co/dots-studio/dots.mocr
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: dots.mocr
+  entry: dots.mocr
+  type: null
+  score: 59.3
+  ci95: null
+  provenance: tiers
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Nanonets-OCR-s
+  entry: nanonets-ocr-s
+  type: null
+  score: 64.1
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: DeepSeek-OCR 2
+  entry: deepseek-ocr-2
+  type: null
+  score: 78.2
+  ci95: null
+  provenance: tiers
+  measured_by: OpenBMB
+  source_url: https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/main/assets/minicpm-ocr/ocr-benchmarks.png
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: jina-ocr-v1
+  entry: jina-ocr-v1
+  type: null
+  score: 91.14
+  ci95: null
+  provenance: editeur
+  measured_by: Jina AI
+  source_url: https://huggingface.co/jinaai/jina-ocr-v1
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: jina-ocr-v1
+  entry: jina-ocr-v1
+  type: null
+  score: 83.4
+  ci95: null
+  provenance: editeur
+  measured_by: Jina AI
+  source_url: https://huggingface.co/jinaai/jina-ocr-v1
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: jina-ocr-v1
+  entry: jina-ocr-v1
+  type: null
+  score: 53.2
+  ci95: null
+  provenance: tiers
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: MonkeyOCRv2-B-Parsing
+  entry: monkeyocrv2-b-parsing
+  type: null
+  score: 91.57
+  ci95: null
+  provenance: tiers
+  measured_by: ATH-MaaS (OvisOCR3)
+  source_url: https://huggingface.co/ATH-MaaS/OvisOCR3
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: olmocr-bench
+  model: Infinity-Parser2-Pro
+  entry: infinity-parser2-pro
+  type: null
+  score: 87.6
+  ci95: null
+  provenance: editeur
+  measured_by: INF Tech (infly)
+  source_url: https://huggingface.co/infly/Infinity-Parser2-Pro
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: omnidocbench
+  model: Infinity-Parser2-Pro
+  entry: infinity-parser2-pro
+  type: null
+  score: 93.95
+  ci95: null
+  provenance: editeur
+  measured_by: INF Tech (infly)
+  source_url: https://huggingface.co/infly/Infinity-Parser2-Pro
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: fr-bench-pdf2md
+  model: Infinity-Parser2-Pro
+  entry: infinity-parser2-pro
+  type: null
+  score: 63.2
+  ci95: null
+  provenance: tiers
+  measured_by: LightOn
+  source_url: https://huggingface.co/blog/lightonai/lightonocr-3
+  date: null
+  verified_on: '2026-10-28'

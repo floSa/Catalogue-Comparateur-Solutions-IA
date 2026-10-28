@@ -23,6 +23,14 @@ Comparaison avec l'instantané `2026-10-23.json`.
   mainteneur), CursorBench (version 4.0, harnais non publié), APEX-Agents, MirrorCode.
 - Tous les benchmarks de l'export Epoch sont désormais classés : 14 suivis, 78 écartés avec leur motif.
 
+## OCR (nouvel onglet)
+
+- 38 modèles de lecture de documents, 6 moteurs OCR classiques, 6 chaînes de conversion
+  (Docling, Marker, MinerU…), chacun avec sa licence classée : libre, sous conditions, non
+  commercial, non déclarée, exclue de l'UE, propriétaire (Mistral OCR).
+- 5 benchmarks (OmniDocBench v1.6, Real5-OmniDocBench, olmOCR-Bench, MDPBench et sa colonne
+  français, fr-bench-pdf2md) : 219 scores, marqués « officiel », « éditeur » ou « tiers ».
+
 ## Tarifs
 
 - `gpt-6.1-terra` : 1,00 / 0,05 / 5,00 $ par million de tokens (developers.openai.com).

@@ -146,6 +146,7 @@ resterait à faire — le plan de travail s'en charge.
 | Tarifs API | 81 tarifs relevés, couvrant 118 modèles · 44 sans tarif éditeur | page tarifaire officielle du fournisseur, ou son annonce quand le modèle n'y figure pas encore |
 | Forfaits d'abonnement | 30 paliers, 9 éditeurs | page tarifaire officielle |
 | Harnais et passerelles | 98 fiches, dont 95 vivantes publiées | documentation ou tarifs de l'éditeur |
+| OCR | 50 fiches (38 modèles, 6 moteurs, 6 chaînes de conversion), 219 scores sur 6 vues de benchmark | fiche Hugging Face ou dépôt de l'éditeur ; classements officiels des benchmarks |
 | Balayage des fournisseurs | 11 sur 11 | recherche outil par outil, y compris les absences |
 | Taux de change | 1 EUR = 1,1539 USD | taux de référence BCE du 15/09/2026 |
 

@@ -70,3 +70,20 @@ Deux régimes coexistent, dans deux fichiers distincts :
 
 Le contenu est sous CC BY 4.0 par compatibilité avec les données d'Epoch AI dont il
 dérive : retenir la même licence préserve la chaîne d'attribution en aval.
+
+## Benchmarks OCR
+
+Les scores de `catalog/ocr_benchmarks.yaml` sont relevés à la main sur les classements
+officiels, chacun avec son `source_url` :
+
+| Benchmark | Auteur | Classement | Licence des données |
+|---|---|---|---|
+| OmniDocBench | OpenDataLab (Shanghai AI Laboratory) | https://github.com/opendatalab/OmniDocBench | usage de recherche |
+| Real5-OmniDocBench | PaddlePaddle (Baidu) | https://huggingface.co/datasets/PaddlePaddle/Real5-OmniDocBench | Apache-2.0 (pages héritées d'OmniDocBench) |
+| olmOCR-Bench | Allen Institute for AI | https://github.com/allenai/olmocr/blob/main/olmocr/bench/README.md | ODC-BY-1.0 (attribution requise) |
+| MDPBench | HUST | https://huggingface.co/spaces/Delores-Lin/MDPBench-leaderboard | Apache-2.0 (partie publique) |
+| fr-bench-pdf2md | Probayes et OpenValue | https://github.com/ld-lab-pulsia/benchpdf2md | MIT |
+
+Seuls des scores sont repris, jamais les documents des jeux de test. Les chiffres
+publiés par un éditeur de modèle ou par un tiers (OpenBMB, LightOn…) sont marqués
+comme tels (`provenance`) et renvoient à leur page d'origine.

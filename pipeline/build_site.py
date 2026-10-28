@@ -103,7 +103,15 @@ def build_payload() -> dict:
             pl["eur_ht"] = round(u * fx, 2)          # pro, autoliquidation
             pl["eur_ttc"] = round(u * fx * (1 + vat), 2)  # particulier, TVA FR
 
+    ocr, ocrb = load("ocr.yaml"), load("ocr_benchmarks.yaml")
+    # Le suivi de vérification (non_verifie, verified_on) reste au catalogue.
+    nett = lambda d: {k: v for k, v in d.items() if k not in ("non_verifie", "verified_on")}
     return {
+        "ocr": {"entries": [nett(e) for e in ocr.get("entries", [])],
+                "ecartes": ocr.get("ecartes", []), "classes": ocr.get("licence_classes", {}),
+                "benchmarks": [nett(b) for b in ocrb.get("benchmarks", [])],
+                "rejected": ocrb.get("rejected", []),
+                "scores": [nett(r) for r in ocrb.get("scores", [])]},
         "edition": meta.get("audit", {}).get("label", ""),
         "generated": date.today().isoformat(),
         "fx": meta.get("fx", {}),
@@ -295,6 +303,34 @@ summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 .bc h3{margin:0 0 3px;font-size:13.5px;font-weight:600}
 .bc p{margin:5px 0 0;font-size:12.5px;color:var(--ink-2)}
 .bg{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.olg{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--ink-2);margin:4px 0 10px}
+.olg span{display:inline-flex;align-items:center;gap:6px}
+.ob{display:inline-block;width:22px;height:10px;border-radius:2px}
+.p-officiel{background:var(--s1)}
+.p-editeur{background:repeating-linear-gradient(135deg,var(--s1) 0 3px,transparent 3px 6px);
+ box-shadow:inset 0 0 0 1px var(--s1)}
+.p-tiers{background:transparent;box-shadow:inset 0 0 0 1.5px var(--s1)}
+.jp{color:var(--warn);font-weight:600}
+.orow{display:grid;grid-template-columns:minmax(150px,260px) 1fr 54px;gap:10px;align-items:center;
+ padding:3px 0;font-size:12.5px}
+.orow .nm{overflow-wrap:anywhere}
+.orow .nm small{color:var(--ink-3);display:block;font-size:11px}
+.orow .tr{height:12px;background:var(--grid);border-radius:2px;position:relative}
+.orow .tr .ob{position:absolute;inset:0 auto 0 0;height:auto;width:auto}
+.orow .v{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;text-align:right}
+.orow.gen{color:var(--ink-3)}
+.orow.gen .ob{filter:grayscale(1);opacity:.6}
+.lc{display:inline-block;padding:0 6px;border-radius:99px;font-size:10.5px;border:1px solid;white-space:nowrap}
+.lc-libre{color:var(--good);border-color:var(--good)}
+.lc-conditions{color:var(--warn);border-color:var(--warn)}
+.lc-non_commercial,.lc-non_declaree,.lc-exclue_ue{color:var(--bad);border-color:var(--bad)}
+.lc-proprietaire{color:var(--ink-2);border-color:var(--line-strong)}
+.ot{max-height:none}
+.ot td{vertical-align:top}
+.ot td small{display:block;color:var(--ink-3);font-size:11px;margin-top:2px}
+#ocr-cat{margin:18px 0 10px}
+#ofl{margin:0 0 10px}
+@media(max-width:600px){.orow{grid-template-columns:minmax(110px,40%) 1fr 46px}}
 .bgh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
 .bg summary{list-style:none;color:inherit;font-size:inherit;padding:0}
 .bg summary::-webkit-details-marker{display:none}
@@ -339,6 +375,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <span class="fr">Harnais</span><span class="en">harness</span></button>
   <button data-s="passerelles" role="tab" aria-selected="false">
     <span class="fr">Passerelles</span><span class="en">gateways</span></button>
+  <button data-s="ocr" role="tab" aria-selected="false">
+    <span class="fr">OCR</span><span class="en">documents</span></button>
   <button data-s="methode" role="tab" aria-selected="false">
     <span class="fr">Méthode</span><span class="en">methodology</span></button>
 </nav>
@@ -428,6 +466,64 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   cela change le prix, la latence et qui voit vos données.</p>
   <div class="seg" id="pas-cat" role="group" aria-label="Catégories de passerelles"></div>
   <div id="pas"></div>
+</section>
+
+<section id="s-ocr" role="tabpanel" hidden>
+  <h2>OCR et lecture de documents <span class="en-h">document parsing</span></h2>
+  <p class="layer">Transformer des PDF, des scans et des photos en texte exploitable. Trois familles à ne
+  pas confondre : les <b>moteurs OCR classiques</b> lisent les caractères ligne par ligne ; les
+  <b>modèles de lecture de documents</b> prennent une page et rendent du Markdown structuré ; les
+  <b>chaînes de conversion</b> (Docling, Marker, MinerU) orchestrent mise en page, tableaux et formules,
+  et confient la lecture des caractères à un moteur ou à un modèle, comme un harnais pilote un modèle.
+  Ne figurent que des outils qu'on peut faire tourner soi-même, plus Mistral OCR, service payant, pour
+  comparaison.</p>
+  <div class="seg" id="ocr-cat" role="group" aria-label="Sous-sections OCR">
+    <button data-o="rank" aria-pressed="true">Classement</button>
+    <button data-o="modele" aria-pressed="false">Modèles</button>
+    <button data-o="moteur" aria-pressed="false">Moteurs classiques</button>
+    <button data-o="chaine" aria-pressed="false">Chaînes de conversion</button>
+  </div>
+
+  <div id="o-rank">
+    <div class="panel">
+      <div class="ctrl">
+        <label class="f">Benchmark<select id="obench"></select></label>
+        <label class="f">Licence<select id="olic">
+          <option value="">Toutes</option><option value="libre">Libres seulement</option>
+          <option value="gratuit">Gratuites (libres ou sous conditions)</option></select></label>
+        <label class="f">Modèles généralistes<select id="ogen">
+          <option value="1">Affichés (référence)</option><option value="0">Masqués</option></select></label>
+      </div>
+      <p class="olg"><span><i class="ob p-officiel"></i>mesuré par l'auteur du benchmark</span>
+        <span><i class="ob p-editeur"></i>publié par l'éditeur du modèle</span>
+        <span><i class="ob p-tiers"></i>mesuré par un autre acteur</span>
+        <span><b class="jp">⚖</b> auteur du benchmark classant son propre modèle</span></p>
+      <div id="obars"></div>
+      <div id="onote"></div>
+    </div>
+    <div class="bgh"><h2>Que mesure chaque benchmark ?</h2>
+      <div class="seg" id="ogv" role="group" aria-label="Longueur des fiches">
+        <button data-v="0" aria-pressed="true">Version courte</button>
+        <button data-v="1" aria-pressed="false">Version longue</button></div></div>
+    <div class="bl bg" id="ogl"></div>
+    <details><summary id="orj">Benchmarks écartés</summary><div class="bl" id="orlist"></div></details>
+  </div>
+  <div id="o-modele" hidden>
+    <div class="seg" id="ofl" role="group" aria-label="Filtre de licence"></div>
+    <div class="tw ot"><table id="otm"></table></div>
+  </div>
+  <div id="o-moteur" hidden><div class="tw ot"><table id="otd"></table></div></div>
+  <div id="o-chaine" hidden>
+    <div class="note"><b>Docling est-il un OCR ?</b> Non. Docling lit lui-même la couche texte des PDF,
+    analyse la mise en page avec son propre modèle, reconstruit les tableaux et exporte en Markdown ou
+    JSON. La reconnaissance des caractères, il la confie à un moteur installé à part, choisi
+    automatiquement : OcrMac sur macOS, Nemotron OCR sous Linux avec GPU, sinon RapidOCR, puis EasyOCR ;
+    Tesseract n'est jamais choisi d'office. Il peut aussi confier la page entière à un modèle comme
+    Granite-Docling. Sous Linux sans GPU, RapidOCR charge par défaut le modèle chinois : pour du
+    français, passer <code>lang=['french']</code>.</div>
+    <div class="tw ot"><table id="otc"></table></div>
+  </div>
+  <details><summary id="oej">Outils écartés</summary><div class="bl" id="oelist"></div></details>
 </section>
 
 <section id="s-methode" role="tabpanel" hidden>
@@ -1317,7 +1413,7 @@ $('#kind').addEventListener('click',e=>{const b=e.target.closest('button');
 [bsel,lsel,$('#top'),$('#eff'),$('#bud')].forEach(el=>el.addEventListener('change',draw));
 
 // ── navigation par onglets ────────────────────────────────────────────────
-const SEC=['mesures','modeles','harnais','passerelles','methode'];
+const SEC=['mesures','modeles','harnais','passerelles','ocr','methode'];
 function showSection(name,remonter){
   SEC.forEach(x=>{const el=$('#s-'+x);if(el)el.hidden=(x!==name);});
   [...$('#nav').children].forEach(b=>
@@ -1486,6 +1582,91 @@ $('#meth').innerHTML=[
   "n'a pas à être recommandé. Sa fiche reste au catalogue, avec la date de son dernier commit — "+
   "savoir qu'un outil est mort compte, mais c'est une information de suivi, pas de choix."],
 ].map(([t,d])=>`<div class="bc"><h3>${esc(t)}</h3><p>${d}</p></div>`).join('');
+
+// ── OCR ───────────────────────────────────────────────────────────────────
+const O=D.ocr, OE=Object.fromEntries(O.entries.map(e=>[e.id,e]));
+const LCL={libre:'libre',conditions:'sous conditions',non_commercial:'non commercial',
+ non_declaree:'licence non déclarée',exclue_ue:'exclue de l’UE',proprietaire:'propriétaire'};
+const FAML={modele:'modèle',moteur:'moteur',chaine:'chaîne'};
+const lchip=c=>c?`<span class="lc lc-${c}" title="${esc(O.classes[c]||'')}">${LCL[c]}</span>`:'';
+const PROVL={officiel:"mesuré par l'auteur du benchmark",editeur:"publié par l'éditeur du modèle",
+ tiers:'mesuré par un autre acteur'};
+const obsel=$('#obench');
+O.benchmarks.forEach(b=>obsel.add(new Option(`${b.nom} — ${b.categorie}`,b.id)));
+function ocrRank(){
+  const b=O.benchmarks.find(x=>x.id===obsel.value), lic=$('#olic').value, gen=$('#ogen').value==='1';
+  let r=O.scores.filter(x=>x.benchmark===b.id).filter(x=>{
+    const e=OE[x.entry];
+    if(!e)return x.type==='generaliste'?gen:!lic;
+    return !lic||e.licence_classe==='libre'||(lic==='gratuit'&&e.licence_classe==='conditions');});
+  r.sort((a,c)=>c.score-a.score);
+  $('#obars').innerHTML=r.map(x=>{const e=OE[x.entry];
+    const sub=e?`${FAML[e.famille]} · ${lchip(e.licence_classe)}`:
+      (x.type==='generaliste'?'modèle généraliste':'hors catalogue');
+    const jp=e&&b.juge_et_partie.includes(e.id)?' <b class="jp" title="Classé par l’auteur du benchmark, qui publie aussi ce modèle">⚖</b>':'';
+    const tip=`${PROVL[x.provenance]} — ${x.measured_by}`;
+    return `<div class="orow${x.type==='generaliste'?' gen':''}"><div class="nm">${esc(x.model)}${jp}<small>${sub}</small></div>
+      <div class="tr" title="${esc(tip)}"><i class="ob p-${x.provenance}" style="width:${Math.max(0,Math.min(100,x.score))}%"></i></div>
+      <div class="v"><a href="${esc(x.source_url)}" rel="noopener" title="${esc(tip)}">${x.score.toFixed(1)}</a></div></div>`;}).join('')
+    ||'<p class="empty">Aucun score pour ce filtre.</p>';
+  const top=r.filter(x=>x.provenance==='officiel');
+  $('#onote').innerHTML=`<div class="note"><b>Comment lire.</b> Score ${esc(b.unite)}, plus haut = mieux. `+
+    `Classement officiel mis à jour le ${esc(b.mis_a_jour||'—')} (<a href="${esc(b.classement)}" rel="noopener">source</a>). `+
+    `Les barres pleines viennent du classement officiel ; les barres hachurées ou vides sont des chiffres publiés `+
+    `ailleurs, à prendre avec prudence et à ne pas comparer finement aux premières.`+
+    (top.length>1&&top[0].score-top[1].score<1?` Les deux premiers du classement officiel sont à moins d'un point, sans intervalle de confiance publié : pas de vainqueur.`:'')+
+    (b.conflit_note?` <b class="jp">⚖</b> ${esc(b.conflit_note)}`:'')+'</div>';
+  document.querySelectorAll('#ogl .bc').forEach(c=>c.classList.toggle('on',c.dataset.b===b.id));
+}
+['#obench','#olic','#ogen'].forEach(k=>$(k).addEventListener('change',ocrRank));
+$('#ogl').innerHTML=O.benchmarks.map(b=>`<details class="bc" data-b="${esc(b.id)}"><summary>
+  <h3>${esc(b.nom)}</h3><p><span class="fam">${esc(b.categorie)}.</span> ${esc(b.court)}</p>
+  <span class="mo">▸ En savoir plus</span></summary><p class="au">${esc(b.auteur)}</p><dl>
+  <dt>Ce qu'il évalue</dt><dd>${esc(b.evalue)}</dd><dt>Comment</dt><dd>${esc(b.comment)}</dd>
+  <dt>Pour choisir un outil</dt><dd>${esc(b.pourquoi)}</dd></dl>
+  <p><a href="${esc(b.classement)}" rel="noopener">Classement</a> · <a href="${esc(b.article)}" rel="noopener">Article</a></p></details>`).join('');
+$('#ogv').addEventListener('click',e=>{const v=e.target.closest('button');if(!v)return;
+  $('#ogv').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===v)));
+  document.querySelectorAll('#ogl details').forEach(d=>d.open=v.dataset.v==='1');});
+$('#orj').textContent=`Benchmarks écartés (${O.rejected.length}) — et pourquoi`;
+$('#orlist').innerHTML=O.rejected.map(b=>`<div class="bc"><h3>${esc(b.benchmark)}</h3><p>${esc(b.motif)}</p></div>`).join('');
+ocrRank();
+
+const lien=(u,t)=>u?`<a href="${esc(u)}" rel="noopener">${t}</a>`:'';
+const licCell=e=>`${lchip(e.licence_classe)}<small>${esc(e.licence)}</small>${e.licence_note?`<small>${esc(e.licence_note)}</small>`:''}`;
+const frCell=e=>`${e.francais?'oui':'non cité'}${e.francais_note?`<small>${esc(e.francais_note)}</small>`:''}`;
+const parNom=(a,c)=>a.nom.localeCompare(c.nom,'fr');
+let OFL='';
+function ocrModeles(){
+  const L=O.entries.filter(e=>e.famille==='modele'&&(!OFL||e.licence_classe===OFL)).sort(parNom);
+  $('#otm').innerHTML='<thead><tr><th>Modèle</th><th>Éditeur</th><th>Taille</th><th>Licence</th>'+
+    '<th>Français</th><th>Pour le faire tourner</th><th>Sortie</th></tr></thead><tbody>'+
+    L.map(e=>`<tr><td><b>${lien(e.url,esc(e.nom))}</b><small>${esc(e.sortie||'')}</small></td>
+      <td>${esc(e.editeur)}</td><td>${esc(e.parametres||'—')}</td><td>${licCell(e)}</td>
+      <td>${frCell(e)}</td><td>${esc((e.inference||[]).join(', ')||'—')}</td>
+      <td><small>${esc(e.sortie_format||'—')}</small></td></tr>`).join('')+'</tbody>';
+}
+const cls=[...new Set(O.entries.filter(e=>e.famille==='modele').map(e=>e.licence_classe))];
+$('#ofl').innerHTML=`<button data-l="" aria-pressed="true">Toutes (${O.entries.filter(e=>e.famille==='modele').length})</button>`+
+  Object.keys(LCL).filter(c=>cls.includes(c)).map(c=>`<button data-l="${c}" aria-pressed="false">${LCL[c]} (${
+    O.entries.filter(e=>e.famille==='modele'&&e.licence_classe===c).length})</button>`).join('');
+$('#ofl').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  OFL=b.dataset.l;$('#ofl').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));ocrModeles();});
+ocrModeles();
+const outilRow=(e,chaine)=>`<tr><td><b>${lien(e.url,esc(e.nom))}</b><small>${esc(e.editeur)}</small></td>
+  <td>${licCell(e)}</td><td>${frCell(e)}</td>
+  <td>${e.gpu_requis?'GPU requis':'CPU possible'}${e.materiel_note?`<small>${esc(e.materiel_note)}</small>`:''}</td>
+  ${chaine?`<td><small>${esc(e.ocr_defaut||'—')}</small></td>`:''}
+  <td class="n">${e.etoiles?e.etoiles.toLocaleString('fr-FR'):'—'}<small>${esc(e.derniere_version||'')} ${esc(e.derniere_version_date||'')}</small></td></tr>`;
+const outilHead=chaine=>'<thead><tr><th>Outil</th><th>Licence</th><th>Français</th><th>Matériel</th>'+
+  (chaine?'<th>OCR utilisé par défaut</th>':'')+'<th class="n">Étoiles GitHub</th></tr></thead>';
+$('#otd').innerHTML=outilHead(false)+'<tbody>'+O.entries.filter(e=>e.famille==='moteur').sort(parNom).map(e=>outilRow(e,false)).join('')+'</tbody>';
+$('#otc').innerHTML=outilHead(true)+'<tbody>'+O.entries.filter(e=>e.famille==='chaine').sort(parNom).map(e=>outilRow(e,true)).join('')+'</tbody>';
+$('#oej').textContent=`Outils écartés (${O.ecartes.length}) — et pourquoi`;
+$('#oelist').innerHTML=O.ecartes.map(e=>`<div class="bc"><h3>${esc(e.nom)}</h3><p>${esc(e.motif)}</p></div>`).join('');
+$('#ocr-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  $('#ocr-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  ['rank','modele','moteur','chaine'].forEach(k=>{$('#o-'+k).hidden=(k!==b.dataset.o);});});
 
 // ── fiches benchmarks ─────────────────────────────────────────────────────
 $('#bgl').innerHTML=D.benchmarks.map(b=>{const x=b.x||{};

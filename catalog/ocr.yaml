@@ -1,0 +1,1722 @@
+_meta:
+  verified_on: '2026-10-28'
+  note: 'Fiches OCR : modèles de lecture de documents, moteurs OCR classiques, chaînes de conversion.
+    Édité à la main ; affiché dans l''onglet OCR (pipeline/build_site.py).'
+licence_classes:
+  libre: Licence libre (Apache-2.0, MIT…) sans restriction d’usage.
+  conditions: Gratuit sous conditions (plafond de chiffre d’affaires, contrat complémentaire, copyleft
+    fort).
+  non_commercial: Recherche ou usage non commercial seulement.
+  non_declaree: Aucune licence déclarée sur les poids.
+  exclue_ue: Licence inapplicable dans l’Union européenne.
+  proprietaire: Service propriétaire, poids fermés.
+docling_est_il_un_ocr:
+  reponse: Non. Docling est une chaine de conversion. Il fait lui-meme la lecture de la couche texte,
+    l'analyse de mise en page, la structure des tableaux et l'export. Il delegue la reconnaissance des
+    caracteres a un moteur OCR externe, ou la page entiere a un VLM.
+  sources:
+  - https://github.com/docling-project/docling/blob/main/docs/concepts/OCR.md
+  - https://github.com/docling-project/docling/blob/main/docling/datamodel/pipeline_options.py
+  - https://github.com/docling-project/docling/blob/main/docs/getting_started/installation.md
+entries:
+- id: minicpm-ocr-1.0
+  nom: MiniCPM-OCR 1.0
+  famille: modele
+  editeur: OpenBMB
+  sortie: '2026-10-21'
+  parametres: 1.3B
+  base: MiniCPM-V 4.6 (encodeur SigLIP + LM Qwen3.5)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: Non listé comme langue ; seul le tutoriel de fine-tuning porte sur du manuscrit français.
+  inference:
+  - vLLM
+  - SGLang
+  - llama.cpp
+  - Ollama
+  - transformers
+  - FlagOS
+  sortie_format: Texte brut par région ; tableaux en OTSL convertis en HTML par le SDK ; formules en LaTeX
+    ; extraction d'information en JSON ; Markdown de…
+  url: https://huggingface.co/openbmb/MiniCPM-OCR-1.0
+  url_code: https://github.com/OpenBMB/MiniCPM-OCR
+  non_verifie:
+  - 'Mémoire GPU minimale : non écrite (la FAQ ne donne que ≥20 Go de disque).'
+  - Scores lus sur une image PNG (transcription manuelle).
+  - 'Gain DSpark de 55 % : commandes de reproduction « remain to be added » selon OpenBMB.'
+  verified_on: '2026-10-28'
+- id: xiaomi-ocr-0
+  nom: Xiaomi-OCR-0
+  famille: modele
+  editeur: SeerRay-Lab (modèle nommé Xiaomi)
+  sortie: '2026-09-30'
+  parametres: 0.8B
+  base: Qwen/Qwen3.5-0.8B-Base
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  sortie_format: Markdown de page (en-têtes/pieds ignorés), tableaux en OTSL, formules en LaTeX, ordre
+    de lecture ; JSON pour l'extraction d'information ;…
+  url: https://huggingface.co/SeerRay-Lab/Xiaomi-OCR-0
+  url_code: https://github.com/SeerRay-Lab/Xiaomi-OCR-0
+  non_verifie:
+  - 'Lien juridique entre SeerRay-Lab et Xiaomi : non établi sur la fiche.'
+  - 'Langues couvertes : non déclarées.'
+  - 'Support vLLM/SGLang : non documenté.'
+  verified_on: '2026-10-28'
+- id: paddleocr-vl-1.6
+  nom: PaddleOCR-VL-1.6
+  famille: modele
+  editeur: Baidu (PaddlePaddle)
+  sortie: '2026-05-28'
+  parametres: 0.9B
+  base: Architecture PaddleOCR-VL-1.5 (encodeur NaViT + ERNIE-4.5-0.3B, d'après la fiche PaddleOCR-VL
+    v1.0)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - PaddlePaddle
+  - transformers (>=5)
+  - vLLM
+  - llama.cpp
+  sortie_format: 'Markdown et JSON (pipeline PaddleOCR : save_to_markdown / save_to_json) ; tableaux,
+    formules, graphiques, sceaux, repérage de texte'
+  url: https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6
+  url_code: https://github.com/PaddlePaddle/PaddleOCR
+  non_verifie:
+  - 'Scores Real5 / OmniDocBench v1.5 auto-déclarés : seulement en image sur la fiche, non relevés.'
+  - Couverture linguistique de la 1.6 et présence explicite du français.
+  verified_on: '2026-10-28'
+- id: unlimited-ocr
+  nom: Unlimited-OCR
+  famille: modele
+  editeur: Baidu
+  sortie: '2026-06-22'
+  parametres: null
+  base: Prolonge DeepSeek-OCR (encodeur à forte compression de DeepSeek-OCR, d'après l'article)
+  licence: MIT
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM (recette officielle + image docker)
+  - SGLang (wheel personnalisée)
+  sortie_format: Markdown avec marqueurs <|det|>type [bbox]<|/det|> (à retirer en post-traitement) ; analyse
+    multipage en une passe
+  url: https://huggingface.co/baidu/Unlimited-OCR
+  url_code: https://github.com/baidu/Unlimited-OCR
+  non_verifie:
+  - Aucun score auto-déclaré relevé en texte (fiche HF ni README GitHub).
+  - Taille annoncée par l'éditeur.
+  verified_on: '2026-10-28'
+- id: unlimited-ocr-2
+  nom: Unlimited-OCR 2
+  famille: modele
+  editeur: Baidu
+  sortie: '2026-10-27'
+  parametres: null
+  base: Unlimited-OCR (lignée DeepSeek-OCR), attention SR-SWA
+  licence: MIT
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - SGLang (wheel personnalisée)
+  sortie_format: Markdown multipage (balises <PAGE>), documents « de longueur illimitée » par fenêtres
+    de pages
+  url: https://huggingface.co/baidu/Unlimited-OCR-2
+  url_code: https://github.com/baidu/Unlimited-OCR
+  non_verifie:
+  - 'Publié la veille du relevé : article dédié non trouvé, aucun score auto-déclaré en texte.'
+  - Support vLLM non mentionné pour la v2.
+  verified_on: '2026-10-28'
+- id: qianfan-ocr
+  nom: Qianfan-OCR
+  famille: modele
+  editeur: Baidu (équipe Qianfan)
+  sortie: '2026-03-18'
+  parametres: 4B
+  base: 'Architecture Qianfan-VL : Qianfan-ViT + LM Qwen3-4B'
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: Écriture latine couverte, français non nommé.
+  inference:
+  - transformers
+  - vLLM
+  sortie_format: Markdown pleine page ; analyse de mise en page ; extraction d'information ; questions-réponses
+    sur document
+  url: https://huggingface.co/baidu/Qianfan-OCR
+  url_code: https://github.com/baidubce/Qianfan-VL
+  non_verifie:
+  - Mémoire GPU minimale non écrite.
+  verified_on: '2026-10-28'
+- id: glm-ocr
+  nom: GLM-OCR
+  famille: modele
+  editeur: Z.ai (Zhipu)
+  sortie: '2026-01-30'
+  parametres: 0.9B
+  base: 'Architecture GLM-V : encodeur CogViT 0.4B + décodeur GLM 0.5B (article)'
+  licence: MIT
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: null
+  inference:
+  - vLLM
+  - SGLang
+  - transformers
+  - Ollama
+  - MLX (mlx-vlm)
+  sortie_format: Texte, formules, tableaux par région (assemblés en Markdown par le SDK) ; JSON selon
+    schéma imposé pour l'extraction d'information
+  url: https://huggingface.co/zai-org/GLM-OCR
+  url_code: https://github.com/zai-org/GLM-OCR
+  non_verifie:
+  - Matériel de la mesure de débit auto-déclarée (seulement dans une image).
+  verified_on: '2026-10-28'
+- id: hunyuanocr-1.5
+  nom: HunyuanOCR-1.5
+  famille: modele
+  editeur: Tencent (Hunyuan)
+  sortie: '2026-07-07'
+  parametres: null
+  base: Architecture HunyuanOCR-1.0 inchangée (base non nommée sur la fiche)
+  licence: Tencent Hunyuan Community License Agreement (licence maison)
+  licence_classe: exclue_ue
+  licence_note: 'La licence de Tencent « ne s''applique pas dans l''Union européenne, au Royaume-Uni et
+    en Corée du Sud » : pas d''usage légal en France.'
+  francais: false
+  francais_note: null
+  inference:
+  - transformers (>=5.13)
+  - vLLM (>=0.25.1)
+  - llama.cpp (conversion GGUF documentée)
+  - DFlash (décodage spéculatif)
+  sortie_format: Markdown (tableaux HTML, formules LaTeX), analyse structurée, repérage de texte en JSON,
+    mise en page, graphiques, traduction texte-image
+  url: https://huggingface.co/tencent/HunyuanOCR
+  url_code: https://github.com/Tencent-Hunyuan/HunyuanOCR
+  non_verifie:
+  - 'Scores OmniDocBench auto-déclarés : non trouvés en texte (résumé arXiv : « top-tier » sans chiffre).'
+  - Nombre de paramètres officiel (le total HF peut inclure des éléments hors modèle principal).
+  verified_on: '2026-10-28'
+- id: wevisdoc-4b
+  nom: WeVisDoc-4B
+  famille: modele
+  editeur: Tencent
+  sortie: '2026-09-16'
+  parametres: 4B
+  base: Qwen/Qwen3-VL-4B-Instruct
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM (>=0.11.1)
+  sortie_format: Markdown structuré, formules LaTeX, tableaux HTML
+  url: https://huggingface.co/tencent/WeVisDoc-4B
+  url_code: https://github.com/Tencent/WeVisDoc
+  non_verifie:
+  - Mémoire GPU et débit non écrits.
+  verified_on: '2026-10-28'
+- id: points-reader
+  nom: POINTS-Reader
+  famille: modele
+  editeur: Tencent (WePOINTS)
+  sortie: '2025-08-26'
+  parametres: null
+  base: Structure POINTS1.5 avec LM Qwen2.5-3B-Instruct + NaViT 600M
+  licence: 'Contradictoire : métadonnée HF apache-2.0, MAIS LICENSE.txt du dépôt…'
+  licence_classe: non_commercial
+  licence_note: 'Usage de recherche ou d''évaluation seulement : pas d''usage commercial.'
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - SGLang
+  sortie_format: Tableaux en HTML, reste en Markdown
+  url: https://huggingface.co/tencent/POINTS-Reader
+  url_code: https://github.com/Tencent/POINTS-Reader
+  non_verifie:
+  - Version d'OmniDocBench utilisée.
+  verified_on: '2026-10-28'
+- id: mineru2.5-pro
+  nom: MinerU2.5-Pro (2605)
+  famille: modele
+  editeur: OpenDataLab (Shanghai AI Laboratory)
+  sortie: '2026-05-21'
+  parametres: 1.2B
+  base: Architecture MinerU2.5 inchangée (classe Qwen2VL dans transformers)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: 'Poids : aucune. Si l''on utilise la chaîne MinerU : licence commerciale séparée au-delà
+    de 100 M d''utilisateurs actifs mensuels OU 20 M USD de chiffre d''affaires MENSUEL ; obligation d''afficher
+    l''usage de MinerU pour un service en ligne.'
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM
+  sortie_format: JSON (blocs avec boîtes et types) converti en Markdown (json2md)
+  url: https://huggingface.co/opendatalab/MinerU2.5-Pro-2605-1.2B
+  url_code: https://github.com/opendatalab/mineru-vl-utils
+  non_verifie:
+  - Modèle de langage exact sous-jacent (non nommé sur la fiche).
+  verified_on: '2026-10-28'
+- id: ovisocr2
+  nom: OvisOCR2
+  famille: modele
+  editeur: ATH-MaaS (organisation Ovis ; le dépôt GitHub AIDC-AI/Ovis…
+  sortie: '2026-07-13'
+  parametres: 0.8B
+  base: Qwen/Qwen3.5-0.8B
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM (0.22.1)
+  sortie_format: Markdown pleine page en ordre de lecture, formules LaTeX, tableaux HTML, régions visuelles
+    en balises img avec bbox normalisée [0,1000)
+  url: https://huggingface.co/ATH-MaaS/OvisOCR2
+  url_code: https://github.com/ATH-MaaS/Ovis
+  non_verifie:
+  - Appartenance d'ATH-MaaS à Alibaba (seule la redirection GitHub AIDC-AI -> ATH-MaaS est constatée).
+  - Langues couvertes.
+  verified_on: '2026-10-28'
+- id: ovisocr3
+  nom: OvisOCR3
+  famille: modele
+  editeur: ATH-MaaS (organisation Ovis)
+  sortie: '2026-10-21'
+  parametres: 0.8B
+  base: Qwen/Qwen3.5-0.8B
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM (0.22.1)
+  sortie_format: Markdown (LaTeX, HTML) ; JSON structuré avec bbox, catégorie et contenu ; JSON de mise
+    en page ; JSON d'extraction d'information ;…
+  url: https://huggingface.co/ATH-MaaS/OvisOCR3
+  url_code: https://github.com/ATH-MaaS/Ovis
+  non_verifie:
+  - Langues couvertes.
+  - Débit et mémoire.
+  verified_on: '2026-10-28'
+- id: teleocr
+  nom: TeleOCR (ex-NaviDC-OCR)
+  famille: modele
+  editeur: XingChen-AGI (renvoie vers une application sur teleai.com)
+  sortie: '2026-08-17'
+  parametres: ~1.2B
+  base: null
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  sortie_format: Analyse de document (texte, formules, tableaux, ordre de lecture) ; format exact non
+    relevé
+  url: https://huggingface.co/XingChen-AGI/TeleOCR
+  url_code: https://github.com/caipeng328/TeleOCR
+  non_verifie:
+  - 'Identité de l''éditeur (TeleAI / China Telecom ?) : non établie sur la fiche.'
+  - Modèle de base (balises Qwen2.5-VL et Qwen3 sans base_model déclaré).
+  verified_on: '2026-10-28'
+- id: lightonocr-3-1b
+  nom: LightOnOCR-3-1B
+  famille: modele
+  editeur: LightOn
+  sortie: '2026-10-07'
+  parametres: 1B
+  base: Architecture LightOnOCR-2-1B (remplacement direct)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Évalué par l'éditeur sur fr-bench-pdf2md (documents français) ; la génération 2 déclarait
+    une couverture renforcée du français.
+  inference:
+  - vLLM
+  - transformers
+  sortie_format: 'Markdown (mode transcription, prompt vide) ; mode « grounding » : blocs étiquetés avec
+    bbox normalisée 0-1000, descriptions courtes…'
+  url: https://huggingface.co/lightonai/LightOnOCR-3-1B
+  url_code: https://github.com/lightonai/LightOnOCR
+  non_verifie:
+  - Variante de LightOnOCR-3 mesurée par OpenBMB pour le débit (taille non précisée).
+  - Composants exacts de l'architecture LightOnOCR-2 (non relus dans l'article).
+  verified_on: '2026-10-28'
+- id: lightonocr-3-4b
+  nom: LightOnOCR-3-4B
+  famille: modele
+  editeur: LightOn
+  sortie: '2026-10-06'
+  parametres: 4B
+  base: Architecture Qwen3.5 vision-langage (Qwen3.5-4B selon le billet)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Évalué sur fr-bench-pdf2md.
+  inference:
+  - vLLM
+  - transformers (>=5.2
+  - classes Qwen3.5)
+  sortie_format: Identique à LightOnOCR-3-1B (Markdown ; mode grounding avec bbox 0-1000, étiquettes,
+    données de graphiques)
+  url: https://huggingface.co/lightonai/LightOnOCR-3-4B
+  url_code: https://github.com/lightonai/LightOnOCR
+  non_verifie:
+  - Mémoire GPU minimale.
+  - Aucun score OmniDocBench publié.
+  verified_on: '2026-10-28'
+- id: lightonocr-3-0.8b
+  nom: LightOnOCR-3-0.8B
+  famille: modele
+  editeur: LightOn
+  sortie: '2026-10-07'
+  parametres: 0.8B
+  base: Architecture Qwen3.5 vision-langage (taille 0.8B)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Évalué sur fr-bench-pdf2md.
+  inference:
+  - vLLM
+  - transformers (>=5.2
+  - classes Qwen3.5)
+  sortie_format: Identique à LightOnOCR-3-1B
+  url: https://huggingface.co/lightonai/LightOnOCR-3-0.8B
+  url_code: https://github.com/lightonai/LightOnOCR
+  non_verifie:
+  - Modèle de base exact (taille de paramètres identique à Qwen3.5-0.8B, non déclaré en base_model).
+  verified_on: '2026-10-28'
+- id: lightonocr-2-1b
+  nom: LightOnOCR-2-1B
+  famille: modele
+  editeur: LightOn
+  sortie: '2026-01-16'
+  parametres: 1B
+  base: null
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: null
+  inference:
+  - vLLM
+  - transformers (>=5)
+  sortie_format: Texte en ordre naturel (Markdown), LaTeX ; boîtes des images pour les variantes bbox
+  url: https://huggingface.co/lightonai/LightOnOCR-2-1B
+  url_code: https://github.com/lightonai/LightOnOCR
+  non_verifie:
+  - Composants de l'architecture (encodeur, LM) non relus.
+  verified_on: '2026-10-28'
+- id: surya-ocr-2
+  nom: Surya OCR 2
+  famille: modele
+  editeur: Datalab
+  sortie: '2026-05-14'
+  parametres: 650M
+  base: Architecture « Qwen3.5-style » (~650M) ; détecteur de lignes séparé (EfficientViT segformer)
+  licence: AI Pubs Open RAIL-M modifiée (Datalab)
+  licence_classe: conditions
+  licence_note: 'PLAFOND : usage commercial interdit si l''entité (ou son employeur/affilié) a dépassé
+    5 M USD de chiffre d''affaires l''année précédente OU levé plus de 5 M USD, sauf usage personnel ou
+    recherche ; interdit pour tout produit concurrent des services Datalab.…'
+  francais: true
+  francais_note: 'Français : 89.3 % sur le banc multilingue interne.'
+  inference:
+  - vLLM
+  - llama.cpp (CPU
+  - Apple Silicon Metal)
+  sortie_format: JSON avec boîtes et polygones par ligne/bloc, blocs en HTML, formules en LaTeX (KaTeX)
+    dans <math>, tableaux HTML ; mise en page et ordre…
+  url: https://huggingface.co/datalab-to/surya-ocr-2
+  url_code: https://github.com/datalab-to/surya
+  non_verifie:
+  - Le score olmOCR-Bench est obtenu « with some adjustments » pour la sortie HTML (auteurs).
+  verified_on: '2026-10-28'
+- id: chandra-ocr-2
+  nom: Chandra OCR 2
+  famille: modele
+  editeur: Datalab
+  sortie: '2026-03-16'
+  parametres: null
+  base: Qwen 3.5 (remercié sur la fiche) ; Qwen3.5-4B selon le billet LightOn (non confirmé par Datalab)
+  licence: AI Pubs Open RAIL-M modifiée (Datalab)
+  licence_classe: conditions
+  licence_note: 'PLAFOND : gratuit pour recherche, usage personnel et entreprises sous 2 M USD de chiffre
+    d''affaires ET de financement ; interdit pour un usage concurrent de l''API Datalab. L''auto-hébergement
+    commercial au-delà exige une licence payante.'
+  francais: true
+  francais_note: 'fr : 93.7 % (Chandra 2) sur le banc multilingue 43 langues de l''éditeur.'
+  inference:
+  - vLLM
+  sortie_format: Markdown, HTML ou JSON avec informations de mise en page détaillées
+  url: https://huggingface.co/datalab-to/chandra-ocr-2
+  url_code: https://github.com/datalab-to/chandra
+  non_verifie:
+  - Modèle de base exact.
+  - Taille annoncée par l'éditeur (le billet LightOn indique 4B « listed »).
+  verified_on: '2026-10-28'
+- id: dots.ocr
+  nom: dots.ocr
+  famille: modele
+  editeur: rednote hilab (Xingyin Information Technology (Shanghai)…
+  sortie: '2025-07-30'
+  parametres: LLM de 1.7B (taille totale non annoncée)
+  base: LLM 1.7B non nommé sur la fiche
+  licence: MIT + « dots.ocr LICENSE AGREEMENT » complémentaire (le MIT prévaut…
+  licence_classe: conditions
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM (intégré officiellement depuis 0.11.0)
+  - transformers
+  sortie_format: 'JSON unique : éléments avec bbox [x1,y1,x2,y2], catégorie et texte (formules LaTeX,
+    tableaux HTML, reste en Markdown) ; Markdown dérivé'
+  url: https://huggingface.co/dots-studio/dots.ocr
+  url_code: https://github.com/rednote-hilab/dots.ocr
+  non_verifie:
+  - Version d'OmniDocBench du tableau auto-déclaré (format v1.0 probable).
+  verified_on: '2026-10-28'
+- id: dots.mocr
+  nom: dots.mocr
+  famille: modele
+  editeur: rednote hilab / studio-dots-ai
+  sortie: '2026-03-19'
+  parametres: 3B
+  base: null
+  licence: MIT + « dots.mocr LICENSE AGREEMENT » complémentaire
+  licence_classe: conditions
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM
+  - transformers
+  sortie_format: Comme dots.ocr (JSON avec bbox) + conversion des graphiques structurés (diagrammes, UI,
+    figures) en code SVG
+  url: https://huggingface.co/dots-studio/dots.mocr
+  url_code: https://github.com/rednote-hilab/dots.mocr
+  non_verifie:
+  - Score Overall OmniDocBench auto-déclaré non publié en texte.
+  verified_on: '2026-10-28'
+- id: nanonets-ocr-s
+  nom: Nanonets-OCR-s
+  famille: modele
+  editeur: Nanonets
+  sortie: '2025-06-10'
+  parametres: null
+  base: Qwen/Qwen2.5-VL-3B-Instruct
+  licence: NON DÉCLARÉE (ni métadonnée ni fichier LICENSE sur le dépôt HF)
+  licence_classe: non_declaree
+  licence_note: Aucune licence déclarée sur les poids ; à éclaircir avant tout usage.
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM
+  sortie_format: Markdown ; formules LaTeX (en ligne et bloc) ; tableaux HTML et Markdown ; balises pour
+    images, filigranes, cases à cocher, numéros de page
+  url: https://huggingface.co/nanonets/Nanonets-OCR-s
+  url_code: https://github.com/NanoNets/docext
+  non_verifie:
+  - Licence effective des poids.
+  verified_on: '2026-10-28'
+- id: nanonets-ocr2-3b
+  nom: Nanonets-OCR2-3B
+  famille: modele
+  editeur: Nanonets
+  sortie: '2025-10-13'
+  parametres: 3B
+  base: Qwen/Qwen2.5-VL-3B-Instruct
+  licence: NON DÉCLARÉE (ni métadonnée ni fichier LICENSE sur le dépôt HF)
+  licence_classe: non_declaree
+  licence_note: Aucune licence déclarée sur les poids ; à éclaircir avant tout usage.
+  francais: true
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM
+  sortie_format: Markdown ; LaTeX ; tableaux HTML et Markdown ; balises sémantiques ; manuscrits
+  url: https://huggingface.co/nanonets/Nanonets-OCR2-3B
+  url_code: https://github.com/NanoNets/Nanonets-OCR2
+  non_verifie:
+  - Licence effective des poids.
+  - Scores sur les bancs publics (évaluation auto-déclarée par LLM-juge seulement).
+  verified_on: '2026-10-28'
+- id: deepseek-ocr-2
+  nom: DeepSeek-OCR 2
+  famille: modele
+  editeur: DeepSeek
+  sortie: '2026-01-27'
+  parametres: null
+  base: Encodeur DeepEncoder V2 + décodeur DeepSeek (MoE de la lignée DeepSeek-OCR)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers (4.46.3)
+  - vLLM (0.8.5)
+  sortie_format: Markdown avec ancrage (prompt <|grounding|>) ou texte libre (Free OCR)
+  url: https://huggingface.co/deepseek-ai/DeepSeek-OCR-2
+  url_code: https://github.com/deepseek-ai/DeepSeek-OCR-2
+  non_verifie:
+  - 'Score OmniDocBench v1.5 auto-déclaré : seulement en image ; 91.09 est cité par Qianfan-OCR (tiers),
+    non relevé chez DeepSeek.'
+  verified_on: '2026-10-28'
+- id: deepseek-ocr
+  nom: DeepSeek-OCR
+  famille: modele
+  editeur: DeepSeek
+  sortie: '2025-10-20'
+  parametres: décodeur DeepSeek3B-MoE-A570M + DeepEncoder
+  base: DeepEncoder + DeepSeek3B-MoE-A570M
+  licence: MIT
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM (intégré en amont depuis le 2025-10-23)
+  sortie_format: Markdown avec ancrage ou texte libre ; modes Tiny/Small/Base/Large/Gundam
+  url: https://huggingface.co/deepseek-ai/DeepSeek-OCR
+  url_code: https://github.com/deepseek-ai/DeepSeek-OCR
+  non_verifie:
+  - Scores OmniDocBench auto-déclarés (exprimés en jetons visuels dans l'article, sans chiffre global
+    en résumé).
+  verified_on: '2026-10-28'
+- id: jina-ocr-v1
+  nom: jina-ocr-v1
+  famille: modele
+  editeur: Jina AI
+  sortie: '2026-09-01'
+  parametres: décodeur MoE 3B (~570M actifs par jeton)
+  base: DeepSeek-OCR (DeepEncoder + décodeur MoE 3B) + tête FastMTP
+  licence: CC-BY-NC-4.0
+  licence_classe: non_commercial
+  licence_note: 'Usage de recherche ou d''évaluation seulement : pas d''usage commercial.'
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM (>=0.21
+  - avec FastMTP)
+  sortie_format: Markdown propre en ordre de lecture ; LaTeX et tableaux HTML avec le prompt strict utilisé
+    pour les bancs
+  url: https://huggingface.co/jinaai/jina-ocr-v1
+  url_code: https://huggingface.co/jinaai/jina-ocr-v1
+  non_verifie: []
+  verified_on: '2026-10-28'
+- id: olmocr-2
+  nom: olmOCR 2 (7B, 1025)
+  famille: modele
+  editeur: Allen Institute for AI (Ai2)
+  sortie: '2025-10-21'
+  parametres: 7B
+  base: Qwen/Qwen2.5-VL-7B-Instruct
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM (via olmocr)
+  - transformers
+  sortie_format: Texte/Markdown de page (formules et tableaux renforcés par RL)
+  url: https://huggingface.co/allenai/olmOCR-2-7B-1025
+  url_code: https://github.com/allenai/olmocr
+  non_verifie:
+  - 'Coût annoncé « moins de 200 USD par million de pages » : matériel de référence non relevé.'
+  verified_on: '2026-10-28'
+- id: granite-docling-258m
+  nom: Granite-Docling 258M
+  famille: modele
+  editeur: IBM
+  sortie: '2025-09-17'
+  parametres: 258M
+  base: Architecture Idefics3 ; encodeur siglip2-base-patch16-512 + LLM Granite 165M
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM (branche untied)
+  - ONNX
+  - MLX (mlx-vlm)
+  sortie_format: DocTags (balises avec positions), convertis par Docling en Markdown, HTML ou JSON ; tableaux
+    en OTSL ; formules en LaTeX ; code
+  url: https://huggingface.co/ibm-granite/granite-docling-258M
+  url_code: https://github.com/docling-project/docling
+  non_verifie:
+  - Aucun score OmniDocBench / olmOCR-Bench publié.
+  verified_on: '2026-10-28'
+- id: smoldocling-256m-preview
+  nom: SmolDocling-256M (preview)
+  famille: modele
+  editeur: IBM Research / Hugging Face (docling-project)
+  sortie: '2025-02-12'
+  parametres: 256M
+  base: HuggingFaceTB/SmolVLM-256M-Instruct
+  licence: 'Contradictoire : métadonnée HF cdla-permissive-2.0, texte de la fiche…'
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM
+  - ONNX
+  - MLX
+  sortie_format: DocTags, export Docling en Markdown, HTML, JSON
+  url: https://huggingface.co/docling-project/SmolDocling-256M-preview
+  url_code: https://github.com/docling-project/docling
+  non_verifie:
+  - Licence exacte des poids.
+  verified_on: '2026-10-28'
+- id: rolmocr
+  nom: RolmOCR
+  famille: modele
+  editeur: Reducto
+  sortie: '2025-04-02'
+  parametres: 7B
+  base: Qwen/Qwen2.5-VL-7B-Instruct
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM
+  sortie_format: Texte/Markdown de page ; pas de boîtes de mise en page (limitation déclarée)
+  url: https://huggingface.co/reducto/RolmOCR
+  url_code: null
+  non_verifie:
+  - Aucun score publié sur la fiche.
+  - Pas de dépôt de code officiel identifié.
+  verified_on: '2026-10-28'
+- id: dolphin-v2
+  nom: Dolphin-v2
+  famille: modele
+  editeur: ByteDance
+  sortie: '2025-12-01'
+  parametres: null
+  base: Qwen2.5-VL-3B
+  licence: Qwen RESEARCH LICENSE AGREEMENT (fichier LICENSE du dépôt HF ; aucune…
+  licence_classe: non_commercial
+  licence_note: 'Usage de recherche ou d''évaluation seulement : pas d''usage commercial.'
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  sortie_format: 21 catégories d'éléments avec coordonnées en pixels absolus ; formules LaTeX ; tableaux
+    HTML ; texte Markdown
+  url: https://huggingface.co/ByteDance/Dolphin-v2
+  url_code: https://github.com/bytedance/Dolphin
+  non_verifie:
+  - Support vLLM pour la v2.
+  verified_on: '2026-10-28'
+- id: monkeyocrv2-b-parsing
+  nom: MonkeyOCRv2-B-Parsing
+  famille: modele
+  editeur: zenosai / HUST (équipe Yuliang Liu, Xiang Bai)
+  sortie: '2026-07-14'
+  parametres: 0.7B (ViT 0.1B + LLM 0.6B)
+  base: Encodeur MonkeyOCRv2-B (ViT-B 113M) + LLM 0.6B non nommé
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: 'MDPBench FR : 78.4 (auto-déclaré).'
+  inference:
+  - vLLM
+  sortie_format: Markdown (archive zip par document via l'API /parse)
+  url: https://huggingface.co/zenosai/MonkeyOCRv2-B-Parsing
+  url_code: https://github.com/Yuliang-Liu/MonkeyOCRv2
+  non_verifie:
+  - LLM de base exact.
+  verified_on: '2026-10-28'
+- id: firered-ocr
+  nom: FireRed-OCR (2B)
+  famille: modele
+  editeur: FireRedTeam
+  sortie: '2026-02-28'
+  parametres: 2B
+  base: Qwen/Qwen3-VL-2B-Instruct
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  sortie_format: Markdown pleine page (tableaux et formules à syntaxe contrainte)
+  url: https://huggingface.co/FireRedTeam/FireRed-OCR
+  url_code: https://github.com/FireRedTeam/FireRed-OCR
+  non_verifie:
+  - Rattachement de FireRedTeam à une entreprise.
+  - Langues couvertes.
+  verified_on: '2026-10-28'
+- id: infinity-parser2-pro
+  nom: Infinity-Parser2-Pro
+  famille: modele
+  editeur: INF Tech (infly)
+  sortie: '2026-05-11'
+  parametres: 35.1B (selon le billet LightOn ; non écrit sur la fiche)
+  base: Famille Qwen3.5 (remerciée sur la fiche) ; variante exacte non nommée
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: null
+  inference:
+  - transformers
+  - vLLM
+  sortie_format: Markdown ; JSON de mise en page avec bbox [x1,y1,x2,y2] et catégorie ; LaTeX ; HTML ;
+    graphiques en JSON
+  url: https://huggingface.co/infly/Infinity-Parser2-Pro
+  url_code: https://github.com/infly-ai/INF-MLLM
+  non_verifie:
+  - Architecture (dense ou MoE) et paramètres actifs.
+  verified_on: '2026-10-28'
+- id: logics-parsing-v3
+  nom: Logics-Parsing-V3
+  famille: modele
+  editeur: Alibaba (Logics-MLLM)
+  sortie: '2026-09-22'
+  parametres: 0.8B
+  base: null
+  licence: NON DÉCLARÉE sur le dépôt HF (ni métadonnée ni fichier)
+  licence_classe: non_declaree
+  licence_note: Aucune licence déclarée sur les poids ; à éclaircir avant tout usage.
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM (0.22.1)
+  - transformers
+  sortie_format: Markdown (markdown.md), plan hiérarchique du document (hierarchy.md), étiquettes brutes
+    (raw_output.dsl), résultat avec métadonnées…
+  url: https://huggingface.co/Logics-MLLM/Logics-Parsing-V3
+  url_code: https://github.com/alibaba/Logics-Parsing
+  non_verifie:
+  - Licence des poids.
+  - Scores MPDocBench / OmniDocBench v1.6 publiés seulement en image.
+  - Modèle de base.
+  verified_on: '2026-10-28'
+- id: ocrflux-3b
+  nom: OCRFlux-3B (preview)
+  famille: modele
+  editeur: ChatDOC
+  sortie: '2025-06-12'
+  parametres: 3B
+  base: Qwen/Qwen2.5-VL-3B-Instruct
+  licence: qwen-research (déclarée sur la fiche HF)
+  licence_classe: non_commercial
+  licence_note: 'Usage de recherche ou d''évaluation seulement : pas d''usage commercial.'
+  francais: false
+  francais_note: null
+  inference:
+  - vLLM
+  sortie_format: Markdown ; fusion de tableaux et paragraphes entre pages
+  url: https://huggingface.co/ChatDOC/OCRFlux-3B
+  url_code: https://github.com/chatdoc-com/OCRFlux
+  non_verifie:
+  - Aucun score sur bancs publics (seulement OCRFlux-bench de l'éditeur).
+  verified_on: '2026-10-28'
+- id: mistral-ocr
+  nom: Mistral OCR
+  famille: modele
+  editeur: Mistral AI
+  sortie: null
+  parametres: null
+  base: null
+  licence: Propriétaire (poids fermés)
+  licence_classe: proprietaire
+  licence_note: 'Service payant par API, poids non publiés : impossible de le faire tourner soi-même.
+    OCR 4.1 à 4 $ et OCR 3 à 2 $ les 1 000 pages.'
+  francais: false
+  francais_note: « Plus de 40 langues » annoncées ; la page OCR ne cite pas le français.
+  inference:
+  - API Mistral
+  sortie_format: 'JSON par page : Markdown, tableaux, images, en-têtes et pieds de page, blocs avec scores
+    de confiance'
+  url: https://docs.mistral.ai/capabilities/document_ai/basic_ocr/
+  url_code: null
+  tarif_source: https://docs.mistral.ai/inference/pricing
+  non_verifie: Liste des langues (page séparée non lue) ; version exacte mesurée par chaque classement.
+  verified_on: '2026-10-28'
+- id: tesseract
+  nom: Tesseract
+  famille: moteur
+  editeur: Projet communautaire tesseract-ocr (mainteneurs Stefan…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Modele fra.traineddata (et frm, francais moyen) publie dans tessdata_best. Plus de 100
+    langues.
+  gpu_requis: false
+  materiel_note: Moteur C++ (LSTM). La doc ne mentionne aucun chemin GPU.
+  ocr_defaut: null
+  ocr_possibles: null
+  url: https://github.com/tesseract-ocr/tesseract
+  etoiles: 77216
+  derniere_version: 5.5.4
+  derniere_version_date: '2026-10-28'
+  sortie_format: texte brut, hOCR, PDF, PDF texte invisible seul, TSV, ALTO, PAGE
+  non_verifie:
+  - Absence totale de GPU: deduite, aucune phrase explicite relevee.
+  - Version d'OmniDocBench (v1.0 probable) pour le tableau OCR.
+  verified_on: '2026-10-28'
+- id: easyocr
+  nom: EasyOCR
+  famille: moteur
+  editeur: Jaided AI
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Code 'fr' dans latin_lang_list. 80+ langues.
+  gpu_requis: false
+  materiel_note: Mode CPU par gpu=False ; GPU via PyTorch recommande.
+  ocr_defaut: null
+  ocr_possibles: null
+  url: https://github.com/JaidedAI/EasyOCR
+  etoiles: 30119
+  derniere_version: v1.7.2
+  derniere_version_date: '2024-09-24'
+  sortie_format: liste (boite englobante, texte, confiance)
+  non_verifie:
+  - Licence des poids pre-entraines.
+  verified_on: '2026-10-28'
+- id: paddleocr
+  nom: PaddleOCR (PP-OCRv5 / PP-OCRv6, PP-StructureV3)
+  famille: moteur
+  editeur: Baidu (PaddlePaddle)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: 'PP-OCRv5 : 106 langues dont le francais, nommement (exemple --lang fr dans la doc).
+    PP-OCRv6 : 50 langues dont 46 latines, sans liste nominative dans la doc PaddleOCR (la doc RapidOCR,
+    elle, liste fr pour PP-OCRv6).'
+  gpu_requis: false
+  materiel_note: Badge 'hardware cpu, gpu, xpu, npu' ; PP-OCRv6 annonce 5,2x d'acceleration CPU (OpenVINO).
+  ocr_defaut: null
+  ocr_possibles: null
+  url: https://github.com/PaddlePaddle/PaddleOCR
+  etoiles: 91864
+  derniere_version: v3.7.0
+  derniere_version_date: '2026-06-11'
+  sortie_format: JSON, Markdown (PP-StructureV3), DOCX (depuis 3.5.0)
+  non_verifie:
+  - Francais nommement couvert par PP-OCRv6 dans la doc Baidu.
+  - Score OmniDocBench recent de PP-StructureV3 (absent du tableau v1.6).
+  verified_on: '2026-10-28'
+- id: rapidocr
+  nom: RapidOCR
+  famille: moteur
+  editeur: RapidAI (communaute open source)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Modeles PP-OCRv6 small/medium routes pour fr/french ; modele latin PP-OCRv5. Defaut chinois
+    + anglais.
+  gpu_requis: false
+  materiel_note: Moteurs onnxruntime (CPU par defaut), onnxruntime-gpu, TensorRT, OpenVINO, Paddle, PyTorch,
+    MNN.
+  ocr_defaut: null
+  ocr_possibles: null
+  url: https://github.com/RapidAI/RapidOCR
+  etoiles: 8363
+  derniere_version: v3.10.0
+  derniere_version_date: '2026-10-08'
+  sortie_format: boites, textes, scores (objet resultat Python)
+  non_verifie:
+  - Detail des formats d'entree et de sortie.
+  - Fichier MODEL_LICENSES.md (lien mort).
+  - Moins de 10k etoiles mais retenu car moteur OCR par defaut de Docling et recommande par PyMuPDF.
+  verified_on: '2026-10-28'
+- id: doctr
+  nom: docTR
+  famille: moteur
+  editeur: Mindee (createur) ; developpe et maintenu par t2k GmbH
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Les modeles de reconnaissance pre-entraines utilisent le vocabulaire 'french' (latin
+    + accents d'Europe de l'Ouest).
+  gpu_requis: false
+  materiel_note: Images Docker GPU (CUDA 12.2) proposees ; usage CPU non affirme explicitement dans le
+    README.
+  ocr_defaut: null
+  ocr_possibles: null
+  url: https://github.com/mindee/doctr
+  etoiles: 6400
+  derniere_version: v1.1.0
+  derniere_version_date: '2026-08-21'
+  sortie_format: objet Document, dict/JSON via export()
+  non_verifie:
+  - Fonctionnement CPU (probable via PyTorch, non cite).
+  - Licence des poids.
+  - Aucun score publie relevé sur OmniDocBench ou olmOCR-Bench.
+  verified_on: '2026-10-28'
+- id: ocrmypdf
+  nom: OCRmyPDF
+  famille: moteur
+  editeur: Projet OCRmyPDF (James R. Barlow et contributeurs)
+  licence: MPL-2.0
+  licence_classe: libre
+  licence_note: 'Copyleft faible au niveau fichier : les modifications du code d''OCRmyPDF doivent etre
+    publiees ; integration dans du code proprietaire autorisee. Docs et tests en CC-BY-SA-4.0.'
+  francais: true
+  francais_note: Exemple officiel '-l eng+fra' ; 100+ langues via Tesseract.
+  gpu_requis: false
+  materiel_note: Repartit le travail sur tous les coeurs CPU. GPU 'fortement recommande' seulement avec
+    le plugin EasyOCR.
+  ocr_defaut: Tesseract
+  ocr_possibles:
+  - Tesseract (natif)
+  - EasyOCR (plugin officiel OCRmyPDF-EasyOCR)
+  - PaddleOCR (plugin tiers)
+  - Apple Vision (plugin tiers
+  - macOS)
+  url: https://github.com/ocrmypdf/OCRmyPDF
+  etoiles: 35175
+  derniere_version: v17.13.0
+  derniere_version_date: '2026-09-28'
+  sortie_format: PDF/A cherchable (par defaut), PDF
+  non_verifie: []
+  verified_on: '2026-10-28'
+- id: docling
+  nom: Docling
+  famille: chaine
+  editeur: IBM Research Zurich ; projet heberge par la LF AI & Data…
+  licence: MIT
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: 'Via le moteur OCR. ATTENTION : avec lang=[] le moteur par defaut RapidOCR charge le
+    modele chinois simplifie ; il faut passer lang=[''french''] ou [''iso:fr'']. EasyOCR demarre en anglais
+    par defaut.'
+  gpu_requis: false
+  materiel_note: Pipeline standard sur CPU ; GPU optionnel via AcceleratorOptions (CUDA). Le pipeline
+    VLM profite d'un GPU.
+  ocr_defaut: 'OcrAutoOptions : premier moteur disponible dans l''ordre OcrMac (macOS) > Nemotron OCR
+    (Linux + CUDA, si l''extra est installe) > RapidOCR onnxruntime > EasyOCR > RapidOCR torch. Tesseract
+    n''est jamais choisi automatiquement. Le paquet ''docling'' inclut toujours…'
+  ocr_possibles:
+  - RapidOCR (onnxruntime
+  - openvino
+  - paddle
+  - torch)
+  - EasyOCR
+  - Tesseract (tesserocr)
+  - Tesseract CLI
+  - OcrMac (macOS)
+  - Nemotron OCR (Linux x86_64 + CUDA 13)
+  - OnnxTR (plugin)
+  - serveur distant KServe v2
+  url: https://github.com/docling-project/docling
+  etoiles: 69752
+  derniere_version: v2.144.0
+  derniere_version_date: '2026-10-28'
+  sortie_format: Markdown, HTML, WebVTT, DocLang, DocTags, JSON sans perte
+  non_verifie:
+  - Aucun score OmniDocBench ou olmOCR-Bench publie par Docling lui-meme (docling-eval fournit les scripts,
+    pas de tableau comparable).
+  - Version de Docling dans la mesure Datalab.
+  verified_on: '2026-10-28'
+- id: marker
+  nom: Marker
+  famille: chaine
+  editeur: Datalab
+  licence: Apache-2.0
+  licence_classe: conditions
+  licence_note: Poids gratuits pour la recherche, l'usage personnel et les entites sous 5 M USD de chiffre
+    d'affaires annuel ET sous 5 M USD de financement leve. Interdits aussi a quiconque propose un produit
+    concurrent de Datalab (clause absente du resume du README,…
+  francais: true
+  francais_note: OCR par Surya, multilingue (fr 89,3 % sur le benchmark interne Datalab). Sans OCR, 'toute
+    langue'.
+  gpu_requis: false
+  materiel_note: '''Works on GPU, CPU, or MPS'' ; mode fast par defaut sur CPU. Le score de reference
+    (balanced) suppose un GPU.'
+  ocr_defaut: 'Surya 2 servi localement (vLLM sur GPU NVIDIA, llama.cpp sinon). Mode ''balanced'' (GPU)
+    : Surya fait mise en page + OCR + tableaux. Mode ''fast'' (CPU/MPS) : mise en page rf-detr, texte
+    par pdftext, VLM seulement pour equations, blocs abimes et pages scannees.…'
+  ocr_possibles:
+  - Surya 2 (VLM
+  - seul moteur OCR)
+  - LLM optionnel (--use_llm) Gemini
+  - Claude
+  - OpenAI-compatible
+  - Azure
+  - Vertex
+  - OpenRouter
+  - Ollama
+  url: https://github.com/datalab-to/marker
+  etoiles: 40684
+  derniere_version: v2.0.0
+  derniere_version_date: '2026-07-20'
+  sortie_format: Markdown, JSON, HTML, chunks
+  non_verifie:
+  - Marker 2.0 n'a pas encore de score mesure par un tiers.
+  verified_on: '2026-10-28'
+- id: mineru
+  nom: MinerU (outil)
+  famille: chaine
+  editeur: OpenDataLab (Shanghai AI Laboratory)
+  licence: MinerU Open Source License (Apache-2.0 + conditions supplementaires ;…
+  licence_classe: conditions
+  licence_note: (1) Licence commerciale separee obligatoire si l'entite et ses affilies, en consolide,
+    depassent 100 millions d'utilisateurs actifs mensuels OU 20 M USD de revenu MENSUEL. (2) Tout service
+    en ligne fourni a des tiers doit afficher clairement l'usage de…
+  francais: false
+  francais_note: MinerU 3.4 a supprime les options OCR anglais et latin, desormais routees vers le modele
+    'ch' (PP-OCRv6). PP-OCRv6 couvre 46 langues latines ; la doc RapidOCR liste fr, mais ni MinerU ni
+    PaddleOCR ne nomment le francais…
+  gpu_requis: false
+  materiel_note: 'basic ONNX : CPU, 2 Go RAM. standard/advanced ONNX + llama.cpp : CPU possible, Vulkan
+    recommande, 8 Go RAM. Avec PyTorch, vLLM ou LMDeploy : GPU/MPS requis, 8…'
+  ocr_defaut: Niveau standard pour les PDF (mineru-kit parse) = petits modeles + VLM MinerU2.5-Pro.
+  ocr_possibles:
+  - N
+  - i
+  - v
+  - e
+  - a
+  - u
+  - ' '
+  - b
+  - a
+  - s
+  - i
+  - c
+  - ' '
+  - ':'
+  - ' '
+  - p
+  - e
+  - t
+  - i
+  - t
+  - s
+  - ' '
+  - m
+  - o
+  - d
+  - e
+  - l
+  - e
+  - s
+  - ' '
+  - P
+  - a
+  - d
+  - d
+  - l
+  - e
+  - P
+  - a
+  - d
+  - d
+  - l
+  - e
+  - ' '
+  - c
+  - o
+  - n
+  - v
+  - e
+  - r
+  - t
+  - i
+  - s
+  - ' '
+  - (
+  - O
+  - N
+  - N
+  - X
+  - ' '
+  - o
+  - u
+  - ' '
+  - P
+  - y
+  - T
+  - o
+  - r
+  - c
+  - h
+  - )
+  - ' '
+  - '-'
+  - ' '
+  - O
+  - C
+  - R
+  - ' '
+  - P
+  - P
+  - '-'
+  - O
+  - C
+  - R
+  - v
+  - '6'
+  - ' '
+  - (
+  - d
+  - e
+  - t
+  - e
+  - c
+  - t
+  - i
+  - o
+  - n
+  - ' '
+  - t
+  - i
+  - n
+  - y
+  - ','
+  - ' '
+  - r
+  - e
+  - c
+  - o
+  - n
+  - n
+  - a
+  - i
+  - s
+  - s
+  - a
+  - n
+  - c
+  - e
+  - ' '
+  - s
+  - m
+  - a
+  - l
+  - l
+  - )
+  - ','
+  - ' '
+  - m
+  - i
+  - s
+  - e
+  - ' '
+  - e
+  - n
+  - ' '
+  - p
+  - a
+  - g
+  - e
+  - ' '
+  - P
+  - P
+  - '-'
+  - D
+  - o
+  - c
+  - L
+  - a
+  - y
+  - o
+  - u
+  - t
+  - V
+  - '2'
+  - ','
+  - ' '
+  - f
+  - o
+  - r
+  - m
+  - u
+  - l
+  - e
+  - s
+  - ' '
+  - P
+  - P
+  - '-'
+  - F
+  - o
+  - r
+  - m
+  - u
+  - l
+  - a
+  - N
+  - e
+  - t
+  - _
+  - p
+  - l
+  - u
+  - s
+  - '-'
+  - M
+  - ','
+  - ' '
+  - t
+  - a
+  - b
+  - l
+  - e
+  - a
+  - u
+  - x
+  - ' '
+  - S
+  - L
+  - A
+  - N
+  - e
+  - t
+  - '-'
+  - p
+  - l
+  - u
+  - s
+  - ' '
+  - +
+  - ' '
+  - P
+  - P
+  - '-'
+  - L
+  - C
+  - N
+  - e
+  - t
+  - .
+  - ' '
+  - N
+  - i
+  - v
+  - e
+  - a
+  - u
+  - x
+  - ' '
+  - s
+  - t
+  - a
+  - n
+  - d
+  - a
+  - r
+  - d
+  - /
+  - a
+  - d
+  - v
+  - a
+  - n
+  - c
+  - e
+  - d
+  - ' '
+  - ':'
+  - ' '
+  - p
+  - e
+  - t
+  - i
+  - t
+  - s
+  - ' '
+  - m
+  - o
+  - d
+  - e
+  - l
+  - e
+  - s
+  - ' '
+  - +
+  - ' '
+  - V
+  - L
+  - M
+  - ' '
+  - M
+  - i
+  - n
+  - e
+  - r
+  - U
+  - '2'
+  - .
+  - '5'
+  - '-'
+  - P
+  - r
+  - o
+  - '-'
+  - '2'
+  - '6'
+  - '0'
+  - '5'
+  - '-'
+  - '1'
+  - .
+  - '2'
+  - B
+  - ' '
+  - (
+  - l
+  - l
+  - a
+  - m
+  - a
+  - .
+  - c
+  - p
+  - p
+  - ','
+  - ' '
+  - v
+  - L
+  - L
+  - M
+  - ' '
+  - o
+  - u
+  - ' '
+  - L
+  - M
+  - D
+  - e
+  - p
+  - l
+  - o
+  - y
+  - ','
+  - ' '
+  - o
+  - u
+  - ' '
+  - s
+  - e
+  - r
+  - v
+  - e
+  - u
+  - r
+  - ' '
+  - V
+  - L
+  - M
+  - ' '
+  - d
+  - i
+  - s
+  - t
+  - a
+  - n
+  - t
+  - ' '
+  - O
+  - p
+  - e
+  - n
+  - A
+  - I
+  - '-'
+  - c
+  - o
+  - m
+  - p
+  - a
+  - t
+  - i
+  - b
+  - l
+  - e
+  - )
+  - .
+  - ' '
+  - N
+  - i
+  - v
+  - e
+  - a
+  - u
+  - ' '
+  - f
+  - l
+  - a
+  - s
+  - h
+  - ' '
+  - ':'
+  - ' '
+  - c
+  - o
+  - u
+  - c
+  - h
+  - e
+  - ' '
+  - t
+  - e
+  - x
+  - t
+  - e
+  - ' '
+  - n
+  - a
+  - t
+  - i
+  - v
+  - e
+  - ','
+  - ' '
+  - ''''
+  - F
+  - l
+  - a
+  - s
+  - h
+  - ' '
+  - O
+  - C
+  - R
+  - ''''
+  - ' '
+  - p
+  - o
+  - u
+  - r
+  - ' '
+  - l
+  - e
+  - s
+  - ' '
+  - s
+  - c
+  - a
+  - n
+  - s
+  - .
+  url: https://github.com/opendatalab/MinerU
+  etoiles: 82693
+  derniere_version: mineru-4.0.12-released
+  derniere_version_date: '2026-10-11'
+  sortie_format: Markdown, HTML, LaTeX, DOCX, EPUB, PDF, Structured Content, Content List V1/V2
+  non_verifie:
+  - Francais en OCR (voir detail).
+  - Aucun score publie pour MinerU 4.0 et ses niveaux.
+  - Le GGUF du VLM est heberge sur un compte personnel HF (jinzhenj/...), pas sous opendatalab.
+  verified_on: '2026-10-28'
+- id: unstructured
+  nom: Unstructured (bibliotheque open source)
+  famille: chaine
+  editeur: Unstructured Technologies (Unstructured-IO)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: true
+  francais_note: Via Tesseract, avec le paquet tesseract-lang pour les langues supplementaires.
+  gpu_requis: false
+  materiel_note: Mise en page via YOLOX (ONNX) ; aucune exigence materielle explicite relevee.
+  ocr_defaut: Tesseract (OCR_AGENT par defaut = OCRAgentTesseract)
+  ocr_possibles:
+  - Tesseract
+  - PaddleOCR
+  - Google Cloud Vision (service distant)
+  url: https://github.com/Unstructured-IO/unstructured
+  etoiles: 15632
+  derniere_version: 0.27.35
+  derniere_version_date: '2026-10-27'
+  sortie_format: liste d'elements types (Title, NarrativeText, Table...), serialisable en JSON
+  non_verifie:
+  - Exigences GPU/CPU.
+  - Score OmniDocBench recent (une evaluation 0.16.23 existe dans OmniDocBench, absente du tableau v1.6).
+  verified_on: '2026-10-28'
+- id: olmocr-toolkit
+  nom: olmOCR (boite a outils)
+  famille: chaine
+  editeur: Allen Institute for AI (Ai2)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  francais: false
+  francais_note: La fiche du modele declare 'language - en' uniquement.
+  gpu_requis: true
+  materiel_note: GPU NVIDIA 12 Go+ (teste RTX 4090, L40S, A100, H100), ou serveur d'inference distant.
+  ocr_defaut: allenai/olmOCR-2-7B-1025-FP8
+  ocr_possibles:
+  - olmOCR-2-7B (vLLM local)
+  - tout serveur OpenAI-compatible servant le modele (--server)
+  url: https://github.com/allenai/olmocr
+  etoiles: 19808
+  derniere_version: v0.4.27
+  derniere_version_date: '2026-03-12'
+  sortie_format: Markdown, JSONL Dolma
+  non_verifie:
+  - Prise en charge du francais.
+  - Activite - dernier push 2026-03-25 (7 mois), non archive.
+  verified_on: '2026-10-28'
+- id: pymupdf4llm
+  nom: PyMuPDF (ex-PyMuPDF4LLM)
+  famille: chaine
+  editeur: Artifex Software
+  licence: AGPL-3.0 (ou licence commerciale Artifex)
+  licence_classe: conditions
+  licence_note: 'AGPL-3.0 : tout logiciel qui l''integre, y compris expose en service reseau, doit publier
+    son code source sous AGPL ; sinon licence commerciale Artifex. L''extension pymupdf-office (formats
+    Office) exige une cle de licence (pymupdf.office.unlock).'
+  francais: true
+  francais_note: Via le moteur OCR (Tesseract 'fra', RapidOCR fr) ; parametre language de get_textpage_ocr.
+  gpu_requis: false
+  materiel_note: '''PyMuPDF processes documents without a GPU''.'
+  ocr_defaut: Aucun installe par defaut (pip install rapidocr ou Tesseract systeme a ajouter).
+  ocr_possibles:
+  - RapidOCR (recommande)
+  - Tesseract
+  url: https://github.com/pymupdf/PyMuPDF
+  etoiles: 11010
+  derniere_version: '2.0'
+  derniere_version_date: '2026-10-19'
+  sortie_format: Markdown, JSON (boites englobantes), texte brut, PDF, SVG, images
+  non_verifie:
+  - Metrique d'ExtractBench.
+  - Licence du modele de mise en page ONNX.
+  verified_on: '2026-10-28'
+ecartes:
+- nom: openbmb/MiniCPM-OCR-Jev
+  famille: modele
+  motif: Modèle d'évaluation de la qualité OCR (juge par région), pas un modèle d'OCR.
+  checked_on: '2026-10-28'
+- nom: datalab-to/indra-ocr
+  famille: modele
+  motif: 'Chaîne ONNX pour CPU (détecteur + reconnaisseurs + modèles de langue), pas un VLM de bout en
+    bout : relève des moteurs classiques. Licence Open RAIL-M modifiée, plafond 20 M USD.'
+  checked_on: '2026-10-28'
+- nom: Qwen3.5-OCR
+  famille: modele
+  motif: Cité dans le tableau d'OvisOCR3, mais aucun dépôt de poids sous huggingface.co/Qwen (recherche
+    « OCR » vide). Les Qwen-VL généralistes ne sont pas des modèles OCR dédiés.
+  checked_on: '2026-10-28'
+- nom: stepfun-ai/GOT-OCR2_0
+  famille: modele
+  motif: Génération 2024, sans score sur les bancs actuels ; très téléchargé (≈242 k/30 j) mais dépassé.
+  checked_on: '2026-10-28'
+- nom: echo840/MonkeyOCR-pro-3B
+  famille: modele
+  motif: MonkeyOCR v1 (2025), remplacé par MonkeyOCRv2 ; pas de licence déclarée sur le dépôt HF.
+  checked_on: '2026-10-28'
+- nom: datalab-to/chandra
+  famille: modele
+  motif: Chandra v1, remplacé par chandra-ocr-2.
+  checked_on: '2026-10-28'
+- nom: allenai/olmOCR-7B-0225-preview, olmOCR-7B-0825
+  famille: modele
+  motif: Versions antérieures d'olmOCR 2.
+  checked_on: '2026-10-28'
+- nom: PaddlePaddle/PaddleOCR-VL, PaddleOCR-VL-1.5
+  famille: modele
+  motif: Versions antérieures de PaddleOCR-VL-1.6.
+  checked_on: '2026-10-28'
+- nom: opendatalab/MinerU2.5-2509-1.2B, MinerU2.5-Pro-2604-1.2B
+  famille: modele
+  motif: Versions antérieures de MinerU2.5-Pro-2605.
+  checked_on: '2026-10-28'
+- nom: opendatalab/MinerU-Diffusion-V1-0320-2.5B
+  famille: modele
+  motif: Modèle de recherche (décodage par diffusion), peu téléchargé, non cité par les autres.
+  checked_on: '2026-10-28'
+- nom: lightonai/LightOnOCR-1B-1025
+  famille: modele
+  motif: Génération 1, remplacée.
+  checked_on: '2026-10-28'
+- nom: PaddlePaddle/PP-OCRv5 / PP-OCRv6
+  famille: modele
+  motif: Moteurs OCR classiques (détection + reconnaissance), hors périmètre.
+  checked_on: '2026-10-28'
+- nom: typhoon-ai/typhoon-ocr1.5-2b, NAMAA-Space/Qari-OCR, BDRC/tibetan-ocr, kha-white/manga-ocr-base
+  famille: modele
+  motif: 'Modèles spécialisés sur une langue (thaï, arabe, tibétain, japonais manga) : longue traîne pour
+    un référentiel francophone.'
+  checked_on: '2026-10-28'
+- nom: Logics-Parsing-v2 / Logics-Parsing-Omni, Infinity-Parser-7B
+  famille: modele
+  motif: Versions antérieures ou variantes des modèles retenus.
+  checked_on: '2026-10-28'
+- nom: Nougat
+  famille: moteur
+  motif: 'Abandonne : derniere version 2023-08-22 (PyPI 0.1.17 le 2023-10-04), dernier push 2025-02-21.
+    Poids sous CC-BY-NC (usage commercial interdit). Fonctionne surtout en anglais ; ''Chinese, Russian,
+    Japanese etc. will not…'
+  checked_on: '2026-10-28'
+- nom: Zerox
+  famille: moteur
+  motif: 'Inactif : dernier push 2025-05-20 (17 mois), derniere release GitHub v0.1.06 le 2024-12-18,
+    py-zerox 0.0.7 le 2024-10-21. De plus, simple envoi des pages a un VLM (GPT-4o par defaut) : releve
+    de la famille 1 et depend…'
+  checked_on: '2026-10-28'
+- nom: MMOCR
+  famille: moteur
+  motif: Abandonne - derniere version v1.0.1 le 2023-07-04, dernier push 2024-11-27.
+  checked_on: '2026-10-28'
+- nom: GROBID
+  famille: moteur
+  motif: 'Hors sujet OCR : exige une couche texte (erreur NO_BLOCKS sur un PDF scanne sans OCR, ''consider
+    running OCR''). Specialise publications scientifiques vers XML/TEI. A citer eventuellement en aval
+    d''OCRmyPDF. Apache-2.0, 5…'
+  checked_on: '2026-10-28'
+- nom: deepdoctection (3 264 etoiles), open-parse (3 148), Calamari (1 200, GPL-3.0), kraken (1 091),
+    keras-ocr (1 473)
+  famille: moteur
+  motif: Longue traine - moins de 3 500 etoiles et pas d'acteur de premier plan.
+  checked_on: '2026-10-28'
+- nom: MarkItDown (Microsoft)
+  famille: chaine
+  checked_on: '2026-10-28'
+  motif: 'Aucun OCR local : délègue les images à un modèle distant ou à Azure Document Intelligence.'
