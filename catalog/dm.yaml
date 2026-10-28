@@ -1,0 +1,1909 @@
+_meta:
+  verified_on: '2026-10-28'
+  note: 'Modèles de décision : fiches, benchmarks expliqués, scores de l''Artificial Analysis Decision
+    Index (relevés à la main, sans export). Les scores du Jev Decision Index et de JevBench sont dans
+    dm_scores.yaml (généré par pipeline/dm_ingest.py). `motif` : expression rationnelle qui rapproche
+    les lignes des classements de la fiche.'
+entries:
+- id: jev
+  nom: Jev
+  editeur: TypeSafe AI
+  sortie: '2026-09-15'
+  ouvert: false
+  tailles: jev-1.14.0 (Jev 1.14), jev-1.13.0 (Jev 1.13)
+  base: null
+  licence: propriétaire
+  licence_classe: proprietaire
+  licence_note: Accès par API uniquement (poids non publiés) ; usage régi par le Master Customer Agreement,
+    la Privacy Policy et la Data Processing Agreement de TypeSafe (non lus en détail). La doc affirme
+    que Jev n'est pas entraîné sur les requêtes…
+  prix: 0,042 $ par million de tokens d'entrée (42 $ par milliard) ; tokens de sortie gratuits ; même
+    tarif pour jev-1.14.0 et jev-1.13.0, et pour le contexte long
+  url: https://docs.typesafe.ai/models
+  url_code: null
+  entrees:
+  - texte
+  - json
+  - image
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  - box (boîte englobante sur image, expérimental, jev-1.14.0 seulement)
+  inference:
+  - API TypeSafe (POST /v1/systemone)
+  - SDK Python typesafe-sdk
+  - SDK JavaScript/TypeScript @typesafe-ai/sdk
+  francais: false
+  langues: Anglais = langue principale d'entraînement et meilleure précision ; les autres langues, dont
+    les écritures CJK, sont gérées « but not…
+  remarque: 'Images : expérimentales (« Dreamer-ready »), activées par l''en-tête TypeSafe-Danger-Zone-Images:
+    true ; la table des modèles indique toujours « Input: Text » ; le billet 1.14 dit que jev-1.13.0 était
+    déjà multimodal. Pas d''audio ni de vidéo (doc Models).…'
+  motif: ^Jev \d
+  poids:
+  - https://docs.typesafe.ai/models
+  - https://docs.typesafe.ai/models
+  non_verifie:
+  - 'Nombre de paramètres et architecture : non publiés (FAQ : « Jev is neither small nor an LLM »).'
+  - 'Graphiques « workflow evals » (billet d''annonce) et « Measuring Intelligence » (billet 1.14, modèles
+    ouverts seulement) : chiffres uniquement dans des images, non relevés.'
+  - Texte des conditions (Master Customer Agreement, Terms of Use) non lu.
+  - Aucune liste de langues officiellement prises en charge ; le français n'est pas cité.
+  verified_on: '2026-10-28'
+- id: openai-decisions-gpt-6-luna
+  nom: OpenAI Decisions API (gpt-6-luna)
+  editeur: OpenAI
+  sortie: '2026-10-06'
+  ouvert: false
+  tailles: gpt-6-luna (endpoint /v1/decisions)
+  base: null
+  licence: propriétaire
+  licence_classe: proprietaire
+  licence_note: Accès par API OpenAI uniquement (poids non publiés). ZDR et usage HIPAA possibles pour
+    les clients éligibles ; traitement régional aux États-Unis et en Europe (EEE + Suisse) selon la doc.
+  prix: 0,10 $ par million de tokens d'entrée non mis en cache ; tokens de sortie non facturés ; lecture/écriture
+    de cache aux tarifs gpt-6-luna standard ; majorations…
+  url: https://developers.openai.com/api/docs/guides/decisions
+  url_code: null
+  entrees:
+  - texte
+  - json
+  - image
+  types_decision:
+  - oui_non (predicate)
+  - choice
+  - score
+  inference:
+  - API OpenAI (POST /v1/decisions)
+  - SDK OpenAI (exemples Python, JavaScript, Go,…
+  - Playground
+  - intégration native GPT-Live
+  francais: false
+  langues: null
+  remarque: 'Choice : 2 à 255 options ; score : 2 à 10 niveaux ; 1 à 400 questions par requête (200 pendant
+    la bêta) — référence API et guide. Entrées : texte, images (base64 ou URL HTTP(S)) et JSON (input_json,
+    rôle user seulement), y compris historique de conversation…'
+  motif: Decisions
+  poids:
+  - https://developers.openai.com/api/docs/guides/decisions
+  non_verifie:
+  - 'Taille, architecture et modèle de base : non publiés.'
+  - 'Langues prises en charge : non indiquées dans la doc Decisions.'
+  - Page de prix générale OpenAI non consultée (le prix vient du guide Decisions) ; tarifs de cache exacts
+    non relevés.
+  - Conditions d'utilisation OpenAI non lues (licence.url laissée vide).
+  - Aucun score sur JevBench / Jev Decision Index revendiqué par OpenAI.
+  verified_on: '2026-10-28'
+- id: microsoft-decision-1
+  nom: Microsoft-Decision-1
+  editeur: Microsoft (Office of the CTO)
+  sortie: '2026-10-09'
+  ouvert: false
+  tailles: Microsoft-Decision-1 (version de modèle…
+  base: Qwen3.5-9B ; Microsoft annonce un futur « rebase » sur d'autres modèles, dont…
+  licence: propriétaire
+  licence_classe: proprietaire
+  licence_note: Accès via Microsoft Foundry (abonnement Azure payant, déploiement GlobalStandard ou DataZoneStandard)
+    ; poids non publiés. La licence du modèle de base Qwen3.5-9B n'est pas mentionnée dans les sources
+    lues. Learn recommande de ne pas…
+  prix: 0,042 $ par million de tokens d'entrée ; tokens de sortie gratuits (billet d'annonce)
+  url: https://ai.azure.com/catalog/models/Microsoft-Decision-1
+  url_code: null
+  entrees:
+  - texte
+  - json
+  types_decision:
+  - oui_non (noul)
+  - choice
+  - score
+  - notation sur grille (rubric) de réponses d'IA et d'actions d'agents (billet)
+  inference:
+  - Microsoft Foundry (endpoint…
+  - OpenRouter (annoncé dans le billet)
+  francais: false
+  langues: null
+  remarque: Le format de requête (state + questions noul/choice/score avec criteria) reprend celui de
+    l'API System One de TypeSafe ; Learn parle d'un « request pattern similar to a system-one API ». Aucune
+    limite chiffrée (nb d'options, de niveaux, contexte) dans les…
+  motif: Microsoft[- ]Decision
+  poids:
+  - https://ai.azure.com/catalog/models/Microsoft-Decision-1
+  non_verifie:
+  - Page du catalogue Foundry (ai.azure.com) non lue (application JS) ; URL reprise du billet.
+  - Nombre de paramètres du modèle dérivé non publié (seule la base Qwen3.5-9B est nommée).
+  - 'Licence de Qwen3.5-9B et son éventuelle reprise : non vérifiées.'
+  - Prix non confirmé sur une page de tarifs Azure (seul le billet le donne).
+  - Entrée image non mentionnée ; la démo « computer use » ne précise pas la forme de l'entrée.
+  - Page OpenRouter non lue (agrégateur, hors sources primaires).
+  verified_on: '2026-10-28'
+- id: liquid-d1
+  nom: Liquid AI d1 (d1, d1-ultra, d1-3B, d1-omni-600M, d1-2B, d1-Omni-2B)
+  editeur: Liquid AI
+  sortie: '2026-10-05'
+  ouvert: true
+  tailles: d1, d1-ultra, d1-3B, d1-omni-600M, d1-2B, d1-Omni-2B
+  base: LFM2.5-VL-3B, LFM2.5-Encoder-350M, LFM3-VL-2B, LFM3-Omni-2B (ouverts) ;…
+  licence: other:lfm1.0 (ouverts) | propriétaire (d1, d1-ultra)
+  licence_classe: conditions
+  licence_note: 'd1 et d1-ultra : API payante, poids fermés. Modèles ouverts (d1-3B, d1-2B, d1-omni) sous
+    licence LFM 1.0 : pas d''usage commercial au-delà de 10 M$ de chiffre d''affaires.'
+  prix: 'd1-ultra : 0,042 USD par million de jetons d''entrée, aucun jeton de sortie facturé ; images
+    à 1,5 jeton par patch 32×32 (1 536 jetons pour 1024×1024) ; chaque…'
+  url: https://huggingface.co/LiquidAI/d1-2B
+  url_code: null
+  entrees:
+  - texte
+  - json
+  - image
+  - video
+  - audio
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  - choix multiple (choice multiple:true, d1-2B/Omni-2B)
+  - extraction texte/nombre/date avec span (d1-2B/Omni-2B)
+  - estimation avec intervalle p10–p90 (d1-2B/Omni-2B)
+  - box / boxes (d1-2B/Omni-2B)
+  inference:
+  - transformers (trust_remote_code, model.system_one)
+  - 'llama.cpp (dépôts GGUF ; d1-2B : build b11960+,…'
+  - API Liquid (POST…
+  francais: true
+  langues: 'd1-3B et d1-2B/Omni-2B : 16 langues (ar, zh, en, fr, de, hi, id, it, ja, ko, pl, pt, ru, es,
+    th, vi) ; d1-omni-600M : 15 (en, de, es, fr,…'
+  remarque: null
+  motif: ^(Liquid )?d1\b|^Liquid
+  poids:
+  - https://www.liquid.ai/blog/d1-decision-model
+  - https://www.liquid.ai/blog/d1-ultra
+  - https://huggingface.co/LiquidAI/d1-3B
+  - https://huggingface.co/LiquidAI/d1-omni-600M
+  - https://huggingface.co/LiquidAI/d1-2B
+  - https://huggingface.co/LiquidAI/d1-Omni-2B
+  non_verifie:
+  - 'd1-ultra : taille non publiée ; ses résultats (vs d1 et Jev 1.14 sur 112 évaluations, Artificial
+    Analysis Decision Index « at least 8 points » devant les autres) ne figurent que dans des images du
+    billet, aucun chiffre relevé.'
+  - 'd1 (API) : prix unitaire non écrit dans le billet du 05/10/2026 ; une version expérimentale texte
+    « last week » est mentionnée sans date précise.'
+  - 'Langues de d1 / d1-ultra : non annoncées ; francais_cite ne vaut que pour les modèles ouverts (cardData.language).'
+  - 'MLX et ONNX : des dépôts LiquidAI/d1-*-MLX-* et -ONNX existent mais leurs fiches n''ont pas été lues.'
+  - Licence des modèles de base LFM2.5 / LFM3 non relue.
+  verified_on: '2026-10-28'
+- id: surogate-rune
+  nom: Surogate Rune 26B-A4B v3
+  editeur: Invergent (organisation Hugging Face surogate ; Invergent…
+  sortie: '2026-09-22'
+  ouvert: true
+  tailles: rune-26b-a4b-GGUF (Rune v3)
+  base: Gemma 4 26B-A4B-it (MoE)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/surogate/rune-26b-a4b-GGUF
+  url_code: https://github.com/invergent-ai/surogate
+  entrees:
+  - texte
+  - json
+  - image
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  - « thinking » optionnel (raisonnement ≤ 512 jetons si confiance < 0,7)
+  inference:
+  - moteur Surogate (surogate serve, endpoint…
+  - transformers (lecture manuelle des logits des…
+  - API hébergée Invergent (sans prix publié)
+  francais: false
+  langues: null
+  remarque: null
+  motif: \bRune\b
+  poids:
+  - https://huggingface.co/surogate/rune-26b-a4b-GGUF
+  non_verifie:
+  - 'Nom trompeur : le dépôt s''appelle « -GGUF » mais ne contient que des safetensors bf16 (11 fragments,
+    51,6 Go) ; la fiche explique qu''il hébergeait les GGUF de Rune v1 (révision 2a15504) et qu''« il
+    n''y a pas encore de GGUF de v3 ».'
+  - 'Date propre à la v3 non établie (fiche modifiée pour la dernière fois le 2026-09-26) ; le billet
+    daté du 22/09 cite des scores « du 28 septembre » : il a été mis à jour après publication.'
+  - Jev 1.13 vaut 57,89 sur la fiche et 57,91 dans le billet.
+  - 'Chiffres en édition 0.2/0.2.1 seulement : aucun score 0.3 ou 0.4.x publié par l''éditeur. La fiche
+    H2O cite « Surogate Rune 26B-A4B v3 » à 42,46 en composite ImageJevBench (chiffre tiers, non vérifié).'
+  - 'Une seule taille : la collection Rune ne contient que ce dépôt ; la collection « Surogate Flash 35B-A3B
+    » est vide.'
+  - Contexte annoncé 262k jetons ; langues non annoncées.
+  verified_on: '2026-10-28'
+- id: strands-decider
+  nom: Strands Decider
+  editeur: Strands Agents (org HF StrandsAgents « Strands Agents SDK »…
+  sortie: '2026-09-30'
+  ouvert: true
+  tailles: strands-decider-2B-hobson-v19, strands-decider-2B-hobson-v21, strands-decider-2B-qwen3.5-v1-2610,
+    strands-decider-E2B-gemma4-v1-2610, strands-decider-E4B-gemma4-v1-2610, strands-decider-12B-gemma4-v1-2610,
+    strands-decider-26B-A4B-gemma4-v1-2610
+  base: Qwen3.5-2B-Base (v19, v21, v1) et Gemma 4 instruct (E2B, E4B, 12B, 26B-A4B) ;…
+  licence: Apache-2.0
+  licence_classe: conditions
+  licence_note: 'Poids sous Apache-2.0, mais entraînés sur des jeux de données à usage commercial restreint
+    : lire le LICENSE.md avant un usage commercial.'
+  prix: null
+  url: https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21
+  url_code: https://github.com/strands-labs/strands-decider
+  entrees:
+  - texte
+  - image
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  inference:
+  - serveur maison (CLI strands-decider ask/serve,…
+  - PyTorch + PEFT (StrandsDeciderModel)
+  - CUDA / MPS / CPU
+  - MLX (extra annoncé pour la prochaine version)
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)strands
+  poids:
+  - https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v19
+  - https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21
+  - https://huggingface.co/StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+  - https://huggingface.co/StrandsAgents/strands-decider-E2B-gemma4-v1-2610
+  - https://huggingface.co/StrandsAgents/strands-decider-E4B-gemma4-v1-2610
+  - https://huggingface.co/StrandsAgents/strands-decider-12B-gemma4-v1-2610
+  - https://huggingface.co/StrandsAgents/strands-decider-26B-A4B-gemma4-v1-2610
+  non_verifie:
+  - 'Rattachement à AWS : aucune source lue ne dit explicitement « AWS » ou « Amazon Web Services » ;
+    seuls indices : miroir des modèles v1 dans l''org HF amazon, recette d''entraînement sur hôte p5.48xlarge
+    et dossier training/aws/.'
+  - 'Nombre de paramètres : seul le 2B est chiffré (1,9 Md) ; pour les modèles Gemma 4, la taille n''est
+    connue que par le nom de la base et la mémoire GPU annoncée (≈9, 15, 23, 51 Go en bf16).'
+  - 'Rang LoRA 16 : donné pour l''architecture 2B dans le README GitHub ; non vérifié pour les variantes
+    Gemma 4.'
+  - 'Entrée image : seulement les modèles Qwen3.5 2B avec --vision ; les modèles Gemma 4 sont texte seul.
+    Entrée JSON non mentionnée explicitement.'
+  - La fiche HF de v19 indique 167/231 « served at 4096 » alors que le README GitHub donne 167 à 3072
+    et 168 à 4096.
+  - Aucun score global Jev Decision Index n'est publié pour hobson-v21 (le chiffre de tête de sa fiche
+    est JevBench).
+  - Aucune langue n'est annoncée.
+  verified_on: '2026-10-28'
+- id: perplexity-decider
+  nom: Perplexity Decider (pplx-decider)
+  editeur: Perplexity (org HF perplexity-ai)
+  sortie: '2026-10-15'
+  ouvert: true
+  tailles: pplx-decider-v1.2, pplx-decider-flash-v1.2, pplx-decider-flash-gguf-v1.2, pplx-decider-v1.1-27b,
+    pplx-decider-v1-27b
+  base: Qwen3.8-27B (v1, v1.1, v1.2) et Qwen3.5-4B (flash, distillé)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/perplexity-ai/pplx-decider-v1.2
+  url_code: null
+  entrees:
+  - texte
+  - json
+  - image
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  inference:
+  - transformers (paquet Python pplx_decider fourni…
+  - chemin rapide maison (FlashAttention varlen,…
+  - GGUF pour runtime compatible llama.cpp…
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)perplexity decider|pplx-decider
+  poids:
+  - https://huggingface.co/perplexity-ai/pplx-decider-v1.2
+  - https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.2
+  - https://huggingface.co/perplexity-ai/pplx-decider-flash-gguf-v1.2
+  - https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b
+  - https://huggingface.co/perplexity-ai/pplx-decider-v1-27b
+  non_verifie:
+  - Aucun billet Perplexity n'est lié depuis les fiches HF (v1, v1.1, v1.2, flash) ; aucun billet n'a
+    été cherché ailleurs.
+  - 'Les fiches v1.1 et v1.2 disent « The repository is private / authenticate with a token », mais l''API
+    HF les donne publics et non restreints (gated: false) au 2026-10-28.'
+  - 'Écart entre éditions : la fiche v1.1 donne 61,56 pour v1.1 (édition du Decision Index non précisée)
+    et la fiche v1.2 donne 62,30 pour v1.1 sur Decision Index 0.3 ; ne pas mélanger.'
+  - 'La fiche v1-27b annonce 85,71 % de moyenne sur 11 bancs « measured through the Perplexity API » :
+    laisse entendre une offre hébergée, mais aucun prix ni page produit n''a été trouvé.'
+  - 'Contexte : max_length par défaut 262 144 jetons, mais entraînement jusqu''à ≈32k seulement (au-delà,
+    vérifications ponctuelles).'
+  - Aucune langue n'est annoncée.
+  verified_on: '2026-10-28'
+- id: clm-8b
+  nom: CLM-v0.1-8B (Contrastive Language Model)
+  editeur: Contrastive-LM (org GitHub/HF créée en sept. 2026) —…
+  sortie: '2026-09-23'
+  ouvert: true
+  tailles: CLM-v0.1-8B
+  base: Qwen3-8B gelé
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/Contrastive-LM/CLM-v0.1-8B
+  url_code: https://github.com/Contrastive-LM/CLM
+  entrees:
+  - texte
+  - json
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  - 'classement de candidats libres (rank : best-of-N, outils, coups)'
+  inference:
+  - vLLM (encodeur Qwen3-8B en mode pooling)
+  - clm-serve (serveur maison compatible TypeSafe +…
+  - paquet Python contrastive-lm
+  francais: false
+  langues: 'anglais (cardData.language: en)'
+  remarque: null
+  motif: ^CLM\b
+  poids:
+  - https://huggingface.co/Contrastive-LM/CLM-v0.1-8B
+  non_verifie:
+  - Les comparaisons zero-shot avec Jev (T-Rex, BFCL v4, WikiRacing, Super Mario ; « up to 9× lower latency
+    ») ne figurent que dans des images.
+  - Rattachement individuel de chaque auteur à Stanford ou NVIDIA non écrit (seules deux mentions d'institution
+    en bout de liste).
+  - 'Nombre exact de paramètres entraînables : « 20M » au singulier dans le billet, « each encoder ...
+    20M-parameter head » dans le README — total 20 M ou 2 × 20 M non tranché.'
+  - Aucun score revendiqué sur le Jev Decision Index, JevBench ou l'AA Decision Index.
+  - 'CLM-35B multimodal annoncé (« early October ») : non publié sur HF au 2026-10-28 (seuls CLM-v0.1-8B
+    et deepswe-clm-heads-8k listés).'
+  verified_on: '2026-10-28'
+- id: kev
+  nom: Kev (Kev 1.0)
+  editeur: Jared Palmer (compte personnel GitHub jaredpalmer / HF…
+  sortie: '2026-09-19'
+  ouvert: true
+  tailles: Kev-0.8B, Kev-4B, Kev-9B, Kev-27B
+  base: Qwen3.5 Base (0.8B, 4B, 9B) et Qwen3.8-27B post-entraîné (27B) ; architecture «…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/collections/jaredpalmer/kev-6aad9d0ea49f2589665e07cd
+  url_code: https://github.com/jaredpalmer/kev
+  entrees:
+  - texte
+  - json
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  inference:
+  - serveur maison kev.serve (API compatible TypeSafe…
+  - PyTorch CUDA/ROCm
+  - MLX (Apple Silicon)
+  - SDK Python TypeSafe
+  - déploiement Modal
+  francais: false
+  langues: 'anglais (« Languages: English » sur chaque carte ; autres langues hors périmètre)'
+  remarque: null
+  motif: ^Kev\b
+  poids:
+  - https://huggingface.co/jaredpalmer/kev-0.8b
+  - https://huggingface.co/jaredpalmer/kev-4b
+  - https://huggingface.co/jaredpalmer/kev-9b
+  - https://huggingface.co/jaredpalmer/kev-27b
+  non_verifie:
+  - Le nombre total de paramètres des tailles 0.8B/4B/9B n'est pas écrit sur les cartes (seuls les paramètres
+    LoRA le sont) ; tailles de base déduites du nom des modèles Qwen.
+  - Le « community Decision Index 0.2 » est un indice recalculé par l'éditeur sur sa propre suite breadth-v1
+    ; pas vérifié qu'il corresponde à l'édition publiée du Jev Decision Index.
+  - Exécution MLX de Kev-9B et Kev-27B annoncée « expected, not measured ».
+  verified_on: '2026-10-28'
+- id: laya
+  nom: Laya
+  editeur: Convai Innovations (org HF convaiinnovations ; code sur le…
+  sortie: '2026-09-18'
+  ouvert: true
+  tailles: laya (anglais), laya-multilingual, laya-typed-decisions
+  base: Encodeurs bidirectionnels (ModernBERT-large, mmBERT-base), pas un LLM génératif…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/convaiinnovations/laya
+  url_code: https://github.com/NandhaKishorM/laya
+  entrees:
+  - texte
+  - json
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  - 'act/escalate (action.act_probability, déclaré sans signal utilisable, issue #185)'
+  inference:
+  - paquet Python laya (transformers)
+  - laya-serve (serveur HTTP compatible Jev…
+  - ONNX Runtime
+  - TileLang (chemin GPU rapide)
+  - serveur MCP
+  - LangChain/LangGraph
+  francais: true
+  langues: anglais pour le checkpoint racine ; « 100+ languages » annoncées pour laya-multilingual, évaluation
+    sur 51 langues MASSIVE ;…
+  remarque: null
+  motif: (?i)^laya\b
+  poids:
+  - https://huggingface.co/convaiinnovations/laya
+  - https://huggingface.co/convaiinnovations/laya-multilingual
+  - https://huggingface.co/convaiinnovations/laya-typed-decisions
+  non_verifie:
+  - Le dossier multilingual/ se trouve dans le dépôt HF convaiinnovations/laya (pas dans le dépôt GitHub)
+    ; son rl_agent_config.json ne liste aucune langue. La mention du français vient de cardData.language
+    de convaiinnovations/laya-multilingual et du tableau par langue de BENCHMARKS.md, pas de la fiche
+    racine.
+  - Aucun score revendiqué sur le Jev Decision Index, JevBench ou l'AA Decision Index.
+  - Les bases de checkpoints sont proches du hasard en zero-shot sur typed-decisions (avoué par l'éditeur).
+  verified_on: '2026-10-28'
+- id: semif
+  nom: SemIf (anciennement OpenJev)
+  editeur: Theodore Lee (compte personnel GitHub TheoLeeCJ) ; projet…
+  sortie: '2026-09-16'
+  ouvert: true
+  tailles: SemIf sur Qwen3.5-4B, Pont EXL3 Qwen3.8-27B, Démo navigateur (Qwen3-0.6B,…
+  base: Modèles ouverts gelés, principalement Qwen/Qwen3.5-4B (pas la variante -Base)
+  licence: MIT
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://github.com/TheoLeeCJ/SemIf-OpenJev
+  url_code: https://github.com/TheoLeeCJ/SemIf-OpenJev
+  entrees:
+  - texte
+  - json
+  types_decision:
+  - choice (liste d'options typées avec description)
+  - oui_non (critères binaires)
+  inference:
+  - transformers/PyTorch (CUDA, MPS)
+  - MLX
+  - llama.cpp (llama-cpp-python, GGUF)
+  - exllamav3 (EXL3)
+  - wllama/WebGPU (navigateur)
+  - CLI semif-score
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)^semif
+  poids:
+  - https://github.com/TheoLeeCJ/SemIf-OpenJev
+  - https://github.com/TheoLeeCJ/SemIf-OpenJev/tree/main/exl3-bridge
+  - https://github.com/TheoLeeCJ/SemIf-OpenJev/tree/main/webgpu-demo
+  non_verifie:
+  - Le Jev Decision Index (d'après la mission) inscrit SemIf sur Qwen/Qwen3.5-4B-Base ; le README pointe
+    Qwen/Qwen3.5-4B (rév. 851bf6e8). Écart non résolu, la page de l'index n'a pas été relue.
+  - Aucune affiliation au MIT n'est écrite dans une source primaire.
+  - Aucune langue n'est annoncée.
+  verified_on: '2026-10-28'
+- id: clef
+  nom: Clef (Clef, Clef-flash, Clef-omni)
+  editeur: Cloudflare (équipe Workers AI ; org HF Cloudflare)
+  sortie: '2026-10-01'
+  ouvert: true
+  tailles: Clef, Clef-flash, Clef-omni
+  base: Qwen (Qwen3.8-27B, Qwen3.5-9B, Qwen3-Omni-30B-A3B-Instruct) ; passe de prefill…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: 'Workers AI (doc Cloudflare, lue le 2026-10-28), entrée seule, sorties non facturées : Clef 0,24
+    $/M jetons d''entrée (contexte hébergé 65 536) ; Clef-flash…'
+  url: https://huggingface.co/Cloudflare/clef
+  url_code: null
+  entrees:
+  - texte
+  - json
+  - image
+  - video
+  - audio
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  inference:
+  - transformers (code maison joint_schema_model.py)
+  - SGLang (Clef et Clef-flash ; Clef-omni « coming…
+  - Workers AI (hébergé, API compatible Jev/SystemOne)
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)^(cloudflare )?clef\b
+  poids:
+  - https://huggingface.co/Cloudflare/clef
+  - https://huggingface.co/Cloudflare/clef-flash
+  - https://huggingface.co/Cloudflare/clef-omni
+  non_verifie:
+  - Le billet du 1er oct. affirme que Clef est « currently the leader » sur le Jev Decision Index, mais
+    aucune note globale n'est écrite sur le billet ni sur les fiches HF ; le site du classement (clef-evals.workers-ai-mle.workers.dev)
+    est rendu en JavaScript et n'a pas pu être lu.
+  - 'Suite « Decision Index 0.2.1 » (fiches HF) : rien ne précise si c''est la même suite que le Jev Decision
+    Index de TypeSafe ni à quelle édition elle correspond.'
+  - Les fichiers .eval_results/ des dépôts HF portent des scores « Typed Decisions » mesurés par un tiers
+    (SaylorTwift), non repris ici car non déclarés par Cloudflare.
+  - 'Contexte : le billet du 1er oct. annonce 64k pour Clef et Clef-flash ; la fiche HF fixe max_length=16
+    384 par défaut pour Clef/Clef-flash et 64 000 pour Clef-omni ; le billet du 9 oct. dit que les poids
+    de Clef-flash ont été entraînés pour 256k.'
+  - 'Forme exacte des poids publiés : le billet parle de backbone gelé + LoRA rang 256, la fiche HF de
+    « post-trained » ; on ne sait pas si les LoRA sont fusionnés dans les safetensors du backbone.'
+  - 'Documentation Workers AI : le paramètre `videos` n''est documenté que pour clef-omni ; pour Clef/Clef-flash
+    hébergés, seules les images sont listées (la vidéo n''est décrite que pour l''usage local sur HF).'
+  - Aucune langue n'est annoncée.
+  verified_on: '2026-10-28'
+- id: granite-switch-4-1
+  nom: Granite Switch 4.1 (adaptateur decision)
+  editeur: IBM (org HF ibm-granite ; code GitHub generative-computing)
+  sortie: '2026-10-14'
+  ouvert: true
+  tailles: granite-switch-4.1-8b, granite-switch-4.1-30b
+  base: Granite 4.1 (8B et 30B, dense, 128K de contexte), base gelée ; l'adaptateur…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/ibm-granite/granite-switch-4.1-8b
+  url_code: https://github.com/generative-computing/granite-switch
+  entrees:
+  - texte
+  - json
+  - audio
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  inference:
+  - transformers
+  - vLLM (logprob_token_ids)
+  - llama.cpp (cité par le billet IBM ; dépôts GGUF…
+  - Mellea (pas encore d'intrinsèque pour decision)
+  francais: true
+  langues: 'Modèle de base : anglais, allemand, espagnol, français, japonais, portugais, arabe, tchèque,
+    italien, coréen, néerlandais, chinois ; ASR :…'
+  remarque: null
+  motif: (?i)granite
+  poids:
+  - https://huggingface.co/ibm-granite/granite-switch-4.1-8b
+  - https://huggingface.co/ibm-granite/granite-switch-4.1-30b
+  non_verifie:
+  - 'Ce que fait l''adaptateur decision (io.yaml + README granitelib) : à partir d''un état (texte ou
+    JSON) et d''une question à options étiquetées A, B, C…, il rend en une passe une distribution softmax
+    sur les jetons d''étiquette (max_completion_tokens 1, température 0) ; en aLoRA, l''état passe sur
+    la base gelée (cache KV réutilisable) et l''adaptateur s''active au marqueur « ### DECISION ». Ce
+    n''est pas un modèle de décision autonome mais un adaptateur d''un LLM généraliste.'
+  - 'Qui a mesuré le Decision Index : la fiche HF écrit au passif (« was evaluated ») ; attribué à IBM
+    car publié par IBM sans mention de tiers.'
+  - La fiche granitelib annonce alpha=128 pour l'adaptateur, BUILD.md du Switch alpha=64 ; elle dit aussi
+    les adaptateurs « never merged » puis « merged models (several adapters combined into one) » — formulations
+    contradictoires non résolues.
+  - 'Le billet IBM affirme que l''aLoRA Guardian bat Jev 1.13, Microsoft-Decision-1, GPT-Luna-Decisions
+    et Clef-Flash sur des tâches de sécurité : chiffres seulement dans une figure, non relevés.'
+  - Le billet IBM du 4.1.1 (huggingface.co/blog/ibm-granite/granite-switch-4-1-1), lié depuis la fiche,
+    renvoie 404 au 2026-10-28.
+  - 'Entrée audio : transcrite par l''ASR embarqué puis insérée comme texte ; l''adaptateur decision ne
+    lit pas l''audio directement. Aucune entrée image.'
+  - 'Support llama.cpp : affirmé dans le billet IBM ; les fiches des dépôts -GGUF n''ont pas été lues.'
+  verified_on: '2026-10-28'
+- id: vllm-sr-decision-3-0-d3
+  nom: Decision 3.0 (d3, d3-turbo, d3-ultra, d3-flash, d3-mini, d3-nano, d3-lite, d3-edge)
+  editeur: vLLM Semantic Router Team (org HF vllm-sr ; projet…
+  sortie: '2026-10-10'
+  ouvert: true
+  tailles: d3, d3-turbo, d3-ultra, d3-flash, d3-mini, d3-nano, d3-lite, d3-edge
+  base: 'Famille Qwen : Qwen3.8-27B (d3), Qwen3.5-9B/4B/2B/0.8B (flash, mini, nano,…'
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/collections/vllm-sr/decision-30-6aca5f47b0d942380f6e4a64
+  url_code: https://github.com/vllm-project/semantic-router
+  entrees:
+  - texte
+  - json
+  - image
+  - video
+  types_decision:
+  - choice
+  - oui_non (« noul », « Yes / No »)
+  - score
+  - 'box (d3-turbo et d3-ultra seulement : une boîte + confiance, sur image ou instant de vidéo)'
+  - 'track (d3-turbo et d3-ultra seulement : suivi sur toute une vidéo, avec probabilité de visibilité)'
+  inference:
+  - transformers (AutoModel / pipeline « decision »,…
+  - serveur maison d3_server.py (fourni dans chaque…
+  - vLLM (branche main / nightly depuis 2026-10-14,…
+  - vLLM Semantic Router, mode Engine (vllm-sr serve,…
+  - API hébergée gratuite decision.vllm-sr.ai (sert…
+  - Core ML (conversion tierce…
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)\bd3\b|decision 3\.0
+  poids:
+  - https://huggingface.co/vllm-sr/d3
+  - https://huggingface.co/vllm-sr/d3-turbo
+  - https://huggingface.co/vllm-sr/d3-ultra
+  - https://huggingface.co/vllm-sr/d3-flash
+  - https://huggingface.co/vllm-sr/d3-mini
+  - https://huggingface.co/vllm-sr/d3-nano
+  - https://huggingface.co/vllm-sr/d3-lite
+  - https://huggingface.co/vllm-sr/d3-edge
+  non_verifie:
+  - 'Date d''annonce publique : pas de billet de lancement Decision 3.0 trouvé ; 2026-10-10 est la création
+    du dépôt HF (peut précéder l''ouverture publique).'
+  - 'Modèle de base de d3-turbo et d3-ultra : ni fiche, ni NOTICE, ni MODEL_MANIFEST ne le nomment (même
+    nombre de paramètres que d3, 26,09 Md).'
+  - 'Base de d3 : la fiche dit Qwen/Qwen3.8-27B, la doc vLLM et le billet Apple Silicon parlent d''un
+    « Qwen3.5 backbone » (type d''architecture HF qwen3_5) ; non tranché.'
+  - 'd3-edge : 0,59 Md pour une base Qwen3.5-0.8B (0,85 Md pour d3-lite) ; mode de réduction (élagage,
+    distillation…) non décrit.'
+  - 'Langues prises en charge : aucune mention sur les fiches ; français non cité.'
+  - 'Prise en charge vLLM et vLLM SR Engine de d3-ultra : non documentée sur sa fiche (seuls transformers
+    et l''API hébergée).'
+  - 'Scores par domaine SR-Box et figures index-pareto/index-rank : seulement en image, non relevés.'
+  verified_on: '2026-10-28'
+- id: intern-decision
+  nom: Intern-Decision (0.8B / 2B / 4B)
+  editeur: InternLM (organisation HF « internlm » et GitHub « internlm…
+  sortie: '2026-09-26'
+  ouvert: true
+  tailles: Intern-Decision-0.8B, Intern-Decision-2B, Intern-Decision-4B
+  base: Qwen3.5 (0.8B, 2B, 4B), multimodaux ; objectif « autoregressive masked language…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/collections/internlm/intern-decision
+  url_code: https://github.com/internlm/Intern-Decision
+  entrees:
+  - texte
+  - image
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  inference:
+  - transformers (backend « hf », module inference.py…
+  - XTuner (second backend, utilisé pour les scores…
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)intern-decision
+  poids:
+  - https://huggingface.co/internlm/Intern-Decision-0.8B
+  - https://huggingface.co/internlm/Intern-Decision-2B
+  - https://huggingface.co/internlm/Intern-Decision-4B
+  non_verifie:
+  - 'Affiliation « Shanghai AI Lab » : non écrite sur la fiche HF, le README GitHub ni l''abstract arXiv
+    lus (seulement l''organisation « internlm »).'
+  - 'Date de mise en ligne publique : createdAt HF (2026-09-26) est la création du dépôt, pas forcément
+    l''annonce.'
+  - 'Entrée JSON : la fiche parle d''un « shared state » (exemple en texte), sans mentionner explicitement
+    JSON.'
+  - 'Langues : aucune annoncée.'
+  - Le dépôt GitHub ne contient ni données d'entraînement ni poids (dit le README).
+  verified_on: '2026-10-28'
+- id: fastino-glide
+  nom: GLiDE 1.2
+  editeur: Fastino (Fastino Inc. / Fastino Labs)
+  sortie: '2026-10-19'
+  ouvert: true
+  tailles: GLiDE (v1.2)
+  base: Qwen3.8-27B (Alibaba Cloud), Apache-2.0
+  licence: other:fastino-community
+  licence_classe: conditions
+  licence_note: 'Licence communautaire Fastino : accord écrit exigé au-delà de 10 M$ de chiffre d''affaires,
+    mention « Built with Fastino GLiDE » obligatoire, licence imposée aux dérivés.'
+  prix: null
+  url: https://huggingface.co/fastino/GLiDE
+  url_code: null
+  entrees:
+  - texte
+  - json
+  - image
+  types_decision:
+  - choice (jusqu'à 255 options)
+  - oui_non (noul)
+  - score (niveaux ordonnés)
+  inference:
+  - transformers (paquet glide/ fourni dans le dépôt)
+  - serveur HTTP maison (uvicorn, POST /v1/systemone)
+  - API hébergée Fastino (POST…
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)glide
+  poids:
+  - https://huggingface.co/fastino/GLiDE
+  non_verifie:
+  - 'Prix de l''API Fastino : non publié sur la fiche (documentation docs.fastino.ai non lue).'
+  - 'Score Decision Index 0.4.1 : lu sur la fiche de l''éditeur, pas vérifié sur le Space du tableau.'
+  - 'Versions antérieures (v1.0, v1.1) : aucune trouvée sur HF (seul fastino/GLiDE).'
+  - 'Accès : la fiche dit qu''il faut un jeton « with read access to the fastino org », mais l''API indique
+    gated=false et les fichiers LICENSE/NOTICE se lisent sans jeton.'
+  - 'Article arXiv annoncé « forthcoming » : pas encore publié.'
+  - 'Langues : aucune annoncée.'
+  verified_on: '2026-10-28'
+- id: autotrust-jev
+  nom: AutoTrust JEV (JEV-9B, JEV-27B, JEV-27B-VL, JEV-35B, GEV-26B-Decide, AutoTrust-JEV-27B v1.1…)
+  editeur: AutoTrust (organisation HF « autotrust » ; « AutoTrust Labs…
+  sortie: '2026-09-23'
+  ouvert: true
+  tailles: JEV-9B, JEV-27B, JEV-Gemma4-26B-A4B, JEV-27B-VL, GEV-26B-Decide, GEV-26B-Decide-NVFP4, JEV-35B,
+    JEV-35B-NVFP4, AutoTrust-JEV-27B v1.1
+  base: Qwen3.5-9B, Qwen3.8-27B, Qwen3.5-35B-A3B, Gemma-4-26B-A4B-it ; pour la v1.1, d3…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/autotrust
+  url_code: null
+  entrees:
+  - texte
+  - json
+  - image
+  types_decision:
+  - oui_non (noul / true-false)
+  - choice (2 à 256 options sur JEV-27B-VL ; 2–16 par groupe sur JEV-Gemma4)
+  - score (0–5)
+  inference:
+  - vLLM (serve.sh / serve_decide.py, build de…
+  - vLLM 0.31.0 + plugin StartLux…
+  - peft (bascule de l'adaptateur, JEV-9B/27B)
+  francais: false
+  langues: 'anglais (cardData.language: en)'
+  remarque: null
+  motif: AutoTrust|^JEV-\d
+  poids:
+  - https://huggingface.co/autotrust/JEV-9B
+  - https://huggingface.co/autotrust/JEV-27B
+  - https://huggingface.co/autotrust/JEV-Gemma4-26B-A4B
+  - https://huggingface.co/autotrust/JEV-27B-VL
+  - https://huggingface.co/autotrust/GEV-26B-Decide
+  - https://huggingface.co/autotrust/GEV-26B-Decide-NVFP4
+  - https://huggingface.co/autotrust/JEV-35B
+  - https://huggingface.co/autotrust/JEV-35B-NVFP4
+  - https://huggingface.co/autotrust/AutoTrust-JEV-27B-v1.1
+  non_verifie:
+  - 'v1.1 / d3 : la fiche README et ses métadonnées ne mentionnent ni d3 ni base_model ; le lien avec
+    vllm-sr/d3 ne repose que sur NOTICE.base (et sur l''index cité dans la consigne, non relu ici). d3
+    est lui-même Apache-2.0, base Qwen3.8-27B (API HF).'
+  - 'Scores des tableaux (Vision 69,82, JEV-27B-VL 53,64 public) : recopiés par AutoTrust, non vérifiés
+    sur le Space multimodalart/jev-decision-index.'
+  - Fiches des variantes NVFP4 non lues (paramètres non relevés).
+  - Conditions Gemma 4 non lues (seulement le lien).
+  - 'Entrée JSON : seulement mentionnée (« JSON vs plain text … no measurable difference »), pas un format
+    documenté à part.'
+  - 'Pas de dépôt de code séparé ; code de service dans les dépôts HF. Démo applicative tierce : github.com/yuhai-china/JEV-27B-DEMO
+    (non lue).'
+  verified_on: '2026-10-28'
+- id: knowline
+  nom: KnowLine
+  editeur: PelaAI (organisation Hugging Face PelaAI)
+  sortie: '2026-10-24'
+  ouvert: true
+  tailles: KnowLine-31B-Gen1, KnowLine-35B-A3B-Gen1.5, KnowLine-26B-A4B-Gen2.5, KnowLine-9B-Gen1, KnowLine-4B-Gen5.5
+  base: Gemma 4 (31B dense, 26B-A4B MoE) et Qwen3.5 (35B-A3B MoE, 9B, 4B), tous…
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/PelaAI/KnowLine-31B-Gen1
+  url_code: null
+  entrees:
+  - texte
+  - image
+  types_decision:
+  - oui_non (noul)
+  - choice
+  - score
+  - box (sans entraînement, capacité du modèle de base)
+  inference:
+  - SGLang 0.5.21
+  - transformers 5.12.1 (repli, texte seul)
+  - serveur maison knowline_server.py (/v1/systemone)
+  - moteur Decision Index knowline_engine.py
+  francais: false
+  langues: anglais, chinois simplifié, chinois traditionnel
+  remarque: null
+  motif: (?i)knowline
+  poids:
+  - https://huggingface.co/PelaAI/KnowLine-31B-Gen1
+  - https://huggingface.co/PelaAI/KnowLine-35B-A3B-Gen1.5
+  - https://huggingface.co/PelaAI/KnowLine-26B-A4B-Gen2.5
+  - https://huggingface.co/PelaAI/KnowLine-9B-Gen1
+  - https://huggingface.co/PelaAI/KnowLine-4B-Gen5.5
+  non_verifie:
+  - 'Aucun dépôt de code séparé (GitHub) trouvé : le code de service est dans le dépôt HF.'
+  - Entrée JSON non citée explicitement (la fiche parle de « state (text or a chat) »).
+  - 'KnowLine-9B-Gen1 annonce 65,67 sur la suite publique 0.3, valeur identique à celle de KnowLine-4B-Gen5
+    : coïncidence non vérifiée.'
+  - Tous les chiffres de la fiche sont auto-déclarés, non vérifiés par un tiers (la fiche le dit).
+  verified_on: '2026-10-28'
+- id: sieve
+  nom: Sieve
+  editeur: Sthanika AI (organisation Hugging Face sthanika-ai)
+  sortie: '2026-10-27'
+  ouvert: true
+  tailles: Sieve-31B-v3, Sieve-27B-v2, Sieve-9B-v2, Sieve-4B, Sieve-2B-v3, Sieve-0.8B, Sieve-Vision-4B,
+    Sieve-Vision-27B
+  base: Gemma 4 31B (31B-v3) et Qwen3.5 / Qwen3.8 (autres tailles)
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/sthanika-ai/Sieve-31B-v3
+  url_code: https://github.com/sthanika-ai/Sieve
+  entrees:
+  - texte
+  - json
+  - image (variantes Sieve-Vision seulement)
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - 'score (non entraîné sur 31B-v3 : lu comme des options)'
+  inference:
+  - paquet maison sieve (load_sieve / decide, ≥ 0.4.0)
+  - serveur maison sieve-serve
+  - moteur Decision Index…
+  francais: false
+  langues: 'anglais (cardData language: en)'
+  remarque: null
+  motif: (?i)^sieve
+  poids:
+  - https://huggingface.co/sthanika-ai/Sieve-31B-v3
+  - https://huggingface.co/sthanika-ai/Sieve-27B-v2
+  - https://huggingface.co/sthanika-ai/Sieve-9B-v2
+  - https://huggingface.co/sthanika-ai/Sieve-4B
+  - https://huggingface.co/sthanika-ai/Sieve-2B-v3
+  - https://huggingface.co/sthanika-ai/Sieve-0.8B
+  - https://huggingface.co/sthanika-ai/Sieve-Vision-4B
+  - https://huggingface.co/sthanika-ai/Sieve-Vision-27B
+  non_verifie:
+  - 'Le rang « #1 (ex aequo) » et le 71,10 sont lus sur la fiche et sa capture d''écran, pas sur le tableau
+    lui-même.'
+  - 'Divergence entre fiches : Sieve dit l''usage de la base soumis aux conditions Gemma, KnowLine dit
+    gemma-4-31B-it sous Apache-2.0 ; non tranché ici.'
+  - Nombre de paramètres des adaptateurs LoRA (9B-v2, 4B) non publié par l'API HF.
+  verified_on: '2026-10-28'
+- id: turion-jev
+  nom: Turion Jev 31B
+  editeur: Turion AI (org HF turion-ai ; turion.ai)
+  sortie: '2026-10-22'
+  ouvert: true
+  tailles: turion-jev-31b
+  base: Gemma-4-31B-it
+  licence: Apache-2.0
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/turion-ai/turion-jev-31b
+  url_code: https://huggingface.co/turion-ai/turion-jev-31b/tree/main/code
+  entrees:
+  - texte
+  types_decision:
+  - choice
+  - oui_non
+  - score (0–5)
+  inference:
+  - vLLM (moteur intégré, FP8 en ligne)
+  - serveur maison compatible TypeSafe (POST…
+  - kit decision-index
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)turion
+  poids:
+  - https://huggingface.co/turion-ai/turion-jev-31b
+  non_verifie:
+  - 'Entrée image : la base est multimodale mais la fiche ne parle que d''un « state » ; non affirmé.'
+  - Langues non annoncées.
+  - Pas de billet de lancement lu ; date = création du dépôt.
+  verified_on: '2026-10-28'
+- id: h2o-lightning
+  nom: H2O-Lightning
+  editeur: H2O.ai (organisation Hugging Face h2oai)
+  sortie: '2026-10-20'
+  ouvert: true
+  tailles: H2O-Lightning-31B, H2O-Lightning-4B, H2O-Lightning-4B GGUF, H2O-Lightning-4B-Nemotron-Nano
+  base: Gemma 4 31B pour le 31B ; Qwen3.5-4B et Nemotron-3-Nano-4B pour les 4B
+  licence: other:h2o-model-non-commercial-licence-v1.1
+  licence_classe: non_commercial
+  licence_note: Licence non commerciale d'H2O.ai.
+  prix: null
+  url: https://huggingface.co/h2oai/h2o-lightning-31b
+  url_code: null
+  entrees:
+  - texte
+  - image
+  types_decision:
+  - choice
+  - oui_non (noul)
+  - score
+  - box (boîte englobante sur image)
+  inference:
+  - vLLM 0.30.0 (lecture one-way, repli)
+  - build vLLM maison h2oai/vllm (attention par…
+  - shim maison lightning_31b_shim.py (/v1/systemone,…
+  francais: false
+  langues: « Evaluated mostly in English »
+  remarque: null
+  motif: (?i)h2o
+  poids:
+  - https://huggingface.co/h2oai/h2o-lightning-31b
+  - https://huggingface.co/h2oai/h2o-lightning-4b
+  - https://huggingface.co/h2oai/h2o-lightning-4b-gguf
+  - https://huggingface.co/h2oai/h2o-lightning-4b-nemotron-nano
+  non_verifie:
+  - Texte de la licence H2O Model Non-Commercial Licence v1.1 non lu (LICENSE, NOTICE et LICENSE-* renvoient
+    401).
+  - Licence du code du shim propre à H2O (hors parties MIT / Apache citées) non précisée.
+  - Méthode d'entraînement (fine-tune complet ou LoRA, données) non décrite sur la fiche.
+  - 'Les extraits vLLM / SGLang / Docker en haut de page sont générés par Hugging Face, pas par l''éditeur
+    : seuls vLLM et le build maison sont retenus.'
+  - Une API hébergée H2O est mentionnée (« read through our hosted API ») sans prix ni URL.
+  verified_on: '2026-10-28'
+- id: mammoth-elephant
+  nom: mammoth-1 / elephant-1
+  editeur: Base Labs (laboratoire de Baseten ; organisation Hugging…
+  sortie: '2026-10-21'
+  ouvert: true
+  tailles: mammoth-1, elephant-1
+  base: Qwen3.5 (27B et 9B)
+  licence: MIT
+  licence_classe: libre
+  licence_note: null
+  prix: null
+  url: https://huggingface.co/baselabs/mammoth-1
+  url_code: null
+  entrees:
+  - texte
+  - image
+  types_decision:
+  - oui_non (noul)
+  - choice
+  - score
+  - option « je ne sais pas » entraînée
+  inference:
+  - runtime maison OneJev + serve.patch (setup.sh,…
+  - API hébergée Baseten Model APIs
+  francais: false
+  langues: 'anglais (cardData language: en)'
+  remarque: null
+  motif: (?i)mammoth|elephant
+  poids:
+  - https://huggingface.co/baselabs/mammoth-1
+  - https://huggingface.co/baselabs/elephant-1
+  non_verifie:
+  - Prix de l'API Baseten non relevé (seule une semaine gratuite jusqu'au 27/10/2026 est annoncée).
+  - 'Le 71,24 est un score d''édition 0.4 ; une fiche tierce (KnowLine, PelaAI) attribue 68,44 à mammoth-1
+    en 0.4.1 (tableau du 2026-10-22) : non vérifié sur le tableau.'
+  - Langues autres que l'anglais non annoncées.
+  verified_on: '2026-10-28'
+- id: bespoke-nimble
+  nom: Bespoke Nimble (Nimble-v4-max)
+  editeur: Bespoke Labs (organisation Hugging Face bespokelabs)
+  sortie: '2026-10-13'
+  ouvert: true
+  tailles: Nimble-v4-max, Nimble-v4 (9B), Bespoke-Nimble-27B-v3, Bespoke-Nimble-9B-v3, Bespoke-Nimble-9B-v2,
+    Bespoke-Nimble-9B
+  base: Qwen3.8-27B (v4-max) ; Qwen3.5-9B (9B)
+  licence: CC-BY-NC-4.0
+  licence_classe: non_commercial
+  licence_note: 'CC-BY-NC-4.0 : pas d''usage commercial.'
+  prix: null
+  url: https://huggingface.co/bespokelabs/Nimble-v4-max
+  url_code: https://github.com/bespokelabsai/nimble
+  entrees:
+  - texte
+  types_decision:
+  - choice
+  - oui_non
+  - score
+  inference:
+  - moteur maison code/nimble (dataset…
+  - API hébergée console.bespokelabs.ai
+  francais: false
+  langues: null
+  remarque: null
+  motif: (?i)nimble
+  poids:
+  - https://huggingface.co/bespokelabs/Nimble-v4-max
+  - https://huggingface.co/bespokelabs/Bespoke-Nimble-27B-v3
+  - https://huggingface.co/bespokelabs/Bespoke-Nimble-9B-v3
+  - https://huggingface.co/bespokelabs/Bespoke-Nimble-9B-v2
+  - https://huggingface.co/bespokelabs/Bespoke-Nimble-9B
+  non_verifie:
+  - 'Fiche très courte (1,7 ko) mais réelle : base, licence, score, mémoire requise et mode d''emploi
+    (via le dataset lié). Rien sur les données, l''entraînement, les langues ni la calibration.'
+  - 'Entrées : la fiche v4-max parle seulement de « context » ; la limite « texte seul » du README GitHub
+    concerne la 9B, non vérifiée pour v4-max.'
+  - Contexte 32 768 jetons (dataset) ; prix de l'API non relevé.
+  - 'La fiche H2O-Lightning-31B attribue 66,56 à « Bespoke Nimble v4 Max (27B) » sur le Decision Index
+    0.4.1 (tableau) : chiffre tiers, non vérifié.'
+  verified_on: '2026-10-28'
+ecartes:
+- nom: granite-switch-4.1-8b-GGUF / -30b-GGUF
+  motif: quantifications GGUF des tailles déjà fichées (fiches non lues), rattachées à la fiche Granite
+    Switch
+  checked_on: '2026-10-28'
+- nom: granite-switch-4.1-3b/8b/30b-preview
+  motif: préversions de mai 2026 avec le paquet complet Granite Libraries sans audio ; non lues, hors
+    mission (adaptateur decision non confirmé)
+  checked_on: '2026-10-28'
+- nom: ibm-granite/granitelib-core-r1.0 (decision)
+  motif: 'adaptateur decision seul (LoRA/aLoRA PEFT) : source de la fiche Granite Switch, pas une fiche
+    séparée'
+  checked_on: '2026-10-28'
+- nom: amazon/strands-decider-*-v1-2610
+  motif: miroirs à l'identique des cinq modèles v1 de StrandsAgents (doublons)
+  checked_on: '2026-10-28'
+- nom: Decision 2.0 (Vega-27B, Lux-9B, Nox-4B, Sol-2B, Eos-0.8B, Kai-0.6B, + GGUF)
+  motif: génération précédente (dépôts créés 28/09–08/10/2026), supplantée par Decision 3.0 ; citée comme
+    référence sur les fiches d3
+  checked_on: '2026-10-28'
+- nom: Decision 1.0 (Lux-9B, Nox-4B, Sol-2B, Eos-0.8B, Kai-0.6B, Lex-0.6B, Route-0.6B)
+  motif: génération antérieure (billet du 2026-09-22), supplantée
+  checked_on: '2026-10-28'
+- nom: Vela 3.0 (vela3-fast, vela3-fast-vision, vela3-turbo, vela3-flash, vela3-mini, vela3-lite)
+  motif: famille distincte de modèles de routage (décisions + extraction de spans, billet du 2026-10-26),
+    hors fiche d3 ; à traiter séparément si retenue
+  checked_on: '2026-10-28'
+- nom: Vela 2.0 / Vela 1.0
+  motif: familles de routage/encodeurs antérieures, hors périmètre de la fiche d3
+  checked_on: '2026-10-28'
+- nom: Quantifications d3-FP8, d3-NVFP4, d3-NVFP4-AWQ, d3-W4A16-GPTQ, d3-W4A16-AWQ, d3-turbo-FP8, d3-turbo-NVFP4,
+    d3-turbo-INT4
+  motif: versions quantifiées de d3 / d3-turbo, pas des tailles distinctes ; fiches non lues
+  checked_on: '2026-10-28'
+- nom: autotrust/Qwen3.8-27B-NVFP4-DGX-SPARK (et -V2)
+  motif: quantification d'un LLM génératif, pas un modèle de décision
+  checked_on: '2026-10-28'
+- nom: autotrust/Qwen3.8-Flash-Next-E384-FP4-Local / -V2
+  motif: quantification/fusion d'un LLM génératif, hors périmètre
+  checked_on: '2026-10-28'
+- nom: autotrust/GLM-5.3(-Flash)-GGUF-DGX-Spark et GLM5.3-Flash-E192/E224/E256-DGX-Spark
+  motif: quantifications de GLM-5.3 génératif, hors périmètre
+  checked_on: '2026-10-28'
+- nom: LiquidAI d1-*-GGUF, -MLX-*, -ONNX, d1-3B-w8a8
+  motif: formats/quantifications des modèles d1 ouverts, couverts par la fiche famille (llama.cpp cité)
+  checked_on: '2026-10-28'
+- nom: hugging-apps/internlm-intern-decision-4b
+  motif: démo communautaire, pas un modèle
+  checked_on: '2026-10-28'
+- nom: AlexWortega/openjev
+  motif: Autre projet nommé « openjev » (Qwen3.5 fine-tuné en cross-encodeur NLI, licence MIT) ; ce n'est
+    pas SemIf et rien ne le relie au MIT.
+  checked_on: '2026-10-28'
+- nom: vinci00/semif-qwen3.5-4b-mlx-4bit
+  motif: 'Export MLX 4 bits de Qwen3.5-4B pour la lecture SemIf, sans entraînement : dérivé tiers.'
+  checked_on: '2026-10-28'
+- nom: novelaide/SemIf-Qwen3.5-4B-MLX-4bit
+  motif: 'Miroir de l''export vinci00 : doublon.'
+  checked_on: '2026-10-28'
+- nom: jacksodj/semif-4b-nli-v5-mlx
+  motif: 'Conversion MLX de AlexWortega/openjev (NLI 3 classes) avec le nom SemIf : dérivé tiers.'
+  checked_on: '2026-10-28'
+- nom: gxydResearch/semif-27b-lora
+  motif: Dépôt sans fiche (un seul fichier rlcd_27b_final.pt), éditeur et affiliation inconnus.
+  checked_on: '2026-10-28'
+- nom: chengyongru/fastjev
+  motif: 'Fork de SemIf présenté comme SDK, maintenu indépendamment : dérivé.'
+  checked_on: '2026-10-28'
+- nom: Recherches « sem-lf » / « semlf » (HF et GitHub)
+  motif: 'Aucun résultat pertinent (dépôts sans rapport : git-lfs, cours, etc.).'
+  checked_on: '2026-10-28'
+- nom: KnowLine-4B-Gen1 à Gen5, KnowLine-26B-A4B-Gen1/Gen2, KnowLine-35B-A3B-Gen1
+  motif: versions antérieures des tailles retenues (tableau « Releases » de la fiche 31B)
+  checked_on: '2026-10-28'
+- nom: Sieve-31B, Sieve-31B-v2, Sieve-27B, Sieve-9B, Sieve-2B, Sieve-2B-v2
+  motif: versions antérieures des tailles retenues (non détaillées)
+  checked_on: '2026-10-28'
+- nom: sthanika-ai/gemma3-12b-kcc-advisory
+  motif: hors famille Sieve (adaptateur Gemma 3, licence gemma), non lu
+  checked_on: '2026-10-28'
+- nom: h2oai/timeh2o-v1, timeh2o-v1-tiny, tabh2o-v1.1
+  motif: 'hors périmètre : prévision de séries temporelles / classification tabulaire (pipeline_tag),
+    dépôts restreints'
+  checked_on: '2026-10-28'
+- nom: bespokelabs Bespoke-MiniCheck-7B, Bespoke-Stratos, Bespoke-MiniChart, qwen3-*-dabstep-*, Qwen3-8B-ot_step*
+  motif: 'hors périmètre : modèles antérieurs non décisionnels ou checkpoints d''expérience'
+  checked_on: '2026-10-28'
+- nom: surogate Surogate-3.5-2B/4B/9B
+  motif: collection « RO-EN Surogate Models », pas des modèles de décision d'après la collection (fiches
+    non lues)
+  checked_on: '2026-10-28'
+- nom: surogate quantifications Qwen (*-NVFP4, *-FP8, *-AWQ, *-SWQ, *-Base), jackrabbit, amami, ambernet-langid,
+    *-Libra-*
+  motif: 'hors périmètre : quantifications de modèles tiers, parole, identification de langue'
+  checked_on: '2026-10-28'
+- nom: Jev 1.13
+  motif: version précédente de Jev, couverte par la fiche Jev
+  checked_on: '2026-10-28'
+- nom: openbmb/MiniCPM-OCR-Jev
+  motif: 'juge de qualité OCR (score 0–1 sur une région d''image) : spécialisé, relève de l''onglet OCR'
+  checked_on: '2026-10-28'
+- nom: DeBERTa-v3 zéro-shot (MoritzLaurer) et clones open-jev-deberta
+  motif: 'candidat écarté pour « Run v3 » : classifieur NLI zéro-shot antérieur à la famille'
+  checked_on: '2026-10-28'
+- nom: Darwin-27B-ZTC (FINAL-Bench)
+  motif: candidat écarté pour « Run v3 » (aucune v3) ; longue traîne (38e)
+  checked_on: '2026-10-28'
+- nom: Jeffan-31b-1710 (tattrongvu)
+  motif: 6e au Decision Index 0.4.1 mais compte personnel, sans organisation identifiable
+  checked_on: '2026-10-28'
+- nom: WeMM-JEV-27B (Rover00)
+  motif: 8e au Decision Index 0.4.1 mais compte personnel, sans organisation identifiable
+  checked_on: '2026-10-28'
+- nom: Ainvest-Decision-27B v1.0, StartLux-Decision v1.1 (CC-BY-NC), MISA oak 1.1 (CC-BY-NC)
+  motif: 10e–14e du Decision Index 0.4.1 (même bande d'égalité que mammoth-1) ; fiches non lues, à examiner
+    à la prochaine édition
+  checked_on: '2026-10-28'
+- nom: Nace.AI Drex Max v1
+  motif: 22e au Decision Index 0.4.1 ; aucun poids publié (pas d'URL de modèle à l'index)
+  checked_on: '2026-10-28'
+- nom: Techniques d'inférence sans poids (FlexDM, Aleria Judge, jev-brain, Decider chat, deck31b, decisio,
+    simple-jev…)
+  motif: prompts/lecteurs de logits sur un LLM du commerce, pas des modèles publiés
+  checked_on: '2026-10-28'
+- nom: tasksource-decider-nano (149 M)
+  motif: longue traîne (197e au Decision Index 0.4.1)
+  checked_on: '2026-10-28'
+- nom: NanoJev (C-Tianyu)
+  motif: décide d'actions dans des jeux (Maze, Snake, ViZDoom), pas sur du texte métier
+  checked_on: '2026-10-28'
+- nom: jeff (Logan Markewich)
+  motif: remplaçant auto-hébergé de l'API Jev appuyé sur un encodeur tiers ; pas de poids propres
+  checked_on: '2026-10-28'
+- nom: Granite Guardian 4.1 8B
+  motif: garde-fou/juge (critères arbitraires), voisin mais pas un modèle de décision
+  checked_on: '2026-10-28'
+benchmarks:
+- id: jev-decision-index
+  nom: Jev Decision Index
+  edition: Decision Index 0.4.1
+  categorie: indice composite (tests privés)
+  court: Classement communautaire, tenu sur Hugging Face, des reproductions ouvertes de Jev, noté sur
+    des tests privés.
+  evalue: 'Une suite publique de 37 jeux de données en cinq domaines : Knowledge & Reasoning (11), Language
+    Understanding (9), Retrieval & Classification (6), Tools & Automation (5) et Arts & Human Taste (6).
+    Il s''y ajoute des tests privés des mêmes compétences et des tâches privées de domaines nouveaux,
+    jamais publiés. Les reproductions sont rejouées sur 1 × NVIDIA RTX PRO 6000 ; Jev 1.14 est mesuré
+    par son API.'
+  comment: 'Full score (depuis la 0.4 du 2026-10-19) = 0,60 × tests privés « same-skill » + 0,40 × tâches
+    privées « new-domain ». Chaque partie est ramenée sur l''échelle de l''index public grâce à 21 modèles
+    de base non réglés : être à un écart-type au-dessus de leur moyenne vaut le même score sur chaque
+    partie. Chaque jeu est corrigé du hasard, (score − hasard) / (1 − hasard) borné entre 0 et 1, et une
+    requête sans réponse compte comme fausse. L''index public reste affiché, mais il ne compte plus dans
+    le Full score. Bandes d''égalité : les modèles à moins de 0,9 point du premier de leur groupe partagent
+    son rang (affiché « =n ») ; le groupe suivant prend le numéro suivant, donc les rangs comptent des
+    groupes et non des modèles. Selon la méthodologie, 0,9 point est l''écart qu''un nouvel échantillon
+    de questions pourrait produire, 95 fois sur 100, entre deux modèles voisins.'
+  pourquoi: 'C''est le plus large classement des modèles de décision ouverts (243 entrées au 2026-10-28)
+    : tous mesurés sur la même machine, sur des tests sur lesquels personne n''a pu s''entraîner, avec
+    des égalités déclarées. Il ne dit pas : il ne donne aucun coût ; la latence de Jev (aller-retour HTTP)
+    n''est pas comparable à celle des reproductions (temps GPU en processus) ; les tâches privées ne peuvent
+    pas être inspectées ; parmi les modèles fermés, seul Jev y figure.'
+  auteur: 'multimodalart (Space Hugging Face, communautaire, « not affiliated with TypeSafe AI ») ; code
+    de l''index : github.com/apolinario/decision-index'
+  classement: https://huggingface.co/spaces/multimodalart/jev-decision-index
+  article: https://huggingface.co/spaces/multimodalart/jev-decision-index/resolve/main/methodology.html
+  mis_a_jour: '2026-10-28'
+  juge_et_partie: false
+  licence_donnees: Non indiquée dans le README du Space ; le code de l'index (apolinario/decision-index)
+    est sous MIT.
+  verified_on: '2026-10-28'
+- id: jevbench
+  nom: JevBench (Benchmark Heaven)
+  edition: v1.7.15
+  categorie: exactitude, calibration, coût, latence
+  court: Banc d'essai indépendant de Benchmark Heaven qui mesure les modèles de décision sur l'exactitude,
+    la calibration, la vitesse et le coût.
+  evalue: Chaque version pose 1 500 décisions (1 200 scellées et 300 publiques) des trois types choice,
+    noul (oui/non) et score, réparties en niveaux easy, standard, hard et judge, et en domaines métier
+    (règles, code, finance, support, routage de modèles…). Les modèles ouverts tournent hors ligne sur
+    des machines louées par l'évaluateur ; les API sont mesurées de bout en bout et classées sur un tableau
+    séparé.
+  comment: 'Le score de tête, Capability, est la moyenne d''Intelligence et de Calibration. Intelligence
+    est une compétence corrigée du hasard : types de question à poids égal ; niveaux pondérés easy 0,1,
+    standard 0,2, hard 0,4, judge 0,3 ; moitié items publics, moitié scellés ; pénalité si le score public
+    dépasse le scellé de plus de l''écart médian + 8 points. Le rang officiel ne va qu''aux modèles sous
+    deux plafonds : 2 × le coût et 2 × la latence médiane de Jev 1.13.0 mesuré en v1.5 (0,0646 $ pour
+    1 000 décisions, 1,23 s). Depuis la v1.7.0, une décision de plus de 10 s compte comme fausse. Le Composite,
+    secondaire, est une moyenne harmonique pondérée (25 % chacun) d''Intelligence, Calibration, Speed
+    et Cost, avec des pénalités au carré sous les seuils.'
+  pourquoi: 'C''est le seul classement qui mesure le coût et la latence dans les mêmes conditions pour
+    plus de 250 modèles ouverts, avec des plafonds « classe Jev » qui reflètent un usage en production.
+    Il ne dit pas : le coût d''un modèle ouvert est une estimation tirée du tarif de référence de son
+    modèle de base ; la latence auto-hébergée est estimée (2 × p50 + 150 ms) ; des lignes de versions
+    de méthode et de tirages différents coexistent (v1.6.x et v1.7.x, mesures d''ancrage en attente) ;
+    les API voient les items scellés ; les éditeurs peuvent payer une mesure accélérée (« paid fast-lane
+    »), sans effet déclaré sur le score.'
+  auteur: Benchmark Heaven (projet de Florian Standhartinger, détenteur du copyright du dépôt fstandhartinger/jevbench)
+  classement: https://benchmarkheaven.com/jev-models
+  article: null
+  mis_a_jour: '2026-10-28'
+  juge_et_partie: false
+  licence_donnees: MIT (licence déclarée dans le JSON-LD Dataset de la page, qui renvoie au LICENSE du
+    dépôt fstandhartinger/jevbench)
+  verified_on: '2026-10-28'
+- id: aa-decision-index
+  nom: Artificial Analysis Decision Index
+  edition: v1.0
+  categorie: indice composite
+  court: Indice composite d'Artificial Analysis qui note les modèles de décision, et quelques LLM pour
+    comparaison, sur quatre évaluations à réponse fermée.
+  evalue: 'Il couvre la connaissance et l''hallucination (AA-Omniscience-Decision : 500 questions privées
+    à cinq options dont « je ne sais pas »), le raisonnement (HLE-MultiChoice : 513 QCM texte de Humanity''s
+    Last Exam), l''appel d''outils (When2Call de NVIDIA : 3 423 tâches) et la classification de sécurité
+    (WildGuardTest : 835 lignes, trois questions oui/non). Les modèles de décision sont interrogés par
+    leur API de décision ; les LLM reçoivent un prompt système fixe et répondent en JSON contraint (structured
+    outputs).'
+  comment: 'Indice = 0,125 × exactitude Omniscience + 0,125 × taux de non-hallucination + 0,25 × exactitude
+    HLE-MultiChoice + 0,25 × exactitude When2Call + 0,25 × F1 moyen WildGuardTest, sur 0–100. Le taux
+    de non-hallucination vaut 100 × (1 − part des questions ratées auxquelles le modèle a répondu faux
+    plutôt que « je ne sais pas »). Pour un choix, la réponse est l''option de plus forte probabilité
+    ; pour un oui/non, « oui » si P(oui) ≥ 0,5. Contrôle fait le 2026-10-28 : cette formule redonne les
+    32 indices publiés (écart max 1,4e-14).'
+  pourquoi: 'C''est le seul classement tiers qui met sur la même échelle les API fermées (Jev, d1-ultra,
+    Microsoft-Decision-1, OpenAI Decisions) et des modèles ouverts, avec en plus le coût et le temps par
+    tâche. Il ne dit pas : aucun intervalle de confiance n''est publié (0,25 point sépare d1-ultra de
+    SubQ Snap 1.1, ce qui ne permet pas de les départager) ; trois des quatre jeux sont publics, donc
+    un modèle a pu s''y entraîner ; les LLM sont mesurés avec un autre protocole (JSON contraint) que
+    les modèles de décision ; seuls 17 modèles de décision y figurent ; aucune date de mesure par modèle
+    n''est publiée.'
+  auteur: Artificial Analysis
+  classement: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  article: https://artificialanalysis.ai/methodology/decision-index
+  mis_a_jour: null
+  juge_et_partie: false
+  licence_donnees: Non indiquée sur la page de classement ni sur la méthodologie (conditions d'utilisation
+    d'Artificial Analysis non lues). Composante WildGuardTest dérivée de WildGuardMix (ODC-BY).
+  verified_on: '2026-10-28'
+rejected:
+- benchmark: Decision Model Leaderboard de Cloudflare (clef-evals.workers-ai-mle.workers.dev)
+  motif: Copie figée du Jev Decision Index 0.2.1 (instantané amont du 2026-09-28, données générées le
+    2026-10-01), complétée par les scores de Clef auto-déclarés par Cloudflare ; les jeux non passés y
+    valent 0. Juge et partie, et pas de mise à jour depuis le 1er…
+- benchmark: TypeSafe Workflow evals (evals.typesafe.ai)
+  motif: 'Évaluation de l''éditeur de Jev : seul Jev y figure comme modèle de décision, face à des LLM.
+    Les étiquettes de référence sont la moyenne des réponses de grands LLM, et aucune date de mise à jour
+    n''est publiée. Juge et partie, et ce n''est pas un classement des…'
+- benchmark: Suites d’évaluation de Kev (github.com/jaredpalmer/kev, evals/)
+  motif: Suites figées de l'auteur de Kev (decision-v7, transfer-v4, transfer-v9…) pour évaluer ses propres
+    checkpoints. Il n'y a pas de classement public ; le Space jaredpalmer/kev n'est qu'une démo.
+- benchmark: SR-Text / SR-Box (vLLM Semantic Router, fiche d3-ultra)
+  motif: Tests privés de l'éditeur de d3, qui écrit lui-même « our own tests, not an official leaderboard
+    ». Juge et partie, sans classement public. Les Spaces vllm-sr/Decision-3.0 et vllm-sr/d3-ultra sont
+    des démos.
+- benchmark: Sept suites d’Intern-Decision (Jevbench-Easy/Original/Hard, Typed Decision, ToolACE, AG…
+  motif: 'Tableau de l''éditeur (fiche et arXiv 2610.22131, daté du 2026-10-15), sans classement public
+    tenu à jour. Les « Jevbench » Easy/Original/Hard (48/72/111 items publics) ne sont pas identifiés
+    comme le JevBench de Benchmark Heaven : lien non établi.'
+- benchmark: Jev Decision Index — Vision board (cité par pplx-decider et d3)
+  motif: Tableau intégré au Jev Decision Index (Full = 0,5 × public vision + 0,5 × privé même compétence),
+    donc dans le périmètre que le mainteneur ingère lui-même. À ne pas compter comme un benchmark distinct.
+- benchmark: Références de la fiche pplx-decider-v1.2 (BRIGHT, ToolRet, SATA-Bench…)
+  motif: Jeux de données généraux, rejoués par l'éditeur et repris dans le Jev Decision Index. Ce ne sont
+    pas des classements propres aux modèles de décision.
+- benchmark: DecisionBench (43 tâches, 23 900 lignes)
+  motif: Connu seulement par des publications LinkedIn de ses auteurs. Ni page de classement, ni dépôt,
+    ni données primaires trouvés le 2026-10-28.
+- benchmark: DecisionBench 1.0 (Hanno Labs)
+  motif: 'Cité seulement par un guide tiers (llmconfigurator.com), sans source primaire trouvée. Selon
+    ce guide, bâti par l''équipe du modèle évalué : juge et partie.'
+- benchmark: BenchLM « Decision Models » (benchlm.ai/decision-models)
+  motif: 'Agrégateur secondaire qui reprend des chiffres d''éditeurs (par exemple un graphique de lancement
+    de Fastino) : ce n''est pas une source primaire.'
+- benchmark: Tests de blogs (OneWave « 150 décisions », regolo.ai, HackerNoon)
+  motif: 'Presse ou blogs d''entreprise : règle « pas de presse ».'
+aa_scores:
+- benchmark: aa-decision-index
+  model: Claude Opus 5.5 (Max, Default Fallback)
+  kind: LLM
+  creator: Anthropic
+  score: 79.01
+  subscores:
+    omniscience_accuracy: 93.4
+    omniscience_non_hallucination_rate: 30.3
+    hle_multichoice_accuracy: 70.18
+    when2call_accuracy: 90.53
+    wildguardtest_average_f1: 93.47
+    cost_per_task_usd: 0.0513
+    time_per_task_ms: 3571
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Claude Opus 5.5 (Low, Default Fallback)
+  kind: LLM
+  creator: Anthropic
+  score: 75.42
+  subscores:
+    omniscience_accuracy: 93.4
+    omniscience_non_hallucination_rate: 27.27
+    hle_multichoice_accuracy: 59.84
+    when2call_accuracy: 88.05
+    wildguardtest_average_f1: 93.46
+    cost_per_task_usd: 0.00669
+    time_per_task_ms: 1870
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6.1 Sol (Low)
+  kind: LLM
+  creator: OpenAI
+  score: 71.47
+  subscores:
+    omniscience_accuracy: 93.0
+    omniscience_non_hallucination_rate: 22.86
+    hle_multichoice_accuracy: 55.36
+    when2call_accuracy: 80.6
+    wildguardtest_average_f1: 91.97
+    cost_per_task_usd: 0.00205
+    time_per_task_ms: 2888
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6.1 Sol (Max)
+  kind: LLM
+  creator: OpenAI
+  score: 70.91
+  subscores:
+    omniscience_accuracy: 91.0
+    omniscience_non_hallucination_rate: 11.11
+    hle_multichoice_accuracy: 58.87
+    when2call_accuracy: 81.22
+    wildguardtest_average_f1: 92.5
+    cost_per_task_usd: 0.00632
+    time_per_task_ms: 4428
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Claude Haiku 5.5 (Max)
+  kind: LLM
+  creator: Anthropic
+  score: 68.36
+  subscores:
+    omniscience_accuracy: 57.6
+    omniscience_non_hallucination_rate: 69.34
+    hle_multichoice_accuracy: 37.43
+    when2call_accuracy: 79.37
+    wildguardtest_average_f1: 93.19
+    cost_per_task_usd: 0.00207
+    time_per_task_ms: 2658
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: d1-ultra
+  kind: modèle de décision
+  creator: Liquid AI
+  score: 65.25
+  subscores:
+    omniscience_accuracy: 31.6
+    omniscience_non_hallucination_rate: 84.5
+    hle_multichoice_accuracy: 15.01
+    when2call_accuracy: 92.58
+    wildguardtest_average_f1: 95.35
+    cost_per_task_usd: 3.18e-05
+    time_per_task_ms: 93
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: SubQ Snap 1.1
+  kind: modèle de décision
+  creator: Subquadratic
+  score: 65.0
+  subscores:
+    omniscience_accuracy: 20.2
+    omniscience_non_hallucination_rate: 85.71
+    hle_multichoice_accuracy: 17.54
+    when2call_accuracy: 94.57
+    wildguardtest_average_f1: 94.91
+    cost_per_task_usd: 3.03e-05
+    time_per_task_ms: 190
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Elephant 9B
+  kind: modèle de décision
+  creator: Baseten
+  score: 64.69
+  subscores:
+    omniscience_accuracy: 11.6
+    omniscience_non_hallucination_rate: 93.21
+    hle_multichoice_accuracy: 18.32
+    when2call_accuracy: 94.77
+    wildguardtest_average_f1: 93.27
+    cost_per_task_usd: 8.39e-06
+    time_per_task_ms: 165
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Claude Haiku 5.5 (Xhigh)
+  kind: LLM
+  creator: Anthropic
+  score: 64.42
+  subscores:
+    omniscience_accuracy: 58.6
+    omniscience_non_hallucination_rate: 55.07
+    hle_multichoice_accuracy: 30.21
+    when2call_accuracy: 77.56
+    wildguardtest_average_f1: 93.06
+    cost_per_task_usd: 0.000493
+    time_per_task_ms: 1548
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Claude Haiku 5.5 (High)
+  kind: LLM
+  creator: Anthropic
+  score: 62.55
+  subscores:
+    omniscience_accuracy: 57.2
+    omniscience_non_hallucination_rate: 48.6
+    hle_multichoice_accuracy: 26.71
+    when2call_accuracy: 76.86
+    wildguardtest_average_f1: 93.75
+    cost_per_task_usd: 0.000292
+    time_per_task_ms: 1481
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Claude Haiku 5.5 (Medium)
+  kind: LLM
+  creator: Anthropic
+  score: 61.39
+  subscores:
+    omniscience_accuracy: 58.6
+    omniscience_non_hallucination_rate: 48.79
+    hle_multichoice_accuracy: 23.2
+    when2call_accuracy: 75.4
+    wildguardtest_average_f1: 93.27
+    cost_per_task_usd: 0.000232
+    time_per_task_ms: 1527
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6 Luna (Max)
+  kind: LLM
+  creator: OpenAI
+  score: 60.77
+  subscores:
+    omniscience_accuracy: 73.6
+    omniscience_non_hallucination_rate: 3.03
+    hle_multichoice_accuracy: 35.28
+    when2call_accuracy: 79.0
+    wildguardtest_average_f1: 90.49
+    cost_per_task_usd: 0.000592
+    time_per_task_ms: 2246
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Claude Haiku 5.5 (Low)
+  kind: LLM
+  creator: Anthropic
+  score: 60.59
+  subscores:
+    omniscience_accuracy: 52.4
+    omniscience_non_hallucination_rate: 54.62
+    hle_multichoice_accuracy: 23.59
+    when2call_accuracy: 72.6
+    wildguardtest_average_f1: 92.65
+    cost_per_task_usd: 0.000184
+    time_per_task_ms: 1434
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6 Luna (High)
+  kind: LLM
+  creator: OpenAI
+  score: 59.08
+  subscores:
+    omniscience_accuracy: 69.6
+    omniscience_non_hallucination_rate: 3.29
+    hle_multichoice_accuracy: 32.36
+    when2call_accuracy: 78.64
+    wildguardtest_average_f1: 88.89
+    cost_per_task_usd: 0.000234
+    time_per_task_ms: 1796
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6 Luna (Medium)
+  kind: LLM
+  creator: OpenAI
+  score: 58.15
+  subscores:
+    omniscience_accuracy: 71.2
+    omniscience_non_hallucination_rate: 0.0
+    hle_multichoice_accuracy: 29.04
+    when2call_accuracy: 78.21
+    wildguardtest_average_f1: 89.77
+    cost_per_task_usd: 0.000182
+    time_per_task_ms: 1726
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Jev 1.13
+  kind: modèle de décision
+  creator: TypeSafe
+  score: 57.5
+  subscores:
+    omniscience_accuracy: 34.6
+    omniscience_non_hallucination_rate: 35.17
+    hle_multichoice_accuracy: 20.86
+    when2call_accuracy: 80.66
+    wildguardtest_average_f1: 93.61
+    cost_per_task_usd: 4.15e-05
+    time_per_task_ms: 127
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Jev 1.14
+  kind: modèle de décision
+  creator: TypeSafe
+  score: 57.07
+  subscores:
+    omniscience_accuracy: 33.8
+    omniscience_non_hallucination_rate: 37.16
+    hle_multichoice_accuracy: 18.91
+    when2call_accuracy: 80.84
+    wildguardtest_average_f1: 93.07
+    cost_per_task_usd: 4.15e-05
+    time_per_task_ms: 78
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Decider v1.2
+  kind: modèle de décision
+  creator: Perplexity
+  score: 56.17
+  subscores:
+    omniscience_accuracy: 39.4
+    omniscience_non_hallucination_rate: 16.5
+    hle_multichoice_accuracy: 14.62
+    when2call_accuracy: 87.7
+    wildguardtest_average_f1: 94.42
+    cost_per_task_usd: 1.51e-05
+    time_per_task_ms: 206
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Gemma 4 31B (Reasoning)
+  kind: LLM
+  creator: Google
+  score: 55.52
+  subscores:
+    omniscience_accuracy: 47.6
+    omniscience_non_hallucination_rate: 4.2
+    hle_multichoice_accuracy: 25.73
+    when2call_accuracy: 77.62
+    wildguardtest_average_f1: 92.84
+    cost_per_task_usd: 0.000624
+    time_per_task_ms: 14388
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6 Luna (Low)
+  kind: LLM
+  creator: OpenAI
+  score: 55.18
+  subscores:
+    omniscience_accuracy: 66.0
+    omniscience_non_hallucination_rate: 0.0
+    hle_multichoice_accuracy: 22.22
+    when2call_accuracy: 77.01
+    wildguardtest_average_f1: 88.51
+    cost_per_task_usd: 0.000131
+    time_per_task_ms: 1500
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GLiDE
+  kind: modèle de décision
+  creator: Fastino
+  score: 53.91
+  subscores:
+    omniscience_accuracy: 36.4
+    omniscience_non_hallucination_rate: 16.35
+    hle_multichoice_accuracy: 10.53
+    when2call_accuracy: 83.67
+    wildguardtest_average_f1: 95.05
+    cost_per_task_usd: 0.000119
+    time_per_task_ms: 217
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Microsoft-Decision-1
+  kind: modèle de décision
+  creator: Microsoft
+  score: 53.76
+  subscores:
+    omniscience_accuracy: 28.2
+    omniscience_non_hallucination_rate: 39.83
+    hle_multichoice_accuracy: 10.92
+    when2call_accuracy: 81.92
+    wildguardtest_average_f1: 88.17
+    cost_per_task_usd: 3.07e-05
+    time_per_task_ms: 207
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Decider v1.1 27B
+  kind: modèle de décision
+  creator: Perplexity
+  score: 53.06
+  subscores:
+    omniscience_accuracy: 39.8
+    omniscience_non_hallucination_rate: 13.29
+    hle_multichoice_accuracy: 15.4
+    when2call_accuracy: 76.48
+    wildguardtest_average_f1: 93.83
+    cost_per_task_usd: 1.65e-05
+    time_per_task_ms: 170
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Mercury Decide
+  kind: modèle de décision
+  creator: Inception
+  score: 52.72
+  subscores:
+    omniscience_accuracy: 35.0
+    omniscience_non_hallucination_rate: 32.0
+    hle_multichoice_accuracy: 10.14
+    when2call_accuracy: 79.26
+    wildguardtest_average_f1: 88.0
+    cost_per_task_usd: 1.52e-05
+    time_per_task_ms: 500
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Celeris-1 Decision
+  kind: modèle de décision
+  creator: Celeris
+  score: 52.29
+  subscores:
+    omniscience_accuracy: 37.8
+    omniscience_non_hallucination_rate: 0.0
+    hle_multichoice_accuracy: 13.26
+    when2call_accuracy: 83.7
+    wildguardtest_average_f1: 93.32
+    cost_per_task_usd: 3.16e-05
+    time_per_task_ms: 63
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: d1
+  kind: modèle de décision
+  creator: Liquid AI
+  score: 50.29
+  subscores:
+    omniscience_accuracy: 41.0
+    omniscience_non_hallucination_rate: 1.69
+    hle_multichoice_accuracy: 11.5
+    when2call_accuracy: 77.42
+    wildguardtest_average_f1: 90.9
+    cost_per_task_usd: 1.51e-05
+    time_per_task_ms: 299
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Decider Flash v1.2
+  kind: modèle de décision
+  creator: Perplexity
+  score: 50.15
+  subscores:
+    omniscience_accuracy: 35.2
+    omniscience_non_hallucination_rate: 6.48
+    hle_multichoice_accuracy: 12.09
+    when2call_accuracy: 74.41
+    wildguardtest_average_f1: 93.28
+    cost_per_task_usd: 8.23e-06
+    time_per_task_ms: 110
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6 Luna (Non-reasoning)
+  kind: LLM
+  creator: OpenAI
+  score: 49.59
+  subscores:
+    omniscience_accuracy: 45.4
+    omniscience_non_hallucination_rate: 0.37
+    hle_multichoice_accuracy: 12.28
+    when2call_accuracy: 76.07
+    wildguardtest_average_f1: 87.13
+    cost_per_task_usd: 8.84e-05
+    time_per_task_ms: 1136
+  protocol: prompt système fixe + réponse JSON contrainte (structured outputs)
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Clef
+  kind: modèle de décision
+  creator: Cloudflare
+  score: 48.61
+  subscores:
+    omniscience_accuracy: 39.0
+    omniscience_non_hallucination_rate: 4.26
+    hle_multichoice_accuracy: 11.11
+    when2call_accuracy: 70.96
+    wildguardtest_average_f1: 90.75
+    cost_per_task_usd: 0.000199
+    time_per_task_ms: 309
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: GPT-6 Luna (Decisions)
+  kind: modèle de décision
+  creator: OpenAI
+  score: 48.49
+  subscores:
+    omniscience_accuracy: 40.6
+    omniscience_non_hallucination_rate: 10.1
+    hle_multichoice_accuracy: 11.7
+    when2call_accuracy: 74.06
+    wildguardtest_average_f1: 82.84
+    cost_per_task_usd: 7.89e-05
+    time_per_task_ms: 168
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Clef-Flash
+  kind: modèle de décision
+  creator: Cloudflare
+  score: 45.81
+  subscores:
+    omniscience_accuracy: 32.6
+    omniscience_non_hallucination_rate: 2.67
+    hle_multichoice_accuracy: 10.33
+    when2call_accuracy: 64.36
+    wildguardtest_average_f1: 90.91
+    cost_per_task_usd: 3.16e-05
+    time_per_task_ms: 298
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'
+- benchmark: aa-decision-index
+  model: Clef-Omni
+  kind: modèle de décision
+  creator: Cloudflare
+  score: 44.26
+  subscores:
+    omniscience_accuracy: 36.0
+    omniscience_non_hallucination_rate: 1.56
+    hle_multichoice_accuracy: 8.97
+    when2call_accuracy: 62.05
+    wildguardtest_average_f1: 87.24
+    cost_per_task_usd: 0.000123
+    time_per_task_ms: 172
+  protocol: 'API de décision du modèle (choix : option la plus probable ; oui/non : P(oui) ≥ 0,5)'
+  source_url: https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
+  measured_by: Artificial Analysis
+  date: null
+  verified_on: '2026-10-28'

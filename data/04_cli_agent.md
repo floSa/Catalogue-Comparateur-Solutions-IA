@@ -31,7 +31,7 @@ Agent de code d'Amp (issu de Sourcegraph, indépendant depuis le 02/12/2025). Le
 - **Éditeur :** Google
 - **Site :** [https://antigravity.google/](https://antigravity.google/)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** MCP, gratuit
 - **Forfait Individuel :** gratuit — 0,00 € HT · 0,00 € TTC
 
 Agent de terminal écrit en Go, orchestrant plusieurs agents en arrière-plan. Remplace Gemini CLI, qui a cessé de servir les requêtes le 18/06/2026 pour les offres grand public (les licences Gemini Code Assist entreprise conservent l'accès). Même harnais d'agent que l'application Antigravity : les améliorations du cœur profitent aux deux surfaces.
@@ -41,7 +41,7 @@ Agent de terminal écrit en Go, orchestrant plusieurs agents en arrière-plan. R
 - **Éditeur :** Anthropic, PBC
 - **Site :** [https://code.claude.com/docs](https://code.claude.com/docs)
 - **Statut :** active
-- **Capacités :** MCP
+- **Capacités :** BYOK, MCP, gratuit
 - **Forfait Pro :** $20 — 17,33 € HT · 20,80 € TTC
 - **Forfait Max :** $100 — 86,66 € HT · 103,99 € TTC
 
@@ -53,7 +53,7 @@ Agent en terminal d'abord, aussi dans VS Code, Cursor, JetBrains, l'application 
 - **Site :** [https://claurst.kuber.studio](https://claurst.kuber.studio)
 - **Dépôt :** [https://github.com/Kuberwastaken/claurst](https://github.com/Kuberwastaken/claurst)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de terminal multi-fournisseurs écrit en Rust, réimplémentation indépendante de Claude Code, open-source sous GPL-3.0. En bêta (v0.2). Fait aussi serveur ACP.
 
@@ -83,7 +83,7 @@ Agent de codage en terminal, open-source sous Apache-2.0. Connexion par compte C
 - **Site :** [https://commandcode.ai](https://commandcode.ai)
 - **Dépôt :** [https://github.com/CommandCodeAI/command-code](https://github.com/CommandCodeAI/command-code)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, modèles locaux, MCP
 
 Agent de code en terminal conçu pour les modèles ouverts, qui apprend les préférences de code de l'utilisateur ; aussi en application de bureau et extensions IDE. Dépôt public sans licence déclarée (pas open-source). Forfaits de 1 $ à 200 $/mois.
 
@@ -113,7 +113,7 @@ Agent de terminal de Cursor (commande `agent`), rattaché au compte et aux forfa
 - **Éditeur :** HKUDS (Université de Hong Kong)
 - **Dépôt :** [https://github.com/HKUDS/DeepCode](https://github.com/HKUDS/DeepCode)
 - **Statut :** active
-- **Capacités :** modèles locaux, MCP, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de code issu d'un laboratoire universitaire, open-source (MIT) : interface terminal (`deepcode`), application de bureau et interface web. Modèles cloud ou locaux.
 
@@ -123,7 +123,7 @@ Agent de code issu d'un laboratoire universitaire, open-source (MIT) : interface
 - **Site :** [https://forgecode.dev](https://forgecode.dev)
 - **Dépôt :** [https://github.com/tailcallhq/forgecode](https://github.com/tailcallhq/forgecode)
 - **Statut :** active
-- **Capacités :** MCP, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Environnement de développement en terminal assisté par IA, open-source sous Apache-2.0, avec interface TUI et MCP.
 
@@ -134,7 +134,7 @@ Environnement de développement en terminal assisté par IA, open-source sous Ap
 - **Documentation :** [https://geminicli.com/docs/](https://geminicli.com/docs/)
 - **Dépôt :** [https://github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 - **Statut :** active
-- **Capacités :** BYOK, MCP
+- **Capacités :** MCP
 
 Agent de terminal open-source (Apache-2.0), toujours développé. Depuis le 18/06/2026, il ne sert plus l'usage gratuit ni les abonnements Google AI Pro et Ultra, basculés vers Antigravity CLI. Il reste utilisable avec une clé d'API Gemini payante, via Vertex AI ou avec une licence Gemini Code Assist Standard ou Enterprise.
 
@@ -155,7 +155,7 @@ Agent de terminal de GitHub, inclus dans tous les forfaits Copilot, y compris le
 - **Éditeur :** GitLab
 - **Site :** [https://about.gitlab.com/blog/gitlab-duo-cli-generally-available/](https://about.gitlab.com/blog/gitlab-duo-cli-generally-available/)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** MCP
 
 Chat agentique de GitLab Duo dans le terminal, disponible pour tous depuis le 16/07/2026 (GitLab 19.2). Réservé aux offres Premium et Ultimate, avec les crédits GitLab inclus. Code fermé.
 
@@ -166,7 +166,7 @@ Chat agentique de GitLab Duo dans le terminal, disponible pour tous depuis le 16
 - **Documentation :** [https://docs.x.ai/build/overview](https://docs.x.ai/build/overview)
 - **Dépôt :** [https://github.com/xai-org/grok-build](https://github.com/xai-org/grok-build)
 - **Statut :** active
-- **Capacités :** BYOK, MCP
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de codage et TUI plein écran de xAI, écrit en Rust. Sessions interactives ou headless, connexion par Agent Client Protocol, modèles personnalisés via fichier de configuration. Code de première partie sous Apache-2.0. Authentification par navigateur au premier lancement, ou clé XAI_API_KEY. macOS, Linux, Windows.
 
@@ -176,7 +176,7 @@ Agent de codage et TUI plein écran de xAI, écrit en Rust. Sessions interactive
 - **Site :** [https://hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com)
 - **Dépôt :** [https://github.com/NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent open-source sous licence MIT, première version publiée en mars 2026. Cette fiche couvre l'interface terminal (TUI complète : édition multiligne, autocomplétion, historique, interruption en cours de tâche, coût de session estimé) ; l'application de bureau a sa propre fiche. Clés d'API personnelles ou portail de l'éditeur. Windows, macOS, Linux, Docker, WSL2.
 
@@ -217,7 +217,7 @@ Agent de code en terminal de Xiaomi, open-source sous MIT, qui sert aussi de mot
 - **Éditeur :** MiniMax
 - **Dépôt :** [https://github.com/MiniMax-AI/minimax-code](https://github.com/MiniMax-AI/minimax-code)
 - **Statut :** active
-- **Capacités :** BYOK
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de code en terminal de MiniMax (commande `mcode`), open-source sous MIT. Fonctionne avec le « Token Plan » MiniMax (crédits prépayés) ou un modèle au choix.
 
@@ -228,7 +228,7 @@ Agent de code en terminal de MiniMax (commande `mcode`), open-source sous MIT. F
 - **Dépôt :** [https://github.com/mistralai/mistral-vibe](https://github.com/mistralai/mistral-vibe)
 - **Tarifs :** [https://mistral.ai/pricing](https://mistral.ai/pricing)
 - **Statut :** active
-- **Capacités :** BYOK, MCP
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 - **Forfait Free :** gratuit — 0,00 € HT · 0,00 € TTC
 - **Forfait Pro :** $14.99 — 12,99 € HT · 15,59 € TTC
 - **Forfait Team :** $24.99/u — 21,66 € HT · 25,99 € TTC
@@ -242,7 +242,7 @@ Volet code de Vibe, l'assistant de Mistral (ex-Le Chat, renommé le 28/05/2026).
 - **Site :** [https://dev.meta.ai/products/muse-code](https://dev.meta.ai/products/muse-code)
 - **Tarifs :** [https://dev.meta.ai/products/muse-code](https://dev.meta.ai/products/muse-code)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** MCP
 - **Forfait Everyday Usage :** $5 — 4,33 € HT · 5,20 € TTC
 - **Forfait High Usage :** $15 — 13,00 € HT · 15,60 € TTC
 - **Forfait Power Usage :** $50 — 43,33 € HT · 52,00 € TTC
@@ -266,7 +266,7 @@ Dérivé (fork) de Pi, livré « tout compris » là où Pi reste minimal : 31 o
 - **Site :** [https://openinterpreter.com](https://openinterpreter.com)
 - **Dépôt :** [https://github.com/openinterpreter/openinterpreter](https://github.com/openinterpreter/openinterpreter)
 - **Statut :** active
-- **Capacités :** BYOK, MCP, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de terminal open-source (Apache-2.0), aujourd'hui dérivé de Codex, conçu pour les modèles ouverts et peu coûteux : la commande `/harness` émule le comportement d'autres harnais (Claude Code, Kimi Code, ZCode, Qwen Code, SWE-agent). Tout fournisseur compatible OpenAI.
 
@@ -318,7 +318,7 @@ Agent de terminal open-source (MIT), aussi en application de bureau depuis juill
 - **Site :** [https://jcode.sh](https://jcode.sh)
 - **Dépôt :** [https://github.com/1jehuang/jcode](https://github.com/1jehuang/jcode)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Harnais de terminal open-source (MIT) écrit en Rust, conçu pour faire tourner des dizaines d'agents en parallèle sans saturer la machine. Connexion par abonnement Claude ou Codex.
 
@@ -328,7 +328,7 @@ Harnais de terminal open-source (MIT) écrit en Rust, conçu pour faire tourner 
 - **Site :** [https://mini-swe-agent.com/latest/](https://mini-swe-agent.com/latest/)
 - **Dépôt :** [https://github.com/SWE-agent/mini-swe-agent](https://github.com/SWE-agent/mini-swe-agent)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, gratuit
 
 Agent minimal — une centaine de lignes de Python — publié par l'équipe qui a construit SWE-bench. Il n'utilise que bash, sans outillage propre, et conserve un historique de messages linéaire : c'est ce qui le rend reproductible, et donc utilisable comme harnais de référence dans les évaluations. Revendique plus de 74 % sur SWE-bench verified. Sous licence MIT. Il remplace SWE-agent, que ses auteurs ne recommandent plus.
 

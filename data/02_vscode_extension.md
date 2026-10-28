@@ -10,7 +10,7 @@
 - **Éditeur :** CodeGPT LLC
 - **Site :** [https://www.codegpt.co](https://www.codegpt.co)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Extension VS Code et JetBrains, plus de 2 millions d'installations annoncées. Free ; Professional 10 $/mois ; Teams 30 $/utilisateur/mois.
 
@@ -19,7 +19,7 @@ Extension VS Code et JetBrains, plus de 2 millions d'installations annoncées. F
 - **Éditeur :** OpenAI
 - **Site :** [https://learn.chatgpt.com/docs/codex/ide](https://learn.chatgpt.com/docs/codex/ide)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Extension pour VS Code, Cursor et Windsurf, partageant le compte de Codex CLI. JetBrains et Xcode passent par leurs propres intégrations.
 
@@ -39,7 +39,7 @@ VS Code et JetBrains. Sépare le modèle d'autocomplétion du modèle de chat.
 - **Site :** [https://github.com/features/copilot](https://github.com/features/copilot)
 - **Tarifs :** [https://github.com/features/copilot/plans](https://github.com/features/copilot/plans)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 - **Forfait Free :** gratuit — 0,00 € HT · 0,00 € TTC
 - **Forfait Pro :** $10 — 8,67 € HT · 10,40 € TTC
 - **Forfait Pro+ :** $39 — 33,80 € HT · 40,56 € TTC
@@ -85,7 +85,7 @@ Fork de Cline, modes spécialisés (Code, Architect, Ask, Debug, Custom).
 - **Site :** [https://www.tabbyml.com](https://www.tabbyml.com)
 - **Dépôt :** [https://github.com/TabbyML/tabby](https://github.com/TabbyML/tabby)
 - **Statut :** maintenance
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** BYOK, modèles locaux, gratuit
 
 Assistant de code auto-hébergé : un serveur sur son infrastructure et des extensions IDE. Code sous Apache-2.0 hors module entreprise (édition Community gratuite). Rythme ralenti : dernière version le 25/01/2026.
 
@@ -95,7 +95,7 @@ Assistant de code auto-hébergé : un serveur sur son infrastructure et des exte
 - **Site :** [https://docs.tabnine.com](https://docs.tabnine.com)
 - **Documentation :** [https://docs.tabnine.com](https://docs.tabnine.com)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, MCP
 
 Assistant de code orienté entreprise, racheté par Tricentis le 30/07/2026. Extensions VS Code, JetBrains, Eclipse et Visual Studio, plus une CLI ; déployable entièrement dans l'environnement du client. Code fermé.
 
@@ -104,7 +104,7 @@ Assistant de code orienté entreprise, racheté par Tricentis le 30/07/2026. Ext
 - **Éditeur :** Alibaba Cloud
 - **Site :** [https://lingma.aliyun.com](https://lingma.aliyun.com)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** BYOK, MCP, gratuit
 
 Assistant de code d'Alibaba Cloud pour VS Code, Visual Studio et JetBrains, avec un IDE Lingma en bêta publique. Gratuit pour les particuliers. Code fermé.
 

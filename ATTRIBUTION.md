@@ -87,3 +87,13 @@ officiels, chacun avec son `source_url` :
 Seuls des scores sont repris, jamais les documents des jeux de test. Les chiffres
 publiés par un éditeur de modèle ou par un tiers (OpenBMB, LightOn…) sont marqués
 comme tels (`provenance`) et renvoient à leur page d'origine.
+
+## Modèles de décision
+
+| Classement | Tenu par | Accès | Licence des données |
+|---|---|---|---|
+| Jev Decision Index | multimodalart (Space Hugging Face, communautaire) | `data/index.json`, ingéré par `pipeline/dm_ingest.py` | non précisée : scores cités avec leur source |
+| JevBench | Benchmark Heaven | API publique `/api/jevbench/latest`, ingérée par `pipeline/dm_ingest.py` | MIT |
+| Artificial Analysis Decision Index | Artificial Analysis | relevé à la main dans `catalog/dm.yaml` (pas d'export) | non précisée : scores cités avec leur source |
+
+Les données brutes téléchargées restent dans `sources/raw/` (non versionné).

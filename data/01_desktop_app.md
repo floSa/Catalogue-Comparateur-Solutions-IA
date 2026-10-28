@@ -10,7 +10,7 @@
 - **Éditeur :** OpenAI
 - **Site :** [https://learn.chatgpt.com/docs/app](https://learn.chatgpt.com/docs/app)
 - **Statut :** active
-- **Capacités :** MCP
+- **Capacités :** MCP, gratuit
 
 Application unique regroupant trois espaces : Chat, Work et Codex. macOS et Windows ; Linux en préversion. Serveurs MCP pris en charge.
 
@@ -19,7 +19,7 @@ Application unique regroupant trois espaces : Chat, Work et Codex. macOS et Wind
 - **Éditeur :** Anthropic, PBC
 - **Site :** [https://claude.com/download](https://claude.com/download)
 - **Statut :** active
-- **Capacités :** MCP
+- **Capacités :** BYOK, MCP, gratuit
 - **Forfait Free :** gratuit — 0,00 € HT · 0,00 € TTC
 - **Forfait Pro :** $20 — 17,33 € HT · 20,80 € TTC
 - **Forfait Max :** $100 — 86,66 € HT · 103,99 € TTC
@@ -42,7 +42,7 @@ Agent de code open-source (Apache-2.0), désormais proposé d'abord en applicati
 - **Site :** [https://www.conductor.build](https://www.conductor.build)
 - **Tarifs :** [https://www.conductor.build/pricing](https://www.conductor.build/pricing)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** BYOK, MCP, gratuit
 
 Application Mac pour faire tourner plusieurs agents de code en parallèle. Free ; Pro 50 $/mois ; Teams 60 $/utilisateur/mois. Code fermé.
 
@@ -53,7 +53,7 @@ Application Mac pour faire tourner plusieurs agents de code en parallèle. Free 
 - **Documentation :** [https://deepseek-harness.github.io/deepseek-harness/](https://deepseek-harness.github.io/deepseek-harness/)
 - **Dépôt :** [https://github.com/deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Harnais officiel de DeepSeek, open-source sous MIT, en préversion développeur depuis août 2026 : l'éditeur annonce des ruptures de compatibilité. Distribué d'abord comme application de bureau (macOS Apple Silicon, Windows 64 bits), et comme interface web locale lancée par `npx @deepseek-ai/dsh web`. La commande `dsh` sert de lanceur (mode headless pour l'intégration continue, ACP, SDK) ; aucune interface terminal n'est livrée par défaut. Architecture où tout est greffon (framework Cordis). Depuis la 0.2.1-rc.1 (17/10/2026) : couche de compatibilité expérimentale avec les mods de Claude Code, recherche et lecture web via les API Search et Fetch de DeepSeek (0,75 $ pour 1 000 requêtes, gratuites jusqu'au 31/10/2026 depuis le harnais).
 
@@ -74,7 +74,7 @@ Agent de développement de Factory, proposé d'abord en application de bureau (F
 - **Site :** [https://dyad.sh](https://dyad.sh)
 - **Dépôt :** [https://github.com/dyad-sh/dyad](https://github.com/dyad-sh/dyad)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Générateur d'applications local, sous Apache-2.0 hors module Pro (alternative à Lovable, v0 ou Bolt), en application de bureau Mac et Windows, avec ses propres clés d'API.
 
@@ -94,7 +94,7 @@ Application de bureau (macOS, Windows, Linux) pour lancer plusieurs agents de co
 - **Site :** [https://freebuff.com](https://freebuff.com)
 - **Dépôt :** [https://github.com/CodebuffAI/freebuff](https://github.com/CodebuffAI/freebuff)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** MCP, gratuit
 
 Agent de code gratuit sans clé d'API : l'accès aux modèles inclus est financé par des publicités textuelles ; des forfaits payants donnent accès à d'autres modèles. Proposé d'abord en application de bureau (macOS, Windows, Linux), aussi en CLI, sur le web et dans le cloud. Open-source sous Apache-2.0, construit sur Codebuff.
 
@@ -104,7 +104,7 @@ Agent de code gratuit sans clé d'API : l'accès aux modèles inclus est financ�
 - **Site :** [https://github.com/features/copilot](https://github.com/features/copilot)
 - **Tarifs :** [https://github.com/features/copilot/plans](https://github.com/features/copilot/plans)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Application de bureau de GitHub Copilot, mise en avant en premier sur la page produit (macOS, Windows, Linux). Mêmes forfaits que les extensions et la CLI.
 
@@ -114,7 +114,7 @@ Application de bureau de GitHub Copilot, mise en avant en premier sur la page pr
 - **Site :** [https://antigravity.google/](https://antigravity.google/)
 - **Tarifs :** [https://antigravity.google/pricing](https://antigravity.google/pricing)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** BYOK, MCP, gratuit
 - **Forfait Individuel :** gratuit — 0,00 € HT · 0,00 € TTC
 
 Plateforme de développement agentique de Google, poste de commande pour plusieurs agents locaux : conversations organisées en projets, sous-agents personnalisés, tâches planifiées en arrière-plan. Version 2.0 annoncée à Google I/O le 19/05/2026. Gratuite pour un développeur individuel ; offre organisation via Google Cloud. Partage son harnais d'agent avec Antigravity CLI.
@@ -136,7 +136,7 @@ Agent open-source (Apache-2.0) lancé par Block, désormais hébergé par l'Agen
 - **Site :** [https://hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com)
 - **Dépôt :** [https://github.com/NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Application de bureau de Hermes Agent, mise en avant en premier sur le site de l'éditeur ; sortie en juin 2026, considérée comme stable depuis la v0.17.0. macOS et Windows, sous licence MIT. Même agent, mêmes compétences, même mémoire et mêmes sessions que la version terminal. Lancement depuis le terminal par `hermes desktop`, ou par installeur.
 
@@ -147,7 +147,7 @@ Application de bureau de Hermes Agent, mise en avant en premier sur le site de l
 - **Documentation :** [https://jan.ai/docs/desktop/api-server](https://jan.ai/docs/desktop/api-server)
 - **Dépôt :** [https://github.com/janhq/jan](https://github.com/janhq/jan)
 - **Statut :** active
-- **Capacités :** modèles locaux, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 - **Endpoint local :** `http://127.0.0.1:1337/v1`
 
 Application de bureau qui fait tourner les modèles hors ligne sur le poste (moteur llama.cpp). Un serveur local compatible OpenAI s'active depuis les réglages, pour y brancher un harnais. Windows, macOS (Apple Silicon), Linux. Open-source sous Apache-2.0.
@@ -159,7 +159,7 @@ Application de bureau qui fait tourner les modèles hors ligne sur le poste (mot
 - **Documentation :** [https://moonshotai.github.io/kimi-code/en/](https://moonshotai.github.io/kimi-code/en/)
 - **Dépôt :** [https://github.com/MoonshotAI/kimi-code](https://github.com/MoonshotAI/kimi-code)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, MCP, gratuit
 
 Agent de code de Moonshot, décliné en application de bureau (mise en avant en premier), en CLI (binaire autonome, sans Node.js) et en extensions IDE via le protocole ACP (Zed, JetBrains). Le dépôt historique MoonshotAI/kimi-cli est archivé ; au premier lancement, l'outil propose de migrer configuration et sessions.
 
@@ -168,7 +168,7 @@ Agent de code de Moonshot, décliné en application de bureau (mise en avant en 
 - **Éditeur :** Moonshot AI
 - **Site :** [https://www.kimi.com/products/kimi-work](https://www.kimi.com/products/kimi-work)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** MCP
 
 Agent de bureau pour Windows et Mac Apple Silicon : lit les fichiers de la machine, pilote le navigateur et exécute des tâches planifiées. Annoncé avec un essaim pouvant atteindre 300 agents.
 
@@ -178,7 +178,7 @@ Agent de bureau pour Windows et Mac Apple Silicon : lit les fichiers de la machi
 - **Site :** [https://kiro.dev/crew/](https://kiro.dev/crew/)
 - **Dépôt :** [https://github.com/kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** MCP, gratuit
 
 Espace de travail de développement persistant, open-source (Apache-2.0), qui tourne sur la machine de l'utilisateur ou sur un serveur : application de bureau (macOS, Windows, Linux), tableau de bord web, CLI, Slack et Discord. Tâches longues sans surveillance, travaux planifiés. Mis en avant en premier sur kiro.dev.
 
@@ -199,7 +199,7 @@ Agent pour le travail et le code, annonce par l'editeur comme couvrant les tache
 - **Dépôt :** [https://github.com/OpenHands/OpenHands](https://github.com/OpenHands/OpenHands)
 - **Tarifs :** [https://www.openhands.dev/pricing](https://www.openhands.dev/pricing)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent d'ingénierie open-source (MIT), proposé d'abord sous forme d'Agent Canvas : une interface graphique servie en local, sur la machine du développeur ; aussi en interface terminal, en CLI, en SDK et en cloud. Sandbox Docker facultative. Offre cloud individuelle gratuite (clé personnelle ou fournisseurs à prix coûtant) ; seule l'offre Enterprise est payante.
 
@@ -209,7 +209,7 @@ Agent d'ingénierie open-source (MIT), proposé d'abord sous forme d'Agent Canva
 - **Site :** [https://qoder.com](https://qoder.com)
 - **Tarifs :** [https://docs.qoder.com/account/pricing](https://docs.qoder.com/account/pricing)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** BYOK, MCP, gratuit
 
 Plateforme de code agentique proposée d'abord en application de bureau (tâches, projets, automatisations), aussi en extension JetBrains et en CLI (`qodercli`). Forfaits en crédits : Free, Lite 10 $, Pro 20 $, Pro+ 60 $, Ultra 200 $/mois. Code fermé.
 
@@ -228,7 +228,7 @@ Application desktop Windows et macOS donnant accès aux modèles Qwen : recherch
 - **Site :** [https://reasonix.io](https://reasonix.io)
 - **Dépôt :** [https://github.com/esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix)
 - **Statut :** active
-- **Capacités :** BYOK, MCP, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Agent de code open-source (MIT) disponible en application de bureau (Studio, conseillée pour commencer), en terminal, dans le navigateur et dans l'éditeur. Préréglé pour DeepSeek mais compatible avec tout service au format OpenAI. Projet communautaire, sans lien officiel avec DeepSeek.
 
@@ -238,7 +238,7 @@ Agent de code open-source (MIT) disponible en application de bureau (Studio, con
 - **Site :** [https://superset.sh](https://superset.sh)
 - **Dépôt :** [https://github.com/superset-sh/superset](https://github.com/superset-sh/superset)
 - **Statut :** active
-- **Capacités :** gratuit
+- **Capacités :** BYOK, gratuit
 
 « The IDE for parallel agents » : application de bureau (macOS, Linux expérimental) pour piloter plusieurs agents de code en parallèle. Code source sous licence Elastic-2.0. Free ; Pro 20 $ ; Team 60 $ ; Ultra 200 $/utilisateur/mois. L'éditeur annonce un changement de nom prochain.
 
@@ -250,7 +250,7 @@ Agent de code open-source (MIT) disponible en application de bureau (Studio, con
 - **Dépôt :** [https://github.com/warpdotdev/warp](https://github.com/warpdotdev/warp)
 - **Tarifs :** [https://www.warp.dev/pricing](https://www.warp.dev/pricing)
 - **Statut :** active
-- **Capacités :** BYOK, gratuit
+- **Capacités :** BYOK, modèles locaux, MCP, gratuit
 
 Terminal doté d'agents de code intégrés, dont le code est devenu public sous AGPL-3.0. Son agent existe aussi en CLI utilisable dans n'importe quel terminal. Forfaits : Free 0 $ (inférence personnelle possible), Build 20 $/mois, Max 200 $/mois, Business 50 $/utilisateur/mois.
 
@@ -260,7 +260,7 @@ Terminal doté d'agents de code intégrés, dont le code est devenu public sous 
 - **Site :** [https://zcode.z.ai/en](https://zcode.z.ai/en)
 - **Documentation :** [https://zcode.z.ai/en/docs/welcome](https://zcode.z.ai/en/docs/welcome)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, MCP, gratuit
 - **Forfait Lite :** $12.6 — 10,92 € HT · 13,10 € TTC
 - **Forfait Pro :** $56 — 48,53 € HT · 58,24 € TTC
 - **Forfait Max :** $117.6 — 101,91 € HT · 122,29 € TTC
@@ -273,7 +273,7 @@ Environnement de développement agentique (ADE) livré en application de bureau,
 - **Site :** [https://zencoder.ai](https://zencoder.ai)
 - **Tarifs :** [https://zencoder.ai/pricing](https://zencoder.ai/pricing)
 - **Statut :** active
-- **Capacités :** —
+- **Capacités :** BYOK, MCP
 
 Application de bureau d'orchestration d'agents de code, mise en avant par Zencoder, qui propose aussi des agents pour VS Code et JetBrains. Pro 45 $, Pro Plus 95 $, Pro Max 195 $/utilisateur/mois. Code fermé.
 
@@ -283,7 +283,7 @@ Application de bureau d'orchestration d'agents de code, mise en avant par Zencod
 - **Site :** [https://stagewise.io](https://stagewise.io)
 - **Dépôt :** [https://github.com/stagewise-io/stagewise](https://github.com/stagewise-io/stagewise)
 - **Statut :** active
-- **Capacités :** BYOK, modèles locaux
+- **Capacités :** BYOK, modèles locaux, gratuit
 
 IDE agentique « pour les modèles ouverts » qui mêle navigateur et code, livré en application de bureau. Code sous AGPL-3.0 ; création de compte requise.
 
