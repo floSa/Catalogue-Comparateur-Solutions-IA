@@ -213,6 +213,10 @@ header{padding:14px 0 10px;border-bottom:1px solid var(--line)}
 h1{font-family:"IBM Plex Serif",Georgia,serif;font-size:27px;margin:0;
  letter-spacing:-.015em;font-weight:600;text-wrap:balance}
 .meta{color:var(--ink-3);font-size:12.5px;margin:0;font-variant-numeric:tabular-nums}
+.mb{background:none;border:1px solid var(--line-strong);border-radius:999px;padding:1px 10px;
+ font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+.mb:hover,.mb[aria-pressed="true"]{border-color:var(--s1);color:var(--s1)}
+.mb:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 h2{font-family:"IBM Plex Serif",Georgia,serif;font-size:19px;margin:22px 0 4px;
  letter-spacing:-.01em;font-weight:600;text-wrap:balance}
 h2 .n{color:var(--ink-3);font-weight:400;font-size:13px;margin-left:8px}
@@ -403,7 +407,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
 <div class="wrap">
 <header>
   <div class="tt"><h1>Modèles et harnais de développement IA</h1>
-  <p class="meta" id="meta"></p></div>
+  <p class="meta" id="meta"></p>
+  <button class="mb" id="metb" type="button" aria-pressed="false">Méthodologie</button></div>
   <div class="strip" id="strip"></div>
 </header>
 
@@ -418,8 +423,6 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <span class="fr">OCR</span><span class="en">documents</span></button>
   <button data-s="dm" role="tab" aria-selected="false">
     <span class="fr">Décision</span><span class="en">decision models</span></button>
-  <button data-s="methode" role="tab" aria-selected="false">
-    <span class="fr">Méthode</span><span class="en">methodology</span></button>
 </nav>
 
 <div id="alerts"></div>
@@ -632,6 +635,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
 </section>
 
 <section id="s-methode" role="tabpanel" hidden>
+  <h2>Méthodologie</h2>
   <div class="seg" id="met-cat" role="group" aria-label="Sous-sections">
     <button data-m="regles" aria-pressed="true">Les six règles</button>
     <button data-m="etat" aria-pressed="false">État du référentiel</button>
@@ -1546,6 +1550,7 @@ function showSection(name,remonter){
   SEC.forEach(x=>{const el=$('#s-'+x);if(el)el.hidden=(x!==name);});
   [...$('#nav').children].forEach(b=>
     b.setAttribute('aria-selected',String(b.dataset.s===name)));
+  $('#metb').setAttribute('aria-pressed',String(name==='methode'));
   if(name==='mesures')draw();
   if(remonter){
     const doux=!matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1555,6 +1560,7 @@ function showSection(name,remonter){
 }
 $('#nav').addEventListener('click',e=>{const b=e.target.closest('button');
   if(b)showSection(b.dataset.s,true);});
+$('#metb').addEventListener('click',()=>showSection('methode',true));
 
 $('#met-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   [...$('#met-cat').children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
