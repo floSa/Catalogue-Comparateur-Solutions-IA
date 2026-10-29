@@ -1,0 +1,268 @@
+_generated:
+  by: pipeline/slm_ingest.py
+  'on': '2026-10-29'
+  epoch: https://epoch.ai/data/benchmark_data.zip
+  lmarena: https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
+  lmarena_published: '2026-10-28'
+  vectara: https://github.com/vectara/hallucination-leaderboard
+  warning: Fichier généré. Relancer pipeline/slm_ingest.py, ne pas éditer.
+scores:
+- benchmark: epoch-eci
+  entry: gemma-4-31b
+  name: Gemma 4 31B IT
+  score: 143.0
+  ci:
+  - 140.3
+  - 145.8
+- benchmark: epoch-eci
+  entry: gemma-4-26b-a4b
+  name: Gemma 4 26B A4B
+  score: 141.9
+  ci:
+  - 138.9
+  - 143.4
+- benchmark: epoch-eci
+  entry: qwen3-5-9b
+  name: Qwen3.5-9B
+  score: 139.3
+  ci:
+  - 136.1
+  - 140.8
+- benchmark: epoch-eci
+  entry: gpt-oss-20b
+  name: gpt-oss-20b
+  score: 137.7
+  ci:
+  - 132.2
+  - 139.6
+- benchmark: gpqa-diamond
+  entry: glm-4-7-flash
+  name: glm-4.7-flash
+  effort: null
+  score: 60.5
+  ci:
+  - 54.8
+  - 66.3
+- benchmark: gpqa-diamond
+  entry: qwen3-5-9b
+  name: qwen3.5-9B
+  effort: null
+  score: 79.0
+  ci:
+  - 74.3
+  - 83.6
+- benchmark: gpqa-diamond
+  entry: gpt-oss-20b
+  name: gpt-oss-20b
+  effort: medium
+  score: 60.8
+  ci:
+  - 55.9
+  - 65.7
+- benchmark: gpqa-diamond
+  entry: qwen3-6-35b-a3b
+  name: qwen3.6-35b-a3b
+  effort: none
+  score: 84.8
+  ci:
+  - 79.8
+  - 89.9
+- benchmark: gpqa-diamond
+  entry: gemma-4-31b
+  name: gemma-4-31b-it
+  effort: minimal
+  score: 75.8
+  ci:
+  - 69.8
+  - 81.7
+- benchmark: gpqa-diamond
+  entry: gemma-4-26b-a4b
+  name: gemma-4-26b-a4b-it
+  effort: minimal
+  score: 73.2
+  ci:
+  - 67.0
+  - 79.4
+- benchmark: otis-aime
+  entry: glm-4-7-flash
+  name: glm-4.7-flash
+  effort: null
+  score: 58.3
+  ci:
+  - 45.5
+  - 71.2
+- benchmark: otis-aime
+  entry: qwen3-5-4b
+  name: qwen3.5-4b
+  effort: none
+  score: 55.8
+  ci:
+  - 43.8
+  - 67.9
+- benchmark: otis-aime
+  entry: gemma-4-26b-a4b
+  name: gemma-4-26b-a4b-it
+  effort: minimal
+  score: 82.2
+  ci:
+  - 70.9
+  - 93.5
+- benchmark: otis-aime
+  entry: qwen3-5-9b
+  name: qwen3.5-9B
+  effort: none
+  score: 61.7
+  ci:
+  - 49.9
+  - 73.4
+- benchmark: otis-aime
+  entry: gpt-oss-20b
+  name: gpt-oss-20b
+  effort: medium
+  score: 65.3
+  ci:
+  - 53.7
+  - 76.9
+- benchmark: otis-aime
+  entry: qwen3-6-35b-a3b
+  name: qwen3.6-35b-a3b
+  effort: null
+  score: 86.7
+  ci:
+  - 76.6
+  - 96.7
+- benchmark: otis-aime
+  entry: gemma-4-31b
+  name: gemma-4-31b-it
+  effort: minimal
+  score: 73.3
+  ci:
+  - 60.3
+  - 86.4
+- benchmark: lmarena-text
+  entry: gemma-4-31b
+  name: Gemma 4 31B
+  score: 1443
+  ci:
+  - 1436
+  - 1450
+  rank: 68
+  votes: 6138
+- benchmark: lmarena-text
+  entry: qwen3-8-27b
+  name: Qwen3.8-27B
+  score: 1438
+  ci:
+  - 1434
+  - 1443
+  rank: 81
+  votes: 27779
+- benchmark: lmarena-text
+  entry: gemma-4-26b-a4b
+  name: Gemma 4 26B A4B
+  score: 1434
+  ci:
+  - 1427
+  - 1442
+  rank: 91
+  votes: 6090
+- benchmark: lmarena-text
+  entry: granite-4-2-30b
+  name: Granite 4.2 30B
+  score: 1361
+  ci:
+  - 1351
+  - 1372
+  rank: 199
+  votes: 3389
+- benchmark: lmarena-text
+  entry: glm-4-7-flash
+  name: GLM-4.7-Flash
+  score: 1351
+  ci:
+  - 1345
+  - 1356
+  rank: 210
+  votes: 12008
+- benchmark: lmarena-text
+  entry: nemotron-3-5-lightning-30b-a3b
+  name: NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)
+  score: 1331
+  ci:
+  - 1326
+  - 1336
+  rank: 229
+  votes: 24230
+- benchmark: lmarena-text
+  entry: granite-4-2-8b
+  name: Granite 4.2 8B
+  score: 1319
+  ci:
+  - 1308
+  - 1330
+  rank: 240
+  votes: 3251
+- benchmark: lmarena-text
+  entry: olmo-3-1-32b-instruct
+  name: Olmo 3.1 32B Instruct
+  score: 1311
+  ci:
+  - 1305
+  - 1317
+  rank: 245
+  votes: 11805
+- benchmark: lmarena-text
+  entry: granite-4-2-3b
+  name: Granite 4.2 3B
+  score: 1293
+  ci:
+  - 1282
+  - 1305
+  rank: 256
+  votes: 3249
+- benchmark: lmarena-text
+  entry: gpt-oss-20b
+  name: gpt-oss-20b
+  score: 1287
+  ci:
+  - 1281
+  - 1294
+  rank: 263
+  votes: 10416
+- benchmark: lmarena-text
+  entry: olmo-3-1-32b-think
+  name: Olmo 3.1 32B Think
+  score: 1271
+  ci:
+  - 1264
+  - 1279
+  rank: 283
+  votes: 8299
+- benchmark: vectara-hhem
+  entry: gemma-4-26b-a4b
+  name: google/gemma-4-26b-a4b-it
+  score: 5.2
+- benchmark: vectara-hhem
+  entry: gemma-4-31b
+  name: google/gemma-4-31b-it
+  score: 7.4
+- benchmark: vectara-hhem
+  entry: glm-4-7-flash
+  name: zai-org/GLM-4.7-flash
+  score: 9.3
+- benchmark: vectara-hhem
+  entry: ministral-3-14b
+  name: mistralai/ministral-3-14b-2512
+  score: 19.4
+- benchmark: vectara-hhem
+  entry: ministral-3-8b
+  name: mistralai/ministral-3-8b-2512
+  score: 21.7
+- benchmark: vectara-hhem
+  entry: phi-4-mini-instruct
+  name: microsoft/Phi-4-mini-instruct
+  score: 23.5
+- benchmark: vectara-hhem
+  entry: ministral-3-3b
+  name: mistralai/ministral-3-3b-2512
+  score: 24.2

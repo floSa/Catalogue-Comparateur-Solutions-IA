@@ -60,6 +60,8 @@ python3 pipeline/worklist.py                        # QUOI FAIRE MAINTENANT
 python3 pipeline/epoch_ingest.py --force-download   # rafraîchit les benchmarks (+ tbench.ai)
 python3 pipeline/seed_catalog.py                    # amorce modèles et labs
 python3 pipeline/apply_pricing.py                   # injecte les tarifs relevés
+python3 pipeline/dm_ingest.py --force-download      # modèles de décision (Jev)
+python3 pipeline/slm_ingest.py --force-download     # petits modèles : Epoch, LMArena, Vectara
 python3 -m unittest discover -s tests                # tests du pipeline
 python3 pipeline/validate.py                        # contrôle qualité (code 1 si erreur)
 python3 pipeline/build_site.py                      # régénère la page

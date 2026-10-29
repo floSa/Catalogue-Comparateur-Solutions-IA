@@ -97,3 +97,14 @@ comme tels (`provenance`) et renvoient à leur page d'origine.
 | Artificial Analysis Decision Index | Artificial Analysis | relevé à la main dans `catalog/dm.yaml` (pas d'export) | non précisée : scores cités avec leur source |
 
 Les données brutes téléchargées restent dans `sources/raw/` (non versionné).
+
+## Petits modèles ouverts (SLM)
+
+| Classement | Tenu par | Accès | Licence des données |
+|---|---|---|---|
+| Epoch Capabilities Index, GPQA Diamond, OTIS Mock AIME | Epoch AI | archive `benchmark_data.zip`, lue par `pipeline/slm_ingest.py` | CC-BY 4.0 |
+| Text Arena (catégorie « overall ») | LMArena | jeu de données Hugging Face `lmarena-ai/leaderboard-dataset`, lu par `pipeline/slm_ingest.py` | CC-BY 4.0 |
+| Hallucination Leaderboard | Vectara | tableau du README du dépôt `vectara/hallucination-leaderboard`, lu par `pipeline/slm_ingest.py` | Apache-2.0 |
+
+Les fiches des modèles (taille, architecture, licence) viennent de la fiche Hugging Face
+de l'éditeur, dans `catalog/slm.yaml`.

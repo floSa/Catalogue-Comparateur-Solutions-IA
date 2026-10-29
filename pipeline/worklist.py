@@ -320,6 +320,24 @@ def main() -> int:
                   "lignes nouvelles en tête du Jev Decision Index et de JevBench, rattachées à aucune "
                   "fiche (`motif` de catalog/dm.yaml)"))
 
+    # ── 5 ter. Petits modèles ouverts (SLM) ─────────────────────────────────
+    sls = load("slm_scores.yaml").get("_generated", {})
+    if (age(sls.get("on")) if age(sls.get("on")) is not None else warn + 1) > 14:
+        tasks.append((1, "SLM", "Rafraîchir les scores des petits modèles (Epoch, LMArena, Vectara)", None,
+                      "python3 pipeline/epoch_ingest.py --force-download && "
+                      "python3 pipeline/slm_ingest.py --force-download"))
+    slm = load("slm.yaml")
+    perim = [e["nom"] for e in slm.get("entries", []) if trop_vieux(e.get("verified_on"), 45)]
+    if perim:
+        tasks.append((2, "SLM", f"{len(perim)} fiches de petits modèles à revérifier", None,
+                      ", ".join(perim[:8]) + (" …" if len(perim) > 8 else "")
+                      + "\n    ⓘ nouvelle génération = remplace la précédente (règle dans _meta de catalog/slm.yaml)."))
+    tasks.append((3, "VEILLE", "Rechercher les nouveaux petits modèles ouverts (≤ 35 Md)",
+                  "https://huggingface.co/models?sort=trending",
+                  "nouvelles générations des familles du catalogue + lignes LMArena / Vectara / Epoch "
+                  "rattachées à aucune fiche (`motif` de catalog/slm.yaml). Sources écartées à "
+                  "re-contrôler : Artificial Analysis (licence), BFCL, MathArena, COLE."))
+
     # ── 5 quater. Étiquettes des outils (gratuit, BYOK, MCP, modèles locaux) ──
     CAPS = ("free", "byok", "mcp", "local_models")
     vivants = [t for t in tools if t.get("status") != "retired"]
