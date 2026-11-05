@@ -136,12 +136,13 @@ def build_payload() -> dict:
                "rejected": dm.get("rejected", []), "ecartes": dm.get("ecartes", []),
                "domains": (dms.get("_generated") or {}).get("domains", {}),
                "scores": dm_rows},
-        "slm": {"entries": [{k: v for k, v in e.items() if k not in ("non_verifie", "verified_on", "motif")}
+        "slm": {"entries": [{k: v for k, v in e.items() if k not in ("non_verifie", "verified_on", "motif", "scores_editeur")}
                             for e in slm.get("entries", [])],
                 "benchmarks": slm.get("benchmarks", []), "rejected": slm.get("rejected", []),
                 "seuil": (slm.get("_meta") or {}).get("seuil"),
                 "lmarena_date": (slms.get("_generated") or {}).get("lmarena_published"),
-                "scores": slms.get("scores", [])},
+                "scores": [dict(x, prov="tiers") for x in slms.get("scores", [])]
+                          + [dict(x, prov="editeur") for x in slm.get("editeur_scores", [])]},
         "edition": meta.get("audit", {}).get("label", ""),
         "generated": date.today().isoformat(),
         "fx": meta.get("fx", {}),
@@ -378,6 +379,9 @@ summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 .ot td{vertical-align:top}
 .ot td small{display:block;color:var(--ink-3);font-size:11px;margin-top:2px}
 #ocr-cat,#dm-cat,#slm-cat{margin:18px 0 10px}
+.rg{display:flex;align-items:center;gap:8px}
+.rg input{accent-color:var(--s1);width:150px}
+.rg output{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;color:var(--ink-2);min-width:64px}
 .orow .tr .ci{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--ink)}
 .orow .tr .ci::before,.orow .tr .ci::after{content:"";position:absolute;top:-4px;height:10px;width:2px;background:var(--ink)}
 .orow .tr .ci::before{left:0}.orow .tr .ci::after{right:0}
@@ -664,12 +668,16 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <div class="panel">
       <div class="ctrl">
         <label class="f">Benchmark<select id="pbench"></select></label>
+        <label class="f">Taille maximale<span class="rg"><input type="range" id="ptai" min="0" max="4" step="1" value="4"
+          aria-label="Taille maximale en milliards de paramètres"><output id="ptaio"></output></span></label>
         <label class="f">Architecture<select id="parch">
           <option value="">Toutes</option><option value="dense">Dense</option>
           <option value="moe">MoE</option><option value="hybride">Hybride</option></select></label>
         <label class="f">Licence<select id="plic">
           <option value="">Toutes</option><option value="libre">Libres seulement</option></select></label>
       </div>
+      <p class="olg"><span><i class="ob p-tiers"></i>mesuré par un tiers</span>
+        <span><i class="ob p-editeur"></i>publié par l'éditeur sur sa fiche Hugging Face</span></p>
       <div id="pbars"></div>
       <div id="pnote"></div>
     </div>
@@ -677,9 +685,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   <div id="p-modele" hidden>
     <div class="ctrl">
       <label class="f">Famille<select id="mfam"></select></label>
-      <label class="f">Taille<select id="mtai">
-        <option value="">Toutes</option><option value="0-4">Moins de 4 Md</option>
-        <option value="4-15">4 à 15 Md</option><option value="15-99">15 à 35 Md</option></select></label>
+      <label class="f">Taille maximale<span class="rg"><input type="range" id="mtai" min="0" max="4" step="1" value="4"
+        aria-label="Taille maximale en milliards de paramètres"><output id="mtaio"></output></span></label>
       <label class="f">Architecture<select id="march">
         <option value="">Toutes</option><option value="dense">Dense</option>
         <option value="moe">MoE</option><option value="hybride">Hybride</option></select></label>
@@ -1983,12 +1990,18 @@ const P=D.slm, PE=Object.fromEntries(P.entries.map(e=>[e.id,e]));
 const ARCH={dense:'dense',moe:'MoE',hybride:'hybride'};
 const md=v=>v==null?'—':v.toLocaleString('fr-FR',{maximumFractionDigits:v<10?2:1})+' Md';
 const taille=e=>md(e.params_total_b)+(e.params_actifs_b?` · ${md(e.params_actifs_b)} actifs`:'');
+// Paliers du curseur de taille ; 36 couvre les « 35B » dont le compte exact dépasse 35.
+const TAI=[2,4,10,20,36], TAIL=['≤ 2 Md','≤ 4 Md','≤ 10 Md','≤ 20 Md','≤ 35 Md'];
+const taiMax=el=>{const i=Math.min(+el.value,4);el.nextElementSibling.value=TAIL[i];return TAI[i];};
 const pbsel=$('#pbench');
-P.benchmarks.forEach(b=>pbsel.add(new Option(`${b.nom} — ${b.categorie}`,b.id)));
+P.benchmarks.forEach(b=>pbsel.add(new Option(`${b.nom} — ${b.categorie}${b.provenance_type==='editeur'?' (chiffres éditeurs)':''}`,b.id)));
+// Un modèle publié en plusieurs modes (raisonnement, effort…) : on garde son meilleur score, mode nommé.
+const meilleur=L=>Object.values(L.reduce((a,x)=>{const k=x.entry+'|'+x.prov;
+  if(!a[k]||x.score>a[k].score)a[k]=x;return a;},{}));
 function slmRank(){
-  const b=P.benchmarks.find(x=>x.id===pbsel.value), ar=$('#parch').value, lic=$('#plic').value;
-  const r=P.scores.filter(x=>x.benchmark===b.id).filter(x=>{const e=PE[x.entry];
-    return (!ar||e.architecture===ar)&&(!lic||e.licence_classe==='libre');});
+  const b=P.benchmarks.find(x=>x.id===pbsel.value), ar=$('#parch').value, lic=$('#plic').value, tmax=taiMax($('#ptai'));
+  const r=meilleur(P.scores.filter(x=>x.benchmark===b.id)).filter(x=>{const e=PE[x.entry];
+    return e&&(!ar||e.architecture===ar)&&(!lic||e.licence_classe==='libre')&&(e.params_total_b??0)<=tmax;});
   const bas=b.mieux==='bas';
   r.sort((a,c)=>bas?a.score-c.score:c.score-a.score);
   // Échelle : 0–max quand le score est borné, sinon calée sur l'étendue des valeurs et intervalles.
@@ -1997,25 +2010,28 @@ function slmRank(){
   const pos=v=>Math.max(0,Math.min(100,(v-lo)/(hi-lo)*100));
   $('#pbars').innerHTML=r.map(x=>{const e=PE[x.entry];
     const sub=[esc(e.famille),taille(e),ARCH[e.architecture]||'',lchip(e.licence_classe)].filter(Boolean).join(' · ');
-    const det=[x.effort?'effort '+x.effort:'',x.rank?'rang '+x.rank+' toutes catégories':'',
+    const det=[x.prov==='editeur'?'publié par l’éditeur — '+x.libelle+(x.fiche!=null?` (fiche : ${x.fiche})`:''):'mesuré par un tiers',
+      x.mode?'mode '+x.mode:'',x.effort?'effort '+x.effort:'',x.rank?'rang '+x.rank+' toutes catégories':'',
       x.ci?`IC 95 % : ${x.ci[0]} – ${x.ci[1]}`:''].filter(Boolean).join(' · ');
     return `<div class="orow"><div class="nm">${lien(e.url,esc(e.nom))}<small>${sub}</small></div>
-      <div class="tr" title="${esc(det||'pas d’intervalle publié')}"><i class="ob p-tiers" style="width:${pos(x.score)}%"></i>${
+      <div class="tr" title="${esc(det)}"><i class="ob p-${x.prov}" style="width:${pos(x.score)}%"></i>${
       x.ci?`<i class="ci" style="left:${pos(x.ci[0])}%;width:${pos(x.ci[1])-pos(x.ci[0])}%"></i>`:''}</div>
-      <div class="v">${x.score.toLocaleString('fr-FR')}</div></div>`;}).join('')||'<p class="empty">Aucun modèle pour ce filtre.</p>';
-  const [a,c]=r, egal=a&&c&&a.ci&&c.ci&&(bas?a.ci[1]>=c.ci[0]:a.ci[0]<=c.ci[1]);
-  const mes=new Set(P.scores.filter(x=>x.benchmark===b.id).map(x=>x.entry)).size;
+      <div class="v">${x.source?`<a href="${esc(x.source)}" rel="noopener" title="${esc(det)}">${x.score.toLocaleString('fr-FR')}</a>`:x.score.toLocaleString('fr-FR')}</div></div>`;}).join('')||'<p class="empty">Aucun modèle pour ce filtre.</p>';
+  const [a,c]=r, egal=a&&c&&a.ci&&c.ci&&(bas?a.ci[1]>=c.ci[0]:a.ci[0]<=c.ci[1]), edi=r.some(x=>x.prov==='editeur');
+  const mes=new Set(P.scores.filter(x=>x.benchmark===b.id&&PE[x.entry]).map(x=>x.entry)).size;
   $('#pnote').innerHTML=`<div class="note"><b>Comment lire.</b> ${esc(b.unite)}, plus ${bas?'bas':'haut'} = mieux. `+
     (b.max?'':'Échelle sans borne : la barre part du plus faible score affiché, seuls les écarts comptent. ')+
     (r.some(x=>x.ci)?'Le trait noir est l’intervalle de confiance à 95 % : deux traits qui se chevauchent = égalité. ':'Pas d’intervalle de confiance publié : un faible écart ne départage pas deux modèles. ')+
     (egal?'<b>Les deux premiers ne sont pas séparés statistiquement.</b> ':'')+
-    (r.some(x=>x.effort)?'Un modèle mesuré à plusieurs niveaux d’effort apparaît avec son meilleur score, effort indiqué au survol. ':'')+
-    `Mesuré par un tiers : ${esc(b.provenance)} (<a href="${esc(b.classement)}" rel="noopener">classement</a>`+
-    `${b.id==='lmarena-text'&&P.lmarena_date?', publié le '+esc(P.lmarena_date):''}). `+
-    `${mes} des ${P.entries.length} modèles du catalogue y sont mesurés : les autres n'ont pas encore été évalués par cette source.</div>`;
+    (r.some(x=>x.effort||x.mode)?'Un modèle publié en plusieurs modes (raisonnement, effort) apparaît avec son meilleur score, mode indiqué au survol. ':'')+
+    (edi?'<b>Les barres hachurées sont des chiffres publiés par l’éditeur du modèle</b>, chacun avec son propre protocole et parfois sa propre version du benchmark (libellé exact au survol) : écart de quelques points = pas de conclusion. ':'')+
+    (b.provenance_type==='tiers'?`Mesuré par un tiers : ${esc(b.provenance)} (<a href="${esc(b.classement)}" rel="noopener">classement</a>`+
+    `${b.id==='lmarena-text'&&P.lmarena_date?', publié le '+esc(P.lmarena_date):''}). `:'')+
+    `${mes} des ${P.entries.length} modèles du catalogue ont un score ici.</div>`;
   document.querySelectorAll('#pgl .bc').forEach(c=>c.classList.toggle('on',c.dataset.b===b.id));
 }
 pbsel.addEventListener('change',slmRank);['#parch','#plic'].forEach(k=>$(k).addEventListener('change',slmRank));
+$('#ptai').addEventListener('input',slmRank);
 slmRank();
 const mfam=$('#mfam');mfam.add(new Option('Toutes',''));
 [...new Set(P.entries.map(e=>e.famille))].sort((a,c)=>a.localeCompare(c,'fr')).forEach(f=>mfam.add(new Option(f,f)));
@@ -2023,10 +2039,9 @@ const pcls=[...new Set(P.entries.map(e=>e.licence_classe))];
 $('#mlic').add(new Option('Toutes',''));
 Object.keys(LCL).filter(c=>pcls.includes(c)).forEach(c=>$('#mlic').add(new Option(LCL[c],c)));
 function slmModeles(){
-  const f=mfam.value, t=$('#mtai').value, ar=$('#march').value, lic=$('#mlic').value;
-  const [t0,t1]=t?t.split('-').map(Number):[0,1e9];
+  const f=mfam.value, tmax=taiMax($('#mtai')), ar=$('#march').value, lic=$('#mlic').value;
   const L=P.entries.filter(e=>(!f||e.famille===f)&&(!ar||e.architecture===ar)&&(!lic||e.licence_classe===lic)
-    &&(e.params_total_b??0)>=t0&&(e.params_total_b??0)<t1)
+    &&(e.params_total_b??0)<=tmax)
     .sort((a,c)=>a.famille.localeCompare(c.famille,'fr')||(c.params_total_b||0)-(a.params_total_b||0));
   $('#ptm').innerHTML='<thead><tr><th>Modèle</th><th>Paramètres</th><th>Architecture</th><th class="n">Contexte</th>'+
     '<th>Entrées</th><th>Raisonnement</th><th>Licence</th><th>Français</th><th>Sortie</th></tr></thead><tbody>'+
@@ -2040,7 +2055,8 @@ function slmModeles(){
       <td>${e.francais?'oui':'non cité'}</td>
       <td>${esc(e.sortie||'—')}${(e.quantif_officielles||[]).length?`<small>quantifié : ${esc(e.quantif_officielles.join(', '))}</small>`:''}</td></tr>`).join('')+'</tbody>';
 }
-['#mfam','#mtai','#march','#mlic'].forEach(k=>$(k).addEventListener('change',slmModeles));
+['#mfam','#march','#mlic'].forEach(k=>$(k).addEventListener('change',slmModeles));
+$('#mtai').addEventListener('input',slmModeles);
 slmModeles();
 $('#pgl').innerHTML=P.benchmarks.map(b=>`<details class="bc" data-b="${esc(b.id)}"><summary>
   <h3>${esc(b.nom)}</h3><p><span class="fam">${esc(b.categorie)}.</span> ${esc(b.court)}</p>
