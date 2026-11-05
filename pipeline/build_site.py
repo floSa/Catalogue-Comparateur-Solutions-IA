@@ -139,7 +139,7 @@ def build_payload() -> dict:
         "slm": {"entries": [{k: v for k, v in e.items() if k not in ("non_verifie", "verified_on", "motif")}
                             for e in slm.get("entries", [])],
                 "benchmarks": slm.get("benchmarks", []), "rejected": slm.get("rejected", []),
-                "ecartes": slm.get("ecartes", []), "seuil": (slm.get("_meta") or {}).get("seuil"),
+                "seuil": (slm.get("_meta") or {}).get("seuil"),
                 "lmarena_date": (slms.get("_generated") or {}).get("lmarena_published"),
                 "scores": slms.get("scores", [])},
         "edition": meta.get("audit", {}).get("label", ""),
@@ -695,7 +695,6 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <div class="bl bg" id="pgl"></div>
     <details><summary id="prj">Sources écartées</summary><div class="bl" id="prlist"></div></details>
   </div>
-  <details><summary id="pej">Modèles écartés</summary><div class="bl" id="pelist"></div></details>
 </section>
 
 <section id="s-methode" role="tabpanel" hidden>
@@ -2054,8 +2053,6 @@ $('#pgv').addEventListener('click',e=>{const v=e.target.closest('button');if(!v)
   document.querySelectorAll('#pgl details').forEach(d=>d.open=v.dataset.v==='1');});
 $('#prj').textContent=`Sources écartées (${P.rejected.length}) — et pourquoi`;
 $('#prlist').innerHTML=P.rejected.map(b=>`<div class="bc"><h3>${esc(b.benchmark)}</h3><p>${esc(b.motif)}</p></div>`).join('');
-$('#pej').textContent=`Modèles écartés (${P.ecartes.length}) — et pourquoi`;
-$('#pelist').innerHTML=P.ecartes.map(e=>`<div class="bc"><h3>${esc(e.nom)}</h3><p>${esc(e.motif)}</p></div>`).join('');
 $('#slm-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   $('#slm-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
   ['rank','modele','bench'].forEach(k=>{$('#p-'+k).hidden=(k!==b.dataset.p);});});
