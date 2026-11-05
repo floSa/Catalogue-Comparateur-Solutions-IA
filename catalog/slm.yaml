@@ -4,6 +4,8 @@ _meta:
     et peut dépasser de moins de 1 Md (encodeur vision, embeddings).
   regle_generation: Grands laboratoires seulement, modèles généralistes sortis depuis août 2025, dernière
     génération de chaque famille ; ni dérivés, ni fine-tunes, ni modèles spécialisés (traduction, parole).
+    Fenêtre glissante de 18 mois sur la date de sortie (à défaut, date de création du dépôt Hugging Face,
+    champ `depot_cree`), appliquée par build_site.py.
   note: 'Scores tiers dans slm_scores.yaml (généré par pipeline/slm_ingest.py). Scores publiés par l''éditeur
     relevés à la main sur la fiche Hugging Face dans `editeur_scores`. `motif` : expression rationnelle
     appliquée au nom normalisé (minuscules, tirets) des lignes de classement.'
@@ -290,6 +292,7 @@ entries:
     », isVerified).'
   motif: (^|-)muse\-glimmer\-30b(-|$)
   verified_on: '2026-10-29'
+  depot_cree: '2026-08-09'
 - id: phi-4-reasoning-vision-15b
   nom: Phi-4-reasoning-vision 15B
   famille: Phi
@@ -807,6 +810,7 @@ entries:
     131072), pas dans la carte. Langues non déclarées sur la carte.'
   motif: (^|-)gpt\-oss\-20b(-|$)
   verified_on: '2026-10-29'
+  depot_cree: '2025-08-04'
 - id: olmo-3-1-32b-think
   nom: Olmo 3.1 32B Think
   famille: OLMo

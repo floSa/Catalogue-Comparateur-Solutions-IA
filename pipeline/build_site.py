@@ -7,7 +7,7 @@ telle quelle sur GitHub Pages ou en artifact.
 """
 from __future__ import annotations
 import collections, json, sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 import yaml
 
@@ -106,6 +106,9 @@ def build_payload() -> dict:
     ocr, ocrb = load("ocr.yaml"), load("ocr_benchmarks.yaml")
     dm, dms = load("dm.yaml"), load("dm_scores.yaml")
     slm, slms = load("slm.yaml"), load("slm_scores.yaml")
+    # Fenêtre glissante : un modèle sorti il y a plus de 18 mois quitte la page à la génération suivante.
+    lim = (date.today() - timedelta(days=548)).isoformat()
+    slm["entries"] = [e for e in slm.get("entries", []) if str(e.get("sortie") or e.get("depot_cree")) >= lim]
     import re
     def fiche(nom):
         return next((e["id"] for e in dm.get("entries", []) if re.search(e["motif"], nom)), None)
@@ -652,7 +655,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
 
 <section id="s-slm" role="tabpanel" hidden>
   <h2>Petits modèles ouverts <span class="en-h">SLM</span></h2>
-  <p class="layer">Les modèles à poids ouverts de <b>35 milliards de paramètres ou moins</b>, qu'on peut
+  <p class="layer">Les modèles à poids ouverts de <b>35 milliards de paramètres ou moins</b>, sortis depuis
+  moins de 18 mois, qu'on peut
   faire tourner sur ses propres serveurs. Un modèle <b>MoE</b> (mixture of experts) n'active qu'une partie
   de ses paramètres à chaque mot : il répond aussi vite qu'un petit modèle, mais tous ses poids doivent
   tenir en mémoire. Un modèle <b>hybride</b> remplace une partie de l'attention par des couches plus

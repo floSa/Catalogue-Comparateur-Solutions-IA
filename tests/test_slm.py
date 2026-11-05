@@ -25,6 +25,7 @@ class TestSLM(unittest.TestCase):
             self.assertIn(e["licence_classe"], self.classes, e["id"])
             self.assertIn(e["architecture"], ("dense", "moe", "hybride", None), e["id"])
             self.assertTrue(e.get("url") and e.get("verified_on") and e.get("motif"), e["id"])
+            self.assertTrue(e.get("sortie") or e.get("depot_cree"), f"{e['id']} : date requise (fenêtre de 18 mois)")
             # Seuil : 35 Md annoncés ; le compte exact des poids peut dépasser de moins de 1 Md.
             self.assertLess(e["params_total_b"], 36, e["id"])
             if e["architecture"] == "moe":
