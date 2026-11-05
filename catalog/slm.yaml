@@ -2,9 +2,10 @@ _meta:
   verified_on: '2026-10-29'
   seuil: 35 Md de paramètres au total, taille annoncée par l'éditeur ; le compte exact des poids est affiché
     et peut dépasser de moins de 1 Md (encodeur vision, embeddings).
-  regle_generation: Dernière génération de chaque famille. Si elle n'a pas de taille sous le seuil, dernière
-    sortie de l'éditeur sous le seuil, publiée depuis septembre 2025 et non remplacée.
-  note: 'Scores tiers dans slm_scores.yaml (généré par pipeline/slm_ingest.py). `motif` : expression rationnelle
+  regle_generation: Grands laboratoires seulement, modèles généralistes sortis depuis août 2025, dernière
+    génération de chaque famille ; ni dérivés, ni fine-tunes, ni modèles spécialisés (traduction, parole).
+  note: 'Scores tiers dans slm_scores.yaml (généré par pipeline/slm_ingest.py). Scores publiés par l''éditeur
+    relevés à la main sur la fiche Hugging Face dans `editeur_scores`. `motif` : expression rationnelle
     appliquée au nom normalisé (minuscules, tirets) des lignes de classement.'
 entries:
 - id: gemma-4-e2b
@@ -330,107 +331,6 @@ entries:
   non_verifie: null
   motif: (^|-)phi\-4\-reasoning\-vision\-15b(-|$)
   verified_on: '2026-10-29'
-- id: phi-4-reasoning-plus
-  nom: Phi-4-reasoning-plus
-  famille: Phi
-  editeur: Microsoft
-  pays: US
-  sortie: '2025-04-30'
-  params_total_b: 14.66
-  params_actifs_b: null
-  architecture: dense
-  archi_note: même base que Phi-4 (14B) ; post-entraînement raisonnement SFT+RL
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: true
-  licence: MIT
-  licence_url: https://huggingface.co/microsoft/Phi-4-reasoning-plus/resolve/main/LICENSE
-  licence_classe: libre
-  licence_note: null
-  langues: anglais (métadonnées HF)
-  francais: false
-  materiel_cite: null
-  quantif_officielles:
-  - ONNX
-  url: https://huggingface.co/microsoft/Phi-4-reasoning-plus
-  url_annonce: null
-  scores_editeur:
-  - benchmark: MMLU-Pro
-    score: 76.0
-    source: https://huggingface.co/microsoft/Phi-4-reasoning-plus
-  non_verifie: 'ONNX : dépôt Phi-4-reasoning-plus-onnx de microsoft.'
-  motif: (^|-)phi\-4\-reasoning\-plus(-|$)
-  verified_on: '2026-10-29'
-- id: phi-4-mini-instruct
-  nom: Phi-4-mini-instruct
-  famille: Phi
-  editeur: Microsoft
-  pays: US
-  sortie: null
-  params_total_b: 3.84
-  params_actifs_b: null
-  architecture: dense
-  archi_note: null
-  contexte_k: 128
-  modalites:
-  - texte
-  raisonnement: false
-  licence: MIT
-  licence_url: https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE
-  licence_classe: libre
-  licence_note: null
-  langues: 23 langues listées dans les métadonnées, dont le français
-  francais: true
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/microsoft/Phi-4-mini-instruct
-  url_annonce: https://aka.ms/phi4-feb2025
-  scores_editeur:
-  - benchmark: MMLU-Pro (0-shot, CoT)
-    score: 52.8
-    source: https://huggingface.co/microsoft/Phi-4-mini-instruct
-  - benchmark: GPQA (0-shot, CoT)
-    score: 25.2
-    source: https://huggingface.co/microsoft/Phi-4-mini-instruct
-  - benchmark: Arena Hard
-    score: 32.8
-    source: https://huggingface.co/microsoft/Phi-4-mini-instruct
-  non_verifie: Jour de sortie non lu (annonce février 2025, lien aka.ms non suivi ; dépôt HF créé 2025-02-19).
-  motif: (^|-)phi\-4\-mini(-|$)
-  verified_on: '2026-10-29'
-- id: phi-4-multimodal-instruct
-  nom: Phi-4-multimodal-instruct
-  famille: Phi
-  editeur: Microsoft
-  pays: US
-  sortie: null
-  params_total_b: 5.57
-  params_actifs_b: null
-  architecture: dense
-  archi_note: texte + vision + audio dans un seul réseau
-  contexte_k: 128
-  modalites:
-  - texte
-  - image
-  - audio
-  raisonnement: false
-  licence: MIT
-  licence_url: https://huggingface.co/microsoft/Phi-4-multimodal-instruct/resolve/main/LICENSE
-  licence_classe: libre
-  licence_note: null
-  langues: 'texte multilingue (français nommé) ; audio : anglais, chinois, allemand, français, italien,
-    japonais, espagnol, portugais'
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - ONNX
-  url: https://huggingface.co/microsoft/Phi-4-multimodal-instruct
-  url_annonce: https://aka.ms/phi4-feb2025
-  scores_editeur: []
-  non_verifie: Jour de sortie non lu (février 2025 ; dépôt HF créé 2025-02-24).
-  motif: (^|-)phi\-4\-multimodal(-|$)
-  verified_on: '2026-10-29'
 - id: ministral-3-3b
   nom: Ministral 3 3B (Instruct / Reasoning 2512)
   famille: Ministral
@@ -608,66 +508,6 @@ entries:
     ouverte directement). Harnais des scores non précisé sur la carte. La carte de Mistral Small 4 (119B,
     mars 2026) dit unifier Devstral : Devstral Small 2 reste toutefois le dernier Devstral ≤35B publié.'
   motif: (^|-)devstral\-small\-2\-24b(-|$)
-  verified_on: '2026-10-29'
-- id: voxtral-small-24b
-  nom: Voxtral Small 24B 2507
-  famille: Voxtral
-  editeur: Mistral AI
-  pays: FR
-  sortie: null
-  params_total_b: 24.26
-  params_actifs_b: null
-  architecture: dense
-  archi_note: LLM de compréhension audio, dorsale Mistral Small 3.1
-  contexte_k: 32
-  modalites:
-  - texte
-  - audio
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: anglais, espagnol, français, portugais, hindi, allemand, néerlandais, italien
-  francais: true
-  materiel_cite: ~55 Go de RAM GPU en bf16/fp16
-  quantif_officielles: []
-  url: https://huggingface.co/mistralai/Voxtral-Small-24B-2507
-  url_annonce: https://mistral.ai/news/voxtral
-  scores_editeur: []
-  non_verifie: 'Date de l''annonce non relevée (billet mistral.ai/news/voxtral non ouvert ; dépôt créé
-    2025-07-01). Génération de juillet 2025 : seule ligne Voxtral « compréhension audio + chat » ; les
-    Voxtral 2026 (Mini 4B Realtime, 4B TTS) sont de la transcription/synthèse.'
-  motif: (^|-)voxtral\-small\-24b(-|$)
-  verified_on: '2026-10-29'
-- id: voxtral-mini-3b
-  nom: Voxtral Mini 3B 2507
-  famille: Voxtral
-  editeur: Mistral AI
-  pays: FR
-  sortie: null
-  params_total_b: 4.68
-  params_actifs_b: null
-  architecture: dense
-  archi_note: dorsale Ministral 3B (ancienne) + encodeur audio
-  contexte_k: 32
-  modalites:
-  - texte
-  - audio
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: anglais, espagnol, français, portugais, hindi, allemand, néerlandais, italien
-  francais: true
-  materiel_cite: ~9,5 Go de RAM GPU en bf16/fp16
-  quantif_officielles: []
-  url: https://huggingface.co/mistralai/Voxtral-Mini-3B-2507
-  url_annonce: https://mistral.ai/news/voxtral
-  scores_editeur: []
-  non_verifie: Date de l'annonce non relevée (dépôt créé 2025-07-01).
-  motif: (^|-)voxtral\-mini\-3b(-|$)
   verified_on: '2026-10-29'
 - id: granite-4-2-3b
   nom: Granite 4.2 3B
@@ -1120,77 +960,6 @@ entries:
   non_verifie: null
   motif: (^|-)olmo-3-7b-instruct(-|$)
   verified_on: '2026-10-29'
-- id: olmo-hybrid-7b-instruct
-  nom: Olmo Hybrid 7B Instruct (DPO)
-  famille: OLMo
-  editeur: Ai2 (Allen Institute for AI)
-  pays: US
-  sortie: null
-  params_total_b: 7.43
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: attention + couches récurrentes linéaires (« hybrid RNN ») ; ~2× plus efficace en données
-    que Olmo 3 selon Ai2 ; pas de version RL publiée
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: anglais (métadonnées)
-  francais: false
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/allenai/Olmo-Hybrid-Instruct-DPO-7B
-  url_annonce: https://allenai.org/newsletters/2026-03-newsletter
-  scores_editeur: []
-  non_verifie: 'Sortie : « Today we''re releasing Olmo Hybrid » dans la newsletter de mars 2026, jour
-    non donné (dépôt base créé 2026-01-28). Contexte lu dans config.json (32768), non déclaré sur la carte.
-    Sortie de recherche plus que produit.'
-  motif: (^|-)olmo\-hybrid\-instruct\-dpo\-7b(-|$)
-  verified_on: '2026-10-29'
-- id: smollm3-3b
-  nom: SmolLM3 3B
-  famille: SmolLM
-  editeur: Hugging Face
-  pays: US
-  sortie: '2025-07-08'
-  params_total_b: 3.08
-  params_actifs_b: null
-  architecture: dense
-  archi_note: GQA + NoPE (ratio 3:1) ; entièrement ouvert ; 11,2T tokens
-  contexte_k: 128
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: '6 langues natives : anglais, français, espagnol, allemand, italien, portugais'
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - ONNX
-  url: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
-  url_annonce: https://hf.co/blog/smollm3
-  scores_editeur:
-  - benchmark: GPQA Diamond (sans réflexion)
-    score: 35.7
-    source: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
-  - benchmark: IFEval (sans réflexion)
-    score: 76.7
-    source: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
-  - benchmark: Global MMLU (sans réflexion)
-    score: 53.5
-    source: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
-  non_verifie: 'Contexte : entraîné à 64K, « jusqu''à 128K » via YaRN (config livrée à 65 536). Hugging
-    Face est une société franco-américaine (siège New York) : pays US retenu, à confirmer selon la convention
-    du référentiel.'
-  motif: (^|-)smollm3\-3b(-|$)
-  verified_on: '2026-10-29'
 - id: lfm3-1-7b
   nom: LFM3 1.7B
   famille: LFM
@@ -1425,103 +1194,6 @@ entries:
   non_verifie: 'Contexte : 128K pour la dorsale texte, mais plage multimodale validée limitée à 8K.'
   motif: (^|-)north\-micro\-vision(-|$)
   verified_on: '2026-10-29'
-- id: tiny-aya-global
-  nom: Tiny Aya Global
-  famille: Aya
-  editeur: Cohere Labs
-  pays: CA
-  sortie: '2026-02-17'
-  params_total_b: 3.35
-  params_actifs_b: null
-  architecture: dense
-  archi_note: variantes régionales tiny-aya-earth / fire / water du même modèle
-  contexte_k: 8
-  modalites:
-  - texte
-  raisonnement: false
-  licence: CC-BY-NC-4.0 + Cohere Labs Acceptable Use Policy
-  licence_url: https://huggingface.co/CohereLabs/tiny-aya-global
-  licence_classe: non_commercial
-  licence_note: Non commercial ; usage commercial sur contact commercial Cohere ; accès conditionné
-  langues: 70+ langues, français nommé
-  francais: true
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/CohereLabs/tiny-aya-global
-  url_annonce: https://cohere.com/blog/cohere-labs-tiny-aya
-  scores_editeur:
-  - benchmark: GPQA Diamond
-    score: 28.28
-    source: https://huggingface.co/CohereLabs/tiny-aya-global
-  non_verifie: 'Carte lue via WebFetch (dépôt à accès conditionné). La carte contient une incohérence
-    (« 111 billion parameter model » dans les conditions d''usage) ; 3,35 Md retenu (résumé + safetensors).
-    Contexte : 8K en entrée + 8K en sortie.'
-  motif: (^|-)tiny\-aya\-global(-|$)
-  verified_on: '2026-10-29'
-- id: apriel-1-6-15b-thinker
-  nom: Apriel 1.6 15B Thinker
-  famille: Apriel
-  editeur: ServiceNow
-  pays: US
-  sortie: '2025-12-09'
-  params_total_b: 14.86
-  params_actifs_b: null
-  architecture: dense
-  archi_note: multimodal (architecture Llava), raisonnement ; -30 % de tokens de raisonnement vs 1.5
-  contexte_k: 262
-  modalites:
-  - texte
-  - image
-  raisonnement: true
-  licence: MIT
-  licence_url: https://huggingface.co/ServiceNow-AI/Apriel-1.6-15b-Thinker
-  licence_classe: libre
-  licence_note: null
-  langues: meilleures performances en anglais
-  francais: null
-  materiel_cite: tient sur un seul GPU
-  quantif_officielles:
-  - GGUF
-  url: https://huggingface.co/ServiceNow-AI/Apriel-1.6-15b-Thinker
-  url_annonce: https://huggingface.co/blog/ServiceNow-AI/apriel-1p6-15b-thinker
-  scores_editeur: []
-  non_verifie: 'Date = publication du billet HF (2025-12-09) ; dépôt créé 2025-11-28. Contexte lu dans
-    config.json (262400), non déclaré sur la carte. Scores texte de la carte repris d''Artificial Analysis
-    (tiers) : non reportés.'
-  motif: (^|-)apriel\-1\.6\-15b\-thinker(-|$)
-  verified_on: '2026-10-29'
-- id: trinity-mini
-  nom: Trinity Mini
-  famille: Trinity
-  editeur: Arcee AI
-  pays: US
-  sortie: '2025-12-01'
-  params_total_b: 26.12
-  params_actifs_b: 3
-  architecture: moe
-  archi_note: AfmoeForCausalLM, 128 experts / 8 actifs + 1 partagé ; 10T tokens
-  contexte_k: 128
-  modalites:
-  - texte
-  raisonnement: true
-  licence: OpenMDW-1.1
-  licence_url: https://huggingface.co/arcee-ai/Trinity-Mini#license
-  licence_classe: libre
-  licence_note: null
-  langues: anglais, espagnol, français, allemand, italien, portugais, russe, arabe, hindi, coréen, chinois
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  - W4A16
-  - FP8
-  - NVFP4
-  url: https://huggingface.co/arcee-ai/Trinity-Mini
-  url_annonce: https://www.arcee.ai/blog/the-trinity-manifesto
-  scores_editeur: []
-  non_verifie: Aucun score chiffré sur la carte ni le billet.
-  motif: (^|-)trinity\-mini(-|$)
-  verified_on: '2026-10-29'
 - id: falcon-h1r-7b
   nom: Falcon-H1R 7B
   famille: Falcon
@@ -1564,169 +1236,6 @@ entries:
     source: https://falcon-lm.github.io/blog/falcon-h1r-7b
   non_verifie: Contexte lu dans config.json (262144) ; le billet ne le donne pas.
   motif: (^|-)falcon\-h1r\-7b(-|$)
-  verified_on: '2026-10-29'
-- id: falcon-h1-34b-instruct
-  nom: Falcon-H1 34B Instruct
-  famille: Falcon
-  editeur: Technology Innovation Institute (TII)
-  pays: AE
-  sortie: '2025-05-20'
-  params_total_b: 33.64
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: hybride Transformer + Mamba (têtes attention et SSM en parallèle)
-  contexte_k: 262
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Falcon LLM License
-  licence_url: https://falconllm.tii.ae/falcon-terms-and-conditions.html
-  licence_classe: conditions
-  licence_note: Dérivée d'Apache-2.0 avec politique d'usage acceptable et attribution obligatoire
-  langues: 18 langues natives dont le français
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  - GPTQ
-  url: https://huggingface.co/tiiuae/Falcon-H1-34B-Instruct
-  url_annonce: https://falcon-lm.github.io/blog/falcon-h1/
-  scores_editeur:
-  - benchmark: MMLU-Pro
-    score: 58.73
-    source: https://huggingface.co/tiiuae/Falcon-H1-34B-Instruct
-  - benchmark: GPQA Diamond
-    score: 49.66
-    source: https://huggingface.co/tiiuae/Falcon-H1-34B-Instruct
-  - benchmark: LiveCodeBench
-    score: 49.71
-    source: https://huggingface.co/tiiuae/Falcon-H1-34B-Instruct
-  - benchmark: IFEval
-    score: 89.37
-    source: https://huggingface.co/tiiuae/Falcon-H1-34B-Instruct
-  non_verifie: 'Contexte : blog « jusqu''à 256K » sans détail par taille ; 262144 lu dans config.json.'
-  motif: (^|-)falcon\-h1\-34b(-|$)
-  verified_on: '2026-10-29'
-- id: falcon-h1-7b-instruct
-  nom: Falcon-H1 7B Instruct
-  famille: Falcon
-  editeur: Technology Innovation Institute (TII)
-  pays: AE
-  sortie: '2025-05-20'
-  params_total_b: 7.59
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: hybride Transformer + Mamba
-  contexte_k: 262
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Falcon LLM License
-  licence_url: https://falconllm.tii.ae/falcon-terms-and-conditions.html
-  licence_classe: conditions
-  licence_note: Dérivée d'Apache-2.0 avec politique d'usage acceptable et attribution obligatoire
-  langues: 18 langues natives dont le français
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  - GPTQ
-  url: https://huggingface.co/tiiuae/Falcon-H1-7B-Instruct
-  url_annonce: https://falcon-lm.github.io/blog/falcon-h1/
-  scores_editeur: []
-  non_verifie: Contexte lu dans config.json (262144).
-  motif: (^|-)falcon\-h1\-7b(-|$)
-  verified_on: '2026-10-29'
-- id: falcon-h1-3b-instruct
-  nom: Falcon-H1 3B Instruct
-  famille: Falcon
-  editeur: Technology Innovation Institute (TII)
-  pays: AE
-  sortie: '2025-05-20'
-  params_total_b: 3.15
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: hybride Transformer + Mamba
-  contexte_k: 131
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Falcon LLM License
-  licence_url: https://falconllm.tii.ae/falcon-terms-and-conditions.html
-  licence_classe: conditions
-  licence_note: Dérivée d'Apache-2.0 avec politique d'usage acceptable et attribution obligatoire
-  langues: 18 langues natives dont le français
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  - GPTQ
-  url: https://huggingface.co/tiiuae/Falcon-H1-3B-Instruct
-  url_annonce: https://falcon-lm.github.io/blog/falcon-h1/
-  scores_editeur: []
-  non_verifie: Contexte lu dans config.json (131072).
-  motif: (^|-)falcon\-h1\-3b(-|$)
-  verified_on: '2026-10-29'
-- id: falcon-h1-1-5b-deep-instruct
-  nom: Falcon-H1 1.5B-Deep Instruct
-  famille: Falcon
-  editeur: Technology Innovation Institute (TII)
-  pays: AE
-  sortie: '2025-05-20'
-  params_total_b: 1.55
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: variante « profonde » (plus de couches) du 1.5B ; un 1.5B standard (1,55 Md) existe aussi
-  contexte_k: 131
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Falcon LLM License
-  licence_url: https://falconllm.tii.ae/falcon-terms-and-conditions.html
-  licence_classe: conditions
-  licence_note: Dérivée d'Apache-2.0 avec politique d'usage acceptable et attribution obligatoire
-  langues: 18 langues natives dont le français (famille)
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  - GPTQ
-  url: https://huggingface.co/tiiuae/Falcon-H1-1.5B-Deep-Instruct
-  url_annonce: https://falcon-lm.github.io/blog/falcon-h1/
-  scores_editeur: []
-  non_verifie: 'Contexte lu dans config.json (131072). Langues : déclarées au niveau de la famille (blog),
-    métadonnées vides sur ce dépôt.'
-  motif: (^|-)falcon\-h1\-1\.5b\-deep(-|$)
-  verified_on: '2026-10-29'
-- id: falcon-h1-0-5b-instruct
-  nom: Falcon-H1 0.5B Instruct
-  famille: Falcon
-  editeur: Technology Innovation Institute (TII)
-  pays: AE
-  sortie: '2025-05-20'
-  params_total_b: 0.52
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: hybride Transformer + Mamba
-  contexte_k: 16
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Falcon LLM License
-  licence_url: https://falconllm.tii.ae/falcon-terms-and-conditions.html
-  licence_classe: conditions
-  licence_note: Dérivée d'Apache-2.0 avec politique d'usage acceptable et attribution obligatoire
-  langues: 18 langues natives dont le français (famille)
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  - GPTQ
-  url: https://huggingface.co/tiiuae/Falcon-H1-0.5B-Instruct
-  url_annonce: https://falcon-lm.github.io/blog/falcon-h1/
-  scores_editeur: []
-  non_verifie: Contexte lu dans config.json (16384).
-  motif: (^|-)falcon\-h1\-0\.5b(-|$)
   verified_on: '2026-10-29'
 - id: exaone-4-5-33b
   nom: EXAONE 4.5 33B
@@ -1775,886 +1284,6 @@ entries:
     source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
   non_verifie: '34,35 Md safetensors (sous le seuil de 35) ; carte : 33 Md.'
   motif: (^|-)exaone\-4\.5\-33b(-|$)
-  verified_on: '2026-10-29'
-- id: apertus-1-5-8b
-  nom: Apertus 1.5 8B
-  famille: Apertus
-  editeur: Swiss AI Initiative (EPFL, ETH Zurich, CSCS)
-  pays: CH
-  sortie: '2026-07-24'
-  params_total_b: 8.9
-  params_actifs_b: null
-  architecture: dense
-  archi_note: nominal 8B ; safetensors 8,90 Md (composants multimodaux inclus)
-  contexte_k: 262
-  modalites:
-  - texte
-  - image
-  - audio
-  raisonnement: true
-  licence: Apache-2.0 (accès conditionné à une Acceptable Use Policy)
-  licence_url: https://huggingface.co/swiss-ai/Apertus-v1.5-8B
-  licence_classe: conditions
-  licence_note: Poids sous Apache-2.0, mais téléchargement conditionné à l'acceptation d'une AUP et au
-    partage de l'e-mail
-  langues: « massivement multilingue » ; pas de liste ni de décompte sur la carte (français non nommé)
-  francais: null
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/swiss-ai/Apertus-v1.5-8B
-  url_annonce: https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes
-  scores_editeur: []
-  non_verifie: 'Carte lue via WebFetch (dépôt à accès conditionné). Scores de la carte marqués d''un astérisque
-    non expliqué : non reportés. Raisonnement désactivé par défaut (enable_thinking=True pour l''activer).'
-  motif: (^|-)apertus\-v1\.5\-8b(-|$)
-  verified_on: '2026-10-29'
-- id: eurollm-22b-instruct-2512
-  nom: EuroLLM 22B Instruct 2512
-  famille: EuroLLM
-  editeur: Consortium EuroLLM (IST Lisbonne, Unbabel, Univ. Édimbourg, Paris-Saclay, Sorbonne…)
-  pays: EU
-  sortie: '2025-12-15'
-  params_total_b: 22.64
-  params_actifs_b: null
-  architecture: dense
-  archi_note: Transformer dense (GQA, RoPE, SwiGLU) ; financé par l'UE
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: 24 langues officielles de l'UE + arabe, catalan, chinois, etc. ; français nommé
-  francais: true
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512
-  url_annonce: https://deec.tecnico.ulisboa.pt/en/news/community/tecnico-lanca-eurollm-22b-liderado-por-andre-martins
-  scores_editeur: []
-  non_verifie: 'Date : présentation officielle « le 15 décembre » selon l''IST (institution auteure).
-    Scores uniquement en image sur la carte. Pays « EU » : consortium multinational (coordination Portugal).'
-  motif: (^|-)eurollm\-22b(-|$)
-  verified_on: '2026-10-29'
-- id: eurollm-9b-instruct-2512
-  nom: EuroLLM 9B Instruct 2512
-  famille: EuroLLM
-  editeur: Consortium EuroLLM
-  pays: EU
-  sortie: null
-  params_total_b: 9.15
-  params_actifs_b: null
-  architecture: dense
-  archi_note: 'révision 2512 : extension long contexte + recette de post-entraînement du 22B'
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: langues officielles de l'UE et autres ; français nommé
-  francais: true
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/utter-project/EuroLLM-9B-Instruct-2512
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: Date non publiée (dépôt créé 2026-01-26). Contexte lu dans config.json (32768).
-  motif: (^|-)eurollm\-9b(-|$)
-  verified_on: '2026-10-29'
-- id: euromoe-2-6b-a0-6b-instruct
-  nom: EuroMoE 2.6B-A0.6B Instruct 2512
-  famille: EuroLLM
-  editeur: Consortium EuroLLM
-  pays: EU
-  sortie: null
-  params_total_b: 2.61
-  params_actifs_b: 0.6
-  architecture: moe
-  archi_note: 64 experts / 8 actifs
-  contexte_k: null
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: langues de l'UE ; français dans les métadonnées
-  francais: true
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/utter-project/EuroMoE-2.6B-A0.6B-Instruct-2512
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: 'Contexte contradictoire : carte « Sequence Length 4,096 » vs config.json 32768 — laissé
-    vide. Date non publiée (dépôt créé 2025-12-15).'
-  motif: (^|-)euromoe\-2\.6b\-a0\.6b(-|$)
-  verified_on: '2026-10-29'
-- id: salamandra-7b-instruct-2606
-  nom: Salamandra 7B Instruct 2606
-  famille: Salamandra
-  editeur: Barcelona Supercomputing Center (projet ALIA)
-  pays: ES
-  sortie: null
-  params_total_b: 7.77
-  params_actifs_b: null
-  architecture: dense
-  archi_note: Llama-like, pré-entraîné de zéro (12,9T tokens), contexte étendu
-  contexte_k: 163
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: 'base : 35 langues européennes ; post-entraînement surtout espagnol, catalan, basque, galicien,
-    anglais'
-  francais: null
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/BSC-LT/salamandra-7b-instruct-2606
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: Date non publiée (suffixe 2606 ; dépôt créé 2026-06-30). Le français n'est pas nommé sur
-    la carte (« 35 European languages »). Les dépôts salamandra-7b-instruct-fp8/-gptq existent mais leur
-    version n'a pas été vérifiée. Destiné « à la recherche et au développement » selon la carte.
-  motif: (^|-)salamandra\-7b(-|$)
-  verified_on: '2026-10-29'
-- id: luciole-23b-instruct-1-1
-  nom: Luciole 23B Instruct 1.1
-  famille: Luciole
-  editeur: OpenLLM-France
-  pays: FR
-  sortie: null
-  params_total_b: 23.22
-  params_actifs_b: null
-  architecture: dense
-  archi_note: architecture Nemotron ; base entraînée sur ~30 % de français ; entraîné sur Jean Zay
-  contexte_k: 16
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: français, anglais
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - FP8
-  - GGUF
-  url: https://huggingface.co/OpenLLM-France/Luciole-23B-Instruct-1.1
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: 'Contexte : post-entraîné sur 16 384 tokens (base étendue à 131 000). Post-entraînement
-    presque entièrement en anglais selon la carte. Date non publiée (dépôt créé 2026-07-07) ; rapport
-    technique « à venir ».'
-  motif: (^|-)luciole\-23b\-instruct\-1\.1(-|$)
-  verified_on: '2026-10-29'
-- id: luciole-23b-thinking-1-1
-  nom: Luciole 23B Thinking 1.1
-  famille: Luciole
-  editeur: OpenLLM-France
-  pays: FR
-  sortie: null
-  params_total_b: 23.22
-  params_actifs_b: null
-  architecture: dense
-  archi_note: architecture Nemotron ; SFT + DPO avec traces de raisonnement
-  contexte_k: 16
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: français, anglais
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  url: https://huggingface.co/OpenLLM-France/Luciole-23B-Thinking-1.1
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: Contexte post-entraînement 16 384 tokens. Date non publiée (dépôt créé 2026-09-09).
-  motif: (^|-)luciole\-23b\-thinking\-1\.1(-|$)
-  verified_on: '2026-10-29'
-- id: luciole-8b-instruct-1-1
-  nom: Luciole 8B Instruct 1.1
-  famille: Luciole
-  editeur: OpenLLM-France
-  pays: FR
-  sortie: null
-  params_total_b: 8.08
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: architecture NemotronH (hybride Mamba-Transformer) d'après config.json
-  contexte_k: null
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: français, anglais
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - FP8
-  - GGUF
-  url: https://huggingface.co/OpenLLM-France/Luciole-8B-Instruct-1.1
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: 'Carte du 8B non lue en détail : contexte de post-entraînement non confirmé (config.json
-    131072). Date non publiée (dépôt créé 2026-07-07).'
-  motif: (^|-)luciole\-8b\-instruct\-1\.1(-|$)
-  verified_on: '2026-10-29'
-- id: luciole-1b-instruct-1-1
-  nom: Luciole 1B Instruct 1.1
-  famille: Luciole
-  editeur: OpenLLM-France
-  pays: FR
-  sortie: null
-  params_total_b: 1.32
-  params_actifs_b: null
-  architecture: dense
-  archi_note: architecture Nemotron d'après config.json
-  contexte_k: null
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: français, anglais
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - FP8
-  - GGUF
-  url: https://huggingface.co/OpenLLM-France/Luciole-1B-Instruct-1.1
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: 'Carte non lue en détail : contexte non confirmé (config.json 131072). Date non publiée.'
-  motif: (^|-)luciole\-1b\-instruct\-1\.1(-|$)
-  verified_on: '2026-10-29'
-- id: sarvam-30b
-  nom: Sarvam-30B
-  famille: Sarvam
-  editeur: Sarvam AI
-  pays: IN
-  sortie: '2026-03-06'
-  params_total_b: 32.15
-  params_actifs_b: 2.4
-  architecture: moe
-  archi_note: MoE 128 experts, top-6 ; 2,4 Md actifs hors embeddings ; 19 couches
-  contexte_k: 131
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: 22 langues indiennes + anglais (métadonnées) ; français non cité
-  francais: false
-  materiel_cite: débit par GPU 3-6× Qwen3 sur H100, 1,5-3× sur L40S ; MacBook Pro M3 en MXFP4 (blog)
-  quantif_officielles:
-  - FP8
-  - GGUF
-  url: https://huggingface.co/sarvamai/sarvam-30b
-  url_annonce: https://www.sarvam.ai/blogs/sarvam-30b-105b
-  scores_editeur:
-  - benchmark: MMLU Pro
-    score: 80.0
-    source: https://huggingface.co/sarvamai/sarvam-30b
-  - benchmark: GPQA Diamond
-    score: 66.5
-    source: https://huggingface.co/sarvamai/sarvam-30b
-  - benchmark: Live Code Bench v6
-    score: 70.0
-    source: https://huggingface.co/sarvamai/sarvam-30b
-  - benchmark: AIME 25 (sans outils)
-    score: 88.3
-    source: https://huggingface.co/sarvamai/sarvam-30b
-  non_verifie: Paramètres totaux non écrits sur la carte ni le blog (32,15 Md = safetensors, stockés en
-    F32). Contexte lu dans config.json (131072).
-  motif: (^|-)sarvam\-30b(-|$)
-  verified_on: '2026-10-29'
-- id: reka-edge-2603
-  nom: Reka Edge 2603
-  famille: Reka Edge
-  editeur: Reka AI
-  pays: US
-  sortie: '2026-03-11'
-  params_total_b: 7.13
-  params_actifs_b: null
-  architecture: dense
-  archi_note: 6,4 Md transformeur + encodeur ConvNeXt V2 657M
-  contexte_k: 16
-  modalites:
-  - texte
-  - image
-  - video
-  raisonnement: null
-  licence: Reka Edge 2603 License
-  licence_url: https://huggingface.co/RekaAI/reka-edge-2603/blob/main/LICENSE
-  licence_classe: conditions
-  licence_note: Production commerciale autorisée seulement aux entreprises < 1 M$ de CA annuel ; au-delà,
-    et pour administrations/universités, licence commerciale requise (recherche/test seulement)
-  langues: null
-  francais: null
-  materiel_cite: Jetson, Mac Apple Silicon, PC Linux/Windows, Snapdragon ; 13 Go → 5 Go en 4 bits (blog)
-  quantif_officielles: []
-  url: https://huggingface.co/RekaAI/reka-edge-2603
-  url_annonce: https://reka.ai/news/reka-edge-frontier-level-edge-intelligence-for-physical-ai
-  scores_editeur:
-  - benchmark: VQA-V2
-    score: 88.4
-    source: https://huggingface.co/RekaAI/reka-edge-2603
-  - benchmark: MLVU
-    score: 74.3
-    source: https://huggingface.co/RekaAI/reka-edge-2603
-  - benchmark: RefCOCO-A
-    score: 93.13
-    source: https://huggingface.co/RekaAI/reka-edge-2603
-  non_verifie: 'Date : en-tête du billet 2026-03-11, métadonnées de page incohérentes (26 oct. 2026).
-    Contexte lu dans config.json (16384, YaRN ×2), non déclaré. Quantif 3,5 bits « sur demande » via Reka
-    Quant.'
-  motif: (^|-)reka\-edge(-|$)
-  verified_on: '2026-10-29'
-- id: reka-flash-3-1
-  nom: Reka Flash 3.1
-  famille: Reka Flash
-  editeur: Reka AI
-  pays: US
-  sortie: null
-  params_total_b: 20.91
-  params_actifs_b: null
-  architecture: dense
-  archi_note: format compatible Llama ; RL (RLOO) ; fort en code
-  contexte_k: null
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/RekaAI/reka-flash-3.1
-  licence_classe: libre
-  licence_note: null
-  langues: null
-  francais: null
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF 3
-  - 5 bits (RekaQuant Q3_K_S)
-  url: https://huggingface.co/RekaAI/reka-flash-3.1
-  url_annonce: https://reka.ai/news/reinforcement-learning-for-reka-flash-3-1
-  scores_editeur: []
-  non_verifie: 'Génération mai 2025, encore la dernière Reka Flash. Date et contexte non relevés (config.json
-    : 98304, non confirmé par la carte). Raisonnement : modèle de raisonnement d''après la lignée Flash
-    3, non relu sur cette carte.'
-  motif: (^|-)reka\-flash\-3\.1(-|$)
-  verified_on: '2026-10-29'
-- id: instella-moe-16b-a3b-think
-  nom: Instella-MoE 16B-A3B Think
-  famille: Instella
-  editeur: AMD
-  pays: US
-  sortie: '2026-07-24'
-  params_total_b: 15.86
-  params_actifs_b: 2.8
-  architecture: moe
-  archi_note: 64 experts / 6 actifs + 2 partagés ; Gated Multi-head Latent Attention ; entièrement ouvert
-    (tous les checkpoints)
-  contexte_k: 64
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Research-Only RAIL Model License
-  licence_url: https://huggingface.co/amd/Instella-MoE-16B-A3B-Think/blob/main/LICENSE
-  licence_classe: non_commercial
-  licence_note: Usage recherche/académique uniquement
-  langues: anglais (métadonnées)
-  francais: false
-  materiel_cite: null
-  quantif_officielles:
-  - W4A16
-  - W8A8
-  url: https://huggingface.co/amd/Instella-MoE-16B-A3B-Think
-  url_annonce: https://rocm.blogs.amd.com/artificial-intelligence/instella-moe/README.html
-  scores_editeur:
-  - benchmark: IFEval
-    score: 83.7
-    source: https://rocm.blogs.amd.com/artificial-intelligence/instella-moe/README.html
-  - benchmark: AIME25
-    score: 73.4
-    source: https://rocm.blogs.amd.com/artificial-intelligence/instella-moe/README.html
-  non_verifie: Quantifs W4A16/W8A8 publiées par AMD pour la variante SFT (llmcompressor), pas pour Think.
-  motif: (^|-)instella\-moe\-16b\-a3b\-think(-|$)
-  verified_on: '2026-10-29'
-- id: jamba2-3b
-  nom: Jamba2 3B
-  famille: Jamba
-  editeur: AI21 Labs
-  pays: IL
-  sortie: '2026-01-08'
-  params_total_b: 3.03
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: architecture SSM-Transformer (Mamba + attention) ; post-entraînement depuis Jamba 1.5
-  contexte_k: 256
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: null
-  francais: null
-  materiel_cite: tourne sur iPhone, Android, Mac et PC
-  quantif_officielles: []
-  url: https://huggingface.co/ai21labs/AI21-Jamba2-3B
-  url_annonce: https://www.ai21.com/blog/introducing-jamba2/
-  scores_editeur: []
-  non_verifie: 'API safetensors incohérente (total 3,03 Md vs 3,20 Md par type BF16) ; carte : « 3B ».
-    Scores seulement en graphique. Langues non déclarées.'
-  motif: (^|-)ai21\-jamba2\-3b(-|$)
-  verified_on: '2026-10-29'
-- id: zaya1-8b
-  nom: ZAYA1 8B
-  famille: ZAYA
-  editeur: Zyphra
-  pays: US
-  sortie: '2026-05-06'
-  params_total_b: 8.84
-  params_actifs_b: 0.76
-  architecture: moe
-  archi_note: 'carte : 8,4 Md total / 760M actifs ; attention CCA ; pré-entraîné sur AMD MI300X'
-  contexte_k: 131
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: null
-  francais: null
-  materiel_cite: déployable sur appareil (carte)
-  quantif_officielles:
-  - FP8 (experts)
-  - MXFP4 (experts)
-  url: https://huggingface.co/Zyphra/ZAYA1-8B
-  url_annonce: https://www.zyphra.com/post/zaya1-8b
-  scores_editeur:
-  - benchmark: AIME'26
-    score: 89.1
-    source: https://huggingface.co/Zyphra/ZAYA1-8B
-  - benchmark: LiveCodeBench-v6
-    score: 65.8
-    source: https://huggingface.co/Zyphra/ZAYA1-8B
-  - benchmark: GPQA-Diamond
-    score: 71.0
-    source: https://huggingface.co/Zyphra/ZAYA1-8B
-  - benchmark: MMLU-Pro
-    score: 74.2
-    source: https://huggingface.co/Zyphra/ZAYA1-8B
-  non_verifie: 'Paramètres : carte 8,4 Md vs safetensors 8,84 Md. Contexte lu dans config.json (131072).
-    Scores sur le harnais d''évaluation Zyphra.'
-  motif: (^|-)zaya1\-8b(-|$)
-  verified_on: '2026-10-29'
-- id: rnj-1-5-instruct
-  nom: Rnj-1.5 Instruct
-  famille: Rnj
-  editeur: Essential AI
-  pays: US
-  sortie: null
-  params_total_b: 8.31
-  params_actifs_b: null
-  architecture: dense
-  archi_note: suite long contexte de rnj-1-instruct (32K → 160K)
-  contexte_k: 160
-  modalites:
-  - texte
-  raisonnement: null
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/EssentialAI/rnj-1-instruct/blob/main/LICENSE
-  licence_classe: libre
-  licence_note: null
-  langues: null
-  francais: null
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/EssentialAI/rnj-1.5-instruct
-  url_annonce: https://www.essential.ai/research/rnj-1
-  scores_editeur: []
-  non_verifie: 'Date non publiée (dépôt créé 2026-04-22). Scores en tableau non relevés ; SWE-Bench Verified
-    annoncé à 25 % avec mini-swe-agent. Pays : adresse San Francisco, nationalité non écrite.'
-  motif: (^|-)rnj\-1\.5(-|$)
-  verified_on: '2026-10-29'
-- id: moondream-3-1
-  nom: Moondream 3.1
-  famille: Moondream
-  editeur: Moondream (M87 Labs)
-  pays: US
-  sortie: '2026-07-07'
-  params_total_b: 9.27
-  params_actifs_b: 2
-  architecture: moe
-  archi_note: VLM MoE 9B total / 2B actifs ; compétences query / detect / point…
-  contexte_k: null
-  modalites:
-  - texte
-  - image
-  raisonnement: null
-  licence: Moondream Model License 1.0
-  licence_url: https://moondream.ai/licenses/model/1.0
-  licence_classe: conditions
-  licence_note: Usage commercial autorisé, sauf service hébergé généraliste de Moondream (licence séparée)
-  langues: null
-  francais: null
-  materiel_cite: 'moteur Photon : GPU NVIDIA Ampere ou plus récent, Mac Apple Silicon'
-  quantif_officielles:
-  - FP8 (poids principaux)
-  url: https://huggingface.co/moondream/moondream3.1-9B-A2B
-  url_annonce: https://moondream.ai/blog/moondream-3-1-beyond-benchmarks
-  scores_editeur: []
-  non_verifie: Contexte, langues et raisonnement non déclarés. Poids publiés majoritairement en F8_E4M3
-    (safetensors). Raison sociale de l'éditeur non vérifiée.
-  motif: (^|-)moondream3\.1\-9b\-a2b(-|$)
-  verified_on: '2026-10-29'
-- id: hyperclovax-seed-think-32b
-  nom: HyperCLOVA X SEED Think 32B
-  famille: HyperCLOVA X SEED
-  editeur: NAVER Cloud
-  pays: KR
-  sortie: null
-  params_total_b: 33.31
-  params_actifs_b: null
-  architecture: dense
-  archi_note: VLM dense ; succède à SEED Think 14B
-  contexte_k: 128
-  modalites:
-  - texte
-  - image
-  raisonnement: true
-  licence: HyperCLOVA X SEED 32B Think Model License Agreement
-  licence_url: https://huggingface.co/naver-hyperclovax/HyperCLOVAX-SEED-Think-32B/blob/main/LICENSE
-  licence_classe: conditions
-  licence_note: Politique d'usage interdit obligatoire ; licence commerciale additionnelle au-delà de
-    10 M d'utilisateurs actifs mensuels
-  langues: null
-  francais: null
-  materiel_cite: 'exemple : vision 1 GPU (~8 Go) + LLM 2 GPU (~60 Go), ~68 Go au total ; 4× A100 80 Go
-    cités'
-  quantif_officielles: []
-  url: https://huggingface.co/naver-hyperclovax/HyperCLOVAX-SEED-Think-32B
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: Date non publiée (dépôt créé 2025-12-23). Langues non déclarées (orientation coréen/anglais
-    présumée, non écrite).
-  motif: (^|-)hyperclovax\-seed\-think\-32b(-|$)
-  verified_on: '2026-10-29'
-- id: hyperclovax-seed-omni-8b
-  nom: HyperCLOVA X SEED Omni 8B
-  famille: HyperCLOVA X SEED
-  editeur: NAVER Cloud
-  pays: KR
-  sortie: null
-  params_total_b: 10.74
-  params_actifs_b: null
-  architecture: dense
-  archi_note: 'omni : texte, vision, parole en entrée et en génération ; carte : 8B'
-  contexte_k: 32
-  modalites:
-  - texte
-  - image
-  - audio
-  raisonnement: true
-  licence: HyperCLOVA X SEED Model License Agreement
-  licence_url: https://huggingface.co/naver-hyperclovax/HyperCLOVAX-SEED-Omni-8B/blob/main/LICENSE
-  licence_classe: conditions
-  licence_note: Même schéma que SEED Think 32B (usage interdit + seuil 10 M MAU) — texte de licence de
-    l'Omni non relu
-  langues: null
-  francais: null
-  materiel_cite: 4× NVIDIA A100 80 Go cités dans l'exemple de déploiement
-  quantif_officielles: []
-  url: https://huggingface.co/naver-hyperclovax/HyperCLOVAX-SEED-Omni-8B
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: 'Paramètres : carte 8B vs safetensors 10,74 Md (stockés en F32, encodeurs/décodeurs inclus
-    probablement). Raisonnement : option skip_reasoning dans les exemples. Date non publiée (dépôt créé
-    2025-12-23).'
-  motif: (^|-)hyperclovax\-seed\-omni\-8b(-|$)
-  verified_on: '2026-10-29'
-- id: kanana-2-30b-a3b-thinking-2601
-  nom: Kanana-2 30B-A3B Thinking 2601
-  famille: Kanana
-  editeur: Kakao
-  pays: KR
-  sortie: '2026-01-15'
-  params_total_b: 30.67
-  params_actifs_b: 3
-  architecture: moe
-  archi_note: orienté IA agentique (appel d'outils, instructions complexes)
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Kanana License
-  licence_url: https://huggingface.co/kakaocorp/kanana-2-30b-a3b-thinking-2601/blob/main/LICENSE
-  licence_classe: conditions
-  licence_note: Mention « Powered by Kanana » obligatoire ; politique d'usage interdit ; licence commerciale
-    au-delà de 10 M MAU et pour certains usages
-  langues: coréen, anglais, japonais, chinois, thaï, vietnamien
-  francais: false
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/kakaocorp/kanana-2-30b-a3b-thinking-2601
-  url_annonce: https://tech.kakao.com/posts/808
-  scores_editeur: []
-  non_verifie: Scores en tableau HTML non relevés.
-  motif: (^|-)kanana\-2\-30b\-a3b\-thinking(-|$)
-  verified_on: '2026-10-29'
-- id: kanana-2-3b-instruct
-  nom: Kanana-2 3B Instruct
-  famille: Kanana
-  editeur: Kakao
-  pays: KR
-  sortie: '2026-07-27'
-  params_total_b: 3.51
-  params_actifs_b: null
-  architecture: dense
-  archi_note: pré-entraîné de zéro sur TPU ; SWA 3:1 ; une version 1.3B en est dérivée par élagage/distillation
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: null
-  licence: Kanana Open License
-  licence_url: https://huggingface.co/kakaocorp/kanana-2-3b-instruct/blob/main/LICENSE
-  licence_classe: conditions
-  licence_note: Mention « Powered by Kanana » obligatoire ; politique d'usage interdit ; licence commerciale
-    pour certaines activités listées (pas de seuil MAU)
-  langues: null
-  francais: null
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/kakaocorp/kanana-2-3b-instruct
-  url_annonce: null
-  scores_editeur:
-  - benchmark: MT-Bench
-    score: 7.15
-    source: https://huggingface.co/kakaocorp/kanana-2-3b-instruct
-  - benchmark: IFEval (prompt strict)
-    score: 80.96
-    source: https://huggingface.co/kakaocorp/kanana-2-3b-instruct
-  - benchmark: BFCL-v3 (Live)
-    score: 71.94
-    source: https://huggingface.co/kakaocorp/kanana-2-3b-instruct
-  non_verifie: Langues de la série SLM non relues.
-  motif: (^|-)kanana\-2\-3b(-|$)
-  verified_on: '2026-10-29'
-- id: midm-2-0-base-instruct
-  nom: Mi:dm 2.0 Base Instruct
-  famille: Mi:dm
-  editeur: KT
-  pays: KR
-  sortie: '2025-07-04'
-  params_total_b: 11.55
-  params_actifs_b: null
-  architecture: dense
-  archi_note: IA « centrée Corée »
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: null
-  licence: MIT
-  licence_url: https://huggingface.co/K-intelligence/Midm-2.0-Base-Instruct
-  licence_classe: libre
-  licence_note: null
-  langues: principalement anglais et coréen
-  francais: false
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/K-intelligence/Midm-2.0-Base-Instruct
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: Contexte lu dans config.json (32768).
-  motif: (^|-)midm\-2\.0(-|$)
-  verified_on: '2026-10-29'
-- id: midm-2-0-mini-instruct
-  nom: Mi:dm 2.0 Mini Instruct
-  famille: Mi:dm
-  editeur: KT
-  pays: KR
-  sortie: '2025-07-04'
-  params_total_b: 2.31
-  params_actifs_b: null
-  architecture: dense
-  archi_note: optimisé on-device
-  contexte_k: 32
-  modalites:
-  - texte
-  raisonnement: null
-  licence: MIT
-  licence_url: https://huggingface.co/K-intelligence/Midm-2.0-Mini-Instruct
-  licence_classe: libre
-  licence_note: null
-  langues: principalement anglais et coréen
-  francais: false
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/K-intelligence/Midm-2.0-Mini-Instruct
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: Contexte lu dans config.json (32768).
-  motif: (^|-)midm\-2\.0\-mini(-|$)
-  verified_on: '2026-10-29'
-- id: llm-jp-4-1-33b-thinking
-  nom: LLM-jp-4.1 33B Thinking
-  famille: LLM-jp
-  editeur: National Institute of Informatics (LLMC)
-  pays: JP
-  sortie: null
-  params_total_b: 33.22
-  params_actifs_b: null
-  architecture: dense
-  archi_note: 64 couches ; corpus en grande partie publié
-  contexte_k: 65
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: japonais, anglais
-  francais: false
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  url: https://huggingface.co/llm-jp/llm-jp-4.1-33b-thinking
-  url_annonce: https://llm-jp.nii.ac.jp/blog/llm-jp-4-1/
-  scores_editeur:
-  - benchmark: MT-Bench (JA)
-    score: 7.76
-    source: https://huggingface.co/llm-jp/llm-jp-4.1-33b-thinking
-  - benchmark: MT-Bench (EN)
-    score: 7.98
-    source: https://huggingface.co/llm-jp/llm-jp-4.1-33b-thinking
-  non_verifie: Date non lue (dépôt créé 2026-09-16 ; blog technique en japonais non lu).
-  motif: (^|-)llm\-jp\-4\.1\-33b\-thinking(-|$)
-  verified_on: '2026-10-29'
-- id: llm-jp-4-1-32b-a3b-thinking
-  nom: LLM-jp-4.1 32B-A3B Thinking
-  famille: LLM-jp
-  editeur: National Institute of Informatics (LLMC)
-  pays: JP
-  sortie: null
-  params_total_b: 32.14
-  params_actifs_b: 3.83
-  architecture: moe
-  archi_note: 128 experts routés / 8 actifs
-  contexte_k: 65
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: japonais, anglais
-  francais: false
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  url: https://huggingface.co/llm-jp/llm-jp-4.1-32b-a3b-thinking
-  url_annonce: https://llm-jp.nii.ac.jp/blog/llm-jp-4-1/
-  scores_editeur:
-  - benchmark: MT-Bench (JA)
-    score: 7.69
-    source: https://huggingface.co/llm-jp/llm-jp-4.1-33b-thinking
-  - benchmark: MT-Bench (EN)
-    score: 7.85
-    source: https://huggingface.co/llm-jp/llm-jp-4.1-33b-thinking
-  non_verifie: Date non lue (dépôt créé 2026-09-16).
-  motif: (^|-)llm\-jp\-4\.1\-32b\-a3b\-thinking(-|$)
-  verified_on: '2026-10-29'
-- id: llm-jp-4-1-8b-thinking
-  nom: LLM-jp-4.1 8B Thinking
-  famille: LLM-jp
-  editeur: National Institute of Informatics (LLMC)
-  pays: JP
-  sortie: null
-  params_total_b: 8.59
-  params_actifs_b: null
-  architecture: dense
-  archi_note: null
-  contexte_k: 65
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://www.apache.org/licenses/LICENSE-2.0
-  licence_classe: libre
-  licence_note: null
-  langues: japonais, anglais
-  francais: false
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  url: https://huggingface.co/llm-jp/llm-jp-4.1-8b-thinking
-  url_annonce: https://llm-jp.nii.ac.jp/blog/llm-jp-4-1/
-  scores_editeur:
-  - benchmark: MT-Bench (JA)
-    score: 7.58
-    source: https://huggingface.co/llm-jp/llm-jp-4.1-33b-thinking
-  - benchmark: MT-Bench (EN)
-    score: 7.67
-    source: https://huggingface.co/llm-jp/llm-jp-4.1-33b-thinking
-  non_verifie: Date non lue (dépôt créé 2026-09-15).
-  motif: (^|-)llm\-jp\-4\.1\-8b\-thinking(-|$)
-  verified_on: '2026-10-29'
-- id: bielik-11b-v3-instruct
-  nom: Bielik 11B v3.0 Instruct
-  famille: Bielik
-  editeur: SpeakLeash / ACK Cyfronet AGH
-  pays: PL
-  sortie: null
-  params_total_b: 11.17
-  params_actifs_b: null
-  architecture: dense
-  archi_note: type Llama ; base Bielik-11B-v3-Base-20250730, tokenizer APT4 ; GRPO
-  contexte_k: null
-  modalites:
-  - texte
-  raisonnement: false
-  licence: Apache-2.0 (accès conditionné)
-  licence_url: https://huggingface.co/speakleash/Bielik-PL-11B-v3.0-Instruct
-  licence_classe: libre
-  licence_note: null
-  langues: 32 langues européennes, accent sur le polonais (français non nommé)
-  francais: null
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/speakleash/Bielik-PL-11B-v3.0-Instruct
-  url_annonce: https://arxiv.org/abs/2604.10799
-  scores_editeur: []
-  non_verifie: 'Carte lue via WebFetch (dépôt à accès conditionné : partage des informations HF). Contexte
-    et date non déclarés (dépôt créé 2026-02-13). Quantifications de la collection non attribuées avec
-    certitude. Éditeur exact (SpeakLeash + Cyfronet) non relu sur la carte.'
-  motif: (^|-)bielik\-pl\-11b\-v3\.0(-|$)
   verified_on: '2026-10-29'
 - id: qwen3-8-27b
   nom: Qwen3.8-27B
@@ -3314,192 +1943,6 @@ entries:
     non relevés.'
   motif: (^|-)ernie\-4\.5\-vl\-28b\-a3b\-thinking(-|$)
   verified_on: '2026-10-29'
-- id: hy-mt2-30b-a3b
-  nom: Hy-MT2-30B-A3B
-  famille: Hy-MT
-  editeur: Tencent (Hunyuan)
-  pays: CN
-  sortie: '2026-05-21'
-  params_total_b: 30.06
-  params_actifs_b: 3
-  architecture: moe
-  archi_note: 'Modèle spécialisé TRADUCTION (33 langues). MoE à architecture Hy3 (config : hy_v3, 128
-    experts, 8 par token).'
-  contexte_k: 262
-  modalites:
-  - texte
-  raisonnement: null
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/tencent/Hy-MT2-30B-A3B/blob/main/LICENSE.txt
-  licence_classe: libre
-  licence_note: Apache-2.0 sans exclusion territoriale (contrairement aux licences Hunyuan de 2025)
-  langues: 33 langues en traduction, liste publiée sur la fiche (dont français)
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - FP8
-  - GGUF
-  url: https://huggingface.co/tencent/Hy-MT2-30B-A3B
-  url_annonce: https://github.com/Tencent-Hunyuan/Hy-MT2
-  scores_editeur: []
-  non_verifie: 'Date : publication annoncée le 2026-05-21 dans les nouvelles de la fiche (dépôt créé le
-    2026-05-11). Contexte lu dans config.json, carte muette. Qualifié de « fast-thinking » sans mention
-    d''un mode raisonnement : laissé à null. Scores de traduction (métriques maison) non relevés.'
-  motif: (^|-)hy\-mt2\-30b\-a3b(-|$)
-  verified_on: '2026-10-29'
-- id: hy-mt2-7b
-  nom: Hy-MT2-7B
-  famille: Hy-MT
-  editeur: Tencent (Hunyuan)
-  pays: CN
-  sortie: '2026-05-21'
-  params_total_b: 8.03
-  params_actifs_b: null
-  architecture: dense
-  archi_note: Modèle spécialisé TRADUCTION (33 langues). HunYuanDenseV1.
-  contexte_k: 262
-  modalites:
-  - texte
-  raisonnement: null
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/tencent/Hy-MT2-7B/blob/main/LICENSE.txt
-  licence_classe: libre
-  licence_note: Apache-2.0 sans exclusion territoriale
-  langues: 33 langues en traduction, liste publiée sur la fiche (dont français)
-  francais: true
-  materiel_cite: null
-  quantif_officielles:
-  - FP8
-  - GGUF
-  url: https://huggingface.co/tencent/Hy-MT2-7B
-  url_annonce: https://github.com/Tencent-Hunyuan/Hy-MT2
-  scores_editeur: []
-  non_verifie: Mêmes réserves que Hy-MT2-30B-A3B (date de la fiche, contexte lu dans config.json, raisonnement
-    non documenté).
-  motif: (^|-)hy\-mt2\-7b(-|$)
-  verified_on: '2026-10-29'
-- id: hy-mt2-1-8b
-  nom: Hy-MT2-1.8B
-  famille: Hy-MT
-  editeur: Tencent (Hunyuan)
-  pays: CN
-  sortie: '2026-05-21'
-  params_total_b: 2.04
-  params_actifs_b: null
-  architecture: dense
-  archi_note: 'Modèle spécialisé TRADUCTION (33 langues). HunYuanDenseV1. Quantification extrême AngelSlim
-    1,25 bit : 440 Mo.'
-  contexte_k: 262
-  modalites:
-  - texte
-  raisonnement: null
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/tencent/Hy-MT2-1.8B/blob/main/LICENSE.txt
-  licence_classe: libre
-  licence_note: Apache-2.0 sans exclusion territoriale
-  langues: 33 langues en traduction, liste publiée sur la fiche (dont français)
-  francais: true
-  materiel_cite: 'embarqué : 440 Mo en 1,25 bit (AngelSlim), inférence 1,5× plus rapide ; le GGUF 1,25
-    bit requiert le noyau STQ (PR llama.cpp #22836)'
-  quantif_officielles:
-  - FP8
-  - GGUF
-  - GGUF 2 bits
-  - GGUF 1,25 bit
-  url: https://huggingface.co/tencent/Hy-MT2-1.8B
-  url_annonce: https://github.com/Tencent-Hunyuan/Hy-MT2
-  scores_editeur: []
-  non_verifie: Mêmes réserves que Hy-MT2-30B-A3B.
-  motif: (^|-)hy\-mt2\-1\.8b(-|$)
-  verified_on: '2026-10-29'
-- id: youtu-llm-2b
-  nom: Youtu-LLM-2B
-  famille: Youtu-LLM
-  editeur: Tencent (Youtu Lab)
-  pays: CN
-  sortie: '2025-12-31'
-  params_total_b: 1.96
-  params_actifs_b: null
-  architecture: dense
-  archi_note: Dense avec Multi-head Latent Attention (MLA), 32 couches. Orienté agentique.
-  contexte_k: 128
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Youtu-LLM License (licence maison Tencent)
-  licence_url: https://huggingface.co/tencent/Youtu-LLM-2B/blob/main/LICENSE.txt
-  licence_classe: exclue_ue
-  licence_note: Le texte déclare « Youtu-LLM IS NOT INTENDED FOR USE WITHIN THE EUROPEAN UNION ».
-  langues: null
-  francais: null
-  materiel_cite: null
-  quantif_officielles:
-  - GGUF
-  url: https://huggingface.co/tencent/Youtu-LLM-2B
-  url_annonce: https://arxiv.org/abs/2512.24618
-  scores_editeur:
-  - benchmark: MMLU-Pro
-    score: 61.6
-    source: https://huggingface.co/tencent/Youtu-LLM-2B
-  - benchmark: IFEval
-    score: 81.2
-    source: https://huggingface.co/tencent/Youtu-LLM-2B
-  - benchmark: GPQA-Diamond
-    score: 48.0
-    source: https://huggingface.co/tencent/Youtu-LLM-2B
-  - benchmark: LiveCodeBench v6
-    score: 43.7
-    source: https://huggingface.co/tencent/Youtu-LLM-2B
-  - benchmark: SWE-Bench-Verified
-    score: 17.7
-    source: https://huggingface.co/tencent/Youtu-LLM-2B
-  non_verifie: GGUF publié sur une branche « GGUF » du même dépôt. Langues non indiquées. Harnais SWE-Bench
-    non précisé.
-  motif: (^|-)youtu\-llm\-2b(-|$)
-  verified_on: '2026-10-29'
-- id: mimo-v2-6-distill-qwen-9b
-  nom: MiMo-V2.6-Distill-Qwen-9B
-  famille: MiMo
-  editeur: Xiaomi (MiMo)
-  pays: CN
-  sortie: '2026-09-21'
-  params_total_b: 9.41
-  params_actifs_b: null
-  architecture: hybride
-  archi_note: 'Distillation officielle : SFT de Qwen3.5-9B sur 77,4 Md de tokens générés par MiMo-V2.6
-    (code, agents, code visuel, cybersécurité). Hérite de l''architecture Qwen3.5 (Gated DeltaNet). Tous
-    les autres MiMo V2.5/V2.6 font 310 Md.'
-  contexte_k: 262
-  modalites:
-  - texte
-  - image
-  raisonnement: true
-  licence: MIT
-  licence_url: https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
-  licence_classe: libre
-  licence_note: MIT ; la fiche ajoute un avis d'usage non contraignant (pas d'actions à haut risque sans
-    supervision humaine), qui précise ne pas modifier la licence. Modèle de base Qwen3.5-9B sous Apache-2.0.
-  langues: null
-  francais: null
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
-  url_annonce: null
-  scores_editeur:
-  - benchmark: SWE-bench Verified (avg@3)
-    score: 61.1
-    source: https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
-  - benchmark: SWE-bench Pro (avg@3)
-    score: 44.6
-    source: https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
-  - benchmark: Terminal Bench 2.1 (avg@1)
-    score: 37.1
-    source: https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
-  non_verifie: 'Contexte lu dans config.json (262 144). Entrée image : déduite du pipeline image-text-to-text
-    et de la mention « visual coding ». Harnais des SWE-bench non précisé sur la fiche (renvoi au rapport
-    technique MiMo-V2.6, non ouvert). Pas de fichier LICENSE dans le dépôt (MIT en métadonnées).'
-  motif: (^|-)mimo\-v2\.6\-distill\-qwen\-9b(-|$)
-  verified_on: '2026-10-29'
 - id: ling-3-0-tiny
   nom: Ling-3.0-tiny
   famille: Ling
@@ -3590,295 +2033,252 @@ entries:
     License).'
   motif: (^|-)step3\-vl\-10b(-|$)
   verified_on: '2026-10-29'
-- id: kat-coder-v2-5-dev
-  nom: KAT-Coder-V2.5-Dev
-  famille: KAT
-  editeur: Kuaishou (Kwaipilot)
-  pays: CN
-  sortie: '2026-07-23'
-  params_total_b: 34.66
-  params_actifs_b: 3
-  architecture: moe
-  archi_note: 'Dérivé CODE : post-entraînement de Qwen3.6-35B-A3B (poids du modèle de langage seuls, tour
-    de vision retirée). Nominal éditeur : 35B total / 3B actifs. Version à poids ouverts de KAT-Coder-V2.5
-    (propriétaire).'
-  contexte_k: 262
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev
-  licence_classe: libre
-  licence_note: null
-  langues: null
-  francais: null
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev
-  url_annonce: https://arxiv.org/abs/2607.05471
-  scores_editeur:
-  - benchmark: SWE-bench Verified
-    score: 69.4
-    source: https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev
-  - benchmark: SWE-bench Multilingual
-    score: 63.0
-    source: https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev
-  - benchmark: SWE-bench Pro
-    score: 45.96
-    source: https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev
-  - benchmark: Terminal-Bench 2.1
-    score: 41.02
-    source: https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev
-  non_verifie: 'Contexte : 262 144 tokens tiré des commandes de service de la fiche, pas d''une spécification.
-    Harnais des SWE-bench non relevé (la fiche signale un écart d''environ 10 points avec les chiffres
-    officiels de Qwen3.6, attribué à la version du harnais). Pas de fichier LICENSE dans le dépôt.'
-  motif: (^|-)kat\-coder\-v2\.5\-dev(-|$)
-  verified_on: '2026-10-29'
-- id: keye-vl-2-0-30b-a3b
-  nom: Keye-VL-2.0-30B-A3B
-  famille: Keye-VL
-  editeur: Kuaishou (Kwai Keye)
-  pays: CN
-  sortie: '2026-05-25'
-  params_total_b: 31.12
-  params_actifs_b: 3
-  architecture: moe
-  archi_note: 'MoE (config : 128 experts, 8 par token) avec attention parcimonieuse DSA native pour le
-    long contexte. Spécialité vidéo longue (heure) et capacités agent (code, outils, recherche).'
-  contexte_k: 256
-  modalites:
-  - texte
-  - image
-  - video
-  raisonnement: null
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/Kwai-Keye/Keye-VL-2.0-30B-A3B
-  licence_classe: libre
-  licence_note: null
-  langues: anglais (métadonnées de la fiche)
-  francais: false
-  materiel_cite: lancement minimal documenté sur H800 ; image Docker fournie ; branche SGLang dédiée
-  quantif_officielles:
-  - GGUF
-  url: https://huggingface.co/Kwai-Keye/Keye-VL-2.0-30B-A3B
-  url_annonce: https://arxiv.org/abs/2606.10651
-  scores_editeur:
-  - benchmark: LongVideoBench
-    score: 74.1
-    source: https://huggingface.co/Kwai-Keye/Keye-VL-2.0-30B-A3B
-  non_verifie: Mode thinking non documenté sur la fiche. Tableaux de scores en image (seul LongVideoBench
-    cité dans le texte). Pas de fichier LICENSE dans le dépôt.
-  motif: (^|-)keye\-vl\-2\.0\-30b\-a3b(-|$)
-  verified_on: '2026-10-29'
-- id: nanbeige4-3-33b
-  nom: Nanbeige4.3-33B
-  famille: Nanbeige
-  editeur: Nanbeige LLM Lab (Kanzhun / BOSS Zhipin)
-  pays: CN
-  sortie: '2026-10-24'
-  params_total_b: 33.12
+- id: nemotron-labs-dory-4b
+  nom: Nemotron-Labs Dory 1.0 4B
+  famille: Nemotron
+  editeur: NVIDIA
+  pays: US
+  sortie: '2026-10-16'
+  params_total_b: 3.98
   params_actifs_b: null
   architecture: dense
-  archi_note: LlamaForCausalLM (config.json). Contexte jusqu'à 512K.
-  contexte_k: 512
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
-  licence_classe: libre
-  licence_note: null
-  langues: anglais, chinois (métadonnées de la fiche)
-  francais: false
-  materiel_cite: null
-  quantif_officielles: []
-  url: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
-  url_annonce: null
-  scores_editeur:
-  - benchmark: Terminal-Bench 2.1
-    score: 80.9
-    source: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
-  - benchmark: SWE-Bench Pro
-    score: 60.3
-    source: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
-  - benchmark: GPQA Diamond
-    score: 89.5
-    source: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
-  - benchmark: AIME 2026
-    score: 95.2
-    source: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
-  - benchmark: Tau3-Bench
-    score: 48.8
-    source: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
-  non_verifie: Publié 5 jours avant ce relevé. Harnais des benchmarks agentiques renvoyés en notes de
-    bas de tableau, non relevés. Éditeur identifié par l'adresse de contact nanbeige@kanzhun.com. Pas
-    de fichier LICENSE dans le dépôt.
-  motif: (^|-)nanbeige4\.3\-33b(-|$)
-  verified_on: '2026-10-29'
-- id: nanbeige4-2-3b
-  nom: Nanbeige4.2-3B
-  famille: Nanbeige
-  editeur: Nanbeige LLM Lab (Kanzhun / BOSS Zhipin)
-  pays: CN
-  sortie: '2026-07-21'
-  params_total_b: 4.17
-  params_actifs_b: null
-  architecture: dense
-  archi_note: Looped Transformer (réutilisation des couches) ; 3B hors embeddings, 4B au total selon la
-    fiche. Assistant personnel local orienté agent.
+  archi_note: 'Modèle « bouclé » (latent-recurrent) : un bloc de couches partagé est appliqué 1, 2 ou
+    4 fois par jeton ; attention mixte fenêtre glissante / complète. Deux boucles recommandées par l''éditeur.'
   contexte_k: 256
   modalites:
   - texte
   raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
+  licence: OpenMDW-1.1
+  licence_url: https://openmdw.ai/license/1-1/
   licence_classe: libre
   licence_note: null
-  langues: anglais, chinois (métadonnées de la fiche)
+  langues: 'anglais (fiche : « Supported Languages: English »)'
   francais: false
-  materiel_cite: « assez compact pour un déploiement local » ; conversion GGUF documentée (llama.cpp)
-  quantif_officielles:
-  - FP8
-  - GPTQ-Int8
-  url: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
-  url_annonce: https://arxiv.org/abs/2607.22083
-  scores_editeur:
-  - benchmark: SWE-Bench Verified (thinking, preserve_thinking)
-    score: 63.6
-    source: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
-  - benchmark: SWE-Bench Pro
-    score: 46.9
-    source: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
-  - benchmark: Terminal-Bench 2.0
-    score: 44.1
-    source: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
-  - benchmark: GPQA-Diamond
-    score: 87.4
-    source: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
-  - benchmark: LiveCodeBench-V6
-    score: 72.5
-    source: https://huggingface.co/Nanbeige/Nanbeige4.2-3B
-  non_verifie: 'Génération 4.2 (la 4.3 n''existe qu''en 33B) : retenu au titre de la lignée « 3B ». Harnais
-    des benchmarks agentiques non relevé. Pas de fichier LICENSE dans le dépôt.'
-  motif: (^|-)nanbeige4\.2\-3b(-|$)
-  verified_on: '2026-10-29'
-- id: openpangu-r-7b-2512
-  nom: openPangu-R-7B-2512
-  famille: openPangu
-  editeur: Huawei (openPangu)
-  pays: CN
-  sortie: '2026-04-04'
-  params_total_b: 8.81
-  params_actifs_b: null
-  architecture: dense
-  archi_note: 7B hors embeddings, 27 couches, GQA, 1 module MTP ; entraîné de zéro sur NPU Ascend (~30T
-    tokens). Bascule pensée lente / rapide (/no_think).
-  contexte_k: 128
-  modalites:
-  - texte
-  raisonnement: true
-  licence: OPENPANGU MODEL LICENSE AGREEMENT VERSION 1.0
-  licence_url: https://huggingface.co/openpangu/openPangu-R-7B-2512/blob/main/LICENSE
-  licence_classe: exclue_ue
-  licence_note: 'Art. 3 : l''utilisateur s''engage à ne pas utiliser, déployer ni intégrer le modèle,
-    directement ou indirectement, dans l''Union européenne.'
-  langues: null
-  francais: null
-  materiel_cite: Atlas 800T A2 (64 Go), CANN 8.1, torch-npu ; vllm_ascend
-  quantif_officielles: []
-  url: https://huggingface.co/openpangu/openPangu-R-7B-2512
-  url_annonce: null
-  scores_editeur:
-  - benchmark: MMLU-Pro (pensée lente)
-    score: 79.1
-    source: https://huggingface.co/openpangu/openPangu-R-7B-2512
-  - benchmark: GPQA-Diamond (pensée lente, Avg@4)
-    score: 75.4
-    source: https://huggingface.co/openpangu/openPangu-R-7B-2512
-  - benchmark: AIME25 (pensée lente, Avg@16)
-    score: 75.2
-    source: https://huggingface.co/openpangu/openPangu-R-7B-2512
-  - benchmark: LiveCodeBench V6 (pensée lente, Avg@3)
-    score: 57.1
-    source: https://huggingface.co/openpangu/openPangu-R-7B-2512
-  non_verifie: 'Date = création du dépôt HF « openpangu » ; le suffixe 2512 suggère une version de décembre
-    2025 publiée d''abord ailleurs (GitCode), non vérifié. La carte annonce 128K natif mais config.json
-    indique 65 536 : écart non résolu. Compte HF non vérifié, mais licence et contact (openPangu@huawei.com)
-    au nom de Huawei.'
-  motif: (^|-)openpangu\-r\-7b(-|$)
-  verified_on: '2026-10-29'
-- id: spark-x2-6-4b
-  nom: Spark-X2.6-4B
-  famille: Spark-X
-  editeur: TokenSpark / SparkLLM (Synlan Technology Pte. Ltd.)
-  pays: SG
-  sortie: '2026-10-19'
-  params_total_b: 4.11
-  params_actifs_b: null
-  architecture: dense
-  archi_note: 'Même architecture que Spark-X2.5-4B (Spark2_5ForCausalLM, sans experts dans config.json).
-    Niveaux de réflexion configurables : none / low / high. Orienté agents embarqués.'
-  contexte_k: 1024
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/XHToken/Spark-X2.6-4B/blob/main/LICENSE
-  licence_classe: libre
-  licence_note: null
-  langues: anglais, chinois (métadonnées de la fiche)
-  francais: false
-  materiel_cite: orienté appareil ; Spark-MLX-LLM (Apple Silicon, CPU Linux, CUDA) ; 1 048 576 tokens
-    de contexte « si la mémoire le permet »
-  quantif_officielles:
-  - FP8
-  - INT8
-  - INT4
-  - GGUF
-  url: https://huggingface.co/XHToken/Spark-X2.6-4B
-  url_annonce: null
-  scores_editeur: []
-  non_verifie: 'PAYS / ÉDITEUR À ARBITRER : nom chinois 词元星火, mais entité juridique de Singapour (Synlan
-    Technology Pte. Ltd., d''après les métadonnées de xhtoken.ai ; GitHub localisé à Singapour). Le rattachement
-    à iFlytek (« Spark ») n''est affirmé que par des agrégateurs, pas par une source primaire. Contexte
-    de 1 048 576 tiré de config.json et des commandes de service. Scores en image, non relevés.'
-  motif: (^|-)spark\-x2\.6\-4b(-|$)
-  verified_on: '2026-10-29'
-- id: spark-x2-6-1-7b
-  nom: Spark-X2.6-1.7B
-  famille: Spark-X
-  editeur: TokenSpark / SparkLLM (Synlan Technology Pte. Ltd.)
-  pays: SG
-  sortie: '2026-10-19'
-  params_total_b: 1.71
-  params_actifs_b: null
-  architecture: dense
-  archi_note: Même famille que Spark-X2.6-4B (Spark2_5ForCausalLM).
-  contexte_k: 1024
-  modalites:
-  - texte
-  raisonnement: true
-  licence: Apache-2.0
-  licence_url: https://huggingface.co/XHToken/Spark-X2.6-1.7B/blob/main/LICENSE
-  licence_classe: libre
-  licence_note: null
-  langues: null
-  francais: null
   materiel_cite: null
-  quantif_officielles:
-  - FP8
-  - INT8
-  - INT4
-  - GGUF
-  url: https://huggingface.co/XHToken/Spark-X2.6-1.7B
+  quantif_officielles: []
+  url: https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16
   url_annonce: null
   scores_editeur: []
-  non_verifie: 'Mêmes réserves pays/éditeur que le 4B. Fiche du 1.7B non lue en détail : contexte tiré
-    de config.json ; raisonnement repris de la fiche commune de la série (non vérifié sur la fiche du
-    1.7B).'
-  motif: (^|-)spark\-x2\.6\-1\.7b(-|$)
-  verified_on: '2026-10-29'
+  non_verifie: Classe de licence « libre » à confirmer à la lecture du texte OpenMDW-1.1.
+  motif: (^|-)nemotron-labs-dory1\.0-4b(-|$)
+  verified_on: '2026-11-05'
 ecartes:
+- nom: Phi-4-reasoning-plus
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Phi-4-mini-instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Phi-4-multimodal-instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Voxtral Small 24B 2507
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Voxtral Mini 3B 2507
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Olmo Hybrid 7B Instruct (DPO)
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: SmolLM3 3B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Tiny Aya Global
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Apriel 1.6 15B Thinker
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Trinity Mini
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Falcon-H1 34B Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Falcon-H1 7B Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Falcon-H1 3B Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Falcon-H1 1.5B-Deep Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Falcon-H1 0.5B Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Apertus 1.5 8B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: EuroLLM 22B Instruct 2512
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: EuroLLM 9B Instruct 2512
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: EuroMoE 2.6B-A0.6B Instruct 2512
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Salamandra 7B Instruct 2606
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Luciole 23B Instruct 1.1
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Luciole 23B Thinking 1.1
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Luciole 8B Instruct 1.1
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Luciole 1B Instruct 1.1
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Sarvam-30B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Reka Edge 2603
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Reka Flash 3.1
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Instella-MoE 16B-A3B Think
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Jamba2 3B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: ZAYA1 8B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Rnj-1.5 Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Moondream 3.1
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: HyperCLOVA X SEED Think 32B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: HyperCLOVA X SEED Omni 8B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Kanana-2 30B-A3B Thinking 2601
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Kanana-2 3B Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Mi:dm 2.0 Base Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Mi:dm 2.0 Mini Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: LLM-jp-4.1 33B Thinking
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: LLM-jp-4.1 32B-A3B Thinking
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: LLM-jp-4.1 8B Thinking
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Bielik 11B v3.0 Instruct
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Hy-MT2-30B-A3B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Hy-MT2-7B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Hy-MT2-1.8B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Youtu-LLM-2B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: MiMo-V2.6-Distill-Qwen-9B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: KAT-Coder-V2.5-Dev
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Keye-VL-2.0-30B-A3B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Nanbeige4.3-33B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Nanbeige4.2-3B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: openPangu-R-7B-2512
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Spark-X2.6-4B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
+- nom: Spark-X2.6-1.7B
+  motif: 'Hors liste resserrée : laboratoire de second rang, dérivé, modèle spécialisé (traduction, parole)
+    ou sorti avant août 2025.'
+  checked_on: '2026-11-05'
 - nom: Mistral Small 4 119B 2603
   motif: 119 Md total, au-dessus du seuil ; remplace Mistral Small 3.2 24B et Magistral Small
   checked_on: '2026-10-29'
@@ -4305,6 +2705,140 @@ ecartes:
   motif: fine-tunes de Qwen3.6 par des tiers ou éditeurs mineurs
   checked_on: '2026-10-29'
 benchmarks:
+- id: gpqa-diamond
+  nom: GPQA Diamond
+  categorie: Raisonnement scientifique
+  unite: '% de bonnes réponses'
+  max: 100
+  mieux: haut
+  auteur: NYU (Rein, Bowman et coll.), 2023 ; mesuré par Epoch AI
+  provenance: Epoch AI, CC-BY 4.0
+  court: 198 questions de biologie, physique et chimie de niveau doctorat, à choix multiples.
+  evalue: Connaissances scientifiques et raisonnement. Questions écrites par des experts, introuvables
+    sur le web pour un non-spécialiste.
+  comment: 'Quatre réponses possibles, correction automatique. Le hasard donne 25 %, les doctorants du
+    domaine 65 %. Epoch publie l''erreur-type : la barre affiche l''intervalle à 95 %.'
+  pourquoi: Saturé chez les grands modèles, il départage encore les petits.
+  classement: https://epoch.ai/benchmarks/gpqa-diamond
+  article: https://arxiv.org/abs/2311.12022
+  provenance_type: tiers
+- id: mmlu-pro
+  nom: MMLU-Pro
+  categorie: Connaissances générales
+  auteur: TIGER-Lab (Université de Waterloo), 2024
+  court: 12 000 questions à 10 choix sur 14 disciplines (droit, santé, économie, sciences…).
+  evalue: L'étendue des connaissances et le raisonnement qui les mobilise, au niveau universitaire.
+  comment: 'Version durcie de MMLU : 10 réponses possibles au lieu de 4 (le hasard tombe à 10 %), questions
+    triviales retirées, davantage de questions de raisonnement.'
+  pourquoi: Le meilleur indicateur simple de « culture générale » d'un petit modèle, utile pour un assistant
+    polyvalent.
+  classement: https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro
+  article: https://arxiv.org/abs/2406.01574
+  provenance_type: editeur
+  provenance: publié par l'éditeur du modèle sur sa fiche Hugging Face
+  max: 100
+  mieux: haut
+  unite: '% de bonnes réponses'
+- id: livecodebench
+  nom: LiveCodeBench
+  categorie: Code
+  auteur: UC Berkeley, MIT, Cornell, 2024
+  court: Problèmes de programmation de concours (LeetCode, AtCoder, Codeforces) publiés après une date
+    donnée.
+  evalue: La génération de code correct à partir d'un énoncé, vérifiée par des tests.
+  comment: 'Les problèmes sont datés : on ne garde que ceux publiés après l''entraînement du modèle, pour
+    limiter la contamination. Chaque version (v5, v6…) couvre une fenêtre de dates différente : deux éditeurs
+    ne mesurent pas forcément la même chose.'
+  pourquoi: Le repère de code le plus cité sur les fiches des petits modèles. Comparer seulement à version
+    égale (libellé au survol).
+  classement: https://livecodebench.github.io/leaderboard.html
+  article: https://arxiv.org/abs/2403.07974
+  provenance_type: editeur
+  provenance: publié par l'éditeur du modèle sur sa fiche Hugging Face
+  max: 100
+  mieux: haut
+  unite: '% de bonnes réponses'
+- id: ifbench
+  nom: IFBench
+  categorie: Suivi des consignes
+  auteur: Ai2 (Allen Institute for AI), 2025
+  court: 58 nouvelles contraintes vérifiables, différentes de celles d'IFEval.
+  evalue: Le suivi de consignes inédites, pour détecter les modèles qui ont seulement appris IFEval par
+    cœur.
+  comment: Contraintes de forme contrôlées par programme, conçues pour ne pas recouper IFEval.
+  pourquoi: Plus discriminant qu'IFEval aujourd'hui.
+  classement: https://github.com/allenai/IFBench
+  article: https://arxiv.org/abs/2507.02833
+  provenance_type: editeur
+  provenance: publié par l'éditeur du modèle sur sa fiche Hugging Face
+  max: 100
+  mieux: haut
+  unite: '% de bonnes réponses'
+- id: ifeval
+  nom: IFEval
+  categorie: Suivi des consignes
+  auteur: Google, 2023
+  court: 'Environ 500 consignes vérifiables : « plus de 400 mots », « sans virgule », « en JSON »…'
+  evalue: La capacité à respecter des contraintes de forme précises, vérifiées automatiquement.
+  comment: '25 types de contraintes, contrôlées par programme, sans juge. Score : part des consignes respectées
+    (plusieurs variantes de calcul : strict ou souple, par consigne ou par question).'
+  pourquoi: Essentiel pour un modèle intégré dans un outil (format de sortie imposé). Saturé chez beaucoup
+    de modèles.
+  classement: https://huggingface.co/datasets/google/IFEval
+  article: https://arxiv.org/abs/2311.07911
+  provenance_type: editeur
+  provenance: publié par l'éditeur du modèle sur sa fiche Hugging Face
+  max: 100
+  mieux: haut
+  unite: '% de bonnes réponses'
+- id: aime26
+  nom: AIME 2026
+  categorie: Mathématiques
+  auteur: Mathematical Association of America (épreuve réelle)
+  court: Les 30 problèmes de l'AIME 2026, plus récents donc moins exposés à la contamination.
+  evalue: La résolution de problèmes mathématiques difficiles, réponse entière de 0 à 999.
+  comment: 'Même format que l''AIME 2025, épreuve de février 2026. 30 questions : une question vaut 3,3
+    points.'
+  pourquoi: Successeur de l'AIME 2025 pour les modèles récents.
+  classement: https://artofproblemsolving.com/wiki/index.php/2026_AIME_I
+  article: null
+  provenance_type: editeur
+  provenance: publié par l'éditeur du modèle sur sa fiche Hugging Face
+  max: 100
+  mieux: haut
+  unite: '% de bonnes réponses'
+- id: aime25
+  nom: AIME 2025
+  categorie: Mathématiques
+  auteur: Mathematical Association of America (épreuve réelle)
+  court: Les 30 problèmes de l'AIME 2025, concours américain de sélection pour les olympiades.
+  evalue: La résolution de problèmes mathématiques difficiles, réponse entière de 0 à 999.
+  comment: 'Épreuve publiée en février 2025 : les modèles entraînés après ont pu la voir. Souvent moyenne
+    de plusieurs tirages ; 30 questions seulement, donc une question vaut 3,3 points.'
+  pourquoi: 'Mesure le raisonnement long. Petit jeu : un écart de quelques points n''est pas significatif.'
+  classement: https://artofproblemsolving.com/wiki/index.php/2025_AIME_I
+  article: null
+  provenance_type: editeur
+  provenance: publié par l'éditeur du modèle sur sa fiche Hugging Face
+  max: 100
+  mieux: haut
+  unite: '% de bonnes réponses'
+- id: math-500
+  nom: MATH-500
+  categorie: Mathématiques
+  auteur: OpenAI (sous-ensemble de MATH, Hendrycks et coll.), 2023
+  court: 500 problèmes de mathématiques de lycée et de concours, réponse exacte attendue.
+  evalue: Le calcul et le raisonnement mathématique en plusieurs étapes, de l'algèbre aux probabilités.
+  comment: Sous-ensemble représentatif du jeu MATH (12 500 problèmes de concours américains) choisi par
+    OpenAI. La réponse finale est comparée au corrigé.
+  pourquoi: Proche de la saturation chez les grands modèles ; il départage encore les très petits.
+  classement: https://huggingface.co/datasets/HuggingFaceH4/MATH-500
+  article: https://arxiv.org/abs/2305.20050
+  provenance_type: editeur
+  provenance: publié par l'éditeur du modèle sur sa fiche Hugging Face
+  max: 100
+  mieux: haut
+  unite: '% de bonnes réponses'
 - id: epoch-eci
   nom: Epoch Capabilities Index
   categorie: Indice global
@@ -4323,22 +2857,7 @@ benchmarks:
     : Epoch ajoute les petits modèles avec plusieurs mois de retard.'
   classement: https://epoch.ai/benchmarks/eci
   article: https://arxiv.org/abs/2512.00193
-- id: gpqa-diamond
-  nom: GPQA Diamond
-  categorie: Raisonnement scientifique
-  unite: '% de bonnes réponses'
-  max: 100
-  mieux: haut
-  auteur: NYU (Rein, Bowman et coll.), 2023 ; mesuré par Epoch AI
-  provenance: Epoch AI, CC-BY 4.0
-  court: 198 questions de biologie, physique et chimie de niveau doctorat, à choix multiples.
-  evalue: Connaissances scientifiques et raisonnement. Questions écrites par des experts, introuvables
-    sur le web pour un non-spécialiste.
-  comment: 'Quatre réponses possibles, correction automatique. Le hasard donne 25 %, les doctorants du
-    domaine 65 %. Epoch publie l''erreur-type : la barre affiche l''intervalle à 95 %.'
-  pourquoi: Saturé chez les grands modèles, il départage encore les petits.
-  classement: https://epoch.ai/benchmarks/gpqa-diamond
-  article: https://arxiv.org/abs/2311.12022
+  provenance_type: tiers
 - id: otis-aime
   nom: OTIS Mock AIME 2024-2025
   categorie: Mathématiques
@@ -4355,6 +2874,7 @@ benchmarks:
   pourquoi: Bon indicateur du raisonnement long, là où les petits modèles décrochent le plus.
   classement: https://epoch.ai/benchmarks/otis-mock-aime-2024-2025
   article: null
+  provenance_type: tiers
 - id: lmarena-text
   nom: LMArena — texte
   categorie: Préférence humaine
@@ -4373,6 +2893,7 @@ benchmarks:
     scores de benchmarks.
   classement: https://lmarena.ai/leaderboard/text
   article: https://arxiv.org/abs/2403.04132
+  provenance_type: tiers
 - id: vectara-hhem
   nom: Vectara — hallucinations
   categorie: Fidélité au document
@@ -4390,6 +2911,7 @@ benchmarks:
     à Vectara.
   classement: https://github.com/vectara/hallucination-leaderboard
   article: null
+  provenance_type: tiers
 rejected:
 - benchmark: Artificial Analysis — Intelligence Index et évaluations unitaires
   motif: 'Meilleure couverture SLM existante (101 modèles ouverts petits/minuscules, sorties d''août-sept.
@@ -4421,3 +2943,1002 @@ rejected:
   motif: Seul classement français vivant et ouvert, mais aucun SLM 2026 et scores sur versions quantifiées.
 - benchmark: Le Leaderboard (OpenLLM French Leaderboard)
   motif: Figé depuis août 2025.
+editeur_scores:
+- entry: qwen3-8-27b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 79.5
+  source: https://huggingface.co/Qwen/Qwen3.8-27B
+  verified_on: '2026-11-05'
+- entry: qwen3-8-27b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 89.2
+  source: https://huggingface.co/Qwen/Qwen3.8-27B
+  verified_on: '2026-11-05'
+- entry: qwen3-8-27b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 90.3
+  source: https://huggingface.co/Qwen/Qwen3.8-27B
+  verified_on: '2026-11-05'
+- entry: qwen3-6-35b-a3b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 85.2
+  source: https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+  verified_on: '2026-11-05'
+- entry: qwen3-6-35b-a3b
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 86.0
+  source: https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+  verified_on: '2026-11-05'
+- entry: qwen3-6-35b-a3b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 80.4
+  source: https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+  verified_on: '2026-11-05'
+- entry: qwen3-6-35b-a3b
+  benchmark: aime26
+  libelle: AIME26
+  mode: null
+  score: 92.7
+  source: https://huggingface.co/Qwen/Qwen3.6-35B-A3B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-9b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 82.5
+  source: https://huggingface.co/Qwen/Qwen3.5-9B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-9b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 81.7
+  source: https://huggingface.co/Qwen/Qwen3.5-9B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-9b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 91.5
+  source: https://huggingface.co/Qwen/Qwen3.5-9B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-9b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 64.5
+  source: https://huggingface.co/Qwen/Qwen3.5-9B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-9b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 65.6
+  source: https://huggingface.co/Qwen/Qwen3.5-9B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-4b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 79.1
+  source: https://huggingface.co/Qwen/Qwen3.5-4B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-4b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 76.2
+  source: https://huggingface.co/Qwen/Qwen3.5-4B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-4b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 89.8
+  source: https://huggingface.co/Qwen/Qwen3.5-4B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-4b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 59.2
+  source: https://huggingface.co/Qwen/Qwen3.5-4B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-4b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 55.8
+  source: https://huggingface.co/Qwen/Qwen3.5-4B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-2b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: non-thinking
+  score: 55.3
+  source: https://huggingface.co/Qwen/Qwen3.5-2B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-2b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: non-thinking
+  score: 61.2
+  source: https://huggingface.co/Qwen/Qwen3.5-2B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-2b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: thinking
+  score: 66.5
+  source: https://huggingface.co/Qwen/Qwen3.5-2B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-2b
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: thinking
+  score: 51.6
+  source: https://huggingface.co/Qwen/Qwen3.5-2B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-2b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: thinking
+  score: 78.6
+  source: https://huggingface.co/Qwen/Qwen3.5-2B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-2b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: thinking
+  score: 41.3
+  source: https://huggingface.co/Qwen/Qwen3.5-2B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-0-8b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: non-thinking
+  score: 29.7
+  source: https://huggingface.co/Qwen/Qwen3.5-0.8B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-0-8b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: non-thinking
+  score: 52.1
+  source: https://huggingface.co/Qwen/Qwen3.5-0.8B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-0-8b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: thinking
+  score: 42.3
+  source: https://huggingface.co/Qwen/Qwen3.5-0.8B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-0-8b
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: thinking
+  score: 11.9
+  source: https://huggingface.co/Qwen/Qwen3.5-0.8B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-0-8b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: thinking
+  score: 44.0
+  source: https://huggingface.co/Qwen/Qwen3.5-0.8B
+  verified_on: '2026-11-05'
+- entry: qwen3-5-0-8b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: thinking
+  score: 21.0
+  source: https://huggingface.co/Qwen/Qwen3.5-0.8B
+  verified_on: '2026-11-05'
+- entry: gemma-4-31b
+  benchmark: mmlu-pro
+  libelle: MMLU Pro
+  mode: null
+  score: 85.2
+  source: https://huggingface.co/google/gemma-4-31B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-31b
+  benchmark: aime26
+  libelle: AIME 2026 no tools
+  mode: null
+  score: 89.2
+  source: https://huggingface.co/google/gemma-4-31B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-31b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 80.0
+  source: https://huggingface.co/google/gemma-4-31B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-31b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 84.3
+  source: https://huggingface.co/google/gemma-4-31B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-26b-a4b
+  benchmark: mmlu-pro
+  libelle: MMLU Pro
+  mode: null
+  score: 82.6
+  source: https://huggingface.co/google/gemma-4-26B-A4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-26b-a4b
+  benchmark: aime26
+  libelle: AIME 2026 no tools
+  mode: null
+  score: 88.3
+  source: https://huggingface.co/google/gemma-4-26B-A4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-26b-a4b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 77.1
+  source: https://huggingface.co/google/gemma-4-26B-A4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-26b-a4b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 82.3
+  source: https://huggingface.co/google/gemma-4-26B-A4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-12b
+  benchmark: mmlu-pro
+  libelle: MMLU Pro
+  mode: null
+  score: 77.2
+  source: https://huggingface.co/google/gemma-4-12B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-12b
+  benchmark: aime26
+  libelle: AIME 2026 no tools
+  mode: null
+  score: 77.5
+  source: https://huggingface.co/google/gemma-4-12B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-12b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 72.0
+  source: https://huggingface.co/google/gemma-4-12B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-12b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 78.8
+  source: https://huggingface.co/google/gemma-4-12B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e4b
+  benchmark: mmlu-pro
+  libelle: MMLU Pro
+  mode: null
+  score: 69.4
+  source: https://huggingface.co/google/gemma-4-E4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e4b
+  benchmark: aime26
+  libelle: AIME 2026 no tools
+  mode: null
+  score: 42.5
+  source: https://huggingface.co/google/gemma-4-E4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e4b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 52.0
+  source: https://huggingface.co/google/gemma-4-E4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e4b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 58.6
+  source: https://huggingface.co/google/gemma-4-E4B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e2b
+  benchmark: mmlu-pro
+  libelle: MMLU Pro
+  mode: null
+  score: 60.0
+  source: https://huggingface.co/google/gemma-4-E2B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e2b
+  benchmark: aime26
+  libelle: AIME 2026 no tools
+  mode: null
+  score: 37.5
+  source: https://huggingface.co/google/gemma-4-E2B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e2b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 44.0
+  source: https://huggingface.co/google/gemma-4-E2B-it
+  verified_on: '2026-11-05'
+- entry: gemma-4-e2b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 43.4
+  source: https://huggingface.co/google/gemma-4-E2B-it
+  verified_on: '2026-11-05'
+- entry: ministral-3-3b
+  benchmark: aime25
+  libelle: AIME25
+  mode: reasoning
+  score: 72.1
+  fiche: 0.721
+  source: https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-3b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: reasoning
+  score: 53.4
+  fiche: 0.534
+  source: https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-3b
+  benchmark: livecodebench
+  libelle: LiveCodeBench
+  mode: reasoning
+  score: 54.8
+  fiche: 0.548
+  source: https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-8b
+  benchmark: aime25
+  libelle: AIME25
+  mode: reasoning
+  score: 78.7
+  fiche: 0.787
+  source: https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-8b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: reasoning
+  score: 66.8
+  fiche: 0.668
+  source: https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-8b
+  benchmark: livecodebench
+  libelle: LiveCodeBench
+  mode: reasoning
+  score: 61.6
+  fiche: 0.616
+  source: https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-14b
+  benchmark: aime25
+  libelle: AIME25
+  mode: reasoning
+  score: 85.0
+  fiche: 0.85
+  source: https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-14b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: reasoning
+  score: 71.2
+  fiche: 0.712
+  source: https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: ministral-3-14b
+  benchmark: livecodebench
+  libelle: LiveCodeBench
+  mode: reasoning
+  score: 64.6
+  fiche: 0.646
+  source: https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512
+  verified_on: '2026-11-05'
+- entry: granite-4-2-3b
+  benchmark: aime25
+  libelle: AIME25
+  mode: null
+  score: 78.33
+  source: https://huggingface.co/ibm-granite/granite-4.2-3b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-3b
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 54.8
+  source: https://huggingface.co/ibm-granite/granite-4.2-3b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-3b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 69.71
+  source: https://huggingface.co/ibm-granite/granite-4.2-3b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-3b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 67.84
+  source: https://huggingface.co/ibm-granite/granite-4.2-3b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-3b
+  benchmark: ifbench
+  libelle: IFBench (prompt)
+  mode: null
+  score: 74.33
+  source: https://huggingface.co/ibm-granite/granite-4.2-3b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-8b
+  benchmark: aime25
+  libelle: AIME25
+  mode: null
+  score: 86.67
+  source: https://huggingface.co/ibm-granite/granite-4.2-8b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-8b
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 64.14
+  source: https://huggingface.co/ibm-granite/granite-4.2-8b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-8b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 73.24
+  source: https://huggingface.co/ibm-granite/granite-4.2-8b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-8b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 74.04
+  source: https://huggingface.co/ibm-granite/granite-4.2-8b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-8b
+  benchmark: ifbench
+  libelle: IFBench (prompt)
+  mode: null
+  score: 79.33
+  source: https://huggingface.co/ibm-granite/granite-4.2-8b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-30b
+  benchmark: aime25
+  libelle: AIME25
+  mode: null
+  score: 89.17
+  source: https://huggingface.co/ibm-granite/granite-4.2-30b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-30b
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 66.41
+  source: https://huggingface.co/ibm-granite/granite-4.2-30b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-30b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 75.77
+  source: https://huggingface.co/ibm-granite/granite-4.2-30b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-30b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 77.6
+  source: https://huggingface.co/ibm-granite/granite-4.2-30b
+  verified_on: '2026-11-05'
+- entry: granite-4-2-30b
+  benchmark: ifbench
+  libelle: IFBench (prompt)
+  mode: null
+  score: 77.17
+  source: https://huggingface.co/ibm-granite/granite-4.2-30b
+  verified_on: '2026-11-05'
+- entry: nemotron-3-5-lightning-30b-a3b
+  benchmark: mmlu-pro
+  libelle: MMLU Pro
+  mode: null
+  score: 81.94
+  source: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+  verified_on: '2026-11-05'
+- entry: nemotron-3-5-lightning-30b-a3b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond (no tools)
+  mode: null
+  score: 75.44
+  source: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+  verified_on: '2026-11-05'
+- entry: nemotron-3-5-lightning-30b-a3b
+  benchmark: ifbench
+  libelle: IFBench (loose)
+  mode: null
+  score: 71.88
+  source: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+  verified_on: '2026-11-05'
+- entry: nemotron-3-5-bolt-e4b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 63.79
+  source: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16
+  verified_on: '2026-11-05'
+- entry: muse-glimmer-30b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: high-reasoning
+  score: 77.0
+  source: https://huggingface.co/meta-models/Muse-Glimmer-30B
+  verified_on: '2026-11-05'
+- entry: muse-glimmer-30b
+  benchmark: aime26
+  libelle: AIME 2026
+  mode: high-reasoning
+  score: 94.7
+  source: https://huggingface.co/meta-models/Muse-Glimmer-30B
+  verified_on: '2026-11-05'
+- entry: muse-glimmer-30b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond (AA)
+  mode: high-reasoning
+  score: 83.5
+  source: https://huggingface.co/meta-models/Muse-Glimmer-30B
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-think
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: null
+  score: 78.1
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-think
+  benchmark: livecodebench
+  libelle: LiveCodeBench v3
+  mode: null
+  score: 83.3
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-think
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 93.8
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-think
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 68.1
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-think
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 57.5
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-instruct
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: null
+  score: 57.9
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-instruct
+  benchmark: livecodebench
+  libelle: LiveCodeBench v3
+  mode: null
+  score: 54.7
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-instruct
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 88.8
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-instruct
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 39.7
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-1-32b-instruct
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 48.6
+  source: https://huggingface.co/allenai/Olmo-3.1-32B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-think
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: null
+  score: 64.6
+  source: https://huggingface.co/allenai/Olmo-3-7B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-think
+  benchmark: livecodebench
+  libelle: LCB v3
+  mode: null
+  score: 75.2
+  source: https://huggingface.co/allenai/Olmo-3-7B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-think
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 88.2
+  source: https://huggingface.co/allenai/Olmo-3-7B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-think
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 41.6
+  source: https://huggingface.co/allenai/Olmo-3-7B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-think
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 46.2
+  source: https://huggingface.co/allenai/Olmo-3-7B-Think
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-instruct
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: null
+  score: 32.5
+  source: https://huggingface.co/allenai/Olmo-3-7B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-instruct
+  benchmark: livecodebench
+  libelle: LiveCodeBench v3
+  mode: null
+  score: 29.5
+  source: https://huggingface.co/allenai/Olmo-3-7B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-instruct
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 85.6
+  source: https://huggingface.co/allenai/Olmo-3-7B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-instruct
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 32.3
+  source: https://huggingface.co/allenai/Olmo-3-7B-Instruct
+  verified_on: '2026-11-05'
+- entry: olmo-3-7b-instruct
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 40.4
+  source: https://huggingface.co/allenai/Olmo-3-7B-Instruct
+  verified_on: '2026-11-05'
+- entry: lfm3-1-7b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 73.46
+  source: https://huggingface.co/LiquidAI/LFM3-1.7B
+  verified_on: '2026-11-05'
+- entry: lfm3-1-7b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 96.66
+  source: https://huggingface.co/LiquidAI/LFM3-1.7B
+  verified_on: '2026-11-05'
+- entry: lfm3-1-7b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 73.03
+  source: https://huggingface.co/LiquidAI/LFM3-1.7B
+  verified_on: '2026-11-05'
+- entry: lfm3-1-7b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 63.37
+  source: https://huggingface.co/LiquidAI/LFM3-1.7B
+  verified_on: '2026-11-05'
+- entry: lfm2-5-24b-a2b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond
+  mode: null
+  score: 74.42
+  source: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B
+  verified_on: '2026-11-05'
+- entry: lfm2-5-24b-a2b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 96.75
+  source: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B
+  verified_on: '2026-11-05'
+- entry: lfm2-5-24b-a2b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 74.69
+  source: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B
+  verified_on: '2026-11-05'
+- entry: lfm2-5-24b-a2b
+  benchmark: math-500
+  libelle: MATH-500
+  mode: null
+  score: 96.04
+  source: https://huggingface.co/LiquidAI/LFM2.5-24B-A2B
+  verified_on: '2026-11-05'
+- entry: glm-4-7-flash
+  benchmark: aime25
+  libelle: AIME 25
+  mode: null
+  score: 91.6
+  source: https://huggingface.co/zai-org/GLM-4.7-Flash
+  verified_on: '2026-11-05'
+- entry: glm-4-7-flash
+  benchmark: gpqa-diamond
+  libelle: GPQA
+  mode: null
+  score: 75.2
+  source: https://huggingface.co/zai-org/GLM-4.7-Flash
+  verified_on: '2026-11-05'
+- entry: glm-4-7-flash
+  benchmark: livecodebench
+  libelle: LCB v6
+  mode: null
+  score: 64.0
+  source: https://huggingface.co/zai-org/GLM-4.7-Flash
+  verified_on: '2026-11-05'
+- entry: falcon-h1r-7b
+  benchmark: aime25
+  libelle: AIME25
+  mode: null
+  score: 83.1
+  source: https://huggingface.co/tiiuae/Falcon-H1R-7B
+  verified_on: '2026-11-05'
+- entry: falcon-h1r-7b
+  benchmark: math-500
+  libelle: MATH500
+  mode: null
+  score: 97.4
+  source: https://huggingface.co/tiiuae/Falcon-H1R-7B
+  verified_on: '2026-11-05'
+- entry: falcon-h1r-7b
+  benchmark: livecodebench
+  libelle: LCBv5-v6
+  mode: null
+  score: 68.6
+  source: https://huggingface.co/tiiuae/Falcon-H1R-7B
+  verified_on: '2026-11-05'
+- entry: falcon-h1r-7b
+  benchmark: gpqa-diamond
+  libelle: GPQA-D
+  mode: null
+  score: 61.3
+  source: https://huggingface.co/tiiuae/Falcon-H1R-7B
+  verified_on: '2026-11-05'
+- entry: falcon-h1r-7b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 72.1
+  source: https://huggingface.co/tiiuae/Falcon-H1R-7B
+  verified_on: '2026-11-05'
+- entry: falcon-h1r-7b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 53.4
+  source: https://huggingface.co/tiiuae/Falcon-H1R-7B
+  verified_on: '2026-11-05'
+- entry: exaone-4-5-33b
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: reasoning
+  score: 92.9
+  source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
+  verified_on: '2026-11-05'
+- entry: exaone-4-5-33b
+  benchmark: aime26
+  libelle: AIME 2026
+  mode: reasoning
+  score: 92.6
+  source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
+  verified_on: '2026-11-05'
+- entry: exaone-4-5-33b
+  benchmark: gpqa-diamond
+  libelle: GPQA-Diamond
+  mode: reasoning
+  score: 80.5
+  source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
+  verified_on: '2026-11-05'
+- entry: exaone-4-5-33b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: reasoning
+  score: 81.4
+  source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
+  verified_on: '2026-11-05'
+- entry: exaone-4-5-33b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: reasoning
+  score: 83.3
+  source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
+  verified_on: '2026-11-05'
+- entry: exaone-4-5-33b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: reasoning
+  score: 62.6
+  source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
+  verified_on: '2026-11-05'
+- entry: exaone-4-5-33b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: reasoning
+  score: 89.6
+  source: https://huggingface.co/LGAI-EXAONE/EXAONE-4.5-33B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: livecodebench
+  libelle: LiveCodeBench v6
+  mode: null
+  score: 69.1
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: null
+  score: 86.5
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: aime26
+  libelle: AIME 2026
+  mode: null
+  score: 86.5
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: math-500
+  libelle: MATH-500
+  mode: null
+  score: 94.6
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: null
+  score: 66.3
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 86.7
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro
+  mode: null
+  score: 70.8
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm5-2b
+  benchmark: gpqa-diamond
+  libelle: GPQA-Diamond
+  mode: null
+  score: 70.2
+  source: https://huggingface.co/openbmb/MiniCPM5-2B
+  verified_on: '2026-11-05'
+- entry: minicpm-o-4-5
+  benchmark: math-500
+  libelle: Math500 (MiniCPM-o 4.5-Instruct)
+  mode: null
+  score: 77.0
+  source: https://huggingface.co/openbmb/MiniCPM-o-4_5
+  verified_on: '2026-11-05'
+- entry: north-micro-vision-instruct
+  benchmark: mmlu-pro
+  libelle: MMLU-Pro test
+  mode: null
+  score: 30.7
+  fiche: 0.307
+  source: https://huggingface.co/CohereLabs/North-Micro-Vision-Instruct
+  verified_on: '2026-11-05'
+- entry: north-micro-vision-instruct
+  benchmark: ifeval
+  libelle: IFEval
+  mode: null
+  score: 74.9
+  fiche: 0.749
+  source: https://huggingface.co/CohereLabs/North-Micro-Vision-Instruct
+  verified_on: '2026-11-05'
+- entry: step3-vl-10b
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: SeRe
+  score: 87.66
+  source: https://huggingface.co/stepfun-ai/Step3-VL-10B
+  verified_on: '2026-11-05'
+- entry: step3-vl-10b
+  benchmark: aime25
+  libelle: AIME 2025
+  mode: PaCoRe
+  score: 94.43
+  source: https://huggingface.co/stepfun-ai/Step3-VL-10B
+  verified_on: '2026-11-05'
+- entry: step3-vl-10b
+  benchmark: livecodebench
+  libelle: LiveCodeBench
+  mode: SeRe
+  score: 75.77
+  source: https://huggingface.co/stepfun-ai/Step3-VL-10B
+  verified_on: '2026-11-05'
+- entry: step3-vl-10b
+  benchmark: livecodebench
+  libelle: LiveCodeBench
+  mode: PaCoRe
+  score: 76.43
+  source: https://huggingface.co/stepfun-ai/Step3-VL-10B
+  verified_on: '2026-11-05'
+- entry: nemotron-labs-dory-4b
+  benchmark: gpqa-diamond
+  libelle: GPQA Diamond (no tools)
+  mode: 2 boucles
+  score: 72.41
+  source: https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16
+  verified_on: '2026-11-05'
+- entry: nemotron-labs-dory-4b
+  benchmark: ifbench
+  libelle: IFBench
+  mode: 2 boucles
+  score: 77.94
+  source: https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16
+  verified_on: '2026-11-05'

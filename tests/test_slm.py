@@ -46,5 +46,14 @@ class TestSLM(unittest.TestCase):
                 self.assertLessEqual(r["ci"][0], r["ci"][1], r)
 
 
+    def test_scores_editeur(self):
+        # Chiffres recopiés des fiches Hugging Face : chacun garde sa source et l'intitulé exact.
+        b, ids = {x["id"] for x in self.slm["benchmarks"]}, {e["id"] for e in self.slm["entries"]}
+        for r in self.slm["editeur_scores"]:
+            self.assertIn(r["benchmark"], b, r)
+            self.assertIn(r["entry"], ids, r)
+            self.assertTrue(r.get("source") and r.get("verified_on") and r.get("libelle"), r)
+            self.assertTrue(0 <= r["score"] <= 100, r)
+
 if __name__ == "__main__":
     unittest.main()

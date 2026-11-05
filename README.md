@@ -148,7 +148,7 @@ resterait à faire — le plan de travail s'en charge.
 | Harnais et passerelles | 98 fiches, dont 95 vivantes publiées | documentation ou tarifs de l'éditeur |
 | OCR | 50 fiches (38 modèles, 6 moteurs, 6 chaînes de conversion), 219 scores sur 6 vues de benchmark | fiche Hugging Face ou dépôt de l'éditeur ; classements officiels des benchmarks |
 | Modèles de décision | 23 fiches, 3 classements (Jev Decision Index, JevBench, Artificial Analysis), 479 scores | fiche Hugging Face ou page de l'éditeur ; données JSON des classements |
-| Petits modèles ouverts (SLM) | 102 fiches (≤ 35 Md de paramètres, 51 familles), 35 scores tiers sur 5 classements | fiche Hugging Face de l'éditeur ; Epoch AI, LMArena, Vectara |
+| Petits modèles ouverts (SLM) | 49 fiches (≤ 35 Md, grands laboratoires, sortis depuis août 2025), 34 scores tiers sur 4 classements + 141 scores publiés par les éditeurs sur 8 benchmarks | fiche Hugging Face de l'éditeur ; Epoch AI, LMArena, Vectara |
 | Balayage des fournisseurs | 11 sur 11 | recherche outil par outil, y compris les absences |
 | Taux de change | 1 EUR = 1,1539 USD | taux de référence BCE du 15/09/2026 |
 

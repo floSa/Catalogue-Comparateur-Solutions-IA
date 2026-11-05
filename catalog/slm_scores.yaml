@@ -1,6 +1,6 @@
 _generated:
   by: pipeline/slm_ingest.py
-  'on': '2026-10-29'
+  'on': '2026-11-05'
   epoch: https://epoch.ai/data/benchmark_data.zip
   lmarena: https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
   lmarena_published: '2026-10-28'
@@ -258,10 +258,6 @@ scores:
   entry: ministral-3-8b
   name: mistralai/ministral-3-8b-2512
   score: 21.7
-- benchmark: vectara-hhem
-  entry: phi-4-mini-instruct
-  name: microsoft/Phi-4-mini-instruct
-  score: 23.5
 - benchmark: vectara-hhem
   entry: ministral-3-3b
   name: mistralai/ministral-3-3b-2512
