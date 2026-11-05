@@ -385,6 +385,18 @@ summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 .rg{display:flex;align-items:center;gap:8px}
 .rg input{accent-color:var(--s1);width:150px}
 .rg output{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;color:var(--ink-2);min-width:64px}
+.cvt{max-height:none}
+.cvt th,.cvt td{padding:2px;border:0;text-align:center}
+.cvt th.b{writing-mode:vertical-rl;transform:rotate(180deg);height:92px;font-size:10.5px;text-transform:none;
+ letter-spacing:0;vertical-align:bottom;padding:4px 2px}
+.cvt td.m{text-align:left;white-space:nowrap;padding:2px 10px 2px 4px;font-size:12px}
+.cvt td.m small{color:var(--ink-3);margin-left:6px;font-size:11px}
+.cvt tr.fam td{text-align:left;font-weight:600;font-size:11.5px;padding:9px 4px 2px;color:var(--ink-2)}
+.cvt .c{display:block;width:40px;height:21px;line-height:21px;border-radius:4px;font-size:10px;
+ font-variant-numeric:tabular-nums;color:var(--ink)}
+.cvt .c.hi{color:#fff}
+.cvt .c.ed{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.4) 0 2px,transparent 2px 5px)}
+.cvt .c.vide{border:1px dashed var(--line)}
 .orow .tr .ci{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--ink)}
 .orow .tr .ci::before,.orow .tr .ci::after{content:"";position:absolute;top:-4px;height:10px;width:2px;background:var(--ink)}
 .orow .tr .ci::before{left:0}.orow .tr .ci::after{right:0}
@@ -665,6 +677,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   milliard (encodeur d'images, embeddings).</p>
   <div class="seg" id="slm-cat" role="group" aria-label="Sous-sections SLM">
     <button data-p="rank" aria-pressed="true">Classement</button>
+    <button data-p="cover" aria-pressed="false">Couverture</button>
     <button data-p="modele" aria-pressed="false">Modèles</button>
     <button data-p="bench" aria-pressed="false">Benchmarks</button>
   </div>
@@ -688,6 +701,13 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
       <div id="pbars"></div>
       <div id="pnote"></div>
     </div>
+  </div>
+  <div id="p-cover" hidden>
+    <p class="lede">Une ligne par modèle, groupée par famille ; une colonne par benchmark. Plus la case
+    est foncée, meilleur est le score parmi les modèles mesurés sur ce benchmark ; une case hachurée est un
+    chiffre publié par l'éditeur, une case pleine une mesure tierce ; une case en pointillés veut dire
+    qu'aucun score n'est publié — le trou compte autant que le chiffre.</p>
+    <div class="tw cvt"><table id="pcov"></table></div>
   </div>
   <div id="p-modele" hidden>
     <div class="ctrl">
@@ -2045,6 +2065,30 @@ function slmRank(){
 pbsel.addEventListener('change',slmRank);['#parch','#plic','#ptop'].forEach(k=>$(k).addEventListener('change',slmRank));
 $('#ptai').addEventListener('input',slmRank);
 slmRank();
+// Couverture : intensité normalisée par benchmark (échelles différentes : %, points ECI, Elo, taux d'erreur).
+const COURT={'gpqa-diamond':'GPQA Diamond','mmlu-pro':'MMLU-Pro','livecodebench':'LiveCodeBench','ifbench':'IFBench',
+ 'ifeval':'IFEval','aime26':'AIME 2026','aime25':'AIME 2025','math-500':'MATH-500','epoch-eci':'Indice ECI',
+ 'otis-aime':'OTIS AIME','lmarena-text':'LMArena','vectara-hhem':'Hallucinations'};
+(function slmCover(){
+  const cel={},ext={};
+  P.benchmarks.forEach(b=>{const L=meilleur(P.scores.filter(x=>x.benchmark===b.id&&PE[x.entry]));
+    L.forEach(x=>cel[x.entry+'|'+b.id]=x);
+    const v=L.map(x=>x.score);ext[b.id]=[Math.min(...v),Math.max(...v)];});
+  const fam={};P.entries.forEach(e=>(fam[e.famille]=fam[e.famille]||[]).push(e));
+  const F=Object.entries(fam).sort((a,c)=>a[0].localeCompare(c[0],'fr'));
+  const cell=(e,b)=>{const x=cel[e.id+'|'+b.id];
+    if(!x)return `<td><span class="c vide" title="${esc(e.nom)} — ${esc(b.nom)} : aucun score publié"></span></td>`;
+    const [lo,hi]=ext[b.id];let f=hi>lo?(x.score-lo)/(hi-lo):1;if(b.mieux==='bas')f=1-f;
+    const st=Math.min(5,Math.floor(f*6));
+    const t=`${e.nom} — ${b.nom} : ${x.score.toLocaleString('fr-FR')} ${b.unite}`+
+      (x.prov==='editeur'?` · publié par l’éditeur (${x.libelle}${x.mode?', '+x.mode:''})`:' · mesuré par un tiers');
+    return `<td><span class="c${st>=3?' hi':''}${x.prov==='editeur'?' ed':''}" style="background-color:var(--seq${st+1})" title="${esc(t)}">${
+      Math.round(x.score).toLocaleString('fr-FR')}</span></td>`;};
+  $('#pcov').innerHTML='<thead><tr><th></th>'+P.benchmarks.map(b=>`<th class="b" title="${esc(b.nom)}">${esc(COURT[b.id]||b.nom)}</th>`).join('')+
+    '</tr></thead><tbody>'+F.map(([f,L])=>`<tr class="fam"><td colspan="${P.benchmarks.length+1}">${esc(f)}</td></tr>`+
+      L.sort((a,c)=>(c.params_total_b||0)-(a.params_total_b||0)).map(e=>`<tr><td class="m">${lien(e.url,esc(e.nom))}<small>${md(e.params_total_b)}</small></td>${
+        P.benchmarks.map(b=>cell(e,b)).join('')}</tr>`).join('')).join('')+'</tbody>';
+})();
 const mfam=$('#mfam');mfam.add(new Option('Toutes',''));
 [...new Set(P.entries.map(e=>e.famille))].sort((a,c)=>a.localeCompare(c,'fr')).forEach(f=>mfam.add(new Option(f,f)));
 const pcls=[...new Set(P.entries.map(e=>e.licence_classe))];
@@ -2083,7 +2127,7 @@ $('#prj').textContent=`Sources écartées (${P.rejected.length}) — et pourquoi
 $('#prlist').innerHTML=P.rejected.map(b=>`<div class="bc"><h3>${esc(b.benchmark)}</h3><p>${esc(b.motif)}</p></div>`).join('');
 $('#slm-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   $('#slm-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-  ['rank','modele','bench'].forEach(k=>{$('#p-'+k).hidden=(k!==b.dataset.p);});});
+  ['rank','cover','modele','bench'].forEach(k=>{$('#p-'+k).hidden=(k!==b.dataset.p);});});
 
 // ── fiches benchmarks ─────────────────────────────────────────────────────
 $('#bgl').innerHTML=D.benchmarks.map(b=>{const x=b.x||{};
