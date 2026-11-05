@@ -494,6 +494,9 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
           <option value="moe">MoE</option><option value="hybride">Hybride</option></select></label>
         <label class="f">Licence<select id="plic">
           <option value="">Toutes</option><option value="libre">Libres seulement</option></select></label>
+        <label class="f">Affichage<select id="ptop">
+          <option value="10">10 premiers</option><option value="20" selected>20 premiers</option>
+          <option value="0">Tout</option></select></label>
       </div>
       <p class="olg"><span><i class="ob p-tiers"></i>mesuré par un tiers</span>
         <span><i class="ob p-editeur"></i>publié par l'éditeur sur sa fiche Hugging Face</span></p>
@@ -1810,19 +1813,23 @@ const ARCH={dense:'dense',moe:'MoE',hybride:'hybride'};
 const md=v=>v==null?'—':v.toLocaleString('fr-FR',{maximumFractionDigits:v<10?2:1})+' Md';
 const taille=e=>md(e.params_total_b)+(e.params_actifs_b?` · ${md(e.params_actifs_b)} actifs`:'');
 // Paliers du curseur de taille ; 36 couvre les « 35B » dont le compte exact dépasse 35.
-const TAI=[2,4,10,20,36], TAIL=['≤ 2 Md','≤ 4 Md','≤ 10 Md','≤ 20 Md','≤ 35 Md'];
-const taiMax=el=>{const i=Math.min(+el.value,4);el.nextElementSibling.value=TAIL[i];return TAI[i];};
+const TAI=[1,2,3,4,5,8,10,12,15,20,25,30,36];
+const taiMax=el=>{const i=Math.min(+el.value,TAI.length-1);el.nextElementSibling.value='≤ '+Math.min(TAI[i],35)+' Md';return TAI[i];};
+['#ptai','#mtai'].forEach(k=>{$(k).max=TAI.length-1;$(k).value=TAI.length-1;});
 const pbsel=$('#pbench');
 P.benchmarks.forEach(b=>pbsel.add(new Option(`${b.nom} — ${b.categorie}${b.provenance_type==='editeur'?' (chiffres éditeurs)':''}`,b.id)));
-// Un modèle publié en plusieurs modes (raisonnement, effort…) : on garde son meilleur score, mode nommé.
-const meilleur=L=>Object.values(L.reduce((a,x)=>{const k=x.entry+'|'+x.prov;
-  if(!a[k]||x.score>a[k].score)a[k]=x;return a;},{}));
+// Une ligne par modèle : la mesure tierce quand elle existe (le chiffre de l'éditeur passe au survol),
+// sinon le meilleur chiffre publié par l'éditeur ; plusieurs modes → le meilleur, mode nommé.
+const meilleur=L=>{const t={},ed={};
+  L.forEach(x=>{const m=x.prov==='tiers'?t:ed;if(!m[x.entry]||x.score>m[x.entry].score)m[x.entry]=x;});
+  return Object.keys({...ed,...t}).map(k=>t[k]?{...t[k],ed:ed[k]}:ed[k]);};
 function slmRank(){
   const b=P.benchmarks.find(x=>x.id===pbsel.value), ar=$('#parch').value, lic=$('#plic').value, tmax=taiMax($('#ptai'));
   const r=meilleur(P.scores.filter(x=>x.benchmark===b.id)).filter(x=>{const e=PE[x.entry];
     return e&&(!ar||e.architecture===ar)&&(!lic||e.licence_classe==='libre')&&(e.params_total_b??0)<=tmax;});
   const bas=b.mieux==='bas';
   r.sort((a,c)=>bas?a.score-c.score:c.score-a.score);
+  const n=r.length, top=+$('#ptop').value;if(top)r.splice(top);
   // Échelle : 0–max quand le score est borné, sinon calée sur l'étendue des valeurs et intervalles.
   const vals=r.flatMap(x=>x.ci||[x.score]);
   const lo=b.max?0:Math.min(...vals)-(Math.max(...vals)-Math.min(...vals))*0.15, hi=b.max?b.max:Math.max(...vals);
@@ -1830,7 +1837,8 @@ function slmRank(){
   $('#pbars').innerHTML=r.map(x=>{const e=PE[x.entry];
     const sub=[esc(e.famille),taille(e),ARCH[e.architecture]||'',lchip(e.licence_classe)].filter(Boolean).join(' · ');
     const det=[x.prov==='editeur'?'publié par l’éditeur — '+x.libelle+(x.fiche!=null?` (fiche : ${x.fiche})`:''):'mesuré par un tiers',
-      x.mode?'mode '+x.mode:'',x.effort?'effort '+x.effort:'',x.rank?'rang '+x.rank+' toutes catégories':'',
+      x.mode?'mode '+x.mode:'',x.effort?'effort '+x.effort:'',
+      x.ed?`l’éditeur publie ${x.ed.score} (${x.ed.libelle}${x.ed.mode?', '+x.ed.mode:''})`:'',x.rank?'rang '+x.rank+' toutes catégories':'',
       x.ci?`IC 95 % : ${x.ci[0]} – ${x.ci[1]}`:''].filter(Boolean).join(' · ');
     return `<div class="orow"><div class="nm">${lien(e.url,esc(e.nom))}<small>${sub}</small></div>
       <div class="tr" title="${esc(det)}"><i class="ob p-${x.prov}" style="width:${pos(x.score)}%"></i>${
@@ -1849,7 +1857,7 @@ function slmRank(){
     `${mes} des ${P.entries.length} modèles du catalogue ont un score ici.</div>`;
   document.querySelectorAll('#pgl .bc').forEach(c=>c.classList.toggle('on',c.dataset.b===b.id));
 }
-pbsel.addEventListener('change',slmRank);['#parch','#plic'].forEach(k=>$(k).addEventListener('change',slmRank));
+pbsel.addEventListener('change',slmRank);['#parch','#plic','#ptop'].forEach(k=>$(k).addEventListener('change',slmRank));
 $('#ptai').addEventListener('input',slmRank);
 slmRank();
 const mfam=$('#mfam');mfam.add(new Option('Toutes',''));
