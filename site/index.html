@@ -801,7 +801,14 @@ const PROV_LLM={independent_run:'mesuré par Epoch AI (tiers)',
  independent_leaderboard:'classement public repris par Epoch AI'};
 function rank(){
   const b=cur(),unit=b.name==='METR Time Horizons'?'minutes':'fraction';
-  let r=best(rows()); const n=+$('#top').value; if(n)r=r.slice(0,n);
+  let r=best(rows());
+  // Sans filtre d'effort : une barre par modèle et par harnais, au meilleur niveau d'effort ;
+  // les autres niveaux restent visibles sur la même barre (traits) et au survol.
+  if(!$('#eff').value){const g=new Map();
+    r.forEach(s=>{const k=(s.mb||s.m)+'|'+(s.h||'');const p=g.get(k);
+      if(!p)g.set(k,{...s,autres:[]});else p.autres.push(s);});
+    r=[...g.values()];}
+  const n=+$('#top').value; if(n)r=r.slice(0,n);
   if(!r.length)return empty('Aucune mesure pour ce filtre.');
   const W=940,L=290,R=78,BH=25,H=r.length*BH+52,max=Math.max(...r.map(x=>x.s+(x.e||0)))*1.06;
   const sv=mk('svg',{viewBox:`0 0 ${W} ${H}`,width:W,role:'group',
@@ -820,7 +827,7 @@ function rank(){
   r.forEach((s,i)=>{const y=34+i*BH,c=cv(LABC[s.l]||'--ink-3');
     const g=mk('g');
     const lb=mk('text',{x:L-9,y:y+13,'text-anchor':'end',class:'lbl'});
-    lb.textContent=(s.d||s.m).slice(0,36);g.append(lb);
+    lb.textContent=((s.d||s.m)+(s.h?' · '+s.h:'')).slice(0,40);g.append(lb);
     if(s.ef){  // l'effort est une variable de décision, pas un détail de nommage
       const eb=mk('text',{x:L+4,y:y+14,class:'ax','font-size':'9.5'});
       eb.textContent=s.ef;eb.setAttribute('fill',cv('--panel'));
@@ -829,18 +836,21 @@ function rank(){
         fill:cv('--ink-2'),opacity:.9}));
       eb.setAttribute('x',L+6);g.append(eb);}
     g.append(mk('rect',{x:L,y:y+3,width:Math.max(2,x(s.s)-L),height:15,class:'bar',fill:c}));
+    (s.autres||[]).forEach(o=>g.append(mk('line',{x1:x(o.s),x2:x(o.s),y1:y+4,y2:y+17,
+      stroke:cv('--panel'),'stroke-width':2,opacity:.85})));
     if(s.e){const a=x(s.s-1.96*s.e),z=x(s.s+1.96*s.e);
       g.append(mk('line',{x1:a,x2:z,y1:y+10.5,y2:y+10.5,stroke:cv('--ink-2'),'stroke-width':1.5}));
       [a,z].forEach(p=>g.append(mk('line',{x1:p,x2:p,y1:y+6,y2:y+15,
         stroke:cv('--ink-2'),'stroke-width':1.5})));}
     const vt=mk('text',{x:W-R+7,y:y+14,class:'val'});vt.textContent=pct(s.s,unit);g.append(vt);
-    wire(g,`<b>${esc(s.d||s.m)}</b>${esc(s.o)}<br>${pct(s.s,unit)}`+
+    wire(g,`<b>${esc(s.d||s.m)}</b>${esc(s.o)}<br>${pct(s.s,unit)}${s.ef?' (effort '+esc(s.ef)+')':''}`+
       (s.e?` ± ${(1.96*s.e*100).toFixed(1)} pts (IC95)`:'')+
+      ((s.autres||[]).length?'<br>autres efforts : '+s.autres.map(o=>`${esc(o.ef||'?')} ${pct(o.s,unit)}`).join(' · '):'')+
       (s.h?`<br>harnais : <b>${esc(s.h)}</b>`:'')+
       `<i>${esc(PROV_LLM[s.p]||s.p)}${s.r?' · modèle publié le '+esc(s.r):''}`+
       `${s.v?' · logs disponibles':''}</i>`);
     sv.append(g);});
-  render(sv,r,unit);
+  render(sv,r.flatMap(s=>[s,...(s.autres||[])]),unit);
 }
 
 function harness(){
@@ -1089,7 +1099,10 @@ function gouttiere(sv,items,W,R,T,B,H){
 const HOWTO={
  rank:"Une barre par modèle : la longueur est son score sur le benchmark choisi. Le trait "+
    "fin qui la traverse est sa marge d'erreur — deux modèles dont les traits se chevauchent "+
-   "ne sont pas départageables, même si le classement les sépare.",
+   "ne sont pas départageables, même si le classement les sépare. Sans filtre d'effort, un modèle "+
+   "mesuré à plusieurs niveaux d'effort n'a qu'une barre : son meilleur niveau (étiquette sur la "+
+   "barre) ; les traits clairs marquent les autres niveaux, détaillés au survol. Le nom du harnais "+
+   "suit celui du modèle quand le benchmark le publie.",
  harness:"Un même modèle, relancé sous plusieurs outils différents. Chaque point est un "+
    "outil, la ligne relie le pire au meilleur : sa longueur, c'est ce que le choix de "+
    "l'outil vous fait gagner ou perdre, à modèle identique.",
@@ -1131,10 +1144,10 @@ function render(sv,r,unit){
     (b.caveat&&K!=='cover'?
       `<div class="note"><b>Réserve sur ce benchmark.</b> ${esc(b.caveat)}</div>`:'');
   $('#tbl').innerHTML=r.length?
-    '<thead><tr><th>Modèle</th><th>Fournisseur</th><th>Harnais</th>'+
+    '<thead><tr><th>Modèle</th><th>Fournisseur</th><th>Harnais</th><th>Effort</th>'+
     '<th class="n">Score</th><th class="n">IC95</th><th>Provenance</th><th>Source</th></tr></thead>'+
     '<tbody>'+r.map(s=>`<tr><td>${esc(s.d||s.m)}</td><td>${esc(s.o)}</td>`+
-      `<td>${esc(s.h||'—')}</td><td class="n">${pct(s.s,unit)}</td>`+
+      `<td>${esc(s.h||'—')}</td><td>${esc(s.ef||'—')}</td><td class="n">${pct(s.s,unit)}</td>`+
       `<td class="n">${s.e?'±'+(1.96*s.e*100).toFixed(1):'—'}</td>`+
       `<td>${esc(PROV_LLM[s.p]||s.p)}</td><td>${s.u?`<a href="${esc(s.u)}" rel="noopener">lien</a>`:'—'}</td></tr>`
     ).join('')+'</tbody>':'';
