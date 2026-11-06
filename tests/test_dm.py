@@ -41,5 +41,15 @@ class TestDM(unittest.TestCase):
             self.assertTrue(r.get("source_url") and r.get("verified_on"))
 
 
+    def test_classe_de_licence(self):
+        import sys
+        sys.path.insert(0, str(CATALOG.parent / "pipeline"))
+        from dm_ingest import classe
+        self.assertEqual(classe("apache-2.0"), "libre")
+        self.assertEqual(classe("cc-by-nc-4.0"), "non_commercial")
+        self.assertEqual(classe("gemma"), "conditions")
+        self.assertIsNone(classe("other"))        # licence maison : à lire, pas à deviner
+        self.assertEqual(classe(None), "non_declaree")
+
 if __name__ == "__main__":
     unittest.main()

@@ -115,6 +115,7 @@ def build_payload() -> dict:
     dm_rows = [{"b": r["benchmark"], "n": r["name"], "s": r["score"], "e": fiche(r["name"]),
                 "k": r.get("kind") or r.get("board"), "t": r.get("tie_band"), "d": r.get("domains"),
                 "x": r.get("axes"), "c": r.get("composite"), "p": r.get("params_b"),
+                "lt": r.get("licence"), "lc": r.get("licence_classe"),
                 "u": r.get("weights_url"), "w": bool(r.get("weights_url")) and r.get("board") != "api"
                 and r.get("kind") != "hosted API"}
                for r in dms.get("scores", [])]
@@ -378,6 +379,7 @@ summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
 .lc-conditions{color:var(--warn);border-color:var(--warn)}
 .lc-non_commercial,.lc-non_declaree,.lc-exclue_ue{color:var(--bad);border-color:var(--bad)}
 .lc-proprietaire{color:var(--ink-2);border-color:var(--line-strong)}
+.lc-inconnue{color:var(--ink-3);border-color:var(--line-strong);border-style:dashed}
 .ot{max-height:none}
 .ot td{vertical-align:top}
 .ot td small{display:block;color:var(--ink-3);font-size:11px;margin-top:2px}
@@ -1962,6 +1964,10 @@ const VUES={
    ['x.omniscience_non_hallucination_rate','Omniscience : non-hallucination'],
    ['x.hle_multichoice_accuracy','HLE (choix multiple)'],['x.when2call_accuracy','When2Call'],
    ['x.wildguardtest_average_f1','WildGuardTest']]};
+// Licence d'une ligne sans fiche : celle que déclare son dépôt Hugging Face, sinon « non relevée ».
+const lcRepo=x=>x.lc?`<span class="lc lc-${x.lc}" title="licence déclarée sur le dépôt : ${esc(x.lt)} — un dérivé hérite aussi des conditions de son modèle de base">${LCL[x.lc]}</span>`:
+  x.lt?`<span class="lc lc-inconnue" title="licence maison déclarée sur le dépôt (${esc(x.lt)}) : texte à lire">licence maison</span>`:
+  `<span class="lc lc-inconnue" title="aucune licence lue : pas de dépôt Hugging Face, ou dépôt sans licence déclarée. Ce n’est pas forcément propriétaire.">licence non relevée</span>`;
 const val=(r,v)=>v==='s'?r.s:v==='c'?r.c:(r[v[0]]||{})[v.slice(2)];
 function dmVues(){dvsel.textContent='';(VUES[dbsel.value]||[['s','Score']]).forEach(([k,l])=>dvsel.add(new Option(l,k)));}
 function dmRank(){
@@ -1970,14 +1976,14 @@ function dmRank(){
   // Taille : seul le Jev Decision Index la publie ; filtrer masque les lignes sans taille connue.
   const sansTaille=lim?DM.scores.filter(x=>x.b===b.id&&!x.p).length:0;
   let r=DM.scores.filter(x=>x.b===b.id&&val(x,v)!=null&&(gen||!x.g)&&(!lim||(x.p&&x.p<=tmax))).filter(x=>{const e=DE[x.e];
-    if(lic==='libre')return e&&e.licence_classe==='libre';
+    if(lic==='libre')return (e?e.licence_classe:x.lc)==='libre';
     if(lic==='ouvert')return e?e.ouvert:x.w;return true;});
   r.sort((a,c)=>val(c,v)-val(a,v));
   if(top==='fiche')r=r.filter(x=>x.e);else if(+top)r=r.slice(0,+top);
   const bande=v==='s'&&b.id==='jev-decision-index';
   $('#dbars').innerHTML=r.map(x=>{const e=DE[x.e];
     const sub=[e?`${esc(e.editeur.replace(/\s*\(.*$/,''))} · ${lchip(e.licence_classe)}`:
-      (x.g?'LLM généraliste':x.w?'poids ouverts':/api/i.test(x.k||'')?'API':''),
+      [x.g?'LLM généraliste':x.w?'poids ouverts':/api/i.test(x.k||'')?'API':'',x.g?'':lcRepo(x)].filter(Boolean).join(' · '),
       x.p?x.p+' Md':''].filter(Boolean).join(' · ');
     const nm=e&&e.url?`<a href="${esc(e.url)}" rel="noopener">${esc(x.n)}</a>`:esc(x.n);
     return `<div class="orow${x.g?' gen':''}${bande&&x.t%2===0?' alt':''}"><div class="nm">${bande&&x.t?`<span class="rk">=${x.t}</span>`:''}${nm}<small>${sub}</small></div>

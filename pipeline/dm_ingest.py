@@ -30,6 +30,42 @@ DATA_URL = SPACE + "/resolve/main/data/index.json"
 JB_RAW = ROOT / "sources" / "raw" / "jevbench.json"
 JB_PAGE = "https://benchmarkheaven.com/jev-models"
 JB_URL = "https://benchmarkheaven.com/api/jevbench/latest"
+LIC_RAW = ROOT / "sources" / "raw" / "hf_licences.json"
+LIBRES = {"apache-2.0", "mit", "bsd-2-clause", "bsd-3-clause", "cc-by-4.0", "cc0-1.0", "unlicense"}
+CONDITIONS = ("gemma", "llama", "qwen", "openrail", "creativeml", "lfm", "nvidia-open-model")
+
+
+def classe(tag: str | None) -> str | None:
+    """Classe de licence d'après l'étiquette déclarée sur le dépôt Hugging Face.
+    « other » (licence maison) n'est pas classée : il faut lire le texte."""
+    if not tag:
+        return "non_declaree"
+    t = tag.lower()
+    if t in LIBRES:
+        return "libre"
+    if "-nc" in t or "noncommercial" in t or "non-commercial" in t:
+        return "non_commercial"
+    if t.startswith(CONDITIONS):
+        return "conditions"
+    return None
+
+
+def licences(urls: set[str], force: bool) -> dict:
+    """Étiquette `license` de chaque dépôt, lue par l'API Hugging Face (une requête
+    JSON par dépôt, mise en cache : seuls les dépôts nouveaux sont interrogés)."""
+    cache = json.loads(LIC_RAW.read_text(encoding="utf-8")) if LIC_RAW.exists() and not force else {}
+    for u in sorted(urls - cache.keys()):
+        repo = u.split("huggingface.co/", 1)[1].strip("/")
+        try:
+            with urllib.request.urlopen(f"https://huggingface.co/api/models/{repo}", timeout=30) as r:
+                d = json.load(r)
+            cache[u] = (d.get("cardData") or {}).get("license") or next(
+                (t[8:] for t in d.get("tags", []) if t.startswith("license:")), None)
+        except Exception:
+            cache[u] = "?"   # dépôt supprimé, privé ou renommé : licence non relevée
+    LIC_RAW.parent.mkdir(parents=True, exist_ok=True)
+    LIC_RAW.write_text(json.dumps(cache, ensure_ascii=False, indent=0), encoding="utf-8")
+    return cache
 
 
 def fetch(force: bool, url: str = DATA_URL, raw: Path = RAW) -> dict:
@@ -100,6 +136,12 @@ def main() -> int:
     rows.sort(key=lambda r: -r["score"])
     jb = fetch(a.force_download, JB_URL, JB_RAW)
     rows += jevbench(jb)
+    hf = {r["weights_url"] for r in rows if (r.get("weights_url") or "").startswith("https://huggingface.co/")}
+    lic = licences(hf, a.force_download)
+    for r in rows:
+        t = lic.get(r.get("weights_url"))
+        if t and t != "?":
+            r["licence"], r["licence_classe"] = t, classe(t)
     suite = d.get("suite") or {}
     out = {
         "_generated": {

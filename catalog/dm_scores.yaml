@@ -1,6 +1,6 @@
 _generated:
   by: pipeline/dm_ingest.py
-  'on': '2026-10-28'
+  'on': '2026-11-06'
   upstream: Jev Decision Index — Decision Index 0.4.1
   upstream_url: https://huggingface.co/spaces/multimodalart/jev-decision-index
   data_url: https://huggingface.co/spaces/multimodalart/jev-decision-index/resolve/main/data/index.json
@@ -39,6 +39,8 @@ scores:
     retrieval: 73.0
     tools: 84.7
     arts: 60.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Fastino GLiDE 1.2
   engine: glide-v1.2
@@ -57,6 +59,8 @@ scores:
     retrieval: 72.2
     tools: 88.0
     arts: 62.6
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Sieve 31B v3
   engine: sieve-31b-v3
@@ -75,6 +79,8 @@ scores:
     retrieval: 76.1
     tools: 86.9
     arts: 62.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Turion Jev 31B
   engine: turion-jev-31b
@@ -93,6 +99,8 @@ scores:
     retrieval: 71.2
     tools: 78.7
     arts: 51.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR d3-ultra (Decision 3.0, 27B)
   engine: vllm-sr-d3-ultra
@@ -111,6 +119,8 @@ scores:
     retrieval: 71.8
     tools: 87.8
     arts: 63.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jeffan-31b-1710
   engine: jeffan-31b-1710
@@ -129,6 +139,8 @@ scores:
     retrieval: 72.2
     tools: 89.4
     arts: 63.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: H2O Lightning 31B v1.1
   engine: h2o-lightning-31b-v1.1
@@ -147,6 +159,8 @@ scores:
     retrieval: 66.9
     tools: 86.3
     arts: 59.7
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: WeMM-JEV-27B
   engine: wemm-jev-27b
@@ -165,6 +179,8 @@ scores:
     retrieval: 70.0
     tools: 86.0
     arts: 52.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: baselabs mammoth-1 (27B)
   engine: mammoth-1
@@ -183,6 +199,8 @@ scores:
     retrieval: 77.4
     tools: 88.6
     arts: 64.1
+  licence: mit
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Ainvest-Decision-27B v1.0
   engine: ainvest-decision-27b-v1.0
@@ -201,6 +219,8 @@ scores:
     retrieval: 75.5
     tools: 87.1
     arts: 65.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Perplexity Decider v1.2 (27B)
   engine: pplx-decider-v1.2
@@ -219,6 +239,8 @@ scores:
     retrieval: 68.1
     tools: 85.4
     arts: 56.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: AutoTrust-JEV-27B v1.1
   engine: autotrust-jev-27b-v11
@@ -237,6 +259,8 @@ scores:
     retrieval: 67.0
     tools: 85.2
     arts: 51.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: StartLux-Decision v1.1 27B
   engine: startlux-decision-v1.1-27b-instant
@@ -255,6 +279,8 @@ scores:
     retrieval: 74.8
     tools: 87.9
     arts: 66.2
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: MISA AI 2.0 Decision Plus · oak 1.1 (31B)
   engine: oak-1.1
@@ -273,6 +299,8 @@ scores:
     retrieval: 71.8
     tools: 85.7
     arts: 57.5
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: AJev lm6q (Gemma 4 31B)
   engine: ajev-lm6q
@@ -291,6 +319,8 @@ scores:
     retrieval: 67.3
     tools: 81.5
     arts: 54.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: FlexDM · Gemma-4-31B
   engine: flexdm-gemma-4-31b
@@ -327,6 +357,8 @@ scores:
     retrieval: 63.9
     tools: 80.8
     arts: 47.0
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: vLLM-SR d3-turbo v1.1 (27B)
   engine: vllm-sr-d3-turbo-v11
@@ -345,6 +377,8 @@ scores:
     retrieval: 75.8
     tools: 86.9
     arts: 60.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR d3 (27B)
   engine: vllm-sr-d3-v310
@@ -381,6 +415,8 @@ scores:
     retrieval: 68.0
     tools: 82.7
     arts: 48.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Aleria Judge 1.1.1 (Gemma 4 31B)
   engine: aleria-judge-1.1.1
@@ -435,6 +471,8 @@ scores:
     retrieval: 71.6
     tools: 88.6
     arts: 54.3
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: AnyJev Tacitus 31B
   engine: anyjev-tacitus-31b
@@ -453,6 +491,8 @@ scores:
     retrieval: 67.5
     tools: 81.3
     arts: 53.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Decider 31B (NVFP4)
   engine: decider-31b
@@ -471,6 +511,8 @@ scores:
     retrieval: 65.5
     tools: 84.2
     arts: 55.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: allec (Gemma 4 31B)
   engine: allec
@@ -489,6 +531,8 @@ scores:
     retrieval: 64.8
     tools: 77.4
     arts: 48.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: KnowLine 35B-A3B Gen1.5
   engine: knowline-35b-a3b-gen1.5
@@ -507,6 +551,8 @@ scores:
     retrieval: 75.4
     tools: 88.2
     arts: 64.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: OneShot 27B
   engine: oneshot-27b
@@ -543,6 +589,8 @@ scores:
     retrieval: 69.5
     tools: 83.0
     arts: 58.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Bobcat 1.3 (31B)
   engine: bobcat-1.3
@@ -561,6 +609,8 @@ scores:
     retrieval: 65.5
     tools: 76.1
     arts: 40.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Amos 1 Large (27B)
   engine: amos-1-large
@@ -579,6 +629,8 @@ scores:
     retrieval: 66.1
     tools: 79.2
     arts: 49.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Matilda Decision v1
   engine: matilda-decision-v1
@@ -597,6 +649,8 @@ scores:
     retrieval: 67.6
     tools: 84.6
     arts: 47.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: jev-brain · Gemma-4-31B
   engine: jev-brain-gemma-4-31b
@@ -633,6 +687,8 @@ scores:
     retrieval: 70.9
     tools: 83.3
     arts: 61.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: frontier-infra Jebadiah 27B v2.1 (t1e)
   engine: jebadiah-27b-v2.1-t1e
@@ -651,6 +707,8 @@ scores:
     retrieval: 59.9
     tools: 79.3
     arts: 45.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: AnyJev L0 · Gemma-4-31B
   engine: anyjev-l0-gemma-4-31b
@@ -705,6 +763,8 @@ scores:
     retrieval: 60.9
     tools: 86.7
     arts: 53.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: decisio 0.6.0 (Gemma 4 31B)
   engine: decisio-0.6.0-gemma-4-31b
@@ -741,6 +801,8 @@ scores:
     retrieval: 65.9
     tools: 86.7
     arts: 50.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Decider chat · Gemma-4-31B
   engine: decider-chat-gemma4-31b
@@ -777,6 +839,8 @@ scores:
     retrieval: 67.5
     tools: 84.6
     arts: 54.4
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: OneJev1.6-27B
   engine: onejev1.6-27b
@@ -795,6 +859,8 @@ scores:
     retrieval: 73.7
     tools: 85.5
     arts: 59.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Qwen Decision 27B noncausal LoRA
   engine: qwen-decision-27b-noncausal
@@ -813,6 +879,8 @@ scores:
     retrieval: 57.8
     tools: 80.2
     arts: 43.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Quyet-1.0-Large
   engine: quyet-1.0-large
@@ -831,6 +899,8 @@ scores:
     retrieval: 65.8
     tools: 72.5
     arts: 41.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: garum (Gemma 4 31B)
   engine: garum
@@ -849,6 +919,8 @@ scores:
     retrieval: 63.3
     tools: 75.0
     arts: 44.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: baselabs elephant-1 (9B)
   engine: elephant-1-baselabs
@@ -867,6 +939,8 @@ scores:
     retrieval: 76.2
     tools: 88.0
     arts: 61.6
+  licence: mit
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jev 1.14
   engine: jev
@@ -903,6 +977,8 @@ scores:
     retrieval: 72.5
     tools: 86.1
     arts: 54.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Lumma-fev-27B
   engine: lumma-fev-27b
@@ -921,6 +997,8 @@ scores:
     retrieval: 57.7
     tools: 78.8
     arts: 44.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Sieve 27B v2
   engine: sieve-27b-v2
@@ -939,6 +1017,8 @@ scores:
     retrieval: 73.4
     tools: 85.8
     arts: 58.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: mogan-decision-31B-it
   engine: mogan-decision-31b-it
@@ -957,6 +1037,8 @@ scores:
     retrieval: 69.6
     tools: 79.7
     arts: 56.1
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: linne-fern 1.0 (27B)
   engine: linne-fern-1.0
@@ -975,6 +1057,8 @@ scores:
     retrieval: 62.4
     tools: 79.0
     arts: 41.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Kev 27B
   engine: kev-27b
@@ -993,6 +1077,8 @@ scores:
     retrieval: 55.8
     tools: 72.7
     arts: 42.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Xor 26B-A4B v1.2
   engine: xor-26b-a4b-v1.2
@@ -1011,6 +1097,8 @@ scores:
     retrieval: 64.8
     tools: 72.2
     arts: 51.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jev 1.13
   engine: jev-1.13.0
@@ -1047,6 +1135,8 @@ scores:
     retrieval: 65.5
     tools: 83.9
     arts: 48.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: garas (Gemma 4 31B)
   engine: garas
@@ -1065,6 +1155,8 @@ scores:
     retrieval: 61.9
     tools: 73.8
     arts: 43.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Shisa DE-2.1 (repeat)
   engine: shisa-de-2.1-repeat
@@ -1083,6 +1175,8 @@ scores:
     retrieval: 64.8
     tools: 76.3
     arts: 40.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Eikos-27B
   engine: eikos-27b-fp8
@@ -1101,6 +1195,8 @@ scores:
     retrieval: 55.9
     tools: 74.4
     arts: 41.4
+  licence: mit
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: reflex Qwen3.8-27B-FP8 (pmscr)
   engine: reflex-27b-pmscr
@@ -1137,6 +1233,8 @@ scores:
     retrieval: 69.1
     tools: 81.2
     arts: 57.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: KnowLine 9B Gen1
   engine: knowline-9b-gen1
@@ -1155,6 +1253,8 @@ scores:
     retrieval: 71.9
     tools: 82.7
     arts: 59.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: StartLux-Decision v1.1 9B
   engine: startlux-decision-v1.1-9b-instant
@@ -1173,6 +1273,8 @@ scores:
     retrieval: 74.3
     tools: 88.2
     arts: 63.1
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: vLLM-SR Decision 2.0 Vega 27B
   engine: decision-2.0-vega-27b
@@ -1191,6 +1293,8 @@ scores:
     retrieval: 60.9
     tools: 73.5
     arts: 42.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JEV-35B
   engine: jev-35b
@@ -1209,6 +1313,8 @@ scores:
     retrieval: 71.0
     tools: 76.4
     arts: 42.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JEV-27B
   engine: jev-27b
@@ -1227,6 +1333,8 @@ scores:
     retrieval: 53.7
     tools: 73.5
     arts: 41.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: simple-jev · Qwen3.8-27B (featherless)
   engine: simple-jev-qwen3.8-27b
@@ -1263,6 +1371,8 @@ scores:
     retrieval: 63.5
     tools: 77.0
     arts: 43.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Surogate Rune 26B-A4B v3
   engine: rune-26b-a4b-v3
@@ -1281,6 +1391,8 @@ scores:
     retrieval: 63.5
     tools: 71.2
     arts: 46.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: SynACK Decide 26B-A4B v7
   engine: synack-decide-26b-a4b-v7
@@ -1299,6 +1411,8 @@ scores:
     retrieval: 62.4
     tools: 79.1
     arts: 50.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: KnowLine 4B Gen5.5
   engine: knowline-4b-gen5.5
@@ -1317,6 +1431,8 @@ scores:
     retrieval: 74.0
     tools: 87.4
     arts: 61.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Blink v0.3 26B-A4B (NVFP4)
   engine: blink-v0.3-26b-a4b-nvfp4
@@ -1335,6 +1451,8 @@ scores:
     retrieval: 63.0
     tools: 70.0
     arts: 47.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JADE
   engine: jade
@@ -1353,6 +1471,8 @@ scores:
     retrieval: 54.4
     tools: 73.2
     arts: 39.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Wald-26B-A4B
   engine: wald-26b-a4b
@@ -1371,6 +1491,8 @@ scores:
     retrieval: 69.0
     tools: 83.3
     arts: 50.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: AJev lora1 (Gemma 4 26B-A4B)
   engine: ajev-gemma26-lora1
@@ -1389,6 +1511,8 @@ scores:
     retrieval: 63.5
     tools: 73.2
     arts: 46.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Cloudflare clef
   engine: clef
@@ -1407,6 +1531,8 @@ scores:
     retrieval: 62.8
     tools: 80.7
     arts: 48.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: StartLux-Decision v1.1 4B
   engine: startlux-decision-v1.1-4b-instant
@@ -1425,6 +1551,8 @@ scores:
     retrieval: 73.0
     tools: 86.4
     arts: 60.0
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Decider chat · Qwen3.6-27B
   engine: decider-chat-qwen3.6-27b
@@ -1461,6 +1589,8 @@ scores:
     retrieval: 65.2
     tools: 81.0
     arts: 46.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR d3-flash (9B)
   engine: vllm-sr-d3-flash
@@ -1479,6 +1609,8 @@ scores:
     retrieval: 64.2
     tools: 76.0
     arts: 41.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JPT-35B-A3B
   engine: jpt-35b-a3b
@@ -1497,6 +1629,8 @@ scores:
     retrieval: 55.6
     tools: 69.2
     arts: 36.5
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Xor 1.2
   engine: xor-1.2
@@ -1515,6 +1649,8 @@ scores:
     retrieval: 54.5
     tools: 71.2
     arts: 45.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: GEV-26B-Decide
   engine: jev-gemma4-26b-a4b
@@ -1533,6 +1669,8 @@ scores:
     retrieval: 67.9
     tools: 69.7
     arts: 45.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: OneJev1.6-9B
   engine: onejev1.6-9b
@@ -1551,6 +1689,8 @@ scores:
     retrieval: 71.7
     tools: 83.0
     arts: 56.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Nace.AI Drex v2.0 (35B-A3B)
   engine: drex-v2.0
@@ -1569,6 +1709,8 @@ scores:
     retrieval: 63.0
     tools: 76.5
     arts: 53.9
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: muria (Gemma 4 12B)
   engine: muria
@@ -1587,6 +1729,8 @@ scores:
     retrieval: 58.9
     tools: 70.8
     arts: 39.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jeffan-4B-2010
   engine: jeffan-4b-2010
@@ -1605,6 +1749,8 @@ scores:
     retrieval: 62.8
     tools: 87.4
     arts: 54.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Verdin-4B v1.1
   engine: verdin-4b-v1.1
@@ -1623,6 +1769,8 @@ scores:
     retrieval: 66.9
     tools: 81.0
     arts: 51.1
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Bespoke Nimble 9B v3
   engine: nimble-v3
@@ -1641,6 +1789,8 @@ scores:
     retrieval: 55.5
     tools: 84.2
     arts: 44.0
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: frontier-infra Jebadiah 9B v2.1 (t1e)
   engine: jebadiah-9b-v2.1-t1e
@@ -1659,6 +1809,8 @@ scores:
     retrieval: 55.5
     tools: 70.4
     arts: 38.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: decisio 0.4.0 (Qwen3.6-35B-A3B)
   engine: decisio-0.4.0-qwen3.6-35b-a3b
@@ -1695,6 +1847,8 @@ scores:
     retrieval: 63.6
     tools: 72.0
     arts: 37.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JoshuaSP diffusiongemma (open-jev)
   engine: joshua-diffusion-full
@@ -1731,6 +1885,8 @@ scores:
     retrieval: 63.0
     tools: 68.4
     arts: 39.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: OneJev1.6-4B
   engine: onejev1.6-4b
@@ -1749,6 +1905,8 @@ scores:
     retrieval: 68.9
     tools: 81.5
     arts: 49.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: decisio 0.4.0 (Gemma 4 12B)
   engine: decisio-0.4.0-gemma-4-12b
@@ -1785,6 +1943,8 @@ scores:
     retrieval: 61.7
     tools: 80.9
     arts: 40.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: PurpleMIST-Flash-1.0
   engine: purplemist-flash-1.0
@@ -1803,6 +1963,8 @@ scores:
     retrieval: 47.5
     tools: 65.1
     arts: 25.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Cerno 9B v1.1
   engine: cerno-9b-v11
@@ -1821,6 +1983,8 @@ scores:
     retrieval: 65.1
     tools: 79.2
     arts: 43.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Senova-4B
   engine: senova-4b
@@ -1839,6 +2003,8 @@ scores:
     retrieval: 67.0
     tools: 84.6
     arts: 58.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Sieve 9B v2
   engine: sieve-9b-plus
@@ -1857,6 +2023,8 @@ scores:
     retrieval: 64.2
     tools: 69.8
     arts: 34.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Decider 35B-A3B
   engine: decider-35b-nvfp4
@@ -1875,6 +2043,8 @@ scores:
     retrieval: 54.7
     tools: 56.5
     arts: 35.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Winnow-12B
   engine: winnow-12b-q8
@@ -1893,6 +2063,8 @@ scores:
     retrieval: 54.0
     tools: 71.0
     arts: 31.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Seb-9B v2
   engine: seb-9b-v2
@@ -1911,6 +2083,8 @@ scores:
     retrieval: 63.5
     tools: 83.1
     arts: 48.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR Decision 2.0 Lux 9B
   engine: decision-2.0-lux-9b
@@ -1929,6 +2103,8 @@ scores:
     retrieval: 55.6
     tools: 60.4
     arts: 33.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Nace.AI Drex v1.5
   engine: drex-v1.5
@@ -1947,6 +2123,8 @@ scores:
     retrieval: 61.7
     tools: 75.0
     arts: 48.8
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Hopper 12B (trained)
   engine: hopper-12b-trained
@@ -1965,6 +2143,8 @@ scores:
     retrieval: 53.2
     tools: 66.3
     arts: 34.2
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Trio-Spark DI (9B)
   engine: trio-spark-di
@@ -1983,6 +2163,8 @@ scores:
     retrieval: 58.8
     tools: 76.6
     arts: 42.8
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: CoCo-Decision-4B 2.4
   engine: coco-decision-2.4-4b
@@ -2001,6 +2183,8 @@ scores:
     retrieval: 58.7
     tools: 77.3
     arts: 39.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Cloudflare clef-omni (30B-A3B)
   engine: clef-omni
@@ -2019,6 +2203,8 @@ scores:
     retrieval: 59.3
     tools: 72.6
     arts: 46.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JevK5 9B v0.3.3
   engine: jevk5-9b-v0.3.3
@@ -2037,6 +2223,8 @@ scores:
     retrieval: 50.0
     tools: 64.1
     arts: 35.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Cloudflare clef-flash
   engine: clef-flash
@@ -2055,6 +2243,8 @@ scores:
     retrieval: 52.2
     tools: 81.9
     arts: 48.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jevfire
   engine: jevfire-uncapped
@@ -2091,6 +2281,8 @@ scores:
     retrieval: 57.1
     tools: 68.4
     arts: 45.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jegue 0.1 (9B)
   engine: jegue-0.1
@@ -2109,6 +2301,8 @@ scores:
     retrieval: 65.5
     tools: 72.3
     arts: 29.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: jiwo 4B v2
   engine: jiwo-4b-v2
@@ -2127,6 +2321,8 @@ scores:
     retrieval: 51.7
     tools: 63.1
     arts: 29.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JPT-9B
   engine: jpt-9b
@@ -2145,6 +2341,8 @@ scores:
     retrieval: 44.6
     tools: 67.0
     arts: 28.8
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: ezjev 4B s2
   engine: ezjev-4b-s2
@@ -2163,6 +2361,8 @@ scores:
     retrieval: 56.3
     tools: 69.9
     arts: 31.1
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Jev-Omni
   engine: jev-omni
@@ -2181,6 +2381,8 @@ scores:
     retrieval: 35.8
     tools: 60.8
     arts: 27.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Solomon v1.1
   engine: solomon-v11-bf16-encoding
@@ -2199,6 +2401,8 @@ scores:
     retrieval: 26.0
     tools: 47.0
     arts: 24.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Standard One 8B SH (v4)
   engine: standard-one-8b-sh-v4
@@ -2217,6 +2421,8 @@ scores:
     retrieval: 66.4
     tools: 84.0
     arts: 42.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Amber Hybrid 4B
   engine: amber-hybrid-4b
@@ -2235,6 +2441,8 @@ scores:
     retrieval: 68.9
     tools: 84.9
     arts: 55.3
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: JEV-9B
   engine: jev-9b
@@ -2253,6 +2461,8 @@ scores:
     retrieval: 46.5
     tools: 62.1
     arts: 32.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Bespoke Nimble 9B v2
   engine: nimble-v2
@@ -2271,6 +2481,8 @@ scores:
     retrieval: 34.9
     tools: 59.2
     arts: 27.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Sieve 9B
   engine: sieve-9b
@@ -2289,6 +2501,8 @@ scores:
     retrieval: 46.1
     tools: 61.3
     arts: 21.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Cerno 4B v1.1
   engine: cerno-4b-v11
@@ -2307,6 +2521,8 @@ scores:
     retrieval: 65.9
     tools: 82.9
     arts: 40.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Sieve 4B
   engine: sieve-4b
@@ -2325,6 +2541,8 @@ scores:
     retrieval: 61.6
     tools: 66.8
     arts: 28.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Kev 9B v2
   engine: kev-9b-v2
@@ -2343,6 +2561,8 @@ scores:
     retrieval: 46.8
     tools: 56.9
     arts: 17.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Nari Decision 4B v3.2
   engine: nari-decision-4b-v3.2
@@ -2361,6 +2581,8 @@ scores:
     retrieval: 59.8
     tools: 62.1
     arts: 25.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR Decision 2.0 Nox 4B
   engine: decision-2.0-nox-4b
@@ -2379,6 +2601,8 @@ scores:
     retrieval: 52.4
     tools: 60.1
     arts: 26.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Aplomb 1
   engine: aplomb-1
@@ -2397,6 +2621,8 @@ scores:
     retrieval: 44.5
     tools: 61.6
     arts: 34.0
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Hopper (G) 1.2
   engine: hopper-g-1.2
@@ -2415,6 +2641,8 @@ scores:
     retrieval: 45.4
     tools: 60.1
     arts: 29.2
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: StartLux-Decision v1.1 2B
   engine: startlux-decision-v1.1-2b-instant
@@ -2433,6 +2661,8 @@ scores:
     retrieval: 69.7
     tools: 79.0
     arts: 53.7
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: FlyMy.AI Decision 4B v1.6
   engine: decision-4b-v1.6
@@ -2451,6 +2681,8 @@ scores:
     retrieval: 45.3
     tools: 59.8
     arts: 39.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Standard One 3B SH (v4)
   engine: standard-one-3b-sh-v4
@@ -2469,6 +2701,8 @@ scores:
     retrieval: 67.0
     tools: 85.7
     arts: 47.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JPT-4B
   engine: jpt-4b
@@ -2487,6 +2721,8 @@ scores:
     retrieval: 45.0
     tools: 57.2
     arts: 26.1
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Intern-Decision-4B
   engine: intern-decision-4b
@@ -2505,6 +2741,8 @@ scores:
     retrieval: 40.3
     tools: 55.7
     arts: 28.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: RSI-Jev v5.0 VL 3B
   engine: rsi-jev-v5.0-vl-3b
@@ -2523,6 +2761,8 @@ scores:
     retrieval: 43.0
     tools: 52.8
     arts: 19.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: djev
   engine: djev
@@ -2559,6 +2799,8 @@ scores:
     retrieval: 41.9
     tools: 52.0
     arts: 17.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: razorback16 openjev diffusiongemma (NVFP4, vLLM)
   engine: razorback-one-read-3e296f08
@@ -2595,6 +2837,8 @@ scores:
     retrieval: 43.9
     tools: 58.9
     arts: 11.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JevK5 v0.3
   engine: jevk5-v0.3
@@ -2613,6 +2857,8 @@ scores:
     retrieval: 44.5
     tools: 56.9
     arts: 30.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Decider 4B
   engine: decider-4b
@@ -2631,6 +2877,8 @@ scores:
     retrieval: 44.7
     tools: 58.6
     arts: 30.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: lev
   engine: lev
@@ -2649,6 +2897,8 @@ scores:
     retrieval: 47.9
     tools: 57.5
     arts: 30.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Lev1 3.7B
   engine: lev1-3.7b
@@ -2667,6 +2917,8 @@ scores:
     retrieval: 47.1
     tools: 68.8
     arts: 32.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Kev 4B r10
   engine: kev-4b-r10
@@ -2685,6 +2937,8 @@ scores:
     retrieval: 42.5
     tools: 55.0
     arts: 17.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jev-Style 2B v4
   engine: jev-style-2b-v4
@@ -2703,6 +2957,8 @@ scores:
     retrieval: 65.4
     tools: 61.8
     arts: 29.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Sieve 2B v3
   engine: sieve-2b-v3
@@ -2721,6 +2977,8 @@ scores:
     retrieval: 66.5
     tools: 80.5
     arts: 47.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: LatentMesh Blitz 2B v1
   engine: latentmesh-blitz-2b-v1
@@ -2739,6 +2997,8 @@ scores:
     retrieval: 60.4
     tools: 66.5
     arts: 41.8
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Saracura PT-BR 4B
   engine: saracura-ptbr-4b
@@ -2757,6 +3017,8 @@ scores:
     retrieval: 46.2
     tools: 53.9
     arts: 14.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Cam1
   engine: cam1
@@ -2775,6 +3037,8 @@ scores:
     retrieval: 36.9
     tools: 46.3
     arts: 11.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR d3-nano (2B)
   engine: vllm-sr-d3-nano
@@ -2793,6 +3057,8 @@ scores:
     retrieval: 58.8
     tools: 58.9
     arts: 22.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: mmastrac diffusiongemma (vLLM PR 57250)
   engine: vllm-pr57250
@@ -2829,6 +3095,8 @@ scores:
     retrieval: 40.4
     tools: 48.9
     arts: 39.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Tev1-4B-experimental
   engine: tev1-4b
@@ -2865,6 +3133,8 @@ scores:
     retrieval: 43.8
     tools: 62.5
     arts: 26.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Aurelis-2B
   engine: aurelis-2b
@@ -2883,6 +3153,8 @@ scores:
     retrieval: 54.2
     tools: 79.5
     arts: 35.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jevstral 8B
   engine: jevstral-8b
@@ -2901,6 +3173,8 @@ scores:
     retrieval: 39.2
     tools: 52.9
     arts: 14.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Metask-Jev-4B
   engine: metask-jev-4b
@@ -2919,6 +3193,8 @@ scores:
     retrieval: 12.9
     tools: 37.6
     arts: 21.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Ryotide Qwen v0.3.1
   engine: ryotide-qwen-v0.3.1
@@ -2955,6 +3231,8 @@ scores:
     retrieval: 39.6
     tools: 51.0
     arts: 21.3
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: GLiClass v4 edge (0.4B)
   engine: gliclass-v4-edge
@@ -2973,6 +3251,8 @@ scores:
     retrieval: 66.7
     tools: 58.1
     arts: 38.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: LiquidAI d1-3B
   engine: d1-3b
@@ -2991,6 +3271,8 @@ scores:
     retrieval: 52.8
     tools: 74.5
     arts: 38.9
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: open-jev (pngwn)
   engine: pngwn-space-uncapped-full
@@ -3009,6 +3291,8 @@ scores:
     retrieval: 29.1
     tools: 45.7
     arts: 14.4
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: vera-core-2
   engine: vera-core-2
@@ -3027,6 +3311,8 @@ scores:
     retrieval: 53.8
     tools: 61.5
     arts: 23.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jobe
   engine: jobe
@@ -3063,6 +3349,8 @@ scores:
     retrieval: 63.4
     tools: 72.9
     arts: 35.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: crystal-0.8b
   engine: crystal-0.8b
@@ -3081,6 +3369,8 @@ scores:
     retrieval: 55.4
     tools: 64.9
     arts: 33.4
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: vLLM-SR vela3-fast (Vela 3.0, 0.4B)
   engine: vela3-fast
@@ -3099,6 +3389,8 @@ scores:
     retrieval: 66.9
     tools: 73.7
     arts: 43.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Crivo-1B
   engine: crivo-1b
@@ -3117,6 +3409,8 @@ scores:
     retrieval: 55.8
     tools: 78.7
     arts: 28.9
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Gevva E4B
   engine: gevva-e4b
@@ -3135,6 +3429,8 @@ scores:
     retrieval: 40.0
     tools: 56.9
     arts: 22.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: StartLux-Decision v1.1 0.8B
   engine: startlux-decision-v1.1-0.8b-instant
@@ -3153,6 +3449,8 @@ scores:
     retrieval: 66.5
     tools: 74.6
     arts: 51.1
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: openvons
   engine: openvons
@@ -3207,6 +3505,8 @@ scores:
     retrieval: 50.2
     tools: 59.7
     arts: 23.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR d3-lite (0.8B)
   engine: vllm-sr-d3-lite
@@ -3225,6 +3525,8 @@ scores:
     retrieval: 53.7
     tools: 56.3
     arts: 22.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Amber 0.4B
   engine: amber-0.4b
@@ -3243,6 +3545,8 @@ scores:
     retrieval: 64.3
     tools: 78.9
     arts: 49.5
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: jiwo 0.8B v2
   engine: jiwo-0.8b-v2-r2
@@ -3261,6 +3565,8 @@ scores:
     retrieval: 44.2
     tools: 40.3
     arts: 12.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Saina Helm 2.0 v2
   engine: saina-helm-2-v2
@@ -3279,6 +3585,8 @@ scores:
     retrieval: 50.5
     tools: 61.3
     arts: 22.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: this-that 1.2
   engine: this-that-1.2
@@ -3297,6 +3605,8 @@ scores:
     retrieval: 32.8
     tools: 45.0
     arts: 14.2
+  licence: mit
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Gevva E2B
   engine: gevva-e2b
@@ -3315,6 +3625,8 @@ scores:
     retrieval: 38.6
     tools: 52.5
     arts: 16.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Crivo-400M
   engine: crivo-400m
@@ -3333,6 +3645,8 @@ scores:
     retrieval: 51.0
     tools: 69.0
     arts: 25.4
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Decider 2B
   engine: decider-2b-fp8-http
@@ -3351,6 +3665,8 @@ scores:
     retrieval: 37.3
     tools: 42.4
     arts: 17.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR Decision 2.0 Sol 2B
   engine: decision-2.0-sol-2b
@@ -3369,6 +3685,8 @@ scores:
     retrieval: 45.6
     tools: 48.8
     arts: 14.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: jdi-ptr14-0.8b
   engine: jdi-ptr14-0.8b
@@ -3387,6 +3705,8 @@ scores:
     retrieval: 52.5
     tools: 53.0
     arts: 16.8
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: mini-jev
   engine: mini-jev
@@ -3423,6 +3743,8 @@ scores:
     retrieval: 26.2
     tools: 45.1
     arts: 17.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR vela3-fast-vision (Vela 3.0, 0.25B)
   engine: vela3-fast-vision-text
@@ -3441,6 +3763,8 @@ scores:
     retrieval: 54.9
     tools: 51.8
     arts: 41.5
+  licence: mit
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Sieve 2B
   engine: sieve-2b
@@ -3459,6 +3783,8 @@ scores:
     retrieval: 28.5
     tools: 35.3
     arts: 19.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: wyat-1-800m
   engine: wyat-1-800m
@@ -3477,6 +3803,8 @@ scores:
     retrieval: 43.0
     tools: 41.9
     arts: 13.2
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Intern-Decision-2B
   engine: intern-decision-2b
@@ -3495,6 +3823,8 @@ scores:
     retrieval: 15.7
     tools: 33.3
     arts: 14.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Sieve 0.8B
   engine: sieve-0.8b
@@ -3513,6 +3843,8 @@ scores:
     retrieval: 54.8
     tools: 51.2
     arts: 13.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Strands Decider 2B
   engine: strands-decider-2b
@@ -3531,6 +3863,8 @@ scores:
     retrieval: 34.0
     tools: 43.8
     arts: 10.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: EXAONE-4.0-1.2B-JEV v0.3
   engine: exaone-4.0-1.2b-jev-v0.3
@@ -3549,6 +3883,8 @@ scores:
     retrieval: 40.9
     tools: 56.6
     arts: 13.9
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: tasksource Decider nano v5 (150M)
   engine: tasksource-decider-nano-v5
@@ -3567,6 +3903,8 @@ scores:
     retrieval: 50.1
     tools: 50.9
     arts: 16.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Crivo-68M
   engine: crivo-68m
@@ -3585,6 +3923,8 @@ scores:
     retrieval: 48.8
     tools: 64.0
     arts: 20.9
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: JEV Ettin 150M
   engine: jev-ettin-150m
@@ -3603,6 +3943,8 @@ scores:
     retrieval: 52.1
     tools: 60.4
     arts: 9.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR Decision 2.0 Eos 0.8B
   engine: decision-2.0-eos-0.8b
@@ -3621,6 +3963,8 @@ scores:
     retrieval: 38.4
     tools: 34.0
     arts: 8.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Crivo-150M v2
   engine: crivo-150m-v2
@@ -3639,6 +3983,8 @@ scores:
     retrieval: 48.2
     tools: 62.8
     arts: 21.8
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Bekko System One v0 400M
   engine: bekko-v0-400m
@@ -3675,6 +4021,8 @@ scores:
     retrieval: 51.4
     tools: 50.1
     arts: 9.9
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: vLLM-SR d3-edge (0.6B)
   engine: vllm-sr-d3-edge
@@ -3693,6 +4041,8 @@ scores:
     retrieval: 53.6
     tools: 42.7
     arts: 11.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Mola-68M
   engine: mola-68m
@@ -3711,6 +4061,8 @@ scores:
     retrieval: 49.4
     tools: 47.9
     arts: 5.7
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: JEV FLAN-T5 Large public v2 (342M)
   engine: jev-t5-342m-public-v2
@@ -3747,6 +4099,8 @@ scores:
     retrieval: 45.0
     tools: 46.5
     arts: 5.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Valen-0.8B
   engine: valen-0.8b-r2
@@ -3765,6 +4119,8 @@ scores:
     retrieval: 20.6
     tools: 35.6
     arts: 11.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Bosun v3.1 1.7B
   engine: bosun-v3.1-1.7b
@@ -3783,6 +4139,8 @@ scores:
     retrieval: 42.8
     tools: 34.8
     arts: 9.0
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vLLM-SR Decision 2.0 Kai 0.6B
   engine: decision-2.0-kai-0.6b
@@ -3801,6 +4159,8 @@ scores:
     retrieval: 32.0
     tools: 26.7
     arts: 7.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Dinah-1
   engine: dinah-1
@@ -3819,6 +4179,8 @@ scores:
     retrieval: 50.7
     tools: 62.2
     arts: 8.6
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Kev 0.8B r15
   engine: kev-0.8b-r15
@@ -3837,6 +4199,8 @@ scores:
     retrieval: 22.1
     tools: 35.5
     arts: 3.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: PICK-150M v5
   engine: pick-150m-v5
@@ -3855,6 +4219,8 @@ scores:
     retrieval: 45.2
     tools: 59.9
     arts: 8.4
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: JPT-0.8B
   engine: jpt-0.8b
@@ -3873,6 +4239,8 @@ scores:
     retrieval: 16.4
     tools: 36.2
     arts: 8.4
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: JEV Ettin 400M
   engine: jev-ettin-400m
@@ -3909,6 +4277,8 @@ scores:
     retrieval: 45.5
     tools: 35.9
     arts: 5.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Crivo-32M v2
   engine: crivo-32m-v2
@@ -3927,6 +4297,8 @@ scores:
     retrieval: 45.6
     tools: 50.0
     arts: 19.0
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Prumo
   engine: prumo
@@ -3945,6 +4317,8 @@ scores:
     retrieval: 26.6
     tools: 45.3
     arts: 13.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Kodiak v0.2 1B (accuracy)
   engine: kodiak-v0.2-1b-accuracy
@@ -3963,6 +4337,8 @@ scores:
     retrieval: 36.2
     tools: 15.1
     arts: 15.9
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Intern-Decision-0.8B
   engine: intern-decision-0.8b
@@ -3981,6 +4357,8 @@ scores:
     retrieval: 6.4
     tools: 28.4
     arts: 7.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Jev-Style 0.8B v3
   engine: jev-style-0.8b-v3
@@ -3999,6 +4377,8 @@ scores:
     retrieval: 26.2
     tools: 35.4
     arts: 8.3
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Tev1-0.8B-experimental
   engine: tev1-0.8b
@@ -4053,6 +4433,8 @@ scores:
     retrieval: 35.0
     tools: 19.5
     arts: 6.5
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Von 1.3
   engine: von-1.3
@@ -4071,6 +4453,8 @@ scores:
     retrieval: 30.1
     tools: 11.7
     arts: 2.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Crivo-17M
   engine: crivo-17m
@@ -4089,6 +4473,8 @@ scores:
     retrieval: 40.1
     tools: 36.5
     arts: 17.0
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: Bosun v3.1 0.6B
   engine: bosun-v3.1-0.6b
@@ -4107,6 +4493,8 @@ scores:
     retrieval: 34.2
     tools: 28.4
     arts: 6.7
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: vera-spark
   engine: vera-spark
@@ -4125,6 +4513,8 @@ scores:
     retrieval: 30.1
     tools: 18.1
     arts: 12.4
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Lavoir
   engine: lavoir
@@ -4143,6 +4533,8 @@ scores:
     retrieval: 12.0
     tools: 13.0
     arts: 3.9
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jev-decision-index
   name: GLiNER2.5-Decide
   engine: gliner-decide
@@ -4161,6 +4553,8 @@ scores:
     retrieval: 25.3
     tools: 14.8
     arts: 9.8
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Laya
   engine: laya-1e28ac20
@@ -4179,6 +4573,8 @@ scores:
     retrieval: 7.1
     tools: 5.8
     arts: 3.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: JevK5 Lite
   engine: jevk5-lite
@@ -4197,6 +4593,8 @@ scores:
     retrieval: 28.7
     tools: 3.1
     arts: 2.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: LFM2.5-2.6B-RLCD
   engine: lfm2600
@@ -4215,6 +4613,8 @@ scores:
     retrieval: 10.5
     tools: 4.4
     arts: 6.3
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: Qwen-2.5-1B-RLCD
   engine: harsha
@@ -4269,6 +4669,8 @@ scores:
     retrieval: 11.3
     tools: 14.0
     arts: 5.2
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: jeff
   engine: jeff-uncapped
@@ -4305,6 +4707,8 @@ scores:
     retrieval: 0.0
     tools: 3.8
     arts: 3.6
+  licence: other
+  licence_classe: null
 - benchmark: jev-decision-index
   name: system-one-gemma
   engine: akash-gemma
@@ -4341,6 +4745,8 @@ scores:
     retrieval: 34.0
     tools: 7.9
     arts: 8.6
+  licence: mit
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Julia 1
   engine: julia-1
@@ -4359,6 +4765,8 @@ scores:
     retrieval: 9.9
     tools: 7.2
     arts: 2.1
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jev-decision-index
   name: Nirnaya 0.4B
   engine: nirnaya-0.4b
@@ -4413,6 +4821,8 @@ scores:
     retrieval: 0
     tools: 6.6
     arts: 1.5
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: kettei-fat (Sqwish)
   engine: kettei-fat
@@ -4494,6 +4904,8 @@ scores:
   price_estimated: true
   p50_s: 0.279
   measured_on: '2026-10-22'
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: Drex Max (Nace AI)
   engine: drex-max
@@ -4526,6 +4938,8 @@ scores:
   price_estimated: true
   p50_s: 0.365
   measured_on: '2026-10-17'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: DOPEST 1.0 31B
   engine: dopest-1.0-31b
@@ -4542,6 +4956,8 @@ scores:
   price_estimated: true
   p50_s: 0.622
   measured_on: '2026-10-25'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: SubQ Snap 1.1 (SubQ)
   engine: subq-snap-1.1
@@ -4574,6 +4990,8 @@ scores:
   price_estimated: true
   p50_s: 0.284
   measured_on: '2026-10-26'
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: Arcbright Elf 1 31B
   engine: arcbright-elf-1-31b
@@ -4590,6 +5008,8 @@ scores:
   price_estimated: true
   p50_s: 0.273
   measured_on: '2026-10-22'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Quyet-1.0-Large (Chinh Nguyen, Gemma-4-31B decoder, option-letter logits)
   engine: quyet-1-0-large
@@ -4606,6 +5026,8 @@ scores:
   price_estimated: true
   p50_s: 0.395
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Jeff-1.0-Large
   engine: jeff_1_0_large
@@ -4622,6 +5044,8 @@ scores:
   price_estimated: true
   p50_s: 0.317
   measured_on: '2026-10-09'
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: SubQ Snap (preview, SubQ)
   engine: subq-snap-preview
@@ -4654,6 +5078,8 @@ scores:
   price_estimated: true
   p50_s: 0.425
   measured_on: '2026-10-25'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: d1-ultra (Liquid AI)
   engine: liquid-d1-ultra
@@ -4702,6 +5128,8 @@ scores:
   price_estimated: true
   p50_s: 0.52
   measured_on: '2026-10-13'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: decisio v0.8.0 on gemma-4-31B-it (frozen, FP8 on load, one prefill per state, self-hosted)
   engine: decisio-gemma-4-31b-v080
@@ -4734,6 +5162,8 @@ scores:
   price_estimated: true
   p50_s: 0.616
   measured_on: '2026-10-12'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Myles-G 31B (Launchables)
   engine: launchables-myles-g-31b
@@ -4782,6 +5212,8 @@ scores:
   price_estimated: true
   p50_s: 0.288
   measured_on: '2026-10-23'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: deck-31B (krishna765, frozen Gemma-4-31B-it, TorchAO FP8 dynamic)
   engine: deck31b
@@ -4814,6 +5246,8 @@ scores:
   price_estimated: true
   p50_s: 0.217
   measured_on: '2026-10-23'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Jev 1.13.0 (TypeSafe AI)
   engine: jev-1.13.0
@@ -4846,6 +5280,8 @@ scores:
   price_estimated: true
   p50_s: 0.407
   measured_on: '2026-10-12'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Wald 26B-A4B (Gemma 4 26B-A4B)
   engine: wald-26b-a4b
@@ -4862,6 +5298,8 @@ scores:
   price_estimated: true
   p50_s: 0.236
   measured_on: '2026-10-23'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: René-1 31B FP8 (salfatigroup, Gemma 4 31B full fine-tune, one-pass option readout)
   engine: rene-1-31b-fp8
@@ -4878,6 +5316,8 @@ scores:
   price_estimated: true
   p50_s: 0.377
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Decisio 12B tuned commit (variant of the Decisio family)
   engine: decisio-gemma-4-12b-tuned-commit
@@ -4894,6 +5334,8 @@ scores:
   price_estimated: true
   p50_s: 0.267
   measured_on: '2026-10-25'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Jev 1.14.0 (TypeSafe AI)
   engine: jev-1.14.0
@@ -4926,6 +5368,8 @@ scores:
   price_estimated: true
   p50_s: 0.212
   measured_on: '2026-10-04'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: d1 (Liquid AI)
   engine: liquid-d1
@@ -5022,6 +5466,8 @@ scores:
   price_estimated: true
   p50_s: 0.384
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: kettei-chub (Sqwish)
   engine: kettei-chub
@@ -5055,6 +5501,8 @@ scores:
   price_estimated: true
   p50_s: 0.273
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Torchcast Decision 4B (v1.2)
   engine: torchcast-decision-4b-v1.2
@@ -5071,6 +5519,8 @@ scores:
   price_estimated: true
   p50_s: 0.276
   measured_on: '2026-10-18'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: torchcast-decision-12b (Torchcast AI, Gemma-4-12B fine-tune, option-letter logprob readout)
   engine: torchcast-decision-12b
@@ -5087,6 +5537,8 @@ scores:
   price_estimated: true
   p50_s: 0.24
   measured_on: null
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: decider-12b v2 (Mapika)
   engine: decider-12b
@@ -5103,6 +5555,8 @@ scores:
   price_estimated: true
   p50_s: 0.259
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Jev-Omni (akhilaaa3, Gemma-4-12B merged)
   engine: jev-omni
@@ -5119,6 +5573,8 @@ scores:
   price_estimated: true
   p50_s: 0.473
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Winnow-12B Q8
   engine: winnow-12b
@@ -5135,6 +5591,8 @@ scores:
   price_estimated: true
   p50_s: 0.397
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Xor 26B-A4B (Juspay, Gemma-4-26B-A4B, bf16)
   engine: xor-26b-a4b
@@ -5151,6 +5609,8 @@ scores:
   price_estimated: true
   p50_s: 0.27
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: decider-12b v1, stock Gemma-4-12B-it (Mapika)
   engine: decider-12b-v1
@@ -5167,6 +5627,8 @@ scores:
   price_estimated: true
   p50_s: 0.259
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Cygnet (blockbrain, frozen Gemma-4-12B-it)
   engine: cygnet
@@ -5279,6 +5741,8 @@ scores:
   price_estimated: true
   p50_s: 0.301
   measured_on: '2026-10-22'
+  licence: mit
+  licence_classe: libre
 - benchmark: jevbench
   name: GEV-26B-Decide (AutoTrust, Gemma-4-26B-A4B + LoRA + head)
   engine: gev-26b-decide
@@ -5295,6 +5759,8 @@ scores:
   price_estimated: true
   p50_s: 0.259
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Chon-1.0-12B-Fast
   engine: chon-1.0-12b-fast
@@ -5311,6 +5777,8 @@ scores:
   price_estimated: true
   p50_s: 0.5
   measured_on: '2026-10-25'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Blink v0.3 26B-A4B
   engine: blink-v0-3-26b-a4b-nvfp4
@@ -5327,6 +5795,8 @@ scores:
   price_estimated: true
   p50_s: 0.255
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: decisio v0.9.0 on gemma-4-12B-it (frozen, one prefill per question, self-hosted)
   engine: decisio-gemma-4-12b-v090
@@ -5375,6 +5845,8 @@ scores:
   price_estimated: true
   p50_s: 0.198
   measured_on: '2026-10-26'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Wald 4B v2.1
   engine: wald-4b-v2-1
@@ -5391,6 +5863,8 @@ scores:
   price_estimated: true
   p50_s: 0.208
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: vLLM-SR d3-mini
   engine: vllm-sr-d3-mini
@@ -5407,6 +5881,8 @@ scores:
   price_estimated: true
   p50_s: 0.207
   measured_on: '2026-10-24'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Torchcast Decision 4B (v1.1)
   engine: torchcast-decision-4b-v1.1
@@ -5423,6 +5899,8 @@ scores:
   price_estimated: true
   p50_s: 0.195
   measured_on: '2026-10-12'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: iota-decide-4b-v0.3 (Macrocosmos, letter-readout 4B, self-hosted)
   engine: iota-decide-4b-v0.3
@@ -5439,6 +5917,8 @@ scores:
   price_estimated: true
   p50_s: 0.376
   measured_on: '2026-10-26'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Xevn-4B
   engine: xevn-4b
@@ -5455,6 +5935,8 @@ scores:
   price_estimated: true
   p50_s: 0.232
   measured_on: '2026-10-24'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Chon-1.0-E4B
   engine: chon-1.0-e4b
@@ -5471,6 +5953,8 @@ scores:
   price_estimated: true
   p50_s: 0.297
   measured_on: '2026-10-25'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Hopper 12B trained (gemma-4-12B-it frozen + LoRA r32 unmerged, one forward pass, self-hosted)
   engine: hopper-12b-trained
@@ -5487,6 +5971,8 @@ scores:
   price_estimated: true
   p50_s: 0.517
   measured_on: null
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: SPX-CD-Omni (SurdAI, google/gemma-4-12B-it + LoRA r32, one forward pass, self-hosted)
   engine: spx-cd-omni
@@ -5503,6 +5989,8 @@ scores:
   price_estimated: true
   p50_s: 0.3
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Aplomb 1 (5.3B decision model on Qwen3.5-4B, trained readout head, self-hosted)
   engine: aplomb-1
@@ -5519,6 +6007,8 @@ scores:
   price_estimated: true
   p50_s: 0.335
   measured_on: null
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: Bespoke Nimble 9B v3 (Qwen3.5-9B LoRA)
   engine: bespoke-nimble-9b-v3
@@ -5535,6 +6025,8 @@ scores:
   price_estimated: true
   p50_s: 0.339
   measured_on: null
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: Amazon Strands Decider 26B-A4B
   engine: amazon-strands-decider-26b-a4b
@@ -5551,6 +6043,8 @@ scores:
   price_estimated: true
   p50_s: 0.371
   measured_on: '2026-10-24'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Metask rain 4B
   engine: metask-jev-rain-4b
@@ -5567,6 +6061,8 @@ scores:
   price_estimated: true
   p50_s: 0.317
   measured_on: '2026-10-09'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: shisa-de-1 (shisa-ai, Gemma-4-26B-A4B)
   engine: shisa-de-1
@@ -5583,6 +6079,8 @@ scores:
   price_estimated: true
   p50_s: 0.213
   measured_on: '2026-10-16'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Plumb-4B (crh225, JevK5 v0.2 + LoRA)
   engine: plumb-4b
@@ -5599,6 +6097,8 @@ scores:
   price_estimated: true
   p50_s: 0.192
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Arcbright Elf 1 12B
   engine: arcbright-elf-1-12b
@@ -5615,6 +6115,8 @@ scores:
   price_estimated: true
   p50_s: 0.235
   measured_on: '2026-10-20'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: decider-4b v2 (Mapika)
   engine: decider-4b-v2
@@ -5647,6 +6149,8 @@ scores:
   price_estimated: true
   p50_s: 0.221
   measured_on: '2026-10-23'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: HS1 0.1.2 (Hyland)
   engine: hyland-hs1
@@ -5679,6 +6183,8 @@ scores:
   price_estimated: true
   p50_s: 0.189
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Bespoke Nimble-v4 (Bespoke Labs)
   engine: nimble-v4
@@ -5711,6 +6217,8 @@ scores:
   price_estimated: true
   p50_s: 0.207
   measured_on: '2026-10-24'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Clef-Flash (Cloudflare, Qwen3.5-9B post-train with a joint schema head, multimodal, measured on
     text)
@@ -5728,6 +6236,8 @@ scores:
   price_estimated: true
   p50_s: 0.357
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: JPT-4B (kirp, Qwen3.5-4B LoRA)
   engine: jpt-4b
@@ -5744,6 +6254,8 @@ scores:
   price_estimated: true
   p50_s: 0.282
   measured_on: '2026-10-16'
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: Vansa-3.4 (Vansa, hosted System One API)
   engine: vansa-3.4
@@ -5792,6 +6304,8 @@ scores:
   price_estimated: true
   p50_s: 0.251
   measured_on: '2026-10-16'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: GLiClass v4 9B (Knowledgator)
   engine: knowledgator_gliclass_v4_9b
@@ -5808,6 +6322,8 @@ scores:
   price_estimated: true
   p50_s: 0.419
   measured_on: '2026-10-26'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Seb-9B (ironbcc, Qwen3.5-9B fine-tune, one forward pass, stock vLLM, self-hosted)
   engine: seb-9b
@@ -5824,6 +6340,8 @@ scores:
   price_estimated: true
   p50_s: 0.25
   measured_on: '2026-10-20'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Amos 1 medium (Scira)
   engine: amos-1-medium
@@ -5840,6 +6358,8 @@ scores:
   price_estimated: true
   p50_s: 0.448
   measured_on: '2026-10-13'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: janus 4B (Icarus AI / cmxu, Qwen3.5-4B + LoRA r64 and pointer decision head)
   engine: janus-4b
@@ -5856,6 +6376,8 @@ scores:
   price_estimated: true
   p50_s: 0.213
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: JevK5 v0.2.0
   engine: jevk5-v02
@@ -5888,6 +6410,8 @@ scores:
   price_estimated: true
   p50_s: 0.288
   measured_on: '2026-10-14'
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: Imajev-4B (RTX 5090)
   engine: imajev-4b-rtx5090-a2
@@ -5952,6 +6476,8 @@ scores:
   price_estimated: true
   p50_s: 0.305
   measured_on: '2026-10-07'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: pplx-decider-flash-v1.2 (Perplexity, Qwen3.5-4B full fine-tune, marker readout, self-hosted)
   engine: pplx-decider-flash-v1.2
@@ -5968,6 +6494,8 @@ scores:
   price_estimated: true
   p50_s: 0.239
   measured_on: '2026-10-19'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: lev (Interfaze AI, Qwen3.5-4B + LoRA r32, label-token readout + candidate-path head, per-bucket
     temperatures)
@@ -5985,6 +6513,8 @@ scores:
   price_estimated: true
   p50_s: 0.361
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Decision 2.0 Lux 9B (vLLM-SR, Qwen3.5-9B lineage)
   engine: decision2-lux-9b
@@ -6001,6 +6531,8 @@ scores:
   price_estimated: true
   p50_s: 0.291
   measured_on: '2026-10-16'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: blink-4b (thegovind, Qwen3.5-4B derivative)
   engine: blink-4b
@@ -6017,6 +6549,8 @@ scores:
   price_estimated: true
   p50_s: 0.265
   measured_on: '2026-10-16'
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: Hopper
   engine: hopper
@@ -6033,6 +6567,8 @@ scores:
   price_estimated: true
   p50_s: 0.264
   measured_on: null
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: Malkuth-4B (newfull5, Kev post-train)
   engine: malkuth-4b
@@ -6082,6 +6618,8 @@ scores:
   price_estimated: true
   p50_s: 0.223
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Verdin-4B (Victor Bennett, Qwen3.5-4B + merged LoRA r16 + pointer head)
   engine: verdin-4b
@@ -6098,6 +6636,8 @@ scores:
   price_estimated: true
   p50_s: 0.266
   measured_on: '2026-10-22'
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: Wald 4B
   engine: wald-4b-v2
@@ -6114,6 +6654,8 @@ scores:
   price_estimated: true
   p50_s: 0.239
   measured_on: '2026-10-09'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Quyet-1.0-Medium (Chinh Nguyen, Qwen3.5-4B decoder, option-letter logits)
   engine: quyet-1-0-medium
@@ -6130,6 +6672,8 @@ scores:
   price_estimated: true
   p50_s: 0.313
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Decision-4B (Eval Engine / Chromia)
   engine: evalengine-decision-4b
@@ -6146,6 +6690,8 @@ scores:
   price_estimated: true
   p50_s: 0.261
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Manchego v2.1
   engine: manchego-v21-v15
@@ -6178,6 +6724,8 @@ scores:
   price_estimated: false
   p50_s: 0.209
   measured_on: null
+  licence: cc-by-nc-4.0
+  licence_classe: non_commercial
 - benchmark: jevbench
   name: Diffusion Jev (DiffusionGemma 26B-A4B on patched SGLang, 48-step diffusion readout, self-hosted)
   engine: diffusion-jev
@@ -6194,6 +6742,8 @@ scores:
   price_estimated: true
   p50_s: 0.412
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: jev-local (Qwen3.5-9B)
   engine: jev-local
@@ -6258,6 +6808,8 @@ scores:
   price_estimated: true
   p50_s: 0.196
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: iota-decide-4b (Macrocosmos, Clef joint-head 4B, self-hosted)
   engine: iota-decide-4b
@@ -6274,6 +6826,8 @@ scores:
   price_estimated: true
   p50_s: 0.394
   measured_on: '2026-10-21'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Uniphore-4B-Decider
   engine: uniphore-4b-decider
@@ -6306,6 +6860,8 @@ scores:
   price_estimated: true
   p50_s: 0.26
   measured_on: '2026-10-16'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: CoCo-Decision-4B (corners-ai, LoRA on Qwen3.5-4B, option-label logits of one pass, served by oh-my-jev)
   engine: coco-decision-4b
@@ -6322,6 +6878,8 @@ scores:
   price_estimated: true
   p50_s: 0.24
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: APUS-OpenJev-v1-9B (merged bf16 checkpoint-3000 on Qwen3.5-9B, their own native runtime, full
     depth, self-hosted)
@@ -6339,6 +6897,8 @@ scores:
   price_estimated: true
   p50_s: 0.713
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Decider-4B (roudone, NeoHorse 4B pointer model, author server, self-hosted)
   engine: roudone-decider-4b
@@ -6355,6 +6915,8 @@ scores:
   price_estimated: true
   p50_s: 0.247
   measured_on: '2026-10-21'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: typecastlm (Mikhail Gribov, Qwen3.5-4B computed head)
   engine: typecastlm
@@ -6387,6 +6949,8 @@ scores:
   price_estimated: true
   p50_s: 0.221
   measured_on: '2026-10-22'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: TypeCastLM 1.4.0 (Mikhail Gribov, Qwen3.5-4B computed head)
   engine: typecastlm-1.4.0
@@ -6403,6 +6967,8 @@ scores:
   price_estimated: true
   p50_s: 0.211
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: RYOTIDE-Qwen (csabag, Qwen3.5-4B stock weights)
   engine: ryotide-qwen
@@ -6435,6 +7001,8 @@ scores:
   price_estimated: true
   p50_s: 0.663
   measured_on: '2026-10-16'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Standard One 3B SH v4 (Standard Thinking)
   engine: standard_one_3b_sh_v4
@@ -6451,6 +7019,8 @@ scores:
   price_estimated: true
   p50_s: 0.211
   measured_on: '2026-10-23'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Standard One 3B SH (Standard Thinking)
   engine: standard_one_3b_sh
@@ -6467,6 +7037,8 @@ scores:
   price_estimated: true
   p50_s: 0.227
   measured_on: '2026-10-12'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: SemIf, formerly OpenJev (Qwen3.5-4B, TheoLeeCJ)
   engine: semif-qwen3.5-4b
@@ -6499,6 +7071,8 @@ scores:
   price_estimated: true
   p50_s: 0.32
   measured_on: '2026-10-16'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: local-jev Qwen3.5-4B
   engine: localjev-qwen3.5-4b
@@ -6547,6 +7121,8 @@ scores:
   price_estimated: true
   p50_s: 0.269
   measured_on: '2026-10-22'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Noma (Blackdrome AI Labs, Qwen3.5-4B-Base derivative)
   engine: noma
@@ -6563,6 +7139,8 @@ scores:
   price_estimated: true
   p50_s: 0.202
   measured_on: '2026-10-16'
+  licence: mpl-2.0
+  licence_classe: null
 - benchmark: jevbench
   name: spark-s1-4b-v6 (Open Spark Jev, abhishek085)
   engine: spark-s1-4b-v6
@@ -6595,6 +7173,8 @@ scores:
   price_estimated: true
   p50_s: 0.746
   measured_on: '2026-10-16'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: RYOTIDE-Qwen9
   engine: ryotide_qwen9
@@ -6643,6 +7223,8 @@ scores:
   price_estimated: true
   p50_s: 0.244
   measured_on: '2026-10-21'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: DecisionNode Edge 0.9.2
   engine: decisionnode-edge-0.9.2
@@ -6659,6 +7241,8 @@ scores:
   price_estimated: true
   p50_s: 0.212
   measured_on: '2026-10-24'
+  licence: agpl-3.0
+  licence_classe: null
 - benchmark: jevbench
   name: system-one-open (Gemma 4 E2B LoRA on an L4)
   engine: system-one-open
@@ -6691,6 +7275,8 @@ scores:
   price_estimated: true
   p50_s: 0.231
   measured_on: '2026-10-26'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: ClassOne Qwen 3.5 9B (Qwen3.5-9B backbone with ClassOne decision heads, schema-constrained single
     forward pass, self-hosted)
@@ -6708,6 +7294,8 @@ scores:
   price_estimated: true
   p50_s: 0.278
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Liquid AI d1-3B
   engine: liquid-d1-3b
@@ -6724,6 +7312,8 @@ scores:
   price_estimated: true
   p50_s: 0.183
   measured_on: '2026-10-10'
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: ZeroEntropy zerank-2
   engine: zerank-2
@@ -6740,6 +7330,8 @@ scores:
   price_estimated: true
   p50_s: 0.519
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: open-alternative-jev (Qwen3.5-4B, IkerMoel)
   engine: open-alternative-jev
@@ -6789,6 +7381,8 @@ scores:
   price_estimated: true
   p50_s: 0.192
   measured_on: null
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: Malkuth-2B (newfull5, Kev post-train)
   engine: malkuth-2b
@@ -6821,6 +7415,8 @@ scores:
   price_estimated: true
   p50_s: 0.213
   measured_on: '2026-10-24'
+  licence: agpl-3.0
+  licence_classe: null
 - benchmark: jevbench
   name: Nemotron Diffusion 8B (pst2154, optimized vLLM)
   engine: nemotron-diffusion-8b
@@ -6854,6 +7450,8 @@ scores:
   price_estimated: true
   p50_s: 0.19
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: decision-machine-1 (milliseconds.ai)
   engine: decision-machine-1
@@ -6886,6 +7484,8 @@ scores:
   price_estimated: true
   p50_s: 0.247
   measured_on: '2026-10-09'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: D1A on Gemma 4 E2B (JohnP1 d1a-e2b)
   engine: d1a-gemma4-e2b
@@ -6902,6 +7502,8 @@ scores:
   price_estimated: true
   p50_s: 0.215
   measured_on: '2026-10-26'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Qwen3-Reranker-4B
   engine: qwen3-reranker-4b
@@ -6918,6 +7520,8 @@ scores:
   price_estimated: true
   p50_s: 0.573
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: decider-2b (Mapika)
   engine: decider-2b
@@ -6934,6 +7538,8 @@ scores:
   price_estimated: true
   p50_s: 0.182
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: BAAI bge-reranker-v2-m3
   engine: bge-reranker-v2-m3
@@ -6950,6 +7556,8 @@ scores:
   price_estimated: true
   p50_s: 0.187
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: kev 4B (research preview)
   engine: kev-4b
@@ -6982,6 +7590,8 @@ scores:
   price_estimated: true
   p50_s: 0.214
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: lev-350m (Franck Verrot, LFM2.5-350M)
   engine: lev-350m
@@ -7014,6 +7624,8 @@ scores:
   price_estimated: true
   p50_s: 0.235
   measured_on: '2026-10-22'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Certo v1 (AltSlate Labs)
   engine: certo
@@ -7030,6 +7642,8 @@ scores:
   price_estimated: true
   p50_s: 0.235
   measured_on: null
+  licence: mit
+  licence_classe: libre
 - benchmark: jevbench
   name: PurpleMIST-Mini-1.0 (Olaverse)
   engine: purplemist-mini-1.0
@@ -7046,6 +7660,8 @@ scores:
   price_estimated: true
   p50_s: 0.303
   measured_on: '2026-10-22'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Chon-1.0-12B
   engine: chon-1.0-12b
@@ -7062,6 +7678,8 @@ scores:
   price_estimated: true
   p50_s: 0.51
   measured_on: '2026-10-19'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: smalljev semantic-v9
   engine: smalljev
@@ -7094,6 +7712,8 @@ scores:
   price_estimated: true
   p50_s: 0.33
   measured_on: '2026-10-23'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: 'jul fast (usejul/jul-decision-minicpm5-2b: MiniCPM5-2B fine-tune with a pointer head, option
     probabilities from one pass, self-hosted via `jul serve`)'
@@ -7111,6 +7731,8 @@ scores:
   price_estimated: true
   p50_s: 0.238
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Krino-2B
   engine: krino-2b
@@ -7127,6 +7749,8 @@ scores:
   price_estimated: true
   p50_s: 0.213
   measured_on: '2026-10-12'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Alibaba GTE Reranker ModernBERT-base
   engine: gte-reranker-modernbert-base
@@ -7143,6 +7767,8 @@ scores:
   price_estimated: true
   p50_s: 0.199
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Jeetu Decider 2B
   engine: jeetu-decider-2b
@@ -7159,6 +7785,8 @@ scores:
   price_estimated: true
   p50_s: 0.271
   measured_on: '2026-10-25'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: watt-flash-0.1 (Zaitgeist Labs, 140M mmBERT-small encoder with an option-marker scorer, one forward
     pass per request, self-hosted)
@@ -7176,6 +7804,8 @@ scores:
   price_estimated: false
   p50_s: 1.131
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Decision Fast (FlyMy.AI, v53a)
   engine: decision-fast
@@ -7208,6 +7838,8 @@ scores:
   price_estimated: true
   p50_s: 0.821
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Quyet-1.0-Small-EN (Chinh Nguyen, ModernBERT-base encoder with fixed heads)
   engine: quyet-1-0-small-en
@@ -7224,6 +7856,8 @@ scores:
   price_estimated: true
   p50_s: 0.179
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: ClassOne Gemma 4 E4B (Gemma-4-E4B backbone with ClassOne decision heads, schema-constrained single
     forward pass, self-hosted)
@@ -7241,6 +7875,8 @@ scores:
   price_estimated: true
   p50_s: 0.229
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: ClassOne Qwen 3.5 4B (Qwen3.5-4B backbone with ClassOne decision heads, schema-constrained single
     forward pass, self-hosted)
@@ -7258,6 +7894,8 @@ scores:
   price_estimated: true
   p50_s: 0.245
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: OpenDecision (ModernBERT-large zero-shot)
   engine: opendecision
@@ -7322,6 +7960,8 @@ scores:
   price_estimated: true
   p50_s: 0.544
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: WaterSheep (Samrat Dutta, ModernBERT-base encoder with calibrated heads, served by the author's
     own `watersheep --serve`)
@@ -7339,6 +7979,8 @@ scores:
   price_estimated: true
   p50_s: 1.075
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Raw Phi-4 mini direct logits
   engine: raw-phi-4-mini
@@ -7355,6 +7997,8 @@ scores:
   price_estimated: true
   p50_s: 0.237
   measured_on: null
+  licence: mit
+  licence_classe: libre
 - benchmark: jevbench
   name: Fastino GLiNER-2.5-Decide (hosted API)
   engine: fastino-gliner-2-5-decide
@@ -7387,6 +8031,8 @@ scores:
   price_estimated: true
   p50_s: 0.25
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Vega 0.8B
   engine: vegaml-0.8b
@@ -7403,6 +8049,8 @@ scores:
   price_estimated: true
   p50_s: 0.323
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: kev 0.5B
   engine: kev-0.5b
@@ -7435,6 +8083,8 @@ scores:
   price_estimated: true
   p50_s: 0.193
   measured_on: '2026-10-10'
+  licence: other
+  licence_classe: null
 - benchmark: jevbench
   name: Quyet-1.0-Small (Chinh Nguyen, SEA-LION-ModernBERT-300M encoder with fixed heads)
   engine: quyet-1-0-small
@@ -7451,6 +8101,8 @@ scores:
   price_estimated: true
   p50_s: 0.179
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Quyet-1.0-Tiny (Chinh Nguyen, mmBERT-small encoder (16 layers kept) with fixed heads)
   engine: quyet-1-0-tiny
@@ -7467,6 +8119,8 @@ scores:
   price_estimated: true
   p50_s: 0.176
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Open Jev JSON Canvas (JoshuaSP)
   engine: open-jev-json-canvas-joshuasp
@@ -7499,6 +8153,8 @@ scores:
   price_estimated: true
   p50_s: 1.118
   measured_on: '2026-10-13'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: JevAct (einptein, jev1-2b-v2)
   engine: jevact
@@ -7581,6 +8237,8 @@ scores:
   price_estimated: true
   p50_s: 0.213
   measured_on: '2026-10-10'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Deem 0.8B v1
   engine: deem-0.8-v1
@@ -7597,6 +8255,8 @@ scores:
   price_estimated: true
   p50_s: 0.479
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Laya multilingual
   engine: laya-multilingual
@@ -7630,6 +8290,8 @@ scores:
   price_estimated: true
   p50_s: 0.209
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Julia-1 (Supersonic Labs)
   engine: julia-1
@@ -7646,6 +8308,8 @@ scores:
   price_estimated: true
   p50_s: 0.815
   measured_on: '2026-10-13'
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Raw Qwen3 1.7B direct logits
   engine: raw-qwen3-1.7b
@@ -7662,6 +8326,8 @@ scores:
   price_estimated: true
   p50_s: 0.215
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
 - benchmark: jevbench
   name: Raw Qwen3 0.6B direct logits
   engine: raw-qwen3-0.6b
@@ -7678,3 +8344,5 @@ scores:
   price_estimated: true
   p50_s: 0.209
   measured_on: null
+  licence: apache-2.0
+  licence_classe: libre
