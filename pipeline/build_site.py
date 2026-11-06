@@ -62,6 +62,13 @@ def build_payload() -> dict:
         })
     priced_models.sort(key=lambda x: x["in"])
 
+    # Accessibilité des poids selon Epoch (model_metadata), projetée sur chaque version.
+    acc = {}
+    for m in models:
+        a = m.get("accessibility") or ""
+        k = "ouvert" if a.startswith("Open weights") else "ferme" if a else None
+        for v in [m["id"], *m.get("epoch_model_versions", [])]:
+            acc[v] = k
     rows = []
     for s in scores:
         if s.get("score") is None or not s.get("model_version"):
@@ -74,6 +81,7 @@ def build_payload() -> dict:
             "l": org2lab.get(s.get("organization") or "", "autre"),
             "h": s.get("harness"),
             "mb": s.get("model_base"),
+            "a": acc.get(s["model_version"]) or acc.get(s.get("model_base")),
             "ef": s.get("effort"),
             "c": s.get("cost_usd"),
             "s": s["score"],
@@ -479,6 +487,9 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <div class="ctrl">
       <label class="f">Benchmark<select id="bench"></select></label>
       <label class="f">Fournisseur / provider<select id="lab"><option value="">Tous</option></select></label>
+      <label class="f">Licence<select id="llic">
+        <option value="">Toutes</option><option value="ouvert">Poids ouverts</option>
+        <option value="ferme">Poids fermés</option></select></label>
       <label class="f">Effort / reasoning<select id="eff">
         <option value="">Tous</option><option value="low">low</option>
         <option value="medium">medium</option><option value="high">high</option>
@@ -489,7 +500,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
         <option value="5">5 $</option><option value="10">10 $</option>
         <option value="25">25 $</option></select></label>
       <label class="f">Affichage<select id="top">
-        <option value="15">15 premiers</option><option value="25">25 premiers</option>
+        <option value="10">10 premiers</option><option value="20" selected>20 premiers</option>
         <option value="0">Tout</option></select></label>
     </div>
     <div id="vuewrap">
@@ -585,11 +596,16 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <div class="panel">
       <div class="ctrl">
         <label class="f">Benchmark<select id="obench"></select></label>
+        <label class="f">Taille maximale<span class="rg"><input type="range" id="otai" min="0" step="1" data-tout="1"
+          aria-label="Taille maximale en milliards de paramètres"><output></output></span></label>
         <label class="f">Licence<select id="olic">
           <option value="">Toutes</option><option value="libre">Libres seulement</option>
           <option value="gratuit">Gratuites (libres ou sous conditions)</option></select></label>
         <label class="f">Modèles généralistes<select id="ogen">
           <option value="1">Affichés (référence)</option><option value="0">Masqués</option></select></label>
+        <label class="f">Affichage<select id="otop">
+          <option value="10">10 premiers</option><option value="20" selected>20 premiers</option>
+          <option value="0">Tout</option></select></label>
       </div>
       <p class="olg"><span><i class="ob p-officiel"></i>mesuré par l'auteur du benchmark</span>
         <span><i class="ob p-editeur"></i>publié par l'éditeur du modèle</span>
@@ -650,8 +666,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
           <option value="">Toutes</option><option value="ouvert">Poids ouverts</option>
           <option value="libre">Libres seulement</option></select></label>
         <label class="f">Affichage<select id="dtop">
-          <option value="25">25 premiers</option><option value="fiche">Modèles présentés</option>
-          <option value="0">Tout</option></select></label>
+          <option value="10">10 premiers</option><option value="20" selected>20 premiers</option>
+          <option value="fiche">Modèles présentés</option><option value="0">Tout</option></select></label>
         <label class="f">LLM généralistes<select id="dgen">
           <option value="1">Affichés (référence)</option><option value="0">Masqués</option></select></label>
       </div>
@@ -894,13 +910,14 @@ bsel.value=bench_tri.some(b=>b.name==='Terminal-Bench 4.0')
   ?'Terminal-Bench 4.0':bench_tri[0]?.name;
 const lsel=$('#lab');
 [...new Set(D.scores.map(s=>s.o))].sort().forEach(o=>lsel.add(new Option(o,o)));
-['#bench','#lab','#eff','#bud','#top'].forEach(q=>habiller($(q)));
+['#bench','#lab','#llic','#eff','#bud','#top'].forEach(q=>habiller($(q)));
 
 // ── utilitaires ────────────────────────────────────────────────────────────
 const cur=()=>D.benchmarks.find(b=>b.name===bsel.value)||{};
 function rows(){
   let r=D.scores.filter(s=>s.b===bsel.value);
   if(lsel.value)r=r.filter(s=>s.o===lsel.value);
+  if($('#llic').value)r=r.filter(s=>s.a===$('#llic').value);
   const e=$('#eff').value;
   if(e)r=r.filter(s=>s.ef===e);
   return r;
@@ -1075,6 +1092,7 @@ function cover(){
   const K=s=>s.mb||s.m;
   let ms=[...new Set(D.scores.map(K))];
   if(lsel.value)ms=ms.filter(m=>D.scores.some(s=>K(s)===m&&s.o===lsel.value));
+  if($('#llic').value)ms=ms.filter(m=>D.scores.some(s=>K(s)===m&&s.a===$('#llic').value));
   const cnt=new Map(),rel=new Map();
   D.scores.forEach(s=>{const k=K(s);cnt.set(k,(cnt.get(k)||0)+1);
     if(s.r&&s.r>(rel.get(k)||''))rel.set(k,s.r);});
@@ -1600,6 +1618,7 @@ function majControles(){
   const c=CTRL[K]??'blet';
   bsel.closest('label').hidden=!c.includes('b');
   lsel.closest('label').hidden=!c.includes('l');
+  $('#llic').closest('label').hidden=!c.includes('l');
   const effs=new Set(D.scores.filter(s=>s.b===bsel.value&&s.ef).map(s=>s.ef));
   [...$('#eff').options].forEach(o=>{o.hidden=!!o.value&&!effs.has(o.value);});
   if($('#eff').value&&!effs.has($('#eff').value)){$('#eff').value='';$('#eff').dispatchEvent(new Event('change'));}
@@ -1648,7 +1667,7 @@ function allerBench(nom,vue){
   bsel.value=nom;bsel.dispatchEvent(new Event('change'));
   AK=vue;draw();markB();
 }
-[bsel,lsel,$('#top'),$('#eff'),$('#bud')].forEach(el=>el.addEventListener('change',draw));
+[bsel,lsel,$('#llic'),$('#top'),$('#eff'),$('#bud')].forEach(el=>el.addEventListener('change',draw));
 
 // ── navigation par onglets ────────────────────────────────────────────────
 const SEC=['mesures','harnais','passerelles','ocr','dm','slm','methode'];
@@ -1876,13 +1895,19 @@ const PROVL={officiel:"mesuré par l'auteur du benchmark",editeur:"publié par l
  tiers:'mesuré par un autre acteur'};
 const obsel=$('#obench');
 O.benchmarks.forEach(b=>obsel.add(new Option(`${b.nom} — ${b.categorie}`,b.id)));
+// Taille lue seulement quand la fiche l'écrit en tête (« 0.9B », « 650M ») ; sinon inconnue.
+const ocrTaille=e=>{const m=String(e.parametres||'').match(/^~?(\d+(?:\.\d+)?)([BM])\b/);
+  return m?(+m[1])/(m[2]==='M'?1000:1):null;};
 function ocrRank(){
   const b=O.benchmarks.find(x=>x.id===obsel.value), lic=$('#olic').value, gen=$('#ogen').value==='1';
+  const tmax=taiMax($('#otai'));
   let r=O.scores.filter(x=>x.benchmark===b.id).filter(x=>{
     const e=OE[x.entry];
+    if(tmax!==Infinity&&!(e&&ocrTaille(e)!=null&&ocrTaille(e)<=tmax))return false;
     if(!e)return x.type==='generaliste'?gen:!lic;
     return !lic||e.licence_classe==='libre'||(lic==='gratuit'&&e.licence_classe==='conditions');});
   r.sort((a,c)=>c.score-a.score);
+  if(+$('#otop').value)r=r.slice(0,+$('#otop').value);
   $('#obars').innerHTML=r.map(x=>{const e=OE[x.entry];
     const sub=e?`${FAML[e.famille]} · ${lchip(e.licence_classe)}`:
       (x.type==='generaliste'?'modèle généraliste':'hors catalogue');
@@ -1901,7 +1926,8 @@ function ocrRank(){
     (b.conflit_note?` <b class="jp">⚖</b> ${esc(b.conflit_note)}`:'')+'</div>';
   document.querySelectorAll('#ogl .bc').forEach(c=>c.classList.toggle('on',c.dataset.b===b.id));
 }
-['#obench','#olic','#ogen'].forEach(k=>$(k).addEventListener('change',ocrRank));
+['#obench','#olic','#ogen','#otop'].forEach(k=>$(k).addEventListener('change',ocrRank));
+$('#otai').addEventListener('input',ocrRank);
 $('#ogl').innerHTML=O.benchmarks.map(b=>`<details class="bc" data-b="${esc(b.id)}"><summary>
   <h3>${esc(b.nom)}</h3><p><span class="fam">${esc(b.categorie)}.</span> ${esc(b.court)}</p>
   <span class="mo">▸ En savoir plus</span></summary><p class="au">${esc(b.auteur)}</p><dl>
