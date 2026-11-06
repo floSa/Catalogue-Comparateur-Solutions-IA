@@ -628,7 +628,10 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   <p class="layer">Des modèles qui ne rédigent pas : on leur donne une situation (texte, JSON, parfois
   une image) et des questions typées — une option parmi plusieurs, oui ou non, une note — et ils
   rendent une probabilité pour chaque réponse, en une seule passe. Plus rapides et moins chers qu'un
-  LLM pour classer, router, filtrer ou valider. La famille est née en septembre 2026 avec Jev.</p>
+  LLM pour classer, router, filtrer ou valider. La famille est née en septembre 2026 avec Jev, de TypeSafe AI :
+  « modèle de décision » désigne ce format d'usage, pas une architecture — la plupart sont des LLM ouverts
+  (Qwen, Gemma) réentraînés pour lui, d'où leur taille. Les trois classements existants sont bâtis sur ce format,
+  par des auteurs indépendants de TypeSafe ; ils définissent donc la catégorie à l'image de Jev.</p>
   <div class="seg" id="dm-cat" role="group" aria-label="Sous-sections Décision">
     <button data-d="rank" aria-pressed="true">Classement</button>
     <button data-d="modele" aria-pressed="false">Modèles</button>
@@ -639,12 +642,16 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
       <div class="ctrl">
         <label class="f">Benchmark<select id="dbench"></select></label>
         <label class="f">Score<select id="dvue"></select></label>
+        <label class="f">Taille maximale<span class="rg"><input type="range" id="dtai" min="0" step="1" data-tout="1"
+          aria-label="Taille maximale en milliards de paramètres"><output></output></span></label>
         <label class="f">Licence<select id="dlic">
           <option value="">Toutes</option><option value="ouvert">Poids ouverts</option>
           <option value="libre">Libres seulement</option></select></label>
         <label class="f">Affichage<select id="dtop">
           <option value="25">25 premiers</option><option value="fiche">Modèles présentés</option>
           <option value="0">Tout</option></select></label>
+        <label class="f">LLM généralistes<select id="dgen">
+          <option value="1">Affichés (référence)</option><option value="0">Masqués</option></select></label>
       </div>
       <div id="dbars"></div>
       <div id="dnote"></div>
@@ -1851,6 +1858,12 @@ $('#meth').innerHTML=[
   "savoir qu'un outil est mort compte, mais c'est une information de suivi, pas de choix."],
 ].map(([t,d])=>`<div class="bc"><h3>${esc(t)}</h3><p>${d}</p></div>`).join('');
 
+// ── curseur de taille, commun aux onglets (paliers en milliards de paramètres) ──
+// 36 couvre les « 35B » dont le compte exact des poids dépasse 35.
+const TAI=[1,2,3,4,5,8,10,12,15,20,25,30,36];
+const taiMax=el=>{const i=Math.min(+el.value,TAI.length-1);el.nextElementSibling.value=i===TAI.length-1&&el.dataset.tout?'Toutes':'≤ '+Math.min(TAI[i],35)+' Md';return i===TAI.length-1&&el.dataset.tout?Infinity:TAI[i];};
+document.querySelectorAll('.rg input').forEach(el=>{el.max=TAI.length-1;el.value=TAI.length-1;});
+
 // ── OCR ───────────────────────────────────────────────────────────────────
 const O=D.ocr, OE=Object.fromEntries(O.entries.map(e=>[e.id,e]));
 const LCL={libre:'libre',conditions:'sous conditions',non_commercial:'non commercial',
@@ -1953,7 +1966,10 @@ const val=(r,v)=>v==='s'?r.s:v==='c'?r.c:(r[v[0]]||{})[v.slice(2)];
 function dmVues(){dvsel.textContent='';(VUES[dbsel.value]||[['s','Score']]).forEach(([k,l])=>dvsel.add(new Option(l,k)));}
 function dmRank(){
   const b=DM.benchmarks.find(x=>x.id===dbsel.value), v=dvsel.value||'s', lic=$('#dlic').value, top=$('#dtop').value;
-  let r=DM.scores.filter(x=>x.b===b.id&&val(x,v)!=null).filter(x=>{const e=DE[x.e];
+  const tmax=taiMax($('#dtai')), gen=$('#dgen').value==='1', lim=tmax!==Infinity;
+  // Taille : seul le Jev Decision Index la publie ; filtrer masque les lignes sans taille connue.
+  const sansTaille=lim?DM.scores.filter(x=>x.b===b.id&&!x.p).length:0;
+  let r=DM.scores.filter(x=>x.b===b.id&&val(x,v)!=null&&(gen||!x.g)&&(!lim||(x.p&&x.p<=tmax))).filter(x=>{const e=DE[x.e];
     if(lic==='libre')return e&&e.licence_classe==='libre';
     if(lic==='ouvert')return e?e.ouvert:x.w;return true;});
   r.sort((a,c)=>val(c,v)-val(a,v));
@@ -1969,13 +1985,15 @@ function dmRank(){
       <div class="v">${val(x,v).toFixed(1)}</div></div>`;}).join('')||'<p class="empty">Aucun modèle pour ce filtre.</p>';
   $('#dnote').innerHTML=`<div class="note"><b>Comment lire.</b> Score sur 100, plus haut = mieux. `+
     (bande?`<b>=n</b> est la bande d'égalité publiée par l'index : les modèles à moins de 0,9 point du premier de leur bande partagent son rang ; aucun vainqueur unique ne se lit donc dans une même bande. `:'')+
-    (b.id==='aa-decision-index'?`Les LLM généralistes (en gris) sont interrogés avec un autre protocole (réponse JSON contrainte) : la comparaison reste indicative. `:'')+
+    (b.id==='aa-decision-index'?`Les LLM généralistes (en gris) ont été ajoutés par Artificial Analysis comme points de comparaison : un modèle de décision fait-il mieux qu'un grand LLM ? Ils sont interrogés avec un autre protocole (réponse JSON contrainte) : la comparaison reste indicative. `:'')+
+    (sansTaille?`${sansTaille} lignes sans taille publiée sont masquées par le filtre de taille. `:'')+
     (b.id==='jevbench'?`Seuls figurent les systèmes classés, sous les plafonds de coût et de latence fixés par le benchmark ; coût et vitesse sont des notes (plus haut = moins cher, plus rapide). `:'')+
     `Classement : <a href="${esc(b.classement)}" rel="noopener">source</a>${b.mis_a_jour?', mis à jour le '+esc(b.mis_a_jour):''}.</div>`;
   document.querySelectorAll('#dgl .bc').forEach(c=>c.classList.toggle('on',c.dataset.b===b.id));
 }
 dbsel.addEventListener('change',()=>{dmVues();dmRank();});
-['#dvue','#dlic','#dtop'].forEach(k=>$(k).addEventListener('change',dmRank));
+['#dvue','#dlic','#dtop','#dgen'].forEach(k=>$(k).addEventListener('change',dmRank));
+$('#dtai').addEventListener('input',dmRank);
 dmVues();dmRank();
 $('#dgl').innerHTML=DM.benchmarks.map(b=>`<details class="bc" data-b="${esc(b.id)}"><summary>
   <h3>${esc(b.nom)}</h3><p><span class="fam">${esc(b.categorie||'')}.</span> ${esc(b.court)}</p>
@@ -2018,9 +2036,6 @@ const ARCH={dense:'dense',moe:'MoE',hybride:'hybride'};
 const md=v=>v==null?'—':v.toLocaleString('fr-FR',{maximumFractionDigits:v<10?2:1})+' Md';
 const taille=e=>md(e.params_total_b)+(e.params_actifs_b?` · ${md(e.params_actifs_b)} actifs`:'');
 // Paliers du curseur de taille ; 36 couvre les « 35B » dont le compte exact dépasse 35.
-const TAI=[1,2,3,4,5,8,10,12,15,20,25,30,36];
-const taiMax=el=>{const i=Math.min(+el.value,TAI.length-1);el.nextElementSibling.value='≤ '+Math.min(TAI[i],35)+' Md';return TAI[i];};
-['#ptai','#mtai'].forEach(k=>{$(k).max=TAI.length-1;$(k).value=TAI.length-1;});
 const pbsel=$('#pbench');
 P.benchmarks.forEach(b=>pbsel.add(new Option(`${b.nom} — ${b.categorie}${b.provenance_type==='editeur'?' (chiffres éditeurs)':''}`,b.id)));
 // Une ligne par modèle : la mesure tierce quand elle existe (le chiffre de l'éditeur passe au survol),
