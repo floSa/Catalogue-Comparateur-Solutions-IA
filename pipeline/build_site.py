@@ -153,7 +153,8 @@ def build_payload() -> dict:
                 "benchmarks": slm.get("benchmarks", []), "rejected": slm.get("rejected", []),
                 "seuil": (slm.get("_meta") or {}).get("seuil"),
                 "lmarena_date": (slms.get("_generated") or {}).get("lmarena_published"),
-                "scores": [dict(x, prov="tiers") for x in slms.get("scores", [])]
+                "scores": [dict(x, prov="officiel" if x["benchmark"] in ("epoch-eci", "lmarena-text", "vectara-hhem")
+                                else "tiers") for x in slms.get("scores", [])]
                           + [dict(x, prov="editeur") for x in slm.get("editeur_scores", [])]},
         "edition": meta.get("audit", {}).get("label", ""),
         "generated": date.today().isoformat(),
@@ -513,6 +514,9 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
         <button data-k="time" aria-pressed="false">Progression</button>
       </div>
     </div>
+    <p class="olg">Toutes les mesures viennent d'Epoch AI ou d'un classement public qu'il reprend
+      (tbench.ai pour Terminal-Bench) : aucun chiffre publié par l'éditeur du modèle. La couleur identifie
+      le fournisseur ; le détail de provenance est au survol.</p>
     <div class="chart" id="chart"></div>
     <div id="caveat"></div>
     <details><summary>Voir les données sous forme de tableau</summary>
@@ -608,8 +612,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
           <option value="0">Tout</option></select></label>
       </div>
       <p class="olg"><span><i class="ob p-officiel"></i>mesuré par l'auteur du benchmark</span>
+        <span><i class="ob p-tiers"></i>mesuré par un tiers</span>
         <span><i class="ob p-editeur"></i>publié par l'éditeur du modèle</span>
-        <span><i class="ob p-tiers"></i>mesuré par un autre acteur</span>
         <span><b class="jp">⚖</b> auteur du benchmark classant son propre modèle</span></p>
       <div id="obars"></div>
       <div id="onote"></div>
@@ -671,6 +675,8 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
         <label class="f">LLM généralistes<select id="dgen">
           <option value="1">Affichés (référence)</option><option value="0">Masqués</option></select></label>
       </div>
+      <p class="olg"><span><i class="ob p-officiel"></i>mesuré par l'auteur du benchmark</span>
+        <span>en gris : LLM généraliste ajouté pour comparaison</span></p>
       <div id="dbars"></div>
       <div id="dnote"></div>
     </div>
@@ -721,8 +727,9 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
           <option value="10">10 premiers</option><option value="20" selected>20 premiers</option>
           <option value="0">Tout</option></select></label>
       </div>
-      <p class="olg"><span><i class="ob p-tiers"></i>mesuré par un tiers</span>
-        <span><i class="ob p-editeur"></i>publié par l'éditeur sur sa fiche Hugging Face</span></p>
+      <p class="olg"><span><i class="ob p-officiel"></i>mesuré par l'auteur du benchmark</span>
+        <span><i class="ob p-tiers"></i>mesuré par un tiers</span>
+        <span><i class="ob p-editeur"></i>publié par l'éditeur du modèle (fiche Hugging Face)</span></p>
       <div id="pbars"></div>
       <div id="pnote"></div>
     </div>
@@ -967,6 +974,8 @@ const mk=(t,a={})=>{const e=document.createElementNS(NS,t);
   for(const k in a)e.setAttribute(k,a[k]);return e;};
 
 // ── graphiques ─────────────────────────────────────────────────────────────
+const PROV_LLM={independent_run:'mesuré par Epoch AI (tiers)',
+ independent_leaderboard:'classement public repris par Epoch AI'};
 function rank(){
   const b=cur(),unit=b.name==='METR Time Horizons'?'minutes':'fraction';
   let r=best(rows()); const n=+$('#top').value; if(n)r=r.slice(0,n);
@@ -1005,7 +1014,7 @@ function rank(){
     wire(g,`<b>${esc(s.d||s.m)}</b>${esc(s.o)}<br>${pct(s.s,unit)}`+
       (s.e?` ± ${(1.96*s.e*100).toFixed(1)} pts (IC95)`:'')+
       (s.h?`<br>harnais : <b>${esc(s.h)}</b>`:'')+
-      `<i>provenance : ${esc(s.p)}${s.r?' · modèle publié le '+esc(s.r):''}`+
+      `<i>${esc(PROV_LLM[s.p]||s.p)}${s.r?' · modèle publié le '+esc(s.r):''}`+
       `${s.v?' · logs disponibles':''}</i>`);
     sv.append(g);});
   render(sv,r,unit);
@@ -1167,7 +1176,7 @@ function cover(){
           style:'font-variant-numeric:tabular-nums'});
         t.textContent=(s.s*100).toFixed(0);g.append(t);
         wire(g,`<b>${esc(row?.d||m)}</b>${esc(b)} — ${pct(s.s)}`+
-          (s.h?`<br>harnais : ${esc(s.h)}`:'')+`<i>provenance : ${esc(s.p)}</i>`);}
+          (s.h?`<br>harnais : ${esc(s.h)}`:'')+`<i>${esc(PROV_LLM[s.p]||s.p)}</i>`);}
       sv.append(g);});});
   render(sv,[],'fraction');
 }
@@ -1304,7 +1313,7 @@ function render(sv,r,unit){
     '<tbody>'+r.map(s=>`<tr><td>${esc(s.d||s.m)}</td><td>${esc(s.o)}</td>`+
       `<td>${esc(s.h||'—')}</td><td class="n">${pct(s.s,unit)}</td>`+
       `<td class="n">${s.e?'±'+(1.96*s.e*100).toFixed(1):'—'}</td>`+
-      `<td>${esc(s.p)}</td><td>${s.u?`<a href="${esc(s.u)}" rel="noopener">lien</a>`:'—'}</td></tr>`
+      `<td>${esc(PROV_LLM[s.p]||s.p)}</td><td>${s.u?`<a href="${esc(s.u)}" rel="noopener">lien</a>`:'—'}</td></tr>`
     ).join('')+'</tbody>':'';
 }
 
@@ -1899,7 +1908,7 @@ const LCL={libre:'libre',conditions:'sous conditions',non_commercial:'non commer
 const FAML={modele:'modèle',moteur:'moteur',chaine:'chaîne'};
 const lchip=c=>c?`<span class="lc lc-${c}" title="${esc(O.classes[c]||'')}">${LCL[c]}</span>`:'';
 const PROVL={officiel:"mesuré par l'auteur du benchmark",editeur:"publié par l'éditeur du modèle",
- tiers:'mesuré par un autre acteur'};
+ tiers:'mesuré par un tiers'};
 const obsel=$('#obench');
 O.benchmarks.forEach(b=>obsel.add(new Option(`${b.nom} — ${b.categorie}`,b.id)));
 // Taille lue seulement quand la fiche l'écrit en tête (« 0.9B », « 650M ») ; sinon inconnue.
@@ -2080,7 +2089,7 @@ P.benchmarks.forEach(b=>pbsel.add(new Option(`${b.nom} — ${b.categorie}${b.pro
 // Une ligne par modèle : la mesure tierce quand elle existe (le chiffre de l'éditeur passe au survol),
 // sinon le meilleur chiffre publié par l'éditeur ; plusieurs modes → le meilleur, mode nommé.
 const meilleur=L=>{const t={},ed={};
-  L.forEach(x=>{const m=x.prov==='tiers'?t:ed;if(!m[x.entry]||x.score>m[x.entry].score)m[x.entry]=x;});
+  L.forEach(x=>{const m=x.prov!=='editeur'?t:ed;if(!m[x.entry]||x.score>m[x.entry].score)m[x.entry]=x;});
   return Object.keys({...ed,...t}).map(k=>t[k]?{...t[k],ed:ed[k]}:ed[k]);};
 function slmRank(){
   const b=P.benchmarks.find(x=>x.id===pbsel.value), ar=$('#parch').value, lic=$('#plic').value, tmax=taiMax($('#ptai'));
@@ -2095,7 +2104,7 @@ function slmRank(){
   const pos=v=>Math.max(0,Math.min(100,(v-lo)/(hi-lo)*100));
   $('#pbars').innerHTML=r.map(x=>{const e=PE[x.entry];
     const sub=[esc(e.famille),taille(e),ARCH[e.architecture]||'',lchip(e.licence_classe)].filter(Boolean).join(' · ');
-    const det=[x.prov==='editeur'?'publié par l’éditeur — '+x.libelle+(x.fiche!=null?` (fiche : ${x.fiche})`:''):'mesuré par un tiers',
+    const det=[x.prov==='editeur'?'publié par l’éditeur — '+x.libelle+(x.fiche!=null?` (fiche : ${x.fiche})`:''):PROVL[x.prov],
       x.mode?'mode '+x.mode:'',x.effort?'effort '+x.effort:'',
       x.ed?`l’éditeur publie ${x.ed.score} (${x.ed.libelle}${x.ed.mode?', '+x.ed.mode:''})`:'',x.rank?'rang '+x.rank+' toutes catégories':'',
       x.ci?`IC 95 % : ${x.ci[0]} – ${x.ci[1]}`:''].filter(Boolean).join(' · ');
@@ -2111,7 +2120,7 @@ function slmRank(){
     (egal?'<b>Les deux premiers ne sont pas séparés statistiquement.</b> ':'')+
     (r.some(x=>x.effort||x.mode)?'Un modèle publié en plusieurs modes (raisonnement, effort) apparaît avec son meilleur score, mode indiqué au survol. ':'')+
     (edi?'<b>Les barres hachurées sont des chiffres publiés par l’éditeur du modèle</b>, chacun avec son propre protocole et parfois sa propre version du benchmark (libellé exact au survol) : écart de quelques points = pas de conclusion. ':'')+
-    (b.provenance_type==='tiers'?`Mesuré par un tiers : ${esc(b.provenance)} (<a href="${esc(b.classement)}" rel="noopener">classement</a>`+
+    (b.provenance_type==='tiers'?`Source : ${esc(b.provenance)} (<a href="${esc(b.classement)}" rel="noopener">classement</a>`+
     `${b.id==='lmarena-text'&&P.lmarena_date?', publié le '+esc(P.lmarena_date):''}). `:'')+
     `${mes} des ${P.entries.length} modèles du catalogue ont un score ici.</div>`;
   document.querySelectorAll('#pgl .bc').forEach(c=>c.classList.toggle('on',c.dataset.b===b.id));
@@ -2156,7 +2165,7 @@ function slmCover(){
       .map(e=>({id:e.id,html:`${lien(e.url,esc(e.nom))}<small>${md(e.params_total_b)}</small>`,nom:e.nom}))})),
     cols:P.benchmarks.map(b=>({...b,court:COURT[b.id]})),
     val:(l,b)=>{const x=cel[l.id+'|'+b.id];return x&&{score:x.score,ed:x.prov==='editeur',
-      titre:x.prov==='editeur'?`publié par l’éditeur (${x.libelle}${x.mode?', '+x.mode:''})`:'mesuré par un tiers'};}});
+      titre:x.prov==='editeur'?`publié par l’éditeur (${x.libelle}${x.mode?', '+x.mode:''})`:PROVL[x.prov]};}});
 }
 ['#cmin'].forEach(k=>$(k).addEventListener('change',slmCover));$('#ctai').addEventListener('input',slmCover);
 slmCover();
