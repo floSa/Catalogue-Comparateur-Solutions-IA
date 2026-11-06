@@ -732,6 +732,13 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     est foncée, meilleur est le score parmi les modèles mesurés sur ce benchmark ; une case hachurée est un
     chiffre publié par l'éditeur, une case pleine une mesure tierce ; une case en pointillés veut dire
     qu'aucun score n'est publié — le trou compte autant que le chiffre.</p>
+    <div class="ctrl">
+      <label class="f">Taille maximale<span class="rg"><input type="range" id="ctai" min="0" step="1"
+        aria-label="Taille maximale en milliards de paramètres"><output></output></span></label>
+      <label class="f">Modèles<select id="cmin">
+        <option value="2" selected>Au moins 2 scores</option><option value="1">Au moins 1 score</option>
+        <option value="0">Tous, même sans score</option></select></label>
+    </div>
     <div class="tw cvt"><table id="pcov"></table></div>
   </div>
   <div id="p-modele" hidden>
@@ -2112,30 +2119,47 @@ function slmRank(){
 pbsel.addEventListener('change',slmRank);['#parch','#plic','#ptop'].forEach(k=>$(k).addEventListener('change',slmRank));
 $('#ptai').addEventListener('input',slmRank);
 slmRank();
+// ── couverture, commune aux onglets ───────────────────────────────────────
+// Une ligne par modèle (groupée), une colonne par benchmark ; intensité normalisée
+// par colonne parce que les échelles diffèrent (%, points, Elo, taux d'erreur).
+// Groupes triés par nombre de cases remplies : ce qui est mesuré d'abord.
+function couverture(el,{groupes,cols,val}){
+  const ext={};
+  cols.forEach(c=>{const v=groupes.flatMap(g=>g.lignes.map(l=>val(l,c))).filter(Boolean).map(x=>x.score);
+    ext[c.id]=[Math.min(...v),Math.max(...v)];});
+  const plein=g=>g.lignes.reduce((a,l)=>a+cols.filter(c=>val(l,c)).length,0);
+  const G=groupes.filter(g=>g.lignes.length).sort((a,c)=>plein(c)-plein(a)||a.nom.localeCompare(c.nom,'fr'));
+  const cell=(l,c)=>{const x=val(l,c);
+    if(!x)return `<td><span class="c vide" title="${esc(l.nom)} — ${esc(c.nom)} : aucun score publié"></span></td>`;
+    const [lo,hi]=ext[c.id];let f=hi>lo?(x.score-lo)/(hi-lo):1;if(c.mieux==='bas')f=1-f;
+    const st=Math.min(5,Math.floor(f*6));
+    const t=`${l.nom} — ${c.nom} : ${x.score.toLocaleString('fr-FR')}${c.unite?' '+c.unite:''}${x.titre?' · '+x.titre:''}`;
+    return `<td><span class="c${st>=3?' hi':''}${x.ed?' ed':''}" style="background-color:var(--seq${st+1})" title="${esc(t)}">${
+      Math.round(x.score).toLocaleString('fr-FR')}</span></td>`;};
+  el.innerHTML='<thead><tr><th></th>'+cols.map(c=>`<th class="b" title="${esc(c.nom)}">${esc(c.court||c.nom)}</th>`).join('')+
+    '</tr></thead><tbody>'+(G.map(g=>`<tr class="fam"><td colspan="${cols.length+1}">${esc(g.nom)}</td></tr>`+
+      g.lignes.map(l=>`<tr><td class="m">${l.html}</td>${cols.map(c=>cell(l,c)).join('')}</tr>`).join('')).join('')||
+      `<tr><td colspan="${cols.length+1}"><p class="empty">Aucun modèle pour ce filtre.</p></td></tr>`)+'</tbody>';
+}
 // Couverture : intensité normalisée par benchmark (échelles différentes : %, points ECI, Elo, taux d'erreur).
 const COURT={'gpqa-diamond':'GPQA Diamond','mmlu-pro':'MMLU-Pro','livecodebench':'LiveCodeBench','ifbench':'IFBench',
  'ifeval':'IFEval','aime26':'AIME 2026','aime25':'AIME 2025','math-500':'MATH-500','epoch-eci':'Indice ECI',
  'otis-aime':'OTIS AIME','lmarena-text':'LMArena','vectara-hhem':'Hallucinations'};
-(function slmCover(){
-  const cel={},ext={};
-  P.benchmarks.forEach(b=>{const L=meilleur(P.scores.filter(x=>x.benchmark===b.id&&PE[x.entry]));
-    L.forEach(x=>cel[x.entry+'|'+b.id]=x);
-    const v=L.map(x=>x.score);ext[b.id]=[Math.min(...v),Math.max(...v)];});
-  const fam={};P.entries.forEach(e=>(fam[e.famille]=fam[e.famille]||[]).push(e));
-  const F=Object.entries(fam).sort((a,c)=>a[0].localeCompare(c[0],'fr'));
-  const cell=(e,b)=>{const x=cel[e.id+'|'+b.id];
-    if(!x)return `<td><span class="c vide" title="${esc(e.nom)} — ${esc(b.nom)} : aucun score publié"></span></td>`;
-    const [lo,hi]=ext[b.id];let f=hi>lo?(x.score-lo)/(hi-lo):1;if(b.mieux==='bas')f=1-f;
-    const st=Math.min(5,Math.floor(f*6));
-    const t=`${e.nom} — ${b.nom} : ${x.score.toLocaleString('fr-FR')} ${b.unite}`+
-      (x.prov==='editeur'?` · publié par l’éditeur (${x.libelle}${x.mode?', '+x.mode:''})`:' · mesuré par un tiers');
-    return `<td><span class="c${st>=3?' hi':''}${x.prov==='editeur'?' ed':''}" style="background-color:var(--seq${st+1})" title="${esc(t)}">${
-      Math.round(x.score).toLocaleString('fr-FR')}</span></td>`;};
-  $('#pcov').innerHTML='<thead><tr><th></th>'+P.benchmarks.map(b=>`<th class="b" title="${esc(b.nom)}">${esc(COURT[b.id]||b.nom)}</th>`).join('')+
-    '</tr></thead><tbody>'+F.map(([f,L])=>`<tr class="fam"><td colspan="${P.benchmarks.length+1}">${esc(f)}</td></tr>`+
-      L.sort((a,c)=>(c.params_total_b||0)-(a.params_total_b||0)).map(e=>`<tr><td class="m">${lien(e.url,esc(e.nom))}<small>${md(e.params_total_b)}</small></td>${
-        P.benchmarks.map(b=>cell(e,b)).join('')}</tr>`).join('')).join('')+'</tbody>';
-})();
+function slmCover(){
+  const tmax=taiMax($('#ctai')), min=+$('#cmin').value;
+  const cel={};
+  P.benchmarks.forEach(b=>meilleur(P.scores.filter(x=>x.benchmark===b.id&&PE[x.entry])).forEach(x=>cel[x.entry+'|'+b.id]=x));
+  const nb=e=>P.benchmarks.filter(b=>cel[e.id+'|'+b.id]).length;
+  const fam={};P.entries.filter(e=>(e.params_total_b??0)<=tmax&&nb(e)>=min).forEach(e=>(fam[e.famille]=fam[e.famille]||[]).push(e));
+  couverture($('#pcov'),{
+    groupes:Object.entries(fam).map(([f,L])=>({nom:f,lignes:L.sort((a,c)=>nb(c)-nb(a)||(c.params_total_b||0)-(a.params_total_b||0))
+      .map(e=>({id:e.id,html:`${lien(e.url,esc(e.nom))}<small>${md(e.params_total_b)}</small>`,nom:e.nom}))})),
+    cols:P.benchmarks.map(b=>({...b,court:COURT[b.id]})),
+    val:(l,b)=>{const x=cel[l.id+'|'+b.id];return x&&{score:x.score,ed:x.prov==='editeur',
+      titre:x.prov==='editeur'?`publié par l’éditeur (${x.libelle}${x.mode?', '+x.mode:''})`:'mesuré par un tiers'};}});
+}
+['#cmin'].forEach(k=>$(k).addEventListener('change',slmCover));$('#ctai').addEventListener('input',slmCover);
+slmCover();
 const mfam=$('#mfam');mfam.add(new Option('Toutes',''));
 [...new Set(P.entries.map(e=>e.famille))].sort((a,c)=>a.localeCompare(c,'fr')).forEach(f=>mfam.add(new Option(f,f)));
 const pcls=[...new Set(P.entries.map(e=>e.licence_classe))];
