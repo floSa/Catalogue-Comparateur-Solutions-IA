@@ -590,6 +590,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   comparaison.</p>
   <div class="seg" id="ocr-cat" role="group" aria-label="Sous-sections OCR">
     <button data-o="rank" aria-pressed="true">Classement</button>
+    <button data-o="cover" aria-pressed="false">Couverture</button>
     <button data-o="modele" aria-pressed="false">Modèles</button>
     <button data-o="moteur" aria-pressed="false">Moteurs classiques</button>
     <button data-o="chaine" aria-pressed="false">Chaînes de conversion</button>
@@ -627,6 +628,14 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
     <div class="bl bg" id="ogl"></div>
     <details><summary id="orj">Benchmarks écartés</summary><div class="bl" id="orlist"></div></details>
   </div>
+  <div id="o-cover" hidden>
+    <p class="lede">Une ligne par modèle, une colonne par benchmark. Plus la case est foncée, meilleur est
+    le score parmi les modèles mesurés sur ce benchmark ; une case hachurée est un chiffre publié par l'éditeur ;
+    une case en pointillés veut dire qu'aucun score n'est publié.</p>
+    <div class="ctrl"><label class="f">Outils<select id="ocmin">
+      <option value="1" selected>Au moins 1 score</option><option value="0">Tous, même sans score</option></select></label></div>
+    <div class="tw cvt"><table id="ocov"></table></div>
+  </div>
   <div id="o-modele" hidden>
     <div class="seg" id="ofl" role="group" aria-label="Filtre de licence"></div>
     <div class="tw ot"><table id="otm"></table></div>
@@ -656,6 +665,7 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
   par des auteurs indépendants de TypeSafe ; ils définissent donc la catégorie à l'image de Jev.</p>
   <div class="seg" id="dm-cat" role="group" aria-label="Sous-sections Décision">
     <button data-d="rank" aria-pressed="true">Classement</button>
+    <button data-d="cover" aria-pressed="false">Couverture</button>
     <button data-d="modele" aria-pressed="false">Modèles</button>
     <button data-d="bench" aria-pressed="false">Benchmarks</button>
   </div>
@@ -680,6 +690,14 @@ section[role="tabpanel"]{min-height:calc(100vh - 200px)}
       <div id="dbars"></div>
       <div id="dnote"></div>
     </div>
+  </div>
+  <div id="d-cover" hidden>
+    <p class="lede">Une ligne par modèle, une colonne par benchmark. Plus la case est foncée, meilleur est
+    le score parmi les modèles mesurés sur ce benchmark ; une case hachurée est un chiffre publié par l'éditeur ;
+    une case en pointillés veut dire qu'aucun score n'est publié.</p>
+    <p class="lede">Les modèles présentés (fiches), chacun avec la meilleure de ses tailles ; les domaines
+    sont les sous-scores du Jev Decision Index.</p>
+    <div class="tw cvt"><table id="dcov"></table></div>
   </div>
   <div id="d-modele" hidden>
     <div class="seg" id="dfl" role="group" aria-label="Filtre de licence"></div>
@@ -1991,7 +2009,21 @@ $('#oej').textContent=`Outils écartés (${O.ecartes.length}) — et pourquoi`;
 $('#oelist').innerHTML=O.ecartes.map(e=>`<div class="bc"><h3>${esc(e.nom)}</h3><p>${esc(e.motif)}</p></div>`).join('');
 $('#ocr-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   $('#ocr-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-  ['rank','modele','moteur','chaine','bench'].forEach(k=>{$('#o-'+k).hidden=(k!==b.dataset.o);});});
+  ['rank','cover','modele','moteur','chaine','bench'].forEach(k=>{$('#o-'+k).hidden=(k!==b.dataset.o);});});
+// Une case par outil et par vue de benchmark : le classement officiel d'abord, puis un tiers, puis l'éditeur.
+function ocrCover(){
+  const RG={officiel:0,tiers:1,editeur:2}, cel={};
+  O.scores.filter(x=>OE[x.entry]).forEach(x=>{const k=x.entry+'|'+x.benchmark,p=cel[k];
+    if(!p||RG[x.provenance]<RG[p.provenance]||(RG[x.provenance]===RG[p.provenance]&&x.score>p.score))cel[k]=x;});
+  const min=+$('#ocmin').value, nb=e=>O.benchmarks.filter(b=>cel[e.id+'|'+b.id]).length;
+  couverture($('#ocov'),{
+    groupes:['modele','moteur','chaine'].map(f=>({nom:FAML[f][0].toUpperCase()+FAML[f].slice(1)+'s',
+      lignes:O.entries.filter(e=>e.famille===f&&nb(e)>=min).sort((a,c)=>nb(c)-nb(a)||parNom(a,c))
+        .map(e=>({id:e.id,nom:e.nom,html:`${lien(e.url,esc(e.nom))}<small>${esc(e.parametres||'')}</small>`}))})),
+    cols:O.benchmarks.map(b=>({...b,unite:b.unite})),
+    val:(l,b)=>{const x=cel[l.id+'|'+b.id];return x&&{score:x.score,ed:x.provenance==='editeur',titre:PROVL[x.provenance]};}});
+}
+$('#ocmin').addEventListener('change',ocrCover);ocrCover();
 
 // ── modèles de décision ───────────────────────────────────────────────────
 const DM=D.dm, DE=Object.fromEntries(DM.entries.map(e=>[e.id,e]));
@@ -2076,7 +2108,25 @@ $('#dfl').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)
 dmModeles();
 $('#dm-cat').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   $('#dm-cat').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
-  ['rank','modele','bench'].forEach(k=>{$('#d-'+k).hidden=(k!==b.dataset.d);});});
+  ['rank','cover','modele','bench'].forEach(k=>{$('#d-'+k).hidden=(k!==b.dataset.d);});});
+(function dmCover(){
+  const J='jev-decision-index';
+  const cols=[{id:J+'|s',nom:'Jev Decision Index — score complet',court:'Jev Index'},
+    ...Object.entries(DM.domains).filter(([k])=>DM.scores.some(r=>r.d&&r.d[k]!=null))
+      .map(([k,l])=>({id:J+'|d.'+k,nom:'Jev Decision Index — '+l,court:l})),
+    {id:'jevbench|s',nom:'JevBench — capacité',court:'JevBench'},
+    {id:'aa-decision-index|s',nom:'Artificial Analysis Decision Index',court:'AA Index'}];
+  const cel={};
+  DM.scores.filter(x=>x.e&&!x.g).forEach(x=>cols.forEach(c=>{const [b,v]=c.id.split('|');
+    if(x.b!==b)return;const y=val(x,v);if(y==null)return;const k=x.e+'|'+c.id;
+    if(!cel[k]||y>cel[k].score)cel[k]={score:y,titre:x.n};}));
+  const nb=e=>cols.filter(c=>cel[e.id+'|'+c.id]).length, G={};
+  DM.entries.forEach(e=>(G[e.licence_classe]=G[e.licence_classe]||[]).push(e));
+  couverture($('#dcov'),{cols,
+    groupes:Object.entries(G).map(([c,L])=>({nom:'Licence : '+LCL[c],lignes:L.sort((a,c)=>nb(c)-nb(a)||parNom(a,c))
+      .map(e=>({id:e.id,nom:e.nom,html:`${lien(e.url,esc(e.nom))}<small>${esc(e.editeur.replace(/\s*\(.*$/,''))}</small>`}))})),
+    val:(l,c)=>cel[l.id+'|'+c.id]});
+})();
 
 // ── petits modèles (SLM) ──────────────────────────────────────────────────
 const P=D.slm, PE=Object.fromEntries(P.entries.map(e=>[e.id,e]));
