@@ -1022,7 +1022,8 @@ function rank(){
   r.forEach((s,i)=>{const y=34+i*BH,c=cv(LABC[s.l]||'--ink-3');
     const g=mk('g');
     const lb=mk('text',{x:L-9,y:y+13,'text-anchor':'end',class:'lbl'});
-    lb.textContent=((s.d||s.m)+(s.h?' · '+s.h:'')).slice(0,40);g.append(lb);
+    // Sans nom d'affichage, l'identifiant porte l'effort en suffixe (« _high ») : l'étiquette le montre déjà.
+    lb.textContent=((s.d&&s.d!==s.m?s.d:(s.mb||s.m))+(s.h?' · '+s.h:'')).slice(0,40);g.append(lb);
     if(s.ef){  // l'effort est une variable de décision, pas un détail de nommage
       const eb=mk('text',{x:L+4,y:y+14,class:'ax','font-size':'9.5'});
       eb.textContent=s.ef;eb.setAttribute('fill',cv('--panel'));
